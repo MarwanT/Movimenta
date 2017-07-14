@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00889EBCF3A12CCC59FFC103 /* Pods_Movimenta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE53B3C2491622CB98DD0A1 /* Pods_Movimenta.framework */; };
+		42E5FD85BC6166CD91898730 /* Pods_MovimentaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437FF84134F339332697655C /* Pods_MovimentaTests.framework */; };
 		596A75771F1908120094A886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75761F1908120094A886 /* AppDelegate.swift */; };
 		596A75791F1908120094A886 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75781F1908120094A886 /* ViewController.swift */; };
 		596A757C1F1908120094A886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596A757A1F1908120094A886 /* Main.storyboard */; };
@@ -26,6 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1925D6D916BDD2CE1EC88F6C /* Pods-Movimenta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movimenta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta.debug.xcconfig"; sourceTree = "<group>"; };
+		2FB2B9EBA0D23741EB753437 /* Pods-MovimentaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.release.xcconfig"; sourceTree = "<group>"; };
+		3BE53B3C2491622CB98DD0A1 /* Pods_Movimenta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movimenta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		437FF84134F339332697655C /* Pods_MovimentaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovimentaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A75731F1908120094A886 /* Movimenta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movimenta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A75761F1908120094A886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		596A75781F1908120094A886 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		596A75871F1908120094A886 /* MovimentaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovimentaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A758B1F1908120094A886 /* MovimentaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentaTests.swift; sourceTree = "<group>"; };
 		596A758D1F1908120094A886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movimenta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta.release.xcconfig"; sourceTree = "<group>"; };
+		D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00889EBCF3A12CCC59FFC103 /* Pods_Movimenta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +59,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E5FD85BC6166CD91898730 /* Pods_MovimentaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C8F18936B6C4D5F4DBFB6A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1925D6D916BDD2CE1EC88F6C /* Pods-Movimenta.debug.xcconfig */,
+				782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */,
+				D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */,
+				2FB2B9EBA0D23741EB753437 /* Pods-MovimentaTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4251A28363D0A9CA19A77492 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BE53B3C2491622CB98DD0A1 /* Pods_Movimenta.framework */,
+				437FF84134F339332697655C /* Pods_MovimentaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		596A756A1F1908120094A886 = {
 			isa = PBXGroup;
 			children = (
 				596A75751F1908120094A886 /* Movimenta */,
 				596A758A1F1908120094A886 /* MovimentaTests */,
 				596A75741F1908120094A886 /* Products */,
+				1C8F18936B6C4D5F4DBFB6A3 /* Pods */,
+				4251A28363D0A9CA19A77492 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 596A75901F1908120094A886 /* Build configuration list for PBXNativeTarget "Movimenta" */;
 			buildPhases = (
+				5D5C4FF53D16FF9A231F54DB /* [CP] Check Pods Manifest.lock */,
 				596A756F1F1908120094A886 /* Sources */,
 				596A75701F1908120094A886 /* Frameworks */,
 				596A75711F1908120094A886 /* Resources */,
+				E82F559043199880BC58B5B5 /* [CP] Embed Pods Frameworks */,
+				7F810132E7468AC5BAAA9198 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 596A75931F1908120094A886 /* Build configuration list for PBXNativeTarget "MovimentaTests" */;
 			buildPhases = (
+				B069DD85D6176BCA1C46C928 /* [CP] Check Pods Manifest.lock */,
 				596A75831F1908120094A886 /* Sources */,
 				596A75841F1908120094A886 /* Frameworks */,
 				596A75851F1908120094A886 /* Resources */,
+				46D416FA98AE5C4DA3FE7B00 /* [CP] Embed Pods Frameworks */,
+				32A12BC3A8797B132AF3EF2F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -195,6 +233,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32A12BC3A8797B132AF3EF2F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46D416FA98AE5C4DA3FE7B00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D5C4FF53D16FF9A231F54DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7F810132E7468AC5BAAA9198 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B069DD85D6176BCA1C46C928 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E82F559043199880BC58B5B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		596A756F1F1908120094A886 /* Sources */ = {
@@ -341,6 +472,7 @@
 		};
 		596A75911F1908120094A886 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1925D6D916BDD2CE1EC88F6C /* Pods-Movimenta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MBZL7KPZ9H;
@@ -354,6 +486,7 @@
 		};
 		596A75921F1908120094A886 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MBZL7KPZ9H;
@@ -367,6 +500,7 @@
 		};
 		596A75941F1908120094A886 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -382,6 +516,7 @@
 		};
 		596A75951F1908120094A886 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FB2B9EBA0D23741EB753437 /* Pods-MovimentaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
