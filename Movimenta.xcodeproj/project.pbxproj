@@ -16,6 +16,7 @@
 		59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */; };
 		59D52F841F1CD134008F3B13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F7C1F1CD134008F3B13 /* Main.storyboard */; };
 		59D52F871F1CD197008F3B13 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F861F1CD197008F3B13 /* Info.plist */; };
+		59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52F891F1CF319008F3B13 /* Strings.swift */; };
 		59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52F8B1F1CF47B008F3B13 /* Localization.swift */; };
 		59D52F9A1F1CFA42008F3B13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F9C1F1CFA42008F3B13 /* Localizable.strings */; };
 		59D52FA01F1CFE8D008F3B13 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 59D52FA21F1CFE8D008F3B13 /* Localizable.stringsdict */; };
@@ -46,6 +47,7 @@
 		59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59D52F7C1F1CD134008F3B13 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		59D52F861F1CD197008F3B13 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		59D52F891F1CF319008F3B13 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		59D52F8B1F1CF47B008F3B13 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		59D52F9B1F1CFA42008F3B13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		59D52F9D1F1CFA43008F3B13 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		59D52F881F1CF30D008F3B13 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				59D52F891F1CF319008F3B13 /* Strings.swift */,
 				59D52F8B1F1CF47B008F3B13 /* Localization.swift */,
 			);
 			path = Localization;
@@ -461,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */,
+				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
 				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
 				596A75771F1908120094A886 /* AppDelegate.swift in Sources */,
 			);
