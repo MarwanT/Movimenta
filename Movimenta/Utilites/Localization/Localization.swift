@@ -10,3 +10,10 @@ import Foundation
 
 final class Localization {
 }
+
+//MARK: - Application Locale
+extension Locale {
+  static var application: Locale {
+    return Locale.current
+  }
+}
