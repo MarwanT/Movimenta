@@ -6,6 +6,7 @@ target 'Movimenta' do
   use_frameworks!
 
   # Pods for Movimenta
+  pod 'SnapKit', '3.2.0'
 
   target 'MovimentaTests' do
     inherit! :search_paths
