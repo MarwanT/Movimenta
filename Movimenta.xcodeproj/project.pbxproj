@@ -344,6 +344,7 @@
 				596A75711F1908120094A886 /* Resources */,
 				E82F559043199880BC58B5B5 /* [CP] Embed Pods Frameworks */,
 				7F810132E7468AC5BAAA9198 /* [CP] Copy Pods Resources */,
+				598923261F1E6B3900F73974 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -487,6 +488,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		598923261F1E6B3900F73974 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 081c5e21d59aa6200fc7d8e23cced187b13e06e6 2c467c9075ea0dc7d53865b3e685faa2a7ad4875b1f4dd9f25c21ed6913f566b";
 		};
 		5D5C4FF53D16FF9A231F54DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
