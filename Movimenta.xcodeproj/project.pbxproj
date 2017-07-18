@@ -27,6 +27,7 @@
 		5989231D1F1E2ACB00F73974 /* nexa-regularitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230D1F1E2A7800F73974 /* nexa-regularitalic-webfont.ttf */; };
 		5989231E1F1E2ACD00F73974 /* nexa-thin-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230E1F1E2A7800F73974 /* nexa-thin-webfont.ttf */; };
 		5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */; };
+		598923231F1E40DF00F73974 /* FontBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923221F1E40DF00F73974 /* FontBook.swift */; };
 		598923251F1E4F7C00F73974 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923241F1E4F7C00F73974 /* Font.swift */; };
 		59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F711F1CD134008F3B13 /* Assets.xcassets */; };
 		59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52F751F1CD134008F3B13 /* ViewController.swift */; };
@@ -77,6 +78,7 @@
 		5989230D1F1E2A7800F73974 /* nexa-regularitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-regularitalic-webfont.ttf"; sourceTree = "<group>"; };
 		5989230E1F1E2A7800F73974 /* nexa-thin-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-thin-webfont.ttf"; sourceTree = "<group>"; };
 		5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-thinitalic-webfont.ttf"; sourceTree = "<group>"; };
+		598923221F1E40DF00F73974 /* FontBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontBook.swift; sourceTree = "<group>"; };
 		598923241F1E4F7C00F73974 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		59D52F711F1CD134008F3B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D52F751F1CD134008F3B13 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				598923241F1E4F7C00F73974 /* Font.swift */,
+				598923221F1E40DF00F73974 /* FontBook.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
 				598923251F1E4F7C00F73974 /* Font.swift in Sources */,
 				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
+				598923231F1E40DF00F73974 /* FontBook.swift in Sources */,
 				596A75771F1908120094A886 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
