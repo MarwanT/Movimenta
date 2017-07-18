@@ -2,6 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>nexa-black-webfont.ttf</string>
+		<string>nexa-blackitalic-webfont.ttf</string>
+		<string>nexa-bold-webfont.ttf</string>
+		<string>nexa-bolditalic-webfont.ttf</string>
+		<string>nexa-book-webfont.ttf</string>
+		<string>nexa-bookitalic-webfont.ttf</string>
+		<string>nexa-extrabold-webfont.ttf</string>
+		<string>nexa-extrabolditalic-webfont.ttf</string>
+		<string>nexa-heavy-webfont.ttf</string>
+		<string>nexa-heavyitalic-webfont.ttf</string>
+		<string>nexa-light-webfont.ttf</string>
+		<string>nexa-lightitalic-webfont.ttf</string>
+		<string>nexa-regular-webfont.ttf</string>
+		<string>nexa-regularitalic-webfont.ttf</string>
+		<string>nexa-thin-webfont.ttf</string>
+		<string>nexa-thinitalic-webfont.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
