@@ -29,6 +29,61 @@ enum FontBook: String {
 }
 
 extension FontBook {
+  var font: UIFont {
+    let contentSize = UIApplication.shared.preferredContentSizeCategory
+    let selectedSize = pointSize(forContentSize: contentSize)
+    return font(for: self, size: selectedSize)
+  }
+  
+  private func pointSize(forContentSize contentSize: UIContentSizeCategory) -> CGFloat {
+    return FontBook.fontSizeTable[self.rawValue]![contentSize]!
+  }
+  
+  private func font(for fontBook: FontBook, size: CGFloat) -> UIFont {
+    var selectedFont = Font.nexaRegular
+    
+    switch fontBook {
+    case .title1:
+      selectedFont = Font.nexaBlack
+    case .title2:
+      selectedFont = Font.nexaBlack
+    case .title3:
+      selectedFont = Font.nexaBold
+    case .title4:
+      selectedFont = Font.nexaBlack
+    case .title5:
+      selectedFont = Font.nexaBlack
+    case .body1:
+      selectedFont = Font.nexaRegular
+    case .header1:
+      selectedFont = Font.nexaBlack
+    case .listTitle:
+      selectedFont = Font.nexaBold
+    case .listBody:
+      selectedFont = Font.nexaRegular
+    case .action1:
+      selectedFont = Font.nexaBold
+    case .action2:
+      selectedFont = Font.nexaRegular
+    case .label1:
+      selectedFont = Font.nexaBlack
+    case .label2:
+      selectedFont = Font.nexaRegular
+    case .label3:
+      selectedFont = Font.nexaBlack
+    case .filter:
+      selectedFont = Font.nexaRegular
+    case .menu1:
+      selectedFont = Font.nexaBold
+    case .menu2:
+      selectedFont = Font.nexaRegular
+    }
+    
+    return UIFont(name: selectedFont.rawValue, size: size)!
+  }
+}
+
+extension FontBook {
   fileprivate static var fontSizeTable: [String: [UIContentSizeCategory:CGFloat]] = [
     FontBook.title1.rawValue : [
       UIContentSizeCategory.accessibilityExtraExtraExtraLarge: 36,
