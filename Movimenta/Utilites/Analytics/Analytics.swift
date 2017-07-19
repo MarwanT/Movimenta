@@ -39,12 +39,12 @@ internal final class Analytics {
     GAI.sharedInstance().optOut = !self.enabled
   }
   
+  /// Send events through different Analytics chanels
   func send(event: Event) {
-    // Send events through different Analytics chanels
+    sendGoogle(event: event)
     
     // Handle Analytics chanels with no built in OptOut option.
     if self.enabled {
-      // Send events through different Analytics chanels
     }
   }
   
@@ -90,6 +90,25 @@ extension Analytics {
     GAI.sharedInstance().defaultTracker.set(kGAIScreenName, value: screenName.name)
     let gADictionary: NSMutableDictionary = GAIDictionaryBuilder.createScreenView().build()
     
+    GAI.sharedInstance().defaultTracker.send(gADictionary as [NSObject : AnyObject])
+  }
+  
+  fileprivate func sendGoogle(event: Event) {
+    guard GAI.sharedInstance().defaultTracker != nil else {
+      return
+    }
+    
+    let gACategory: String = event.category.name
+    let gAAction: String = event.action.name
+    var gALabel: String = event.name
+    let gAInfo = event.info
+    let gADictionaryBuilder: GAIDictionaryBuilder = GAIDictionaryBuilder.createEvent(withCategory: gACategory, action: gAAction, label: gALabel, value: NSNumber(value: event.value))
+    
+    if gAInfo.keys.count > 0 {
+      gALabel += " ''' filters: " + gAInfo.description
+    }
+    
+    let gADictionary: NSMutableDictionary = gADictionaryBuilder.build()
     GAI.sharedInstance().defaultTracker.send(gADictionary as [NSObject : AnyObject])
   }
 }
