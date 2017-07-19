@@ -44,4 +44,8 @@ internal final class Analytics {
   func send(screenName: ScreenName) {
     // Send screen name through different Analytics chanels
   }
+  
+  func set(field: Field, value: String) {
+    // Set fields in different Analytics chanels
+  }
 }
