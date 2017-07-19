@@ -10,7 +10,12 @@ import Foundation
 import Keys
 
 internal struct AppKeys {
+  let googleAnalyticsIdentifier: String
+  
+  static let shared = AppKeys()
+  
   private init(keys: MovimentaKeys) {
+    self.googleAnalyticsIdentifier = keys.movimentaGoogleAnalyticsIdentifier
   }
   
   private init() {
