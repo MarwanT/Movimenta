@@ -31,4 +31,13 @@ internal final class Analytics {
   fileprivate func sendUsageDataValueChanged(_ notification: NSNotification) {
     // Call analytics engine to change tracking flag if available
   }
+  
+  func send(event: Event) {
+    // Send events through different Analytics chanels
+    
+    // Handle Analytics chanels with no built in OptOut option.
+    if self.enabled {
+      // Send events through different Analytics chanels
+    }
+  }
 }
