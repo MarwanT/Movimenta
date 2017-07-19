@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import Firebase
 import Foundation
 
 internal final class Analytics {
@@ -26,6 +27,7 @@ internal final class Analytics {
   /// Do general Analytics chanels initialization
   func initialize() {
     initializeGoogleAnalytics()
+    initializeFirebase()
     // TODO: Set the application version field
   }
   
@@ -110,5 +112,21 @@ extension Analytics {
     
     let gADictionary: NSMutableDictionary = gADictionaryBuilder.build()
     GAI.sharedInstance().defaultTracker.send(gADictionary as [NSObject : AnyObject])
+  }
+}
+
+//MARK: - Firebase
+extension Analytics {
+  func initializeFirebase() {
+    var firebaseOptions = FirebaseOptions(
+      googleAppID: "1:399492442493:ios:e982452d9e6635e4",
+      gcmSenderID: "399492442493")
+    firebaseOptions.apiKey = "AIzaSyBd0M8t4arRunYbPYIYbdK3xoTLHibJbf8"
+    firebaseOptions.bundleID = "com.keeward.Movimenta"
+    firebaseOptions.clientID = "399492442493-flp0hkg86l184p2c4tth8glno4gi7h6o.apps.googleusercontent.com"
+    firebaseOptions.databaseURL = "https://movimenta-1ca91.firebaseio.com"
+    firebaseOptions.projectID = "movimenta-1ca91"
+    firebaseOptions.storageBucket = "movimenta-1ca91.appspot.com"
+    FirebaseApp.configure(options: firebaseOptions)
   }
 }
