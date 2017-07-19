@@ -9,6 +9,7 @@ target 'Movimenta' do
   plugin 'cocoapods-keys', {
     :project => "Movimenta",
     :keys => [
+    "MovimentaEnvironment",
     "MovimentaGoogleAnalyticsIdentifier"
     ]
   }
