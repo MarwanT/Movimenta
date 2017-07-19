@@ -48,8 +48,9 @@ internal final class Analytics {
     }
   }
   
+  /// Send screen name through different Analytics chanels
   func send(screenName: ScreenName) {
-    // Send screen name through different Analytics chanels
+    sendGoogle(screenName: screenName)
   }
   
   func set(field: Field, value: String) {
@@ -79,5 +80,16 @@ extension Analytics {
     default:
       GAI.sharedInstance().logger.logLevel = GAILogLevel.none
     }
+  }
+  
+  fileprivate func sendGoogle(screenName: ScreenName) {
+    guard GAI.sharedInstance().defaultTracker != nil else {
+      return
+    }
+    
+    GAI.sharedInstance().defaultTracker.set(kGAIScreenName, value: screenName.name)
+    let gADictionary: NSMutableDictionary = GAIDictionaryBuilder.createScreenView().build()
+    
+    GAI.sharedInstance().defaultTracker.send(gADictionary as [NSObject : AnyObject])
   }
 }
