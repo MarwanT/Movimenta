@@ -16,6 +16,9 @@ struct Environment {
   
   static let current = Environment()
   
+  let type: EnvironmentType
+  
   private init() {
+    type = EnvironmentType(rawValue: AppKeys.shared.environmentString) ?? .staging
   }
 }
