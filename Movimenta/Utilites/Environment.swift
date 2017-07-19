@@ -9,4 +9,8 @@
 import Foundation
 
 struct Environment {
+  enum EnvironmentType: String {
+    case staging = "staging"
+    case production = "production"
+  }
 }
