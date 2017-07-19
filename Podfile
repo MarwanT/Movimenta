@@ -4,6 +4,14 @@
 target 'Movimenta' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+  
+  # Keys
+  plugin 'cocoapods-keys', {
+    :project => "Movimenta",
+    :keys => [
+    "MovimentaGoogleAnalyticsIdentifier"
+    ]
+  }
 
   # Pods for Movimenta
   pod 'Crashlytics', '3.8.5'
