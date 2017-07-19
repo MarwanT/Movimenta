@@ -31,6 +31,7 @@
 		598923251F1E4F7C00F73974 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923241F1E4F7C00F73974 /* Font.swift */; };
 		598923291F1F536E00F73974 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923281F1F536E00F73974 /* Analytics.swift */; };
 		5989232B1F1F54C400F73974 /* Analytics+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232A1F1F54C400F73974 /* Analytics+Category.swift */; };
+		5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232C1F1F565000F73974 /* Analytics+Action.swift */; };
 		59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F711F1CD134008F3B13 /* Assets.xcassets */; };
 		59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52F751F1CD134008F3B13 /* ViewController.swift */; };
 		59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */; };
@@ -84,6 +85,7 @@
 		598923241F1E4F7C00F73974 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		598923281F1F536E00F73974 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		5989232A1F1F54C400F73974 /* Analytics+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Category.swift"; sourceTree = "<group>"; };
+		5989232C1F1F565000F73974 /* Analytics+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Action.swift"; sourceTree = "<group>"; };
 		59D52F711F1CD134008F3B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D52F751F1CD134008F3B13 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				598923281F1F536E00F73974 /* Analytics.swift */,
 				5989232A1F1F54C400F73974 /* Analytics+Category.swift */,
+				5989232C1F1F565000F73974 /* Analytics+Action.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
 				59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */,
 				59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */,
+				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
 				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
 				598923251F1E4F7C00F73974 /* Font.swift in Sources */,
 				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
