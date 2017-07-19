@@ -10,7 +10,7 @@ import Foundation
 
 public class GeneralSettings {
   public struct Keys {
-    // Add user defaults keys
+    public static let SendUsageData = "SendUsageData"
   }
   
   private let defaults = UserDefaults.standard
@@ -18,7 +18,17 @@ public class GeneralSettings {
   public static let sharedInstance: GeneralSettings = GeneralSettings()
   
   private init() {
-    let defaultValues: [String : Any] = [:]
+    let defaultValues: [String : Any] = [
+      Keys.SendUsageData : true
+    ]
     defaults.register(defaults: defaultValues)
+    
+    shouldSendUsageData = defaults.bool(forKey: Keys.SendUsageData)
+  }
+  
+  public var shouldSendUsageData: Bool {
+    didSet {
+      defaults.set(self.shouldSendUsageData, forKey: Keys.SendUsageData)
+    }
   }
 }
