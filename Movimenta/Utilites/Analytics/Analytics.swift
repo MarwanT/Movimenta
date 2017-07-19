@@ -23,8 +23,10 @@ internal final class Analytics {
       object: nil)
   }
   
+  /// Do general Analytics chanels initialization
   func initialize() {
-    // Do general Analytics chanels initialization
+    initializeGoogleAnalytics()
+    // TODO: Set the application version field
   }
   
   deinit{
@@ -51,5 +53,30 @@ internal final class Analytics {
   
   func set(field: Field, value: String) {
     // Set fields in different Analytics chanels
+  }
+}
+
+// MARK: - Google Analytics
+extension Analytics {
+  private var trackingIdentifier: String {
+    return Environment.current.googleAnalyticsIdentifier
+  }
+  
+  private var dispatchInterval: TimeInterval {
+    return 20
+  }
+  
+  fileprivate func initializeGoogleAnalytics() {
+    GAI.sharedInstance().tracker(withTrackingId: self.trackingIdentifier)
+    GAI.sharedInstance().trackUncaughtExceptions = true
+    GAI.sharedInstance().dispatchInterval = self.dispatchInterval
+    GAI.sharedInstance().optOut = !self.enabled
+    
+    switch Environment.current.type {
+    case .staging:
+      GAI.sharedInstance().logger.logLevel = GAILogLevel.verbose
+    default:
+      GAI.sharedInstance().logger.logLevel = GAILogLevel.none
+    }
   }
 }
