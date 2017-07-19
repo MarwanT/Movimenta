@@ -16,6 +16,19 @@ internal final class Analytics {
   static let shared: Analytics = Analytics()
   
   private init() {
-    
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(self.sendUsageDataValueChanged(_:)) ,
+      name: GeneralSettings.Notifications.sendUsageDataValueChanged,
+      object: nil)
+  }
+  
+  deinit{
+    NotificationCenter.default.removeObserver(self)
+  }
+  
+  @objc
+  fileprivate func sendUsageDataValueChanged(_ notification: NSNotification) {
+    // Call analytics engine to change tracking flag if available
   }
 }
