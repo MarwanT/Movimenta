@@ -13,4 +13,9 @@ struct Environment {
     case staging = "staging"
     case production = "production"
   }
+  
+  static let current = Environment()
+  
+  private init() {
+  }
 }
