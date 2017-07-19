@@ -9,8 +9,16 @@
 import Foundation
 
 public class GeneralSettings {
-  public static let sharedInstance: GeneralSettings = GeneralSettings()
-  private init() {
+  public struct Keys {
+    // Add user defaults keys
+  }
   
+  private let defaults = UserDefaults.standard
+  
+  public static let sharedInstance: GeneralSettings = GeneralSettings()
+  
+  private init() {
+    let defaultValues: [String : Any] = [:]
+    defaults.register(defaults: defaultValues)
   }
 }
