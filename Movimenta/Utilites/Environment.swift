@@ -17,8 +17,10 @@ struct Environment {
   static let current = Environment()
   
   let type: EnvironmentType
+  let googleAnalyticsIdentifier: String
   
   private init() {
     type = EnvironmentType(rawValue: AppKeys.shared.environmentString) ?? .staging
+    googleAnalyticsIdentifier = AppKeys.shared.googleAnalyticsIdentifier
   }
 }
