@@ -13,4 +13,9 @@ internal final class Analytics {
     return GeneralSettings.sharedInstance.shouldSendUsageData
   }
   
+  static let shared: Analytics = Analytics()
+  
+  private init() {
+    
+  }
 }
