@@ -9,5 +9,8 @@
 #ifndef Movimenta_Bridging_Header_h
 #define Movimenta_Bridging_Header_h
 
+#import <GAI.h>
+#import <GAIDictionaryBuilder.h>
+#import <GAIFields.h>
 
 #endif /* Movimenta_Bridging_Header_h */
