@@ -40,4 +40,8 @@ internal final class Analytics {
       // Send events through different Analytics chanels
     }
   }
+  
+  func send(screenName: ScreenName) {
+    // Send screen name through different Analytics chanels
+  }
 }
