@@ -34,6 +34,7 @@
 		5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232C1F1F565000F73974 /* Analytics+Action.swift */; };
 		5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232E1F1F592F00F73974 /* Analytics+ScreenName.swift */; };
 		598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923301F1F5A5C00F73974 /* Analytics+Event.swift */; };
+		598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923321F1F5EFE00F73974 /* GeneralSettings.swift */; };
 		59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F711F1CD134008F3B13 /* Assets.xcassets */; };
 		59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52F751F1CD134008F3B13 /* ViewController.swift */; };
 		59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */; };
@@ -90,6 +91,7 @@
 		5989232C1F1F565000F73974 /* Analytics+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Action.swift"; sourceTree = "<group>"; };
 		5989232E1F1F592F00F73974 /* Analytics+ScreenName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+ScreenName.swift"; sourceTree = "<group>"; };
 		598923301F1F5A5C00F73974 /* Analytics+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Event.swift"; sourceTree = "<group>"; };
+		598923321F1F5EFE00F73974 /* GeneralSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		59D52F711F1CD134008F3B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D52F751F1CD134008F3B13 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				59D52F7D1F1CD134008F3B13 /* SupportingFiles */,
 				59D52F7F1F1CD134008F3B13 /* Themes */,
 				59D52F801F1CD134008F3B13 /* Utilites */,
+				598923321F1F5EFE00F73974 /* GeneralSettings.swift */,
 			);
 			path = Movimenta;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */,
 				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
 				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
+				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
 				598923251F1E4F7C00F73974 /* Font.swift in Sources */,
 				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
 				598923231F1E40DF00F73974 /* FontBook.swift in Sources */,
