@@ -36,6 +36,7 @@ internal final class Analytics {
   @objc
   fileprivate func sendUsageDataValueChanged(_ notification: NSNotification) {
     // Call analytics engine to change tracking flag if available
+    GAI.sharedInstance().optOut = !self.enabled
   }
   
   func send(event: Event) {
