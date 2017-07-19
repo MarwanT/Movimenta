@@ -9,5 +9,8 @@
 import Foundation
 
 internal final class Analytics {
+  var enabled: Bool {
+    return GeneralSettings.sharedInstance.shouldSendUsageData
+  }
   
 }
