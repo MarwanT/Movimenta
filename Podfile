@@ -17,6 +17,7 @@ target 'Movimenta' do
   # Pods for Movimenta
   pod 'Crashlytics', '3.8.5'
   pod 'Fabric', '1.6.12'
+  pod 'Firebase/Core'
   pod 'GoogleAnalytics', '3.17.0'
   pod 'SnapKit', '3.2.0'
   pod 'SwiftyJSON', '3.1.4'
