@@ -3,6 +3,7 @@ PODS:
     - Fabric (~> 1.6.3)
   - Fabric (1.6.12)
   - GoogleAnalytics (3.17.0)
+  - Keys (1.0.0)
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
 
@@ -10,16 +11,22 @@ DEPENDENCIES:
   - Crashlytics (= 3.8.5)
   - Fabric (= 1.6.12)
   - GoogleAnalytics (= 3.17.0)
+  - Keys (from `Pods/CocoaPodsKeys`)
   - SnapKit (= 3.2.0)
   - SwiftyJSON (= 3.1.4)
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
   Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
   Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: abb102c3992f4994d90923a1c5e9c725a0d565da
+PODFILE CHECKSUM: b6dfb60cf5e280c2457cba7e8577923ab5523d19
 
 COCOAPODS: 1.2.0
