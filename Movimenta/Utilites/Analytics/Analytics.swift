@@ -23,6 +23,10 @@ internal final class Analytics {
       object: nil)
   }
   
+  func initialize() {
+    // Do general Analytics chanels initialization
+  }
+  
   deinit{
     NotificationCenter.default.removeObserver(self)
   }
