@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Configure Facebook SDK
     SDKSettings.appId = Environment.current.facebook.id
     SDKSettings.displayName = Environment.current.facebook.displayName
+    SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     
     return true
   }
@@ -54,6 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
 
-
+  func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    let handled = SDKApplicationDelegate.shared.application(app, open: url, options: options)
+    return handled
+  }
 }
 
