@@ -8,6 +8,7 @@
 
 import UIKit
 import Fabric
+import FacebookCore
 import Crashlytics
 
 @UIApplicationMain
@@ -21,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Analytics.shared.initialize()
     
     Fabric.with([Crashlytics.self, Answers.self])
+    
+    // Configure Facebook SDK
+    SDKSettings.appId = Environment.current.facebook.id
+    SDKSettings.displayName = Environment.current.facebook.displayName
     
     return true
   }
