@@ -29,6 +29,15 @@
 		5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */; };
 		598923231F1E40DF00F73974 /* FontBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923221F1E40DF00F73974 /* FontBook.swift */; };
 		598923251F1E4F7C00F73974 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923241F1E4F7C00F73974 /* Font.swift */; };
+		598923291F1F536E00F73974 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923281F1F536E00F73974 /* Analytics.swift */; };
+		5989232B1F1F54C400F73974 /* Analytics+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232A1F1F54C400F73974 /* Analytics+Category.swift */; };
+		5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232C1F1F565000F73974 /* Analytics+Action.swift */; };
+		5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232E1F1F592F00F73974 /* Analytics+ScreenName.swift */; };
+		598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923301F1F5A5C00F73974 /* Analytics+Event.swift */; };
+		598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923321F1F5EFE00F73974 /* GeneralSettings.swift */; };
+		598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923341F1F6C0200F73974 /* Analytics+Field.swift */; };
+		598923371F1F753900F73974 /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923361F1F753900F73974 /* AppKeys.swift */; };
+		598923391F1F799400F73974 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923381F1F799400F73974 /* Environment.swift */; };
 		59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F711F1CD134008F3B13 /* Assets.xcassets */; };
 		59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52F751F1CD134008F3B13 /* ViewController.swift */; };
 		59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */; };
@@ -62,6 +71,7 @@
 		596A75871F1908120094A886 /* MovimentaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovimentaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A758B1F1908120094A886 /* MovimentaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentaTests.swift; sourceTree = "<group>"; };
 		596A758D1F1908120094A886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5970AF791F1F8E50008CA708 /* Movimenta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movimenta-Bridging-Header.h"; sourceTree = "<group>"; };
 		598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-black-webfont.ttf"; sourceTree = "<group>"; };
 		598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-blackitalic-webfont.ttf"; sourceTree = "<group>"; };
 		598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-bold-webfont.ttf"; sourceTree = "<group>"; };
@@ -80,6 +90,15 @@
 		5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-thinitalic-webfont.ttf"; sourceTree = "<group>"; };
 		598923221F1E40DF00F73974 /* FontBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontBook.swift; sourceTree = "<group>"; };
 		598923241F1E4F7C00F73974 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		598923281F1F536E00F73974 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		5989232A1F1F54C400F73974 /* Analytics+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Category.swift"; sourceTree = "<group>"; };
+		5989232C1F1F565000F73974 /* Analytics+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Action.swift"; sourceTree = "<group>"; };
+		5989232E1F1F592F00F73974 /* Analytics+ScreenName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+ScreenName.swift"; sourceTree = "<group>"; };
+		598923301F1F5A5C00F73974 /* Analytics+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Event.swift"; sourceTree = "<group>"; };
+		598923321F1F5EFE00F73974 /* GeneralSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
+		598923341F1F6C0200F73974 /* Analytics+Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Field.swift"; sourceTree = "<group>"; };
+		598923361F1F753900F73974 /* AppKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
+		598923381F1F799400F73974 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		59D52F711F1CD134008F3B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D52F751F1CD134008F3B13 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,6 +189,7 @@
 				59D52F7D1F1CD134008F3B13 /* SupportingFiles */,
 				59D52F7F1F1CD134008F3B13 /* Themes */,
 				59D52F801F1CD134008F3B13 /* Utilites */,
+				598923321F1F5EFE00F73974 /* GeneralSettings.swift */,
 			);
 			path = Movimenta;
 			sourceTree = "<group>";
@@ -212,6 +232,19 @@
 				5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */,
 			);
 			path = Nexa;
+			sourceTree = "<group>";
+		};
+		598923271F1F534A00F73974 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				598923281F1F536E00F73974 /* Analytics.swift */,
+				598923301F1F5A5C00F73974 /* Analytics+Event.swift */,
+				5989232A1F1F54C400F73974 /* Analytics+Category.swift */,
+				5989232C1F1F565000F73974 /* Analytics+Action.swift */,
+				5989232E1F1F592F00F73974 /* Analytics+ScreenName.swift */,
+				598923341F1F6C0200F73974 /* Analytics+Field.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		59D52F701F1CD134008F3B13 /* Assets */ = {
@@ -291,6 +324,7 @@
 			children = (
 				59D52F8D1F1CF690008F3B13 /* Localization */,
 				59D52F861F1CD197008F3B13 /* Info.plist */,
+				5970AF791F1F8E50008CA708 /* Movimenta-Bridging-Header.h */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -307,8 +341,11 @@
 		59D52F801F1CD134008F3B13 /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				598923271F1F534A00F73974 /* Analytics */,
 				59D52F881F1CF30D008F3B13 /* Localization */,
 				59D52FA81F1D0752008F3B13 /* ViewController+Utilities.swift */,
+				598923381F1F799400F73974 /* Environment.swift */,
+				598923361F1F753900F73974 /* AppKeys.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -572,11 +609,20 @@
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
 				59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */,
 				59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */,
+				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
 				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
+				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
+				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
 				598923251F1E4F7C00F73974 /* Font.swift in Sources */,
 				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
 				598923231F1E40DF00F73974 /* FontBook.swift in Sources */,
 				596A75771F1908120094A886 /* AppDelegate.swift in Sources */,
+				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
+				598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */,
+				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
+				5989232B1F1F54C400F73974 /* Analytics+Category.swift in Sources */,
+				598923291F1F536E00F73974 /* Analytics.swift in Sources */,
+				598923391F1F799400F73974 /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +773,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.Movimenta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movimenta/SupportingFiles/Movimenta-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -741,6 +788,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.Movimenta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movimenta/SupportingFiles/Movimenta-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -756,6 +804,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.MovimentaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movimenta/SupportingFiles/Movimenta-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movimenta.app/Movimenta";
 			};
@@ -772,6 +821,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.MovimentaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movimenta/SupportingFiles/Movimenta-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movimenta.app/Movimenta";
 			};
