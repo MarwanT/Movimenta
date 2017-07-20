@@ -11,12 +11,16 @@ import Keys
 
 internal struct AppKeys {
   let environmentString: String
+  let facebookAppDisplayName: String
+  let facebookAppId: String
   let googleAnalyticsIdentifier: String
   
   static let shared = AppKeys()
   
   private init(keys: MovimentaKeys) {
     self.environmentString = keys.movimentaEnvironment
+    self.facebookAppDisplayName = keys.movimentaFacebookAppDisplayName
+    self.facebookAppId = keys.movimentaFacebookAppId
     self.googleAnalyticsIdentifier = keys.movimentaGoogleAnalyticsIdentifier
   }
   

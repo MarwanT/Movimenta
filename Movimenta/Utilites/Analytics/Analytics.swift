@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import FacebookCore
 import Firebase
 import Foundation
 
@@ -47,6 +48,7 @@ internal final class Analytics {
     
     // Handle Analytics chanels with no built in OptOut option.
     if self.enabled {
+      sendFacebook(event: event)
     }
   }
   
@@ -128,5 +130,31 @@ extension Analytics {
     firebaseOptions.projectID = "movimenta-1ca91"
     firebaseOptions.storageBucket = "movimenta-1ca91.appspot.com"
     FirebaseApp.configure(options: firebaseOptions)
+  }
+}
+
+// MARK: - Facebook Analytics
+extension Analytics {
+  fileprivate func sendFacebook(event: Event) {
+    let fACategory: String = event.category.name
+    let fAAction: String = event.action.name
+    let fALabel: String = event.name
+    let fAInfo = event.info
+    
+    let eventName = fACategory + (fAAction.characters.count > 0 ? "-" + fAAction : "")
+    
+    var dictionary: AppEvent.ParametersDictionary = [:]
+    if fALabel.characters.count > 0 {
+      dictionary[AppEventParameterName.custom("Label")] = fALabel
+    }
+    
+    if fAInfo.keys.count > 0 {
+      for (key, value) in fAInfo {
+        dictionary[AppEventParameterName.custom(key)] = value
+      }
+    }
+    
+    let fAEvent = AppEvent(name: eventName, parameters: dictionary, valueToSum: nil)
+    AppEventsLogger.log(fAEvent)
   }
 }

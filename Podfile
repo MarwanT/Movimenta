@@ -10,6 +10,8 @@ target 'Movimenta' do
     :project => "Movimenta",
     :keys => [
     "MovimentaEnvironment",
+    "MovimentaFacebookAppDisplayName",
+    "MovimentaFacebookAppId",
     "MovimentaGoogleAnalyticsIdentifier"
     ]
   }
@@ -17,7 +19,13 @@ target 'Movimenta' do
   # Pods for Movimenta
   pod 'Crashlytics', '3.8.5'
   pod 'Fabric', '1.6.12'
-  pod 'Firebase/Core'
+  pod 'FacebookCore', '0.2.0'
+  pod 'FacebookLogin', '0.2.0'
+  pod 'FacebookShare', '0.2.0'
+  pod 'FBSDKCoreKit', '~> 4.22.1'
+  pod 'FBSDKLoginKit', '~> 4.22.1'
+  pod 'FBSDKShareKit', '~> 4.22.1'
+  pod 'Firebase/Core', '4.0.4'
   pod 'GoogleAnalytics', '3.17.0'
   pod 'SnapKit', '3.2.0'
   pod 'SwiftyJSON', '3.1.4'
