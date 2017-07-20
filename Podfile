@@ -10,6 +10,7 @@ target 'Movimenta' do
     :project => "Movimenta",
     :keys => [
     "MovimentaEnvironment",
+    "MovimentaFacebookAppDisplayName",
     "MovimentaFacebookAppId",
     "MovimentaGoogleAnalyticsIdentifier"
     ]
