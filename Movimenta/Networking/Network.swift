@@ -153,3 +153,30 @@ public func absoluteString(for target: TargetType) -> String {
   }
   return  target.baseURL.appendingPathComponent(target.path).absoluteString
 }
+
+public func apiRequest(target: MovimentaAPI, completion: @escaping APICompletion) -> Cancellable {
+  showActivityIndicator()
+  return APIProvider.sharedProvider.request(target, completion: { (result) in
+    hideActivityIndicator()
+    switch result {
+    case .success(let response):
+      completion(response.data, response.statusCode, response.response, nil)
+    case .failure(let error):
+      completion(nil, nil, nil, APIError(moyaError: error))
+    }
+  })
+}
+
+// MARK: - Activity Indicator
+func showActivityIndicator() {
+  DispatchQueue.main.async {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+  }
+}
+
+func hideActivityIndicator() {
+  DispatchQueue.main.async {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+  }
+}
+
