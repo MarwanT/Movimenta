@@ -14,6 +14,7 @@ internal struct AppKeys {
   let facebookAppDisplayName: String
   let facebookAppId: String
   let googleAnalyticsIdentifier: String
+  let apiBaseURL: String
   
   static let shared = AppKeys()
   
@@ -22,6 +23,7 @@ internal struct AppKeys {
     self.facebookAppDisplayName = keys.movimentaFacebookAppDisplayName
     self.facebookAppId = keys.movimentaFacebookAppId
     self.googleAnalyticsIdentifier = keys.movimentaGoogleAnalyticsIdentifier
+    self.apiBaseURL = keys.movimentaAPIBaseURL
   }
   
   private init() {

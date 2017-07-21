@@ -53,6 +53,11 @@
 	<string>{facebook-app-id}</string>
 	<key>FacebookDisplayName</key>
 	<string>Movimenta</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

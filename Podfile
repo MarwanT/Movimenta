@@ -9,6 +9,7 @@ target 'Movimenta' do
   plugin 'cocoapods-keys', {
     :project => "Movimenta",
     :keys => [
+    "MovimentaAPIBaseURL",
     "MovimentaEnvironment",
     "MovimentaFacebookAppDisplayName",
     "MovimentaFacebookAppId",
@@ -27,6 +28,7 @@ target 'Movimenta' do
   pod 'FBSDKShareKit', '~> 4.22.1'
   pod 'Firebase/Core', '4.0.4'
   pod 'GoogleAnalytics', '3.17.0'
+  pod 'Moya', '8.0.5'
   pod 'SnapKit', '3.2.0'
   pod 'SwiftyJSON', '3.1.4'
   
