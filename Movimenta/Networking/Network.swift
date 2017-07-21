@@ -35,3 +35,5 @@ public enum APIError: Swift.Error {
     }
   }
 }
+
+public typealias APICompletion = (_ data: Data?,_ statusCode: Int?,_ response: URLResponse?,_ error: APIError?) -> ()
