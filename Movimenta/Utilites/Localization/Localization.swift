@@ -9,6 +9,17 @@
 import Foundation
 
 final class Localization {
+  enum Language: String {
+    case English = "en"
+    case French = "fr"
+    
+    static let defaultLanguage = Language.French
+    
+    static func all() -> [Language] {
+      return [.English, .French]
+    }
+  }
+  
   class func localize(key: String, defaultValue: String = "", comment: String = "", formatVariables: CVarArg...) -> String {
     if formatVariables.count > 0 {
       let localized: String = NSLocalizedString(key, value: defaultValue, comment: comment)
