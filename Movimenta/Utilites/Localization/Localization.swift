@@ -31,6 +31,15 @@ final class Localization {
   }
 }
 
+//MARK: Application language
+extension Localization {
+  //Sets the Application Language
+  static func set(language: Language?) {
+    let newLanguage = language ?? Language.defaultLanguage
+    Bundle.setLanguage(newLanguage.rawValue)
+  }
+}
+
 //MARK: - Application Locale
 extension Locale {
   /*
