@@ -33,7 +33,20 @@ final class Localization {
 
 //MARK: - Application Locale
 extension Locale {
+  /*
+   Returns the current device locale if supported, otherwise falls back
+   To the default language locale.
+   */
   static var application: Locale {
-    return Locale.current
+    return Locale(identifier: applicationLanguage.rawValue)
+  }
+  
+  static var applicationLanguage: Localization.Language {
+    let supportedLanguagesIds = Localization.Language.all().map({ $0.rawValue })
+    guard let languageIndex = supportedLanguagesIds.index(of: Locale.current.identifier),
+      let language = Localization.Language(rawValue: supportedLanguagesIds[languageIndex]) else {
+      return Localization.Language.defaultLanguage
+    }
+    return language
   }
 }
