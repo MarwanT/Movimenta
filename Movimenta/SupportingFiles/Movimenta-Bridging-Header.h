@@ -13,4 +13,6 @@
 #import <GAIDictionaryBuilder.h>
 #import <GAIFields.h>
 
+#include "NSBundle+Language.h"
+
 #endif /* Movimenta_Bridging_Header_h */
