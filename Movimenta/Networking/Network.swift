@@ -58,4 +58,80 @@ public typealias APICompletion = (_ data: Data?,_ statusCode: Int?,_ response: U
 
 
 public struct APIProvider {
+  
+  //-----------------------------------------
+  /// mapping from **Target** to **Endpoint**
+  private static func endpointClosure(target: MovimentaAPI) -> Endpoint<MovimentaAPI> {
+    // Create Endpoint
+    var endpoint: Endpoint<MovimentaAPI> = Endpoint<MovimentaAPI>(
+      url: absoluteString(for: target),
+      sampleResponseClosure:{ () -> EndpointSampleResponse in
+        return .networkResponse(200, target.sampleData)
+    },
+      method: target.method,
+      parameters: target.parameters,
+      parameterEncoding: target.parameterEncoding,
+      httpHeaderFields: nil)
+    
+    // return Endpoint
+    return endpoint
+  }
+  
+  //---------------------------------------------
+  /// mapping from **Endpoint** to **URLRequest**
+  private static func requestClosure(endpoint: Endpoint<MovimentaAPI>, done: MoyaProvider<MovimentaAPI>.RequestResultClosure) {
+    var request = endpoint.urlRequest!
+    request.httpShouldHandleCookies = false
+    done(.success(request))
+  }
+  
+  private struct SharedProvider {
+    static var instance = SharedProvider.shouldStubResponses ? APIProvider.StubbedProvider() : APIProvider.DefaultProvider()
+    
+    private static var shouldStubResponses: Bool {
+      let env = ProcessInfo.processInfo.environment
+      if let mode = env["STUB_RESPONSES"]?.lowercased() {
+        return (mode == "yes")||(mode == "true")
+      }
+      return false
+    }
+  }
+  
+  private static func DefaultProvider() -> MoyaProvider<MovimentaAPI> {
+    return MoyaProvider<MovimentaAPI>(
+      endpointClosure: endpointClosure,
+      requestClosure: requestClosure,
+      stubClosure:{ (target: MovimentaAPI) -> Moya.StubBehavior in
+        return .never
+    }
+    )
+  }
+  
+  private static func StubbedProvider() -> MoyaProvider<MovimentaAPI> {
+    return MoyaProvider<MovimentaAPI>(
+      endpointClosure: endpointClosure,
+      requestClosure:requestClosure,
+      stubClosure: { (target: MovimentaAPI) -> StubBehavior in
+        return StubBehavior.delayed(seconds: 3)
+    }
+    )
+  }
+  
+  
+  public static var sharedProvider: MoyaProvider<MovimentaAPI> {
+    get {
+      return SharedProvider.instance
+    }
+    
+    set (newSharedProvider) {
+      SharedProvider.instance = newSharedProvider
+    }
+  }
+}
+
+public func absoluteString(for target: TargetType) -> String {
+  guard !target.path.isEmpty else {
+    return target.baseURL.absoluteString
+  }
+  return  target.baseURL.appendingPathComponent(target.path).absoluteString
 }
