@@ -73,6 +73,14 @@ public struct APIProvider {
       parameterEncoding: target.parameterEncoding,
       httpHeaderFields: nil)
     
+    var headerParameters = [String : String]();
+    headerParameters["User-Agent"] = userAgentValue
+    
+    // Add header fields to Endpoint
+    if headerParameters.count > 0 {
+      endpoint = endpoint.adding(newHTTPHeaderFields: headerParameters)
+    }
+    
     // return Endpoint
     return endpoint
   }
@@ -126,6 +134,16 @@ public struct APIProvider {
     set (newSharedProvider) {
       SharedProvider.instance = newSharedProvider
     }
+  }
+}
+
+extension APIProvider {
+  static var userAgentValue: String {
+    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as! String
+    let currentDevice = UIDevice.current
+    let deviceType = currentDevice.deviceType
+    return "Movimenta/\(version)+\(buildNumber) (iOS/\(currentDevice.systemVersion); \(deviceType.displayName);)"
   }
 }
 
