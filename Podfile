@@ -9,6 +9,7 @@ target 'Movimenta' do
   plugin 'cocoapods-keys', {
     :project => "Movimenta",
     :keys => [
+    "MovimentaAPIBaseURL",
     "MovimentaEnvironment",
     "MovimentaFacebookAppDisplayName",
     "MovimentaFacebookAppId",
