@@ -17,6 +17,7 @@
 		5970AF841F222AA4008CA708 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF831F222AA4008CA708 /* Device.swift */; };
 		5970AF881F224CA7008CA708 /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = 5970AF871F224CA7008CA708 /* events.json */; };
 		5970AF8A1F224F56008CA708 /* ModelCommonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF891F224F56008CA708 /* ModelCommonProperties.swift */; };
+		5970AF981F24E6D0008CA708 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF971F24E6D0008CA708 /* Participant.swift */; };
 		5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF991F260CF0008CA708 /* DateRange.swift */; };
 		598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */; };
 		598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */; };
@@ -86,6 +87,7 @@
 		5970AF831F222AA4008CA708 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		5970AF871F224CA7008CA708 /* events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = events.json; sourceTree = "<group>"; };
 		5970AF891F224F56008CA708 /* ModelCommonProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCommonProperties.swift; sourceTree = "<group>"; };
+		5970AF971F24E6D0008CA708 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		5970AF991F260CF0008CA708 /* DateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
 		598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-black-webfont.ttf"; sourceTree = "<group>"; };
 		598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-blackitalic-webfont.ttf"; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			children = (
 				5970AF891F224F56008CA708 /* ModelCommonProperties.swift */,
 				5970AF991F260CF0008CA708 /* DateRange.swift */,
+				5970AF971F24E6D0008CA708 /* Participant.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 			files = (
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
 				59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */,
+				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
 				5970AF7F1F20F8F0008CA708 /* MovimentaAPI.swift in Sources */,
 				59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */,
 				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
