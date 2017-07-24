@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct MovimentaEvent: ModelCommonProperties {
   var id: String?
@@ -22,4 +23,29 @@ struct MovimentaEvent: ModelCommonProperties {
   var artists: [Participant]?
   var companies: [Participant]?
   var sponsors: [Participant]?
+}
+
+extension MovimentaEvent: Parsable {
+  static func object(from json: JSON) -> MovimentaEvent? {
+    let id = json["id"].stringValue
+    let title = json["title"].string
+    let link = json["link"].url
+    let parentCategory = json["parent_category"].string
+    let categories = Event.Category.objects(from: json["categories"])
+    let types = Event.EventType.objects(from: json["types"])
+    let events = Event.objects(from: json["events"])
+    let venues = Venue.objects(from: json["venues"])
+    let organizers = Participant.objects(
+      from: json["organizers"], type: Participant.ParticipantType.Organizer)
+    let speakers = Participant.objects(
+      from: json["speakers"], type: Participant.ParticipantType.Speaker)
+    let artists = Participant.objects(
+      from: json["artists"], type: Participant.ParticipantType.Artist)
+    let companies = Participant.objects(
+      from: json["companies"], type: Participant.ParticipantType.Company)
+    let sponsors = Participant.objects(
+      from: json["sponsors"], type: Participant.ParticipantType.Sponsor)
+    
+    return MovimentaEvent(id: id, title: title, link: link, parentCategory: parentCategory, categories: categories, types: types, events: events, venues: venues, organizers: organizers, speakers: speakers, artists: artists, companies: companies, sponsors: sponsors)
+  }
 }
