@@ -19,3 +19,11 @@ extension Event {
     var subCategories: [Category]?
   }
 }
+
+//MARK: - Declare Event Type
+extension Event {
+  struct EventType {
+    var id: String?
+    var label: String?
+  }
+}
