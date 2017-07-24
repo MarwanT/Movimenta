@@ -8,6 +8,7 @@
 
 import CoreLocation
 import Foundation
+import SwiftyJSON
 
 struct Event: ModelCommonProperties {
   var id: String?
@@ -31,6 +32,32 @@ struct Event: ModelCommonProperties {
   var dates: [DateRange]?
 }
 
+extension Event: Parsable {
+  static func object(from json: JSON) -> Event? {
+    let id = json["id"].stringValue
+    let link = json["link"].url
+    let content = json["content"].string
+    let title = json["title"].string
+    let excerpt = json["excerpt"].string
+    let subtitle = json["subtitle"].string
+    let languageCode = json["language_code"].string
+    let typesIds = json["types"].arrayObject as? [String]
+    let categoriesIds = json["categories"].arrayObject as? [String]
+    let image = json["image"].url
+    let venueId = json["venueId"].stringValue
+    let coordinates = CLLocationCoordinate2D.object(from: json["coordinates"])
+    let address = json["coordinates"]["address"].string
+    let organizersIds = json["organizers"].arrayObject?.map({ "\($0)" })
+    let speakersIds = json["speakers"].arrayObject?.map({ "\($0)" })
+    let artistsIds = json["artists"].arrayObject?.map({ "\($0)" })
+    let companiesIds = json["companies"].arrayObject?.map({ "\($0)" })
+    let sponsorsIds = json["sponsors"].arrayObject?.map({ "\($0)" })
+    let dates = DateRange.objects(from: json["dates"])
+    
+    return Event(id: id, link: link, content: content, title: title, excerpt: excerpt, subtitle: subtitle, languageCode: languageCode, typesIds: typesIds, categoriesIds: categoriesIds, image: image, venueId: venueId, coordinates: coordinates, address: address, organizersIds: organizersIds, speakersIds: speakersIds, artistsIds: artistsIds, companiesIds: companiesIds, sponsorsIds: sponsorsIds, dates: dates)
+  }
+}
+
 //MARK: - Declare Event Category
 extension Event {
   struct Category {
@@ -40,10 +67,27 @@ extension Event {
   }
 }
 
+extension Event.Category: Parsable {
+  static func object(from json: JSON) -> Event.Category? {
+    let id = json["id"].stringValue
+    let label = json["label"].stringValue
+    let subCategories = objects(from: json["children"])
+    return Event.Category(id: id, label: label, subCategories: subCategories)
+  }
+}
+
 //MARK: - Declare Event Type
 extension Event {
   struct EventType {
     var id: String?
     var label: String?
+  }
+}
+
+extension Event.EventType: Parsable {
+  static func object(from json: JSON) -> Event.EventType? {
+    let id = json["id"].stringValue
+    let label = json["label"].stringValue
+    return Event.EventType(id: id, label: label)
   }
 }

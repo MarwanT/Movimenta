@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Participant: ModelCommonProperties {
   var id: String?
@@ -42,4 +43,51 @@ extension Participant {
     case Sponsor = "sponsors"
     case Default = "default"
   } 
+}
+
+extension Participant: Parsable {
+  static func objects(from json: JSON, type: ParticipantType = .Default) -> [Participant]? {
+    guard let jsonArray = json.array else {
+      return nil
+    }
+    
+    var parsedObjects = [Participant]()
+    for jsonObject in jsonArray {
+      var objectWithType = jsonObject
+      objectWithType["type"].string = type.rawValue
+      
+      guard let generatedObject = object(from: objectWithType) else {
+        continue
+      }
+      parsedObjects.append(generatedObject)
+    }
+    return parsedObjects
+  }
+  
+  static func object(from json: JSON) -> Participant? {
+    let id = json["id"].stringValue
+    let type = ParticipantType(rawValue: json["type"].stringValue) ?? .Default
+    let link = json["link"].url
+    let content = json["content"].string
+    let title = json["title"].string
+    let excerpt = json["excerpt"].string
+    let name = json["name"].string
+    let firstName = json["first_name"].string
+    let lastName = json["last_name"].string
+    let profession = json["profession"].string
+    let image = json["image"].url
+    let website = json["website"].url
+    let phone = json["phone"].string
+    let email = json["email"].string
+    let facebook = json["facebook"].url
+    let twitter = json["twitter"].url
+    let linkedin = json["linkedin"].url
+    let googleplus = json["googleplus"].url
+    let youtube = json["youtube"].url
+    let tumblr = json["tumblr"].url
+    let vimeo = json["vimeo"].url
+    let instagram = json["instagram"].url
+    
+    return Participant(id: id, type: type, link: link, content: content, title: title, excerpt: excerpt, name: name, firstName: firstName, lastName: lastName, profession: profession, image: image, website: website, phone: phone, email: email, facebook: facebook, twitter: twitter, linkedin: linkedin, googleplus: googleplus, youtube: youtube, tumblr: tumblr, vimeo: vimeo, instagram: instagram)
+  }
 }
