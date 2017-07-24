@@ -22,6 +22,7 @@
 		5970AF961F24E5A2008CA708 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF951F24E5A2008CA708 /* Venue.swift */; };
 		5970AF981F24E6D0008CA708 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF971F24E6D0008CA708 /* Participant.swift */; };
 		5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF991F260CF0008CA708 /* DateRange.swift */; };
+		5970AF9D1F261110008CA708 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF9C1F261110008CA708 /* Date+Utils.swift */; };
 		598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */; };
 		598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */; };
 		598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */; };
@@ -95,6 +96,7 @@
 		5970AF951F24E5A2008CA708 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		5970AF971F24E6D0008CA708 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		5970AF991F260CF0008CA708 /* DateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
+		5970AF9C1F261110008CA708 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-black-webfont.ttf"; sourceTree = "<group>"; };
 		598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-blackitalic-webfont.ttf"; sourceTree = "<group>"; };
 		598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-bold-webfont.ttf"; sourceTree = "<group>"; };
@@ -241,6 +243,14 @@
 				5970AF871F224CA7008CA708 /* events.json */,
 			);
 			path = StubedResponses;
+			sourceTree = "<group>";
+		};
+		5970AF9B1F2610ED008CA708 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5970AF9C1F261110008CA708 /* Date+Utils.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5989229D1F1E0C9800F73974 /* Fonts */ = {
@@ -391,6 +401,7 @@
 			children = (
 				598923271F1F534A00F73974 /* Analytics */,
 				59D52F881F1CF30D008F3B13 /* Localization */,
+				5970AF9B1F2610ED008CA708 /* Extensions */,
 				59D52FA81F1D0752008F3B13 /* ViewController+Utilities.swift */,
 				598923381F1F799400F73974 /* Environment.swift */,
 				598923361F1F753900F73974 /* AppKeys.swift */,
@@ -681,6 +692,7 @@
 				5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */,
 				5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */,
 				5970AF961F24E5A2008CA708 /* Venue.swift in Sources */,
+				5970AF9D1F261110008CA708 /* Date+Utils.swift in Sources */,
 				5989232B1F1F54C400F73974 /* Analytics+Category.swift in Sources */,
 				5970AF8A1F224F56008CA708 /* ModelCommonProperties.swift in Sources */,
 				598923291F1F536E00F73974 /* Analytics.swift in Sources */,
