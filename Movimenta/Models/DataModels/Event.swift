@@ -56,3 +56,11 @@ extension Event {
     var label: String?
   }
 }
+
+extension Event.EventType: Parsable {
+  static func object(from json: JSON) -> Event.EventType? {
+    let id = json["id"].stringValue
+    let label = json["label"].stringValue
+    return Event.EventType(id: id, label: label)
+  }
+}
