@@ -40,6 +40,15 @@ extension Event {
   }
 }
 
+extension Event.Category: Parsable {
+  static func object(from json: JSON) -> Event.Category? {
+    let id = json["id"].stringValue
+    let label = json["label"].stringValue
+    let subCategories = objects(from: json["children"])
+    return Event.Category(id: id, label: label, subCategories: subCategories)
+  }
+}
+
 //MARK: - Declare Event Type
 extension Event {
   struct EventType {
