@@ -10,3 +10,14 @@ import Foundation
 
 struct Participant: ModelCommonProperties {
 }
+
+extension Participant {
+  enum ParticipantType: String {
+    case Organizer = "organizers"
+    case Speaker = "speakers"
+    case Artist = "artists"
+    case Company = "companies"
+    case Sponsor = "sponsors"
+    case Default = "default"
+  } 
+}
