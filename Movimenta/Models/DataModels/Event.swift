@@ -10,3 +10,12 @@ import Foundation
 
 struct Event {
 }
+
+//MARK: - Declare Event Category
+extension Event {
+  struct Category {
+    var id: String?
+    var label: String?
+    var subCategories: [Category]?
+  }
+}
