@@ -15,3 +15,8 @@ protocol ModelCommonProperties {
   var content: String? { get }
   var excerpt: String? { get }
 }
+
+extension MovimentaEvent {
+  var content: String? { return nil }
+  var excerpt: String? { return nil }
+}

@@ -8,5 +8,18 @@
 
 import Foundation
 
-struct MovimentaEvent {
+struct MovimentaEvent: ModelCommonProperties {
+  var id: String?
+  var title: String?
+  var link: URL?
+  var parentCategory: String?
+  var categories: [Event.Category]?
+  var types: [Event.EventType]?
+  var events: [Event]?
+  var venues: [Venue]?
+  var organizers: [Participant]?
+  var speakers: [Participant]?
+  var artists: [Participant]?
+  var companies: [Participant]?
+  var sponsors: [Participant]?
 }
