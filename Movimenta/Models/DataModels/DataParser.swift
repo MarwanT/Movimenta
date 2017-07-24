@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol Parsable {
   associatedtype T
@@ -28,5 +29,12 @@ extension Parsable {
       parsedObjects.append(generatedObject)
     }
     return parsedObjects
+  }
+}
+
+struct Parser {
+  static func parseMovimentaEvents(from data: Data) -> [MovimentaEvent]? {
+    let json = JSON(data: data)
+    return MovimentaEvent.objects(from: json)
   }
 }
