@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol Parsable {
+  associatedtype T
+  static func objects(from json: JSON) -> [T]?
+  static func object(from json: JSON) -> T?
+}
