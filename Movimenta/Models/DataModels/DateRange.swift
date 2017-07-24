@@ -9,4 +9,6 @@
 import Foundation
 
 struct DateRange {
+  var from: Date?
+  var to: Date?
 }
