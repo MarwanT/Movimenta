@@ -17,6 +17,7 @@
 		5970AF841F222AA4008CA708 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF831F222AA4008CA708 /* Device.swift */; };
 		5970AF881F224CA7008CA708 /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = 5970AF871F224CA7008CA708 /* events.json */; };
 		5970AF8A1F224F56008CA708 /* ModelCommonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF891F224F56008CA708 /* ModelCommonProperties.swift */; };
+		5970AF941F24E4A8008CA708 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF931F24E4A8008CA708 /* Event.swift */; };
 		5970AF961F24E5A2008CA708 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF951F24E5A2008CA708 /* Venue.swift */; };
 		5970AF981F24E6D0008CA708 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF971F24E6D0008CA708 /* Participant.swift */; };
 		5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF991F260CF0008CA708 /* DateRange.swift */; };
@@ -88,6 +89,7 @@
 		5970AF831F222AA4008CA708 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		5970AF871F224CA7008CA708 /* events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = events.json; sourceTree = "<group>"; };
 		5970AF891F224F56008CA708 /* ModelCommonProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCommonProperties.swift; sourceTree = "<group>"; };
+		5970AF931F24E4A8008CA708 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		5970AF951F24E5A2008CA708 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		5970AF971F24E6D0008CA708 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		5970AF991F260CF0008CA708 /* DateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				5970AF891F224F56008CA708 /* ModelCommonProperties.swift */,
+				5970AF931F24E4A8008CA708 /* Event.swift */,
 				5970AF991F260CF0008CA708 /* DateRange.swift */,
 				5970AF951F24E5A2008CA708 /* Venue.swift */,
 				5970AF971F24E6D0008CA708 /* Participant.swift */,
@@ -662,6 +665,7 @@
 				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
 				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
 				598923251F1E4F7C00F73974 /* Font.swift in Sources */,
+				5970AF941F24E4A8008CA708 /* Event.swift in Sources */,
 				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
 				598923231F1E40DF00F73974 /* FontBook.swift in Sources */,
 				596A75771F1908120094A886 /* AppDelegate.swift in Sources */,
