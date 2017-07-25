@@ -9,4 +9,5 @@
 import Foundation
 
 struct AppNotification {
+  static let didLoadData: Notification.Name = Notification.Name(rawValue: "AppNotification.Name.didLoadData")
 }
