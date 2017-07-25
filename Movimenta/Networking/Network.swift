@@ -16,6 +16,7 @@ public enum APIError: Swift.Error {
   case statusCode(MoyaError?)
   case underlying(MoyaError?)
   case requestMapping(MoyaError?)
+  case data
   case unidentified
   
   init(moyaError: MoyaError) {
