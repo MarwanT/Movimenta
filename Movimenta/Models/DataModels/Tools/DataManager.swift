@@ -12,6 +12,7 @@ class DataManager {
   var movimentaEvent: MovimentaEvent? = nil {
     didSet {
       // Send notification that data has been updated
+      NotificationCenter.default.post(name: AppNotification.didLoadData, object: nil)
     }
   }
   
