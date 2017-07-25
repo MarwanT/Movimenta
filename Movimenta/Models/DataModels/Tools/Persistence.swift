@@ -18,6 +18,10 @@ struct Persistence {
     eventsArchive = documentsDirectory.appendingPathComponent("movimenta-events")
   }
   
+  func read() -> Data? {
+    return try? Data(contentsOf: Persistence.shared.eventsArchive)
+  }
+  
   func save(data: Data) {
     try? data.write(to: eventsArchive)
   }
