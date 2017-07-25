@@ -27,6 +27,7 @@
 		5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFA11F274728008CA708 /* MovimentaEvent+API.swift */; };
 		5970AFA71F2758C3008CA708 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFA51F2758C3008CA708 /* DataParser.swift */; };
 		5970AFA91F275939008CA708 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFA81F275939008CA708 /* DataManager.swift */; };
+		5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFAA1F2788F9008CA708 /* Persistence.swift */; };
 		598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */; };
 		598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */; };
 		598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */; };
@@ -105,6 +106,7 @@
 		5970AFA11F274728008CA708 /* MovimentaEvent+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MovimentaEvent+API.swift"; sourceTree = "<group>"; };
 		5970AFA51F2758C3008CA708 /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		5970AFA81F275939008CA708 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		5970AFAA1F2788F9008CA708 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-black-webfont.ttf"; sourceTree = "<group>"; };
 		598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-blackitalic-webfont.ttf"; sourceTree = "<group>"; };
 		598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-bold-webfont.ttf"; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				5970AFA81F275939008CA708 /* DataManager.swift */,
+				5970AFAA1F2788F9008CA708 /* Persistence.swift */,
 				5970AFA51F2758C3008CA708 /* DataParser.swift */,
 			);
 			path = Tools;
@@ -697,6 +700,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
 				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
 				59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */,
