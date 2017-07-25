@@ -25,6 +25,7 @@
 		5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF991F260CF0008CA708 /* DateRange.swift */; };
 		5970AF9D1F261110008CA708 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF9C1F261110008CA708 /* Date+Utils.swift */; };
 		5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF9E1F262EFC008CA708 /* CLLocationCoordinate2D.swift */; };
+		5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFA11F274728008CA708 /* MovimentaEvent+API.swift */; };
 		598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */; };
 		598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */; };
 		598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */; };
@@ -101,6 +102,7 @@
 		5970AF991F260CF0008CA708 /* DateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
 		5970AF9C1F261110008CA708 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		5970AF9E1F262EFC008CA708 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		5970AFA11F274728008CA708 /* MovimentaEvent+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MovimentaEvent+API.swift"; sourceTree = "<group>"; };
 		598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-black-webfont.ttf"; sourceTree = "<group>"; };
 		598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-blackitalic-webfont.ttf"; sourceTree = "<group>"; };
 		598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-bold-webfont.ttf"; sourceTree = "<group>"; };
@@ -257,6 +259,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		5970AFA01F2746D0008CA708 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5970AFA11F274728008CA708 /* MovimentaEvent+API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		5989229D1F1E0C9800F73974 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +355,7 @@
 		59D52F771F1CD134008F3B13 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				5970AFA01F2746D0008CA708 /* API */,
 				5970AF891F224F56008CA708 /* ModelCommonProperties.swift */,
 				5970AF8D1F233C7C008CA708 /* DataParser.swift */,
 				5970AF8F1F24E174008CA708 /* MovimentaEvent.swift */,
@@ -684,6 +695,7 @@
 				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
 				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
 				5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */,
+				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
 				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
 				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
 				598923251F1E4F7C00F73974 /* Font.swift in Sources */,
