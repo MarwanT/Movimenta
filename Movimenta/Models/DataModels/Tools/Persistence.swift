@@ -9,7 +9,12 @@
 import Foundation
 
 struct Persistence {
+  let documentsDirectory: URL
+  let eventsArchive: URL
+  
   static let shared = Persistence()
   private init() {
+    documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    eventsArchive = documentsDirectory.appendingPathComponent("movimenta-events")
   }
 }
