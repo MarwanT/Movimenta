@@ -17,4 +17,8 @@ struct Persistence {
     documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     eventsArchive = documentsDirectory.appendingPathComponent("movimenta-events")
   }
+  
+  func save(data: Data) {
+    try? data.write(to: eventsArchive)
+  }
 }
