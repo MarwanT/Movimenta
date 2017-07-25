@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import SwiftyJSON
 
-struct DataManager {
+class DataManager {
   static let shared = DataManager()
   private init() {}
 }
