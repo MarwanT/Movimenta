@@ -10,15 +10,16 @@ import Foundation
 import Moya
 
 struct MovimentaEventAPI {
-  static func fetchMovimentaEventsDetails(completion: @escaping (_ success: Bool, _ movimentaEvents: [MovimentaEvent]?, _ error: APIError?) -> Void) -> Cancellable? {
+  static func fetchMovimentaEventsDetails(completion: @escaping (_ success: Bool, _ data: Data?, _ movimentaEvents: [MovimentaEvent]?, _ error: APIError?) -> Void) -> Cancellable? {
     let successfulStatusCode = 200
     return apiRequest(target: .events) {
       (data, statusCode, response, apiError) in
       var success: Bool = false
       var error: APIError? = apiError
+      var eventsData: Data? = data
       var movimentaEvents: [MovimentaEvent]? = nil
       defer {
-        completion(success, movimentaEvents, error)
+        completion(success, eventsData, movimentaEvents, error)
       }
       
       guard statusCode == successfulStatusCode else {
