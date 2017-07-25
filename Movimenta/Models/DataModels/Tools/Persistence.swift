@@ -16,6 +16,12 @@ struct Persistence {
   private init() {
     documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     eventsArchive = documentsDirectory.appendingPathComponent("movimenta-events")
+    
+    // At first run, preloaded data will be saved in the archive directory
+    if !FileManager.default.fileExists(atPath: eventsArchive.relativePath),
+      let defaultData = readDefaultData() {
+      save(data: defaultData)
+    }
   }
   
   func read() -> Data? {
@@ -24,5 +30,12 @@ struct Persistence {
   
   func save(data: Data) {
     try? data.write(to: eventsArchive)
+  }
+  
+  private func readDefaultData() -> Data? {
+    let filename: String = "events"
+    let bundle = Bundle.main
+    let path = "\(bundle.resourcePath!)/\(filename).json"
+    return (try? Data(contentsOf: URL(fileURLWithPath: path)))
   }
 }
