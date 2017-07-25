@@ -20,6 +20,7 @@ class DataManager {
   
   func reloadData() {
     loadLocalData()
+    loadDataFromServer()
   }
   
   private func loadLocalData() {
@@ -31,4 +32,14 @@ class DataManager {
     movimentaEvent = mainEvent
   }
   
+  private func loadDataFromServer() {
+    _ = MovimentaEventAPI.fetchMovimentaEventsDetails { (success, data, events, error) in
+      guard success, let data = data, let mainEvent = events?.first else {
+        return
+      }
+      
+      Persistence.shared.save(data: data)
+      self.movimentaEvent = mainEvent
+    }
+  }
 }
