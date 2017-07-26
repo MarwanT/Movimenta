@@ -65,4 +65,13 @@ extension DataManager {
     })
     return events
   }
+  
+  func bookmark(event: Event) -> Bool{
+    guard let eventId = event.id else {
+      return false
+    }
+    Persistence.shared.bookmark(eventWith: eventId)
+    bookmarkedEvents.append(event)
+    return true
+  }
 }
