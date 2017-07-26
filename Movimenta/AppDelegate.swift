@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     SDKSettings.displayName = Environment.current.facebook.displayName
     SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     
+    DataManager.shared.reloadData()
+    
     return true
   }
 

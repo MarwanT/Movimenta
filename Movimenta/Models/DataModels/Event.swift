@@ -30,8 +30,27 @@ struct Event: ModelCommonProperties {
   var companiesIds: [String]?
   var sponsorsIds: [String]?
   var dates: [DateRange]?
+  
+  var isBookmarked: Bool {
+    guard let id = id else {
+      return false
+    }
+    return DataManager.shared.bookmarked(eventId: id)
+  }
 }
 
+//MARK: APIs
+extension Event {
+  func bookmark() {
+    _ = DataManager.shared.bookmark(event: self)
+  }
+  
+  func unbookmark() {
+    _ = DataManager.shared.unBookmark(event: self)
+  }
+}
+
+//MARK: Parsing
 extension Event: Parsable {
   static func object(from json: JSON) -> Event? {
     let id = json["id"].stringValue

@@ -46,6 +46,24 @@ extension Participant {
 }
 
 extension Participant: Parsable {
+  static func objectsDictionary(fromArray json: [JSON]?, type: ParticipantType = .Default) -> [String : Participant]? {
+    guard let jsonArray = json else {
+      return nil
+    }
+    
+    var parsedObjects = [String: Participant]()
+    for jsonObject in jsonArray {
+      var objectWithType = jsonObject
+      objectWithType["type"].string = type.rawValue
+      
+      guard let generatedObject = objectElement(from: objectWithType) else {
+        continue
+      }
+      parsedObjects[generatedObject.key] = generatedObject.value
+    }
+    return parsedObjects
+  }
+  
   static func objects(from json: JSON, type: ParticipantType = .Default) -> [Participant]? {
     guard let jsonArray = json.array else {
       return nil

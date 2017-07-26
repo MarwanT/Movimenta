@@ -10,12 +10,13 @@ import Foundation
 import Moya
 
 public enum APIError: Swift.Error {
-  case imageMapping(MoyaError)
-  case jsonMapping(MoyaError)
-  case stringMapping(MoyaError)
-  case statusCode(MoyaError)
-  case underlying(MoyaError)
-  case requestMapping(MoyaError)
+  case imageMapping(MoyaError?)
+  case jsonMapping(MoyaError?)
+  case stringMapping(MoyaError?)
+  case statusCode(MoyaError?)
+  case underlying(MoyaError?)
+  case requestMapping(MoyaError?)
+  case data
   case unidentified
   
   init(moyaError: MoyaError) {
