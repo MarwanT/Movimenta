@@ -74,4 +74,13 @@ extension DataManager {
     bookmarkedEvents.append(event)
     return true
   }
+  
+  func unBookmark(event: Event) -> Bool {
+    guard let eventId = event.id, let index = bookmarkedEvents.index(where: { $0.id == eventId }) else {
+      return false
+    }
+    bookmarkedEvents.remove(at: index)
+    Persistence.shared.unBookmark(eventWith: eventId)
+    return true
+  }
 }
