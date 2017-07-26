@@ -39,6 +39,14 @@ struct Event: ModelCommonProperties {
   }
 }
 
+//MARK: APIs
+extension Event {
+  func bookmark() {
+    _ = DataManager.shared.bookmark(event: self)
+  }
+}
+
+//MARK: Parsing
 extension Event: Parsable {
   static func object(from json: JSON) -> Event? {
     let id = json["id"].stringValue
