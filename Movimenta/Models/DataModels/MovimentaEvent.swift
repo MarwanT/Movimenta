@@ -16,7 +16,7 @@ struct MovimentaEvent: ModelCommonProperties {
   var parentCategory: String?
   var categories: [Event.Category]?
   var types: [Event.EventType]?
-  var events: [Event]?
+  var events: [String: Event]?
   var venues: [Venue]?
   var organizers: [Participant]?
   var speakers: [Participant]?
@@ -33,7 +33,7 @@ extension MovimentaEvent: Parsable {
     let parentCategory = json["parent_category"].string
     let categories = Event.Category.objects(from: json["categories"])
     let types = Event.EventType.objects(from: json["types"])
-    let events = Event.objects(from: json["events"])
+    let events = Event.objectsDictionay(fromArray: json["events"].array)
     let venues = Venue.objects(from: json["venues"])
     let organizers = Participant.objects(
       from: json["organizers"], type: Participant.ParticipantType.Organizer)
