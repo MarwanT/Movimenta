@@ -83,4 +83,8 @@ extension DataManager {
     Persistence.shared.unBookmark(eventWith: eventId)
     return true
   }
+  
+  func bookmarked(eventId: String) -> Bool {
+    return bookmarkedEvents.contains(where: { $0.id == eventId })
+  }
 }
