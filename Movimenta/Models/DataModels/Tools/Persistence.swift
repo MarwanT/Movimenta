@@ -9,6 +9,10 @@
 import Foundation
 
 struct Persistence {
+  struct Keys {
+    static let bookmarkedEvents: String = "Persistence.Keys.bookmarkedEvents"
+  }
+  
   let documentsDirectory: URL
   let eventsArchive: URL
   
@@ -37,5 +41,14 @@ struct Persistence {
     let bundle = Bundle.main
     let path = "\(bundle.resourcePath!)/\(filename).json"
     return (try? Data(contentsOf: URL(fileURLWithPath: path)))
+  }
+}
+
+//MARK: - Bookmarked events
+extension Persistence {
+  func bookmark(eventWith id: String) {
+    var eventsIds = bookmarkedEventsIds()
+    eventsIds.append(id)
+    UserDefaults.standard.set(eventsIds, forKey: Keys.bookmarkedEvents)
   }
 }
