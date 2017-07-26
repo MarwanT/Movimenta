@@ -44,6 +44,10 @@ extension Event {
   func bookmark() {
     _ = DataManager.shared.bookmark(event: self)
   }
+  
+  func unbookmark() {
+    _ = DataManager.shared.unBookmark(event: self)
+  }
 }
 
 //MARK: Parsing
