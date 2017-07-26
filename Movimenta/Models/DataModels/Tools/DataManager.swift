@@ -15,9 +15,12 @@ class DataManager {
       NotificationCenter.default.post(name: AppNotification.didLoadData, object: nil)
     }
   }
+  fileprivate(set) var bookmarkedEvents = [Event]()
   
   static let shared = DataManager()
-  private init() {}
+  private init() {
+    bookmarkedEvents = bookmarkedEventsArray()
+  }
   
   func reloadData() {
     loadLocalData()
@@ -42,5 +45,24 @@ class DataManager {
       Persistence.shared.save(data: data)
       self.movimentaEvent = mainEvent
     }
+  }
+}
+
+//MARK: - Bookmark related
+extension DataManager {
+  fileprivate func bookmarkedEventsArray() -> [Event] {
+    var events = [Event]()
+    
+    guard let movimentaEvents = movimentaEvent?.events else {
+      return events
+    }
+    
+    let eventsIds = Persistence.shared.bookmarkedEventsIds()
+    eventsIds.forEach({
+      if let event = movimentaEvents[$0] {
+        events.append(event)
+      }
+    })
+    return events
   }
 }
