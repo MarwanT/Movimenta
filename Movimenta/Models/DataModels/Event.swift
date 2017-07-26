@@ -30,6 +30,13 @@ struct Event: ModelCommonProperties {
   var companiesIds: [String]?
   var sponsorsIds: [String]?
   var dates: [DateRange]?
+  
+  var isBookmarked: Bool {
+    guard let id = id else {
+      return false
+    }
+    return DataManager.shared.bookmarked(eventId: id)
+  }
 }
 
 extension Event: Parsable {
