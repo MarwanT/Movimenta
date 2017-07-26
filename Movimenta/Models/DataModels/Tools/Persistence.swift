@@ -46,6 +46,10 @@ struct Persistence {
 
 //MARK: - Bookmarked events
 extension Persistence {
+  func bookmarkedEventsIds() -> [String] {
+    return UserDefaults.standard.array(forKey: Keys.bookmarkedEvents) as? [String] ?? []
+  }
+  
   func bookmark(eventWith id: String) {
     var eventsIds = bookmarkedEventsIds()
     eventsIds.append(id)
