@@ -16,13 +16,13 @@ struct MovimentaEvent: ModelCommonProperties {
   var parentCategory: String?
   var categories: [Event.Category]?
   var types: [Event.EventType]?
-  var events: [Event]?
-  var venues: [Venue]?
-  var organizers: [Participant]?
-  var speakers: [Participant]?
-  var artists: [Participant]?
-  var companies: [Participant]?
-  var sponsors: [Participant]?
+  var events: [String: Event]?
+  var venues: [String: Venue]?
+  var organizers: [String: Participant]?
+  var speakers: [String: Participant]?
+  var artists: [String: Participant]?
+  var companies: [String: Participant]?
+  var sponsors: [String: Participant]?
 }
 
 extension MovimentaEvent: Parsable {
@@ -33,18 +33,13 @@ extension MovimentaEvent: Parsable {
     let parentCategory = json["parent_category"].string
     let categories = Event.Category.objects(from: json["categories"])
     let types = Event.EventType.objects(from: json["types"])
-    let events = Event.objects(from: json["events"])
-    let venues = Venue.objects(from: json["venues"])
-    let organizers = Participant.objects(
-      from: json["organizers"], type: Participant.ParticipantType.Organizer)
-    let speakers = Participant.objects(
-      from: json["speakers"], type: Participant.ParticipantType.Speaker)
-    let artists = Participant.objects(
-      from: json["artists"], type: Participant.ParticipantType.Artist)
-    let companies = Participant.objects(
-      from: json["companies"], type: Participant.ParticipantType.Company)
-    let sponsors = Participant.objects(
-      from: json["sponsors"], type: Participant.ParticipantType.Sponsor)
+    let events = Event.objectsDictionay(fromArray: json["events"].array)
+    let venues = Venue.objectsDictionay(fromArray: json["venues"].array)
+    let organizers = Participant.objectsDictionary(fromArray: json["organizers"].array, type: .Organizer)
+    let speakers = Participant.objectsDictionary(fromArray: json["speakers"].array, type: .Speaker)
+    let artists = Participant.objectsDictionary(fromArray: json["artists"].array, type: .Artist)
+    let companies = Participant.objectsDictionary(fromArray: json["companies"].array, type: .Company)
+    let sponsors = Participant.objectsDictionary(fromArray: json["sponsors"].array, type: .Sponsor)
     
     return MovimentaEvent(id: id, title: title, link: link, parentCategory: parentCategory, categories: categories, types: types, events: events, venues: venues, organizers: organizers, speakers: speakers, artists: artists, companies: companies, sponsors: sponsors)
   }
