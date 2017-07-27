@@ -87,6 +87,8 @@ extension MovimentaAPI {
     var filename: String = ""
     
     switch target {
+    case .events:
+      filename = "events"
     default:
       filename = ""
     }
