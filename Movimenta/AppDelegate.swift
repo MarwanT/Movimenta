@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     DataManager.shared.reloadData()
     
+    ThemeManager.shared.current.initialize()
+    
     return true
   }
 
