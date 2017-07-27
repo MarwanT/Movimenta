@@ -11,6 +11,13 @@ import Foundation
 class ThemeManager {
   static let shared = ThemeManager()
   
+  var current: Theme {
+    didSet{
+      // TODO: Send notification for updating the layout throughout the app
+    }
+  }
+  
   private init() {
+    current = MovimentaTheme()
   }
 }
