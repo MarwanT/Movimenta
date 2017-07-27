@@ -29,6 +29,11 @@
 		5970AFA91F275939008CA708 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFA81F275939008CA708 /* DataManager.swift */; };
 		5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFAA1F2788F9008CA708 /* Persistence.swift */; };
 		5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFAC1F278DED008CA708 /* AppNotification.swift */; };
+		5970AFAF1F29F631008CA708 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFAE1F29F631008CA708 /* Theme.swift */; };
+		5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFB01F2A1235008CA708 /* ThemeManager.swift */; };
+		5970AFB51F2A17B3008CA708 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFB31F2A17B3008CA708 /* Font.swift */; };
+		5970AFB61F2A17B3008CA708 /* FontBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFB41F2A17B3008CA708 /* FontBook.swift */; };
+		5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFB71F2A1868008CA708 /* MovimentaTheme.swift */; };
 		598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */; };
 		598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */; };
 		598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */; };
@@ -45,8 +50,6 @@
 		5989231D1F1E2ACB00F73974 /* nexa-regularitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230D1F1E2A7800F73974 /* nexa-regularitalic-webfont.ttf */; };
 		5989231E1F1E2ACD00F73974 /* nexa-thin-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230E1F1E2A7800F73974 /* nexa-thin-webfont.ttf */; };
 		5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */; };
-		598923231F1E40DF00F73974 /* FontBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923221F1E40DF00F73974 /* FontBook.swift */; };
-		598923251F1E4F7C00F73974 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923241F1E4F7C00F73974 /* Font.swift */; };
 		598923291F1F536E00F73974 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923281F1F536E00F73974 /* Analytics.swift */; };
 		5989232B1F1F54C400F73974 /* Analytics+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232A1F1F54C400F73974 /* Analytics+Category.swift */; };
 		5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232C1F1F565000F73974 /* Analytics+Action.swift */; };
@@ -109,6 +112,11 @@
 		5970AFA81F275939008CA708 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5970AFAA1F2788F9008CA708 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5970AFAC1F278DED008CA708 /* AppNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
+		5970AFAE1F29F631008CA708 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		5970AFB01F2A1235008CA708 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		5970AFB31F2A17B3008CA708 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		5970AFB41F2A17B3008CA708 /* FontBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontBook.swift; sourceTree = "<group>"; };
+		5970AFB71F2A1868008CA708 /* MovimentaTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentaTheme.swift; sourceTree = "<group>"; };
 		598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-black-webfont.ttf"; sourceTree = "<group>"; };
 		598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-blackitalic-webfont.ttf"; sourceTree = "<group>"; };
 		598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-bold-webfont.ttf"; sourceTree = "<group>"; };
@@ -125,8 +133,6 @@
 		5989230D1F1E2A7800F73974 /* nexa-regularitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-regularitalic-webfont.ttf"; sourceTree = "<group>"; };
 		5989230E1F1E2A7800F73974 /* nexa-thin-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-thin-webfont.ttf"; sourceTree = "<group>"; };
 		5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-thinitalic-webfont.ttf"; sourceTree = "<group>"; };
-		598923221F1E40DF00F73974 /* FontBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontBook.swift; sourceTree = "<group>"; };
-		598923241F1E4F7C00F73974 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		598923281F1F536E00F73974 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		5989232A1F1F54C400F73974 /* Analytics+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Category.swift"; sourceTree = "<group>"; };
 		5989232C1F1F565000F73974 /* Analytics+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Action.swift"; sourceTree = "<group>"; };
@@ -283,6 +289,16 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		5970AFB21F2A17B3008CA708 /* MovimentaTheme */ = {
+			isa = PBXGroup;
+			children = (
+				5970AFB71F2A1868008CA708 /* MovimentaTheme.swift */,
+				5970AFB31F2A17B3008CA708 /* Font.swift */,
+				5970AFB41F2A17B3008CA708 /* FontBook.swift */,
+			);
+			path = MovimentaTheme;
+			sourceTree = "<group>";
+		};
 		5989229D1F1E0C9800F73974 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,8 +439,9 @@
 		59D52F7F1F1CD134008F3B13 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				598923241F1E4F7C00F73974 /* Font.swift */,
-				598923221F1E40DF00F73974 /* FontBook.swift */,
+				5970AFB21F2A17B3008CA708 /* MovimentaTheme */,
+				5970AFAE1F29F631008CA708 /* Theme.swift */,
+				5970AFB01F2A1235008CA708 /* ThemeManager.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -705,6 +722,7 @@
 			files = (
 				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
+				5970AFB51F2A17B3008CA708 /* Font.swift in Sources */,
 				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
 				59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */,
 				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
@@ -716,20 +734,21 @@
 				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
 				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
 				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
-				598923251F1E4F7C00F73974 /* Font.swift in Sources */,
 				5970AF901F24E175008CA708 /* MovimentaEvent.swift in Sources */,
 				5970AF941F24E4A8008CA708 /* Event.swift in Sources */,
 				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
-				598923231F1E40DF00F73974 /* FontBook.swift in Sources */,
 				596A75771F1908120094A886 /* AppDelegate.swift in Sources */,
 				5970AFA71F2758C3008CA708 /* DataParser.swift in Sources */,
 				5970AF841F222AA4008CA708 /* Device.swift in Sources */,
 				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
 				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
+				5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */,
 				598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */,
 				5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */,
 				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
 				5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */,
+				5970AFAF1F29F631008CA708 /* Theme.swift in Sources */,
+				5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */,
 				5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */,
 				5970AF961F24E5A2008CA708 /* Venue.swift in Sources */,
 				5970AF9D1F261110008CA708 /* Date+Utils.swift in Sources */,
@@ -737,6 +756,7 @@
 				5970AF8A1F224F56008CA708 /* ModelCommonProperties.swift in Sources */,
 				598923291F1F536E00F73974 /* Analytics.swift in Sources */,
 				598923391F1F799400F73974 /* Environment.swift in Sources */,
+				5970AFB61F2A17B3008CA708 /* FontBook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
