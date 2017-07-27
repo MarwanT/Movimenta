@@ -19,6 +19,10 @@ protocol ThemeColors {
   var color4: UIColor { get }
   var color5: UIColor { get }
   var color6: UIColor { get }
+  
+  var white: UIColor { get }
+  var darkTextColor: UIColor { get }
+  var lightTextColor: UIColor { get }
 }
 
 protocol ThemeSpacing {
