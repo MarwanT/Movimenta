@@ -30,6 +30,7 @@
 		5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFAA1F2788F9008CA708 /* Persistence.swift */; };
 		5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFAC1F278DED008CA708 /* AppNotification.swift */; };
 		5970AFAF1F29F631008CA708 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFAE1F29F631008CA708 /* Theme.swift */; };
+		5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFB01F2A1235008CA708 /* ThemeManager.swift */; };
 		5970AFB51F2A17B3008CA708 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFB31F2A17B3008CA708 /* Font.swift */; };
 		5970AFB61F2A17B3008CA708 /* FontBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFB41F2A17B3008CA708 /* FontBook.swift */; };
 		5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFB71F2A1868008CA708 /* MovimentaTheme.swift */; };
@@ -112,6 +113,7 @@
 		5970AFAA1F2788F9008CA708 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5970AFAC1F278DED008CA708 /* AppNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		5970AFAE1F29F631008CA708 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		5970AFB01F2A1235008CA708 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		5970AFB31F2A17B3008CA708 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		5970AFB41F2A17B3008CA708 /* FontBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontBook.swift; sourceTree = "<group>"; };
 		5970AFB71F2A1868008CA708 /* MovimentaTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentaTheme.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			children = (
 				5970AFB21F2A17B3008CA708 /* MovimentaTheme */,
 				5970AFAE1F29F631008CA708 /* Theme.swift */,
+				5970AFB01F2A1235008CA708 /* ThemeManager.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				5970AF841F222AA4008CA708 /* Device.swift in Sources */,
 				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
 				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
+				5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */,
 				598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */,
 				5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */,
 				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
