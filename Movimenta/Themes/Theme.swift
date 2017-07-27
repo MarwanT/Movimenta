@@ -8,6 +8,15 @@
 
 import Foundation
 
-protocol Theme {
+protocol Theme: ThemeColors {
   func initialize()
+}
+
+protocol ThemeColors {
+  var color1: UIColor { get }
+  var color2: UIColor { get }
+  var color3: UIColor { get }
+  var color4: UIColor { get }
+  var color5: UIColor { get }
+  var color6: UIColor { get }
 }
