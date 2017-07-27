@@ -9,4 +9,8 @@
 import Foundation
 
 class ThemeManager {
+  static let shared = ThemeManager()
+  
+  private init() {
+  }
 }
