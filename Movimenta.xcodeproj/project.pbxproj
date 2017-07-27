@@ -10,11 +10,63 @@
 		00889EBCF3A12CCC59FFC103 /* Pods_Movimenta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE53B3C2491622CB98DD0A1 /* Pods_Movimenta.framework */; };
 		42E5FD85BC6166CD91898730 /* Pods_MovimentaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437FF84134F339332697655C /* Pods_MovimentaTests.framework */; };
 		596A75771F1908120094A886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75761F1908120094A886 /* AppDelegate.swift */; };
-		596A75791F1908120094A886 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75781F1908120094A886 /* ViewController.swift */; };
-		596A757C1F1908120094A886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596A757A1F1908120094A886 /* Main.storyboard */; };
-		596A757E1F1908120094A886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596A757D1F1908120094A886 /* Assets.xcassets */; };
-		596A75811F1908120094A886 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596A757F1F1908120094A886 /* LaunchScreen.storyboard */; };
 		596A758C1F1908120094A886 /* MovimentaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A758B1F1908120094A886 /* MovimentaTests.swift */; };
+		5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF7C1F20F7F0008CA708 /* Network.swift */; };
+		5970AF7F1F20F8F0008CA708 /* MovimentaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF7E1F20F8F0008CA708 /* MovimentaAPI.swift */; };
+		5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF811F21F700008CA708 /* NSBundle+Language.m */; };
+		5970AF841F222AA4008CA708 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF831F222AA4008CA708 /* Device.swift */; };
+		5970AF881F224CA7008CA708 /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = 5970AF871F224CA7008CA708 /* events.json */; };
+		5970AF8A1F224F56008CA708 /* ModelCommonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF891F224F56008CA708 /* ModelCommonProperties.swift */; };
+		5970AF901F24E175008CA708 /* MovimentaEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF8F1F24E174008CA708 /* MovimentaEvent.swift */; };
+		5970AF941F24E4A8008CA708 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF931F24E4A8008CA708 /* Event.swift */; };
+		5970AF961F24E5A2008CA708 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF951F24E5A2008CA708 /* Venue.swift */; };
+		5970AF981F24E6D0008CA708 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF971F24E6D0008CA708 /* Participant.swift */; };
+		5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF991F260CF0008CA708 /* DateRange.swift */; };
+		5970AF9D1F261110008CA708 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF9C1F261110008CA708 /* Date+Utils.swift */; };
+		5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF9E1F262EFC008CA708 /* CLLocationCoordinate2D.swift */; };
+		5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFA11F274728008CA708 /* MovimentaEvent+API.swift */; };
+		5970AFA71F2758C3008CA708 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFA51F2758C3008CA708 /* DataParser.swift */; };
+		5970AFA91F275939008CA708 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFA81F275939008CA708 /* DataManager.swift */; };
+		5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFAA1F2788F9008CA708 /* Persistence.swift */; };
+		5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFAC1F278DED008CA708 /* AppNotification.swift */; };
+		598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */; };
+		598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */; };
+		598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */; };
+		598923131F1E2AAC00F73974 /* nexa-bolditalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923031F1E2A7800F73974 /* nexa-bolditalic-webfont.ttf */; };
+		598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923041F1E2A7800F73974 /* nexa-book-webfont.ttf */; };
+		598923151F1E2AB200F73974 /* nexa-bookitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923051F1E2A7800F73974 /* nexa-bookitalic-webfont.ttf */; };
+		598923161F1E2AB600F73974 /* nexa-extrabold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923061F1E2A7800F73974 /* nexa-extrabold-webfont.ttf */; };
+		598923171F1E2AB800F73974 /* nexa-extrabolditalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923071F1E2A7800F73974 /* nexa-extrabolditalic-webfont.ttf */; };
+		598923181F1E2ABA00F73974 /* nexa-heavy-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923081F1E2A7800F73974 /* nexa-heavy-webfont.ttf */; };
+		598923191F1E2AC100F73974 /* nexa-heavyitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923091F1E2A7800F73974 /* nexa-heavyitalic-webfont.ttf */; };
+		5989231A1F1E2AC300F73974 /* nexa-light-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230A1F1E2A7800F73974 /* nexa-light-webfont.ttf */; };
+		5989231B1F1E2AC600F73974 /* nexa-lightitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230B1F1E2A7800F73974 /* nexa-lightitalic-webfont.ttf */; };
+		5989231C1F1E2AC800F73974 /* nexa-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230C1F1E2A7800F73974 /* nexa-regular-webfont.ttf */; };
+		5989231D1F1E2ACB00F73974 /* nexa-regularitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230D1F1E2A7800F73974 /* nexa-regularitalic-webfont.ttf */; };
+		5989231E1F1E2ACD00F73974 /* nexa-thin-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230E1F1E2A7800F73974 /* nexa-thin-webfont.ttf */; };
+		5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */; };
+		598923231F1E40DF00F73974 /* FontBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923221F1E40DF00F73974 /* FontBook.swift */; };
+		598923251F1E4F7C00F73974 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923241F1E4F7C00F73974 /* Font.swift */; };
+		598923291F1F536E00F73974 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923281F1F536E00F73974 /* Analytics.swift */; };
+		5989232B1F1F54C400F73974 /* Analytics+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232A1F1F54C400F73974 /* Analytics+Category.swift */; };
+		5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232C1F1F565000F73974 /* Analytics+Action.swift */; };
+		5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989232E1F1F592F00F73974 /* Analytics+ScreenName.swift */; };
+		598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923301F1F5A5C00F73974 /* Analytics+Event.swift */; };
+		598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923321F1F5EFE00F73974 /* GeneralSettings.swift */; };
+		598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923341F1F6C0200F73974 /* Analytics+Field.swift */; };
+		598923371F1F753900F73974 /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923361F1F753900F73974 /* AppKeys.swift */; };
+		598923391F1F799400F73974 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923381F1F799400F73974 /* Environment.swift */; };
+		59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F711F1CD134008F3B13 /* Assets.xcassets */; };
+		59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52F751F1CD134008F3B13 /* ViewController.swift */; };
+		59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */; };
+		59D52F871F1CD197008F3B13 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F861F1CD197008F3B13 /* Info.plist */; };
+		59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52F891F1CF319008F3B13 /* Strings.swift */; };
+		59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52F8B1F1CF47B008F3B13 /* Localization.swift */; };
+		59D52F9A1F1CFA42008F3B13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F9C1F1CFA42008F3B13 /* Localizable.strings */; };
+		59D52FA01F1CFE8D008F3B13 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 59D52FA21F1CFE8D008F3B13 /* Localizable.stringsdict */; };
+		59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52FA41F1D05B1008F3B13 /* Storyboard.swift */; };
+		59D52FA71F1D0604008F3B13 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52FA61F1D0604008F3B13 /* Root.storyboard */; };
+		59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52FA81F1D0752008F3B13 /* ViewController+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +86,69 @@
 		437FF84134F339332697655C /* Pods_MovimentaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovimentaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A75731F1908120094A886 /* Movimenta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movimenta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A75761F1908120094A886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		596A75781F1908120094A886 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		596A757B1F1908120094A886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		596A757D1F1908120094A886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		596A75801F1908120094A886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		596A75821F1908120094A886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		596A75871F1908120094A886 /* MovimentaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovimentaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A758B1F1908120094A886 /* MovimentaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentaTests.swift; sourceTree = "<group>"; };
 		596A758D1F1908120094A886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5970AF791F1F8E50008CA708 /* Movimenta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movimenta-Bridging-Header.h"; sourceTree = "<group>"; };
+		5970AF7C1F20F7F0008CA708 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		5970AF7E1F20F8F0008CA708 /* MovimentaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentaAPI.swift; sourceTree = "<group>"; };
+		5970AF801F21F700008CA708 /* NSBundle+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
+		5970AF811F21F700008CA708 /* NSBundle+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
+		5970AF831F222AA4008CA708 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		5970AF871F224CA7008CA708 /* events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = events.json; sourceTree = "<group>"; };
+		5970AF891F224F56008CA708 /* ModelCommonProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCommonProperties.swift; sourceTree = "<group>"; };
+		5970AF8F1F24E174008CA708 /* MovimentaEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentaEvent.swift; sourceTree = "<group>"; };
+		5970AF931F24E4A8008CA708 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		5970AF951F24E5A2008CA708 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		5970AF971F24E6D0008CA708 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		5970AF991F260CF0008CA708 /* DateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
+		5970AF9C1F261110008CA708 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		5970AF9E1F262EFC008CA708 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		5970AFA11F274728008CA708 /* MovimentaEvent+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MovimentaEvent+API.swift"; sourceTree = "<group>"; };
+		5970AFA51F2758C3008CA708 /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		5970AFA81F275939008CA708 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		5970AFAA1F2788F9008CA708 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		5970AFAC1F278DED008CA708 /* AppNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
+		598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-black-webfont.ttf"; sourceTree = "<group>"; };
+		598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-blackitalic-webfont.ttf"; sourceTree = "<group>"; };
+		598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-bold-webfont.ttf"; sourceTree = "<group>"; };
+		598923031F1E2A7800F73974 /* nexa-bolditalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-bolditalic-webfont.ttf"; sourceTree = "<group>"; };
+		598923041F1E2A7800F73974 /* nexa-book-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-book-webfont.ttf"; sourceTree = "<group>"; };
+		598923051F1E2A7800F73974 /* nexa-bookitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-bookitalic-webfont.ttf"; sourceTree = "<group>"; };
+		598923061F1E2A7800F73974 /* nexa-extrabold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-extrabold-webfont.ttf"; sourceTree = "<group>"; };
+		598923071F1E2A7800F73974 /* nexa-extrabolditalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-extrabolditalic-webfont.ttf"; sourceTree = "<group>"; };
+		598923081F1E2A7800F73974 /* nexa-heavy-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-heavy-webfont.ttf"; sourceTree = "<group>"; };
+		598923091F1E2A7800F73974 /* nexa-heavyitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-heavyitalic-webfont.ttf"; sourceTree = "<group>"; };
+		5989230A1F1E2A7800F73974 /* nexa-light-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-light-webfont.ttf"; sourceTree = "<group>"; };
+		5989230B1F1E2A7800F73974 /* nexa-lightitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-lightitalic-webfont.ttf"; sourceTree = "<group>"; };
+		5989230C1F1E2A7800F73974 /* nexa-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-regular-webfont.ttf"; sourceTree = "<group>"; };
+		5989230D1F1E2A7800F73974 /* nexa-regularitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-regularitalic-webfont.ttf"; sourceTree = "<group>"; };
+		5989230E1F1E2A7800F73974 /* nexa-thin-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-thin-webfont.ttf"; sourceTree = "<group>"; };
+		5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-thinitalic-webfont.ttf"; sourceTree = "<group>"; };
+		598923221F1E40DF00F73974 /* FontBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontBook.swift; sourceTree = "<group>"; };
+		598923241F1E4F7C00F73974 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		598923281F1F536E00F73974 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		5989232A1F1F54C400F73974 /* Analytics+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Category.swift"; sourceTree = "<group>"; };
+		5989232C1F1F565000F73974 /* Analytics+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Action.swift"; sourceTree = "<group>"; };
+		5989232E1F1F592F00F73974 /* Analytics+ScreenName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+ScreenName.swift"; sourceTree = "<group>"; };
+		598923301F1F5A5C00F73974 /* Analytics+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Event.swift"; sourceTree = "<group>"; };
+		598923321F1F5EFE00F73974 /* GeneralSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
+		598923341F1F6C0200F73974 /* Analytics+Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Field.swift"; sourceTree = "<group>"; };
+		598923361F1F753900F73974 /* AppKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
+		598923381F1F799400F73974 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		59D52F711F1CD134008F3B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		59D52F751F1CD134008F3B13 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		59D52F861F1CD197008F3B13 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		59D52F891F1CF319008F3B13 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		59D52F8B1F1CF47B008F3B13 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		59D52F9B1F1CFA42008F3B13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		59D52F9D1F1CFA43008F3B13 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		59D52FA11F1CFE8D008F3B13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		59D52FA31F1CFE8E008F3B13 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = fr; path = fr.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		59D52FA41F1D05B1008F3B13 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		59D52FA61F1D0604008F3B13 /* Root.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
+		59D52FA81F1D0752008F3B13 /* ViewController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utilities.swift"; sourceTree = "<group>"; };
 		782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movimenta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta.release.xcconfig"; sourceTree = "<group>"; };
 		D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,11 +217,17 @@
 			isa = PBXGroup;
 			children = (
 				596A75761F1908120094A886 /* AppDelegate.swift */,
-				596A75781F1908120094A886 /* ViewController.swift */,
-				596A757A1F1908120094A886 /* Main.storyboard */,
-				596A757D1F1908120094A886 /* Assets.xcassets */,
-				596A757F1F1908120094A886 /* LaunchScreen.storyboard */,
-				596A75821F1908120094A886 /* Info.plist */,
+				59D52F701F1CD134008F3B13 /* Assets */,
+				59D52F721F1CD134008F3B13 /* Components */,
+				59D52F731F1CD134008F3B13 /* Controllers */,
+				59D52F761F1CD134008F3B13 /* Models */,
+				59D52F791F1CD134008F3B13 /* Networking */,
+				5970AF851F224CA7008CA708 /* Data */,
+				59D52F7A1F1CD134008F3B13 /* Storyboard */,
+				59D52F7D1F1CD134008F3B13 /* SupportingFiles */,
+				59D52F7F1F1CD134008F3B13 /* Themes */,
+				59D52F801F1CD134008F3B13 /* Utilites */,
+				598923321F1F5EFE00F73974 /* GeneralSettings.swift */,
 			);
 			path = Movimenta;
 			sourceTree = "<group>";
@@ -126,6 +239,229 @@
 				596A758D1F1908120094A886 /* Info.plist */,
 			);
 			path = MovimentaTests;
+			sourceTree = "<group>";
+		};
+		5970AF851F224CA7008CA708 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5970AF861F224CA7008CA708 /* StubedResponses */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5970AF861F224CA7008CA708 /* StubedResponses */ = {
+			isa = PBXGroup;
+			children = (
+				5970AF871F224CA7008CA708 /* events.json */,
+			);
+			path = StubedResponses;
+			sourceTree = "<group>";
+		};
+		5970AF9B1F2610ED008CA708 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5970AF9C1F261110008CA708 /* Date+Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5970AFA01F2746D0008CA708 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5970AFA11F274728008CA708 /* MovimentaEvent+API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		5970AFA31F2758C3008CA708 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				5970AFA81F275939008CA708 /* DataManager.swift */,
+				5970AFAA1F2788F9008CA708 /* Persistence.swift */,
+				5970AFA51F2758C3008CA708 /* DataParser.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		5989229D1F1E0C9800F73974 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				598922DF1F1E19F000F73974 /* Nexa */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		598922DF1F1E19F000F73974 /* Nexa */ = {
+			isa = PBXGroup;
+			children = (
+				598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */,
+				598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */,
+				598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */,
+				598923031F1E2A7800F73974 /* nexa-bolditalic-webfont.ttf */,
+				598923041F1E2A7800F73974 /* nexa-book-webfont.ttf */,
+				598923051F1E2A7800F73974 /* nexa-bookitalic-webfont.ttf */,
+				598923061F1E2A7800F73974 /* nexa-extrabold-webfont.ttf */,
+				598923071F1E2A7800F73974 /* nexa-extrabolditalic-webfont.ttf */,
+				598923081F1E2A7800F73974 /* nexa-heavy-webfont.ttf */,
+				598923091F1E2A7800F73974 /* nexa-heavyitalic-webfont.ttf */,
+				5989230A1F1E2A7800F73974 /* nexa-light-webfont.ttf */,
+				5989230B1F1E2A7800F73974 /* nexa-lightitalic-webfont.ttf */,
+				5989230C1F1E2A7800F73974 /* nexa-regular-webfont.ttf */,
+				5989230D1F1E2A7800F73974 /* nexa-regularitalic-webfont.ttf */,
+				5989230E1F1E2A7800F73974 /* nexa-thin-webfont.ttf */,
+				5989230F1F1E2A7800F73974 /* nexa-thinitalic-webfont.ttf */,
+			);
+			path = Nexa;
+			sourceTree = "<group>";
+		};
+		598923271F1F534A00F73974 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				598923281F1F536E00F73974 /* Analytics.swift */,
+				598923301F1F5A5C00F73974 /* Analytics+Event.swift */,
+				5989232A1F1F54C400F73974 /* Analytics+Category.swift */,
+				5989232C1F1F565000F73974 /* Analytics+Action.swift */,
+				5989232E1F1F592F00F73974 /* Analytics+ScreenName.swift */,
+				598923341F1F6C0200F73974 /* Analytics+Field.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		59D52F701F1CD134008F3B13 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				59D52F711F1CD134008F3B13 /* Assets.xcassets */,
+				5989229D1F1E0C9800F73974 /* Fonts */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		59D52F721F1CD134008F3B13 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		59D52F731F1CD134008F3B13 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				59D52F741F1CD134008F3B13 /* ViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		59D52F741F1CD134008F3B13 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				59D52F751F1CD134008F3B13 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		59D52F761F1CD134008F3B13 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				59D52F771F1CD134008F3B13 /* DataModels */,
+				59D52F781F1CD134008F3B13 /* ViewModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		59D52F771F1CD134008F3B13 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				5970AFA01F2746D0008CA708 /* API */,
+				5970AFA31F2758C3008CA708 /* Tools */,
+				5970AF891F224F56008CA708 /* ModelCommonProperties.swift */,
+				5970AF8F1F24E174008CA708 /* MovimentaEvent.swift */,
+				5970AF931F24E4A8008CA708 /* Event.swift */,
+				5970AF991F260CF0008CA708 /* DateRange.swift */,
+				5970AF951F24E5A2008CA708 /* Venue.swift */,
+				5970AF971F24E6D0008CA708 /* Participant.swift */,
+				5970AF9E1F262EFC008CA708 /* CLLocationCoordinate2D.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		59D52F781F1CD134008F3B13 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		59D52F791F1CD134008F3B13 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5970AF7E1F20F8F0008CA708 /* MovimentaAPI.swift */,
+				5970AF7C1F20F7F0008CA708 /* Network.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		59D52F7A1F1CD134008F3B13 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */,
+				59D52FA61F1D0604008F3B13 /* Root.storyboard */,
+				59D52FA41F1D05B1008F3B13 /* Storyboard.swift */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		59D52F7D1F1CD134008F3B13 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				59D52F8D1F1CF690008F3B13 /* Localization */,
+				59D52F861F1CD197008F3B13 /* Info.plist */,
+				5970AF791F1F8E50008CA708 /* Movimenta-Bridging-Header.h */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		59D52F7F1F1CD134008F3B13 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				598923241F1E4F7C00F73974 /* Font.swift */,
+				598923221F1E40DF00F73974 /* FontBook.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		59D52F801F1CD134008F3B13 /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				598923271F1F534A00F73974 /* Analytics */,
+				59D52F881F1CF30D008F3B13 /* Localization */,
+				5970AF9B1F2610ED008CA708 /* Extensions */,
+				59D52FA81F1D0752008F3B13 /* ViewController+Utilities.swift */,
+				598923381F1F799400F73974 /* Environment.swift */,
+				598923361F1F753900F73974 /* AppKeys.swift */,
+				5970AF831F222AA4008CA708 /* Device.swift */,
+				5970AFAC1F278DED008CA708 /* AppNotification.swift */,
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
+		59D52F881F1CF30D008F3B13 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				59D52F891F1CF319008F3B13 /* Strings.swift */,
+				59D52F8B1F1CF47B008F3B13 /* Localization.swift */,
+				5970AF801F21F700008CA708 /* NSBundle+Language.h */,
+				5970AF811F21F700008CA708 /* NSBundle+Language.m */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		59D52F8D1F1CF690008F3B13 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				59D52F9C1F1CFA42008F3B13 /* Localizable.strings */,
+				59D52FA21F1CFE8D008F3B13 /* Localizable.stringsdict */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +477,7 @@
 				596A75711F1908120094A886 /* Resources */,
 				E82F559043199880BC58B5B5 /* [CP] Embed Pods Frameworks */,
 				7F810132E7468AC5BAAA9198 /* [CP] Copy Pods Resources */,
+				598923261F1E6B3900F73974 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -202,6 +539,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 596A756A1F1908120094A886;
 			productRefGroup = 596A75741F1908120094A886 /* Products */;
@@ -219,9 +557,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596A75811F1908120094A886 /* LaunchScreen.storyboard in Resources */,
-				596A757E1F1908120094A886 /* Assets.xcassets in Resources */,
-				596A757C1F1908120094A886 /* Main.storyboard in Resources */,
+				59D52FA71F1D0604008F3B13 /* Root.storyboard in Resources */,
+				5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */,
+				598923181F1E2ABA00F73974 /* nexa-heavy-webfont.ttf in Resources */,
+				598923131F1E2AAC00F73974 /* nexa-bolditalic-webfont.ttf in Resources */,
+				59D52F9A1F1CFA42008F3B13 /* Localizable.strings in Resources */,
+				59D52FA01F1CFE8D008F3B13 /* Localizable.stringsdict in Resources */,
+				5989231D1F1E2ACB00F73974 /* nexa-regularitalic-webfont.ttf in Resources */,
+				598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */,
+				5989231C1F1E2AC800F73974 /* nexa-regular-webfont.ttf in Resources */,
+				598923191F1E2AC100F73974 /* nexa-heavyitalic-webfont.ttf in Resources */,
+				598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */,
+				5989231A1F1E2AC300F73974 /* nexa-light-webfont.ttf in Resources */,
+				598923161F1E2AB600F73974 /* nexa-extrabold-webfont.ttf in Resources */,
+				5989231E1F1E2ACD00F73974 /* nexa-thin-webfont.ttf in Resources */,
+				59D52F871F1CD197008F3B13 /* Info.plist in Resources */,
+				5989231B1F1E2AC600F73974 /* nexa-lightitalic-webfont.ttf in Resources */,
+				5970AF881F224CA7008CA708 /* events.json in Resources */,
+				598923171F1E2AB800F73974 /* nexa-extrabolditalic-webfont.ttf in Resources */,
+				59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */,
+				598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */,
+				598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */,
+				59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */,
+				598923151F1E2AB200F73974 /* nexa-bookitalic-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +622,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		598923261F1E6B3900F73974 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 081c5e21d59aa6200fc7d8e23cced187b13e06e6 2c467c9075ea0dc7d53865b3e685faa2a7ad4875b1f4dd9f25c21ed6913f566b";
 		};
 		5D5C4FF53D16FF9A231F54DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -332,8 +703,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596A75791F1908120094A886 /* ViewController.swift in Sources */,
+				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
+				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
+				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
+				59D52F821F1CD134008F3B13 /* ViewController.swift in Sources */,
+				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
+				5970AF7F1F20F8F0008CA708 /* MovimentaAPI.swift in Sources */,
+				59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */,
+				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
+				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
+				5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */,
+				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
+				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
+				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
+				598923251F1E4F7C00F73974 /* Font.swift in Sources */,
+				5970AF901F24E175008CA708 /* MovimentaEvent.swift in Sources */,
+				5970AF941F24E4A8008CA708 /* Event.swift in Sources */,
+				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
+				598923231F1E40DF00F73974 /* FontBook.swift in Sources */,
 				596A75771F1908120094A886 /* AppDelegate.swift in Sources */,
+				5970AFA71F2758C3008CA708 /* DataParser.swift in Sources */,
+				5970AF841F222AA4008CA708 /* Device.swift in Sources */,
+				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
+				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
+				598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */,
+				5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */,
+				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
+				5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */,
+				5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */,
+				5970AF961F24E5A2008CA708 /* Venue.swift in Sources */,
+				5970AF9D1F261110008CA708 /* Date+Utils.swift in Sources */,
+				5989232B1F1F54C400F73974 /* Analytics+Category.swift in Sources */,
+				5970AF8A1F224F56008CA708 /* ModelCommonProperties.swift in Sources */,
+				598923291F1F536E00F73974 /* Analytics.swift in Sources */,
+				598923391F1F799400F73974 /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,20 +759,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		596A757A1F1908120094A886 /* Main.storyboard */ = {
+		59D52F9C1F1CFA42008F3B13 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				596A757B1F1908120094A886 /* Base */,
+				59D52F9B1F1CFA42008F3B13 /* en */,
+				59D52F9D1F1CFA43008F3B13 /* fr */,
 			);
-			name = Main.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		596A757F1F1908120094A886 /* LaunchScreen.storyboard */ = {
+		59D52FA21F1CFE8D008F3B13 /* Localizable.stringsdict */ = {
 			isa = PBXVariantGroup;
 			children = (
-				596A75801F1908120094A886 /* Base */,
+				59D52FA11F1CFE8D008F3B13 /* en */,
+				59D52FA31F1CFE8E008F3B13 /* fr */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -379,6 +784,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -430,6 +836,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -480,6 +887,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.Movimenta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movimenta/SupportingFiles/Movimenta-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -494,6 +902,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.Movimenta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movimenta/SupportingFiles/Movimenta-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -509,6 +918,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.MovimentaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movimenta/SupportingFiles/Movimenta-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movimenta.app/Movimenta";
 			};
@@ -525,6 +935,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.MovimentaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movimenta/SupportingFiles/Movimenta-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movimenta.app/Movimenta";
 			};
@@ -549,6 +960,7 @@
 				596A75921F1908120094A886 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		596A75931F1908120094A886 /* Build configuration list for PBXNativeTarget "MovimentaTests" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +969,7 @@
 				596A75951F1908120094A886 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

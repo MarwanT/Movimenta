@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Fabric
+import FacebookCore
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    
+    Localization.set(language: Locale.applicationLanguage)
+    
+    Analytics.shared.initialize()
+    
+    Fabric.with([Crashlytics.self, Answers.self])
+    
+    // Configure Facebook SDK
+    SDKSettings.appId = Environment.current.facebook.id
+    SDKSettings.displayName = Environment.current.facebook.displayName
+    SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+    
+    DataManager.shared.reloadData()
+    
     return true
   }
 
@@ -35,12 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationDidBecomeActive(_ application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    AppEventsLogger.activate(application)
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
 
-
+  func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    let handled = SDKApplicationDelegate.shared.application(app, open: url, options: options)
+    return handled
+  }
 }
 

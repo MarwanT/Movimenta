@@ -16,14 +16,80 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1739704446044359</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1383698495011203</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>081c5e21d59aa6200fc7d8e23cced187b13e06e6</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
+	<key>FacebookAppID</key>
+	<string>{facebook-app-id}</string>
+	<key>FacebookDisplayName</key>
+	<string>Movimenta</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>nexa-black-webfont.ttf</string>
+		<string>nexa-blackitalic-webfont.ttf</string>
+		<string>nexa-bold-webfont.ttf</string>
+		<string>nexa-bolditalic-webfont.ttf</string>
+		<string>nexa-book-webfont.ttf</string>
+		<string>nexa-bookitalic-webfont.ttf</string>
+		<string>nexa-extrabold-webfont.ttf</string>
+		<string>nexa-extrabolditalic-webfont.ttf</string>
+		<string>nexa-heavy-webfont.ttf</string>
+		<string>nexa-heavyitalic-webfont.ttf</string>
+		<string>nexa-light-webfont.ttf</string>
+		<string>nexa-lightitalic-webfont.ttf</string>
+		<string>nexa-regular-webfont.ttf</string>
+		<string>nexa-regularitalic-webfont.ttf</string>
+		<string>nexa-thin-webfont.ttf</string>
+		<string>nexa-thinitalic-webfont.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>Root</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
