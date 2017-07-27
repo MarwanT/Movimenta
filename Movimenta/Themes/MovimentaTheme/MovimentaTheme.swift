@@ -28,6 +28,17 @@ final class MovimentaTheme: Theme {
   var color5: UIColor = UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 1)
   /// #c0c0c2
   var color6: UIColor = UIColor(red: 192/255, green: 192/255, blue: 194/255, alpha: 1)
+  /// #ffffff
+  var white: UIColor = UIColor.white
+  
+  /// color1
+  var darkTextColor: UIColor {
+    return color1
+  }
+  /// white
+  var lightTextColor: UIColor {
+    return white
+  }
   
   
   //MARK: - Spacings
