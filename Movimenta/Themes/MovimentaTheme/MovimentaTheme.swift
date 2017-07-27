@@ -10,7 +10,14 @@ import Foundation
 
 final class MovimentaTheme: Theme {
   func initialize() {
-    
+    let appearance = UINavigationBar.appearance()
+    appearance.barTintColor = color2
+    appearance.tintColor = lightTextColor
+    appearance.isTranslucent = false
+    appearance.titleTextAttributes = [
+      NSFontAttributeName: font7,
+      NSForegroundColorAttributeName : lightTextColor
+    ]
   }
   
   //MARK: - Colors
