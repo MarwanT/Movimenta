@@ -24,6 +24,10 @@ protocol ThemeColors {
   var darkTextColor: UIColor { get }
   var lightTextColor: UIColor { get }
   var defaultBackgroundColor: UIColor { get }
+  var tabBarTintColor: UIColor { get }
+  var tabTintColor: UIColor { get }
+  var tabSelectionColor: UIColor { get }
+  var tabUnselectedItemTintColor: UIColor { get }
 }
 
 protocol ThemeSpacing {

@@ -48,6 +48,18 @@ final class MovimentaTheme: Theme {
   var defaultBackgroundColor: UIColor {
     return color2
   }
+  var tabBarTintColor: UIColor {
+    return white
+  }
+  var tabTintColor: UIColor {
+    return lightTextColor
+  }
+  var tabSelectionColor: UIColor {
+    return color2
+  }
+  var tabUnselectedItemTintColor: UIColor {
+    return color2
+  }
   
   //MARK: - Spacings
   //=================
