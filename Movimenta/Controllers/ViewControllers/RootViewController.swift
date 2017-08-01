@@ -16,6 +16,28 @@ class RootViewController: UITabBarController {
   }
   
   func initializeTabBarViewControllers() {
+    let eventsMapVC = UIViewController()
+    let bookmarksVC = UIViewController()
+    let schedualeVC = UIViewController()
+    let virtualRealityVC = UIViewController()
+    let infoVC = UIViewController()
+    
+    eventsMapVC.tabBarItem = UITabBarItem(title: Strings.event_map(), image: #imageLiteral(resourceName: "pinMenuOutline"), tag: 1)
+    bookmarksVC.tabBarItem = UITabBarItem(title: Strings.bookmarks(), image: #imageLiteral(resourceName: "bookmarkOutline"), tag: 2)
+    schedualeVC.tabBarItem = UITabBarItem(title: Strings.scheduale(), image: #imageLiteral(resourceName: "schedule"), tag: 3)
+    virtualRealityVC.tabBarItem = UITabBarItem(title: Strings.vr(), image: #imageLiteral(resourceName: "vr"), tag: 4)
+    infoVC.tabBarItem = UITabBarItem(title: Strings.info(), image: #imageLiteral(resourceName: "info"), tag: 5)
+    
+    viewControllers = [
+      eventsMapVC,
+      bookmarksVC,
+      schedualeVC,
+      virtualRealityVC,
+      infoVC
+    ]
+    
+    // Set Default select tab index
+    self.selectedIndex = 0
   }
 }
 
