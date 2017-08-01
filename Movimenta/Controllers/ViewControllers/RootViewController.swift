@@ -19,6 +19,17 @@ class RootViewController: UITabBarController {
   }
 }
 
+//MARK: Helpers 
+extension RootViewController {
+  var tabBarItemWidth: CGFloat {
+    return tabBar.bounds.width/CGFloat((viewControllers?.count ?? 1))
+  }
+  
+  var tabBarHeight: CGFloat {
+    return tabBar.bounds.height
+  }
+}
+
 //MARK: Instance
 extension RootViewController {
   static func instance() -> RootViewController {
@@ -30,5 +41,7 @@ extension RootViewController {
 extension RootViewController {
   func applyTheme() {
     view.backgroundColor = ThemeManager.shared.current.defaultBackgroundColor
+    tabBar.selectionIndicatorImage = ThemeManager.shared.current.tabSelectionColor.image(
+      size: CGSize(width: tabBarItemWidth, height: tabBarHeight))
   }
 }
