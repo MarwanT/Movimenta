@@ -38,11 +38,10 @@ final class MovimentaTheme: Theme {
   /// #ffffff
   var white: UIColor = UIColor.white
   
-  /// color1
+  
   var darkTextColor: UIColor {
     return color1
   }
-  /// white
   var lightTextColor: UIColor {
     return white
   }
