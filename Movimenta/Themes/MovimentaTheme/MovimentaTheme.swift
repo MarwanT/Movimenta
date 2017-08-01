@@ -18,6 +18,12 @@ final class MovimentaTheme: Theme {
       NSFontAttributeName: font7,
       NSForegroundColorAttributeName : lightTextColor
     ]
+    
+    let tabBarAppearance = UITabBar.appearance()
+    tabBarAppearance.isTranslucent = false
+    tabBarAppearance.barTintColor = tabBarTintColor
+    tabBarAppearance.tintColor =  tabTintColor
+    tabBarAppearance.unselectedItemTintColor = tabUnselectedItemTintColor
   }
   
   //MARK: - Colors
