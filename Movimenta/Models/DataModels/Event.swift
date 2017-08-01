@@ -63,7 +63,7 @@ extension Event: Parsable {
     let typesIds = json["types"].arrayObject as? [String]
     let categoriesIds = json["categories"].arrayObject as? [String]
     let image = json["image"].url
-    let venueId = json["venueId"].stringValue
+    let venueId = json["venue"].stringValue
     let coordinates = CLLocationCoordinate2D.object(from: json["coordinates"])
     let address = json["coordinates"]["address"].string
     let organizersIds = json["organizers"].arrayObject?.map({ "\($0)" })
