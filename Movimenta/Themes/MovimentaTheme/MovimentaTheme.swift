@@ -45,7 +45,9 @@ final class MovimentaTheme: Theme {
   var lightTextColor: UIColor {
     return white
   }
-  
+  var defaultBackgroundColor: UIColor {
+    return color2
+  }
   
   //MARK: - Spacings
   //=================

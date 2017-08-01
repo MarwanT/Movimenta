@@ -23,6 +23,7 @@ protocol ThemeColors {
   var white: UIColor { get }
   var darkTextColor: UIColor { get }
   var lightTextColor: UIColor { get }
+  var defaultBackgroundColor: UIColor { get }
 }
 
 protocol ThemeSpacing {
