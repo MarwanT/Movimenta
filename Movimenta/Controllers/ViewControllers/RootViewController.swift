@@ -12,6 +12,7 @@ class RootViewController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTabBarViewControllers()
+    applyTheme()
   }
   
   func initializeTabBarViewControllers() {
@@ -22,5 +23,12 @@ class RootViewController: UITabBarController {
 extension RootViewController {
   static func instance() -> RootViewController {
     return Storyboard.Root.instantiate(RootViewController.self)
+  }
+}
+
+//MARK: Theme {
+extension RootViewController {
+  func applyTheme() {
+    view.backgroundColor = ThemeManager.shared.current.defaultBackgroundColor
   }
 }
