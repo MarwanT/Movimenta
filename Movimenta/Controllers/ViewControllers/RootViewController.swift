@@ -9,10 +9,17 @@
 import UIKit
 
 class RootViewController: UITabBarController {
+  override var selectedViewController: UIViewController? {
+    didSet {
+      refreshTabItemsTitleStyle()
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTabBarViewControllers()
     applyTheme()
+    refreshTabItemsTitleStyle()
   }
   
   func initializeTabBarViewControllers() {
@@ -40,6 +47,8 @@ class RootViewController: UITabBarController {
     // Set Default select tab index
     self.selectedIndex = 0
   }
+  
+  
 }
 
 //MARK: Helpers 
@@ -66,5 +75,23 @@ extension RootViewController {
     view.backgroundColor = ThemeManager.shared.current.defaultBackgroundColor
     tabBar.selectionIndicatorImage = ThemeManager.shared.current.tabSelectionColor.image(
       size: CGSize(width: tabBarItemWidth, height: tabBarHeight))
+  }
+  
+  func refreshTabItemsTitleStyle() {
+    guard let viewControllers = viewControllers else {
+      return
+    }
+    
+    for viewController in viewControllers {
+      if viewController === selectedViewController {
+        let selected: [String: AnyObject] =
+          [NSFontAttributeName: ThemeManager.shared.current.font16]
+        viewController.tabBarItem.setTitleTextAttributes(selected, for: .normal)
+      } else {
+        let normal: [String: AnyObject] =
+          [NSFontAttributeName: ThemeManager.shared.current.font17]
+        viewController.tabBarItem.setTitleTextAttributes(normal, for: .normal)
+      }
+    }
   }
 }
