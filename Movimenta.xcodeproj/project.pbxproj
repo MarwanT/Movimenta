@@ -70,6 +70,7 @@
 		59D52FA71F1D0604008F3B13 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52FA61F1D0604008F3B13 /* Root.storyboard */; };
 		59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D52FA81F1D0752008F3B13 /* ViewController+Utilities.swift */; };
 		59EF02191F3076CF00F145B9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02181F3076CF00F145B9 /* RootViewController.swift */; };
+		59EF021B1F3094BA00F145B9 /* Image+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF021A1F3094BA00F145B9 /* Image+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		59D52FA61F1D0604008F3B13 /* Root.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		59D52FA81F1D0752008F3B13 /* ViewController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utilities.swift"; sourceTree = "<group>"; };
 		59EF02181F3076CF00F145B9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		59EF021A1F3094BA00F145B9 /* Image+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Utils.swift"; sourceTree = "<group>"; };
 		782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movimenta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta.release.xcconfig"; sourceTree = "<group>"; };
 		D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				5970AF9C1F261110008CA708 /* Date+Utils.swift */,
+				59EF021A1F3094BA00F145B9 /* Image+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */,
 				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
 				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
+				59EF021B1F3094BA00F145B9 /* Image+Utils.swift in Sources */,
 				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
 				5970AF901F24E175008CA708 /* MovimentaEvent.swift in Sources */,
 				5970AF941F24E4A8008CA708 /* Event.swift in Sources */,
