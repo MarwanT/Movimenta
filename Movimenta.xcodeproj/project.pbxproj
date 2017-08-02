@@ -72,6 +72,7 @@
 		59EF02191F3076CF00F145B9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02181F3076CF00F145B9 /* RootViewController.swift */; };
 		59EF021B1F3094BA00F145B9 /* Image+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF021A1F3094BA00F145B9 /* Image+Utils.swift */; };
 		59EF021D1F3094FD00F145B9 /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF021C1F3094FD00F145B9 /* Color+Utils.swift */; };
+		59EF02211F31CFE400F145B9 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59EF02201F31CFE400F145B9 /* Event.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		59EF02181F3076CF00F145B9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		59EF021A1F3094BA00F145B9 /* Image+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Utils.swift"; sourceTree = "<group>"; };
 		59EF021C1F3094FD00F145B9 /* Color+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Utils.swift"; sourceTree = "<group>"; };
+		59EF02201F31CFE400F145B9 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 		782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movimenta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta.release.xcconfig"; sourceTree = "<group>"; };
 		D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -427,6 +429,7 @@
 			children = (
 				59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */,
 				59D52FA61F1D0604008F3B13 /* Root.storyboard */,
+				59EF02201F31CFE400F145B9 /* Event.storyboard */,
 				59D52FA41F1D05B1008F3B13 /* Storyboard.swift */,
 			);
 			path = Storyboard;
@@ -597,6 +600,7 @@
 				59D52F871F1CD197008F3B13 /* Info.plist in Resources */,
 				5989231B1F1E2AC600F73974 /* nexa-lightitalic-webfont.ttf in Resources */,
 				5970AF881F224CA7008CA708 /* events.json in Resources */,
+				59EF02211F31CFE400F145B9 /* Event.storyboard in Resources */,
 				598923171F1E2AB800F73974 /* nexa-extrabolditalic-webfont.ttf in Resources */,
 				59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */,
 				598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */,
