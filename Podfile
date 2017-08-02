@@ -13,7 +13,8 @@ target 'Movimenta' do
     "MovimentaEnvironment",
     "MovimentaFacebookAppDisplayName",
     "MovimentaFacebookAppId",
-    "MovimentaGoogleAnalyticsIdentifier"
+    "MovimentaGoogleAnalyticsIdentifier",
+    "MovimentaGoogleAPIKey"
     ]
   }
 
