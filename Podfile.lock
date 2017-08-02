@@ -41,6 +41,11 @@ PODS:
   - FirebaseInstanceID (2.0.0):
     - FirebaseCore (~> 4.0)
   - GoogleAnalytics (3.17.0)
+  - GoogleMaps (2.3.1):
+    - GoogleMaps/Maps (= 2.3.1)
+  - GoogleMaps/Base (2.3.1)
+  - GoogleMaps/Maps (2.3.1):
+    - GoogleMaps/Base
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -70,6 +75,7 @@ DEPENDENCIES:
   - FBSDKShareKit (~> 4.22.1)
   - Firebase/Core (= 4.0.4)
   - GoogleAnalytics (= 3.17.0)
+  - GoogleMaps (= 2.3.1)
   - Keys (from `Pods/CocoaPodsKeys`)
   - Moya (= 8.0.5)
   - SnapKit (= 3.2.0)
@@ -95,6 +101,7 @@ SPEC CHECKSUMS:
   FirebaseCore: cfc042628ef9f20debe09c0eb683135fcd404cb4
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
@@ -103,6 +110,6 @@ SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 7b311ddab5a85ab587ae7195c3f0bc79b39c41e7
+PODFILE CHECKSUM: b20a78121a45cd82770519ca5c421ec072a5ca29
 
 COCOAPODS: 1.2.0
