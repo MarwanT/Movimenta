@@ -6,14 +6,29 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import GoogleMaps
+import SnapKit
 import UIKit
 
 class EventsMapViewController: UIViewController {
+  fileprivate var mapView: GMSMapView!
+  
   var viewModel = EventsMapViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     title = Strings.event_map()
+    
+    addMapsView()
+  }
+  
+  private func addMapsView() {
+    let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 1.0)
+    mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+    view.addSubview(mapView)
+    mapView.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(view)
+    }
   }
 }
 
