@@ -10,6 +10,7 @@ import UIKit
 
 enum Storyboard: String {
   case Root
+  case Event
   
   public func instantiate<VC: UIViewController>(_ viewController: VC.Type,
                           inBundle bundle: Bundle? = nil) -> VC {

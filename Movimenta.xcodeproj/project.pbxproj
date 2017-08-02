@@ -72,6 +72,7 @@
 		59EF02191F3076CF00F145B9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02181F3076CF00F145B9 /* RootViewController.swift */; };
 		59EF021B1F3094BA00F145B9 /* Image+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF021A1F3094BA00F145B9 /* Image+Utils.swift */; };
 		59EF021D1F3094FD00F145B9 /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF021C1F3094FD00F145B9 /* Color+Utils.swift */; };
+		59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */; };
 		59EF02211F31CFE400F145B9 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59EF02201F31CFE400F145B9 /* Event.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +161,7 @@
 		59EF02181F3076CF00F145B9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		59EF021A1F3094BA00F145B9 /* Image+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Utils.swift"; sourceTree = "<group>"; };
 		59EF021C1F3094FD00F145B9 /* Color+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Utils.swift"; sourceTree = "<group>"; };
+		59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMapViewController.swift; sourceTree = "<group>"; };
 		59EF02201F31CFE400F145B9 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 		782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movimenta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta.release.xcconfig"; sourceTree = "<group>"; };
 		D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				59EF02181F3076CF00F145B9 /* RootViewController.swift */,
+				59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
 				59EF02191F3076CF00F145B9 /* RootViewController.swift in Sources */,
 				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
+				59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */,
 				5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */,
 				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
 				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
