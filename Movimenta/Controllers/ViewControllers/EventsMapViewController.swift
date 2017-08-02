@@ -9,6 +9,8 @@
 import UIKit
 
 class EventsMapViewController: UIViewController {
+  var viewModel = EventsMapViewModel()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
