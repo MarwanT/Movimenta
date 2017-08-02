@@ -10,6 +10,8 @@ import UIKit
 import Fabric
 import FacebookCore
 import Crashlytics
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     
     DataManager.shared.reloadData()
+    
+    //Google Maps/Places setup
+    GMSServices.provideAPIKey(Environment.current.googleAPIKey)
+    GMSPlacesClient.provideAPIKey(Environment.current.googleAPIKey)
     
     ThemeManager.shared.current.initialize()
     
