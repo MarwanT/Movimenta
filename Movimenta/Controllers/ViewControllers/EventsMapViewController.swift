@@ -13,6 +13,7 @@ class EventsMapViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = Strings.event_map()
   }
 }
 
