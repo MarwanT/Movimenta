@@ -29,6 +29,7 @@ target 'Movimenta' do
   pod 'Firebase/Core', '4.0.4'
   pod 'GoogleAnalytics', '3.17.0'
   pod 'GoogleMaps', '2.3.1'
+  pod 'GooglePlaces', '2.3.1'
   pod 'Moya', '8.0.5'
   pod 'SnapKit', '3.2.0'
   pod 'SwiftyJSON', '3.1.4'
