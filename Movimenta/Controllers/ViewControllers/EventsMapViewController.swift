@@ -20,6 +20,8 @@ class EventsMapViewController: UIViewController {
     title = Strings.event_map()
     
     initializeMapsView()
+    
+    refreshMapVisibleArea()
   }
   
   private func initializeMapsView() {
@@ -29,6 +31,11 @@ class EventsMapViewController: UIViewController {
     mapView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(view)
     }
+  }
+  
+  fileprivate func refreshMapVisibleArea() {
+    //Calculate overlapping views and update padding
+    mapView.padding = UIEdgeInsets.zero
   }
 }
 
