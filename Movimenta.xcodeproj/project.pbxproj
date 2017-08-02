@@ -74,6 +74,7 @@
 		59EF021D1F3094FD00F145B9 /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF021C1F3094FD00F145B9 /* Color+Utils.swift */; };
 		59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */; };
 		59EF02211F31CFE400F145B9 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59EF02201F31CFE400F145B9 /* Event.storyboard */; };
+		59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		59EF021C1F3094FD00F145B9 /* Color+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Utils.swift"; sourceTree = "<group>"; };
 		59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMapViewController.swift; sourceTree = "<group>"; };
 		59EF02201F31CFE400F145B9 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMapViewModel.swift; sourceTree = "<group>"; };
 		782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movimenta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta.release.xcconfig"; sourceTree = "<group>"; };
 		D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -414,6 +416,7 @@
 		59D52F781F1CD134008F3B13 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				5970AFB51F2A17B3008CA708 /* Font.swift in Sources */,
 				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
 				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
+				59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */,
 				5970AF7F1F20F8F0008CA708 /* MovimentaAPI.swift in Sources */,
 				59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */,
 				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
