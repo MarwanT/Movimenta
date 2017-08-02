@@ -27,6 +27,7 @@ class EventsMapViewController: UIViewController {
   private func initializeMapsView() {
     let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 1.0)
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+    mapView.delegate = self
     view.addSubview(mapView)
     mapView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(view)
@@ -37,6 +38,11 @@ class EventsMapViewController: UIViewController {
     //Calculate overlapping views and update padding
     mapView.padding = UIEdgeInsets.zero
   }
+}
+
+//MARK: Map View Delegate
+extension EventsMapViewController: GMSMapViewDelegate {
+  
 }
 
 //MARK: Instance
