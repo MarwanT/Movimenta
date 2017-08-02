@@ -19,10 +19,10 @@ class EventsMapViewController: UIViewController {
     super.viewDidLoad()
     title = Strings.event_map()
     
-    addMapsView()
+    initializeMapsView()
   }
   
-  private func addMapsView() {
+  private func initializeMapsView() {
     let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 1.0)
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     view.addSubview(mapView)
