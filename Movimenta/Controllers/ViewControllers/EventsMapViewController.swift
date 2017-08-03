@@ -88,13 +88,50 @@ extension EventsMapViewController {
     }
   }
   
+  fileprivate func clearMarkers() {
+    mapView.clear()
+  }
+  
   fileprivate func refreshMapVisibleArea() {
     //Calculate overlapping views and update padding
     mapView.padding = UIEdgeInsets.zero
   }
   
-  fileprivate func clearMarkers() {
-    mapView.clear()
+  fileprivate func updateCameraForSelection() {
+    guard let mapEvent = viewModel.selectedMapEvent else {
+      return
+    }
+    updateCamera(mapEvent: mapEvent)
+  }
+  
+  fileprivate func updateCameraForMapEvents() {
+    updateCamera(mapEvents: viewModel.mapEvents)
+  }
+  
+  fileprivate func updateCamera(mapEvent: MapEvent) {
+    guard let coordinates = mapEvent.event.coordinates else {
+      return
+    }
+    let camera = GMSCameraPosition.camera(withTarget: coordinates, zoom: MapZoom.street)
+    mapView.animate(to: camera)
+  }
+  
+  fileprivate func updateCamera(mapEvents: [MapEvent]) {
+    let coordinates = mapEvents.map { (event, marker) in
+      return marker.position
+    }
+
+    guard coordinates.count > 0 else {
+      return
+    }
+    
+    var bounds = GMSCoordinateBounds()
+    coordinates.forEach { coordinates in
+      bounds = bounds.includingCoordinate(coordinates)
+    }
+    
+    let cameraUpdate = GMSCameraUpdate.fit(bounds)
+    mapView.animate(with: cameraUpdate)
   }
 }
 
