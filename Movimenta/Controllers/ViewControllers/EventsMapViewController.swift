@@ -13,6 +13,8 @@ import UIKit
 class EventsMapViewController: UIViewController {
   fileprivate var mapView: GMSMapView!
   
+  let locationManager = CLLocationManager()
+  
   var viewModel = EventsMapViewModel()
   
   deinit {
@@ -25,6 +27,7 @@ class EventsMapViewController: UIViewController {
     
     // Initialization
     initializeMapsView()
+    initializeLocationManager()
     refreshMapVisibleArea()
     
     // Loading Data
@@ -38,10 +41,20 @@ class EventsMapViewController: UIViewController {
     let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 1.0)
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     mapView.delegate = self
+    mapView.isMyLocationEnabled = true
+    mapView.settings.myLocationButton = true
     view.addSubview(mapView)
     mapView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(view)
     }
+  }
+  
+  private func initializeLocationManager() {
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager.requestWhenInUseAuthorization()
+    locationManager.distanceFilter = 50
+    locationManager.startUpdatingLocation()
+    locationManager.delegate = self
   }
   
   private func addObservers() {
@@ -91,6 +104,26 @@ extension EventsMapViewController: GMSMapViewDelegate {
     _ = viewModel.updateMapEventSelection(for: marker)
     refreshEventDetailsForSelection()
     return true
+  }
+}
+
+//MARK: Location Manager Delegate
+extension EventsMapViewController: CLLocationManagerDelegate {
+  // Handle authorization for the location manager.
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    switch status {
+    case .denied:
+      // TODO: Display Alert stating that the app have no access to the user location
+      return
+    default:
+      return
+    }
+  }
+  
+  // Handle location manager errors.
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    locationManager.stopUpdatingLocation()
+    print("Error: \(error)")
   }
 }
 
