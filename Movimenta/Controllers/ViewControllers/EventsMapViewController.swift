@@ -46,6 +46,10 @@ extension EventsMapViewController {
     viewModel.loadEvents()
     refreshMarkers()
   }
+  
+  fileprivate func refreshEventDetailsForSelection() {
+    // TODO: To be implemented
+  }
 }
 
 ///MARK: - Helper Methods
@@ -73,7 +77,11 @@ extension EventsMapViewController {
 
 //MARK: Map View Delegate
 extension EventsMapViewController: GMSMapViewDelegate {
-  
+  func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+    _ = viewModel.updateMapEventSelection(for: marker)
+    refreshEventDetailsForSelection()
+    return true
+  }
 }
 
 //MARK: Instance
