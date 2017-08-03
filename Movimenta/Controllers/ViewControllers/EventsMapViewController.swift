@@ -62,7 +62,7 @@ class EventsMapViewController: UIViewController {
   }
 }
 
-///MARK: - Data Related APIs
+//MARK: - Data Related APIs
 extension EventsMapViewController {
   /// Reload events based on filters selected and refresh UI
   func reloadEvents() {
@@ -76,7 +76,7 @@ extension EventsMapViewController {
   }
 }
 
-///MARK: - Helper Methods
+//MARK: - Helper Methods
 extension EventsMapViewController {
   fileprivate func refreshMarkers() {
     clearMarkers()
@@ -136,7 +136,7 @@ extension EventsMapViewController {
   }
 }
 
-//MARK: Map View Delegate
+//MARK: - Map View Delegate
 extension EventsMapViewController: GMSMapViewDelegate {
   func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
     _ = viewModel.updateMapEventSelection(for: marker)
@@ -146,7 +146,7 @@ extension EventsMapViewController: GMSMapViewDelegate {
   }
 }
 
-//MARK: Location Manager Delegate
+//MARK: - Location Manager Delegate
 extension EventsMapViewController: CLLocationManagerDelegate {
   // Handle authorization for the location manager.
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -166,7 +166,7 @@ extension EventsMapViewController: CLLocationManagerDelegate {
   }
 }
 
-//MARK: Instance
+//MARK: - Instance
 extension EventsMapViewController {
   static func instance() -> EventsMapViewController {
     return Storyboard.Event.instantiate(EventsMapViewController.self)
