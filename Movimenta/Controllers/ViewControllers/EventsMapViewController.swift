@@ -38,7 +38,7 @@ class EventsMapViewController: UIViewController {
   }
   
   private func initializeMapsView() {
-    let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 1.0)
+    let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: MapZoom.world)
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     mapView.delegate = self
     mapView.isMyLocationEnabled = true
@@ -132,4 +132,10 @@ extension EventsMapViewController {
   static func instance() -> EventsMapViewController {
     return Storyboard.Event.instantiate(EventsMapViewController.self)
   }
+}
+
+//MARK: - Map Zoom
+struct MapZoom{
+  static let world: Float = 1
+  static let street: Float = 15
 }
