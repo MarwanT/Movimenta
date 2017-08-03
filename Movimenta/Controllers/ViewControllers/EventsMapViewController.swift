@@ -15,16 +15,23 @@ class EventsMapViewController: UIViewController {
   
   var viewModel = EventsMapViewModel()
   
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = Strings.event_map()
     
+    // Initialization
     initializeMapsView()
-    
     refreshMapVisibleArea()
     
     // Loading Data
     reloadEvents()
+    
+    // Add observers
+    addObservers()
   }
   
   private func initializeMapsView() {
@@ -37,6 +44,9 @@ class EventsMapViewController: UIViewController {
     }
   }
   
+  private func addObservers() {
+    NotificationCenter.default.addObserver(self, selector: #selector(reloadEvents), name: AppNotification.didLoadData, object: nil)
+  }
 }
 
 ///MARK: - Data Related APIs
