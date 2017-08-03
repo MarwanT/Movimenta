@@ -15,6 +15,11 @@ class DataManager {
       NotificationCenter.default.post(name: AppNotification.didLoadData, object: nil)
     }
   }
+  var events: [Event] {
+    return movimentaEvent?.events?.map({ (key, value) -> Event in
+      return value
+    }) ?? []
+  }
   fileprivate(set) var bookmarkedEvents = [Event]()
   
   static let shared = DataManager()
