@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import GoogleMaps
+
+typealias MapEvent = (event: Event, marker: GMSMarker)
 
 final class EventsMapViewModel {
   
