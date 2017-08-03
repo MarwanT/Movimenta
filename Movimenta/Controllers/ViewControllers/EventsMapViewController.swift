@@ -22,6 +22,9 @@ class EventsMapViewController: UIViewController {
     initializeMapsView()
     
     refreshMapVisibleArea()
+    
+    // Loading Data
+    reloadEvents()
   }
   
   private func initializeMapsView() {
@@ -34,9 +37,37 @@ class EventsMapViewController: UIViewController {
     }
   }
   
+}
+
+///MARK: - Data Related APIs
+extension EventsMapViewController {
+  /// Reload events based on filters selected and refresh UI
+  func reloadEvents() {
+    viewModel.loadEvents()
+    refreshMarkers()
+  }
+}
+
+///MARK: - Helper Methods
+extension EventsMapViewController {
+  fileprivate func refreshMarkers() {
+    clearMarkers()
+    setEventsMarkers(events: viewModel.mapEvents)
+  }
+  
+  fileprivate func setEventsMarkers(events: [MapEvent]) {
+    for mapEvent in events {
+      mapEvent.marker.map = mapView
+    }
+  }
+  
   fileprivate func refreshMapVisibleArea() {
     //Calculate overlapping views and update padding
     mapView.padding = UIEdgeInsets.zero
+  }
+  
+  fileprivate func clearMarkers() {
+    mapView.clear()
   }
 }
 
