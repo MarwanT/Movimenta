@@ -110,3 +110,12 @@ extension Event.EventType: Parsable {
     return Event.EventType(id: id, label: label)
   }
 }
+
+//MARK: - Equatable
+extension Event: Equatable {}
+func ==(lhs: Event, rhs: Event) -> Bool {
+  guard let lhsId = lhs.id, let rhsId = rhs.id else {
+    return false
+  }
+  return lhsId == rhsId
+}
