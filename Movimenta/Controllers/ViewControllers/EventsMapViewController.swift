@@ -140,6 +140,7 @@ extension EventsMapViewController {
 extension EventsMapViewController: GMSMapViewDelegate {
   func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
     _ = viewModel.updateMapEventSelection(for: marker)
+    updateCameraForSelection()
     refreshEventDetailsForSelection()
     return true
   }
