@@ -68,6 +68,7 @@ extension EventsMapViewController {
   func reloadEvents() {
     viewModel.loadEvents()
     refreshMarkers()
+    updateCameraForMapEvents()
   }
   
   fileprivate func refreshEventDetailsForSelection() {
