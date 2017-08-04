@@ -29,8 +29,7 @@ class RootViewController: UITabBarController {
     let virtualRealityVC = UIViewController()
     let infoVC = UIViewController()
     
-    eventsMapVC.tabBarItem = UITabBarItem(title: Strings.event_map(), image: #imageLiteral(resourceName: "pinMenuOutline").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "pinMenuFilled"))
-    eventsMapVC.tabBarItem.tag = 1
+    eventsMapVC.tabBarItem = UITabBarItem(title: Strings.event_map(), image: #imageLiteral(resourceName: "pinMenuOutline"), tag: 1)
     bookmarksVC.tabBarItem = UITabBarItem(title: Strings.bookmarks(), image: #imageLiteral(resourceName: "bookmarkOutline"), tag: 2)
     schedualeVC.tabBarItem = UITabBarItem(title: Strings.scheduale(), image: #imageLiteral(resourceName: "schedule"), tag: 3)
     virtualRealityVC.tabBarItem = UITabBarItem(title: Strings.vr(), image: #imageLiteral(resourceName: "vr"), tag: 4)
