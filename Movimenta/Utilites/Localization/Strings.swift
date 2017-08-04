@@ -9,5 +9,23 @@
 import Foundation
 
 final class Strings {
+  static func bookmarks() -> String {
+    return Localization.localize(key: "bookmarks")
+  }
   
+  static func event_map() -> String {
+    return Localization.localize(key: "event_map")
+  }
+  
+  static func info() -> String {
+    return Localization.localize(key: "info")
+  }
+  
+  static func scheduale() -> String {
+    return Localization.localize(key: "scheduale")
+  }
+  
+  static func vr() -> String {
+    return Localization.localize(key: "vr")
+  }
 }

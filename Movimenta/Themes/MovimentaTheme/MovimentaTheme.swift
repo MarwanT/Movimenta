@@ -18,6 +18,16 @@ final class MovimentaTheme: Theme {
       NSFontAttributeName: font7,
       NSForegroundColorAttributeName : lightTextColor
     ]
+    
+    let tabBarAppearance = UITabBar.appearance()
+    tabBarAppearance.isTranslucent = false
+    tabBarAppearance.barTintColor = tabBarTintColor
+    tabBarAppearance.tintColor =  tabTintColor
+    tabBarAppearance.unselectedItemTintColor = tabUnselectedItemTintColor
+    
+    let tabBarItemAppearance = UITabBarItem.appearance()
+    tabBarItemAppearance.setTitleTextAttributes(
+      [NSFontAttributeName : font17], for: .normal)
   }
   
   //MARK: - Colors
@@ -38,15 +48,28 @@ final class MovimentaTheme: Theme {
   /// #ffffff
   var white: UIColor = UIColor.white
   
-  /// color1
+  
   var darkTextColor: UIColor {
     return color1
   }
-  /// white
   var lightTextColor: UIColor {
     return white
   }
-  
+  var defaultBackgroundColor: UIColor {
+    return color2
+  }
+  var tabBarTintColor: UIColor {
+    return white
+  }
+  var tabTintColor: UIColor {
+    return lightTextColor
+  }
+  var tabSelectionColor: UIColor {
+    return color2
+  }
+  var tabUnselectedItemTintColor: UIColor {
+    return color2
+  }
   
   //MARK: - Spacings
   //=================
