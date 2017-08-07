@@ -13,6 +13,10 @@ class EventDetailsPeekView: UIView {
   @IBOutlet weak var subtitleLabel: UILabel!
   
   var configuration = Configuration()
+  
+  override func awakeAfter(using aDecoder: NSCoder) -> Any? {
+    return viewForNibNameIfNeeded(nibName: type(of: self).defaultNibName)
+  }
 }
 
 extension EventDetailsPeekView {
