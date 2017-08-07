@@ -17,6 +17,8 @@ class EventsMapViewController: UIViewController {
   @IBOutlet weak var eventDetailsPeekViewTopConstraintToSuperviewBottom: NSLayoutConstraint!
   @IBOutlet weak var eventDetailsPeekViewBottomConstraintToSuperviewBottom: NSLayoutConstraint!
   
+  var animationDuration: TimeInterval = 0.4
+  
   let locationManager = CLLocationManager()
   
   var viewModel = EventsMapViewModel()
@@ -31,6 +33,7 @@ class EventsMapViewController: UIViewController {
     
     // Initialization
     initializeMapsView()
+    initializeEventDetailsPeekView()
     initializeLocationManager()
     refreshMapVisibleArea()
     
@@ -54,6 +57,11 @@ class EventsMapViewController: UIViewController {
     }
   }
   
+  private func initializeEventDetailsPeekView() {
+    let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleEventDetailsPeekView(_:)))
+    eventDetailsPeekView.addGestureRecognizer(panGesture)
+  }
+  
   private func initializeLocationManager() {
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.requestWhenInUseAuthorization()
@@ -64,6 +72,21 @@ class EventsMapViewController: UIViewController {
   
   private func addObservers() {
     NotificationCenter.default.addObserver(self, selector: #selector(reloadEvents), name: AppNotification.didLoadData, object: nil)
+  }
+  
+  func handleEventDetailsPeekView(_ gesture: UIPanGestureRecognizer) {
+    if (gesture.state == UIGestureRecognizerState.began) {
+    } else if (gesture.state == UIGestureRecognizerState.changed) {
+      let translation = gesture.translation(in: view)
+      eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+    } else if (gesture.state == UIGestureRecognizerState.ended) {
+      let velocity = gesture.velocity(in: view)
+      if velocity.x < 0 {
+        // finish
+      } else {
+        // cancel
+      }
+    }
   }
 }
 
@@ -181,10 +204,6 @@ extension EventsMapViewController {
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
     }
-  }
-  
-  var animationDuration: TimeInterval {
-    return 0.4
   }
 }
 
