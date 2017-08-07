@@ -108,6 +108,10 @@ extension EventsMapViewController {
       hideEventDetailsPeekView()
     }
   }
+  
+  func showEventDetailsPeekView(event: Event) {
+    showEventDetailsPeekView()
+  }
 }
 
 //MARK: - Helper Methods
@@ -175,10 +179,6 @@ extension EventsMapViewController {
   
   //======================================================
   // Event Details Peek View Helpers
-  
-  func showEventDetailsPeekView(event: Event) {
-    showEventDetailsPeekView()
-  }
   
   func showEventDetailsPeekView() {
     if eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
