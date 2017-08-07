@@ -45,6 +45,7 @@ class EventsMapViewController: UIViewController {
     mapView.isMyLocationEnabled = true
     mapView.settings.myLocationButton = true
     view.addSubview(mapView)
+    view.sendSubview(toBack: mapView)
     mapView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(view)
     }
