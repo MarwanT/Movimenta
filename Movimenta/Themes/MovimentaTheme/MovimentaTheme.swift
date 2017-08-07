@@ -80,6 +80,8 @@ final class MovimentaTheme: Theme {
   var space4: Float = 26
   var space5: Float = 30
   var space6: Float = 48
+  var space7: Float = 20
+  var space8: Float = 10
   
   
   // MARK: - Fonts
