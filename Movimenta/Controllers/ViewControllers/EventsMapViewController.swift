@@ -83,8 +83,10 @@ class EventsMapViewController: UIViewController {
       let velocity = gesture.velocity(in: view)
       if velocity.x < 0 {
         // finish
+        snapEventDetailsPeekView(direction: .top)
       } else {
         // cancel
+        snapEventDetailsPeekView(direction: .bottom)
       }
     }
   }
@@ -204,6 +206,28 @@ extension EventsMapViewController {
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
     }
+  }
+  
+  fileprivate func snapEventDetailsPeekView(direction: Direction) {
+    var value: CGFloat = 0
+    switch direction {
+    case .top:
+      value = view.bounds.height - eventDetailsPeekView.bounds.height
+    case .bottom:
+      value = 0
+    }
+  
+    eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = -value
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) {
+      self.eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: 0)
+      self.view.layoutIfNeeded()
+    }
+  }
+  
+  enum Direction {
+    case top
+    case bottom
   }
 }
 
