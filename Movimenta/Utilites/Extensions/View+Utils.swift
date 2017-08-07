@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+extension UIView {
+  public static var defaultNibName: String {
+    return self.description().components(separatedBy: ".").dropFirst().joined(separator: ".")
+  }
+}
