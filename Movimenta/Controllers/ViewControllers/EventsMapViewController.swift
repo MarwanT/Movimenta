@@ -14,6 +14,9 @@ class EventsMapViewController: UIViewController {
   fileprivate var mapView: GMSMapView!
   @IBOutlet weak var eventDetailsPeekView: EventDetailsPeekView!
   
+  @IBOutlet weak var eventDetailsPeekViewTopConstraintToSuperviewBottom: NSLayoutConstraint!
+  @IBOutlet weak var eventDetailsPeekViewBottomConstraintToSuperviewBottom: NSLayoutConstraint!
+  
   let locationManager = CLLocationManager()
   
   var viewModel = EventsMapViewModel()
@@ -74,12 +77,19 @@ extension EventsMapViewController {
   }
   
   fileprivate func refreshEventDetailsForSelection() {
-    // TODO: To be implemented
+    if let mapEvent = viewModel.selectedMapEvent {
+      showEventDetailsPeekView(event: mapEvent.event)
+    } else {
+      hideEventDetailsPeekView()
+    }
   }
 }
 
 //MARK: - Helper Methods
 extension EventsMapViewController {
+  //======================================================
+  // Map Helpers
+  
   fileprivate func refreshMarkers() {
     clearMarkers()
     setEventsMarkers(events: viewModel.mapEvents)
@@ -135,6 +145,43 @@ extension EventsMapViewController {
     
     let cameraUpdate = GMSCameraUpdate.fit(bounds)
     mapView.animate(with: cameraUpdate)
+  }
+  
+  //======================================================
+  // Event Details Peek View Helpers
+  
+  func showEventDetailsPeekView(event: Event) {
+    showEventDetailsPeekView()
+  }
+  
+  func showEventDetailsPeekView() {
+    if eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
+      view.removeConstraint(eventDetailsPeekViewTopConstraintToSuperviewBottom)
+    }
+    if !eventDetailsPeekViewBottomConstraintToSuperviewBottom.isActive {
+      view.addConstraint(eventDetailsPeekViewBottomConstraintToSuperviewBottom)
+    }
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) {
+      self.view.layoutIfNeeded()
+    }
+  }
+  
+  func hideEventDetailsPeekView() {
+    if eventDetailsPeekViewBottomConstraintToSuperviewBottom.isActive {
+      view.removeConstraint(eventDetailsPeekViewBottomConstraintToSuperviewBottom)
+    }
+    if !eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
+      view.addConstraint(eventDetailsPeekViewTopConstraintToSuperviewBottom)
+    }
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) { 
+      self.view.layoutIfNeeded()
+    }
+  }
+  
+  var animationDuration: TimeInterval {
+    return 0.4
   }
 }
 

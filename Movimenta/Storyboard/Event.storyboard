@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shR-Qn-uEw" userLabel="Event Details Peek View" customClass="EventDetailsPeekView" customModule="Movimenta" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="667" width="375" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" placeholder="YES" id="K2X-Iw-d2q"/>
@@ -33,11 +33,19 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="shR-Qn-uEw" secondAttribute="trailing" id="C06-FW-jKL"/>
                             <constraint firstItem="shR-Qn-uEw" firstAttribute="leading" secondItem="UWL-ck-MBY" secondAttribute="leading" id="rim-UB-il6"/>
-                            <constraint firstItem="3Fa-Ml-utI" firstAttribute="top" secondItem="shR-Qn-uEw" secondAttribute="bottom" id="siS-mx-Tc9"/>
+                            <constraint firstItem="shR-Qn-uEw" firstAttribute="bottom" secondItem="3Fa-Ml-utI" secondAttribute="top" id="siS-mx-Tc9"/>
+                            <constraint firstItem="shR-Qn-uEw" firstAttribute="top" secondItem="3Fa-Ml-utI" secondAttribute="top" id="z6f-Av-mpY"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="siS-mx-Tc9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="eventDetailsPeekView" destination="shR-Qn-uEw" id="9yq-WP-12F"/>
+                        <outlet property="eventDetailsPeekViewBottomConstraintToSuperviewBottom" destination="siS-mx-Tc9" id="1Af-ap-ATR"/>
+                        <outlet property="eventDetailsPeekViewTopConstraintToSuperviewBottom" destination="z6f-Av-mpY" id="0VT-6C-Alp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="am5-lW-MvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
