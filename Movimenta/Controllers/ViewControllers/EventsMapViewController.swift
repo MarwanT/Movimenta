@@ -106,8 +106,9 @@ extension EventsMapViewController {
   }
   
   fileprivate func refreshMapVisibleArea() {
-    //Calculate overlapping views and update padding
-    mapView.padding = UIEdgeInsets.zero
+    let isEventDetailsPeekViewVisible = viewModel.selectedMapEvent != nil
+    let paddingBottom: CGFloat = isEventDetailsPeekViewVisible ? eventDetailsPeekView.bounds.height : 0
+    mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: paddingBottom, right: 0)
   }
   
   fileprivate func updateCameraForSelection() {
@@ -164,6 +165,7 @@ extension EventsMapViewController {
     view.setNeedsUpdateConstraints()
     UIView.animate(withDuration: animationDuration) {
       self.view.layoutIfNeeded()
+      self.refreshMapVisibleArea()
     }
   }
   
@@ -177,6 +179,7 @@ extension EventsMapViewController {
     view.setNeedsUpdateConstraints()
     UIView.animate(withDuration: animationDuration) { 
       self.view.layoutIfNeeded()
+      self.refreshMapVisibleArea()
     }
   }
   
