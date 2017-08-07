@@ -11,6 +11,8 @@ import UIKit
 class EventDetailsPeekView: UIView {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
+  
+  var configuration = Configuration()
 }
 
 extension EventDetailsPeekView {
