@@ -12,6 +12,7 @@ import UIKit
 
 class EventsMapViewController: UIViewController {
   fileprivate var mapView: GMSMapView!
+  @IBOutlet weak var eventDetailsPeekView: EventDetailsPeekView!
   
   let locationManager = CLLocationManager()
   
