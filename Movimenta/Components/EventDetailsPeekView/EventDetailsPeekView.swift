@@ -17,6 +17,23 @@ class EventDetailsPeekView: UIView {
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
     return viewForNibNameIfNeeded(nibName: type(of: self).defaultNibName)
   }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    applyTheme()
+    setup()
+  }
+  
+  private func setup() {
+    layoutMargins = configuration.internalMargins
+  }
+  
+  private func applyTheme() {
+    titleLabel.font = ThemeManager.shared.current.font4
+    subtitleLabel.font = ThemeManager.shared.current.font12
+    titleLabel.textColor = ThemeManager.shared.current.color2
+    subtitleLabel.textColor = ThemeManager.shared.current.darkTextColor
+  }
 }
 
 extension EventDetailsPeekView {
