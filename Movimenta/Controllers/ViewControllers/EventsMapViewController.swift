@@ -84,18 +84,25 @@ class EventsMapViewController: UIViewController {
   
   func handleEventDetailsPeekView(panGesture: UIPanGestureRecognizer) {
     if (panGesture.state == UIGestureRecognizerState.began) {
+      eventsMapNavigationDelegate.interactionController = UIPercentDrivenInteractiveTransition()
+      navigateToEventDetailsVC()
     } else if (panGesture.state == UIGestureRecognizerState.changed) {
       let translation = panGesture.translation(in: view)
+      let percentComplete = (translation.y / view.bounds.height) * -1;
       eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+      eventsMapNavigationDelegate.interactionController?.update(percentComplete)
     } else if (panGesture.state == UIGestureRecognizerState.ended) {
       let velocity = panGesture.velocity(in: view)
-      if velocity.x < 0 {
+      if velocity.y < 0 {
         // finish
         snapEventDetailsPeekView(direction: .top)
+        eventsMapNavigationDelegate.interactionController?.finish()
       } else {
         // cancel
         snapEventDetailsPeekView(direction: .bottom)
+        eventsMapNavigationDelegate.interactionController?.cancel()
       }
+      eventsMapNavigationDelegate.interactionController = nil
     }
   }
   
