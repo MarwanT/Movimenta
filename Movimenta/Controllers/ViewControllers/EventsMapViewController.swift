@@ -25,6 +25,8 @@ class EventsMapViewController: UIViewController {
   
   var eventDetailsSnapPosition: Direction = .bottom
   
+  var eventsMapNavigationDelegate = EventsMapNavigationDelegate()
+  
   deinit {
     NotificationCenter.default.removeObserver(self)
   }
@@ -44,6 +46,8 @@ class EventsMapViewController: UIViewController {
     
     // Add observers
     addObservers()
+    
+    self.navigationController?.delegate = eventsMapNavigationDelegate
   }
   
   private func initializeMapsView() {
