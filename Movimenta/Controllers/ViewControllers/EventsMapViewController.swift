@@ -61,7 +61,9 @@ class EventsMapViewController: UIViewController {
   
   private func initializeEventDetailsPeekView() {
     let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleEventDetailsPeekView(panGesture:)))
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleEventDetailsPeekView(tapGesture:)))
     eventDetailsPeekView.addGestureRecognizer(panGesture)
+    eventDetailsPeekView.addGestureRecognizer(tapGesture)
   }
   
   private func initializeLocationManager() {
@@ -90,6 +92,15 @@ class EventsMapViewController: UIViewController {
         // cancel
         snapEventDetailsPeekView(direction: .bottom)
       }
+    }
+  }
+  
+  func handleEventDetailsPeekView(tapGesture: UIPanGestureRecognizer) {
+    switch eventDetailsSnapPosition {
+    case .top:
+      snapEventDetailsPeekView(direction: .bottom)
+    default:
+      snapEventDetailsPeekView(direction: .top)
     }
   }
 }
