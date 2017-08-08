@@ -110,6 +110,8 @@ extension EventsMapViewController {
   }
   
   func showEventDetailsPeekView(event: Event) {
+    eventDetailsPeekView.titleLabel.text = event.title
+    eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel
     showEventDetailsPeekView()
   }
 }
