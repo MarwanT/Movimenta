@@ -293,6 +293,35 @@ struct MapZoom{
 
 //MARK: - Navigation Delegate
 extension EventsMapViewController {
+  class EventsMapNavigationDelegate: NSObject, UINavigationControllerDelegate {
+    var interactionController: UIPercentDrivenInteractiveTransition?
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+      switch operation {
+      case .push:
+        guard verifyViewControllers(eventsMap: fromVC, eventDetails: toVC) else {
+          return nil
+        }
+        return SlideUpAnimator()
+      case .pop:
+        guard verifyViewControllers(eventsMap: toVC, eventDetails: fromVC) else {
+          return nil
+        }
+        return SlideDownAnimator()
+      default:
+        return nil
+      }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+      return self.interactionController
+    }
+    
+    private func verifyViewControllers(eventsMap: UIViewController, eventDetails: UIViewController) -> Bool {
+      return (eventsMap is EventsMapViewController) && (eventDetails is EventDetailsViewController)
+    }
+  }
+  
   class SlideUpAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
       return 0.4
