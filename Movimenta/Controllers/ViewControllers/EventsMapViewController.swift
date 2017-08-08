@@ -103,8 +103,9 @@ class EventsMapViewController: UIViewController {
     switch eventDetailsSnapPosition {
     case .top:
       snapEventDetailsPeekView(direction: .bottom)
-    default:
+    case .bottom:
       snapEventDetailsPeekView(direction: .top)
+      navigateToEventDetailsVC()
     }
   }
 }
@@ -197,7 +198,12 @@ extension EventsMapViewController {
   }
   
   //======================================================
-  // Event Details Peek View Helpers
+  // Event Details Peek Helpers
+  
+  fileprivate func navigateToEventDetailsVC() {
+    let vc = EventDetailsViewController.instance()
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
   
   func showEventDetailsPeekView() {
     if eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
