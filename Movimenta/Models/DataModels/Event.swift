@@ -83,6 +83,28 @@ extension Event {
     var id: String?
     var label: String?
     var subCategories: [Category]?
+    
+    /**
+     If the category has no subcategories then the array has one element with
+     the category label.
+     Otherwise, the subcategories labels are concatenated with the label
+     of this category.
+     */
+    func displayStrings() -> [String] {
+      var labels = [String]()
+      if let subCategories = subCategories, subCategories.count > 0 {
+        var parentLabel = ""
+        if let label = label {
+          parentLabel = label + "/"
+        }
+        subCategories.forEach({
+          labels.append("\(parentLabel)\($0)")
+        })
+      } else if let label = label {
+        labels.append(label)
+      }
+      return labels
+    }
   }
 }
 
