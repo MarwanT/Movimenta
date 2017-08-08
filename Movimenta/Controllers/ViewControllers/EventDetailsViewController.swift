@@ -9,6 +9,10 @@
 import UIKit
 
 class EventDetailsViewController: UIViewController {
+  static func instance() -> EventDetailsViewController {
+    return Storyboard.Event.instantiate(EventDetailsViewController.self)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
