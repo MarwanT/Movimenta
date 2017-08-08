@@ -323,4 +323,34 @@ extension EventsMapViewController {
       }
     }
   }
+  
+  class SlideDownAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+      return 0.4
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+      guard let eventMapsVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? EventsMapViewController,
+        let eventDetailsVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? EventDetailsViewController,
+        let eventMapsView = eventMapsVC.view,
+        let eventDetailsView = eventDetailsVC.view
+        else {
+          return
+      }
+      
+      transitionContext.containerView.insertSubview(eventMapsView, belowSubview: eventDetailsView)
+      
+      var bottomPoint = eventMapsView.frame.origin
+      bottomPoint.y += eventMapsView.frame.height
+      
+      eventMapsVC.snapEventDetailsPeekView(direction: .bottom)
+      
+      UIView.animate(withDuration: transitionDuration(using: nil) , animations: { () -> Void in
+        eventDetailsView.frame.origin = bottomPoint
+        eventDetailsView.alpha = 0.5
+      }) { (completed: Bool) -> Void in
+        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+      }
+    }
+  }
 }
