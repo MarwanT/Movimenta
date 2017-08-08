@@ -58,7 +58,7 @@ class EventsMapViewController: UIViewController {
   }
   
   private func initializeEventDetailsPeekView() {
-    let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleEventDetailsPeekView(_:)))
+    let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleEventDetailsPeekView(panGesture:)))
     eventDetailsPeekView.addGestureRecognizer(panGesture)
   }
   
@@ -74,13 +74,13 @@ class EventsMapViewController: UIViewController {
     NotificationCenter.default.addObserver(self, selector: #selector(reloadEvents), name: AppNotification.didLoadData, object: nil)
   }
   
-  func handleEventDetailsPeekView(_ gesture: UIPanGestureRecognizer) {
-    if (gesture.state == UIGestureRecognizerState.began) {
-    } else if (gesture.state == UIGestureRecognizerState.changed) {
-      let translation = gesture.translation(in: view)
+  func handleEventDetailsPeekView(panGesture: UIPanGestureRecognizer) {
+    if (panGesture.state == UIGestureRecognizerState.began) {
+    } else if (panGesture.state == UIGestureRecognizerState.changed) {
+      let translation = panGesture.translation(in: view)
       eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: translation.y)
-    } else if (gesture.state == UIGestureRecognizerState.ended) {
-      let velocity = gesture.velocity(in: view)
+    } else if (panGesture.state == UIGestureRecognizerState.ended) {
+      let velocity = panGesture.velocity(in: view)
       if velocity.x < 0 {
         // finish
         snapEventDetailsPeekView(direction: .top)
