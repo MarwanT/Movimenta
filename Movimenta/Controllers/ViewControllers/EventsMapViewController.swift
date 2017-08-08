@@ -223,7 +223,7 @@ extension EventsMapViewController {
     }
   }
   
-  fileprivate func snapEventDetailsPeekView(direction: Direction) {
+  func snapEventDetailsPeekView(direction: Direction) {
     eventDetailsSnapPosition = direction
     
     var value: CGFloat = 0
