@@ -37,6 +37,35 @@ struct Event: ModelCommonProperties {
     }
     return DataManager.shared.bookmarked(eventId: id)
   }
+  
+  var categories: [Category] {
+    return generateCategories()
+  }
+}
+
+//MARK: Helpers
+extension Event {
+  func generateCategories() -> [Category] {
+    var tempArray = [Category]()
+    categoriesIds?.forEach({ (id) in
+      guard var cat = DataManager.shared.categories[id] else {
+        return
+      }
+      
+      if let subCat = cat.subCategories, subCat.count > 0 {
+        var subCategories = [Category]()
+        subCat.forEach({
+          if let id = $0.id, (categoriesIds?.contains(id) ?? false) {
+            subCategories.append($0)
+          }
+        })
+        cat.subCategories = subCategories
+      }
+      
+      tempArray.append(cat)
+    })
+    return tempArray
+  }
 }
 
 //MARK: APIs
