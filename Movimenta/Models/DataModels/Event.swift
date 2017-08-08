@@ -41,6 +41,10 @@ struct Event: ModelCommonProperties {
   var categories: [Category] {
     return generateCategories()
   }
+  
+  var displayedCategoryLabel: String {
+    return categories.first?.displayStrings().first ?? ""
+  }
 }
 
 //MARK: Helpers
