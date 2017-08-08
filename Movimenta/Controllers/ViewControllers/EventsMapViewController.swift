@@ -23,6 +23,8 @@ class EventsMapViewController: UIViewController {
   
   var viewModel = EventsMapViewModel()
   
+  var eventDetailsSnapPosition: Direction = .bottom
+  
   deinit {
     NotificationCenter.default.removeObserver(self)
   }
@@ -211,6 +213,8 @@ extension EventsMapViewController {
   }
   
   fileprivate func snapEventDetailsPeekView(direction: Direction) {
+    eventDetailsSnapPosition = direction
+    
     var value: CGFloat = 0
     switch direction {
     case .top:
