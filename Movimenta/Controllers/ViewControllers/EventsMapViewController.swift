@@ -290,3 +290,37 @@ struct MapZoom{
   static let world: Float = 1
   static let street: Float = 15
 }
+
+//MARK: - Navigation Delegate
+extension EventsMapViewController {
+  class SlideUpAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+      return 0.4
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+      guard let eventMapsVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? EventsMapViewController,
+        let eventDetailsVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? EventDetailsViewController,
+        let eventMapsView = eventMapsVC.view,
+        let eventDetailsView = eventDetailsVC.view
+      else {
+        return
+      }
+      
+      transitionContext.containerView.addSubview(eventDetailsView)
+      
+      var bottomPoint = eventMapsView.frame.origin
+      bottomPoint.y += (eventMapsView.frame.height - eventMapsVC.eventDetailsPeekView.frame.height)
+      
+      eventDetailsView.frame.origin = bottomPoint
+      eventDetailsView.alpha = 0.5
+      
+      UIView.animate(withDuration: transitionDuration(using: nil) , animations: { () -> Void in
+        eventDetailsView.frame.origin = eventMapsView.frame.origin
+        eventDetailsView.alpha = 1
+      }) { (completed: Bool) -> Void in
+        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+      }
+    }
+  }
+}
