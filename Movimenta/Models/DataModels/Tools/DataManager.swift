@@ -20,6 +20,9 @@ class DataManager {
       return value
     }) ?? []
   }
+  var categories: [String : Event.Category] {
+    return movimentaEvent?.categories ?? [:]
+  }
   fileprivate(set) var bookmarkedEvents = [Event]()
   
   static let shared = DataManager()
