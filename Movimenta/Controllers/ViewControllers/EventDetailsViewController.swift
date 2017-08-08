@@ -9,6 +9,8 @@
 import UIKit
 
 class EventDetailsViewController: UIViewController {
+  var viewModel = EventDetailsViewModel()
+  
   static func instance() -> EventDetailsViewController {
     return Storyboard.Event.instantiate(EventDetailsViewController.self)
   }
