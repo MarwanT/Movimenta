@@ -25,6 +25,8 @@ class EventsMapViewController: UIViewController {
   
   var eventDetailsSnapPosition: Direction = .bottom
   
+  var eventsMapNavigationDelegate = EventsMapNavigationDelegate()
+  
   deinit {
     NotificationCenter.default.removeObserver(self)
   }
@@ -44,6 +46,8 @@ class EventsMapViewController: UIViewController {
     
     // Add observers
     addObservers()
+    
+    self.navigationController?.delegate = eventsMapNavigationDelegate
   }
   
   private func initializeMapsView() {
@@ -80,18 +84,25 @@ class EventsMapViewController: UIViewController {
   
   func handleEventDetailsPeekView(panGesture: UIPanGestureRecognizer) {
     if (panGesture.state == UIGestureRecognizerState.began) {
+      eventsMapNavigationDelegate.interactionController = UIPercentDrivenInteractiveTransition()
+      navigateToEventDetailsVC()
     } else if (panGesture.state == UIGestureRecognizerState.changed) {
       let translation = panGesture.translation(in: view)
+      let percentComplete = (translation.y / view.bounds.height) * -1;
       eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+      eventsMapNavigationDelegate.interactionController?.update(percentComplete)
     } else if (panGesture.state == UIGestureRecognizerState.ended) {
       let velocity = panGesture.velocity(in: view)
-      if velocity.x < 0 {
+      if velocity.y < 0 {
         // finish
         snapEventDetailsPeekView(direction: .top)
+        eventsMapNavigationDelegate.interactionController?.finish()
       } else {
         // cancel
         snapEventDetailsPeekView(direction: .bottom)
+        eventsMapNavigationDelegate.interactionController?.cancel()
       }
+      eventsMapNavigationDelegate.interactionController = nil
     }
   }
   
@@ -99,8 +110,9 @@ class EventsMapViewController: UIViewController {
     switch eventDetailsSnapPosition {
     case .top:
       snapEventDetailsPeekView(direction: .bottom)
-    default:
+    case .bottom:
       snapEventDetailsPeekView(direction: .top)
+      navigateToEventDetailsVC()
     }
   }
 }
@@ -193,7 +205,12 @@ extension EventsMapViewController {
   }
   
   //======================================================
-  // Event Details Peek View Helpers
+  // Event Details Peek Helpers
+  
+  fileprivate func navigateToEventDetailsVC() {
+    let vc = EventDetailsViewController.instance()
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
   
   func showEventDetailsPeekView() {
     if eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
@@ -223,7 +240,7 @@ extension EventsMapViewController {
     }
   }
   
-  fileprivate func snapEventDetailsPeekView(direction: Direction) {
+  func snapEventDetailsPeekView(direction: Direction) {
     eventDetailsSnapPosition = direction
     
     var value: CGFloat = 0
@@ -289,4 +306,97 @@ extension EventsMapViewController {
 struct MapZoom{
   static let world: Float = 1
   static let street: Float = 15
+}
+
+//MARK: - Navigation Delegate
+extension EventsMapViewController {
+  class EventsMapNavigationDelegate: NSObject, UINavigationControllerDelegate {
+    var interactionController: UIPercentDrivenInteractiveTransition?
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+      switch operation {
+      case .push:
+        guard verifyViewControllers(eventsMap: fromVC, eventDetails: toVC) else {
+          return nil
+        }
+        return SlideUpAnimator()
+      case .pop:
+        guard verifyViewControllers(eventsMap: toVC, eventDetails: fromVC) else {
+          return nil
+        }
+        return SlideDownAnimator()
+      default:
+        return nil
+      }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+      return self.interactionController
+    }
+    
+    private func verifyViewControllers(eventsMap: UIViewController, eventDetails: UIViewController) -> Bool {
+      return (eventsMap is EventsMapViewController) && (eventDetails is EventDetailsViewController)
+    }
+  }
+  
+  class SlideUpAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+      return 0.4
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+      guard let eventMapsVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? EventsMapViewController,
+        let eventDetailsVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? EventDetailsViewController,
+        let eventMapsView = eventMapsVC.view,
+        let eventDetailsView = eventDetailsVC.view
+      else {
+        return
+      }
+      
+      transitionContext.containerView.addSubview(eventDetailsView)
+      
+      var bottomPoint = eventMapsView.frame.origin
+      bottomPoint.y += (eventMapsView.frame.height - eventMapsVC.eventDetailsPeekView.frame.height)
+      
+      eventDetailsView.frame.origin = bottomPoint
+      eventDetailsView.alpha = 0.5
+      
+      UIView.animate(withDuration: transitionDuration(using: nil) , animations: { () -> Void in
+        eventDetailsView.frame.origin = eventMapsView.frame.origin
+        eventDetailsView.alpha = 1
+      }) { (completed: Bool) -> Void in
+        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+      }
+    }
+  }
+  
+  class SlideDownAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+      return 0.4
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+      guard let eventMapsVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? EventsMapViewController,
+        let eventDetailsVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? EventDetailsViewController,
+        let eventMapsView = eventMapsVC.view,
+        let eventDetailsView = eventDetailsVC.view
+        else {
+          return
+      }
+      
+      transitionContext.containerView.insertSubview(eventMapsView, belowSubview: eventDetailsView)
+      
+      var bottomPoint = eventMapsView.frame.origin
+      bottomPoint.y += eventMapsView.frame.height
+      
+      eventMapsVC.snapEventDetailsPeekView(direction: .bottom)
+      
+      UIView.animate(withDuration: transitionDuration(using: nil) , animations: { () -> Void in
+        eventDetailsView.frame.origin = bottomPoint
+        eventDetailsView.alpha = 0.5
+      }) { (completed: Bool) -> Void in
+        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+      }
+    }
+  }
 }
