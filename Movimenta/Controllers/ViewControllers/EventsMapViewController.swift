@@ -208,7 +208,12 @@ extension EventsMapViewController {
   // Event Details Peek Helpers
   
   fileprivate func navigateToEventDetailsVC() {
+    guard let event = viewModel.selectedMapEvent?.event else {
+      return
+    }
+    
     let vc = EventDetailsViewController.instance()
+    vc.initialize(with: event)
     self.navigationController?.pushViewController(vc, animated: true)
   }
   
