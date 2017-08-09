@@ -42,6 +42,30 @@ struct Event: ModelCommonProperties {
     return generateCategories()
   }
   
+  var artists: [Participant] {
+    return artistsCollection()
+  }
+  
+  var speakers: [Participant] {
+    return speakersCollection()
+  }
+  
+  var sponsors: [Participant] {
+    return sponsorsCollection()
+  }
+  
+  var companies: [Participant] {
+    return companiesCollection()
+  }
+  
+  var organizers: [Participant] {
+    return organizersCollection()
+  }
+  
+  var participant: [Participant] {
+    return artists + speakers + sponsors + companies + organizers
+  }
+  
   var displayedCategoryLabel: String {
     return categories.first?.displayStrings().first ?? ""
   }
@@ -49,7 +73,7 @@ struct Event: ModelCommonProperties {
 
 //MARK: Helpers
 extension Event {
-  func generateCategories() -> [Category] {
+  fileprivate func generateCategories() -> [Category] {
     var tempArray = [Category]()
     categoriesIds?.forEach({ (id) in
       guard var cat = DataManager.shared.categories[id] else {
@@ -69,6 +93,37 @@ extension Event {
       tempArray.append(cat)
     })
     return tempArray
+  }
+  
+  fileprivate func artistsCollection() -> [Participant] {
+    return participants(with: artistsIds ?? [], in: DataManager.shared.artists)
+  }
+  
+  fileprivate func speakersCollection() -> [Participant] {
+    return participants(with: speakersIds ?? [], in: DataManager.shared.speakers)
+  }
+  
+  fileprivate func sponsorsCollection() -> [Participant] {
+    return participants(with: sponsorsIds ?? [], in: DataManager.shared.sponsers)
+  }
+  
+  fileprivate func companiesCollection() -> [Participant] {
+    return participants(with: companiesIds ?? [], in: DataManager.shared.companies)
+  }
+  
+  fileprivate func organizersCollection() -> [Participant] {
+    return participants(with: organizersIds ?? [], in: DataManager.shared.organizers)
+  }
+  
+  fileprivate func participants(with ids: [String], in participantsDictionary: [String : Participant]) -> [Participant] {
+    var collection = [Participant]()
+    ids.forEach({ (id) in
+      guard let participant = participantsDictionary[id] else {
+        return
+      }
+      collection.append(participant)
+    })
+    return collection
   }
 }
 

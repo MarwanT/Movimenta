@@ -23,6 +23,21 @@ class DataManager {
   var categories: [String : Event.Category] {
     return movimentaEvent?.categories ?? [:]
   }
+  var organizers: [String : Participant] {
+    return movimentaEvent?.organizers ?? [:]
+  }
+  var artists: [String : Participant] {
+    return movimentaEvent?.artists ?? [:]
+  }
+  var companies: [String : Participant] {
+    return movimentaEvent?.companies ?? [:]
+  }
+  var speakers: [String : Participant] {
+    return movimentaEvent?.speakers ?? [:]
+  }
+  var sponsers: [String : Participant] {
+    return movimentaEvent?.sponsors ?? [:]
+  }
   fileprivate(set) var bookmarkedEvents = [Event]()
   
   static let shared = DataManager()
