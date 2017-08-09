@@ -188,10 +188,13 @@ extension Event {
       if let subCategories = subCategories, subCategories.count > 0 {
         var parentLabel = ""
         if let label = label {
-          parentLabel = label + "/"
+          parentLabel = label + " / "
         }
         subCategories.forEach({
-          labels.append("\(parentLabel)\($0)")
+          guard let subLabel = $0.label else {
+            return
+          }
+          labels.append("\(parentLabel)\(subLabel)")
         })
       } else if let label = label {
         labels.append(label)
