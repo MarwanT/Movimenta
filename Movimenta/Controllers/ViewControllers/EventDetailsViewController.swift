@@ -28,5 +28,18 @@ class EventDetailsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    titleLabel.font = theme.font1
+    titleLabel.textColor = theme.darkTextColor
+    categoriesLabel.font = theme.font12
+    categoriesLabel.textColor = theme.darkTextColor
+    participantsLabel.font = theme.font13
+    participantsLabel.textColor = theme.color2
+    descriptionLabel.font = theme.font6
+    descriptionLabel.textColor = theme.darkTextColor
   }
 }
