@@ -64,7 +64,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VGA-3H-Br7" userLabel="Event Information Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VGA-3H-Br7" userLabel="Details Stack View">
                                 <rect key="frame" x="0.0" y="20" width="375" height="282"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5L9-40-L90">
@@ -107,6 +107,14 @@
                             <constraint firstItem="VGA-3H-Br7" firstAttribute="top" secondItem="wS9-gH-7pP" secondAttribute="bottom" id="ZRb-o2-Top"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoriesLabel" destination="oDb-eA-GIn" id="XBr-8X-3XH"/>
+                        <outlet property="descriptionLabel" destination="t3h-1r-O1a" id="05f-gf-UMo"/>
+                        <outlet property="detailsStackView" destination="VGA-3H-Br7" id="gSB-2S-tls"/>
+                        <outlet property="imageView" destination="5L9-40-L90" id="X2V-7G-13o"/>
+                        <outlet property="participantsLabel" destination="bRt-2u-jM9" id="Ghc-nI-mTv"/>
+                        <outlet property="titleLabel" destination="o7A-di-lJf" id="zV9-JL-KKJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3B-jX-6Om" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
