@@ -9,5 +9,9 @@
 import Foundation
 
 final class EventDetailsViewModel {
+  fileprivate(set) var event: Event!
   
+  func initialize(with event: Event) {
+    self.event = event
+  }
 }

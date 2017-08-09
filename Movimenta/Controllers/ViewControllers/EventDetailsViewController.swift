@@ -15,6 +15,10 @@ class EventDetailsViewController: UIViewController {
     return Storyboard.Event.instantiate(EventDetailsViewController.self)
   }
   
+  func initialize(with event: Event) {
+    viewModel.initialize(with: event)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
