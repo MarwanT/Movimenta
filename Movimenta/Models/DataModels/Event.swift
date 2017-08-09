@@ -69,6 +69,11 @@ struct Event: ModelCommonProperties {
   var displayedCategoryLabel: String {
     return categories.first?.displayStrings().first ?? ""
   }
+  
+  var displayedPrticipantsLabel: String {
+    let names = participant.flatMap { $0.name }
+    return names.joined(separator: ", ")
+  }
 }
 
 //MARK: Helpers
