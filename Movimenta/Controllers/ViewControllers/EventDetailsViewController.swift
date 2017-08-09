@@ -29,6 +29,7 @@ class EventDetailsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     applyTheme()
+    loadData()
   }
   
   private func applyTheme() {
@@ -41,5 +42,13 @@ class EventDetailsViewController: UIViewController {
     participantsLabel.textColor = theme.color2
     descriptionLabel.font = theme.font6
     descriptionLabel.textColor = theme.darkTextColor
+  }
+  
+  private func loadData() {
+    // TODO: Set image
+    titleLabel.text = viewModel.title
+    categoriesLabel.text = viewModel.categoriesLabel
+    participantsLabel.text = viewModel.participantsLabel
+    descriptionLabel.text = viewModel.description
   }
 }
