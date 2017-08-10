@@ -44,6 +44,7 @@ class EventDetailsViewController: UIViewController {
     participantsLabel.textColor = theme.color2
     descriptionLabel.font = theme.font6
     descriptionLabel.textColor = theme.darkTextColor
+    imageView.backgroundColor = theme.color6
   }
   
   private func loadData() {
