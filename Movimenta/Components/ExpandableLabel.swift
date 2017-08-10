@@ -18,12 +18,21 @@ class ExpandableLabel: TTTAttributedLabel {
   override func awakeFromNib() {
     super.awakeFromNib()
     delegate = self
+    addGestureRecognizer()
+  }
+  
+  private func addGestureRecognizer() {
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapView(_:)))
+    addGestureRecognizer(tapGesture)
   }
   
   override var attributedText: NSAttributedString! {
     willSet {
       setTruncationToken()
     }
+  }
+  
+  func didTapView(_ sender: UIGestureRecognizer) {
   }
 }
 
