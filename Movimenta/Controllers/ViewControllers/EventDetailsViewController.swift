@@ -48,8 +48,8 @@ class EventDetailsViewController: UIViewController {
   
   private func loadData() {
     // TODO: Set image
-    titleLabel.text = viewModel.title
-    categoriesLabel.text = viewModel.categoriesLabel
+    titleLabel.text = viewModel.title.capitalized
+    categoriesLabel.text = viewModel.categoriesLabel.uppercased()
     participantsLabel.text = viewModel.participantsLabel
     descriptionLabel.text = viewModel.description
   }
