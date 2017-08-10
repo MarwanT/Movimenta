@@ -33,6 +33,15 @@ class ExpandableLabel: TTTAttributedLabel {
   }
   
   func didTapView(_ sender: UIGestureRecognizer) {
+    toggleState()
+  }
+  
+  func toggleState() {
+    if isTruncated {
+      self.numberOfLines = self.requiredNumberOfLines
+    } else {
+      self.numberOfLines = self.configuration.minimumNumberOfLines
+    }
   }
 }
 
