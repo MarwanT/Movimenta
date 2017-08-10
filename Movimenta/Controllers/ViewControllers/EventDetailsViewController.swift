@@ -10,6 +10,7 @@ import UIKit
 
 class EventDetailsViewController: UIViewController {
   @IBOutlet weak var detailsStackView: UIStackView!
+  @IBOutlet weak var labelsContainerView: UIView!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var categoriesLabel: UILabel!
