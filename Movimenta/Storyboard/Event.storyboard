@@ -78,19 +78,19 @@
                                         <rect key="frame" x="0.0" y="200" width="375" height="148.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7A-di-lJf" userLabel="Title Label">
-                                                <rect key="frame" x="8" y="8" width="359" height="71"/>
+                                                <rect key="frame" x="8" y="8" width="359" height="41"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDb-eA-GIn" userLabel="Categories Label">
-                                                <rect key="frame" x="8" y="79" width="359" height="20.5"/>
+                                                <rect key="frame" x="8" y="54" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partcipants Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRt-2u-jM9" userLabel="Participants Label">
-                                                <rect key="frame" x="8" y="99.5" width="359" height="20.5"/>
+                                                <rect key="frame" x="8" y="79.5" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -112,11 +112,11 @@
                                             <constraint firstItem="oDb-eA-GIn" firstAttribute="leading" secondItem="o7A-di-lJf" secondAttribute="leading" id="N01-ka-Avw"/>
                                             <constraint firstItem="oDb-eA-GIn" firstAttribute="trailing" secondItem="o7A-di-lJf" secondAttribute="trailing" id="QLV-ki-o5w"/>
                                             <constraint firstItem="o7A-di-lJf" firstAttribute="leading" secondItem="pSH-M3-7OL" secondAttribute="leadingMargin" id="Rt8-RD-jtG"/>
-                                            <constraint firstItem="t3h-1r-O1a" firstAttribute="top" secondItem="bRt-2u-jM9" secondAttribute="bottom" id="e9k-sH-4VJ"/>
+                                            <constraint firstItem="t3h-1r-O1a" firstAttribute="top" secondItem="bRt-2u-jM9" secondAttribute="bottom" constant="20" id="e9k-sH-4VJ"/>
                                             <constraint firstItem="o7A-di-lJf" firstAttribute="top" secondItem="pSH-M3-7OL" secondAttribute="topMargin" id="hWq-EU-BSD"/>
-                                            <constraint firstItem="bRt-2u-jM9" firstAttribute="top" secondItem="oDb-eA-GIn" secondAttribute="bottom" id="lf0-iO-geW"/>
+                                            <constraint firstItem="bRt-2u-jM9" firstAttribute="top" secondItem="oDb-eA-GIn" secondAttribute="bottom" constant="5" id="lf0-iO-geW"/>
                                             <constraint firstItem="o7A-di-lJf" firstAttribute="trailing" secondItem="pSH-M3-7OL" secondAttribute="trailingMargin" id="qiS-m6-z33"/>
-                                            <constraint firstItem="oDb-eA-GIn" firstAttribute="top" secondItem="o7A-di-lJf" secondAttribute="bottom" id="wBh-8M-ydF"/>
+                                            <constraint firstItem="oDb-eA-GIn" firstAttribute="top" secondItem="o7A-di-lJf" secondAttribute="bottom" constant="5" id="wBh-8M-ydF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
