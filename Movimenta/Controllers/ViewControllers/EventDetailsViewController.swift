@@ -35,6 +35,7 @@ class EventDetailsViewController: UIViewController {
   
   private func applyTheme() {
     let theme = ThemeManager.shared.current
+    labelsContainerView.layoutMargins = UIEdgeInsets(top: CGFloat(theme.space7), left: CGFloat(theme.space7), bottom: CGFloat(theme.space7), right: CGFloat(theme.space7))
     titleLabel.font = theme.font1
     titleLabel.textColor = theme.darkTextColor
     categoriesLabel.font = theme.font12
