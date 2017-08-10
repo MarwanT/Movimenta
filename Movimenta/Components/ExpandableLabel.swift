@@ -10,6 +10,11 @@ import Foundation
 import TTTAttributedLabel
 
 class ExpandableLabel: TTTAttributedLabel {
+  var configuration = Configuration() {
+    didSet {
+    }
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     delegate = self
