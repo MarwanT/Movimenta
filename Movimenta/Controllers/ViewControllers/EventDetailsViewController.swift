@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import SDWebImage
 import UIKit
 
 class EventDetailsViewController: UIViewController {
@@ -48,7 +49,8 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func loadData() {
-    // TODO: Set image
+    imageView.sd_setImage(with: viewModel.image) { (image, error, cache, url) in
+    }
     titleLabel.text = viewModel.title.capitalized
     categoriesLabel.text = viewModel.categoriesLabel.uppercased()
     participantsLabel.text = viewModel.participantsLabel
