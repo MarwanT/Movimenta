@@ -34,6 +34,11 @@ class EventDetailsViewController: UIViewController {
     loadData()
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    manipulateLabelsTopMarginsIfNeeded()
+  }
+  
   private func applyTheme() {
     let theme = ThemeManager.shared.current
     labelsContainerView.layoutMargins = UIEdgeInsets(top: CGFloat(theme.space7), left: CGFloat(theme.space7), bottom: CGFloat(theme.space7), right: CGFloat(theme.space7))
@@ -69,6 +74,25 @@ extension EventDetailsViewController {
     } else {
       detailsStackView.removeArrangedSubview(imageView)
       imageView.removeFromSuperview()
+    }
+  }
+  
+  // If labels are empty remove the top margin
+  fileprivate func manipulateLabelsTopMarginsIfNeeded() {
+    var didUpdateLayout = false
+    let labelsArray: [UILabel] = [titleLabel, categoriesLabel, participantsLabel, descriptionLabel]
+    for label in labelsArray {
+      if label.text == nil || (label.text?.isEmpty ?? true) {
+        guard let topConstraint = labelsContainerView.constraints.topConstraints(item: label).first else {
+          continue
+        }
+        topConstraint.constant = 0
+        didUpdateLayout = true
+      }
+    }
+    
+    if didUpdateLayout {
+      labelsContainerView.layoutIfNeeded()
     }
   }
 }
