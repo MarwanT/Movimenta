@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+extension NSLayoutConstraint {
+  func isTopConstraint(for item: AnyObject) -> Bool {
+    if item === self.firstItem {
+      return isTopConstraintForFirstItem
+    } else if item === self.secondItem {
+      return isTopConstraintForSecondItem
+    } else {
+      return false
+    }
+  }
+  
+  private var isTopConstraintForFirstItem: Bool {
+    return self.firstAttribute == .top
+  }
+  
+  private var isTopConstraintForSecondItem: Bool {
+    return self.secondAttribute == .top
+  }
+}
