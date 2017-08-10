@@ -27,3 +27,15 @@ extension NSLayoutConstraint {
     return self.secondAttribute == .top
   }
 }
+
+extension Array where Element == NSLayoutConstraint {
+  func topConstraints(item: AnyObject) -> [NSLayoutConstraint] {
+    var constraints = [NSLayoutConstraint]()
+    self.forEach { (constraint) in
+      if constraint.isTopConstraint(for: item) {
+        constraints.append(constraint)
+      }
+    }
+    return constraints
+  }
+}
