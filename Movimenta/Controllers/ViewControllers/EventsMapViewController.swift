@@ -366,8 +366,11 @@ extension EventsMapViewController {
       eventDetailsView.frame.origin = bottomPoint
       eventDetailsView.alpha = 0.5
       
+      var origin = eventMapsView.frame.origin
+      origin.y -= UIApplication.shared.statusBarFrame.height
+      
       UIView.animate(withDuration: transitionDuration(using: nil) , animations: { () -> Void in
-        eventDetailsView.frame.origin = eventMapsView.frame.origin
+        eventDetailsView.frame.origin = origin
         eventDetailsView.alpha = 1
       }) { (completed: Bool) -> Void in
         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
