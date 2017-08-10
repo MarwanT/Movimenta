@@ -48,6 +48,10 @@ extension ExpandableLabel {
     attributedTruncationToken = viewMoreAttributedString
   }
   
+  var isTruncated: Bool {
+    return numberOfLines < requiredNumberOfLines
+  }
+  
   var requiredNumberOfLines: Int {
     guard let text = text else {
       return 0
