@@ -62,7 +62,7 @@ struct Event: ModelCommonProperties {
     return organizersCollection()
   }
   
-  var participant: [Participant] {
+  var participants: [Participant] {
     return artists + speakers + sponsors + companies + organizers
   }
   
@@ -71,7 +71,10 @@ struct Event: ModelCommonProperties {
   }
   
   var displayedPrticipantsLabel: String {
-    let names = participant.flatMap { $0.fullName }
+    let names = participants.flatMap { (participant) -> String? in
+      let name = participant.fullName.trimed()
+      return name.isEmpty ? nil : name
+    }
     return names.joined(separator: ", ")
   }
 }
