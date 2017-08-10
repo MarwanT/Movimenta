@@ -41,7 +41,7 @@ class EventDetailsViewController: UIViewController {
     titleLabel.textColor = theme.darkTextColor
     categoriesLabel.font = theme.font12
     categoriesLabel.textColor = theme.darkTextColor
-    participantsLabel.font = theme.font13
+    participantsLabel.font = theme.font12
     participantsLabel.textColor = theme.color2
     descriptionLabel.font = theme.font6
     descriptionLabel.textColor = theme.darkTextColor
