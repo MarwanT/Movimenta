@@ -12,6 +12,9 @@ import TTTAttributedLabel
 class ExpandableLabel: TTTAttributedLabel {
   var configuration = Configuration() {
     didSet {
+      if isTruncated {
+        numberOfLines = configuration.minimumNumberOfLines
+      }
     }
   }
   
