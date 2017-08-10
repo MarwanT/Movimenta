@@ -47,3 +47,13 @@ extension ExpandableLabel {
 //MARK: TTTAttributedLabelDelegate
 extension ExpandableLabel: TTTAttributedLabelDelegate {
 }
+
+//MARK: Configuration
+extension ExpandableLabel {
+  struct Configuration {
+    private(set) var minimumNumberOfLines: Int = 5
+    mutating func setMinimumNumberOfLines(_ number: Int) {
+      minimumNumberOfLines = number + 1
+    }
+  }
+}
