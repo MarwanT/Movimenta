@@ -16,7 +16,7 @@ class EventDetailsViewController: UIViewController {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var categoriesLabel: UILabel!
   @IBOutlet weak var participantsLabel: UILabel!
-  @IBOutlet weak var descriptionLabel: UILabel!
+  @IBOutlet weak var descriptionLabel: ExpandableLabel!
   
   var viewModel = EventDetailsViewModel()
   
@@ -50,6 +50,7 @@ class EventDetailsViewController: UIViewController {
     participantsLabel.textColor = theme.color2
     descriptionLabel.font = theme.font6
     descriptionLabel.textColor = theme.darkTextColor
+    descriptionLabel.configuration.setMinimumNumberOfLines(4) 
     imageView.backgroundColor = theme.color6
   }
   
