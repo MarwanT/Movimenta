@@ -47,6 +47,19 @@ extension ExpandableLabel {
     viewMoreAttributedString.append(viewMore)
     attributedTruncationToken = viewMoreAttributedString
   }
+  
+  var requiredNumberOfLines: Int {
+    guard let text = text else {
+      return 0
+    }
+    let nsText = text as NSString
+    let boundingRect = nsText.boundingRect(
+      with: CGSize(width: frame.width, height: CGFloat.infinity),
+      options: NSStringDrawingOptions.usesLineFragmentOrigin,
+      attributes: [NSFontAttributeName : font],
+      context: nil)
+    return Int(ceil(boundingRect.height/font.lineHeight))+1
+  }
 }
 
 //MARK: TTTAttributedLabelDelegate
