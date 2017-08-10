@@ -50,10 +50,25 @@ class EventDetailsViewController: UIViewController {
   
   private func loadData() {
     imageView.sd_setImage(with: viewModel.image) { (image, error, cache, url) in
+      self.manipulateImageViewVisibility(success: image != nil)
     }
     titleLabel.text = viewModel.title.capitalized
     categoriesLabel.text = viewModel.categoriesLabel.uppercased()
     participantsLabel.text = viewModel.participantsLabel
     descriptionLabel.text = viewModel.description
+  }
+}
+
+//MARK: - Helpers
+extension EventDetailsViewController {
+  fileprivate func manipulateImageViewVisibility(success: Bool) {
+    if success {
+      if imageView.superview == nil {
+        detailsStackView.insertArrangedSubview(imageView, at: 0)
+      }
+    } else {
+      detailsStackView.removeArrangedSubview(imageView)
+      imageView.removeFromSuperview()
+    }
   }
 }
