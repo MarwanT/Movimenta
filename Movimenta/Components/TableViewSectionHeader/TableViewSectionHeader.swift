@@ -9,7 +9,9 @@
 import UIKit
 
 class TableViewSectionHeader: UITableViewHeaderFooterView {
- 
+  static let identifier: String = TableViewSectionHeader.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+  
   @IBOutlet weak var label: UILabel!
   
 }
