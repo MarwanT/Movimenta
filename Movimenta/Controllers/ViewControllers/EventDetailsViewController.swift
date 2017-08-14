@@ -48,6 +48,8 @@ class EventDetailsViewController: UIViewController {
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 100
+    tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+    tableView.estimatedSectionHeaderHeight = 70
   }
   
   private func loadData() {
