@@ -43,4 +43,12 @@ final class EventDetailsViewModel {
 //MARK: Table View Methods
 extension EventDetailsViewModel {
   typealias Section = EventDetailsViewController.Section
+
+  var numberOfSections: Int {
+    return Section.numberOfSections
+  }
+  
+  func numberOfRows(in section: Section) -> Int {
+    return 0
+  }
 }
