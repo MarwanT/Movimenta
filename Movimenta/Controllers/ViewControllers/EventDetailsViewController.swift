@@ -37,6 +37,8 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func setup() {
+    let theme = ThemeManager.shared.current
+    
     headerView = EventDetailsHeaderView.instanceFromNib()
     headerView.delegate = self
     tableView.tableHeaderView = headerView
@@ -50,6 +52,10 @@ class EventDetailsViewController: UIViewController {
     tableView.estimatedRowHeight = 100
     tableView.sectionHeaderHeight = UITableViewAutomaticDimension
     tableView.estimatedSectionHeaderHeight = 70
+    
+    tableView.layoutMargins = UIEdgeInsets(
+      top: 0, left: CGFloat(theme.space7),
+      bottom: 0, right: CGFloat(theme.space7))
   }
   
   private func loadData() {
