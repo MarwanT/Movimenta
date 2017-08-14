@@ -104,6 +104,18 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
   }
 }
 
+extension EventDetailsViewController {
+  enum Section: Int {
+    case dates = 0
+    case venue
+    case participants
+    
+    static var numberOfSections: Int {
+      return 3
+    }
+  }
+}
+
 //MARK: EventDetailsHeaderViewDelegate
 extension EventDetailsViewController: EventDetailsHeaderViewDelegate {
   func eventDetailsHeaderDidChangeSize(_ headerView: EventDetailsHeaderView, size: CGSize) {

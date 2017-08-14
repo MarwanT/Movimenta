@@ -39,3 +39,8 @@ final class EventDetailsViewModel {
     return event.content ?? ""
   }
 }
+
+//MARK: Table View Methods
+extension EventDetailsViewModel {
+  typealias Section = EventDetailsViewController.Section
+}
