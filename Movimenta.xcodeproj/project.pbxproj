@@ -18,6 +18,8 @@
 		594662151F3B4437007412C0 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662141F3B4437007412C0 /* String+Utils.swift */; };
 		594662171F3C736F007412C0 /* NSLayoutConstraint+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662161F3C736F007412C0 /* NSLayoutConstraint+Utils.swift */; };
 		594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662181F3C8ED1007412C0 /* ExpandableLabel.swift */; };
+		5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946621B1F41B379007412C0 /* EventDetailsHeaderView.swift */; };
+		5946621E1F41B3C1007412C0 /* EventDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5946621D1F41B3C1007412C0 /* EventDetailsHeaderView.xib */; };
 		596A75771F1908120094A886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75761F1908120094A886 /* AppDelegate.swift */; };
 		596A758C1F1908120094A886 /* MovimentaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A758B1F1908120094A886 /* MovimentaTests.swift */; };
 		5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF7C1F20F7F0008CA708 /* Network.swift */; };
@@ -110,6 +112,8 @@
 		594662141F3B4437007412C0 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		594662161F3C736F007412C0 /* NSLayoutConstraint+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Utils.swift"; sourceTree = "<group>"; };
 		594662181F3C8ED1007412C0 /* ExpandableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableLabel.swift; sourceTree = "<group>"; };
+		5946621B1F41B379007412C0 /* EventDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsHeaderView.swift; sourceTree = "<group>"; };
+		5946621D1F41B3C1007412C0 /* EventDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsHeaderView.xib; sourceTree = "<group>"; };
 		596A75731F1908120094A886 /* Movimenta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movimenta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A75761F1908120094A886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		596A75871F1908120094A886 /* MovimentaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovimentaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +238,15 @@
 				591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */,
 			);
 			path = EventDetailsPeekView;
+			sourceTree = "<group>";
+		};
+		5946621A1F41B358007412C0 /* EventDetailsHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				5946621B1F41B379007412C0 /* EventDetailsHeaderView.swift */,
+				5946621D1F41B3C1007412C0 /* EventDetailsHeaderView.xib */,
+			);
+			path = EventDetailsHeaderView;
 			sourceTree = "<group>";
 		};
 		596A756A1F1908120094A886 = {
@@ -399,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				591CD78A1F3879BA00A24BBB /* EventDetailsPeekView */,
+				5946621A1F41B358007412C0 /* EventDetailsHeaderView */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 			);
 			path = Components;
@@ -637,6 +651,7 @@
 				598923191F1E2AC100F73974 /* nexa-heavyitalic-webfont.ttf in Resources */,
 				598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */,
 				5989231A1F1E2AC300F73974 /* nexa-light-webfont.ttf in Resources */,
+				5946621E1F41B3C1007412C0 /* EventDetailsHeaderView.xib in Resources */,
 				598923161F1E2AB600F73974 /* nexa-extrabold-webfont.ttf in Resources */,
 				5989231E1F1E2ACD00F73974 /* nexa-thin-webfont.ttf in Resources */,
 				59D52F871F1CD197008F3B13 /* Info.plist in Resources */,
@@ -773,6 +788,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
+				5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */,
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
 				5970AFB51F2A17B3008CA708 /* Font.swift in Sources */,
 				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
