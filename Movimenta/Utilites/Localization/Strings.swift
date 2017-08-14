@@ -13,6 +13,10 @@ final class Strings {
     return Localization.localize(key: "bookmarks")
   }
   
+  static func date_and_time() -> String {
+    return Localization.localize(key: "date_and_time")
+  }
+  
   static func event_map() -> String {
     return Localization.localize(key: "event_map")
   }
@@ -21,8 +25,16 @@ final class Strings {
     return Localization.localize(key: "info")
   }
   
+  static func participants() -> String {
+    return Localization.localize(key: "participants")
+  }
+  
   static func scheduale() -> String {
     return Localization.localize(key: "scheduale")
+  }
+  
+  static func venue() -> String {
+    return Localization.localize(key: "venue")
   }
   
   static func view_more() -> String {

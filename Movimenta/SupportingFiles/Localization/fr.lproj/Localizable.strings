@@ -7,8 +7,11 @@
 */
 
 "bookmarks" = "Bookmarks";
+"date_and_time" = "Date & Time";
 "event_map" = "Event map";
+"participants" = "Participants";
 "info" = "Info";
 "scheduale" = "Scheduale";
+"venue" = "Venue";
 "view_more" = "View More";
 "vr" = "VR";

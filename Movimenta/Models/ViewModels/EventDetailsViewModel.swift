@@ -55,11 +55,11 @@ extension EventDetailsViewModel {
   func headerViewTitle(for section: Section) -> String? {
     switch section {
     case .dates:
-      return "Date & Time"
+      return Strings.date_and_time()
     case .venue:
-      return "Venue"
+      return Strings.venue()
     case .participants:
-      return "Participants"
+      return Strings.participants()
     }
   }
 }
