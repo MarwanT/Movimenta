@@ -49,6 +49,7 @@ class EventDetailsViewController: UIViewController {
   
   private func loadData() {
     loadHeaderViewData()
+    loadAdditionalDetailsData()
   }
   
   private func loadHeaderViewData() {
@@ -59,6 +60,10 @@ class EventDetailsViewController: UIViewController {
        participants: viewModel.participantsLabel,
        description: viewModel.description))
     resizeHeaderView(size: headerSize)
+  }
+  
+  private func loadAdditionalDetailsData() {
+    tableView.reloadData()
   }
   
   fileprivate func resizeHeaderView(size: CGSize) {
