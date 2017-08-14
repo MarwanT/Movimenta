@@ -100,3 +100,11 @@ extension ExpandableLabel {
     }
   }
 }
+
+//MARK: State Declaration
+extension ExpandableLabel {
+  enum State {
+    case expand
+    case collapse
+  }
+}
