@@ -17,6 +17,8 @@ class EventDetailsHeaderView: UIView {
   @IBOutlet weak var participantsLabel: UILabel!
   @IBOutlet weak var descriptionLabel: ExpandableLabel!
   
+  fileprivate var isSetup: Bool = false
+  
   class func instanceFromNib() -> EventDetailsHeaderView {
     return UINib(nibName: EventDetailsHeaderView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! EventDetailsHeaderView
   }
@@ -24,6 +26,7 @@ class EventDetailsHeaderView: UIView {
   override func awakeFromNib() {
     super.awakeFromNib()
     applyTheme()
+    setup()
   }
   
   private func applyTheme() {
@@ -39,5 +42,9 @@ class EventDetailsHeaderView: UIView {
     descriptionLabel.textColor = theme.darkTextColor
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
+  }
+  
+  private func setup() {
+    isSetup = true
   }
 }
