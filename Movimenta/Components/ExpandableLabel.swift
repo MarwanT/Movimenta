@@ -9,6 +9,10 @@
 import Foundation
 import TTTAttributedLabel
 
+protocol ExpandableLabelDelegate {
+  func expandableLabelDidChangeState(_ expandableLabel: ExpandableLabel, state: ExpandableLabel.State)
+}
+
 class ExpandableLabel: TTTAttributedLabel {
   var configuration = Configuration() {
     didSet {
@@ -33,6 +37,8 @@ class ExpandableLabel: TTTAttributedLabel {
     }
   }
   
+  var expandableLabelDelegate: ExpandableLabelDelegate? = nil
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     delegate = self
@@ -52,6 +58,7 @@ class ExpandableLabel: TTTAttributedLabel {
   
   func didTapView(_ sender: UIGestureRecognizer) {
     toggleState()
+    expandableLabelDelegate?.expandableLabelDidChangeState(self, state: state)
   }
   
   func toggleState() {
