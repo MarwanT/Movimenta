@@ -363,11 +363,11 @@ extension EventsMapViewController {
       var bottomPoint = eventMapsView.frame.origin
       bottomPoint.y += (eventMapsView.frame.height - eventMapsVC.eventDetailsPeekView.frame.height)
       
+      eventDetailsView.frame = eventMapsView.frame
       eventDetailsView.frame.origin = bottomPoint
       eventDetailsView.alpha = 0.5
       
       var origin = eventMapsView.frame.origin
-      origin.y -= UIApplication.shared.statusBarFrame.height
       
       UIView.animate(withDuration: transitionDuration(using: nil) , animations: { () -> Void in
         eventDetailsView.frame.origin = origin
