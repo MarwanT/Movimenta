@@ -51,4 +51,15 @@ extension EventDetailsViewModel {
   func numberOfRows(in section: Section) -> Int {
     return 0
   }
+  
+  func headerViewTitle(for section: Section) -> String? {
+    switch section {
+    case .dates:
+      return "Date & Time"
+    case .venue:
+      return "Venue"
+    case .participants:
+      return "Participants"
+    }
+  }
 }

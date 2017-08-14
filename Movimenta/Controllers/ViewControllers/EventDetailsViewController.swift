@@ -56,6 +56,8 @@ class EventDetailsViewController: UIViewController {
     tableView.layoutMargins = UIEdgeInsets(
       top: 0, left: CGFloat(theme.space7),
       bottom: 0, right: CGFloat(theme.space7))
+    
+    tableView.register(TableViewSectionHeader.nib, forHeaderFooterViewReuseIdentifier: TableViewSectionHeader.identifier)
   }
   
   private func loadData() {
@@ -100,6 +102,16 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     return UITableViewCell()
+  }
+  
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard
+      let section = Section(rawValue: section),
+      let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableViewSectionHeader.identifier) as? TableViewSectionHeader else {
+        return nil
+    }
+    headerView.text = viewModel.headerViewTitle(for: section)
+    return headerView
   }
   
   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
