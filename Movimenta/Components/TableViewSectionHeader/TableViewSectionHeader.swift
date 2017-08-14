@@ -14,4 +14,18 @@ class TableViewSectionHeader: UITableViewHeaderFooterView {
   
   @IBOutlet weak var label: UILabel!
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    label.font = theme.font4
+    label.textColor = theme.darkTextColor
+    
+    self.constraints.topConstraints(item: label).first?.constant = CGFloat(theme.space4)
+    self.layoutIfNeeded()
+  }
+  
 }
