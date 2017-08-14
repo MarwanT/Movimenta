@@ -18,6 +18,21 @@ class ExpandableLabel: TTTAttributedLabel {
     }
   }
   
+  var state: State {
+    get {
+      return isTruncated ? .collapse : .expand
+    }
+    
+    set {
+      switch newValue {
+      case .collapse:
+        collapse()
+      case .expand:
+        expand()
+      }
+    }
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     delegate = self
@@ -41,10 +56,18 @@ class ExpandableLabel: TTTAttributedLabel {
   
   func toggleState() {
     if isTruncated {
-      self.numberOfLines = self.requiredNumberOfLines
+      state = .expand
     } else {
-      self.numberOfLines = self.configuration.minimumNumberOfLines
+      state = .collapse
     }
+  }
+  
+  fileprivate func expand() {
+    self.numberOfLines = self.requiredNumberOfLines
+  }
+  
+  fileprivate func collapse() {
+    self.numberOfLines = self.configuration.minimumNumberOfLines
   }
 }
 
