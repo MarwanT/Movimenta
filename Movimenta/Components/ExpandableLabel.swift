@@ -9,6 +9,10 @@
 import Foundation
 import TTTAttributedLabel
 
+protocol ExpandableLabelDelegate {
+  func expandableLabelDidChangeState(_ expandableLabel: ExpandableLabel, state: ExpandableLabel.State)
+}
+
 class ExpandableLabel: TTTAttributedLabel {
   var configuration = Configuration() {
     didSet {
@@ -17,6 +21,23 @@ class ExpandableLabel: TTTAttributedLabel {
       }
     }
   }
+  
+  var state: State {
+    get {
+      return isTruncated ? .collapse : .expand
+    }
+    
+    set {
+      switch newValue {
+      case .collapse:
+        collapse()
+      case .expand:
+        expand()
+      }
+    }
+  }
+  
+  var expandableLabelDelegate: ExpandableLabelDelegate? = nil
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -37,14 +58,23 @@ class ExpandableLabel: TTTAttributedLabel {
   
   func didTapView(_ sender: UIGestureRecognizer) {
     toggleState()
+    expandableLabelDelegate?.expandableLabelDidChangeState(self, state: state)
   }
   
   func toggleState() {
     if isTruncated {
-      self.numberOfLines = self.requiredNumberOfLines
+      state = .expand
     } else {
-      self.numberOfLines = self.configuration.minimumNumberOfLines
+      state = .collapse
     }
+  }
+  
+  fileprivate func expand() {
+    self.numberOfLines = self.requiredNumberOfLines
+  }
+  
+  fileprivate func collapse() {
+    self.numberOfLines = self.configuration.minimumNumberOfLines
   }
 }
 
@@ -98,5 +128,13 @@ extension ExpandableLabel {
     mutating func setMinimumNumberOfLines(_ number: Int) {
       minimumNumberOfLines = number + 1
     }
+  }
+}
+
+//MARK: State Declaration
+extension ExpandableLabel {
+  enum State {
+    case expand
+    case collapse
   }
 }
