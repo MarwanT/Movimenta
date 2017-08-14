@@ -28,4 +28,13 @@ class TableViewSectionHeader: UITableViewHeaderFooterView {
     self.layoutIfNeeded()
   }
   
+  var text: String? {
+    get {
+      return label.text
+    }
+    
+    set {
+      label.text = newValue
+    }
+  }
 }
