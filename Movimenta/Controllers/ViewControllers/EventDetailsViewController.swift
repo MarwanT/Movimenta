@@ -40,6 +40,9 @@ class EventDetailsViewController: UIViewController {
     headerView = EventDetailsHeaderView.instanceFromNib()
     headerView.delegate = self
     tableView.tableHeaderView = headerView
+    
+    tableView.dataSource = self
+    tableView.delegate = self
   }
   
   private func loadData() {
@@ -57,6 +60,25 @@ class EventDetailsViewController: UIViewController {
       self.headerView.frame.size = size
       self.tableView.reloadData()
     }
+  }
+}
+
+//MARK: Table View Delegates
+extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 0
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 0
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return UITableViewCell()
+  }
+  
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 0.01
   }
 }
 
