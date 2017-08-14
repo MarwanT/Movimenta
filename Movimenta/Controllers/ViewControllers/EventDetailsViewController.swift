@@ -48,12 +48,16 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func loadData() {
+    loadHeaderViewData()
+  }
+  
+  private func loadHeaderViewData() {
     let headerSize = headerView.loadView(with:
       (image: viewModel.image,
-      title: viewModel.title,
-      categories: viewModel.categoriesLabel,
-      participants: viewModel.participantsLabel,
-      description: viewModel.description))
+       title: viewModel.title,
+       categories: viewModel.categoriesLabel,
+       participants: viewModel.participantsLabel,
+       description: viewModel.description))
     resizeHeaderView(size: headerSize)
   }
   
