@@ -45,6 +45,9 @@ class EventDetailsViewController: UIViewController {
     
     tableView.dataSource = self
     tableView.delegate = self
+    
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 100
   }
   
   private func loadData() {
