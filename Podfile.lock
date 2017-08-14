@@ -63,6 +63,9 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Result (3.2.3)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
 
@@ -81,6 +84,7 @@ DEPENDENCIES:
   - GooglePlaces (= 2.3.1)
   - Keys (from `Pods/CocoaPodsKeys`)
   - Moya (= 8.0.5)
+  - SDWebImage (= 4.0.0)
   - SnapKit (= 3.2.0)
   - SwiftyJSON (= 3.1.4)
 
@@ -111,9 +115,10 @@ SPEC CHECKSUMS:
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   nanopb: 22bc080fa3955e2116b6ff3ee6c2cb3c15ab97cb
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 9fae3c1bb61a1ede48a299b7be1874b7e7e8946f
+PODFILE CHECKSUM: e5e3ca6f2b5d071690d2e281ef323512fe603821
 
 COCOAPODS: 1.2.0

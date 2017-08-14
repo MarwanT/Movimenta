@@ -32,6 +32,11 @@ struct Participant: ModelCommonProperties {
   var tumblr: URL?
   var vimeo: URL?
   var instagram: URL?
+  
+  var fullName: String {
+    let names = [firstName, lastName].flatMap({ $0 })
+    return names.joined(separator: " ")
+  }
 }
 
 extension Participant {

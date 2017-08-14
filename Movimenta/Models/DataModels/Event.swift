@@ -42,14 +42,46 @@ struct Event: ModelCommonProperties {
     return generateCategories()
   }
   
+  var artists: [Participant] {
+    return artistsCollection()
+  }
+  
+  var speakers: [Participant] {
+    return speakersCollection()
+  }
+  
+  var sponsors: [Participant] {
+    return sponsorsCollection()
+  }
+  
+  var companies: [Participant] {
+    return companiesCollection()
+  }
+  
+  var organizers: [Participant] {
+    return organizersCollection()
+  }
+  
+  var participants: [Participant] {
+    return artists + speakers + sponsors + companies + organizers
+  }
+  
   var displayedCategoryLabel: String {
     return categories.first?.displayStrings().first ?? ""
+  }
+  
+  var displayedPrticipantsLabel: String {
+    let names = participants.flatMap { (participant) -> String? in
+      let name = participant.fullName.trimed()
+      return name.isEmpty ? nil : name
+    }
+    return names.joined(separator: ", ")
   }
 }
 
 //MARK: Helpers
 extension Event {
-  func generateCategories() -> [Category] {
+  fileprivate func generateCategories() -> [Category] {
     var tempArray = [Category]()
     categoriesIds?.forEach({ (id) in
       guard var cat = DataManager.shared.categories[id] else {
@@ -69,6 +101,37 @@ extension Event {
       tempArray.append(cat)
     })
     return tempArray
+  }
+  
+  fileprivate func artistsCollection() -> [Participant] {
+    return participants(with: artistsIds ?? [], in: DataManager.shared.artists)
+  }
+  
+  fileprivate func speakersCollection() -> [Participant] {
+    return participants(with: speakersIds ?? [], in: DataManager.shared.speakers)
+  }
+  
+  fileprivate func sponsorsCollection() -> [Participant] {
+    return participants(with: sponsorsIds ?? [], in: DataManager.shared.sponsers)
+  }
+  
+  fileprivate func companiesCollection() -> [Participant] {
+    return participants(with: companiesIds ?? [], in: DataManager.shared.companies)
+  }
+  
+  fileprivate func organizersCollection() -> [Participant] {
+    return participants(with: organizersIds ?? [], in: DataManager.shared.organizers)
+  }
+  
+  fileprivate func participants(with ids: [String], in participantsDictionary: [String : Participant]) -> [Participant] {
+    var collection = [Participant]()
+    ids.forEach({ (id) in
+      guard let participant = participantsDictionary[id] else {
+        return
+      }
+      collection.append(participant)
+    })
+    return collection
   }
 }
 
@@ -128,10 +191,13 @@ extension Event {
       if let subCategories = subCategories, subCategories.count > 0 {
         var parentLabel = ""
         if let label = label {
-          parentLabel = label + "/"
+          parentLabel = label + " / "
         }
         subCategories.forEach({
-          labels.append("\(parentLabel)\($0)")
+          guard let subLabel = $0.label else {
+            return
+          }
+          labels.append("\(parentLabel)\(subLabel)")
         })
       } else if let label = label {
         labels.append(label)
