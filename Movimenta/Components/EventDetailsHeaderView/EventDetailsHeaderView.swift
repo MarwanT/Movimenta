@@ -16,4 +16,12 @@ class EventDetailsHeaderView: UIView {
   @IBOutlet weak var categoriesLabel: UILabel!
   @IBOutlet weak var participantsLabel: UILabel!
   @IBOutlet weak var descriptionLabel: ExpandableLabel!
+  
+  class func instanceFromNib() -> EventDetailsHeaderView {
+    return UINib(nibName: EventDetailsHeaderView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! EventDetailsHeaderView
+  }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+  }
 }
