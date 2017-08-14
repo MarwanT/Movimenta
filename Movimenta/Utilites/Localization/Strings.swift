@@ -25,6 +25,10 @@ final class Strings {
     return Localization.localize(key: "scheduale")
   }
   
+  static func view_more() -> String {
+    return Localization.localize(key: "view_more")
+  }
+  
   static func vr() -> String {
     return Localization.localize(key: "vr")
   }

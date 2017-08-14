@@ -68,6 +68,7 @@ PODS:
   - SDWebImage/Core (4.0.0)
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - Crashlytics (= 3.8.5)
@@ -87,6 +88,7 @@ DEPENDENCIES:
   - SDWebImage (= 4.0.0)
   - SnapKit (= 3.2.0)
   - SwiftyJSON (= 3.1.4)
+  - TTTAttributedLabel (= 2.0.0)
 
 EXTERNAL SOURCES:
   Keys:
@@ -118,7 +120,8 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: e5e3ca6f2b5d071690d2e281ef323512fe603821
+PODFILE CHECKSUM: f88de8f4070d09c14fb5cd2e4751600490663306
 
 COCOAPODS: 1.2.0
