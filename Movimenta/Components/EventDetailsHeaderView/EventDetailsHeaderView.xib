@@ -80,6 +80,15 @@
                 <constraint firstAttribute="trailing" secondItem="nQc-cM-pj5" secondAttribute="trailing" id="xaw-cp-OQS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="categoriesLabel" destination="GNe-NT-hLe" id="bKE-OH-3cg"/>
+                <outlet property="descriptionLabel" destination="GrC-hN-8vh" id="9nf-bz-X2a"/>
+                <outlet property="detailsStackView" destination="nQc-cM-pj5" id="a0W-fZ-SVU"/>
+                <outlet property="imageView" destination="wax-TY-g3A" id="xV6-2l-g3p"/>
+                <outlet property="labelsContainerView" destination="GeL-2Q-XDh" id="nOw-1u-B7I"/>
+                <outlet property="participantsLabel" destination="bD6-8i-G85" id="VHI-6u-pfM"/>
+                <outlet property="titleLabel" destination="zgz-ep-eCJ" id="I4O-bD-sXN"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="-94"/>
         </view>
     </objects>
