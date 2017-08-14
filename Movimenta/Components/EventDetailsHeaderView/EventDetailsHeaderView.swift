@@ -22,6 +22,8 @@ class EventDetailsHeaderView: UIView {
   
   fileprivate var isSetup: Bool = false
   
+  fileprivate var storedData: DetailsData? = nil
+  
   class func instanceFromNib() -> EventDetailsHeaderView {
     return UINib(nibName: EventDetailsHeaderView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! EventDetailsHeaderView
   }
@@ -48,10 +50,12 @@ class EventDetailsHeaderView: UIView {
   }
   
   private func setup() {
+    _ = loadView(with: storedData)
     isSetup = true
   }
   
   func loadView(with data: DetailsData?) -> CGSize {
+    if isSetup {
       imageView.sd_setImage(with: data?.image) { (image, error, cache, url) in
         self.manipulateImageViewVisibility(success: image != nil)
       }
@@ -61,6 +65,9 @@ class EventDetailsHeaderView: UIView {
       descriptionLabel.text = data?.description
       manipulateLabelsTopMarginsIfNeeded()
       storedData = nil
+    } else {
+      storedData = data
+    }
     
     layoutIfNeeded()
     
