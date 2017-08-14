@@ -23,5 +23,21 @@ class EventDetailsHeaderView: UIView {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    labelsContainerView.layoutMargins = UIEdgeInsets(top: CGFloat(theme.space7), left: CGFloat(theme.space7), bottom: CGFloat(theme.space7), right: CGFloat(theme.space7))
+    titleLabel.font = theme.font1
+    titleLabel.textColor = theme.darkTextColor
+    categoriesLabel.font = theme.font12
+    categoriesLabel.textColor = theme.darkTextColor
+    participantsLabel.font = theme.font12
+    participantsLabel.textColor = theme.color2
+    descriptionLabel.font = theme.font6
+    descriptionLabel.textColor = theme.darkTextColor
+    descriptionLabel.configuration.setMinimumNumberOfLines(4)
+    imageView.backgroundColor = theme.color6
   }
 }
