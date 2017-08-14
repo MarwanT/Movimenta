@@ -33,7 +33,7 @@ class EventDetailsViewController: UIViewController {
     super.viewDidLayoutSubviews()
     
     // #Required for the headerView to take the required size of it's content
-    headerView.frame.size = headerView.preferredSize()
+    resizeHeaderView(size: headerView.preferredSize())
   }
   
   private func setup() {
