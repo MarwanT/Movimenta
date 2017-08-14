@@ -30,6 +30,8 @@ final class MovimentaTheme: Theme {
       [NSFontAttributeName : font17], for: .normal)
   }
   
+  var animationDuration: TimeInterval = 0.4
+  
   //MARK: - Colors
   //===============
   
