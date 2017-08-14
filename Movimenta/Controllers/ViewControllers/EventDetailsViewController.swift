@@ -41,6 +41,8 @@ class EventDetailsViewController: UIViewController {
     headerView.delegate = self
     tableView.tableHeaderView = headerView
     
+    tableView.tableFooterView = UIView(frame: CGRect.zero)
+    
     tableView.dataSource = self
     tableView.delegate = self
   }
