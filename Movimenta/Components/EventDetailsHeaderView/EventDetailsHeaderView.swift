@@ -50,6 +50,7 @@ class EventDetailsHeaderView: UIView {
   }
   
   private func setup() {
+    descriptionLabel.expandableLabelDelegate = self
     _ = loadView(with: storedData)
     isSetup = true
   }
@@ -112,5 +113,11 @@ extension EventDetailsHeaderView {
       CGSize(width: self.bounds.width, height: 0),
       withHorizontalFittingPriority: UILayoutPriorityRequired, verticalFittingPriority: UILayoutPriorityFittingSizeLevel)
     return size
+  }
+}
+
+//MARK: - Expandable label delegate
+extension EventDetailsHeaderView: ExpandableLabelDelegate {
+  func expandableLabelDidChangeState(_ expandableLabel: ExpandableLabel, state: ExpandableLabel.State) {
   }
 }
