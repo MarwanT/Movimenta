@@ -37,6 +37,8 @@ protocol ThemeSpacing {
   var space4: Float { get }
   var space5: Float { get }
   var space6: Float { get }
+  var space7: Float { get }
+  var space8: Float { get }
 }
 
 protocol ThemeFont {

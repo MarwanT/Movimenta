@@ -12,10 +12,18 @@ import UIKit
 
 class EventsMapViewController: UIViewController {
   fileprivate var mapView: GMSMapView!
+  @IBOutlet weak var eventDetailsPeekView: EventDetailsPeekView!
+  
+  @IBOutlet weak var eventDetailsPeekViewTopConstraintToSuperviewBottom: NSLayoutConstraint!
+  @IBOutlet weak var eventDetailsPeekViewBottomConstraintToSuperviewBottom: NSLayoutConstraint!
+  
+  var animationDuration: TimeInterval = 0.4
   
   let locationManager = CLLocationManager()
   
   var viewModel = EventsMapViewModel()
+  
+  var eventDetailsSnapPosition: Direction = .bottom
   
   deinit {
     NotificationCenter.default.removeObserver(self)
@@ -27,6 +35,7 @@ class EventsMapViewController: UIViewController {
     
     // Initialization
     initializeMapsView()
+    initializeEventDetailsPeekView()
     initializeLocationManager()
     refreshMapVisibleArea()
     
@@ -44,9 +53,17 @@ class EventsMapViewController: UIViewController {
     mapView.isMyLocationEnabled = true
     mapView.settings.myLocationButton = true
     view.addSubview(mapView)
+    view.sendSubview(toBack: mapView)
     mapView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(view)
     }
+  }
+  
+  private func initializeEventDetailsPeekView() {
+    let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleEventDetailsPeekView(panGesture:)))
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleEventDetailsPeekView(tapGesture:)))
+    eventDetailsPeekView.addGestureRecognizer(panGesture)
+    eventDetailsPeekView.addGestureRecognizer(tapGesture)
   }
   
   private func initializeLocationManager() {
@@ -60,6 +77,32 @@ class EventsMapViewController: UIViewController {
   private func addObservers() {
     NotificationCenter.default.addObserver(self, selector: #selector(reloadEvents), name: AppNotification.didLoadData, object: nil)
   }
+  
+  func handleEventDetailsPeekView(panGesture: UIPanGestureRecognizer) {
+    if (panGesture.state == UIGestureRecognizerState.began) {
+    } else if (panGesture.state == UIGestureRecognizerState.changed) {
+      let translation = panGesture.translation(in: view)
+      eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+    } else if (panGesture.state == UIGestureRecognizerState.ended) {
+      let velocity = panGesture.velocity(in: view)
+      if velocity.x < 0 {
+        // finish
+        snapEventDetailsPeekView(direction: .top)
+      } else {
+        // cancel
+        snapEventDetailsPeekView(direction: .bottom)
+      }
+    }
+  }
+  
+  func handleEventDetailsPeekView(tapGesture: UIPanGestureRecognizer) {
+    switch eventDetailsSnapPosition {
+    case .top:
+      snapEventDetailsPeekView(direction: .bottom)
+    default:
+      snapEventDetailsPeekView(direction: .top)
+    }
+  }
 }
 
 //MARK: - Data Related APIs
@@ -72,12 +115,25 @@ extension EventsMapViewController {
   }
   
   fileprivate func refreshEventDetailsForSelection() {
-    // TODO: To be implemented
+    if let mapEvent = viewModel.selectedMapEvent {
+      showEventDetailsPeekView(event: mapEvent.event)
+    } else {
+      hideEventDetailsPeekView()
+    }
+  }
+  
+  func showEventDetailsPeekView(event: Event) {
+    eventDetailsPeekView.titleLabel.text = event.title
+    eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel
+    showEventDetailsPeekView()
   }
 }
 
 //MARK: - Helper Methods
 extension EventsMapViewController {
+  //======================================================
+  // Map Helpers
+  
   fileprivate func refreshMarkers() {
     clearMarkers()
     setEventsMarkers(events: viewModel.mapEvents)
@@ -94,8 +150,9 @@ extension EventsMapViewController {
   }
   
   fileprivate func refreshMapVisibleArea() {
-    //Calculate overlapping views and update padding
-    mapView.padding = UIEdgeInsets.zero
+    let isEventDetailsPeekViewVisible = viewModel.selectedMapEvent != nil
+    let paddingBottom: CGFloat = isEventDetailsPeekViewVisible ? eventDetailsPeekView.bounds.height : 0
+    mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: paddingBottom, right: 0)
   }
   
   fileprivate func updateCameraForSelection() {
@@ -133,6 +190,61 @@ extension EventsMapViewController {
     
     let cameraUpdate = GMSCameraUpdate.fit(bounds)
     mapView.animate(with: cameraUpdate)
+  }
+  
+  //======================================================
+  // Event Details Peek View Helpers
+  
+  func showEventDetailsPeekView() {
+    if eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
+      view.removeConstraint(eventDetailsPeekViewTopConstraintToSuperviewBottom)
+    }
+    if !eventDetailsPeekViewBottomConstraintToSuperviewBottom.isActive {
+      view.addConstraint(eventDetailsPeekViewBottomConstraintToSuperviewBottom)
+    }
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) {
+      self.view.layoutIfNeeded()
+      self.refreshMapVisibleArea()
+    }
+  }
+  
+  func hideEventDetailsPeekView() {
+    if eventDetailsPeekViewBottomConstraintToSuperviewBottom.isActive {
+      view.removeConstraint(eventDetailsPeekViewBottomConstraintToSuperviewBottom)
+    }
+    if !eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
+      view.addConstraint(eventDetailsPeekViewTopConstraintToSuperviewBottom)
+    }
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) { 
+      self.view.layoutIfNeeded()
+      self.refreshMapVisibleArea()
+    }
+  }
+  
+  fileprivate func snapEventDetailsPeekView(direction: Direction) {
+    eventDetailsSnapPosition = direction
+    
+    var value: CGFloat = 0
+    switch direction {
+    case .top:
+      value = view.bounds.height - eventDetailsPeekView.bounds.height
+    case .bottom:
+      value = 0
+    }
+  
+    eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = -value
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) {
+      self.eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: 0)
+      self.view.layoutIfNeeded()
+    }
+  }
+  
+  enum Direction {
+    case top
+    case bottom
   }
 }
 

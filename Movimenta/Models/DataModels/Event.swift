@@ -37,6 +37,39 @@ struct Event: ModelCommonProperties {
     }
     return DataManager.shared.bookmarked(eventId: id)
   }
+  
+  var categories: [Category] {
+    return generateCategories()
+  }
+  
+  var displayedCategoryLabel: String {
+    return categories.first?.displayStrings().first ?? ""
+  }
+}
+
+//MARK: Helpers
+extension Event {
+  func generateCategories() -> [Category] {
+    var tempArray = [Category]()
+    categoriesIds?.forEach({ (id) in
+      guard var cat = DataManager.shared.categories[id] else {
+        return
+      }
+      
+      if let subCat = cat.subCategories, subCat.count > 0 {
+        var subCategories = [Category]()
+        subCat.forEach({
+          if let id = $0.id, (categoriesIds?.contains(id) ?? false) {
+            subCategories.append($0)
+          }
+        })
+        cat.subCategories = subCategories
+      }
+      
+      tempArray.append(cat)
+    })
+    return tempArray
+  }
 }
 
 //MARK: APIs
@@ -83,6 +116,28 @@ extension Event {
     var id: String?
     var label: String?
     var subCategories: [Category]?
+    
+    /**
+     If the category has no subcategories then the array has one element with
+     the category label.
+     Otherwise, the subcategories labels are concatenated with the label
+     of this category.
+     */
+    func displayStrings() -> [String] {
+      var labels = [String]()
+      if let subCategories = subCategories, subCategories.count > 0 {
+        var parentLabel = ""
+        if let label = label {
+          parentLabel = label + "/"
+        }
+        subCategories.forEach({
+          labels.append("\(parentLabel)\($0)")
+        })
+      } else if let label = label {
+        labels.append(label)
+      }
+      return labels
+    }
   }
 }
 

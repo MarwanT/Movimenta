@@ -13,7 +13,7 @@ extension GMSMarker {
   static func movimentaMarker(position: CLLocationCoordinate2D) -> GMSMarker {
     let marker = GMSMarker(position: position)
     marker.iconView = markerIconView()
-    marker.tracksViewChanges = false
+    marker.tracksViewChanges = true
     return marker
   }
   
