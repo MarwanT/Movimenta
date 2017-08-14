@@ -10,6 +10,8 @@ import Foundation
 
 protocol Theme: ThemeColors, ThemeSpacing, ThemeFont {
   func initialize()
+  
+  var animationDuration: TimeInterval { get }
 }
 
 protocol ThemeColors {
