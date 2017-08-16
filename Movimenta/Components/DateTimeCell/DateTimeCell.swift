@@ -29,6 +29,7 @@ class DateTimeCell: UITableViewCell {
   }
   
   func set(dateTime: DateRange) {
+    label.text = dateTime.displayedLabel
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
