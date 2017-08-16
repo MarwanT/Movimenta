@@ -6,6 +6,8 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import EventKit
+import EventKitUI
 import SDWebImage
 import UIKit
 
@@ -147,9 +149,38 @@ extension EventDetailsViewController {
   }
 }
 
-//MARK: EventDetailsHeaderViewDelegate
+//MARK: Actions
+extension EventDetailsViewController {
+  private func addToCalendar(eventWith info: CalendarEventInfo) {
+    let eventStore = EKEventStore()
+    
+    let calendarEvent = EKEvent(eventStore: eventStore)
+    calendarEvent.title = info.title
+    calendarEvent.url = info.url
+    calendarEvent.location = info.location
+    calendarEvent.notes = info.note
+    calendarEvent.startDate = info.startDate
+    calendarEvent.endDate = info.endDate
+    
+    // prompt user to add event (to whatever calendar they want)
+    let eventEditController = EKEventEditViewController()
+    eventEditController.event = calendarEvent
+    eventEditController.eventStore = eventStore
+    eventEditController.editViewDelegate = self
+    present(eventEditController, animated: true, completion: nil)
+  }
+}
+
+//MARK: - EventDetailsHeaderViewDelegate
 extension EventDetailsViewController: EventDetailsHeaderViewDelegate {
   func eventDetailsHeaderDidChangeSize(_ headerView: EventDetailsHeaderView, size: CGSize) {
     resizeHeaderView(size: size)
+  }
+}
+
+//MARK: - EKEventEditViewDelegate
+extension EventDetailsViewController: EKEventEditViewDelegate {
+  func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+    dismiss(animated: true, completion: nil)
   }
 }

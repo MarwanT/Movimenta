@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias CalendarEventInfo = (title: String, note: String?, url: URL?, location: String?, startDate: Date, endDate: Date)
+
 final class EventDetailsViewModel {
   fileprivate(set) var event: Event!
   
