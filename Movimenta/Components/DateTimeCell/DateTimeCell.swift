@@ -24,6 +24,7 @@ class DateTimeCell: UITableViewCell {
   
   private func applyTheme() {
     let theme = ThemeManager.shared.current
+    selectedBackgroundView = UIImageView(image: theme.color6.image())
     label.font = theme.font6
     label.textColor = theme.darkTextColor
     addToCalendarLabel.font = theme.font12
