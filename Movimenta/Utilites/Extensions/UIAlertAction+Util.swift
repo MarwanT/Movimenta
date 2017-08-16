@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+extension UIAlertAction {
+  class func cancelAction(handler: ((UIAlertAction) -> Void)?) -> UIAlertAction {
+    let action = UIAlertAction(title: Strings.cancel(), style: .cancel, handler: handler)
+    return action
+  }
+}
