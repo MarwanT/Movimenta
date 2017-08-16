@@ -13,4 +13,9 @@ extension UIAlertAction {
     let action = UIAlertAction(title: Strings.cancel(), style: .cancel, handler: handler)
     return action
   }
+  
+  class func okAction(handler: ((UIAlertAction) -> Void)?) -> UIAlertAction {
+    let action = UIAlertAction(title: Strings.ok(), style: .default, handler: handler)
+    return action
+  }
 }
