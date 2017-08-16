@@ -69,6 +69,13 @@ class DataManager {
       self.movimentaEvent = mainEvent
     }
   }
+  
+  func venue(id: String?) -> Venue? {
+    guard let id = id else {
+      return nil
+    }
+    return movimentaEvent?.venues?[id]
+  }
 }
 
 //MARK: - Bookmark related
