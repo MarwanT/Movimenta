@@ -21,6 +21,10 @@ final class Strings {
     return Localization.localize(key: "bookmarks")
   }
   
+  static func cancel() -> String {
+    return Localization.localize(key: "cancel")
+  }
+  
   static func date_and_time() -> String {
     return Localization.localize(key: "date_and_time")
   }
@@ -37,8 +41,24 @@ final class Strings {
     return Localization.localize(key: "info")
   }
   
+  static func ok() -> String {
+    return Localization.localize(key: "ok")
+  }
+  
   static func participants() -> String {
     return Localization.localize(key: "participants")
+  }
+  
+  static func no_event_store_authorization_message() -> String {
+    return Localization.localize(key: "no_event_store_authorization_message")
+  }
+  
+  static func no_event_store_authorization_title() -> String {
+    return Localization.localize(key: "no_event_store_authorization_title")
+  }
+  
+  static func settings() -> String {
+    return Localization.localize(key: "settings")
   }
   
   static func scheduale() -> String {
