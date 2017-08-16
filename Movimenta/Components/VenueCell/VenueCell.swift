@@ -34,6 +34,11 @@ class VenueCell: UITableViewCell {
     layoutIfNeeded()
   }
   
+  func set(title: String?, location: String?) {
+    titleLabel.text = title?.uppercased()
+    locationLabel.text = location
+  }
+  
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
   }
