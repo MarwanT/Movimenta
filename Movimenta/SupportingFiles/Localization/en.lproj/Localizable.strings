@@ -6,11 +6,14 @@
   Copyright © 2017 Keeward. All rights reserved.
 */
 
+"at_time" = "At";
 "bookmarks" = "Bookmarks";
 "date_and_time" = "Date & Time";
 "event_map" = "Event map";
-"participants" = "Participants";
+"from_time" = "From";
 "info" = "Info";
+"participants" = "Participants";
+"to_time" = "till";
 "scheduale" = "Scheduale";
 "venue" = "Venue";
 "view_more" = "View More";

@@ -9,6 +9,10 @@
 import Foundation
 
 final class Strings {
+  static func at_time() -> String {
+    return Localization.localize(key: "at_time")
+  }
+  
   static func bookmarks() -> String {
     return Localization.localize(key: "bookmarks")
   }
@@ -21,6 +25,10 @@ final class Strings {
     return Localization.localize(key: "event_map")
   }
   
+  static func from_time() -> String {
+    return Localization.localize(key: "from_time")
+  }
+  
   static func info() -> String {
     return Localization.localize(key: "info")
   }
@@ -31,6 +39,10 @@ final class Strings {
   
   static func scheduale() -> String {
     return Localization.localize(key: "scheduale")
+  }
+  
+  static func to_time() -> String {
+    return Localization.localize(key: "to_time")
   }
   
   static func venue() -> String {
