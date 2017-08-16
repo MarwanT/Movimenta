@@ -135,6 +135,23 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     return 0.01
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    
+    guard let section = Section(rawValue: indexPath.section) else {
+      return
+    }
+    
+    switch section {
+    case .dates:
+      addToCalendar(dateAt: indexPath)
+    case .venue:
+      return
+    case .participants:
+      return
+    }
+  }
 }
 
 extension EventDetailsViewController {
