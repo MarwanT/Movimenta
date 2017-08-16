@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="59" id="KGk-i7-Jjw" customClass="DateTimeCell" customModule="Movimenta" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="58.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Time Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrl-mr-JpS" userLabel="Date Time Label">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="37.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Add To Calendar Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awk-Ru-CwQ" userLabel="Add To Calendar Label">
+                        <rect key="frame" x="0.0" y="37.5" width="320" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Rrl-mr-JpS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="0uS-Y7-7hx"/>
+                    <constraint firstAttribute="topMargin" secondItem="Rrl-mr-JpS" secondAttribute="top" id="8Xf-PG-MsK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Awk-Ru-CwQ" secondAttribute="bottom" id="HRH-gv-L1B"/>
+                    <constraint firstItem="Awk-Ru-CwQ" firstAttribute="trailing" secondItem="Rrl-mr-JpS" secondAttribute="trailing" id="Tfr-5i-fW9"/>
+                    <constraint firstItem="Awk-Ru-CwQ" firstAttribute="top" secondItem="Rrl-mr-JpS" secondAttribute="bottom" id="TiF-WA-2ic"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Rrl-mr-JpS" secondAttribute="trailing" id="eXS-u6-Upt"/>
+                    <constraint firstItem="Awk-Ru-CwQ" firstAttribute="leading" secondItem="Rrl-mr-JpS" secondAttribute="leading" id="x4x-nc-dKB"/>
+                </constraints>
+                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addToCalendarLabel" destination="Awk-Ru-CwQ" id="J7i-WO-kQL"/>
+                <outlet property="addToCalendarTopToDateLabelBottomConstraint" destination="TiF-WA-2ic" id="jkW-D3-vue"/>
+                <outlet property="label" destination="Rrl-mr-JpS" id="168-iu-hyf"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="61.5"/>
+        </tableViewCell>
+    </objects>
+</document>

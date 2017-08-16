@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias CalendarEventInfo = (title: String, note: String?, url: URL?, location: String?, startDate: Date, endDate: Date)
+
 final class EventDetailsViewModel {
   fileprivate(set) var event: Event!
   
@@ -49,7 +51,39 @@ extension EventDetailsViewModel {
   }
   
   func numberOfRows(in section: Section) -> Int {
-    return 0
+    switch section {
+    case .dates:
+      return event.dates?.count ?? 0
+    case .venue:
+      return 0
+    case .participants:
+      return 0
+    }
+  }
+  
+  func values(for indexPath: IndexPath) -> Any? {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return nil
+    }
+    
+    switch section {
+    case .dates:
+      return event.dates?[indexPath.row]
+    case .venue:
+      return nil
+    case .participants:
+      return nil
+    }
+  }
+  
+  func calendarEventDetails(for indexPath: IndexPath) -> CalendarEventInfo? {
+    guard let section = Section(rawValue: indexPath.section), section == .dates else {
+      return nil
+    }
+    guard let title = event.title?.capitalized, let date = event.dates?[indexPath.row], let startDate = date.from, let endDate = (date.to ?? date.from) else {
+      return nil
+    }
+    return (title, event.content, event.link, event.address, startDate, endDate)
   }
   
   func headerViewTitle(for section: Section) -> String? {

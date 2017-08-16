@@ -6,6 +6,8 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import EventKit
+import EventKitUI
 import SDWebImage
 import UIKit
 
@@ -58,6 +60,7 @@ class EventDetailsViewController: UIViewController {
       bottom: 0, right: CGFloat(theme.space7))
     
     tableView.register(TableViewSectionHeader.nib, forHeaderFooterViewReuseIdentifier: TableViewSectionHeader.identifier)
+    tableView.register(DateTimeCell.nib, forCellReuseIdentifier: DateTimeCell.identifier)
   }
   
   private func loadData() {
@@ -101,7 +104,22 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    guard let section = Section(rawValue: indexPath.section),
+      let values = viewModel.values(for: indexPath) else {
+      return UITableViewCell()
+    }
+    switch section {
+    case .dates:
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: DateTimeCell.identifier, for: indexPath) as? DateTimeCell, let value = values as? DateRange else {
+        return UITableViewCell()
+      }
+      cell.set(dateTime: value)
+      return cell
+    case .venue:
+      return UITableViewCell()
+    case .participants:
+      return UITableViewCell()
+    }
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -117,6 +135,23 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     return 0.01
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    
+    guard let section = Section(rawValue: indexPath.section) else {
+      return
+    }
+    
+    switch section {
+    case .dates:
+      addToCalendar(dateAt: indexPath)
+    case .venue:
+      return
+    case .participants:
+      return
+    }
+  }
 }
 
 extension EventDetailsViewController {
@@ -131,9 +166,76 @@ extension EventDetailsViewController {
   }
 }
 
-//MARK: EventDetailsHeaderViewDelegate
+//MARK: Actions
+extension EventDetailsViewController {
+  fileprivate func addToCalendar(dateAt indexPath: IndexPath) {
+    guard let info = viewModel.calendarEventDetails(for: indexPath) else {
+      return
+    }
+    
+    let authotizationStatus = EKEventStore.authorizationStatus(for: EKEntityType.event)
+    switch authotizationStatus {
+    case .authorized:
+      addToCalendar(eventWith: info)
+    case .notDetermined:
+      requestCalendarAccess(completion: { (authorized) in
+        if authorized {
+          self.addToCalendar(eventWith: info)
+        }
+      })
+    case .denied, .restricted:
+      showAlertForNoEventStoreAuthorization()
+      return
+    }
+  }
+  
+  private func requestCalendarAccess(completion: @escaping (_ authorized: Bool) -> Void) {
+    let eventStore = EKEventStore()
+    eventStore.requestAccess(to: .event) { (success, error) in
+      completion(success)
+    }
+  }
+  
+  private func addToCalendar(eventWith info: CalendarEventInfo) {
+    let eventStore = EKEventStore()
+    
+    let calendarEvent = EKEvent(eventStore: eventStore)
+    calendarEvent.title = info.title
+    calendarEvent.url = info.url
+    calendarEvent.location = info.location
+    calendarEvent.notes = info.note
+    calendarEvent.startDate = info.startDate
+    calendarEvent.endDate = info.endDate
+    
+    // prompt user to add event (to whatever calendar they want)
+    let eventEditController = EKEventEditViewController()
+    eventEditController.event = calendarEvent
+    eventEditController.eventStore = eventStore
+    eventEditController.editViewDelegate = self
+    present(eventEditController, animated: true, completion: nil)
+  }
+  
+  private func showAlertForNoEventStoreAuthorization() {
+    let alertController = UIAlertController(
+      title: Strings.no_event_store_authorization_title(),
+      message: Strings.no_event_store_authorization_message(),
+      preferredStyle: .alert)
+    alertController.addAction(UIAlertAction.settingsAction())
+    alertController.addAction(UIAlertAction.cancelAction(handler: nil))
+    present(alertController, animated: true, completion: nil)
+  }
+}
+
+//MARK: - EventDetailsHeaderViewDelegate
 extension EventDetailsViewController: EventDetailsHeaderViewDelegate {
   func eventDetailsHeaderDidChangeSize(_ headerView: EventDetailsHeaderView, size: CGSize) {
     resizeHeaderView(size: size)
+  }
+}
+
+//MARK: - EKEventEditViewDelegate
+extension EventDetailsViewController: EKEventEditViewDelegate {
+  func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+    dismiss(animated: true, completion: nil)
   }
 }

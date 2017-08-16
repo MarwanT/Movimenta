@@ -13,8 +13,11 @@
 		591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */; };
 		591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78F1F387B0700A24BBB /* View+Utils.swift */; };
 		593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593525161F3222EF005AD32C /* GMSMarker+Utils.swift */; };
+		59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */; };
 		594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594500641F42026400779302 /* TableViewSectionHeader.xib */; };
 		594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594500661F42029500779302 /* TableViewSectionHeader.swift */; };
+		5945006F1F44342400779302 /* DateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5945006D1F44342400779302 /* DateTimeCell.swift */; };
+		594500701F44342400779302 /* DateTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5945006E1F44342400779302 /* DateTimeCell.xib */; };
 		594662111F39CFDF007412C0 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662101F39CFDF007412C0 /* EventDetailsViewController.swift */; };
 		594662131F39D1B6007412C0 /* EventDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662121F39D1B6007412C0 /* EventDetailsViewModel.swift */; };
 		594662151F3B4437007412C0 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662141F3B4437007412C0 /* String+Utils.swift */; };
@@ -109,8 +112,11 @@
 		591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsPeekView.xib; sourceTree = "<group>"; };
 		591CD78F1F387B0700A24BBB /* View+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
 		593525161F3222EF005AD32C /* GMSMarker+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GMSMarker+Utils.swift"; sourceTree = "<group>"; };
+		59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Util.swift"; sourceTree = "<group>"; };
 		594500641F42026400779302 /* TableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSectionHeader.xib; sourceTree = "<group>"; };
 		594500661F42029500779302 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
+		5945006D1F44342400779302 /* DateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeCell.swift; path = Movimenta/Components/DateTimeCell/DateTimeCell.swift; sourceTree = SOURCE_ROOT; };
+		5945006E1F44342400779302 /* DateTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateTimeCell.xib; path = Movimenta/Components/DateTimeCell/DateTimeCell.xib; sourceTree = SOURCE_ROOT; };
 		594662101F39CFDF007412C0 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		594662121F39D1B6007412C0 /* EventDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewModel.swift; sourceTree = "<group>"; };
 		594662141F3B4437007412C0 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
@@ -253,6 +259,16 @@
 			path = TableViewSectionHeader;
 			sourceTree = "<group>";
 		};
+		594500681F4432FE00779302 /* DateTimeCell */ = {
+			isa = PBXGroup;
+			children = (
+				5945006D1F44342400779302 /* DateTimeCell.swift */,
+				5945006E1F44342400779302 /* DateTimeCell.xib */,
+			);
+			name = DateTimeCell;
+			path = EventDateTimeCell;
+			sourceTree = "<group>";
+		};
 		5946621A1F41B358007412C0 /* EventDetailsHeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +352,7 @@
 				591CD78F1F387B0700A24BBB /* View+Utils.swift */,
 				594662141F3B4437007412C0 /* String+Utils.swift */,
 				594662161F3C736F007412C0 /* NSLayoutConstraint+Utils.swift */,
+				59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -427,6 +444,7 @@
 				591CD78A1F3879BA00A24BBB /* EventDetailsPeekView */,
 				5946621A1F41B358007412C0 /* EventDetailsHeaderView */,
 				594500631F42021100779302 /* TableViewSectionHeader */,
+				594500681F4432FE00779302 /* DateTimeCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 			);
 			path = Components;
@@ -658,6 +676,7 @@
 				598923131F1E2AAC00F73974 /* nexa-bolditalic-webfont.ttf in Resources */,
 				59D52F9A1F1CFA42008F3B13 /* Localizable.strings in Resources */,
 				59D52FA01F1CFE8D008F3B13 /* Localizable.stringsdict in Resources */,
+				594500701F44342400779302 /* DateTimeCell.xib in Resources */,
 				5989231D1F1E2ACB00F73974 /* nexa-regularitalic-webfont.ttf in Resources */,
 				591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */,
 				598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */,
@@ -840,6 +859,7 @@
 				5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */,
 				594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */,
 				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
+				5945006F1F44342400779302 /* DateTimeCell.swift in Sources */,
 				594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */,
 				5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */,
 				5970AFAF1F29F631008CA708 /* Theme.swift in Sources */,
@@ -852,6 +872,7 @@
 				598923291F1F536E00F73974 /* Analytics.swift in Sources */,
 				598923391F1F799400F73974 /* Environment.swift in Sources */,
 				591CD78D1F3879BA00A24BBB /* EventDetailsPeekView.swift in Sources */,
+				59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */,
 				5970AFB61F2A17B3008CA708 /* FontBook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
