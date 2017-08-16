@@ -176,6 +176,16 @@ extension EventDetailsViewController {
     eventEditController.editViewDelegate = self
     present(eventEditController, animated: true, completion: nil)
   }
+  
+  private func showAlertForNoEventStoreAuthorization() {
+    let alertController = UIAlertController(
+      title: Strings.no_event_store_authorization_title(),
+      message: Strings.no_event_store_authorization_message(),
+      preferredStyle: .alert)
+    alertController.addAction(UIAlertAction.settingsAction())
+    alertController.addAction(UIAlertAction.cancelAction(handler: nil))
+    present(alertController, animated: true, completion: nil)
+  }
 }
 
 //MARK: - EventDetailsHeaderViewDelegate
