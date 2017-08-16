@@ -16,13 +16,22 @@ class DateTimeCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    label.font = theme.font6
+    label.textColor = theme.darkTextColor
+    contentView.layoutMargins = UIEdgeInsets(
+      top: 0, left: CGFloat(theme.space7),
+      bottom: 0, right: CGFloat(theme.space7))
+  }
+  
+  func set(dateTime: DateRange) {
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    
-    // Configure the view for the selected state
   }
-  
 }
