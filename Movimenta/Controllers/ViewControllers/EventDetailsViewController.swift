@@ -151,6 +151,13 @@ extension EventDetailsViewController {
 
 //MARK: Actions
 extension EventDetailsViewController {
+  private func requestCalendarAccess(completion: @escaping (_ authorized: Bool) -> Void) {
+    let eventStore = EKEventStore()
+    eventStore.requestAccess(to: .event) { (success, error) in
+      completion(success)
+    }
+  }
+  
   private func addToCalendar(eventWith info: CalendarEventInfo) {
     let eventStore = EKEventStore()
     
