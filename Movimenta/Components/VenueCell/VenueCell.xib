@@ -42,6 +42,11 @@
                     <constraint firstItem="a7x-GI-dE3" firstAttribute="leading" secondItem="yLi-v3-8Z3" secondAttribute="leading" id="cul-He-gVl"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="locationLabel" destination="a7x-GI-dE3" id="hqN-DB-ui9"/>
+                <outlet property="locationLabelTopTitleLabelBottomConstraint" destination="OrZ-9s-kk6" id="dqI-Yj-22j"/>
+                <outlet property="titleLabel" destination="yLi-v3-8Z3" id="XX8-Lb-Obh"/>
+            </connections>
             <point key="canvasLocation" x="34" y="71.5"/>
         </tableViewCell>
     </objects>

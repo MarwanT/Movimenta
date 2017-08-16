@@ -9,6 +9,10 @@
 import UIKit
 
 class VenueCell: UITableViewCell {
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var locationLabel: UILabel!
+  @IBOutlet weak var locationLabelTopTitleLabelBottomConstraint: NSLayoutConstraint!
+  
   override func awakeFromNib() {
     super.awakeFromNib()
   }
