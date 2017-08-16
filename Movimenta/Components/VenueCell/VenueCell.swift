@@ -9,6 +9,9 @@
 import UIKit
 
 class VenueCell: UITableViewCell {
+  static let identifier: String = VenueCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+  
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var locationLabelTopTitleLabelBottomConstraint: NSLayoutConstraint!
