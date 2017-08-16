@@ -9,6 +9,8 @@
 import UIKit
 
 class DateTimeCell: UITableViewCell {
+  static let identifier: String = DateTimeCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
   @IBOutlet weak var label: UILabel!
   
