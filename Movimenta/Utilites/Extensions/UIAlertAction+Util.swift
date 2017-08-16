@@ -18,4 +18,17 @@ extension UIAlertAction {
     let action = UIAlertAction(title: Strings.ok(), style: .default, handler: handler)
     return action
   }
+  
+  class func settingsAction() -> UIAlertAction {
+    let action = UIAlertAction(title: Strings.settings(), style: .default) { (alertAction) in
+      guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+        return
+      }
+      
+      if UIApplication.shared.canOpenURL(settingsUrl) {
+        UIApplication.shared.open(settingsUrl, completionHandler: nil)
+      }
+    }
+    return action
+  }
 }
