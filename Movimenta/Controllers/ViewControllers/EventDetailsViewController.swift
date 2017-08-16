@@ -58,6 +58,7 @@ class EventDetailsViewController: UIViewController {
       bottom: 0, right: CGFloat(theme.space7))
     
     tableView.register(TableViewSectionHeader.nib, forHeaderFooterViewReuseIdentifier: TableViewSectionHeader.identifier)
+    tableView.register(DateTimeCell.nib, forCellReuseIdentifier: DateTimeCell.identifier)
   }
   
   private func loadData() {
@@ -101,7 +102,22 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    guard let section = Section(rawValue: indexPath.section),
+      let values = viewModel.values(for: indexPath) else {
+      return UITableViewCell()
+    }
+    switch section {
+    case .dates:
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: DateTimeCell.identifier, for: indexPath) as? DateTimeCell, let value = values as? DateRange else {
+        return UITableViewCell()
+      }
+      cell.set(dateTime: value)
+      return cell
+    case .venue:
+      return UITableViewCell()
+    case .participants:
+      return UITableViewCell()
+    }
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

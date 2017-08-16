@@ -49,7 +49,29 @@ extension EventDetailsViewModel {
   }
   
   func numberOfRows(in section: Section) -> Int {
-    return 0
+    switch section {
+    case .dates:
+      return event.dates?.count ?? 0
+    case .venue:
+      return 0
+    case .participants:
+      return 0
+    }
+  }
+  
+  func values(for indexPath: IndexPath) -> Any? {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return nil
+    }
+    
+    switch section {
+    case .dates:
+      return event.dates?[indexPath.row]
+    case .venue:
+      return nil
+    case .participants:
+      return nil
+    }
   }
   
   func headerViewTitle(for section: Section) -> String? {
