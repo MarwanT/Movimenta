@@ -9,6 +9,10 @@
 import Foundation
 
 final class Strings {
+  static func add_to_calendar() -> String {
+    return Localization.localize(key: "add_to_calendar")
+  }
+  
   static func at_time() -> String {
     return Localization.localize(key: "at_time")
   }
