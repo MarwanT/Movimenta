@@ -44,7 +44,9 @@
                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
             </tableViewCellContentView>
             <connections>
-                <outlet property="label" destination="Rrl-mr-JpS" id="XnQ-zL-zOE"/>
+                <outlet property="addToCalendarLabel" destination="Awk-Ru-CwQ" id="J7i-WO-kQL"/>
+                <outlet property="addToCalendarTopToDateLabelBottomConstraint" destination="TiF-WA-2ic" id="jkW-D3-vue"/>
+                <outlet property="label" destination="Rrl-mr-JpS" id="168-iu-hyf"/>
             </connections>
             <point key="canvasLocation" x="34" y="61.5"/>
         </tableViewCell>
