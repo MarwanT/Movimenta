@@ -37,4 +37,26 @@ extension Date {
     dateFormatter.dateFormat = format
     return dateFormatter.string(from: self)
   }
+  
+  func same(date: Date) -> Bool {
+    let calendar = Calendar.current
+    let comps: Set<Calendar.Component> = [.day, .month, .year]
+    
+    let date1Components = calendar.dateComponents(comps, from: self)
+    let date2Components = calendar.dateComponents(comps, from: date)
+    let _date1 = calendar.date(from: date1Components)
+    let _date2 = calendar.date(from: date2Components)
+    
+    guard let date1 = _date1, let date2 = _date2 else {
+      return false
+    }
+    
+    let result = date1.compare(date2)
+    switch result {
+    case .orderedSame:
+      return true
+    case .orderedAscending, .orderedDescending:
+      return false
+    }
+  }
 }
