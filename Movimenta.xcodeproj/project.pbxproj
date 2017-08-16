@@ -14,6 +14,8 @@
 		591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78F1F387B0700A24BBB /* View+Utils.swift */; };
 		593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593525161F3222EF005AD32C /* GMSMarker+Utils.swift */; };
 		59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */; };
+		59363FC91F44E662006059B6 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC71F44E662006059B6 /* VenueCell.swift */; };
+		59363FCA1F44E662006059B6 /* VenueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FC81F44E662006059B6 /* VenueCell.xib */; };
 		594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594500641F42026400779302 /* TableViewSectionHeader.xib */; };
 		594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594500661F42029500779302 /* TableViewSectionHeader.swift */; };
 		5945006F1F44342400779302 /* DateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5945006D1F44342400779302 /* DateTimeCell.swift */; };
@@ -113,6 +115,8 @@
 		591CD78F1F387B0700A24BBB /* View+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
 		593525161F3222EF005AD32C /* GMSMarker+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GMSMarker+Utils.swift"; sourceTree = "<group>"; };
 		59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Util.swift"; sourceTree = "<group>"; };
+		59363FC71F44E662006059B6 /* VenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
+		59363FC81F44E662006059B6 /* VenueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueCell.xib; sourceTree = "<group>"; };
 		594500641F42026400779302 /* TableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSectionHeader.xib; sourceTree = "<group>"; };
 		594500661F42029500779302 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
 		5945006D1F44342400779302 /* DateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeCell.swift; path = Movimenta/Components/DateTimeCell/DateTimeCell.swift; sourceTree = SOURCE_ROOT; };
@@ -248,6 +252,15 @@
 				591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */,
 			);
 			path = EventDetailsPeekView;
+			sourceTree = "<group>";
+		};
+		59363FC61F44E5AD006059B6 /* VenueCell */ = {
+			isa = PBXGroup;
+			children = (
+				59363FC71F44E662006059B6 /* VenueCell.swift */,
+				59363FC81F44E662006059B6 /* VenueCell.xib */,
+			);
+			path = VenueCell;
 			sourceTree = "<group>";
 		};
 		594500631F42021100779302 /* TableViewSectionHeader */ = {
@@ -445,6 +458,7 @@
 				5946621A1F41B358007412C0 /* EventDetailsHeaderView */,
 				594500631F42021100779302 /* TableViewSectionHeader */,
 				594500681F4432FE00779302 /* DateTimeCell */,
+				59363FC61F44E5AD006059B6 /* VenueCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 			);
 			path = Components;
@@ -697,6 +711,7 @@
 				598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */,
 				598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */,
 				59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */,
+				59363FCA1F44E662006059B6 /* VenueCell.xib in Resources */,
 				598923151F1E2AB200F73974 /* nexa-bookitalic-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -824,6 +839,7 @@
 				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
 				5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */,
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
+				59363FC91F44E662006059B6 /* VenueCell.swift in Sources */,
 				5970AFB51F2A17B3008CA708 /* Font.swift in Sources */,
 				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
 				594662151F3B4437007412C0 /* String+Utils.swift in Sources */,
