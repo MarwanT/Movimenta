@@ -151,6 +151,27 @@ extension EventDetailsViewController {
 
 //MARK: Actions
 extension EventDetailsViewController {
+  fileprivate func addToCalendar(dateAt indexPath: IndexPath) {
+    guard let info = viewModel.calendarEventDetails(for: indexPath) else {
+      return
+    }
+    
+    let authotizationStatus = EKEventStore.authorizationStatus(for: EKEntityType.event)
+    switch authotizationStatus {
+    case .authorized:
+      addToCalendar(eventWith: info)
+    case .notDetermined:
+      requestCalendarAccess(completion: { (authorized) in
+        if authorized {
+          self.addToCalendar(eventWith: info)
+        }
+      })
+    case .denied, .restricted:
+      showAlertForNoEventStoreAuthorization()
+      return
+    }
+  }
+  
   private func requestCalendarAccess(completion: @escaping (_ authorized: Bool) -> Void) {
     let eventStore = EKEventStore()
     eventStore.requestAccess(to: .event) { (success, error) in

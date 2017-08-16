@@ -76,6 +76,16 @@ extension EventDetailsViewModel {
     }
   }
   
+  func calendarEventDetails(for indexPath: IndexPath) -> CalendarEventInfo? {
+    guard let section = Section(rawValue: indexPath.section), section == .dates else {
+      return nil
+    }
+    guard let title = event.title?.capitalized, let date = event.dates?[indexPath.row], let startDate = date.from, let endDate = (date.to ?? date.from) else {
+      return nil
+    }
+    return (title, event.content, event.link, event.address, startDate, endDate)
+  }
+  
   func headerViewTitle(for section: Section) -> String? {
     switch section {
     case .dates:
