@@ -30,8 +30,8 @@ class DateTimeCell: UITableViewCell {
     addToCalendarLabel.font = theme.font12
     addToCalendarLabel.textColor = theme.color2
     contentView.layoutMargins = UIEdgeInsets(
-      top: 0, left: CGFloat(theme.space7),
-      bottom: 0, right: CGFloat(theme.space7))
+      top: CGFloat(theme.space2), left: CGFloat(theme.space7),
+      bottom: CGFloat(theme.space2), right: CGFloat(theme.space7))
     addToCalendarTopToDateLabelBottomConstraint.constant = CGFloat(theme.space3)
     layoutIfNeeded()
   }
