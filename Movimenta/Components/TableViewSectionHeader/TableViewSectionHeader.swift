@@ -23,7 +23,8 @@ class TableViewSectionHeader: UITableViewHeaderFooterView {
     let theme = ThemeManager.shared.current
     label.font = theme.font4
     label.textColor = theme.darkTextColor
-    
+    contentView.backgroundColor = theme.white
+    backgroundColor = theme.white
     self.constraints.topConstraints(item: label).first?.constant = CGFloat(theme.space4)
     self.layoutIfNeeded()
   }
