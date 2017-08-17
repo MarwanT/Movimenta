@@ -62,7 +62,7 @@ class EventDetailsHeaderView: UIView {
     isSetup = true
   }
   
-  func loadView(with data: DetailsData?) -> CGSize {
+  func loadView(with data: DetailsData?) {
     if isSetup {
       imageView.sd_setImage(with: data?.image) { (image, error, cache, url) in
         self.manipulateImageViewVisibility(success: image != nil)
@@ -78,8 +78,6 @@ class EventDetailsHeaderView: UIView {
     }
     
     layoutIfNeeded()
-    
-    return preferredSize()
   }
 }
 
