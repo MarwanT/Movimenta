@@ -61,6 +61,7 @@ class EventDetailsViewController: UIViewController {
     
     tableView.register(TableViewSectionHeader.nib, forHeaderFooterViewReuseIdentifier: TableViewSectionHeader.identifier)
     tableView.register(DateTimeCell.nib, forCellReuseIdentifier: DateTimeCell.identifier)
+    tableView.register(VenueCell.nib, forCellReuseIdentifier: VenueCell.identifier)
   }
   
   private func loadData() {
@@ -116,7 +117,11 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
       cell.set(dateTime: value)
       return cell
     case .venue:
-      return UITableViewCell()
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: VenueCell.identifier, for: indexPath) as? VenueCell, let values = values as? EventVenueInfo else {
+        return UITableViewCell()
+      }
+      cell.set(title: values.title, location: values.location)
+      return cell
     case .participants:
       return UITableViewCell()
     }
@@ -223,6 +228,17 @@ extension EventDetailsViewController {
     alertController.addAction(UIAlertAction.settingsAction())
     alertController.addAction(UIAlertAction.cancelAction(handler: nil))
     present(alertController, animated: true, completion: nil)
+  }
+  
+  fileprivate func navigateToVenueDetailsVC(for indexPath: IndexPath) {
+    guard let venue = viewModel.venue(for: indexPath) else {
+      return
+    }
+    navigateToVenueDetailsVC(venue: venue)
+  }
+  
+  private func navigateToVenueDetailsVC(venue: Venue) {
+    //TODO: navigate to venue details vc
   }
 }
 

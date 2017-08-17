@@ -70,7 +70,7 @@ class EventDetailsHeaderView: UIView {
       categoriesLabel.text = data?.categories?.uppercased()
       participantsLabel.text = data?.participants
       descriptionLabel.text = data?.description
-      manipulateLabelsTopMarginsIfNeeded()
+      labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
       storedData = nil
     } else {
       storedData = data
@@ -92,25 +92,6 @@ extension EventDetailsHeaderView {
     } else {
       detailsStackView.removeArrangedSubview(imageView)
       imageView.removeFromSuperview()
-    }
-  }
-  
-  // If labels are empty remove the top margin
-  fileprivate func manipulateLabelsTopMarginsIfNeeded() {
-    var didUpdateLayout = false
-    let labelsArray: [UILabel] = [titleLabel, categoriesLabel, participantsLabel, descriptionLabel]
-    for label in labelsArray {
-      if label.text == nil || (label.text?.isEmpty ?? true) {
-        guard let topConstraint = labelsContainerView.constraints.topConstraints(item: label).first else {
-          continue
-        }
-        topConstraint.constant = 0
-        didUpdateLayout = true
-      }
-    }
-    
-    if didUpdateLayout {
-      labelsContainerView.layoutIfNeeded()
     }
   }
   

@@ -9,6 +9,26 @@
 import Foundation
 
 extension UIView {
+  func manipulateLabelsSubviewsTopMarginsIfNeeded() {
+    var didUpdateLayout = false
+    let labelsArray: [UILabel] = self.subviews.flatMap({ $0 as? UILabel })
+    for label in labelsArray {
+      if label.text == nil || (label.text?.isEmpty ?? true) {
+        guard let topConstraint = self.constraints.topConstraints(item: label).first else {
+          continue
+        }
+        topConstraint.constant = 0
+        didUpdateLayout = true
+      }
+    }
+    
+    if didUpdateLayout {
+      self.layoutIfNeeded()
+    }
+  }
+}
+
+extension UIView {
   public static var defaultNibName: String {
     return self.description().components(separatedBy: ".").dropFirst().joined(separator: ".")
   }
