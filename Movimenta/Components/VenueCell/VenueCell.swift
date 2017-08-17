@@ -12,6 +12,7 @@ class VenueCell: UITableViewCell {
   static let identifier: String = VenueCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
+  @IBOutlet weak var iconView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var locationLabelTopTitleLabelBottomConstraint: NSLayoutConstraint!
@@ -31,6 +32,7 @@ class VenueCell: UITableViewCell {
     contentView.layoutMargins = UIEdgeInsets(
       top: 0, left: CGFloat(theme.space7),
       bottom: 0, right: CGFloat(theme.space7))
+    iconView.tintColor = theme.color2
     layoutIfNeeded()
   }
   
