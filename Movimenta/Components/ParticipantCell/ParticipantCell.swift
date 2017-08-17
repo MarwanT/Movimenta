@@ -21,6 +21,23 @@ class ParticipantCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    selectedBackgroundView = UIImageView(image: theme.color6.image())
+    nameLabel.font = theme.font5
+    nameLabel.textColor = theme.color2
+    roleLabel.font = theme.font6
+    roleLabel.textColor = theme.darkTextColor
+    nameLabelHorizontalSpacingToImageViewConstraint.constant = CGFloat(theme.space2)
+    roleLabelVerticalSpacingToNameLabel.constant = CGFloat(theme.space8)
+    participantImageView.backgroundColor = theme.color6
+    contentView.layoutMargins = UIEdgeInsets(
+      top: CGFloat(theme.space2), left: CGFloat(theme.space7),
+      bottom: CGFloat(theme.space2), right: CGFloat(theme.space7))
+    layoutIfNeeded()
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
