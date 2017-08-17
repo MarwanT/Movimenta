@@ -60,6 +60,9 @@ final class MovimentaTheme: Theme {
   var defaultBackgroundColor: UIColor {
     return color2
   }
+  var separatorColor: UIColor {
+    return color6
+  }
   var tabBarTintColor: UIColor {
     return white
   }

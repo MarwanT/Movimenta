@@ -66,6 +66,10 @@ struct Event: ModelCommonProperties {
     return artists + speakers + sponsors + companies + organizers
   }
   
+  var venue: Venue? {
+    return DataManager.shared.venue(id: venueId)
+  }
+  
   var displayedCategoryLabel: String {
     return categories.first?.displayStrings().first ?? ""
   }

@@ -53,6 +53,7 @@ class EventDetailsHeaderView: UIView {
     descriptionLabel.textColor = theme.darkTextColor
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
+    imageView.clipsToBounds = true
   }
   
   private func setup() {
@@ -61,7 +62,7 @@ class EventDetailsHeaderView: UIView {
     isSetup = true
   }
   
-  func loadView(with data: DetailsData?) -> CGSize {
+  func loadView(with data: DetailsData?) {
     if isSetup {
       imageView.sd_setImage(with: data?.image) { (image, error, cache, url) in
         self.manipulateImageViewVisibility(success: image != nil)
@@ -70,48 +71,21 @@ class EventDetailsHeaderView: UIView {
       categoriesLabel.text = data?.categories?.uppercased()
       participantsLabel.text = data?.participants
       descriptionLabel.text = data?.description
-      manipulateLabelsTopMarginsIfNeeded()
+      labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
       storedData = nil
     } else {
       storedData = data
     }
     
     layoutIfNeeded()
-    
-    return preferredSize()
   }
 }
 
 //MARK: - Helpers
 extension EventDetailsHeaderView {
   fileprivate func manipulateImageViewVisibility(success: Bool) {
-    if success {
-      if imageView.superview == nil {
-        detailsStackView.insertArrangedSubview(imageView, at: 0)
-      }
-    } else {
-      detailsStackView.removeArrangedSubview(imageView)
-      imageView.removeFromSuperview()
-    }
-  }
-  
-  // If labels are empty remove the top margin
-  fileprivate func manipulateLabelsTopMarginsIfNeeded() {
-    var didUpdateLayout = false
-    let labelsArray: [UILabel] = [titleLabel, categoriesLabel, participantsLabel, descriptionLabel]
-    for label in labelsArray {
-      if label.text == nil || (label.text?.isEmpty ?? true) {
-        guard let topConstraint = labelsContainerView.constraints.topConstraints(item: label).first else {
-          continue
-        }
-        topConstraint.constant = 0
-        didUpdateLayout = true
-      }
-    }
-    
-    if didUpdateLayout {
-      labelsContainerView.layoutIfNeeded()
-    }
+    imageView.isHidden = !success
+    delegate?.eventDetailsHeaderDidChangeSize(self, size: preferredSize())
   }
   
   func preferredSize() -> CGSize {
