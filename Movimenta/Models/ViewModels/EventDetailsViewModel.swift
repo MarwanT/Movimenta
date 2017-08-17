@@ -10,6 +10,7 @@ import Foundation
 
 typealias CalendarEventInfo = (title: String, note: String?, url: URL?, location: String?, startDate: Date, endDate: Date)
 typealias EventVenueInfo = (title: String?, location: String?)
+typealias EventParticipantInfo = (imageURL: URL?, name: String?, role: String?)
 
 final class EventDetailsViewModel {
   fileprivate(set) var event: Event!
@@ -58,7 +59,7 @@ extension EventDetailsViewModel {
     case .venue:
       return event.venue != nil ? 1 : 0
     case .participants:
-      return 0
+      return event.participants.count
     }
   }
   
@@ -75,7 +76,8 @@ extension EventDetailsViewModel {
       let location = event.venue?.address ?? event.venue?.mapAddress
       return (title, location)
     case .participants:
-      return nil
+      let participnt = participant(for: indexPath)
+      return (participnt.image, participnt.fullName.capitalized, participnt.profession?.capitalized)
     }
   }
   
@@ -93,6 +95,10 @@ extension EventDetailsViewModel {
     // Currently the data model only has one venue and not an array
     // So the index Path is not used here
     return event.venue
+  }
+  
+  func participant(for indexPath: IndexPath) -> Participant {
+    return event.participants[indexPath.row]
   }
   
   func headerViewTitle(for section: Section) -> String? {
