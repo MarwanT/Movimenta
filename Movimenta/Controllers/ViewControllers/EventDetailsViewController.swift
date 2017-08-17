@@ -59,6 +59,9 @@ class EventDetailsViewController: UIViewController {
       top: 0, left: CGFloat(theme.space7),
       bottom: 0, right: CGFloat(theme.space7))
     
+    tableView.separatorStyle = .singleLine
+    tableView.separatorColor = theme.separatorColor
+    
     tableView.register(TableViewSectionHeader.nib, forHeaderFooterViewReuseIdentifier: TableViewSectionHeader.identifier)
     tableView.register(DateTimeCell.nib, forCellReuseIdentifier: DateTimeCell.identifier)
     tableView.register(VenueCell.nib, forCellReuseIdentifier: VenueCell.identifier)
