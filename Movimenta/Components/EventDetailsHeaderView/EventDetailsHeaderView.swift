@@ -85,14 +85,7 @@ class EventDetailsHeaderView: UIView {
 //MARK: - Helpers
 extension EventDetailsHeaderView {
   fileprivate func manipulateImageViewVisibility(success: Bool) {
-    if success {
-      if imageView.superview == nil {
-        detailsStackView.insertArrangedSubview(imageView, at: 0)
-      }
-    } else {
-      detailsStackView.removeArrangedSubview(imageView)
-      imageView.removeFromSuperview()
-    }
+    imageView.isHidden = !success
   }
   
   func preferredSize() -> CGSize {
