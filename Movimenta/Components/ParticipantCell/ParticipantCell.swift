@@ -9,6 +9,9 @@
 import UIKit
 
 class ParticipantCell: UITableViewCell {
+  static let identifier: String = ParticipantCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+  
   @IBOutlet weak var participantImageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var roleLabel: UILabel!
