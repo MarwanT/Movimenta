@@ -10,5 +10,10 @@ import UIKit
 
 class ParallaxLabel: UIView {
   @IBOutlet weak var label: UILabel!
+  
+  class func instanceFromNib() -> ParallaxLabel {
+    return UINib(nibName: ParallaxLabel.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ParallaxLabel
+  }
+  
 
 }
