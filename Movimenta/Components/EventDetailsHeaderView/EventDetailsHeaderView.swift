@@ -86,6 +86,7 @@ class EventDetailsHeaderView: UIView {
 extension EventDetailsHeaderView {
   fileprivate func manipulateImageViewVisibility(success: Bool) {
     imageView.isHidden = !success
+    delegate?.eventDetailsHeaderDidChangeSize(self, size: preferredSize())
   }
   
   func preferredSize() -> CGSize {
