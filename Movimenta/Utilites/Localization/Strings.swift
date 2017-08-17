@@ -29,6 +29,10 @@ final class Strings {
     return Localization.localize(key: "date_and_time")
   }
   
+  static func event_details() -> String {
+    return Localization.localize(key: "event_details")
+  }
+  
   static func event_map() -> String {
     return Localization.localize(key: "event_map")
   }
