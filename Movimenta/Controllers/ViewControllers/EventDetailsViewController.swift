@@ -138,7 +138,8 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard
       let section = Section(rawValue: section),
-      let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableViewSectionHeader.identifier) as? TableViewSectionHeader else {
+      let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableViewSectionHeader.identifier) as? TableViewSectionHeader,
+      viewModel.numberOfRows(in: section) > 0 else {
         return nil
     }
     headerView.text = viewModel.headerViewTitle(for: section)
@@ -153,6 +154,18 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     return headerView
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    guard let section = Section(rawValue: section) else {
+      return 0
+    }
+    
+    if viewModel.numberOfRows(in: section) > 0 {
+      return UITableViewAutomaticDimension
+    } else {
+      return 0
+    }
   }
   
   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
