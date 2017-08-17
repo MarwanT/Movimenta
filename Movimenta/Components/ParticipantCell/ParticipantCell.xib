@@ -53,6 +53,13 @@
                 </constraints>
                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="e1R-jd-4rd" id="y58-RH-cAq"/>
+                <outlet property="nameLabelHorizontalSpacingToImageViewConstraint" destination="c9N-YJ-2Dk" id="UBi-wR-hAv"/>
+                <outlet property="participantImageView" destination="HnB-Y4-Tmw" id="t9Q-dF-Avm"/>
+                <outlet property="roleLabel" destination="wlz-4M-LpP" id="Wl9-4d-XPN"/>
+                <outlet property="roleLabelVerticalSpacingToNameLabel" destination="cba-I0-Q09" id="FB0-sr-HUp"/>
+            </connections>
             <point key="canvasLocation" x="92" y="84.5"/>
         </tableViewCell>
     </objects>

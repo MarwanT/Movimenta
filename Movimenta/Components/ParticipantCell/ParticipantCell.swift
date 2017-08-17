@@ -9,6 +9,13 @@
 import UIKit
 
 class ParticipantCell: UITableViewCell {
+  @IBOutlet weak var participantImageView: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var roleLabel: UILabel!
+  
+  @IBOutlet weak var nameLabelHorizontalSpacingToImageViewConstraint: NSLayoutConstraint!
+  @IBOutlet weak var roleLabelVerticalSpacingToNameLabel: NSLayoutConstraint!
+  
   override func awakeFromNib() {
     super.awakeFromNib()
   }
