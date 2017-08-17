@@ -14,6 +14,7 @@ import UIKit
 class EventDetailsViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   fileprivate var headerView: EventDetailsHeaderView!
+  fileprivate var eventDetailsLabel: ParallaxLabel!
   
   var viewModel = EventDetailsViewModel()
   
@@ -35,7 +36,7 @@ class EventDetailsViewController: UIViewController {
     super.viewDidLayoutSubviews()
     
     // #Required for the headerView to take the required size of it's content
-    resizeHeaderView(size: headerView.preferredSize())
+    resizeHeaderView()
   }
   
   private func setup() {
@@ -43,7 +44,11 @@ class EventDetailsViewController: UIViewController {
     
     headerView = EventDetailsHeaderView.instanceFromNib()
     headerView.delegate = self
-    tableView.tableHeaderView = headerView
+    eventDetailsLabel = ParallaxLabel.instanceFromNib()
+    eventDetailsLabel.layoutMargins = UIEdgeInsets(
+      top: CGFloat(theme.space8), left: CGFloat(theme.space7),
+      bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
+    tableView.tableHeaderView = getHeaderView()
     
     tableView.tableFooterView = UIView(frame: CGRect.zero)
     
@@ -74,22 +79,45 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func loadHeaderViewData() {
-    let headerSize = headerView.loadView(with:
+    headerView.loadView(with:
       (image: viewModel.image,
        title: viewModel.title,
        categories: viewModel.categoriesLabel,
        participants: viewModel.participantsLabel,
        description: viewModel.description))
-    resizeHeaderView(size: headerSize)
+    eventDetailsLabel.set(text: Strings.event_details())
+    resizeHeaderView()
   }
   
   private func loadAdditionalDetailsData() {
     tableView.reloadData()
   }
   
-  fileprivate func resizeHeaderView(size: CGSize) {
-    self.headerView.frame.size = size
-    self.tableView.reloadData()
+  fileprivate func resizeHeaderView(size: CGSize? = nil) {
+    let chosenSize: CGSize = size != nil ? size! : tableHeaderPreferredSize
+    tableView.tableHeaderView?.frame.size = chosenSize
+    tableView.reloadData()
+  }
+  
+  private func getHeaderView() -> UIView {
+    let view = UIView(frame: CGRect.zero)
+    view.addSubview(headerView)
+    view.addSubview(eventDetailsLabel)
+    view.backgroundColor = UIColor.red
+    headerView.snp.makeConstraints { (maker) in
+      maker.left.top.right.equalTo(view)
+      maker.bottom.equalTo(eventDetailsLabel.snp.top)
+    }
+    eventDetailsLabel.snp.makeConstraints { (maker) in
+      maker.left.bottom.right.equalTo(view)
+    }
+    return view
+  }
+  
+  fileprivate var tableHeaderPreferredSize: CGSize {
+    return CGSize(
+      width: view.frame.width,
+      height: headerView.preferredSize().height + eventDetailsLabel.preferredSize().height)
   }
 }
 
@@ -282,7 +310,7 @@ extension EventDetailsViewController {
 //MARK: - EventDetailsHeaderViewDelegate
 extension EventDetailsViewController: EventDetailsHeaderViewDelegate {
   func eventDetailsHeaderDidChangeSize(_ headerView: EventDetailsHeaderView, size: CGSize) {
-    resizeHeaderView(size: size)
+    resizeHeaderView()
   }
 }
 
