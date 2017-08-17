@@ -24,6 +24,7 @@ class VenueCell: UITableViewCell {
   
   private func applyTheme() {
     let theme = ThemeManager.shared.current
+    selectedBackgroundView = UIImageView(image: theme.color6.image())
     titleLabel.font = theme.font5
     titleLabel.textColor = theme.color2
     locationLabel.font = theme.font6
