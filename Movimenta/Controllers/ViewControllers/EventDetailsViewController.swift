@@ -88,10 +88,8 @@ class EventDetailsViewController: UIViewController {
   }
   
   fileprivate func resizeHeaderView(size: CGSize) {
-    UIView.animate(withDuration: ThemeManager.shared.current.animationDuration) { 
-      self.headerView.frame.size = size
-      self.tableView.reloadData()
-    }
+    self.headerView.frame.size = size
+    self.tableView.reloadData()
   }
 }
 
