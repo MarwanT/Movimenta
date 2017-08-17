@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import SDWebImage
 import UIKit
 
 class ParticipantCell: UITableViewCell {
@@ -38,6 +39,12 @@ class ParticipantCell: UITableViewCell {
       top: CGFloat(theme.space2), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space2), right: CGFloat(theme.space7))
     layoutIfNeeded()
+  }
+  
+  func set(imageURL: URL?, name: String?, role: String?) {
+    participantImageView.sd_setImage(with: imageURL)
+    nameLabel.text = name
+    roleLabel.text = role
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
