@@ -142,6 +142,16 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
         return nil
     }
     headerView.text = viewModel.headerViewTitle(for: section)
+    
+    switch section {
+    case .dates:
+      headerView.separatorMargins = UIEdgeInsets.zero
+    case .venue, .participants:
+      headerView.separatorMargins = UIEdgeInsets(
+        top: 0, left: CGFloat(ThemeManager.shared.current.space7),
+        bottom: 0, right: 0)
+    }
+    
     return headerView
   }
   
