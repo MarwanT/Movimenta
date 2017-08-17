@@ -89,6 +89,12 @@ extension EventDetailsViewModel {
     return (title, event.content, event.link, event.address, startDate, endDate)
   }
   
+  func venue(for indexPath: IndexPath) -> Venue? {
+    // Currently the data model only has one venue and not an array
+    // So the index Path is not used here
+    return event.venue
+  }
+  
   func headerViewTitle(for section: Section) -> String? {
     switch section {
     case .dates:

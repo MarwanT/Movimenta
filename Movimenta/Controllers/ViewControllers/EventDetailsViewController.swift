@@ -229,6 +229,17 @@ extension EventDetailsViewController {
     alertController.addAction(UIAlertAction.cancelAction(handler: nil))
     present(alertController, animated: true, completion: nil)
   }
+  
+  fileprivate func navigateToVenueDetailsVC(for indexPath: IndexPath) {
+    guard let venue = viewModel.venue(for: indexPath) else {
+      return
+    }
+    navigateToVenueDetailsVC(venue: venue)
+  }
+  
+  private func navigateToVenueDetailsVC(venue: Venue) {
+    //TODO: navigate to venue details vc
+  }
 }
 
 //MARK: - EventDetailsHeaderViewDelegate
