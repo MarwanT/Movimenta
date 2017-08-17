@@ -24,14 +24,15 @@ class VenueCell: UITableViewCell {
   
   private func applyTheme() {
     let theme = ThemeManager.shared.current
+    selectedBackgroundView = UIImageView(image: theme.color6.image())
     titleLabel.font = theme.font5
     titleLabel.textColor = theme.color2
     locationLabel.font = theme.font6
     locationLabel.textColor = theme.darkTextColor
     locationLabelTopTitleLabelBottomConstraint.constant = CGFloat(theme.space2)
     contentView.layoutMargins = UIEdgeInsets(
-      top: 0, left: CGFloat(theme.space7),
-      bottom: 0, right: CGFloat(theme.space7))
+      top: CGFloat(theme.space2), left: CGFloat(theme.space7),
+      bottom: CGFloat(theme.space2), right: CGFloat(theme.space7))
     iconView.tintColor = theme.color2
     layoutIfNeeded()
   }

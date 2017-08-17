@@ -59,6 +59,9 @@ class EventDetailsViewController: UIViewController {
       top: 0, left: CGFloat(theme.space7),
       bottom: 0, right: CGFloat(theme.space7))
     
+    tableView.separatorStyle = .singleLine
+    tableView.separatorColor = theme.separatorColor
+    
     tableView.register(TableViewSectionHeader.nib, forHeaderFooterViewReuseIdentifier: TableViewSectionHeader.identifier)
     tableView.register(DateTimeCell.nib, forCellReuseIdentifier: DateTimeCell.identifier)
     tableView.register(VenueCell.nib, forCellReuseIdentifier: VenueCell.identifier)
@@ -85,10 +88,8 @@ class EventDetailsViewController: UIViewController {
   }
   
   fileprivate func resizeHeaderView(size: CGSize) {
-    UIView.animate(withDuration: ThemeManager.shared.current.animationDuration) { 
-      self.headerView.frame.size = size
-      self.tableView.reloadData()
-    }
+    self.headerView.frame.size = size
+    self.tableView.reloadData()
   }
 }
 
@@ -135,11 +136,34 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard
       let section = Section(rawValue: section),
-      let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableViewSectionHeader.identifier) as? TableViewSectionHeader else {
+      let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableViewSectionHeader.identifier) as? TableViewSectionHeader,
+      viewModel.numberOfRows(in: section) > 0 else {
         return nil
     }
     headerView.text = viewModel.headerViewTitle(for: section)
+    
+    switch section {
+    case .dates:
+      headerView.separatorMargins = UIEdgeInsets.zero
+    case .venue, .participants:
+      headerView.separatorMargins = UIEdgeInsets(
+        top: 0, left: CGFloat(ThemeManager.shared.current.space7),
+        bottom: 0, right: 0)
+    }
+    
     return headerView
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    guard let section = Section(rawValue: section) else {
+      return 0
+    }
+    
+    if viewModel.numberOfRows(in: section) > 0 {
+      return UITableViewAutomaticDimension
+    } else {
+      return 0
+    }
   }
   
   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

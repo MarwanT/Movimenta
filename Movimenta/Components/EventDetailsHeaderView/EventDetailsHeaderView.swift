@@ -53,6 +53,7 @@ class EventDetailsHeaderView: UIView {
     descriptionLabel.textColor = theme.darkTextColor
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
+    imageView.clipsToBounds = true
   }
   
   private func setup() {
@@ -85,14 +86,8 @@ class EventDetailsHeaderView: UIView {
 //MARK: - Helpers
 extension EventDetailsHeaderView {
   fileprivate func manipulateImageViewVisibility(success: Bool) {
-    if success {
-      if imageView.superview == nil {
-        detailsStackView.insertArrangedSubview(imageView, at: 0)
-      }
-    } else {
-      detailsStackView.removeArrangedSubview(imageView)
-      imageView.removeFromSuperview()
-    }
+    imageView.isHidden = !success
+    delegate?.eventDetailsHeaderDidChangeSize(self, size: preferredSize())
   }
   
   func preferredSize() -> CGSize {

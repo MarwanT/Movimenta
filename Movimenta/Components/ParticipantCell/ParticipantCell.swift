@@ -41,6 +41,12 @@ class ParticipantCell: UITableViewCell {
     layoutIfNeeded()
   }
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    separatorInset = UIEdgeInsets(
+      top: 0, left: nameLabel.frame.origin.x, bottom: 0, right: 0)
+  }
+  
   func set(imageURL: URL?, name: String?, role: String?) {
     participantImageView.sd_setImage(with: imageURL)
     nameLabel.text = name
