@@ -45,6 +45,9 @@ class EventDetailsViewController: UIViewController {
     headerView = EventDetailsHeaderView.instanceFromNib()
     headerView.delegate = self
     eventDetailsLabel = ParallaxLabel.instanceFromNib()
+    eventDetailsLabel.layoutMargins = UIEdgeInsets(
+      top: CGFloat(theme.space8), left: CGFloat(theme.space7),
+      bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
     tableView.tableHeaderView = getHeaderView()
     
     tableView.tableFooterView = UIView(frame: CGRect.zero)
