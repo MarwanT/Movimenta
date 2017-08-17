@@ -53,6 +53,7 @@ class EventDetailsHeaderView: UIView {
     descriptionLabel.textColor = theme.darkTextColor
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
+    imageView.clipsToBounds = true
   }
   
   private func setup() {
