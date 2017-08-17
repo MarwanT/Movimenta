@@ -18,6 +18,8 @@
 		59363FCA1F44E662006059B6 /* VenueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FC81F44E662006059B6 /* VenueCell.xib */; };
 		59363FCE1F459722006059B6 /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FCC1F459722006059B6 /* ParticipantCell.swift */; };
 		59363FCF1F459722006059B6 /* ParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FCD1F459722006059B6 /* ParticipantCell.xib */; };
+		59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FD11F45DFE2006059B6 /* ParallaxLabel.swift */; };
+		59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FD31F45E01A006059B6 /* ParallaxLabel.xib */; };
 		594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594500641F42026400779302 /* TableViewSectionHeader.xib */; };
 		594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594500661F42029500779302 /* TableViewSectionHeader.swift */; };
 		5945006F1F44342400779302 /* DateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5945006D1F44342400779302 /* DateTimeCell.swift */; };
@@ -121,6 +123,8 @@
 		59363FC81F44E662006059B6 /* VenueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueCell.xib; sourceTree = "<group>"; };
 		59363FCC1F459722006059B6 /* ParticipantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
 		59363FCD1F459722006059B6 /* ParticipantCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantCell.xib; sourceTree = "<group>"; };
+		59363FD11F45DFE2006059B6 /* ParallaxLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxLabel.swift; sourceTree = "<group>"; };
+		59363FD31F45E01A006059B6 /* ParallaxLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParallaxLabel.xib; sourceTree = "<group>"; };
 		594500641F42026400779302 /* TableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSectionHeader.xib; sourceTree = "<group>"; };
 		594500661F42029500779302 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
 		5945006D1F44342400779302 /* DateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeCell.swift; path = Movimenta/Components/DateTimeCell/DateTimeCell.swift; sourceTree = SOURCE_ROOT; };
@@ -274,6 +278,15 @@
 				59363FCD1F459722006059B6 /* ParticipantCell.xib */,
 			);
 			path = ParticipantCell;
+			sourceTree = "<group>";
+		};
+		59363FD01F45DF66006059B6 /* ParallaxLabel */ = {
+			isa = PBXGroup;
+			children = (
+				59363FD11F45DFE2006059B6 /* ParallaxLabel.swift */,
+				59363FD31F45E01A006059B6 /* ParallaxLabel.xib */,
+			);
+			path = ParallaxLabel;
 			sourceTree = "<group>";
 		};
 		594500631F42021100779302 /* TableViewSectionHeader */ = {
@@ -470,6 +483,7 @@
 				591CD78A1F3879BA00A24BBB /* EventDetailsPeekView */,
 				5946621A1F41B358007412C0 /* EventDetailsHeaderView */,
 				594500631F42021100779302 /* TableViewSectionHeader */,
+				59363FD01F45DF66006059B6 /* ParallaxLabel */,
 				594500681F4432FE00779302 /* DateTimeCell */,
 				59363FC61F44E5AD006059B6 /* VenueCell */,
 				59363FCB1F45966F006059B6 /* ParticipantCell */,
@@ -709,6 +723,7 @@
 				591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */,
 				598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */,
 				594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */,
+				59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */,
 				5989231C1F1E2AC800F73974 /* nexa-regular-webfont.ttf in Resources */,
 				598923191F1E2AC100F73974 /* nexa-heavyitalic-webfont.ttf in Resources */,
 				59363FCF1F459722006059B6 /* ParticipantCell.xib in Resources */,
@@ -889,6 +904,7 @@
 				5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */,
 				598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */,
 				5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */,
+				59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */,
 				594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */,
 				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
 				5945006F1F44342400779302 /* DateTimeCell.swift in Sources */,
