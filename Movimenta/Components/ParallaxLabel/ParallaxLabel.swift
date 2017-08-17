@@ -30,5 +30,11 @@ class ParallaxLabel: UIView {
     label.text = text
   }
   
+  func preferredSize() -> CGSize {
+    let size = self.systemLayoutSizeFitting(
+      CGSize(width: self.bounds.width, height: 0),
+      withHorizontalFittingPriority: UILayoutPriorityRequired, verticalFittingPriority: UILayoutPriorityFittingSizeLevel)
+    return size
+  }
 
 }
