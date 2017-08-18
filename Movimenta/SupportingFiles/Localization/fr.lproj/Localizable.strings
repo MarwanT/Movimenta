@@ -15,6 +15,8 @@
 "event_map" = "Event map";
 "from_time" = "From";
 "info" = "Info";
+"launch_screen_description" = "Festival biennal\nde l'image\nen mouvement";
+"launch_screen_information" = "Nice, France\n27oct - 26nov 2017";
 "ok" = "Ok";
 "participants" = "Participants";
 "to_time" = "till";

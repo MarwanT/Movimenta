@@ -45,6 +45,14 @@ final class Strings {
     return Localization.localize(key: "info")
   }
   
+  static func launch_screen_description() -> String {
+    return Localization.localize(key: "launch_screen_description")
+  }
+  
+  static func launch_screen_information() -> String {
+    return Localization.localize(key: "launch_screen_information")
+  }
+  
   static func ok() -> String {
     return Localization.localize(key: "ok")
   }
