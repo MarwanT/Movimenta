@@ -15,19 +15,8 @@ final class EventsMapViewModel {
   var mapEvents: [MapEvent] = []
   var selectedMapEvent: MapEvent? = nil {
     didSet {
-      /**
-       Updating the marker 'tracksViewChanges' property is required
-       To reflect the image change upon changing value of the isHighlighted flag.
-       */
-      
-      oldValue?.marker.tracksViewChanges = true
-      selectedMapEvent?.marker.tracksViewChanges = true
-      
       oldValue?.marker.iconImageView?.isHighlighted = false
       selectedMapEvent?.marker.iconImageView?.isHighlighted = true
-      
-      oldValue?.marker.tracksViewChanges = false
-      selectedMapEvent?.marker.tracksViewChanges = false
     }
   }
   

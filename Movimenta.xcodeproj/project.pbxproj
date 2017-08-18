@@ -9,7 +9,28 @@
 /* Begin PBXBuildFile section */
 		00889EBCF3A12CCC59FFC103 /* Pods_Movimenta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE53B3C2491622CB98DD0A1 /* Pods_Movimenta.framework */; };
 		42E5FD85BC6166CD91898730 /* Pods_MovimentaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437FF84134F339332697655C /* Pods_MovimentaTests.framework */; };
+		591CD78D1F3879BA00A24BBB /* EventDetailsPeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */; };
+		591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */; };
+		591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78F1F387B0700A24BBB /* View+Utils.swift */; };
 		593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593525161F3222EF005AD32C /* GMSMarker+Utils.swift */; };
+		59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */; };
+		59363FC91F44E662006059B6 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC71F44E662006059B6 /* VenueCell.swift */; };
+		59363FCA1F44E662006059B6 /* VenueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FC81F44E662006059B6 /* VenueCell.xib */; };
+		59363FCE1F459722006059B6 /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FCC1F459722006059B6 /* ParticipantCell.swift */; };
+		59363FCF1F459722006059B6 /* ParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FCD1F459722006059B6 /* ParticipantCell.xib */; };
+		59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FD11F45DFE2006059B6 /* ParallaxLabel.swift */; };
+		59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FD31F45E01A006059B6 /* ParallaxLabel.xib */; };
+		594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594500641F42026400779302 /* TableViewSectionHeader.xib */; };
+		594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594500661F42029500779302 /* TableViewSectionHeader.swift */; };
+		5945006F1F44342400779302 /* DateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5945006D1F44342400779302 /* DateTimeCell.swift */; };
+		594500701F44342400779302 /* DateTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5945006E1F44342400779302 /* DateTimeCell.xib */; };
+		594662111F39CFDF007412C0 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662101F39CFDF007412C0 /* EventDetailsViewController.swift */; };
+		594662131F39D1B6007412C0 /* EventDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662121F39D1B6007412C0 /* EventDetailsViewModel.swift */; };
+		594662151F3B4437007412C0 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662141F3B4437007412C0 /* String+Utils.swift */; };
+		594662171F3C736F007412C0 /* NSLayoutConstraint+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662161F3C736F007412C0 /* NSLayoutConstraint+Utils.swift */; };
+		594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662181F3C8ED1007412C0 /* ExpandableLabel.swift */; };
+		5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946621B1F41B379007412C0 /* EventDetailsHeaderView.swift */; };
+		5946621E1F41B3C1007412C0 /* EventDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5946621D1F41B3C1007412C0 /* EventDetailsHeaderView.xib */; };
 		596A75771F1908120094A886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75761F1908120094A886 /* AppDelegate.swift */; };
 		596A758C1F1908120094A886 /* MovimentaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A758B1F1908120094A886 /* MovimentaTests.swift */; };
 		5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF7C1F20F7F0008CA708 /* Network.swift */; };
@@ -93,7 +114,28 @@
 		2FB2B9EBA0D23741EB753437 /* Pods-MovimentaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.release.xcconfig"; sourceTree = "<group>"; };
 		3BE53B3C2491622CB98DD0A1 /* Pods_Movimenta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movimenta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		437FF84134F339332697655C /* Pods_MovimentaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovimentaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsPeekView.swift; sourceTree = "<group>"; };
+		591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsPeekView.xib; sourceTree = "<group>"; };
+		591CD78F1F387B0700A24BBB /* View+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
 		593525161F3222EF005AD32C /* GMSMarker+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GMSMarker+Utils.swift"; sourceTree = "<group>"; };
+		59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Util.swift"; sourceTree = "<group>"; };
+		59363FC71F44E662006059B6 /* VenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
+		59363FC81F44E662006059B6 /* VenueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueCell.xib; sourceTree = "<group>"; };
+		59363FCC1F459722006059B6 /* ParticipantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
+		59363FCD1F459722006059B6 /* ParticipantCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantCell.xib; sourceTree = "<group>"; };
+		59363FD11F45DFE2006059B6 /* ParallaxLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxLabel.swift; sourceTree = "<group>"; };
+		59363FD31F45E01A006059B6 /* ParallaxLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParallaxLabel.xib; sourceTree = "<group>"; };
+		594500641F42026400779302 /* TableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSectionHeader.xib; sourceTree = "<group>"; };
+		594500661F42029500779302 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
+		5945006D1F44342400779302 /* DateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeCell.swift; path = Movimenta/Components/DateTimeCell/DateTimeCell.swift; sourceTree = SOURCE_ROOT; };
+		5945006E1F44342400779302 /* DateTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateTimeCell.xib; path = Movimenta/Components/DateTimeCell/DateTimeCell.xib; sourceTree = SOURCE_ROOT; };
+		594662101F39CFDF007412C0 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		594662121F39D1B6007412C0 /* EventDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewModel.swift; sourceTree = "<group>"; };
+		594662141F3B4437007412C0 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		594662161F3C736F007412C0 /* NSLayoutConstraint+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Utils.swift"; sourceTree = "<group>"; };
+		594662181F3C8ED1007412C0 /* ExpandableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableLabel.swift; sourceTree = "<group>"; };
+		5946621B1F41B379007412C0 /* EventDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsHeaderView.swift; sourceTree = "<group>"; };
+		5946621D1F41B3C1007412C0 /* EventDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsHeaderView.xib; sourceTree = "<group>"; };
 		596A75731F1908120094A886 /* Movimenta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movimenta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A75761F1908120094A886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		596A75871F1908120094A886 /* MovimentaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovimentaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +253,70 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		591CD78A1F3879BA00A24BBB /* EventDetailsPeekView */ = {
+			isa = PBXGroup;
+			children = (
+				591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */,
+				591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */,
+			);
+			path = EventDetailsPeekView;
+			sourceTree = "<group>";
+		};
+		59363FC61F44E5AD006059B6 /* VenueCell */ = {
+			isa = PBXGroup;
+			children = (
+				59363FC71F44E662006059B6 /* VenueCell.swift */,
+				59363FC81F44E662006059B6 /* VenueCell.xib */,
+			);
+			path = VenueCell;
+			sourceTree = "<group>";
+		};
+		59363FCB1F45966F006059B6 /* ParticipantCell */ = {
+			isa = PBXGroup;
+			children = (
+				59363FCC1F459722006059B6 /* ParticipantCell.swift */,
+				59363FCD1F459722006059B6 /* ParticipantCell.xib */,
+			);
+			path = ParticipantCell;
+			sourceTree = "<group>";
+		};
+		59363FD01F45DF66006059B6 /* ParallaxLabel */ = {
+			isa = PBXGroup;
+			children = (
+				59363FD11F45DFE2006059B6 /* ParallaxLabel.swift */,
+				59363FD31F45E01A006059B6 /* ParallaxLabel.xib */,
+			);
+			path = ParallaxLabel;
+			sourceTree = "<group>";
+		};
+		594500631F42021100779302 /* TableViewSectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				594500661F42029500779302 /* TableViewSectionHeader.swift */,
+				594500641F42026400779302 /* TableViewSectionHeader.xib */,
+			);
+			path = TableViewSectionHeader;
+			sourceTree = "<group>";
+		};
+		594500681F4432FE00779302 /* DateTimeCell */ = {
+			isa = PBXGroup;
+			children = (
+				5945006D1F44342400779302 /* DateTimeCell.swift */,
+				5945006E1F44342400779302 /* DateTimeCell.xib */,
+			);
+			name = DateTimeCell;
+			path = EventDateTimeCell;
+			sourceTree = "<group>";
+		};
+		5946621A1F41B358007412C0 /* EventDetailsHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				5946621B1F41B379007412C0 /* EventDetailsHeaderView.swift */,
+				5946621D1F41B3C1007412C0 /* EventDetailsHeaderView.xib */,
+			);
+			path = EventDetailsHeaderView;
+			sourceTree = "<group>";
+		};
 		596A756A1F1908120094A886 = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +388,10 @@
 				59EF021A1F3094BA00F145B9 /* Image+Utils.swift */,
 				59EF021C1F3094FD00F145B9 /* Color+Utils.swift */,
 				593525161F3222EF005AD32C /* GMSMarker+Utils.swift */,
+				591CD78F1F387B0700A24BBB /* View+Utils.swift */,
+				594662141F3B4437007412C0 /* String+Utils.swift */,
+				594662161F3C736F007412C0 /* NSLayoutConstraint+Utils.swift */,
+				59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,6 +480,14 @@
 		59D52F721F1CD134008F3B13 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				591CD78A1F3879BA00A24BBB /* EventDetailsPeekView */,
+				5946621A1F41B358007412C0 /* EventDetailsHeaderView */,
+				594500631F42021100779302 /* TableViewSectionHeader */,
+				59363FD01F45DF66006059B6 /* ParallaxLabel */,
+				594500681F4432FE00779302 /* DateTimeCell */,
+				59363FC61F44E5AD006059B6 /* VenueCell */,
+				59363FCB1F45966F006059B6 /* ParticipantCell */,
+				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -387,6 +505,7 @@
 			children = (
 				59EF02181F3076CF00F145B9 /* RootViewController.swift */,
 				59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */,
+				594662101F39CFDF007412C0 /* EventDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -420,6 +539,7 @@
 			isa = PBXGroup;
 			children = (
 				59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */,
+				594662121F39D1B6007412C0 /* EventDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -598,12 +718,18 @@
 				598923131F1E2AAC00F73974 /* nexa-bolditalic-webfont.ttf in Resources */,
 				59D52F9A1F1CFA42008F3B13 /* Localizable.strings in Resources */,
 				59D52FA01F1CFE8D008F3B13 /* Localizable.stringsdict in Resources */,
+				594500701F44342400779302 /* DateTimeCell.xib in Resources */,
 				5989231D1F1E2ACB00F73974 /* nexa-regularitalic-webfont.ttf in Resources */,
+				591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */,
 				598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */,
+				594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */,
+				59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */,
 				5989231C1F1E2AC800F73974 /* nexa-regular-webfont.ttf in Resources */,
 				598923191F1E2AC100F73974 /* nexa-heavyitalic-webfont.ttf in Resources */,
+				59363FCF1F459722006059B6 /* ParticipantCell.xib in Resources */,
 				598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */,
 				5989231A1F1E2AC300F73974 /* nexa-light-webfont.ttf in Resources */,
+				5946621E1F41B3C1007412C0 /* EventDetailsHeaderView.xib in Resources */,
 				598923161F1E2AB600F73974 /* nexa-extrabold-webfont.ttf in Resources */,
 				5989231E1F1E2ACD00F73974 /* nexa-thin-webfont.ttf in Resources */,
 				59D52F871F1CD197008F3B13 /* Info.plist in Resources */,
@@ -615,6 +741,7 @@
 				598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */,
 				598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */,
 				59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */,
+				59363FCA1F44E662006059B6 /* VenueCell.xib in Resources */,
 				598923151F1E2AB200F73974 /* nexa-bookitalic-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,12 +866,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59363FCE1F459722006059B6 /* ParticipantCell.swift in Sources */,
 				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
+				5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */,
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
+				59363FC91F44E662006059B6 /* VenueCell.swift in Sources */,
 				5970AFB51F2A17B3008CA708 /* Font.swift in Sources */,
 				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
+				594662151F3B4437007412C0 /* String+Utils.swift in Sources */,
 				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
 				59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */,
+				594662171F3C736F007412C0 /* NSLayoutConstraint+Utils.swift in Sources */,
+				594662131F39D1B6007412C0 /* EventDetailsViewModel.swift in Sources */,
+				594662111F39CFDF007412C0 /* EventDetailsViewController.swift in Sources */,
 				5970AF7F1F20F8F0008CA708 /* MovimentaAPI.swift in Sources */,
 				59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */,
 				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
@@ -757,6 +891,7 @@
 				593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */,
 				59EF021B1F3094BA00F145B9 /* Image+Utils.swift in Sources */,
 				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
+				591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */,
 				5970AF901F24E175008CA708 /* MovimentaEvent.swift in Sources */,
 				5970AF941F24E4A8008CA708 /* Event.swift in Sources */,
 				59EF021D1F3094FD00F145B9 /* Color+Utils.swift in Sources */,
@@ -769,7 +904,11 @@
 				5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */,
 				598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */,
 				5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */,
+				59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */,
+				594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */,
 				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
+				5945006F1F44342400779302 /* DateTimeCell.swift in Sources */,
+				594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */,
 				5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */,
 				5970AFAF1F29F631008CA708 /* Theme.swift in Sources */,
 				5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */,
@@ -780,6 +919,8 @@
 				5970AF8A1F224F56008CA708 /* ModelCommonProperties.swift in Sources */,
 				598923291F1F536E00F73974 /* Analytics.swift in Sources */,
 				598923391F1F799400F73974 /* Environment.swift in Sources */,
+				591CD78D1F3879BA00A24BBB /* EventDetailsPeekView.swift in Sources */,
+				59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */,
 				5970AFB61F2A17B3008CA708 /* FontBook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

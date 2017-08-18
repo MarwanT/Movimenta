@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="BRU-iH-Cf6" customClass="TableViewSectionHeader" customModule="Movimenta" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="458" height="78"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXu-KQ-rHK" userLabel="Separator Container View">
+                    <rect key="frame" x="0.0" y="0.0" width="458" height="0.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isq-6s-IVq" userLabel="Separator View">
+                            <rect key="frame" x="0.0" y="0.0" width="458" height="0.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="bT2-aC-Ze5"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottomMargin" secondItem="isq-6s-IVq" secondAttribute="bottom" id="9GB-Cz-ybR"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="isq-6s-IVq" secondAttribute="trailing" id="CtJ-UR-ifA"/>
+                        <constraint firstItem="isq-6s-IVq" firstAttribute="top" secondItem="OXu-KQ-rHK" secondAttribute="topMargin" id="Cw8-nc-Yqq"/>
+                        <constraint firstItem="isq-6s-IVq" firstAttribute="leading" secondItem="OXu-KQ-rHK" secondAttribute="leadingMargin" id="Zpw-PD-jSa"/>
+                    </constraints>
+                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYL-wO-FJm">
+                    <rect key="frame" x="0.0" y="0.0" width="458" height="78"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vYL-wO-FJm" firstAttribute="leading" secondItem="BRU-iH-Cf6" secondAttribute="leadingMargin" id="4dV-Pt-QZ6"/>
+                <constraint firstAttribute="bottomMargin" secondItem="vYL-wO-FJm" secondAttribute="bottom" id="4hK-Dd-Ngo"/>
+                <constraint firstAttribute="trailing" secondItem="OXu-KQ-rHK" secondAttribute="trailing" id="A0Y-6R-qie"/>
+                <constraint firstItem="OXu-KQ-rHK" firstAttribute="top" secondItem="BRU-iH-Cf6" secondAttribute="top" id="HaX-9a-iBw"/>
+                <constraint firstItem="vYL-wO-FJm" firstAttribute="trailing" secondItem="BRU-iH-Cf6" secondAttribute="trailingMargin" id="rbr-Gh-xMS"/>
+                <constraint firstItem="vYL-wO-FJm" firstAttribute="top" secondItem="BRU-iH-Cf6" secondAttribute="topMargin" id="sPt-NC-whT"/>
+                <constraint firstItem="OXu-KQ-rHK" firstAttribute="leading" secondItem="BRU-iH-Cf6" secondAttribute="leading" id="x9q-V5-6Ne"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+            <connections>
+                <outlet property="label" destination="vYL-wO-FJm" id="hQB-Yg-hH2"/>
+                <outlet property="separatorContainerView" destination="OXu-KQ-rHK" id="gPE-G4-Uov"/>
+                <outlet property="separatorView" destination="isq-6s-IVq" id="sUa-UB-r19"/>
+            </connections>
+            <point key="canvasLocation" x="69" y="-380"/>
+        </view>
+    </objects>
+</document>

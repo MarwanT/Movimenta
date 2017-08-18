@@ -30,6 +30,8 @@ final class MovimentaTheme: Theme {
       [NSFontAttributeName : font17], for: .normal)
   }
   
+  var animationDuration: TimeInterval = 0.4
+  
   //MARK: - Colors
   //===============
   
@@ -58,6 +60,9 @@ final class MovimentaTheme: Theme {
   var defaultBackgroundColor: UIColor {
     return color2
   }
+  var separatorColor: UIColor {
+    return color6
+  }
   var tabBarTintColor: UIColor {
     return white
   }
@@ -80,6 +85,8 @@ final class MovimentaTheme: Theme {
   var space4: Float = 26
   var space5: Float = 30
   var space6: Float = 48
+  var space7: Float = 20
+  var space8: Float = 10
   
   
   // MARK: - Fonts
