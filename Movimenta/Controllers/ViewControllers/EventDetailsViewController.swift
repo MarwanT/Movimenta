@@ -86,8 +86,17 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func loadData() {
+    refreshBookmarkButton()
     loadHeaderViewData()
     loadAdditionalDetailsData()
+  }
+  
+  fileprivate func refreshBookmarkButton() {
+    if viewModel.isBookmarked {
+      bookmarkBarButton.image = #imageLiteral(resourceName: "bookmarkFilled")
+    } else {
+      bookmarkBarButton.image = #imageLiteral(resourceName: "bookmarkOutline")
+    }
   }
   
   private func loadHeaderViewData() {
@@ -250,11 +259,16 @@ extension EventDetailsViewController {
   }
   
   func tapBookmarkButton(_ sender: UIBarButtonItem) {
-    
+    toggleBookmark()
   }
   
   private func shareEvent(info: [Any]) {
     presentShareSheet(with: info)
+  }
+  
+  private func toggleBookmark() {
+    viewModel.toggleBookmark()
+    refreshBookmarkButton()
   }
   
   fileprivate func addToCalendar(dateAt indexPath: IndexPath) {
