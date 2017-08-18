@@ -10,6 +10,8 @@ import Foundation
 
 protocol Theme: ThemeColors, ThemeSpacing, ThemeFont {
   func initialize()
+  
+  var animationDuration: TimeInterval { get }
 }
 
 protocol ThemeColors {
@@ -24,6 +26,7 @@ protocol ThemeColors {
   var darkTextColor: UIColor { get }
   var lightTextColor: UIColor { get }
   var defaultBackgroundColor: UIColor { get }
+  var separatorColor: UIColor { get }
   var tabBarTintColor: UIColor { get }
   var tabTintColor: UIColor { get }
   var tabSelectionColor: UIColor { get }

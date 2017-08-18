@@ -16,4 +16,9 @@ extension UIViewController {
   public static var storyboardIdentifier: String {
     return self.description().components(separatedBy: ".").dropFirst().joined(separator: ".")
   }
+  
+  func presentShareSheet(with shareContent: [Any]) {
+    let activityViewController = UIActivityViewController(activityItems: shareContent, applicationActivities: nil)
+    present(activityViewController, animated: true, completion: nil)
+  }
 }

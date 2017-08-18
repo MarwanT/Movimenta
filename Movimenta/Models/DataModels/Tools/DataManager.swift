@@ -23,12 +23,25 @@ class DataManager {
   var categories: [String : Event.Category] {
     return movimentaEvent?.categories ?? [:]
   }
+  var organizers: [String : Participant] {
+    return movimentaEvent?.organizers ?? [:]
+  }
+  var artists: [String : Participant] {
+    return movimentaEvent?.artists ?? [:]
+  }
+  var companies: [String : Participant] {
+    return movimentaEvent?.companies ?? [:]
+  }
+  var speakers: [String : Participant] {
+    return movimentaEvent?.speakers ?? [:]
+  }
+  var sponsers: [String : Participant] {
+    return movimentaEvent?.sponsors ?? [:]
+  }
   fileprivate(set) var bookmarkedEvents = [Event]()
   
   static let shared = DataManager()
-  private init() {
-    bookmarkedEvents = bookmarkedEventsArray()
-  }
+  private init() {}
   
   func reloadData() {
     loadLocalData()
@@ -42,6 +55,7 @@ class DataManager {
         return
     }
     movimentaEvent = mainEvent
+    loadBookmarkedEvents()
   }
   
   private func loadDataFromServer() {
@@ -52,7 +66,19 @@ class DataManager {
       
       Persistence.shared.save(data: data)
       self.movimentaEvent = mainEvent
+      self.loadBookmarkedEvents()
     }
+  }
+  
+  private func loadBookmarkedEvents() {
+    bookmarkedEvents = bookmarkedEventsArray()
+  }
+  
+  func venue(id: String?) -> Venue? {
+    guard let id = id else {
+      return nil
+    }
+    return movimentaEvent?.venues?[id]
   }
 }
 

@@ -6,8 +6,22 @@
   Copyright © 2017 Keeward. All rights reserved.
 */
 
+"add_to_calendar" = "Add to calendar";
+"at_time" = "At";
 "bookmarks" = "Bookmarks";
+"cancel" = "Cancel";
+"date_and_time" = "Date & Time";
+"event_details" = "Event Details";
 "event_map" = "Event map";
+"from_time" = "From";
 "info" = "Info";
+"ok" = "Ok";
+"participants" = "Participants";
+"to_time" = "till";
+"settings" = "Settings";
 "scheduale" = "Scheduale";
+"no_event_store_authorization_message" = "We don't have access to your calendar";
+"no_event_store_authorization_title" = "Calendar";
+"venue" = "Venue";
+"view_more" = "View More";
 "vr" = "VR";
