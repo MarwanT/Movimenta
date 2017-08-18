@@ -37,6 +37,106 @@ struct Event: ModelCommonProperties {
     }
     return DataManager.shared.bookmarked(eventId: id)
   }
+  
+  var categories: [Category] {
+    return generateCategories()
+  }
+  
+  var artists: [Participant] {
+    return artistsCollection()
+  }
+  
+  var speakers: [Participant] {
+    return speakersCollection()
+  }
+  
+  var sponsors: [Participant] {
+    return sponsorsCollection()
+  }
+  
+  var companies: [Participant] {
+    return companiesCollection()
+  }
+  
+  var organizers: [Participant] {
+    return organizersCollection()
+  }
+  
+  var participants: [Participant] {
+    return artists + speakers + sponsors + companies + organizers
+  }
+  
+  var venue: Venue? {
+    return DataManager.shared.venue(id: venueId)
+  }
+  
+  var displayedCategoryLabel: String {
+    return categories.first?.displayStrings().first ?? ""
+  }
+  
+  var displayedPrticipantsLabel: String {
+    let names = participants.flatMap { (participant) -> String? in
+      let name = participant.fullName.trimed()
+      return name.isEmpty ? nil : name
+    }
+    return names.joined(separator: ", ")
+  }
+}
+
+//MARK: Helpers
+extension Event {
+  fileprivate func generateCategories() -> [Category] {
+    var tempArray = [Category]()
+    categoriesIds?.forEach({ (id) in
+      guard var cat = DataManager.shared.categories[id] else {
+        return
+      }
+      
+      if let subCat = cat.subCategories, subCat.count > 0 {
+        var subCategories = [Category]()
+        subCat.forEach({
+          if let id = $0.id, (categoriesIds?.contains(id) ?? false) {
+            subCategories.append($0)
+          }
+        })
+        cat.subCategories = subCategories
+      }
+      
+      tempArray.append(cat)
+    })
+    return tempArray
+  }
+  
+  fileprivate func artistsCollection() -> [Participant] {
+    return participants(with: artistsIds ?? [], in: DataManager.shared.artists)
+  }
+  
+  fileprivate func speakersCollection() -> [Participant] {
+    return participants(with: speakersIds ?? [], in: DataManager.shared.speakers)
+  }
+  
+  fileprivate func sponsorsCollection() -> [Participant] {
+    return participants(with: sponsorsIds ?? [], in: DataManager.shared.sponsers)
+  }
+  
+  fileprivate func companiesCollection() -> [Participant] {
+    return participants(with: companiesIds ?? [], in: DataManager.shared.companies)
+  }
+  
+  fileprivate func organizersCollection() -> [Participant] {
+    return participants(with: organizersIds ?? [], in: DataManager.shared.organizers)
+  }
+  
+  fileprivate func participants(with ids: [String], in participantsDictionary: [String : Participant]) -> [Participant] {
+    var collection = [Participant]()
+    ids.forEach({ (id) in
+      guard let participant = participantsDictionary[id] else {
+        return
+      }
+      collection.append(participant)
+    })
+    return collection
+  }
 }
 
 //MARK: APIs
@@ -63,7 +163,7 @@ extension Event: Parsable {
     let typesIds = json["types"].arrayObject as? [String]
     let categoriesIds = json["categories"].arrayObject as? [String]
     let image = json["image"].url
-    let venueId = json["venueId"].stringValue
+    let venueId = json["venue"].stringValue
     let coordinates = CLLocationCoordinate2D.object(from: json["coordinates"])
     let address = json["coordinates"]["address"].string
     let organizersIds = json["organizers"].arrayObject?.map({ "\($0)" })
@@ -83,6 +183,31 @@ extension Event {
     var id: String?
     var label: String?
     var subCategories: [Category]?
+    
+    /**
+     If the category has no subcategories then the array has one element with
+     the category label.
+     Otherwise, the subcategories labels are concatenated with the label
+     of this category.
+     */
+    func displayStrings() -> [String] {
+      var labels = [String]()
+      if let subCategories = subCategories, subCategories.count > 0 {
+        var parentLabel = ""
+        if let label = label {
+          parentLabel = label + " / "
+        }
+        subCategories.forEach({
+          guard let subLabel = $0.label else {
+            return
+          }
+          labels.append("\(parentLabel)\(subLabel)")
+        })
+      } else if let label = label {
+        labels.append(label)
+      }
+      return labels
+    }
   }
 }
 
@@ -109,4 +234,13 @@ extension Event.EventType: Parsable {
     let label = json["label"].stringValue
     return Event.EventType(id: id, label: label)
   }
+}
+
+//MARK: - Equatable
+extension Event: Equatable {}
+func ==(lhs: Event, rhs: Event) -> Bool {
+  guard let lhsId = lhs.id, let rhsId = rhs.id else {
+    return false
+  }
+  return lhsId == rhsId
 }

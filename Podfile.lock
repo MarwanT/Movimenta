@@ -41,6 +41,13 @@ PODS:
   - FirebaseInstanceID (2.0.0):
     - FirebaseCore (~> 4.0)
   - GoogleAnalytics (3.17.0)
+  - GoogleMaps (2.3.1):
+    - GoogleMaps/Maps (= 2.3.1)
+  - GoogleMaps/Base (2.3.1)
+  - GoogleMaps/Maps (2.3.1):
+    - GoogleMaps/Base
+  - GooglePlaces (2.3.1):
+    - GoogleMaps/Base (= 2.3.1)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -56,8 +63,12 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Result (3.2.3)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - Crashlytics (= 3.8.5)
@@ -70,10 +81,14 @@ DEPENDENCIES:
   - FBSDKShareKit (~> 4.22.1)
   - Firebase/Core (= 4.0.4)
   - GoogleAnalytics (= 3.17.0)
+  - GoogleMaps (= 2.3.1)
+  - GooglePlaces (= 2.3.1)
   - Keys (from `Pods/CocoaPodsKeys`)
   - Moya (= 8.0.5)
+  - SDWebImage (= 4.0.0)
   - SnapKit (= 3.2.0)
   - SwiftyJSON (= 3.1.4)
+  - TTTAttributedLabel (= 2.0.0)
 
 EXTERNAL SOURCES:
   Keys:
@@ -95,14 +110,18 @@ SPEC CHECKSUMS:
   FirebaseCore: cfc042628ef9f20debe09c0eb683135fcd404cb4
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
+  GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   nanopb: 22bc080fa3955e2116b6ff3ee6c2cb3c15ab97cb
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 7b311ddab5a85ab587ae7195c3f0bc79b39c41e7
+PODFILE CHECKSUM: f88de8f4070d09c14fb5cd2e4751600490663306
 
 COCOAPODS: 1.2.0

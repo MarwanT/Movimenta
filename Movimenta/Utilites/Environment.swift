@@ -20,11 +20,13 @@ struct Environment {
   let googleAnalyticsIdentifier: String
   let facebook: (id: String, displayName: String)
   let apiBaseURL: URL
+  let googleAPIKey: String
   
   private init() {
     type = EnvironmentType(rawValue: AppKeys.shared.environmentString) ?? .staging
     googleAnalyticsIdentifier = AppKeys.shared.googleAnalyticsIdentifier
     facebook = (AppKeys.shared.facebookAppId, AppKeys.shared.facebookAppDisplayName)
     apiBaseURL = URL(string: AppKeys.shared.apiBaseURL)!
+    googleAPIKey = AppKeys.shared.googleAPIKey
   }
 }

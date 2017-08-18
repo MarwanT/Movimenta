@@ -17,7 +17,8 @@ extension UIViewController {
     return self.description().components(separatedBy: ".").dropFirst().joined(separator: ".")
   }
   
-  public func instance() {
-    fatalError("Couldn't instantiate View Controller")
+  func presentShareSheet(with shareContent: [Any]) {
+    let activityViewController = UIActivityViewController(activityItems: shareContent, applicationActivities: nil)
+    present(activityViewController, animated: true, completion: nil)
   }
 }

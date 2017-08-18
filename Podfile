@@ -13,7 +13,8 @@ target 'Movimenta' do
     "MovimentaEnvironment",
     "MovimentaFacebookAppDisplayName",
     "MovimentaFacebookAppId",
-    "MovimentaGoogleAnalyticsIdentifier"
+    "MovimentaGoogleAnalyticsIdentifier",
+    "MovimentaGoogleAPIKey"
     ]
   }
 
@@ -28,9 +29,13 @@ target 'Movimenta' do
   pod 'FBSDKShareKit', '~> 4.22.1'
   pod 'Firebase/Core', '4.0.4'
   pod 'GoogleAnalytics', '3.17.0'
+  pod 'GoogleMaps', '2.3.1'
+  pod 'GooglePlaces', '2.3.1'
   pod 'Moya', '8.0.5'
+  pod 'SDWebImage', '4.0.0'
   pod 'SnapKit', '3.2.0'
   pod 'SwiftyJSON', '3.1.4'
+  pod 'TTTAttributedLabel', '2.0.0'
   
   target 'MovimentaTests' do
     inherit! :search_paths
