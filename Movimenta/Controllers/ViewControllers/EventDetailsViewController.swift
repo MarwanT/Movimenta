@@ -15,6 +15,7 @@ class EventDetailsViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   fileprivate var headerView: EventDetailsHeaderView!
   fileprivate var eventDetailsLabel: ParallaxLabel!
+  fileprivate var bookmarkBarButton: UIBarButtonItem!
   
   var viewModel = EventDetailsViewModel()
   
@@ -40,6 +41,11 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func setup() {
+    setupTableView()
+    setupNavigationItems()
+  }
+  
+  private func setupTableView() {
     let theme = ThemeManager.shared.current
     
     headerView = EventDetailsHeaderView.instanceFromNib()
@@ -71,6 +77,12 @@ class EventDetailsViewController: UIViewController {
     tableView.register(DateTimeCell.nib, forCellReuseIdentifier: DateTimeCell.identifier)
     tableView.register(VenueCell.nib, forCellReuseIdentifier: VenueCell.identifier)
     tableView.register(ParticipantCell.nib, forCellReuseIdentifier: ParticipantCell.identifier)
+  }
+  
+  private func setupNavigationItems() {
+    let shareBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tapShareButton(_:)))
+    bookmarkBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "bookmarkOutline"), style: .plain, target: self, action: #selector(tapBookmarkButton(_:)))
+    navigationItem.rightBarButtonItems = [shareBarButton, bookmarkBarButton]
   }
   
   private func loadData() {
@@ -230,6 +242,14 @@ extension EventDetailsViewController {
 
 //MARK: Actions
 extension EventDetailsViewController {
+  func tapShareButton(_ sender: UIBarButtonItem) {
+    
+  }
+  
+  func tapBookmarkButton(_ sender: UIBarButtonItem) {
+    
+  }
+  
   fileprivate func addToCalendar(dateAt indexPath: IndexPath) {
     guard let info = viewModel.calendarEventDetails(for: indexPath) else {
       return
