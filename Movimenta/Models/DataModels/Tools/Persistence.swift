@@ -52,8 +52,10 @@ extension Persistence {
   
   func bookmark(eventWith id: String) {
     var eventsIds = bookmarkedEventsIds()
-    eventsIds.append(id)
-    UserDefaults.standard.set(eventsIds, forKey: Keys.bookmarkedEvents)
+    if !eventsIds.contains(id) {
+      eventsIds.append(id)
+      UserDefaults.standard.set(eventsIds, forKey: Keys.bookmarkedEvents)
+    }
   }
   
   func unBookmark(eventWith id: String) {

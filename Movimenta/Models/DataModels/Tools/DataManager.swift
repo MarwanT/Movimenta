@@ -41,9 +41,7 @@ class DataManager {
   fileprivate(set) var bookmarkedEvents = [Event]()
   
   static let shared = DataManager()
-  private init() {
-    bookmarkedEvents = bookmarkedEventsArray()
-  }
+  private init() {}
   
   func reloadData() {
     loadLocalData()
@@ -57,6 +55,7 @@ class DataManager {
         return
     }
     movimentaEvent = mainEvent
+    loadBookmarkedEvents()
   }
   
   private func loadDataFromServer() {
@@ -67,7 +66,12 @@ class DataManager {
       
       Persistence.shared.save(data: data)
       self.movimentaEvent = mainEvent
+      self.loadBookmarkedEvents()
     }
+  }
+  
+  private func loadBookmarkedEvents() {
+    bookmarkedEvents = bookmarkedEventsArray()
   }
   
   func venue(id: String?) -> Venue? {

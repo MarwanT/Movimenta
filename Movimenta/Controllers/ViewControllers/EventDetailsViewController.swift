@@ -15,6 +15,7 @@ class EventDetailsViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   fileprivate var headerView: EventDetailsHeaderView!
   fileprivate var eventDetailsLabel: ParallaxLabel!
+  fileprivate var bookmarkBarButton: UIBarButtonItem!
   
   var viewModel = EventDetailsViewModel()
   
@@ -40,6 +41,11 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func setup() {
+    setupTableView()
+    setupNavigationItems()
+  }
+  
+  private func setupTableView() {
     let theme = ThemeManager.shared.current
     
     headerView = EventDetailsHeaderView.instanceFromNib()
@@ -73,9 +79,24 @@ class EventDetailsViewController: UIViewController {
     tableView.register(ParticipantCell.nib, forCellReuseIdentifier: ParticipantCell.identifier)
   }
   
+  private func setupNavigationItems() {
+    let shareBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tapShareButton(_:)))
+    bookmarkBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "bookmarkOutline"), style: .plain, target: self, action: #selector(tapBookmarkButton(_:)))
+    navigationItem.rightBarButtonItems = [shareBarButton, bookmarkBarButton]
+  }
+  
   private func loadData() {
+    refreshBookmarkButton()
     loadHeaderViewData()
     loadAdditionalDetailsData()
+  }
+  
+  fileprivate func refreshBookmarkButton() {
+    if viewModel.isBookmarked {
+      bookmarkBarButton.image = #imageLiteral(resourceName: "bookmarkFilled")
+    } else {
+      bookmarkBarButton.image = #imageLiteral(resourceName: "bookmarkOutline")
+    }
   }
   
   private func loadHeaderViewData() {
@@ -230,6 +251,26 @@ extension EventDetailsViewController {
 
 //MARK: Actions
 extension EventDetailsViewController {
+  func tapShareButton(_ sender: UIBarButtonItem) {
+    guard let info = viewModel.sharingContent() else {
+      return
+    }
+    shareEvent(info: info)
+  }
+  
+  func tapBookmarkButton(_ sender: UIBarButtonItem) {
+    toggleBookmark()
+  }
+  
+  private func shareEvent(info: [Any]) {
+    presentShareSheet(with: info)
+  }
+  
+  private func toggleBookmark() {
+    viewModel.toggleBookmark()
+    refreshBookmarkButton()
+  }
+  
   fileprivate func addToCalendar(dateAt indexPath: IndexPath) {
     guard let info = viewModel.calendarEventDetails(for: indexPath) else {
       return

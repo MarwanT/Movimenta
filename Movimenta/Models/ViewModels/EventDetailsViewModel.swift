@@ -42,6 +42,36 @@ final class EventDetailsViewModel {
   var description: String {
     return event.content ?? ""
   }
+  
+  var isBookmarked: Bool {
+    guard let id = event.id else {
+      return false
+    }
+    return DataManager.shared.bookmarked(eventId: id)
+  }
+  
+  func sharingContent() -> [Any]? {
+    guard let title = event.title, let url = event.link else {
+      return nil
+    }
+    return [title, url]
+  }
+  
+  func toggleBookmark() {
+    if isBookmarked {
+      unBookmarkEvent()
+    } else {
+      bookmarkEvent()
+    }
+  }
+  
+  func bookmarkEvent() {
+    _ = DataManager.shared.bookmark(event: event)
+  }
+  
+  func unBookmarkEvent() {
+    _ = DataManager.shared.unBookmark(event: event)
+  }
 }
 
 //MARK: Table View Methods
