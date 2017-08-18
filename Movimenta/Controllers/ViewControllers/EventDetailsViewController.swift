@@ -243,11 +243,18 @@ extension EventDetailsViewController {
 //MARK: Actions
 extension EventDetailsViewController {
   func tapShareButton(_ sender: UIBarButtonItem) {
-    
+    guard let info = viewModel.sharingContent() else {
+      return
+    }
+    shareEvent(info: info)
   }
   
   func tapBookmarkButton(_ sender: UIBarButtonItem) {
     
+  }
+  
+  private func shareEvent(info: [Any]) {
+    presentShareSheet(with: info)
   }
   
   fileprivate func addToCalendar(dateAt indexPath: IndexPath) {

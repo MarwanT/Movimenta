@@ -42,6 +42,13 @@ final class EventDetailsViewModel {
   var description: String {
     return event.content ?? ""
   }
+  
+  func sharingContent() -> [Any]? {
+    guard let title = event.title, let url = event.link else {
+      return nil
+    }
+    return [title, url]
+  }
 }
 
 //MARK: Table View Methods
