@@ -16,4 +16,18 @@ class LaunchView: UIView {
   class func instanceFromNib() -> LaunchView {
     return UINib(nibName: LaunchView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! LaunchView
   }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    descriptionLabel.font = theme.font3
+    descriptionLabel.textColor = theme.lightTextColor
+    infoLabel.font = theme.font2
+    infoLabel.textColor = theme.lightTextColor
+    layoutMargins = UIEdgeInsets(top: 100, left: 40, bottom: 0, right: 40)
+  }
 }
