@@ -6,9 +6,14 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import SnapKit
 import UIKit
 
 class RootViewController: UITabBarController {
+  fileprivate var launchView: LaunchView!
+  
+  fileprivate let animationDuration = ThemeManager.shared.current.animationDuration
+  
   override var selectedViewController: UIViewController? {
     didSet {
       refreshTabItemsTitleStyle()
@@ -18,8 +23,19 @@ class RootViewController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTabBarViewControllers()
+    initializeLaunchView()
     applyTheme()
     refreshTabItemsTitleStyle()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    displayLaunchView()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    dismissLaunchViewAfterTimeout()
   }
   
   func initializeTabBarViewControllers() {
@@ -31,7 +47,7 @@ class RootViewController: UITabBarController {
     
     eventsMapVC.tabBarItem = UITabBarItem(title: Strings.event_map(), image: #imageLiteral(resourceName: "pinMenuOutline"), tag: 1)
     bookmarksVC.tabBarItem = UITabBarItem(title: Strings.bookmarks(), image: #imageLiteral(resourceName: "bookmarkOutline"), tag: 2)
-    schedualeVC.tabBarItem = UITabBarItem(title: Strings.scheduale(), image: #imageLiteral(resourceName: "schedule"), tag: 3)
+    schedualeVC.tabBarItem = UITabBarItem(title: Strings.scheduale(), image: #imageLiteral(resourceName: "Schedule"), tag: 3)
     virtualRealityVC.tabBarItem = UITabBarItem(title: Strings.vr(), image: #imageLiteral(resourceName: "vr"), tag: 4)
     infoVC.tabBarItem = UITabBarItem(title: Strings.info(), image: #imageLiteral(resourceName: "info"), tag: 5)
     
@@ -47,7 +63,27 @@ class RootViewController: UITabBarController {
     self.selectedIndex = 0
   }
   
+  private func initializeLaunchView() {
+    launchView = LaunchView.instanceFromNib()
+  }
   
+  private func displayLaunchView() {
+    view.addSubview(launchView)
+    launchView.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(view)
+    }
+  }
+  
+  private func dismissLaunchViewAfterTimeout() {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      UIView.animate(withDuration: self.animationDuration, animations: {
+        self.launchView.alpha = 0
+      }, completion: { (_) -> Void in
+        self.launchView.removeFromSuperview()
+        self.launchView.alpha = 1
+      })
+    }
+  }
 }
 
 //MARK: Helpers 
