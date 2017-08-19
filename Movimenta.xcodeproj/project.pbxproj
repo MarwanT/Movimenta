@@ -20,6 +20,8 @@
 		59363FCF1F459722006059B6 /* ParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FCD1F459722006059B6 /* ParticipantCell.xib */; };
 		59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FD11F45DFE2006059B6 /* ParallaxLabel.swift */; };
 		59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FD31F45E01A006059B6 /* ParallaxLabel.xib */; };
+		59363FDE1F4740DE006059B6 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FDD1F4740DE006059B6 /* LaunchView.swift */; };
+		59363FE01F47414E006059B6 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FDF1F47414E006059B6 /* LaunchView.xib */; };
 		594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594500641F42026400779302 /* TableViewSectionHeader.xib */; };
 		594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594500661F42029500779302 /* TableViewSectionHeader.swift */; };
 		5945006F1F44342400779302 /* DateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5945006D1F44342400779302 /* DateTimeCell.swift */; };
@@ -125,6 +127,8 @@
 		59363FCD1F459722006059B6 /* ParticipantCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantCell.xib; sourceTree = "<group>"; };
 		59363FD11F45DFE2006059B6 /* ParallaxLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxLabel.swift; sourceTree = "<group>"; };
 		59363FD31F45E01A006059B6 /* ParallaxLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParallaxLabel.xib; sourceTree = "<group>"; };
+		59363FDD1F4740DE006059B6 /* LaunchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		59363FDF1F47414E006059B6 /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
 		594500641F42026400779302 /* TableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSectionHeader.xib; sourceTree = "<group>"; };
 		594500661F42029500779302 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
 		5945006D1F44342400779302 /* DateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeCell.swift; path = Movimenta/Components/DateTimeCell/DateTimeCell.swift; sourceTree = SOURCE_ROOT; };
@@ -287,6 +291,15 @@
 				59363FD31F45E01A006059B6 /* ParallaxLabel.xib */,
 			);
 			path = ParallaxLabel;
+			sourceTree = "<group>";
+		};
+		59363FDC1F4740DE006059B6 /* LaunchView */ = {
+			isa = PBXGroup;
+			children = (
+				59363FDD1F4740DE006059B6 /* LaunchView.swift */,
+				59363FDF1F47414E006059B6 /* LaunchView.xib */,
+			);
+			path = LaunchView;
 			sourceTree = "<group>";
 		};
 		594500631F42021100779302 /* TableViewSectionHeader */ = {
@@ -480,6 +493,7 @@
 		59D52F721F1CD134008F3B13 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				59363FDC1F4740DE006059B6 /* LaunchView */,
 				591CD78A1F3879BA00A24BBB /* EventDetailsPeekView */,
 				5946621A1F41B358007412C0 /* EventDetailsHeaderView */,
 				594500631F42021100779302 /* TableViewSectionHeader */,
@@ -733,6 +747,7 @@
 				598923161F1E2AB600F73974 /* nexa-extrabold-webfont.ttf in Resources */,
 				5989231E1F1E2ACD00F73974 /* nexa-thin-webfont.ttf in Resources */,
 				59D52F871F1CD197008F3B13 /* Info.plist in Resources */,
+				59363FE01F47414E006059B6 /* LaunchView.xib in Resources */,
 				5989231B1F1E2AC600F73974 /* nexa-lightitalic-webfont.ttf in Resources */,
 				5970AF881F224CA7008CA708 /* events.json in Resources */,
 				59EF02211F31CFE400F145B9 /* Event.storyboard in Resources */,
@@ -908,6 +923,7 @@
 				594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */,
 				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
 				5945006F1F44342400779302 /* DateTimeCell.swift in Sources */,
+				59363FDE1F4740DE006059B6 /* LaunchView.swift in Sources */,
 				594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */,
 				5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */,
 				5970AFAF1F29F631008CA708 /* Theme.swift in Sources */,
