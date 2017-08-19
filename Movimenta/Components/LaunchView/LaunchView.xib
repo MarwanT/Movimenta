@@ -55,6 +55,11 @@
                 <constraint firstItem="cTn-WY-mPP" firstAttribute="top" secondItem="jyX-mc-CqV" secondAttribute="bottom" constant="15" id="xEc-gb-QEe"/>
             </constraints>
             <edgeInsets key="layoutMargins" top="80" left="30" bottom="0.0" right="30"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="jyX-mc-CqV" id="aor-Nv-D15"/>
+                <outlet property="infoLabel" destination="cTn-WY-mPP" id="eWh-Gx-tVl"/>
+                <outlet property="logoImageView" destination="VYz-ES-2lG" id="AEM-eI-fhG"/>
+            </connections>
         </view>
     </objects>
     <resources>

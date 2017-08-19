@@ -9,4 +9,7 @@
 import UIKit
 
 class LaunchView: UIView {
+  @IBOutlet weak var logoImageView: UIImageView!
+  @IBOutlet weak var descriptionLabel: UILabel!
+  @IBOutlet weak var infoLabel: UILabel!
 }
