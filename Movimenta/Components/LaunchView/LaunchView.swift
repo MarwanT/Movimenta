@@ -12,4 +12,8 @@ class LaunchView: UIView {
   @IBOutlet weak var logoImageView: UIImageView!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var infoLabel: UILabel!
+  
+  class func instanceFromNib() -> LaunchView {
+    return UINib(nibName: LaunchView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! LaunchView
+  }
 }
