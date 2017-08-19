@@ -20,6 +20,7 @@ class LaunchView: UIView {
   override func awakeFromNib() {
     super.awakeFromNib()
     applyTheme()
+    setup()
   }
   
   private func applyTheme() {
@@ -29,5 +30,10 @@ class LaunchView: UIView {
     infoLabel.font = theme.font2
     infoLabel.textColor = theme.lightTextColor
     layoutMargins = UIEdgeInsets(top: 100, left: 40, bottom: 0, right: 40)
+  }
+  
+  private func setup() {
+    descriptionLabel.text = Strings.launch_screen_description()
+    infoLabel.text = Strings.launch_screen_information()
   }
 }
