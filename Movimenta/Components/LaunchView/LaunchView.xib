@@ -15,7 +15,45 @@
         <view contentMode="scaleToFill" id="nib-No-uDe" userLabel="Container View" customClass="LaunchView" customModule="Movimenta" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="1UI-JR-Ufn" userLabel="Bakcground Image View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VYz-ES-2lG">
+                    <rect key="frame" x="30" y="80" width="315" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="dV3-Da-I9j"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyX-mc-CqV" userLabel="Description Label">
+                    <rect key="frame" x="30" y="165" width="315" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTn-WY-mPP" userLabel="Info Label">
+                    <rect key="frame" x="30" y="201" width="315" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="VYz-ES-2lG" firstAttribute="top" secondItem="nib-No-uDe" secondAttribute="topMargin" id="9th-Pt-0Iz"/>
+                <constraint firstItem="1UI-JR-Ufn" firstAttribute="leading" secondItem="nib-No-uDe" secondAttribute="leading" id="Cw1-wW-DL6"/>
+                <constraint firstItem="cTn-WY-mPP" firstAttribute="leading" secondItem="jyX-mc-CqV" secondAttribute="leading" id="DNa-Pf-jTJ"/>
+                <constraint firstItem="jyX-mc-CqV" firstAttribute="leading" secondItem="nib-No-uDe" secondAttribute="leadingMargin" id="DQw-p3-AbX"/>
+                <constraint firstItem="cTn-WY-mPP" firstAttribute="trailing" secondItem="jyX-mc-CqV" secondAttribute="trailing" id="EuF-Lz-3IN"/>
+                <constraint firstAttribute="trailingMargin" secondItem="jyX-mc-CqV" secondAttribute="trailing" id="HgF-fb-hZk"/>
+                <constraint firstAttribute="bottom" secondItem="1UI-JR-Ufn" secondAttribute="bottom" id="MVJ-KF-tNI"/>
+                <constraint firstItem="1UI-JR-Ufn" firstAttribute="top" secondItem="nib-No-uDe" secondAttribute="top" id="PO5-a0-4EN"/>
+                <constraint firstItem="jyX-mc-CqV" firstAttribute="top" secondItem="VYz-ES-2lG" secondAttribute="bottom" constant="15" id="sTV-os-uGP"/>
+                <constraint firstAttribute="trailing" secondItem="1UI-JR-Ufn" secondAttribute="trailing" id="v0I-a9-iTu"/>
+                <constraint firstItem="VYz-ES-2lG" firstAttribute="leading" secondItem="nib-No-uDe" secondAttribute="leadingMargin" id="v0z-m1-OFI"/>
+                <constraint firstAttribute="trailingMargin" secondItem="VYz-ES-2lG" secondAttribute="trailing" id="wgl-U7-fo6"/>
+                <constraint firstItem="cTn-WY-mPP" firstAttribute="top" secondItem="jyX-mc-CqV" secondAttribute="bottom" constant="15" id="xEc-gb-QEe"/>
+            </constraints>
             <edgeInsets key="layoutMargins" top="80" left="30" bottom="0.0" right="30"/>
         </view>
     </objects>
