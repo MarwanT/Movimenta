@@ -171,7 +171,7 @@ extension Event: Parsable {
     let artistsIds = json["artists"].arrayObject?.map({ "\($0)" })
     let companiesIds = json["companies"].arrayObject?.map({ "\($0)" })
     let sponsorsIds = json["sponsors"].arrayObject?.map({ "\($0)" })
-    let dates = DateRange.objects(from: json["dates"])
+    let dates = DateRange.objects(from: json["dates"])?.sortedAscending()
     
     return Event(id: id, link: link, content: content, title: title, excerpt: excerpt, subtitle: subtitle, languageCode: languageCode, typesIds: typesIds, categoriesIds: categoriesIds, image: image, venueId: venueId, coordinates: coordinates, address: address, organizersIds: organizersIds, speakersIds: speakersIds, artistsIds: artistsIds, companiesIds: companiesIds, sponsorsIds: sponsorsIds, dates: dates)
   }
