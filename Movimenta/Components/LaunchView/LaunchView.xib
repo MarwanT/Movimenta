@@ -19,7 +19,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1UI-JR-Ufn" userLabel="Bakcground Image View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VYz-ES-2lG">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoLong" translatesAutoresizingMaskIntoConstraints="NO" id="VYz-ES-2lG">
                     <rect key="frame" x="30" y="80" width="315" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="dV3-Da-I9j"/>
@@ -64,5 +64,6 @@
     </objects>
     <resources>
         <image name="launchBackground" width="375" height="667"/>
+        <image name="logoLong" width="567" height="73"/>
     </resources>
 </document>
