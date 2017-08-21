@@ -263,4 +263,21 @@ extension Array where Element == Event {
     }
     return sortedEvents
   }
+  
+  func sortedDescending() -> [Event] {
+    let sortedEvents = sorted { (event1, event2) -> Bool in
+      guard let event1ToDate = event1.dates?.sortedDescending().first?.to,
+        let event2ToDate = event2.dates?.sortedDescending().first?.to else {
+          return false
+      }
+      
+      switch event1ToDate.compare(event2ToDate) {
+      case .orderedSame, .orderedDescending:
+        return true
+      case .orderedAscending:
+        return false
+      }
+    }
+    return sortedEvents
+  }
 }
