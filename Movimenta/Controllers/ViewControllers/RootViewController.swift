@@ -14,6 +14,8 @@ class RootViewController: UITabBarController {
   
   fileprivate let animationDuration = ThemeManager.shared.current.animationDuration
   
+  var didDisplayLaunchView = false
+  
   override var selectedViewController: UIViewController? {
     didSet {
       refreshTabItemsTitleStyle()
@@ -30,7 +32,7 @@ class RootViewController: UITabBarController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    displayLaunchView()
+    displayLaunchViewIfNeeded()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -67,10 +69,12 @@ class RootViewController: UITabBarController {
     launchView = LaunchView.instanceFromNib()
   }
   
-  private func displayLaunchView() {
-    view.addSubview(launchView)
-    launchView.snp.makeConstraints { (maker) in
-      maker.edges.equalTo(view)
+  private func displayLaunchViewIfNeeded() {
+    if !didDisplayLaunchView {
+      view.addSubview(launchView)
+      launchView.snp.makeConstraints { (maker) in
+        maker.edges.equalTo(view)
+      }
     }
   }
   
@@ -79,6 +83,7 @@ class RootViewController: UITabBarController {
       UIView.animate(withDuration: self.animationDuration, animations: {
         self.launchView.alpha = 0
       }, completion: { (_) -> Void in
+        self.didDisplayLaunchView = true
         self.launchView.removeFromSuperview()
         self.launchView.alpha = 1
       })
