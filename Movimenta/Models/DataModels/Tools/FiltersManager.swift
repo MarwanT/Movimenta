@@ -9,6 +9,12 @@
 import Foundation
 
 class FiltersManager {
+  var events: [Event]? = nil
+  
   static let shared = FiltersManager()
   private init() {}
+  
+  func intialize(with events: [Event]) {
+    self.events = events
+  }
 }
