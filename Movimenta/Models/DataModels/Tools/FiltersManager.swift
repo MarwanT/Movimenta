@@ -17,4 +17,21 @@ class FiltersManager {
   func intialize(with events: [Event]) {
     self.events = events
   }
+  
+}
+
+//MARK: API
+extension FiltersManager {
+  var firstEventDate: Date {
+    return events?.first?.dates?.first?.from ?? Date()
+  }
+  
+  var lastEventDate: Date {
+    return events?.sortedDescending().first?.dates?.first?.to ?? Date()
+  }
+}
+
+//MARK: Helpers
+extension FiltersManager {
+  
 }
