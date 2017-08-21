@@ -18,7 +18,7 @@ class DataManager {
   var events: [Event] {
     return movimentaEvent?.events?.map({ (key, value) -> Event in
       return value
-    }) ?? []
+    }).sortedAscending() ?? []
   }
   var categories: [String : Event.Category] {
     return movimentaEvent?.categories ?? [:]
