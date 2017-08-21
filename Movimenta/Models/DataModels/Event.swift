@@ -208,6 +208,16 @@ extension Event {
       }
       return labels
     }
+    
+    static func subCategories(of category1: Category?, and category2: Category?) -> [Category] {
+      var categories: [Category] = category1?.subCategories ?? []
+      category2?.subCategories?.forEach({ (category) in
+        if !categories.contains(category) {
+          categories.append(category)
+        }
+      })
+      return categories
+    }
   }
 }
 
