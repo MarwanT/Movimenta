@@ -9,5 +9,6 @@
 import Foundation
 
 class FiltersManager {
-
+  static let shared = FiltersManager()
+  private init() {}
 }
