@@ -211,6 +211,14 @@ extension Event {
   }
 }
 
+extension Event.Category: Equatable {}
+func ==(lhs: Event.Category, rhs: Event.Category) -> Bool {
+  guard let lhsId = lhs.id, let rhsId = rhs.id else {
+    return false
+  }
+  return lhsId == rhsId
+}
+
 extension Event.Category: Parsable {
   static func object(from json: JSON) -> Event.Category? {
     let id = json["id"].stringValue
