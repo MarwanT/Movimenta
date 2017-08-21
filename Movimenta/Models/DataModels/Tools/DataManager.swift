@@ -55,7 +55,7 @@ class DataManager {
         return
     }
     movimentaEvent = mainEvent
-    loadBookmarkedEvents()
+    refreshAppDataForLoadedData()
   }
   
   private func loadDataFromServer() {
@@ -66,12 +66,22 @@ class DataManager {
       
       Persistence.shared.save(data: data)
       self.movimentaEvent = mainEvent
-      self.loadBookmarkedEvents()
+      self.refreshAppDataForLoadedData()
     }
+  }
+  
+  
+  private func refreshAppDataForLoadedData() {
+    loadBookmarkedEvents()
+    refreshFiltersManager()
   }
   
   private func loadBookmarkedEvents() {
     bookmarkedEvents = bookmarkedEventsArray()
+  }
+  
+  private func refreshFiltersManager() {
+    FiltersManager.shared.intialize(with: events)
   }
   
   func venue(id: String?) -> Venue? {
