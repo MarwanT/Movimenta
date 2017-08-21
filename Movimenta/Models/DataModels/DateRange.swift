@@ -91,4 +91,20 @@ extension Array where Element == DateRange {
     }
     return sortedRanges
   }
+  
+  func sortedDescending() -> [DateRange] {
+    let sortedRanges = sorted { (range1, range2) -> Bool in
+      guard let toDate1 = range1.to, let toDate2 = range2.to else {
+        return false
+      }
+      
+      switch toDate1.compare(toDate2) {
+      case .orderedDescending, .orderedSame:
+        return true
+      case .orderedAscending:
+        return false
+      }
+    }
+    return sortedRanges
+  }
 }
