@@ -29,6 +29,22 @@ extension FiltersManager {
   var lastEventDate: Date {
     return events?.sortedDescending().first?.dates?.first?.to ?? Date()
   }
+  
+  var categories: [Event.Category] {
+    var mainCategories: [Event.Category] = []
+    events?.forEach({ (event) in
+      event.categories.forEach({ (category) in
+        if let index = mainCategories.index(of: category) {
+          let subcat = Event.Category.subCategories(of: mainCategories[index], and: category)
+          mainCategories[index].subCategories = subcat
+        } else {
+          mainCategories.append(category)
+        }
+      })
+      
+    })
+    return mainCategories
+  }
 }
 
 //MARK: Helpers
