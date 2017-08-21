@@ -73,3 +73,22 @@ extension DateRange: Parsable {
     return DateRange(from: fromDate, to: toDate)
   }
 }
+
+//MARK: - DateRange Array extensions
+extension Array where Element == DateRange {
+  func sortedAscending() -> [DateRange] {
+    let sortedRanges = sorted { (range1, range2) -> Bool in
+      guard let fromDate1 = range1.from, let fromDate2 = range2.from else {
+        return false
+      }
+      
+      switch fromDate1.compare(fromDate2) {
+      case .orderedAscending, .orderedSame:
+        return true
+      case .orderedDescending:
+        return false
+      }
+    }
+    return sortedRanges
+  }
+}
