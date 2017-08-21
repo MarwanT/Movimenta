@@ -244,3 +244,23 @@ func ==(lhs: Event, rhs: Event) -> Bool {
   }
   return lhsId == rhsId
 }
+
+//MARK: - Event Array extensions
+extension Array where Element == Event {
+  func sortedAscending() -> [Event] {
+    let sortedEvents = sorted { (event1, event2) -> Bool in
+      guard let evente1FromDate = event1.dates?.first?.from,
+        let event2FromDate = event2.dates?.first?.from else {
+        return false
+      }
+      
+      switch evente1FromDate.compare(event2FromDate) {
+      case .orderedSame, .orderedAscending:
+        return true
+      case .orderedDescending:
+        return false
+      }
+    }
+    return sortedEvents
+  }
+}
