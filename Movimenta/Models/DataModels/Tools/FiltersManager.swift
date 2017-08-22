@@ -77,7 +77,11 @@ extension FiltersManager {
 
 //MARK: Filter Methods
 extension FiltersManager {
+  func filteredEvents(for filter: Filter) -> [Event] {
+    return events?.filtered(given: filter) ?? [Event]()
+  }
 }
+
 
 //==============================================================================
 
@@ -165,5 +169,16 @@ extension Array where Element == Event {
     return filter({ (event) -> Bool in
       event.within(kilometers: distance, to: userCoordinates)
     })
+  }
+  
+  fileprivate func filtered(given filter: Filter) -> [Event] {
+    return self.filteredBookmarked(filter.showBookmarked)
+      .filteredArtists(filter.artists)
+      .filteredSpeakers(filter.speakers)
+      .filteredSponsers(filter.sponsers)
+      .filteredCompanies(filter.companies)
+      .filteredOrganizers(filter.organizers)
+      .filteredStartWithin(minutes: filter.withinTime)
+      .filteredWithin(distance: filter.withinDistance)
   }
 }
