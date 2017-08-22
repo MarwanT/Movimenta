@@ -69,6 +69,10 @@ extension FiltersManager {
   var withinTimeValues: (values: [Int], unit: String) {
     return ([0, 10, 20, 30, 40, 50, 60], Strings.mins())
   }
+  
+  var withinDistanceValues: (values: [Double], unit: String) {
+    return ([0, 1, 2, 3, 4, 5, 6], Strings.km())
+  }
 }
 
 //MARK: Helpers
