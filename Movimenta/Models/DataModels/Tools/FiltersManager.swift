@@ -45,6 +45,26 @@ extension FiltersManager {
     })
     return mainCategories
   }
+  
+  var speakers: [Participant] {
+    return Array(DataManager.shared.speakers.values)
+  }
+  
+  var sponsers: [Participant] {
+    return Array(DataManager.shared.sponsers.values)
+  }
+  
+  var organizers: [Participant] {
+    return Array(DataManager.shared.organizers.values)
+  }
+  
+  var companies: [Participant] {
+    return Array(DataManager.shared.companies.values)
+  }
+  
+  var artists: [Participant] {
+    return Array(DataManager.shared.artists.values)
+  }
 }
 
 //MARK: Helpers
