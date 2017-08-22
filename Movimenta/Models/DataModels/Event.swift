@@ -95,6 +95,16 @@ struct Event: ModelCommonProperties {
     
     return false
   }
+  
+  /// return false in case of error
+  func within(kilometers: Double, to coordinates: CLLocationCoordinate2D) -> Bool {
+    guard let eventCoordinates = self.coordinates else {
+      return false
+    }
+    // distance in Km
+    let distance = CLLocationCoordinate2D.getDistance(fromCoordinates: eventCoordinates, toCoordinates: coordinates)/1000
+    return distance <= kilometers
+  }
 }
 
 //MARK: Helpers
