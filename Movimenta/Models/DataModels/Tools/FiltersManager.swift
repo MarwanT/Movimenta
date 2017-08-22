@@ -155,4 +155,15 @@ extension Array where Element == Event {
     }
     return filter({ $0.startsWithin(minutes: minutes) })
   }
+  
+  /// Distance is in kilometers
+  private func filteredWithin(distance: Double?) -> [Event] {
+    guard let distance = distance,
+      let userCoordinates = DataManager.shared.userLocation?.coordinate else {
+      return self
+    }
+    return filter({ (event) -> Bool in
+      event.within(kilometers: distance, to: userCoordinates)
+    })
+  }
 }
