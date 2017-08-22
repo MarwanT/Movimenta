@@ -81,6 +81,20 @@ struct Event: ModelCommonProperties {
     }
     return names.joined(separator: ", ")
   }
+  
+  func startsWithin(minutes: Int) -> Bool {
+    guard let dates = dates else {
+      return false
+    }
+    
+    for date in dates {
+      if date.startsWithin(minutes: minutes) {
+        return true
+      }
+    }
+    
+    return false
+  }
 }
 
 //MARK: Helpers
