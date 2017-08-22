@@ -15,6 +15,20 @@ struct DateRange {
 }
 
 extension DateRange {
+  func startsWithin(minutes: Int) -> Bool {
+    guard let from = from else {
+      return false
+    }
+    let now = Date()
+    guard let withinDate = now.add(minutes: minutes) else {
+      return false
+    }
+    
+    return (from >= now && from <= withinDate)
+  }
+}
+
+extension DateRange {
   var displayedLabel: String {
     let text = [displayedDate, displayedTime].flatMap { $0 }.joined(separator: "\n")
     return text
