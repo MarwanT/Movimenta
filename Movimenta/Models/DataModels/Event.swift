@@ -254,15 +254,6 @@ extension Event.EventType: Parsable {
   }
 }
 
-//MARK: - Equatable
-extension Event: Equatable {}
-func ==(lhs: Event, rhs: Event) -> Bool {
-  guard let lhsId = lhs.id, let rhsId = rhs.id else {
-    return false
-  }
-  return lhsId == rhsId
-}
-
 //MARK: - Event Array extensions
 extension Array where Element == Event {
   func sortedAscending() -> [Event] {

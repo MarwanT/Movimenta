@@ -8,12 +8,19 @@
 
 import Foundation
 
-protocol ModelCommonProperties {
+protocol ModelCommonProperties: Equatable {
   var id: String? { get }
   var link: URL? { get }
   var title: String? { get }
   var content: String? { get }
   var excerpt: String? { get }
+}
+
+func ==<T: ModelCommonProperties>(lhs: T, rhs: T) -> Bool {
+  guard let lhsId = lhs.id, let rhsId = rhs.id else {
+    return false
+  }
+  return lhsId == rhsId
 }
 
 extension MovimentaEvent {
