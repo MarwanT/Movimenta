@@ -20,6 +20,7 @@ class EventsMapViewController: UIViewController {
   var animationDuration: TimeInterval = 0.4
   
   let locationManager = CLLocationManager()
+  static var currentLocation: CLLocation? = nil
   
   var viewModel = EventsMapViewModel()
   
@@ -291,6 +292,10 @@ extension EventsMapViewController: CLLocationManagerDelegate {
     default:
       return
     }
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    EventsMapViewController.currentLocation = manager.location
   }
   
   // Handle location manager errors.
