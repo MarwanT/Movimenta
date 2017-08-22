@@ -112,4 +112,16 @@ extension Array where Element == Event {
     })
     })
   }
+  
+  private func filteredOrganizers(_ organizers: [Participant]?) -> [Event] {
+    guard let organizers = organizers, organizers.count > 0 else {
+      return self
+    }
+    return filter({ $0.organizers.contains(where: { (participant) -> Bool in
+      organizers.contains(where: { (organizer) -> Bool in
+        participant == organizer
+      })
+    })
+    })
+  }
 }
