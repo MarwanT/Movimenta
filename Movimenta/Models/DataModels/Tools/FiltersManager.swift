@@ -20,7 +20,7 @@ class FiltersManager {
   
 }
 
-//MARK: API
+//MARK: Basic Values
 extension FiltersManager {
   var firstEventDate: Date {
     return events?.first?.dates?.first?.from ?? Date()
@@ -75,7 +75,19 @@ extension FiltersManager {
   }
 }
 
-//MARK: Helpers
+//MARK: Filter Methods
 extension FiltersManager {
+}
+
+//==============================================================================
+
+//MARK: - Filtering
+extension Array where Element == Event {
+  private func filteredBookmarked(_ show: Bool?) -> [Event] {
+    guard let show = show, show == false else {
+      return self
+    }
+    return filter { $0.isBookmarked == false }
+  }
   
 }
