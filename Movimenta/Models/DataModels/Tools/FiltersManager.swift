@@ -100,4 +100,16 @@ extension Array where Element == Event {
         }) })
     })
   }
+  
+  private func filteredSponsers(_ sponsers: [Participant]?) -> [Event] {
+    guard let sponsers = sponsers, sponsers.count > 0 else {
+      return self
+    }
+    return filter({ $0.sponsors.contains(where: { (participant) -> Bool in
+      sponsers.contains(where: { (sponsor) -> Bool in
+        participant == sponsor
+      })
+    })
+    })
+  }
 }
