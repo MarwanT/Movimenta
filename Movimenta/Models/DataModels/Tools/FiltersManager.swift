@@ -124,4 +124,16 @@ extension Array where Element == Event {
     })
     })
   }
+  
+  private func filteredCompanies(_ companies: [Participant]?) -> [Event] {
+    guard let companies = companies, companies.count > 0 else {
+      return self
+    }
+    return filter({ $0.companies.contains(where: { (participant) -> Bool in
+      companies.contains(where: { (company) -> Bool in
+        participant == company
+      })
+    })
+    })
+  }
 }
