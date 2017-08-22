@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
 
 class DataManager {
@@ -39,6 +40,10 @@ class DataManager {
     return movimentaEvent?.sponsors ?? [:]
   }
   fileprivate(set) var bookmarkedEvents = [Event]()
+  
+  var userLocation: CLLocation? {
+    return EventsMapViewController.currentLocation
+  }
   
   static let shared = DataManager()
   private init() {}
