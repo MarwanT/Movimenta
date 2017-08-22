@@ -90,4 +90,14 @@ extension Array where Element == Event {
     return filter { $0.isBookmarked == false }
   }
   
+  private func filteredSpeakers(_ speakers: [Participant]?) -> [Event] {
+    guard let speakers = speakers, speakers.count > 0 else {
+      return self
+    }
+    return filter({ $0.speakers.contains(where: { (participant) -> Bool in
+        speakers.contains(where: { (speaker) -> Bool in
+          participant == speaker
+        }) })
+    })
+  }
 }
