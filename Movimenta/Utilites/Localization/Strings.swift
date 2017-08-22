@@ -45,12 +45,28 @@ final class Strings {
     return Localization.localize(key: "info")
   }
   
+  static func km() -> String {
+    return Localization.localize(key: "km")
+  }
+  
   static func launch_screen_description() -> String {
     return Localization.localize(key: "launch_screen_description")
   }
   
   static func launch_screen_information() -> String {
     return Localization.localize(key: "launch_screen_information")
+  }
+  
+  static func mins() -> String {
+    return Localization.localize(key: "mins")
+  }
+  
+  static func no_event_store_authorization_message() -> String {
+    return Localization.localize(key: "no_event_store_authorization_message")
+  }
+  
+  static func no_event_store_authorization_title() -> String {
+    return Localization.localize(key: "no_event_store_authorization_title")
   }
   
   static func ok() -> String {
@@ -61,13 +77,6 @@ final class Strings {
     return Localization.localize(key: "participants")
   }
   
-  static func no_event_store_authorization_message() -> String {
-    return Localization.localize(key: "no_event_store_authorization_message")
-  }
-  
-  static func no_event_store_authorization_title() -> String {
-    return Localization.localize(key: "no_event_store_authorization_title")
-  }
   
   static func settings() -> String {
     return Localization.localize(key: "settings")
