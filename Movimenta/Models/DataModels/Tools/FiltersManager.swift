@@ -136,4 +136,16 @@ extension Array where Element == Event {
     })
     })
   }
+  
+  private func filteredArtists(_ artists: [Participant]?) -> [Event] {
+    guard let artists = artists, artists.count > 0 else {
+      return self
+    }
+    return filter({ $0.artists.contains(where: { (participant) -> Bool in
+      artists.contains(where: { (artist) -> Bool in
+        participant == artist
+      })
+    })
+    })
+  }
 }
