@@ -15,3 +15,7 @@ final class FiltersViewModel {
     self.filter = filter
   }
 }
+
+extension FiltersViewModel {
+  typealias Section = FiltersViewController.Section
+}

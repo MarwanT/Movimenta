@@ -25,3 +25,18 @@ class FiltersViewController: UIViewController {
     super.viewDidLoad()
   }
 }
+
+extension FiltersViewController {
+  enum Section: Int {
+    case dates = 0
+    case types
+    case withinTime
+    case participants
+    case withinDistance
+    case bookmark
+    
+    static var numberOfSections: Int {
+      return 6
+    }
+  }
+}
