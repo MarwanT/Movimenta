@@ -70,5 +70,22 @@ extension FiltersViewController {
     static var numberOfSections: Int {
       return 6
     }
+    
+    var title: String? {
+      switch self {
+      case .dates:
+        return Strings.date()
+      case .types:
+        return Strings.event_types()
+      case .withinTime:
+        return Strings.starts_within()
+      case .participants:
+        return Strings.participants()
+      case .withinDistance:
+        return Strings.distance()
+      case .bookmark:
+        return nil
+      }
+    }
   }
 }
