@@ -40,6 +40,8 @@ class FiltersViewController: UIViewController {
     
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = theme.separatorColor
+    
+    tableView.register(FiltersSectionHeader.self, forHeaderFooterViewReuseIdentifier: FiltersSectionHeader.identifier)
   }
 }
 
@@ -55,6 +57,31 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     return UITableViewCell()
+  }
+  
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard let section = Section(rawValue: section),
+      let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: FiltersSectionHeader.identifier) as? FiltersSectionHeader, section != .bookmark else {
+      return nil
+    }
+    header.label.text = viewModel.titleForHeader(in: section)
+    return header
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    guard let section = Section(rawValue: section) else {
+      return 0
+    }
+    switch section {
+    case .bookmark:
+      return 0
+    default:
+      if viewModel.numberOfRows(in: section.rawValue) > 0 {
+        return UITableViewAutomaticDimension
+      } else {
+        return 0
+      }
+    }
   }
 }
 

@@ -26,4 +26,8 @@ extension FiltersViewModel {
   func numberOfRows(in section: Int) -> Int {
     return 0
   }
+  
+  func titleForHeader(in section: Section) -> String? {
+    return section.title
+  }
 }
