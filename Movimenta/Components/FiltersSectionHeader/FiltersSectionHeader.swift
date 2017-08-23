@@ -13,6 +13,8 @@ class FiltersSectionHeader: UITableViewHeaderFooterView {
   static let identifier: String = FiltersSectionHeader.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
+  
+  var configuration = Configuration()
 }
 
 extension FiltersSectionHeader {
