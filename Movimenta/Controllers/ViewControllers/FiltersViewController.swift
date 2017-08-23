@@ -9,6 +9,8 @@
 import UIKit
 
 class FiltersViewController: UIViewController {
+  @IBOutlet weak var tableView: UITableView!
+  
   var viewModel = FiltersViewModel()
   
   static func instance() -> FiltersViewController {
