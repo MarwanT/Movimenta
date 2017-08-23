@@ -25,8 +25,16 @@ final class Strings {
     return Localization.localize(key: "cancel")
   }
   
+  static func date() -> String {
+    return Localization.localize(key: "date")
+  }
+  
   static func date_and_time() -> String {
     return Localization.localize(key: "date_and_time")
+  }
+  
+  static func distance() -> String {
+    return Localization.localize(key: "distance")
   }
   
   static func event_details() -> String {
@@ -35,6 +43,10 @@ final class Strings {
   
   static func event_map() -> String {
     return Localization.localize(key: "event_map")
+  }
+  
+  static func event_types() -> String {
+    return Localization.localize(key: "event_types")
   }
   
   static func from_time() -> String {
@@ -77,13 +89,16 @@ final class Strings {
     return Localization.localize(key: "participants")
   }
   
-  
   static func settings() -> String {
     return Localization.localize(key: "settings")
   }
   
   static func scheduale() -> String {
     return Localization.localize(key: "scheduale")
+  }
+  
+  static func starts_within() -> String {
+    return Localization.localize(key: "starts_within")
   }
   
   static func to_time() -> String {

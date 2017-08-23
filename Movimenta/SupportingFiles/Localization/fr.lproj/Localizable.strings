@@ -10,9 +10,12 @@
 "at_time" = "At";
 "bookmarks" = "Bookmarks";
 "cancel" = "Cancel";
+"date" = "Date";
 "date_and_time" = "Date & Time";
+"distance" = "Distance";
 "event_details" = "Event Details";
 "event_map" = "Event map";
+"event_types" = "Event Types";
 "from_time" = "From";
 "info" = "Info";
 "km" = "Km";
@@ -26,6 +29,7 @@
 "to_time" = "till";
 "settings" = "Settings";
 "scheduale" = "Scheduale";
+"starts_within" = "Starts Within";
 "venue" = "Venue";
 "view_more" = "View More";
 "vr" = "VR";
