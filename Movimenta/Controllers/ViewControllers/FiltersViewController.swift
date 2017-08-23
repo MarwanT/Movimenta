@@ -27,6 +27,8 @@ class FiltersViewController: UIViewController {
   }
   
   private func initializeTableView() {
+    tableView.tableFooterView = UIView(frame: CGRect.zero)
+    
     tableView.delegate = self
     tableView.dataSource = self
   }
