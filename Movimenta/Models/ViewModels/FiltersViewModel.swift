@@ -18,4 +18,12 @@ final class FiltersViewModel {
 
 extension FiltersViewModel {
   typealias Section = FiltersViewController.Section
+  
+  var numberOfSections: Int {
+    return Section.numberOfSections
+  }
+  
+  func numberOfRows(in section: Int) -> Int {
+    return 0
+  }
 }

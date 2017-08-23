@@ -23,6 +23,27 @@ class FiltersViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    initializeTableView()
+  }
+  
+  private func initializeTableView() {
+    tableView.delegate = self
+    tableView.dataSource = self
+  }
+}
+
+//MARK: Table View Delegates
+extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return viewModel.numberOfSections
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return viewModel.numberOfRows(in: section)
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return UITableViewCell()
   }
 }
 
