@@ -11,6 +11,7 @@
 		42E5FD85BC6166CD91898730 /* Pods_MovimentaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437FF84134F339332697655C /* Pods_MovimentaTests.framework */; };
 		5903B0FE1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903B0FD1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift */; };
 		5903B1001F4C8CD7009DF33C /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903B0FF1F4C8CD7009DF33C /* Filter.swift */; };
+		5903B1041F4D8089009DF33C /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5903B1031F4D8089009DF33C /* Filter.storyboard */; };
 		59048B641F4AE8460000CCAF /* FiltersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59048B631F4AE8460000CCAF /* FiltersManager.swift */; };
 		591CD78D1F3879BA00A24BBB /* EventDetailsPeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */; };
 		591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */; };
@@ -121,6 +122,7 @@
 		437FF84134F339332697655C /* Pods_MovimentaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovimentaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5903B0FD1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Util.swift"; sourceTree = "<group>"; };
 		5903B0FF1F4C8CD7009DF33C /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		5903B1031F4D8089009DF33C /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 		59048B631F4AE8460000CCAF /* FiltersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersManager.swift; sourceTree = "<group>"; };
 		591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsPeekView.swift; sourceTree = "<group>"; };
 		591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsPeekView.xib; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 				59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */,
 				59D52FA61F1D0604008F3B13 /* Root.storyboard */,
 				59EF02201F31CFE400F145B9 /* Event.storyboard */,
+				5903B1031F4D8089009DF33C /* Filter.storyboard */,
 				59D52FA41F1D05B1008F3B13 /* Storyboard.swift */,
 			);
 			path = Storyboard;
@@ -764,6 +767,7 @@
 				59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */,
 				598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */,
 				598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */,
+				5903B1041F4D8089009DF33C /* Filter.storyboard in Resources */,
 				59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */,
 				59363FCA1F44E662006059B6 /* VenueCell.xib in Resources */,
 				598923151F1E2AB200F73974 /* nexa-bookitalic-webfont.ttf in Resources */,
