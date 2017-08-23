@@ -34,6 +34,9 @@ class FiltersViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     
+    tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+    tableView.estimatedSectionHeaderHeight = 40
+    
     tableView.layoutMargins = UIEdgeInsets(
       top: 0, left: CGFloat(theme.space7),
       bottom: 0, right: CGFloat(theme.space7))
