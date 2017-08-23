@@ -9,6 +9,7 @@
 import UIKit
 
 class FiltersViewController: UIViewController {
+  var viewModel = FiltersViewModel()
   
   static func instance() -> FiltersViewController {
     return Storyboard.Filter.instantiate(FiltersViewController.self)
