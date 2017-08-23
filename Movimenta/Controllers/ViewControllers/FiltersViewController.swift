@@ -15,6 +15,10 @@ class FiltersViewController: UIViewController {
     return Storyboard.Filter.instantiate(FiltersViewController.self)
   }
   
+  func initialize(with filter: Filter?) {
+    viewModel.initialize(with: filter)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
