@@ -48,7 +48,7 @@ extension FontBook {
     case .title2:
       selectedFont = Font.nexaBlack
     case .title3:
-      selectedFont = Font.nexaBold
+      selectedFont = Font.nexaRegular
     case .title4:
       selectedFont = Font.nexaBlack
     case .title5:
