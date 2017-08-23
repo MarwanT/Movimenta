@@ -29,6 +29,7 @@ class FiltersSectionHeader: UITableViewHeaderFooterView {
   
   private func initializeView() {
     setup()
+    applyTheme()
   }
   
   private func setup() {
@@ -40,6 +41,14 @@ class FiltersSectionHeader: UITableViewHeaderFooterView {
     }
   }
   
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    label.font = theme.font8
+    label.textColor = theme.darkTextColor
+    backgroundColor = theme.color4
+    contentView.backgroundColor = theme.color4
+    contentView.layoutMargins = configuration.contentViewMargins
+  }
 }
 
 extension FiltersSectionHeader {
