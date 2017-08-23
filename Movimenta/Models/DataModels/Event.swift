@@ -81,6 +81,30 @@ struct Event: ModelCommonProperties {
     }
     return names.joined(separator: ", ")
   }
+  
+  func startsWithin(minutes: Int) -> Bool {
+    guard let dates = dates else {
+      return false
+    }
+    
+    for date in dates {
+      if date.startsWithin(minutes: minutes) {
+        return true
+      }
+    }
+    
+    return false
+  }
+  
+  /// return false in case of error
+  func within(kilometers: Double, to coordinates: CLLocationCoordinate2D) -> Bool {
+    guard let eventCoordinates = self.coordinates else {
+      return false
+    }
+    // distance in Km
+    let distance = CLLocationCoordinate2D.getDistance(fromCoordinates: eventCoordinates, toCoordinates: coordinates)/1000
+    return distance <= kilometers
+  }
 }
 
 //MARK: Helpers
@@ -171,7 +195,7 @@ extension Event: Parsable {
     let artistsIds = json["artists"].arrayObject?.map({ "\($0)" })
     let companiesIds = json["companies"].arrayObject?.map({ "\($0)" })
     let sponsorsIds = json["sponsors"].arrayObject?.map({ "\($0)" })
-    let dates = DateRange.objects(from: json["dates"])
+    let dates = DateRange.objects(from: json["dates"])?.sortedAscending()
     
     return Event(id: id, link: link, content: content, title: title, excerpt: excerpt, subtitle: subtitle, languageCode: languageCode, typesIds: typesIds, categoriesIds: categoriesIds, image: image, venueId: venueId, coordinates: coordinates, address: address, organizersIds: organizersIds, speakersIds: speakersIds, artistsIds: artistsIds, companiesIds: companiesIds, sponsorsIds: sponsorsIds, dates: dates)
   }
@@ -208,7 +232,25 @@ extension Event {
       }
       return labels
     }
+    
+    static func subCategories(of category1: Category?, and category2: Category?) -> [Category] {
+      var categories: [Category] = category1?.subCategories ?? []
+      category2?.subCategories?.forEach({ (category) in
+        if !categories.contains(category) {
+          categories.append(category)
+        }
+      })
+      return categories
+    }
   }
+}
+
+extension Event.Category: Equatable {}
+func ==(lhs: Event.Category, rhs: Event.Category) -> Bool {
+  guard let lhsId = lhs.id, let rhsId = rhs.id else {
+    return false
+  }
+  return lhsId == rhsId
 }
 
 extension Event.Category: Parsable {
@@ -236,11 +278,39 @@ extension Event.EventType: Parsable {
   }
 }
 
-//MARK: - Equatable
-extension Event: Equatable {}
-func ==(lhs: Event, rhs: Event) -> Bool {
-  guard let lhsId = lhs.id, let rhsId = rhs.id else {
-    return false
+//MARK: - Event Array extensions
+extension Array where Element == Event {
+  func sortedAscending() -> [Event] {
+    let sortedEvents = sorted { (event1, event2) -> Bool in
+      guard let evente1FromDate = event1.dates?.first?.from,
+        let event2FromDate = event2.dates?.first?.from else {
+        return false
+      }
+      
+      switch evente1FromDate.compare(event2FromDate) {
+      case .orderedSame, .orderedAscending:
+        return true
+      case .orderedDescending:
+        return false
+      }
+    }
+    return sortedEvents
   }
-  return lhsId == rhsId
+  
+  func sortedDescending() -> [Event] {
+    let sortedEvents = sorted { (event1, event2) -> Bool in
+      guard let event1ToDate = event1.dates?.sortedDescending().first?.to,
+        let event2ToDate = event2.dates?.sortedDescending().first?.to else {
+          return false
+      }
+      
+      switch event1ToDate.compare(event2ToDate) {
+      case .orderedSame, .orderedDescending:
+        return true
+      case .orderedAscending:
+        return false
+      }
+    }
+    return sortedEvents
+  }
 }

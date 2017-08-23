@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		00889EBCF3A12CCC59FFC103 /* Pods_Movimenta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE53B3C2491622CB98DD0A1 /* Pods_Movimenta.framework */; };
 		42E5FD85BC6166CD91898730 /* Pods_MovimentaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437FF84134F339332697655C /* Pods_MovimentaTests.framework */; };
+		5903B0FE1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903B0FD1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift */; };
+		5903B1001F4C8CD7009DF33C /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903B0FF1F4C8CD7009DF33C /* Filter.swift */; };
+		59048B641F4AE8460000CCAF /* FiltersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59048B631F4AE8460000CCAF /* FiltersManager.swift */; };
 		591CD78D1F3879BA00A24BBB /* EventDetailsPeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */; };
 		591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */; };
 		591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78F1F387B0700A24BBB /* View+Utils.swift */; };
@@ -116,6 +119,9 @@
 		2FB2B9EBA0D23741EB753437 /* Pods-MovimentaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.release.xcconfig"; sourceTree = "<group>"; };
 		3BE53B3C2491622CB98DD0A1 /* Pods_Movimenta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movimenta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		437FF84134F339332697655C /* Pods_MovimentaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovimentaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5903B0FD1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Util.swift"; sourceTree = "<group>"; };
+		5903B0FF1F4C8CD7009DF33C /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		59048B631F4AE8460000CCAF /* FiltersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersManager.swift; sourceTree = "<group>"; };
 		591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsPeekView.swift; sourceTree = "<group>"; };
 		591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsPeekView.xib; sourceTree = "<group>"; };
 		591CD78F1F387B0700A24BBB /* View+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
@@ -405,6 +411,7 @@
 				594662141F3B4437007412C0 /* String+Utils.swift */,
 				594662161F3C736F007412C0 /* NSLayoutConstraint+Utils.swift */,
 				59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */,
+				5903B0FD1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +430,7 @@
 				5970AFA81F275939008CA708 /* DataManager.swift */,
 				5970AFAA1F2788F9008CA708 /* Persistence.swift */,
 				5970AFA51F2758C3008CA708 /* DataParser.swift */,
+				59048B631F4AE8460000CCAF /* FiltersManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -545,6 +553,7 @@
 				5970AF951F24E5A2008CA708 /* Venue.swift */,
 				5970AF971F24E6D0008CA708 /* Participant.swift */,
 				5970AF9E1F262EFC008CA708 /* CLLocationCoordinate2D.swift */,
+				5903B0FF1F4C8CD7009DF33C /* Filter.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -882,6 +891,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59363FCE1F459722006059B6 /* ParticipantCell.swift in Sources */,
+				5903B1001F4C8CD7009DF33C /* Filter.swift in Sources */,
 				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
 				5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */,
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
@@ -905,6 +915,7 @@
 				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
 				593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */,
 				59EF021B1F3094BA00F145B9 /* Image+Utils.swift in Sources */,
+				5903B0FE1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift in Sources */,
 				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
 				591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */,
 				5970AF901F24E175008CA708 /* MovimentaEvent.swift in Sources */,
@@ -927,6 +938,7 @@
 				594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */,
 				5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */,
 				5970AFAF1F29F631008CA708 /* Theme.swift in Sources */,
+				59048B641F4AE8460000CCAF /* FiltersManager.swift in Sources */,
 				5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */,
 				5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */,
 				5970AF961F24E5A2008CA708 /* Venue.swift in Sources */,

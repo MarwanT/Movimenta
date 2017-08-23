@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
 
 class DataManager {
@@ -18,7 +19,7 @@ class DataManager {
   var events: [Event] {
     return movimentaEvent?.events?.map({ (key, value) -> Event in
       return value
-    }) ?? []
+    }).sortedAscending() ?? []
   }
   var categories: [String : Event.Category] {
     return movimentaEvent?.categories ?? [:]
@@ -40,6 +41,10 @@ class DataManager {
   }
   fileprivate(set) var bookmarkedEvents = [Event]()
   
+  var userLocation: CLLocation? {
+    return EventsMapViewController.currentLocation
+  }
+  
   static let shared = DataManager()
   private init() {}
   
@@ -55,7 +60,7 @@ class DataManager {
         return
     }
     movimentaEvent = mainEvent
-    loadBookmarkedEvents()
+    refreshAppDataForLoadedData()
   }
   
   private func loadDataFromServer() {
@@ -66,12 +71,22 @@ class DataManager {
       
       Persistence.shared.save(data: data)
       self.movimentaEvent = mainEvent
-      self.loadBookmarkedEvents()
+      self.refreshAppDataForLoadedData()
     }
+  }
+  
+  
+  private func refreshAppDataForLoadedData() {
+    loadBookmarkedEvents()
+    refreshFiltersManager()
   }
   
   private func loadBookmarkedEvents() {
     bookmarkedEvents = bookmarkedEventsArray()
+  }
+  
+  private func refreshFiltersManager() {
+    FiltersManager.shared.intialize(with: events)
   }
   
   func venue(id: String?) -> Venue? {
