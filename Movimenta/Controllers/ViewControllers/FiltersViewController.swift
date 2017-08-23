@@ -27,10 +27,19 @@ class FiltersViewController: UIViewController {
   }
   
   private func initializeTableView() {
+    let theme = ThemeManager.shared.current
+    
     tableView.tableFooterView = UIView(frame: CGRect.zero)
     
     tableView.delegate = self
     tableView.dataSource = self
+    
+    tableView.layoutMargins = UIEdgeInsets(
+      top: 0, left: CGFloat(theme.space7),
+      bottom: 0, right: CGFloat(theme.space7))
+    
+    tableView.separatorStyle = .singleLine
+    tableView.separatorColor = theme.separatorColor
   }
 }
 
