@@ -40,6 +40,7 @@ class EventsMapViewController: UIViewController {
     initializeMapsView()
     initializeEventDetailsPeekView()
     initializeLocationManager()
+    setupNavigationItems()
     refreshMapVisibleArea()
     
     // Loading Data
@@ -79,6 +80,11 @@ class EventsMapViewController: UIViewController {
     locationManager.delegate = self
   }
   
+  private func setupNavigationItems() {
+    let filtersButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filters"), style: .plain, target: self, action: #selector(handleFiltersButtonTap(_:)))
+    navigationItem.rightBarButtonItem = filtersButton
+  }
+  
   private func addObservers() {
     NotificationCenter.default.addObserver(self, selector: #selector(reloadEvents), name: AppNotification.didLoadData, object: nil)
   }
@@ -115,6 +121,10 @@ class EventsMapViewController: UIViewController {
       snapEventDetailsPeekView(direction: .top)
       navigateToEventDetailsVC()
     }
+  }
+  
+  func handleFiltersButtonTap(_ sender: UIBarButtonItem) {
+    navigateToFiltersVC()
   }
 }
 
@@ -203,6 +213,11 @@ extension EventsMapViewController {
     
     let cameraUpdate = GMSCameraUpdate.fit(bounds)
     mapView.animate(with: cameraUpdate)
+  }
+  
+  fileprivate func navigateToFiltersVC() {
+    let vc = FiltersViewController.instance()
+    self.navigationController?.pushViewController(vc, animated: true)
   }
   
   //======================================================
