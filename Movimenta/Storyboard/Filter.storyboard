@@ -12,7 +12,7 @@
         <!--Filters View Controller-->
         <scene sceneID="OyG-FZ-sk8">
             <objects>
-                <viewController id="Ky6-Hp-SUC" customClass="FiltersViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FiltersViewController" id="Ky6-Hp-SUC" customClass="FiltersViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4HP-y1-glR"/>
                         <viewControllerLayoutGuide type="bottom" id="ijb-Cp-UHS"/>
