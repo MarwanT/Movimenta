@@ -9,4 +9,7 @@
 import UIKit
 
 class DatePickerCell: UITableViewCell {
+  static let identifier: String = DatePickerCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+  
 }
