@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DatePickerCellDelegate: class {
+  func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool)
+}
+
 class DatePickerCell: UITableViewCell {
   static let identifier: String = DatePickerCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
@@ -25,6 +29,8 @@ class DatePickerCell: UITableViewCell {
   @IBOutlet weak var superviewBottomToDatePickerBottomConstraint: NSLayoutConstraint!
   
   var configuration = Configuration()
+  
+  weak var delegate: DatePickerCellDelegate? = nil
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -63,6 +69,7 @@ class DatePickerCell: UITableViewCell {
     UIView.animate(withDuration: 0.3) {
       self.layoutIfNeeded()
     }
+    delegate?.datePickerCellDidUpdatePickerVisibility(self, isVisible: isSelected)
   }
 }
 
