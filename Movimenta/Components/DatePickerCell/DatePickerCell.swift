@@ -40,6 +40,7 @@ class DatePickerCell: UITableViewCell {
     setup()
     applyTheme()
     refreshSpaces()
+    refreshLabel()
   }
   
   private func setup() {
@@ -67,6 +68,10 @@ class DatePickerCell: UITableViewCell {
     datePickerTrailingToSuperviewMarginConstraint.constant = configuration.subviewsTrailingMargin
     dateLabelTrailingToSuperviewMarginConstraint.constant = configuration.subviewsTrailingMargin
     layoutIfNeeded()
+  }
+  
+  fileprivate func refreshLabel() {
+    label.text = configuration.labelText
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
