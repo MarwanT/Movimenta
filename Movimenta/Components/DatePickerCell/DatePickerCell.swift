@@ -93,6 +93,14 @@ class DatePickerCell: UITableViewCell {
     dateSelectionChange(datePicker)
   }
   
+  func set(minimumDate: Date?) {
+    datePicker.minimumDate = minimumDate
+  }
+  
+  func set(maximumDate: Date?) {
+    datePicker.maximumDate = maximumDate
+  }
+  
   // MARK: Actions
   func dateSelectionChange(_ datePicker: UIDatePicker) {
     dateLabel.text = datePicker.date.formattedDate(format: "d' 'MMM' 'yyyy")
