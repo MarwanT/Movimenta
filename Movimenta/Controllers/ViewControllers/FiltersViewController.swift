@@ -150,6 +150,19 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.beginUpdates()
     tableView.endUpdates()
   }
+  
+  //===============================
+  
+  fileprivate func refreshDateCells() {
+    let fromData = viewModel.dateInfo(for: .from)
+    let toData = viewModel.dateInfo(for: .to)
+    fromDateCell.set(date: fromData.date)
+    fromDateCell.set(minimumDate: fromData.minimumDate)
+    fromDateCell.set(maximumDate: fromData.maximumDate)
+    toDateCell.set(date: toData.date)
+    toDateCell.set(minimumDate: toData.minimumDate)
+    toDateCell.set(maximumDate: toData.maximumDate)
+  }
 }
 
 extension FiltersViewController {
@@ -196,6 +209,12 @@ extension FiltersViewController {
 //MARK: - Date Picker Cell Delegate
 extension FiltersViewController: DatePickerCellDelegate {
   func datePickerCellDidSelectDate(_ cell: DatePickerCell, date: Date) {
+    if cell === fromDateCell {
+      viewModel.setFrom(date: date)
+    } else {
+      viewModel.setTo(date: date)
+    }
+    refreshDateCells()
   }
 
   func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {

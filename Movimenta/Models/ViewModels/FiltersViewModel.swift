@@ -54,3 +54,20 @@ extension FiltersViewModel {
     return (date, minimumDate, maximumDate)
   }
 }
+
+extension FiltersViewModel {
+  func setFrom(date: Date?) {
+    var dateRange = filter.dateRange ?? DateRange()
+    dateRange.from = date
+    if let date = date, let toDate = filter.dateRange?.to, toDate < date {
+      dateRange.to = date
+    }
+    filter.dateRange = dateRange
+  }
+  
+  func setTo(date: Date?) {
+    var dateRange = filter.dateRange ?? DateRange()
+    dateRange.to = date
+    filter.dateRange = dateRange
+  }
+}
