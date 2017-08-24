@@ -32,7 +32,12 @@ class DatePickerCell: UITableViewCell {
   @IBOutlet weak var superviewBottomToSeparatorTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var superviewBottomToDatePickerBottomConstraint: NSLayoutConstraint!
   
-  var configuration = Configuration()
+  var configuration = Configuration() {
+    didSet {
+      refreshLabel()
+      refreshSpaces()
+    }
+  }
   
   weak var delegate: DatePickerCellDelegate? = nil
   
