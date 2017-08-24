@@ -52,6 +52,7 @@ class DatePickerCell: UITableViewCell {
     dateLabel.font = theme.font9
     dateLabel.textColor = theme.darkTextColor
     separator.backgroundColor = theme.separatorColor
+    datePicker.setValue(theme.darkTextColor, forKey: #keyPath(UILabel.textColor))
     selectionStyle = .none
     clipsToBounds = true
   }
