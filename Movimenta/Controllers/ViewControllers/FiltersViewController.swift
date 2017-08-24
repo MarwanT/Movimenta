@@ -79,7 +79,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     case .bookmark:
       return 0
     default:
-      if viewModel.numberOfRows(in: section.rawValue) > 0 {
+      if viewModel.numberOfRows(in: section) > 0 {
         return UITableViewAutomaticDimension
       } else {
         return 0

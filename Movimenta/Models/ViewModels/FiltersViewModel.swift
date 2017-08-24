@@ -24,8 +24,13 @@ extension FiltersViewModel {
     return Section.numberOfSections
   }
   
-  func numberOfRows(in section: Int) -> Int {
-    return 0
+  func numberOfRows(in section: Section) -> Int {
+    switch section {
+    case .dates:
+      return DateRow.numberOfRows
+    default:
+      return 0
+    }
   }
   
   func titleForHeader(in section: Section) -> String? {
