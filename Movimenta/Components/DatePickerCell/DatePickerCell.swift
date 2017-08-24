@@ -15,6 +15,9 @@ protocol DatePickerCellDelegate: class {
 class DatePickerCell: UITableViewCell {
   static let identifier: String = DatePickerCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+  class func instanceFromNib() -> DatePickerCell {
+    return UINib(nibName: identifier, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DatePickerCell
+  }
   
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
