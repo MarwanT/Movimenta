@@ -24,9 +24,23 @@ class FiltersViewController: UIViewController {
     viewModel.initialize(with: filter)
   }
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    setup()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTableView()
+  }
+  
+  private func setup() {
+    fromDateCell = DatePickerCell.instanceFromNib()
+    toDateCell = DatePickerCell.instanceFromNib()
+    fromDateCell.configuration.labelText = Strings.from()
+    toDateCell.configuration.labelText = Strings.to()
+    fromDateCell.delegate = self
+    toDateCell.delegate = self
   }
   
   private func initializeTableView() {
@@ -131,3 +145,13 @@ extension FiltersViewController {
     }
   }
 }
+
+//MARK: - Date Picker Cell Delegate
+extension FiltersViewController: DatePickerCellDelegate {
+  func datePickerCellDidSelectDate(_ cell: DatePickerCell, date: Date) {
+  }
+
+  func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {
+  }
+}
+
