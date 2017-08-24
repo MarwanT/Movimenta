@@ -51,6 +51,19 @@ class DatePickerCell: UITableViewCell {
     dateLabelTrailingToSuperviewMarginConstraint.constant = configuration.subviewsTrailingMargin
     layoutIfNeeded()
   }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    refreshDatePickerVisibility()
+  }
+  
+  func refreshDatePickerVisibility() {
+    superviewBottomToSeparatorTopConstraint.isActive = !isSelected
+    superviewBottomToDatePickerBottomConstraint.isActive = isSelected
+    UIView.animate(withDuration: 0.3) {
+      self.layoutIfNeeded()
+    }
+  }
 }
 
 //MARK: Configuration declaration
