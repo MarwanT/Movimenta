@@ -34,8 +34,15 @@ class DatePickerCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setup()
     applyTheme()
     refreshSpaces()
+  }
+  
+  private func setup() {
+    datePicker.datePickerMode = .date
+    datePicker.addTarget(self, action: #selector(dateSelectionChange(_:)), for: UIControlEvents.valueChanged)
+    set(date: Date())
   }
   
   private func applyTheme() {
@@ -70,6 +77,17 @@ class DatePickerCell: UITableViewCell {
       self.layoutIfNeeded()
     }
     delegate?.datePickerCellDidUpdatePickerVisibility(self, isVisible: isSelected)
+  }
+  
+  // MARK: APIs
+  func set(date: Date, animated: Bool = false) {
+    datePicker.setDate(date, animated: animated)
+    dateSelectionChange(datePicker)
+  }
+  
+  // MARK: Actions
+  func dateSelectionChange(_ datePicker: UIDatePicker) {
+    dateLabel.text = datePicker.date.formattedDate(format: "d' 'MMM' 'yyyy")
   }
 }
 
