@@ -127,6 +127,25 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     }
   }
   
+  func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return nil
+    }
+    
+    switch section {
+    case .dates:
+      let cell = tableView.cellForRow(at: indexPath)
+      if (cell?.isSelected ?? false) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        return nil
+      } else {
+        return indexPath
+      }
+    default:
+      return indexPath
+    }
+  }
+  
   fileprivate func updateTableView() {
     tableView.beginUpdates()
     tableView.endUpdates()
