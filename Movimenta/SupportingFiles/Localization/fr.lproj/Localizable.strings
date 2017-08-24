@@ -16,7 +16,7 @@
 "event_details" = "Event Details";
 "event_map" = "Event map";
 "event_types" = "Event Types";
-"from_time" = "From";
+"from" = "From";
 "info" = "Info";
 "km" = "Km";
 "launch_screen_description" = "Festival biennal\nde l'image\nen mouvement";
@@ -26,6 +26,7 @@
 "no_event_store_authorization_title" = "Calendar";
 "ok" = "Ok";
 "participants" = "Participants";
+"to" = "To";
 "to_time" = "till";
 "settings" = "Settings";
 "scheduale" = "Scheduale";

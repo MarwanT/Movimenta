@@ -9,9 +9,9 @@
 import Foundation
 
 final class FiltersViewModel {
-  private(set) var filter: Filter? = nil
+  fileprivate var filter: Filter! = nil
   
-  func initialize(with filter: Filter?) {
+  func initialize(with filter: Filter) {
     self.filter = filter
   }
 }

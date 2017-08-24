@@ -66,7 +66,7 @@ extension DateRange {
       if from.same(time: to) {
         text = "\(Strings.at_time()) \(from.formattedTime())"
       } else {
-        text = "\(Strings.from_time()) \(from.formattedTime()) \(Strings.to_time()) \(to.formattedTime())"
+        text = "\(Strings.from()) \(from.formattedTime()) \(Strings.to_time()) \(to.formattedTime())"
       }
     } else {
       text = from.formattedTime()
