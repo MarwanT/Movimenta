@@ -29,6 +29,7 @@ class DatePickerCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     applyTheme()
+    refreshSpaces()
   }
   
   private func applyTheme() {
@@ -40,6 +41,15 @@ class DatePickerCell: UITableViewCell {
     separator.backgroundColor = theme.separatorColor
     selectionStyle = .none
     clipsToBounds = true
+  }
+  
+  fileprivate func refreshSpaces() {
+    contentView.layoutMargins = configuration.layoutMargins
+    separatorTopToDateLabelBottomConstraint.constant = configuration.layoutMargins.bottom
+    datePickerTopConstraintToSeparatorBottomConstraint.constant = configuration.layoutMargins.bottom
+    datePickerTrailingToSuperviewMarginConstraint.constant = configuration.subviewsTrailingMargin
+    dateLabelTrailingToSuperviewMarginConstraint.constant = configuration.subviewsTrailingMargin
+    layoutIfNeeded()
   }
 }
 
