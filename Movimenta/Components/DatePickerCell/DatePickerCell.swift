@@ -68,7 +68,14 @@ class DatePickerCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+    refreshViewForSelection()
+  }
+  
+  func refreshViewForSelection() {
     refreshDatePickerVisibility()
+    
+    let theme = ThemeManager.shared.current
+    dateLabel.textColor = isSelected ? theme.color2 : theme.darkTextColor
   }
   
   func refreshDatePickerVisibility() {
