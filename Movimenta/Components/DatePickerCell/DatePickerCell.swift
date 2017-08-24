@@ -10,6 +10,7 @@ import UIKit
 
 protocol DatePickerCellDelegate: class {
   func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool)
+  func datePickerCellDidSelectDate(_ cell: DatePickerCell, date: Date)
 }
 
 class DatePickerCell: UITableViewCell {
@@ -97,8 +98,8 @@ class DatePickerCell: UITableViewCell {
   
   // MARK: APIs
   func set(date: Date, animated: Bool = false) {
+    dateLabel.text = date.formattedDate(format: "d' 'MMM' 'yyyy")
     datePicker.setDate(date, animated: animated)
-    dateSelectionChange(datePicker)
   }
   
   func set(minimumDate: Date?) {
@@ -112,6 +113,7 @@ class DatePickerCell: UITableViewCell {
   // MARK: Actions
   func dateSelectionChange(_ datePicker: UIDatePicker) {
     dateLabel.text = datePicker.date.formattedDate(format: "d' 'MMM' 'yyyy")
+    delegate?.datePickerCellDidSelectDate(self, date: datePicker.date)
   }
 }
 
