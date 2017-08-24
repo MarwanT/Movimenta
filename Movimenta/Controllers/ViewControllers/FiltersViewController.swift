@@ -11,6 +11,9 @@ import UIKit
 class FiltersViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
+  fileprivate var fromDateCell: DatePickerCell!
+  fileprivate var toDateCell: DatePickerCell!
+  
   var viewModel = FiltersViewModel()
   
   static func instance() -> FiltersViewController {
