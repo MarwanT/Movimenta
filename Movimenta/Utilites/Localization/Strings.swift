@@ -49,8 +49,8 @@ final class Strings {
     return Localization.localize(key: "event_types")
   }
   
-  static func from_time() -> String {
-    return Localization.localize(key: "from_time")
+  static func from() -> String {
+    return Localization.localize(key: "from")
   }
   
   static func info() -> String {
@@ -99,6 +99,10 @@ final class Strings {
   
   static func starts_within() -> String {
     return Localization.localize(key: "starts_within")
+  }
+  
+  static func to() -> String {
+    return Localization.localize(key: "to")
   }
   
   static func to_time() -> String {
