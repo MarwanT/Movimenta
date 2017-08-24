@@ -119,5 +119,6 @@ extension DatePickerCell {
       bottom: CGFloat(ThemeManager.shared.current.space8),
       right: 0)
     var subviewsTrailingMargin = CGFloat(ThemeManager.shared.current.space7)
+    var labelText = "Date"
   }
 }
