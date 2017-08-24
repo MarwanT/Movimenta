@@ -74,11 +74,32 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    guard let section = Section(rawValue: section) else {
+      return 0
+    }
     return viewModel.numberOfRows(in: section)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    guard let section = Section(rawValue: indexPath.section) else {
+      return UITableViewCell()
+    }
+    
+    switch section {
+    case .dates:
+      guard let dateRow = DateRow(rawValue: indexPath.row) else {
+        return UITableViewCell()
+      }
+      let values = viewModel.dateInfo(for: dateRow)
+      let cell: DatePickerCell = dateRow == .from ? fromDateCell : toDateCell
+      cell.set(date: values.date)
+      cell.set(minimumDate: values.minimumDate)
+      cell.set(maximumDate: values.maximumDate)
+      return cell
+    default:
+      return UITableViewCell()
+    }
+    
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -36,4 +36,21 @@ extension FiltersViewModel {
   func titleForHeader(in section: Section) -> String? {
     return section.title
   }
+  
+  func dateInfo(for dateRow: DateRow) -> (date: Date, minimumDate: Date, maximumDate: Date) {
+    var date: Date
+    var minimumDate: Date
+    var maximumDate: Date
+    switch dateRow {
+    case .from:
+      date = filter.dateRange?.from ?? FiltersManager.shared.firstEventDate
+      minimumDate = FiltersManager.shared.firstEventDate
+      maximumDate = FiltersManager.shared.lastEventDate
+    case .to:
+      date = filter.dateRange?.to ?? FiltersManager.shared.lastEventDate
+      minimumDate = filter.dateRange?.from ?? FiltersManager.shared.firstEventDate
+      maximumDate = FiltersManager.shared.lastEventDate
+    }
+    return (date, minimumDate, maximumDate)
+  }
 }
