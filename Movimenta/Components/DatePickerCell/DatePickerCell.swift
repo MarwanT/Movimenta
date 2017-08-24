@@ -26,6 +26,21 @@ class DatePickerCell: UITableViewCell {
   
   var configuration = Configuration()
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    label.font = theme.font9
+    label.textColor = theme.darkTextColor
+    dateLabel.font = theme.font9
+    dateLabel.textColor = theme.darkTextColor
+    separator.backgroundColor = theme.separatorColor
+    selectionStyle = .none
+    clipsToBounds = true
+  }
 }
 
 //MARK: Configuration declaration
