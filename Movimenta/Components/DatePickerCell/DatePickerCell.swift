@@ -24,4 +24,18 @@ class DatePickerCell: UITableViewCell {
   @IBOutlet weak var superviewBottomToSeparatorTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var superviewBottomToDatePickerBottomConstraint: NSLayoutConstraint!
   
+  var configuration = Configuration()
+  
+}
+
+//MARK: Configuration declaration
+extension DatePickerCell {
+  struct Configuration {
+    var layoutMargins = UIEdgeInsets(
+      top: CGFloat(ThemeManager.shared.current.space8),
+      left: CGFloat(ThemeManager.shared.current.space7),
+      bottom: CGFloat(ThemeManager.shared.current.space8),
+      right: 0)
+    var subviewsTrailingMargin = CGFloat(ThemeManager.shared.current.space7)
+  }
 }
