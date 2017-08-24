@@ -118,4 +118,13 @@ extension FiltersViewController {
       }
     }
   }
+  
+  enum DateRow: Int {
+    case from = 0
+    case to
+    
+    static var numberOfRows: Int {
+      return 2
+    }
+  }
 }

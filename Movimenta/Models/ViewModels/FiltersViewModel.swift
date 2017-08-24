@@ -18,6 +18,7 @@ final class FiltersViewModel {
 
 extension FiltersViewModel {
   typealias Section = FiltersViewController.Section
+  typealias DateRow = FiltersViewController.DateRow
   
   var numberOfSections: Int {
     return Section.numberOfSections
