@@ -90,6 +90,8 @@
 		598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923341F1F6C0200F73974 /* Analytics+Field.swift */; };
 		598923371F1F753900F73974 /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923361F1F753900F73974 /* AppKeys.swift */; };
 		598923391F1F799400F73974 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923381F1F799400F73974 /* Environment.swift */; };
+		59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A15EE31F4EC3260019924C /* DatePickerCell.swift */; };
+		59A15EE61F4EC3260019924C /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A15EE41F4EC3260019924C /* DatePickerCell.xib */; };
 		59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F711F1CD134008F3B13 /* Assets.xcassets */; };
 		59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */; };
 		59D52F871F1CD197008F3B13 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F861F1CD197008F3B13 /* Info.plist */; };
@@ -209,6 +211,8 @@
 		598923341F1F6C0200F73974 /* Analytics+Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Field.swift"; sourceTree = "<group>"; };
 		598923361F1F753900F73974 /* AppKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
 		598923381F1F799400F73974 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		59A15EE31F4EC3260019924C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		59A15EE41F4EC3260019924C /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		59D52F711F1CD134008F3B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59D52F861F1CD197008F3B13 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -505,6 +509,15 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
+		59A15EE21F4EC1E50019924C /* DatePickerCell */ = {
+			isa = PBXGroup;
+			children = (
+				59A15EE31F4EC3260019924C /* DatePickerCell.swift */,
+				59A15EE41F4EC3260019924C /* DatePickerCell.xib */,
+			);
+			path = DatePickerCell;
+			sourceTree = "<group>";
+		};
 		59D52F701F1CD134008F3B13 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +539,7 @@
 				594500681F4432FE00779302 /* DateTimeCell */,
 				59363FC61F44E5AD006059B6 /* VenueCell */,
 				59363FCB1F45966F006059B6 /* ParticipantCell */,
+				59A15EE21F4EC1E50019924C /* DatePickerCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 			);
 			path = Components;
@@ -760,6 +774,7 @@
 				598923181F1E2ABA00F73974 /* nexa-heavy-webfont.ttf in Resources */,
 				598923131F1E2AAC00F73974 /* nexa-bolditalic-webfont.ttf in Resources */,
 				59D52F9A1F1CFA42008F3B13 /* Localizable.strings in Resources */,
+				59A15EE61F4EC3260019924C /* DatePickerCell.xib in Resources */,
 				59D52FA01F1CFE8D008F3B13 /* Localizable.stringsdict in Resources */,
 				594500701F44342400779302 /* DateTimeCell.xib in Resources */,
 				5989231D1F1E2ACB00F73974 /* nexa-regularitalic-webfont.ttf in Resources */,
@@ -922,6 +937,7 @@
 				594662151F3B4437007412C0 /* String+Utils.swift in Sources */,
 				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
 				5903B1061F4D82B8009DF33C /* FiltersViewModel.swift in Sources */,
+				59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */,
 				59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */,
 				594662171F3C736F007412C0 /* NSLayoutConstraint+Utils.swift in Sources */,
 				594662131F39D1B6007412C0 /* EventDetailsViewModel.swift in Sources */,
