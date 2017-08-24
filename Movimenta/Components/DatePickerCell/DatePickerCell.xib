@@ -79,6 +79,18 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="emL-Pn-i57" id="Tnk-c1-dhl"/>
+                <outlet property="dateLabelTrailingToSuperviewMarginConstraint" destination="ydu-iP-g9m" id="R6g-lY-T4z"/>
+                <outlet property="datePicker" destination="dse-6e-svh" id="R0R-rb-0ib"/>
+                <outlet property="datePickerTopConstraintToSeparatorBottomConstraint" destination="TbL-AQ-pe3" id="afw-kF-Vro"/>
+                <outlet property="datePickerTrailingToSuperviewMarginConstraint" destination="3pu-hB-LhS" id="Juz-sj-ofW"/>
+                <outlet property="label" destination="1Ax-09-WVc" id="ohZ-Yf-WjS"/>
+                <outlet property="separator" destination="arn-wS-CB7" id="CqC-1J-nRP"/>
+                <outlet property="separatorTopToDateLabelBottomConstraint" destination="w5p-ob-bmA" id="7Gy-Vw-3xC"/>
+                <outlet property="superviewBottomToDatePickerBottomConstraint" destination="Zls-6W-WOV" id="4ZQ-Hg-hru"/>
+                <outlet property="superviewBottomToSeparatorTopConstraint" destination="7Sb-gW-18I" id="hMO-tA-Z4J"/>
+            </connections>
             <point key="canvasLocation" x="34" y="63"/>
         </tableViewCell>
     </objects>
