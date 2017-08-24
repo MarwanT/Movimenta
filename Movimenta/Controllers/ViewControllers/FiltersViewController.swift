@@ -51,6 +51,8 @@ class FiltersViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 60
     tableView.sectionHeaderHeight = UITableViewAutomaticDimension
     tableView.estimatedSectionHeaderHeight = 40
     
