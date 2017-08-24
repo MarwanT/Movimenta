@@ -11,6 +11,9 @@ import UIKit
 class FiltersViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
+  fileprivate var fromDateCell: DatePickerCell!
+  fileprivate var toDateCell: DatePickerCell!
+  
   var viewModel = FiltersViewModel()
   
   static func instance() -> FiltersViewController {
@@ -21,9 +24,23 @@ class FiltersViewController: UIViewController {
     viewModel.initialize(with: filter)
   }
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    setup()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTableView()
+  }
+  
+  private func setup() {
+    fromDateCell = DatePickerCell.instanceFromNib()
+    toDateCell = DatePickerCell.instanceFromNib()
+    fromDateCell.configuration.labelText = Strings.from()
+    toDateCell.configuration.labelText = Strings.to()
+    fromDateCell.delegate = self
+    toDateCell.delegate = self
   }
   
   private func initializeTableView() {
@@ -34,6 +51,8 @@ class FiltersViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 60
     tableView.sectionHeaderHeight = UITableViewAutomaticDimension
     tableView.estimatedSectionHeaderHeight = 40
     
@@ -55,11 +74,32 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    guard let section = Section(rawValue: section) else {
+      return 0
+    }
     return viewModel.numberOfRows(in: section)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    guard let section = Section(rawValue: indexPath.section) else {
+      return UITableViewCell()
+    }
+    
+    switch section {
+    case .dates:
+      guard let dateRow = DateRow(rawValue: indexPath.row) else {
+        return UITableViewCell()
+      }
+      let values = viewModel.dateInfo(for: dateRow)
+      let cell: DatePickerCell = dateRow == .from ? fromDateCell : toDateCell
+      cell.set(date: values.date)
+      cell.set(minimumDate: values.minimumDate)
+      cell.set(maximumDate: values.maximumDate)
+      return cell
+    default:
+      return UITableViewCell()
+    }
+    
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -79,12 +119,49 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     case .bookmark:
       return 0
     default:
-      if viewModel.numberOfRows(in: section.rawValue) > 0 {
+      if viewModel.numberOfRows(in: section) > 0 {
         return UITableViewAutomaticDimension
       } else {
         return 0
       }
     }
+  }
+  
+  func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return nil
+    }
+    
+    switch section {
+    case .dates:
+      let cell = tableView.cellForRow(at: indexPath)
+      if (cell?.isSelected ?? false) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        return nil
+      } else {
+        return indexPath
+      }
+    default:
+      return indexPath
+    }
+  }
+  
+  fileprivate func updateTableView() {
+    tableView.beginUpdates()
+    tableView.endUpdates()
+  }
+  
+  //===============================
+  
+  fileprivate func refreshDateCells() {
+    let fromData = viewModel.dateInfo(for: .from)
+    let toData = viewModel.dateInfo(for: .to)
+    fromDateCell.set(date: fromData.date)
+    fromDateCell.set(minimumDate: fromData.minimumDate)
+    fromDateCell.set(maximumDate: fromData.maximumDate)
+    toDateCell.set(date: toData.date)
+    toDateCell.set(minimumDate: toData.minimumDate)
+    toDateCell.set(maximumDate: toData.maximumDate)
   }
 }
 
@@ -118,4 +195,30 @@ extension FiltersViewController {
       }
     }
   }
+  
+  enum DateRow: Int {
+    case from = 0
+    case to
+    
+    static var numberOfRows: Int {
+      return 2
+    }
+  }
 }
+
+//MARK: - Date Picker Cell Delegate
+extension FiltersViewController: DatePickerCellDelegate {
+  func datePickerCellDidSelectDate(_ cell: DatePickerCell, date: Date) {
+    if cell === fromDateCell {
+      viewModel.setFrom(date: date)
+    } else {
+      viewModel.setTo(date: date)
+    }
+    refreshDateCells()
+  }
+
+  func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {
+    updateTableView()
+  }
+}
+

@@ -217,6 +217,7 @@ extension EventsMapViewController {
   
   fileprivate func navigateToFiltersVC() {
     let vc = FiltersViewController.instance()
+    vc.initialize(with: Filter())
     self.navigationController?.pushViewController(vc, animated: true)
   }
   
