@@ -126,6 +126,11 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       }
     }
   }
+  
+  fileprivate func updateTableView() {
+    tableView.beginUpdates()
+    tableView.endUpdates()
+  }
 }
 
 extension FiltersViewController {
@@ -175,6 +180,7 @@ extension FiltersViewController: DatePickerCellDelegate {
   }
 
   func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {
+    updateTableView()
   }
 }
 
