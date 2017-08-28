@@ -131,6 +131,37 @@ extension FiltersViewModel {
     dateRange.to = date
     filter.dateRange = dateRange
   }
+  
+  func selectCategory(at indexPath: IndexPath) -> (toInsert: Bool, indexPaths: [IndexPath])? {
+    switch categoriesInfo(for: indexPath) {
+    case .header:
+      return toggleCategoryExpansion(at: indexPath)
+    case .child:
+      return nil
+    }
+  }
+  
+  private func toggleCategoryExpansion(at indexPath: IndexPath) -> (toInsert: Bool, indexPaths: [IndexPath])? {
+    if case .header(let label, let expanded, let rowData) = categoriesInfo(for: indexPath) {
+      categoriesData[indexPath.row].adjust(with: .header(label: label, expanded: !expanded, rowData: rowData))
+      
+      var indexPaths = [IndexPath]()
+      let startingIndex = indexPath.row + 1
+      for index in 0..<rowData.count {
+        indexPaths.append(IndexPath(row: startingIndex + index, section: indexPath.section))
+      }
+      
+      if expanded {
+        let range = startingIndex..<startingIndex+rowData.count
+        categoriesData.removeSubrange(range)
+      } else {
+        categoriesData.insert(contentsOf: rowData, at: indexPath.row+1)
+      }
+      
+      return (!expanded, indexPaths)
+    }
+    return nil
+  }
 }
 
 //MARK: DynamicSelectableRowData Declaration

@@ -158,6 +158,36 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     }
   }
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return
+    }
+    
+    switch section {
+    case .types:
+      if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
+        tableView.insertRows(at: affectedIndexPaths, with: .automatic)
+      }
+    default:
+      return
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return
+    }
+    
+    switch section {
+    case .types:
+      if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
+        tableView.deleteRows(at: affectedIndexPaths, with: .automatic)
+      }
+    default:
+      return
+    }
+  }
+  
   fileprivate func updateTableView() {
     tableView.beginUpdates()
     tableView.endUpdates()
