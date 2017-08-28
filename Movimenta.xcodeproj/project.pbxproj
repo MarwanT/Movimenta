@@ -40,6 +40,8 @@
 		594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594662181F3C8ED1007412C0 /* ExpandableLabel.swift */; };
 		5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946621B1F41B379007412C0 /* EventDetailsHeaderView.swift */; };
 		5946621E1F41B3C1007412C0 /* EventDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5946621D1F41B3C1007412C0 /* EventDetailsHeaderView.xib */; };
+		5953C17B1F5476B900BD27AB /* ExpandableHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5953C1791F5476B900BD27AB /* ExpandableHeaderCell.swift */; };
+		5953C17C1F5476B900BD27AB /* ExpandableHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5953C17A1F5476B900BD27AB /* ExpandableHeaderCell.xib */; };
 		596415271F507061009169A6 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596415261F507061009169A6 /* Selection.swift */; };
 		596A75771F1908120094A886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75761F1908120094A886 /* AppDelegate.swift */; };
 		596A758C1F1908120094A886 /* MovimentaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A758B1F1908120094A886 /* MovimentaTests.swift */; };
@@ -157,6 +159,8 @@
 		594662181F3C8ED1007412C0 /* ExpandableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableLabel.swift; sourceTree = "<group>"; };
 		5946621B1F41B379007412C0 /* EventDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsHeaderView.swift; sourceTree = "<group>"; };
 		5946621D1F41B3C1007412C0 /* EventDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsHeaderView.xib; sourceTree = "<group>"; };
+		5953C1791F5476B900BD27AB /* ExpandableHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderCell.swift; sourceTree = "<group>"; };
+		5953C17A1F5476B900BD27AB /* ExpandableHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableHeaderCell.xib; sourceTree = "<group>"; };
 		596415261F507061009169A6 /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		596A75731F1908120094A886 /* Movimenta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movimenta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A75761F1908120094A886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -358,6 +362,15 @@
 			path = EventDetailsHeaderView;
 			sourceTree = "<group>";
 		};
+		5953C1781F5476A000BD27AB /* ExpandableHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				5953C1791F5476B900BD27AB /* ExpandableHeaderCell.swift */,
+				5953C17A1F5476B900BD27AB /* ExpandableHeaderCell.xib */,
+			);
+			path = ExpandableHeaderCell;
+			sourceTree = "<group>";
+		};
 		596A756A1F1908120094A886 = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +556,7 @@
 				59363FC61F44E5AD006059B6 /* VenueCell */,
 				59363FCB1F45966F006059B6 /* ParticipantCell */,
 				59A15EE21F4EC1E50019924C /* DatePickerCell */,
+				5953C1781F5476A000BD27AB /* ExpandableHeaderCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 			);
 			path = Components;
@@ -782,6 +796,7 @@
 				594500701F44342400779302 /* DateTimeCell.xib in Resources */,
 				5989231D1F1E2ACB00F73974 /* nexa-regularitalic-webfont.ttf in Resources */,
 				591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */,
+				5953C17C1F5476B900BD27AB /* ExpandableHeaderCell.xib in Resources */,
 				598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */,
 				594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */,
 				59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */,
@@ -953,6 +968,7 @@
 				59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */,
 				5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */,
 				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
+				5953C17B1F5476B900BD27AB /* ExpandableHeaderCell.swift in Sources */,
 				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
 				593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */,
 				596415271F507061009169A6 /* Selection.swift in Sources */,
