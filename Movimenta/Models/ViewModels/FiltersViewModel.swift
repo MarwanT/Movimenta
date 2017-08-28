@@ -82,6 +82,8 @@ extension FiltersViewModel {
     switch section {
     case .dates:
       return DateRow.numberOfRows
+    case .types:
+      return categoriesData.count
     default:
       return 0
     }
@@ -107,8 +109,13 @@ extension FiltersViewModel {
     }
     return (date, minimumDate, maximumDate)
   }
+  
+  func categoriesInfo(for indexPath: IndexPath) -> SelectableRowData {
+    return categoriesData[indexPath.row]
+  }
 }
 
+//MARK: Data Setters
 extension FiltersViewModel {
   func setFrom(date: Date?) {
     var dateRange = filter.dateRange ?? DateRange()

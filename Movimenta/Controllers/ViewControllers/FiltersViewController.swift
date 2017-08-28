@@ -96,6 +96,16 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       cell.set(minimumDate: values.minimumDate)
       cell.set(maximumDate: values.maximumDate)
       return cell
+    case .types:
+      let values = viewModel.categoriesInfo(for: indexPath)
+      let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "George")
+      switch values {
+      case .header(let label, _, _):
+        cell.textLabel?.text = label
+      case .child(let label, _, _):
+        cell.textLabel?.text = label
+      }
+      return cell
     default:
       return UITableViewCell()
     }
