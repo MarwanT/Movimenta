@@ -15,6 +15,8 @@ class ExpandableHeaderCell: UITableViewCell {
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var arrowImageView: UIImageView!
   
+  var configuration = Configuration()
+  
 }
 
 extension ExpandableHeaderCell {
