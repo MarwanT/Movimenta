@@ -9,4 +9,7 @@
 import UIKit
 
 class ExpandableHeaderCell: UITableViewCell {
+  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var arrowImageView: UIImageView!
+  
 }

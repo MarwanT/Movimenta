@@ -42,6 +42,10 @@
                     <constraint firstItem="FDP-Zv-EhZ" firstAttribute="trailing" secondItem="rae-N6-jZH" secondAttribute="leading" id="ohf-ax-kRa"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="arrowImageView" destination="rae-N6-jZH" id="oEo-df-fUh"/>
+                <outlet property="label" destination="FDP-Zv-EhZ" id="XvT-Hm-14x"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>
