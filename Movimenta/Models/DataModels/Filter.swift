@@ -35,4 +35,11 @@ extension Filter {
     }
     return allCategories
   }
+  
+  func contains(category: Event.Category) -> Bool {
+    guard let flatCategories = flatCategories else {
+      return false
+    }
+    return flatCategories.contains(category)
+  }
 }
