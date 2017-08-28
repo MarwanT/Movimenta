@@ -12,4 +12,15 @@ enum Selection {
   case all
   case some
   case none
+  
+  var opposite: Selection {
+    switch self {
+    case .all:
+      return .none
+    case .some:
+      return .all
+    case .none:
+      return .all
+    }
+  }
 }
