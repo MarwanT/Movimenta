@@ -20,3 +20,19 @@ struct Filter {
   var withinDistance: Double? = nil
   var showBookmarked: Bool? = nil
 }
+
+extension Filter {
+  var flatCategories: [Event.Category]? {
+    guard let categories = categories else {
+      return nil
+    }
+    var allCategories: [Event.Category] = []
+    for category in categories {
+      allCategories.append(category)
+      if let subCategories = category.subCategories, subCategories.count > 0 {
+        allCategories.append(contentsOf: subCategories)
+      }
+    }
+    return allCategories
+  }
+}
