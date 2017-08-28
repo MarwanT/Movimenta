@@ -71,3 +71,15 @@ extension FiltersViewModel {
     filter.dateRange = dateRange
   }
 }
+
+//MARK: DynamicSelectableRowData Declaration
+extension FiltersViewModel {
+  enum SelectableRowData {
+    case header(label: String, expanded: Bool, rowData: [SelectableRowData])
+    case child(label: String, selection: Selection, data: Any?)
+    
+    mutating func adjust(with rowData: SelectableRowData) {
+      self = rowData
+    }
+  }
+}
