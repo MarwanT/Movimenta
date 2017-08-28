@@ -17,6 +17,16 @@ class ExpandableHeaderCell: UITableViewCell {
   
   var configuration = Configuration()
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    setup()
+  }
+  
+  private func setup() {
+    arrowImageView.image = #imageLiteral(resourceName: "arrowDown")
+    selectionStyle = .none
+    contentView.layoutMargins = configuration.layoutMargins
+  }
 }
 
 extension ExpandableHeaderCell {
