@@ -34,6 +34,29 @@ class ExpandableHeaderCell: UITableViewCell {
     label.font = theme.font9
     arrowImageView.tintColor = theme.color5
   }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    refreshForSelection()
+  }
+  
+  private func refreshForSelection() {
+    let theme = ThemeManager.shared.current
+    
+    if self.isSelected {
+      label.font = theme.font8
+      separatorInset = configuration.selectedSeparatorInset
+      UIView.animate(withDuration: theme.animationDuration) {
+        self.arrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+      }
+    } else {
+      label.font = theme.font9
+      separatorInset = configuration.defaultSeparatorInset
+      UIView.animate(withDuration: theme.animationDuration) {
+        self.arrowImageView.transform = CGAffineTransform.identity
+      }
+    }
+  }
 }
 
 extension ExpandableHeaderCell {
