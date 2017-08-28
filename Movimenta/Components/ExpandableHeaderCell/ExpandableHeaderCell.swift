@@ -20,12 +20,19 @@ class ExpandableHeaderCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     setup()
+    applyTheme()
   }
   
   private func setup() {
     arrowImageView.image = #imageLiteral(resourceName: "arrowDown")
     selectionStyle = .none
     contentView.layoutMargins = configuration.layoutMargins
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    label.font = theme.font9
+    arrowImageView.tintColor = theme.color5
   }
 }
 
