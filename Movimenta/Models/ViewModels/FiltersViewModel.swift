@@ -11,11 +11,65 @@ import Foundation
 final class FiltersViewModel {
   fileprivate var filter: Filter! = nil
   
+  fileprivate var categoriesData = [SelectableRowData]()
+  
   func initialize(with filter: Filter) {
     self.filter = filter
+    initializeCategoriesData()
+  }
+  
+  private func initializeCategoriesData() {
+    self.categoriesData.removeAll()
+    // On initialization the 'filterCategories' array only contains '.header' cases
+    // for the sole reason that at first they are all collapsed
+    self.categoriesData = generateCategoriesData(categories: FiltersManager.shared.categories)
+  }
+  
+  private func generateCategoriesData(categories: [Event.Category]) -> [SelectableRowData] {
+    var categoriesData = [SelectableRowData]()
+    for category in categories {
+      let subCategoryData = generateCategoriesData(subCategories: category.subCategories)
+      categoriesData.append(.header(label: category.label ?? "", expanded: false, rowData: subCategoryData))
+    }
+    return categoriesData
+  }
+  
+  private func generateCategoriesData(subCategories: [Event.Category]?) -> [SelectableRowData] {
+    var categoriesData = [SelectableRowData]()
+    guard let subCategories = subCategories else {
+      return categoriesData
+    }
+    subCategories.forEach { (category) in
+      let selection = self.selectionStatus(of: category)
+      categoriesData.append(SelectableRowData.child(label: category.label ?? "", selection: selection, data: category))
+    }
+    
+    return categoriesData
+  }
+  
+  fileprivate func selectionStatus(of category: Event.Category) -> Selection {
+    let isSelected = filter.contains(category: category)
+    var subCategoriesSelection: Selection?
+    if let subCategories = category.subCategories {
+      var numberOfSelectedSubcategories = 0
+      subCategories.forEach({ (subCategory) in
+        if filter.contains(category: subCategory) {
+          numberOfSelectedSubcategories += 1
+        }
+      })
+      subCategoriesSelection = numberOfSelectedSubcategories == 0 ?
+        .none : (numberOfSelectedSubcategories == subCategories.count ? Selection.all : Selection.some)
+    }
+    
+    if let subCategoriesSelection = subCategoriesSelection {
+      return subCategoriesSelection
+    } else {
+      return isSelected ? .all : .none
+    }
   }
 }
 
+//MARK: Data Getters
 extension FiltersViewModel {
   typealias Section = FiltersViewController.Section
   typealias DateRow = FiltersViewController.DateRow
