@@ -102,10 +102,13 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       let values = viewModel.categoriesInfo(for: indexPath)
       let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "George")
       switch values {
-      case .header(let label, _, _):
+      case .header(let label, let expanded, _):
         cell.textLabel?.text = label
-      case .child(let label, _, _):
+      case .child(let label, let selection, _):
         cell.textLabel?.text = label
+        if selection == .all {
+          tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        }
       }
       return cell
     default:

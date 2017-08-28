@@ -137,6 +137,7 @@ extension FiltersViewModel {
     case .header:
       return toggleCategoryExpansion(at: indexPath)
     case .child:
+      toggleCategorySelection(at: indexPath)
       return nil
     }
   }
@@ -159,6 +160,33 @@ extension FiltersViewModel {
       }
       
       return (!expanded, indexPaths)
+    }
+    return nil
+  }
+  
+  private func toggleCategorySelection(at indexPath: IndexPath) {
+    if case .child(let label, let selection, let data) = categoriesInfo(for: indexPath),
+      let headerIndexes = headerSelectableRowIndex(in: categoriesData, forChildAt: indexPath.row),
+      case .header(let headerLabel, let expanded, var rowData) = categoriesData[headerIndexes.header] {
+      
+      // Adjust the data held in the header data
+      rowData[headerIndexes.child].adjust(with: .child(label: label, selection: selection.opposite , data: data))
+      categoriesData[headerIndexes.header].adjust(with: .header(label: headerLabel, expanded: expanded, rowData: rowData))
+      // Adjust the data of the child item
+      categoriesData[indexPath.row].adjust(with:
+        .child(label: label, selection: selection.opposite , data: data))
+    }
+  }
+  
+  private func headerSelectableRowIndex(in selectableRowsData: [SelectableRowData], forChildAt index: Int) -> (header: Int, child: Int)? {
+    guard case .child = selectableRowsData[index] else {
+      return nil
+    }
+    
+    for i in (0..<index).reversed() {
+      if case .header = selectableRowsData[i] {
+        return (i, index - (i + 1))
+      }
     }
     return nil
   }
