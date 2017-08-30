@@ -39,9 +39,16 @@ final class FiltersViewModel {
     guard let subCategories = subCategories else {
       return categoriesData
     }
-    subCategories.forEach { (category) in
+    
+    for (index, category) in subCategories.enumerated() {
       let selection = self.selectionStatus(of: category)
-      categoriesData.append(SelectableRowData.child(label: category.label ?? "", selection: selection, data: category))
+      categoriesData.append(
+        .child(
+          label: category.label ?? "",
+          selection: selection,
+          isLastChild: index == (subCategories.count - 1),
+          data: category)
+      )
     }
     
     return categoriesData
@@ -165,16 +172,16 @@ extension FiltersViewModel {
   }
   
   private func toggleCategorySelection(at indexPath: IndexPath) {
-    if case .child(let label, let selection, let data) = categoriesInfo(for: indexPath),
+    if case .child(let label, let selection, let isLastChild, let data) = categoriesInfo(for: indexPath),
       let headerIndexes = headerSelectableRowIndex(in: categoriesData, forChildAt: indexPath.row),
       case .header(let headerLabel, let expanded, var rowData) = categoriesData[headerIndexes.header] {
       
       // Adjust the data held in the header data
-      rowData[headerIndexes.child].adjust(with: .child(label: label, selection: selection.opposite , data: data))
+      rowData[headerIndexes.child].adjust(with: .child(label: label, selection: selection.opposite, isLastChild: isLastChild , data: data))
       categoriesData[headerIndexes.header].adjust(with: .header(label: headerLabel, expanded: expanded, rowData: rowData))
       // Adjust the data of the child item
       categoriesData[indexPath.row].adjust(with:
-        .child(label: label, selection: selection.opposite , data: data))
+        .child(label: label, selection: selection.opposite, isLastChild: isLastChild , data: data))
     }
   }
   
@@ -196,7 +203,7 @@ extension FiltersViewModel {
 extension FiltersViewModel {
   enum SelectableRowData {
     case header(label: String, expanded: Bool, rowData: [SelectableRowData])
-    case child(label: String, selection: Selection, data: Any?)
+    case child(label: String, selection: Selection, isLastChild: Bool, data: Any?)
     
     mutating func adjust(with rowData: SelectableRowData) {
       self = rowData

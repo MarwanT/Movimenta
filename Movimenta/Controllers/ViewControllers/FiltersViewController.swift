@@ -66,6 +66,8 @@ class FiltersViewController: UIViewController {
     tableView.separatorColor = theme.separatorColor
     
     tableView.register(FiltersSectionHeader.self, forHeaderFooterViewReuseIdentifier: FiltersSectionHeader.identifier)
+    tableView.register(ExpandableHeaderCell.nib, forCellReuseIdentifier: ExpandableHeaderCell.identifier)
+    tableView.register(SelectableCell.nib, forCellReuseIdentifier: SelectableCell.identifier)
   }
 }
 
@@ -100,17 +102,25 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       return cell
     case .types:
       let values = viewModel.categoriesInfo(for: indexPath)
-      let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "George")
       switch values {
-      case .header(let label, let expanded, _):
-        cell.textLabel?.text = label
-      case .child(let label, let selection, _):
-        cell.textLabel?.text = label
-        if selection == .all {
-          tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+      case .header(let label, _, _):
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableHeaderCell.identifier, for: indexPath) as? ExpandableHeaderCell else {
+          return UITableViewCell()
         }
+        cell.label.text = label
+        return cell
+      case .child(let label, let selection, let isLastChild, _):
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableCell.identifier, for: indexPath) as? SelectableCell else {
+          return UITableViewCell()
+        }
+        cell.label.text = label
+        cell.indentationLevel = 1
+        isLastChild ? cell.showSeparator() : cell.hideSeparator()
+        if cell.isSelected == false && (selection == .all || selection == .some ) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+        return cell
       }
-      return cell
     default:
       return UITableViewCell()
     }
