@@ -32,6 +32,7 @@ class ExpandableHeaderCell: UITableViewCell {
   private func applyTheme() {
     let theme = ThemeManager.shared.current
     label.font = theme.font9
+    label.textColor = theme.darkTextColor
     arrowImageView.tintColor = theme.color5
   }
   
