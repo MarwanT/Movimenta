@@ -46,17 +46,21 @@ class ExpandableHeaderCell: UITableViewCell {
     
     if self.isSelected {
       label.font = theme.font8
-      separatorInset = configuration.selectedSeparatorInset
+      hideSeparator()
       UIView.animate(withDuration: theme.animationDuration) {
         self.arrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
       }
     } else {
       label.font = theme.font9
-      separatorInset = configuration.defaultSeparatorInset
+      showSeparator()
       UIView.animate(withDuration: theme.animationDuration) {
         self.arrowImageView.transform = CGAffineTransform.identity
       }
     }
+  }
+  
+  override func showSeparator() {
+    separatorInset = configuration.defaultSeparatorInset
   }
 }
 
@@ -67,8 +71,6 @@ extension ExpandableHeaderCell {
       left: CGFloat(ThemeManager.shared.current.space7),
       bottom: CGFloat(ThemeManager.shared.current.space8),
       right: CGFloat(ThemeManager.shared.current.space7))
-    fileprivate var selectedSeparatorInset = UIEdgeInsets(
-      top: 0, left: 10000, bottom: 0, right: 0)
     fileprivate var defaultSeparatorInset = UIEdgeInsets(
       top: 0, left: CGFloat(ThemeManager.shared.current.space7), bottom: 0, right: 0)
   }
