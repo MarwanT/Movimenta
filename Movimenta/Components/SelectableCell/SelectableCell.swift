@@ -21,7 +21,14 @@ class SelectableCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    label.font = theme.font9
+    label.textColor = theme.darkTextColor
+    selectionImageView.tintColor = theme.color2
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
