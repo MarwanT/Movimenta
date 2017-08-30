@@ -21,7 +21,13 @@ class SelectableCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setup()
     applyTheme()
+  }
+  
+  private func setup() {
+    selectionStyle = .none
+    contentView.layoutMargins = configuration.layoutMargins
   }
   
   private func applyTheme() {
