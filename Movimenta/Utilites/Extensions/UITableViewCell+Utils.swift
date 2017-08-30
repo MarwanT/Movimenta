@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+extension UITableViewCell {
+  func hideSeparator() {
+    separatorInset = UIEdgeInsets(
+      top: 0, left: 10000, bottom: 0, right: 0)
+  }
+  
+  func showSeparator() {
+    separatorInset = UIEdgeInsets.zero
+  }
+}
