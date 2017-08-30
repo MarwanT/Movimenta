@@ -9,6 +9,11 @@
 import UIKit
 
 class SelectableCell: UITableViewCell {
+  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var selectionImageView: UIImageView!
+  
+  @IBOutlet weak var labelLeadingToSuperviewLeading: NSLayoutConstraint!
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
