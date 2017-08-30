@@ -9,6 +9,9 @@
 import UIKit
 
 class SelectableCell: UITableViewCell {
+  static let identifier: String = SelectableCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+  
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var selectionImageView: UIImageView!
   
