@@ -39,7 +39,15 @@ class SelectableCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    // Configure the view for the selected state
+    refreshForSelection()
+  }
+  
+  private func refreshForSelection() {
+    if isSelected {
+      selectionImageView.image = #imageLiteral(resourceName: "squareTicked")
+    } else {
+      selectionImageView.image = #imageLiteral(resourceName: "squareUnticked")
+    }
   }
 }
 
