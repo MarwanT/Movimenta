@@ -258,7 +258,16 @@ extension Event.Category: Parsable {
   static func object(from json: JSON) -> Event.Category? {
     let id = json["id"].stringValue
     let label = json["label"].stringValue
-    let subCategories = objects(from: json["children"])
+    var subCategories = objects(from: json["children"])
+    
+    if let categories = subCategories, categories.count > 0 {
+      subCategories = categories.map({
+        var updatedCategory = $0
+        updatedCategory.parentId = id
+        return updatedCategory
+      })
+    }
+    
     return Event.Category(id: id, label: label, subCategories: subCategories, parentId: nil)
   }
 }
