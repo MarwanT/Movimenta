@@ -13,6 +13,10 @@ final class Strings {
     return Localization.localize(key: "add_to_calendar")
   }
   
+  static func all() -> String {
+    return Localization.localize(key: "all")
+  }
+  
   static func at_time() -> String {
     return Localization.localize(key: "at_time")
   }

@@ -56,6 +56,8 @@ class FiltersViewController: UIViewController {
     tableView.sectionHeaderHeight = UITableViewAutomaticDimension
     tableView.estimatedSectionHeaderHeight = 40
     
+    tableView.allowsMultipleSelection = true
+    
     tableView.layoutMargins = UIEdgeInsets(
       top: 0, left: CGFloat(theme.space7),
       bottom: 0, right: CGFloat(theme.space7))
@@ -64,6 +66,8 @@ class FiltersViewController: UIViewController {
     tableView.separatorColor = theme.separatorColor
     
     tableView.register(FiltersSectionHeader.self, forHeaderFooterViewReuseIdentifier: FiltersSectionHeader.identifier)
+    tableView.register(ExpandableHeaderCell.nib, forCellReuseIdentifier: ExpandableHeaderCell.identifier)
+    tableView.register(SelectableCell.nib, forCellReuseIdentifier: SelectableCell.identifier)
   }
 }
 
@@ -96,6 +100,27 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       cell.set(minimumDate: values.minimumDate)
       cell.set(maximumDate: values.maximumDate)
       return cell
+    case .types:
+      let values = viewModel.categoriesInfo(for: indexPath)
+      switch values {
+      case .header(let label, _, _):
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableHeaderCell.identifier, for: indexPath) as? ExpandableHeaderCell else {
+          return UITableViewCell()
+        }
+        cell.label.text = label
+        return cell
+      case .child(let label, let selection, let isLastChild, _):
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableCell.identifier, for: indexPath) as? SelectableCell else {
+          return UITableViewCell()
+        }
+        cell.label.text = label
+        cell.indentationLevel = 1
+        isLastChild ? cell.showSeparator() : cell.hideSeparator()
+        if cell.isSelected == false && (selection == .all || selection == .some ) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+        return cell
+      }
     default:
       return UITableViewCell()
     }
@@ -143,6 +168,36 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       }
     default:
       return indexPath
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return
+    }
+    
+    switch section {
+    case .types:
+      if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
+        tableView.insertRows(at: affectedIndexPaths, with: .fade)
+      }
+    default:
+      return
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return
+    }
+    
+    switch section {
+    case .types:
+      if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
+        tableView.deleteRows(at: affectedIndexPaths, with: .fade)
+      }
+    default:
+      return
     }
   }
   
