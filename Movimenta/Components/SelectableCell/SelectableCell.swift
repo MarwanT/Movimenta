@@ -49,6 +49,10 @@ class SelectableCell: UITableViewCell {
       selectionImageView.image = #imageLiteral(resourceName: "squareUnticked")
     }
   }
+  
+  override func showSeparator() {
+    separatorInset = configuration.defaultSeparatorInset
+  }
 }
 
 extension SelectableCell {
