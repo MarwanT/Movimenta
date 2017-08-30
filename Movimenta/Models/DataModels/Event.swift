@@ -272,6 +272,20 @@ extension Event.Category: Parsable {
   }
 }
 
+extension Array where Element == Event.Category {
+  /// Flattenes a 2D structure categories
+  var flatCategories: [Event.Category] {
+    var allCategories: [Event.Category] = []
+    for category in self {
+      allCategories.append(category)
+      if let subCategories = category.subCategories, subCategories.count > 0 {
+        allCategories.append(contentsOf: subCategories)
+      }
+    }
+    return allCategories
+  }
+}
+
 //MARK: - Declare Event Type
 extension Event {
   struct EventType {
