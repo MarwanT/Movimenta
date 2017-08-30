@@ -10,7 +10,7 @@ import Foundation
 
 struct Filter {
   var dateRange: DateRange? = nil
-  var categories: [Event.Category]? = nil
+  fileprivate(set) var flatCategories: [Event.Category]? = nil
   var withinTime: Int? = nil
   var speakers: [Participant]? = nil
   var sponsers: [Participant]? = nil
@@ -19,21 +19,24 @@ struct Filter {
   var organizers: [Participant]? = nil
   var withinDistance: Double? = nil
   var showBookmarked: Bool? = nil
+  
+  /// Set and Get flattened categories
+  var categories: [Event.Category]? {
+    get {
+      return flatCategories
+    }
+    set {
+      flatCategories = newValue?.flatCategories
+    }
+  }
 }
 
 extension Filter {
-  var flatCategories: [Event.Category]? {
-    guard let categories = categories else {
+  private func flattedCategories() -> [Event.Category]? {
+    guard let flatCategories = flatCategories else {
       return nil
     }
-    var allCategories: [Event.Category] = []
-    for category in categories {
-      allCategories.append(category)
-      if let subCategories = category.subCategories, subCategories.count > 0 {
-        allCategories.append(contentsOf: subCategories)
-      }
-    }
-    return allCategories
+    return flatCategories.flatCategories
   }
   
   func contains(category: Event.Category) -> Bool {
