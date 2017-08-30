@@ -50,6 +50,16 @@ class SelectableCell: UITableViewCell {
     }
   }
   
+  override var indentationLevel: Int {
+    didSet {
+      refreshIndentation()
+    }
+  }
+  
+  fileprivate func refreshIndentation() {
+    labelLeadingToSuperviewLeading.constant = CGFloat(indentationLevel) * CGFloat(configuration.indentationWidth)
+  }
+  
   override func showSeparator() {
     separatorInset = configuration.defaultSeparatorInset
   }
