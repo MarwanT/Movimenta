@@ -29,6 +29,20 @@ struct Filter {
       flatCategories = newValue?.flatCategories
     }
   }
+  
+  mutating func add(category: Event.Category) {
+    var categoriesArray: [Event.Category] = categories ?? []
+    if !categoriesArray.contains(category) {
+      categoriesArray.append(category)
+    }
+    categories = categoriesArray
+  }
+  
+  mutating func remove(category: Event.Category) {
+    if let index = categories?.index(of: category) {
+      categories?.remove(at: index)
+    }
+  }
 }
 
 extension Filter {

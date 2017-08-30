@@ -182,6 +182,16 @@ extension FiltersViewModel {
       // Adjust the data of the child item
       categoriesData[indexPath.row].adjust(with:
         .child(label: label, selection: selection.opposite, isLastChild: isLastChild , data: data))
+      
+      // Adjust data in filter object
+      if let selectedCategory = data as? Event.Category {
+        switch selection.opposite {
+        case .all, .some:
+          filter.add(category: selectedCategory)
+        case .none:
+          filter.remove(category: selectedCategory)
+        }
+      }
     }
   }
   
