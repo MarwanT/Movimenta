@@ -47,6 +47,23 @@ extension Participant {
     case Company = "companies"
     case Sponsor = "sponsors"
     case Default = "default"
+    
+    var sectionDisplayName: String {
+      switch self {
+      case .Artist:
+        return Strings.artists()
+      case .Company:
+        return Strings.companies()
+      case .Default:
+        return Strings.participants()
+      case .Organizer:
+        return Strings.organizers()
+      case .Speaker:
+        return Strings.speakers()
+      case .Sponsor:
+        return Strings.sponsors()
+      }
+    }
   } 
 }
 
