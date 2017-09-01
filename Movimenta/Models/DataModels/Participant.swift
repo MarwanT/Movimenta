@@ -139,4 +139,11 @@ extension Array where Element == Participant {
       append(participant)
     }
   }
+  
+  mutating func remove(participant: Participant) {
+    guard let index = self.index(of: participant) else {
+      return
+    }
+    remove(at: index)
+  }
 }
