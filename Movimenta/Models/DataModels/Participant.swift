@@ -131,3 +131,12 @@ extension Participant: Parsable {
     return Participant(id: id, type: type, link: link, content: content, title: title, excerpt: excerpt, name: name, firstName: firstName, lastName: lastName, profession: profession, image: image, website: website, phone: phone, email: email, facebook: facebook, twitter: twitter, linkedin: linkedin, googleplus: googleplus, youtube: youtube, tumblr: tumblr, vimeo: vimeo, instagram: instagram)
   }
 }
+
+//MARK: - Array extensions
+extension Array where Element == Participant {
+  mutating func appendUnique(participant: Participant) {
+    if !self.contains(participant) {
+      append(participant)
+    }
+  }
+}
