@@ -202,6 +202,10 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
       }
+    case .participants:
+      if let (_, affectedIndexPaths) = viewModel.selectParticipant(at: indexPath) {
+        tableView.insertRows(at: affectedIndexPaths, with: .fade)
+      }
     default:
       return
     }
@@ -215,6 +219,10 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     switch section {
     case .types:
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
+        tableView.deleteRows(at: affectedIndexPaths, with: .fade)
+      }
+    case .participants:
+      if let (_, affectedIndexPaths) = viewModel.selectParticipant(at: indexPath) {
         tableView.deleteRows(at: affectedIndexPaths, with: .fade)
       }
     default:
