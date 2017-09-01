@@ -38,6 +38,43 @@ struct Filter {
     categories = categoriesArray
   }
   
+  mutating func add(participant: Participant) {
+    switch participant.type {
+    case .Artist:
+      guard artists != nil else {
+        artists = [participant]
+        return
+      }
+      artists?.appendUnique(participant: participant)
+    case .Company:
+      guard companies != nil else {
+        companies = [participant]
+        return
+      }
+      companies?.appendUnique(participant: participant)
+    case .Organizer:
+      guard organizers != nil else {
+        organizers = [participant]
+        return
+      }
+      organizers?.appendUnique(participant: participant)
+    case .Speaker:
+      guard speakers != nil else {
+        speakers = [participant]
+        return
+      }
+      speakers?.appendUnique(participant: participant)
+    case .Sponsor:
+      guard sponsers != nil else {
+        sponsers = [participant]
+        return
+      }
+      sponsers?.appendUnique(participant: participant)
+    case .Default:
+      break
+    }
+  }
+  
   mutating func remove(category: Event.Category) {
     if let index = categories?.index(of: category) {
       categories?.remove(at: index)
