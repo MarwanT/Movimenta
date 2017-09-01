@@ -17,6 +17,10 @@ final class Strings {
     return Localization.localize(key: "all")
   }
   
+  static func artists() -> String {
+    return Localization.localize(key: "artists")
+  }
+  
   static func at_time() -> String {
     return Localization.localize(key: "at_time")
   }
@@ -27,6 +31,10 @@ final class Strings {
   
   static func cancel() -> String {
     return Localization.localize(key: "cancel")
+  }
+  
+  static func companies() -> String {
+    return Localization.localize(key: "companies")
   }
   
   static func date() -> String {
@@ -89,6 +97,10 @@ final class Strings {
     return Localization.localize(key: "ok")
   }
   
+  static func organizers() -> String {
+    return Localization.localize(key: "organizers")
+  }
+  
   static func participants() -> String {
     return Localization.localize(key: "participants")
   }
@@ -99,6 +111,14 @@ final class Strings {
   
   static func scheduale() -> String {
     return Localization.localize(key: "scheduale")
+  }
+  
+  static func speakers() -> String {
+    return Localization.localize(key: "speakers")
+  }
+  
+  static func sponsors() -> String {
+    return Localization.localize(key: "sponsors")
   }
   
   static func starts_within() -> String {
