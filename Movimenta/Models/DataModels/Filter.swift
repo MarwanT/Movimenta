@@ -80,6 +80,23 @@ struct Filter {
       categories?.remove(at: index)
     }
   }
+  
+  mutating func remove(participant: Participant) {
+    switch participant.type {
+    case .Artist:
+      artists?.remove(participant: participant)
+    case .Company:
+      companies?.remove(participant: participant)
+    case .Organizer:
+      organizers?.remove(participant: participant)
+    case .Speaker:
+      speakers?.remove(participant: participant)
+    case .Sponsor:
+      sponsers?.remove(participant: participant)
+    case .Default:
+      break
+    }
+  }
 }
 
 extension Filter {
