@@ -12,10 +12,12 @@ final class FiltersViewModel {
   fileprivate var filter: Filter! = nil
   
   fileprivate var categoriesData = [SelectableRowData]()
+  fileprivate var participantsData = [SelectableRowData]()
   
   func initialize(with filter: Filter) {
     self.filter = filter
     initializeCategoriesData()
+    initializeParticipantsData()
   }
   
   private func initializeCategoriesData() {
@@ -23,6 +25,12 @@ final class FiltersViewModel {
     // On initialization the 'filterCategories' array only contains '.header' cases
     // for the sole reason that at first they are all collapsed
     self.categoriesData = generateCategoriesData(categories: FiltersManager.shared.categories)
+  }
+  
+  private func initializeParticipantsData() {
+    self.participantsData.removeAll()
+    // participantsData array will hold .header row data that are not expanded
+    self.participantsData = generateParticipantsData()
   }
   
   private func generateCategoriesData(categories: [Event.Category]) -> [SelectableRowData] {
@@ -54,6 +62,39 @@ final class FiltersViewModel {
     return categoriesData
   }
   
+  // TODO: Enhance by looping throught hhe participant types dynamically
+  private func generateParticipantsData() -> [SelectableRowData] {
+    var data = [SelectableRowData]()
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.artists))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.companies))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.organizers))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.speakers))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.sponsers))
+    return data
+  }
+  
+  private func generateParticipantsData(for participants: [Participant]) -> [SelectableRowData] {
+    var data = [SelectableRowData]()
+    var participantsData = [SelectableRowData]()
+    
+    for (index, artist) in participants.enumerated() {
+      participantsData.append(.child(
+        label: artist.fullName,
+        selection: selectionStatus(of: artist),
+        isLastChild: index == (participants.count - 1),
+        data: artist))
+    }
+    
+    if participantsData.count > 0 {
+      data.append(.header(
+        label: participants.first?.type.sectionDisplayName ?? "",
+        expanded: false,
+        rowData: participantsData))
+    }
+    
+    return data
+  }
+  
   fileprivate func selectionStatus(of category: Event.Category) -> Selection {
     let isSelected = filter.contains(category: category)
     var subCategoriesSelection: Selection?
@@ -72,6 +113,24 @@ final class FiltersViewModel {
       return subCategoriesSelection
     } else {
       return isSelected ? .all : .none
+    }
+  }
+  
+  fileprivate func selectionStatus(of participant: Participant) -> Selection {
+    let type = participant.type
+    switch type {
+    case .Artist:
+      return (filter.artists?.contains(participant) ?? false) ? .all : .none
+    case .Company:
+      return (filter.companies?.contains(participant) ?? false) ? .all : .none
+    case .Organizer:
+      return (filter.organizers?.contains(participant) ?? false) ? .all : .none
+    case .Speaker:
+      return (filter.speakers?.contains(participant) ?? false) ? .all : .none
+    case .Sponsor:
+      return (filter.sponsers?.contains(participant) ?? false) ? .all : .none
+    case .Default:
+      return .none
     }
   }
 }
