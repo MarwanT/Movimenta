@@ -121,6 +121,27 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
       }
+    case .participants:
+      let values = viewModel.participantsInfo(for: indexPath)
+      switch values {
+      case .header(let label, _, _):
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableHeaderCell.identifier, for: indexPath) as? ExpandableHeaderCell else {
+          return UITableViewCell()
+        }
+        cell.label.text = label
+        return cell
+      case .child(let label, let selection, let isLastChild, _):
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableCell.identifier, for: indexPath) as? SelectableCell else {
+          return UITableViewCell()
+        }
+        cell.label.text = label
+        cell.indentationLevel = 1
+        isLastChild ? cell.showSeparator() : cell.hideSeparator()
+        if cell.isSelected == false && (selection == .all || selection == .some ) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+        return cell
+      }
     default:
       return UITableViewCell()
     }

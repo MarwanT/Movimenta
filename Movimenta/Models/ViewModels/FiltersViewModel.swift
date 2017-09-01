@@ -150,6 +150,8 @@ extension FiltersViewModel {
       return DateRow.numberOfRows
     case .types:
       return categoriesData.count
+    case .participants:
+      return participantsData.count
     default:
       return 0
     }
@@ -178,6 +180,10 @@ extension FiltersViewModel {
   
   func categoriesInfo(for indexPath: IndexPath) -> SelectableRowData {
     return categoriesData[indexPath.row]
+  }
+  
+  func participantsInfo(for indexPath: IndexPath) -> SelectableRowData {
+    return participantsData[indexPath.row]
   }
 }
 
