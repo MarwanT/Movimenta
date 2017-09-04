@@ -214,11 +214,17 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     case .types:
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
+        if let lastIndexPath = affectedIndexPaths.last {
+          tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
+        }
       }
       deselectDatePickerCell()
     case .participants:
       if let (_, affectedIndexPaths) = viewModel.selectParticipant(at: indexPath) {
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
+        if let lastIndexPath = affectedIndexPaths.last {
+          tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
+        }
       }
       deselectDatePickerCell()
     default:
