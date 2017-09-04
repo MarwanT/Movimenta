@@ -47,6 +47,11 @@ class SwitchCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
   
+  func set(label text: String?, switchOn: Bool) {
+    label.text = text
+    switchIndicator.isOn = switchOn
+  }
+  
   //MARK: Action
   func didSwitch(_ sender: UISwitch) {
     delegate?.switchCell(self, didSwitchOn: sender.isOn)
