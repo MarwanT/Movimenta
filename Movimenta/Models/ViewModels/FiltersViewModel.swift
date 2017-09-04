@@ -367,6 +367,15 @@ extension FiltersViewModel {
   
   //========
   
+  func setWithinTime(for index: Int) -> (selectedValue: String, unit: String) {
+    let withinTimeValues = FiltersManager.shared.withinTimeValues
+    filter.withinTime = withinTimeValues.values[index]
+    let values = withinTimeInfo()
+    return (values.selectedValue, values.unit)
+  }
+  
+  //========
+  
   private func headerSelectableRowIndex(in selectableRowsData: [SelectableRowData], forChildAt index: Int) -> (header: Int, child: Int)? {
     guard case .child = selectableRowsData[index] else {
       return nil

@@ -379,6 +379,9 @@ extension FiltersViewController: SliderCellDelegate {
     }
     
     switch section {
+    case .withinTime:
+      let displayValues = viewModel.setWithinTime(for: index)
+      cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
     case .withinDistance:
       let displayValues = viewModel.setWithinDistance(for: index)
       cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
