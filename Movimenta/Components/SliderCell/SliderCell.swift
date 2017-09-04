@@ -9,6 +9,9 @@
 import UIKit
 
 class SliderCell: UITableViewCell {
+  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var slider: UISlider!
+  
   override func awakeFromNib() {
     super.awakeFromNib()
   }
