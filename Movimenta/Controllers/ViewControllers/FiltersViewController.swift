@@ -173,40 +173,34 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     }
   }
   
-  func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-    guard let section = Section(rawValue: indexPath.section) else {
-      return nil
-    }
-    
-    switch section {
-    case .dates:
-      let cell = tableView.cellForRow(at: indexPath)
-      if (cell?.isSelected ?? false) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        return nil
-      } else {
-        return indexPath
-      }
-    default:
-      return indexPath
-    }
-  }
-  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let section = Section(rawValue: indexPath.section) else {
       return
     }
     
     switch section {
+    case .dates:
+      guard let dateRow = DateRow(rawValue: indexPath.row) else {
+        return
+      }
+      switch dateRow {
+      case .from:
+        deselectDatePickerCell(except: fromDateCell)
+      case .to:
+        deselectDatePickerCell(except: toDateCell)
+      }
     case .types:
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
       }
+      deselectDatePickerCell()
     case .participants:
       if let (_, affectedIndexPaths) = viewModel.selectParticipant(at: indexPath) {
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
       }
+      deselectDatePickerCell()
     default:
+      deselectDatePickerCell()
       return
     }
   }
@@ -246,6 +240,24 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     toDateCell.set(date: toData.date)
     toDateCell.set(minimumDate: toData.minimumDate)
     toDateCell.set(maximumDate: toData.maximumDate)
+  }
+  
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    deselectDatePickerCell()
+  }
+  
+  /// If the passed parameter was nil then both date picker cells are deselected
+  func deselectDatePickerCell(except datePickerCell: DatePickerCell? = nil) {
+    var indexPaths = [IndexPath]()
+    if datePickerCell !== fromDateCell && fromDateCell.isSelected {
+      indexPaths.append(IndexPath(row: DateRow.from.rawValue, section: Section.dates.rawValue))
+    }
+    if datePickerCell !== toDateCell && toDateCell.isSelected {
+      indexPaths.append(IndexPath(row: DateRow.to.rawValue, section: Section.dates.rawValue))
+    }
+    indexPaths.forEach { (indexPath) in
+      tableView.deselectRow(at: indexPath, animated: true)
+    }
   }
 }
 
