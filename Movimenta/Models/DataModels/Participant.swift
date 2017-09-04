@@ -34,8 +34,8 @@ struct Participant: ModelCommonProperties {
   var instagram: URL?
   
   var fullName: String {
-    let names = [firstName, lastName].flatMap({ $0 })
-    return names.joined(separator: " ")
+    let names = [firstName, lastName].flatMap({ $0 }).joined(separator: " ")
+    return names.isEmpty ? "N/A" : names
   }
 }
 
@@ -47,6 +47,23 @@ extension Participant {
     case Company = "companies"
     case Sponsor = "sponsors"
     case Default = "default"
+    
+    var sectionDisplayName: String {
+      switch self {
+      case .Artist:
+        return Strings.artists()
+      case .Company:
+        return Strings.companies()
+      case .Default:
+        return Strings.participants()
+      case .Organizer:
+        return Strings.organizers()
+      case .Speaker:
+        return Strings.speakers()
+      case .Sponsor:
+        return Strings.sponsors()
+      }
+    }
   } 
 }
 
@@ -112,5 +129,21 @@ extension Participant: Parsable {
     let instagram = json["instagram"].url
     
     return Participant(id: id, type: type, link: link, content: content, title: title, excerpt: excerpt, name: name, firstName: firstName, lastName: lastName, profession: profession, image: image, website: website, phone: phone, email: email, facebook: facebook, twitter: twitter, linkedin: linkedin, googleplus: googleplus, youtube: youtube, tumblr: tumblr, vimeo: vimeo, instagram: instagram)
+  }
+}
+
+//MARK: - Array extensions
+extension Array where Element == Participant {
+  mutating func appendUnique(participant: Participant) {
+    if !self.contains(participant) {
+      append(participant)
+    }
+  }
+  
+  mutating func remove(participant: Participant) {
+    guard let index = self.index(of: participant) else {
+      return
+    }
+    remove(at: index)
   }
 }

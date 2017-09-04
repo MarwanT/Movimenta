@@ -12,10 +12,12 @@ final class FiltersViewModel {
   fileprivate var filter: Filter! = nil
   
   fileprivate var categoriesData = [SelectableRowData]()
+  fileprivate var participantsData = [SelectableRowData]()
   
   func initialize(with filter: Filter) {
     self.filter = filter
     initializeCategoriesData()
+    initializeParticipantsData()
   }
   
   private func initializeCategoriesData() {
@@ -23,6 +25,12 @@ final class FiltersViewModel {
     // On initialization the 'filterCategories' array only contains '.header' cases
     // for the sole reason that at first they are all collapsed
     self.categoriesData = generateCategoriesData(categories: FiltersManager.shared.categories)
+  }
+  
+  private func initializeParticipantsData() {
+    self.participantsData.removeAll()
+    // participantsData array will hold .header row data that are not expanded
+    self.participantsData = generateParticipantsData()
   }
   
   private func generateCategoriesData(categories: [Event.Category]) -> [SelectableRowData] {
@@ -54,6 +62,39 @@ final class FiltersViewModel {
     return categoriesData
   }
   
+  // TODO: Enhance by looping throught hhe participant types dynamically
+  private func generateParticipantsData() -> [SelectableRowData] {
+    var data = [SelectableRowData]()
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.artists))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.companies))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.organizers))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.speakers))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.sponsers))
+    return data
+  }
+  
+  private func generateParticipantsData(for participants: [Participant]) -> [SelectableRowData] {
+    var data = [SelectableRowData]()
+    var participantsData = [SelectableRowData]()
+    
+    for (index, artist) in participants.enumerated() {
+      participantsData.append(.child(
+        label: artist.fullName,
+        selection: selectionStatus(of: artist),
+        isLastChild: index == (participants.count - 1),
+        data: artist))
+    }
+    
+    if participantsData.count > 0 {
+      data.append(.header(
+        label: participants.first?.type.sectionDisplayName ?? "",
+        expanded: false,
+        rowData: participantsData))
+    }
+    
+    return data
+  }
+  
   fileprivate func selectionStatus(of category: Event.Category) -> Selection {
     let isSelected = filter.contains(category: category)
     var subCategoriesSelection: Selection?
@@ -74,6 +115,24 @@ final class FiltersViewModel {
       return isSelected ? .all : .none
     }
   }
+  
+  fileprivate func selectionStatus(of participant: Participant) -> Selection {
+    let type = participant.type
+    switch type {
+    case .Artist:
+      return (filter.artists?.contains(participant) ?? false) ? .all : .none
+    case .Company:
+      return (filter.companies?.contains(participant) ?? false) ? .all : .none
+    case .Organizer:
+      return (filter.organizers?.contains(participant) ?? false) ? .all : .none
+    case .Speaker:
+      return (filter.speakers?.contains(participant) ?? false) ? .all : .none
+    case .Sponsor:
+      return (filter.sponsers?.contains(participant) ?? false) ? .all : .none
+    case .Default:
+      return .none
+    }
+  }
 }
 
 //MARK: Data Getters
@@ -91,6 +150,8 @@ extension FiltersViewModel {
       return DateRow.numberOfRows
     case .types:
       return categoriesData.count
+    case .participants:
+      return participantsData.count
     default:
       return 0
     }
@@ -119,6 +180,10 @@ extension FiltersViewModel {
   
   func categoriesInfo(for indexPath: IndexPath) -> SelectableRowData {
     return categoriesData[indexPath.row]
+  }
+  
+  func participantsInfo(for indexPath: IndexPath) -> SelectableRowData {
+    return participantsData[indexPath.row]
   }
 }
 
@@ -194,6 +259,66 @@ extension FiltersViewModel {
       }
     }
   }
+  
+  func selectParticipant(at indexPath: IndexPath) -> (toInsert: Bool, indexPaths: [IndexPath])? {
+    switch participantsInfo(for: indexPath) {
+    case .header:
+      return toggleParticipantExpansion(at: indexPath)
+    case .child:
+      toggleParticipantSelection(at: indexPath)
+      return nil
+    }
+  }
+  
+  // ========
+  
+  private func toggleParticipantExpansion(at indexPath: IndexPath) -> (toInsert: Bool, indexPaths: [IndexPath])? {
+    if case .header(let label, let expanded, let rowData) = participantsInfo(for: indexPath) {
+      participantsData[indexPath.row].adjust(with: .header(label: label, expanded: !expanded, rowData: rowData))
+      
+      var indexPaths = [IndexPath]()
+      let startingIndex = indexPath.row + 1
+      for index in 0..<rowData.count {
+        indexPaths.append(IndexPath(row: startingIndex + index, section: indexPath.section))
+      }
+      
+      if expanded {
+        let range = startingIndex..<startingIndex+rowData.count
+        participantsData.removeSubrange(range)
+      } else {
+        participantsData.insert(contentsOf: rowData, at: indexPath.row+1)
+      }
+      
+      return (!expanded, indexPaths)
+    }
+    return nil
+  }
+  
+  private func toggleParticipantSelection(at indexPath: IndexPath) {
+    if case .child(let label, let selection, let isLastChild, let data) = participantsInfo(for: indexPath),
+      let headerIndexes = headerSelectableRowIndex(in: participantsData, forChildAt: indexPath.row),
+      case .header(let headerLabel, let expanded, var rowData) = participantsData[headerIndexes.header] {
+      
+      // Adjust the data held in the header data
+      rowData[headerIndexes.child].adjust(with: .child(label: label, selection: selection.opposite, isLastChild: isLastChild , data: data))
+      participantsData[headerIndexes.header].adjust(with: .header(label: headerLabel, expanded: expanded, rowData: rowData))
+      // Adjust the data of the child item
+      participantsData[indexPath.row].adjust(with:
+        .child(label: label, selection: selection.opposite, isLastChild: isLastChild , data: data))
+      
+      // Adjust data in filter object
+      if let selectedParticipant = data as? Participant {
+        switch selection.opposite {
+        case .all, .some:
+          filter.add(participant: selectedParticipant)
+        case .none:
+          filter.remove(participant: selectedParticipant)
+        }
+      }
+    }
+  }
+  
+  //========
   
   private func headerSelectableRowIndex(in selectableRowsData: [SelectableRowData], forChildAt index: Int) -> (header: Int, child: Int)? {
     guard case .child = selectableRowsData[index] else {
