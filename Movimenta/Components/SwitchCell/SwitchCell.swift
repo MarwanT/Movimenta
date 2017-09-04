@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SwitchCellDelegate: class {
+  func switchCell(_ cell: SwitchCell, didSwitchOn isOn: Bool)
+}
+
 class SwitchCell: UITableViewCell {
   static let identifier: String = SwitchCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
@@ -16,6 +20,8 @@ class SwitchCell: UITableViewCell {
   @IBOutlet weak var switchIndicator: UISwitch!
   
   var configuration = Configuration()
+  
+  weak var delegate: SwitchCellDelegate?
   
   override func awakeFromNib() {
     super.awakeFromNib()
