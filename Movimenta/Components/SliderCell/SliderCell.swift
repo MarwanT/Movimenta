@@ -64,6 +64,7 @@ class SliderCell: UITableViewCell {
   
   //MARK: Action
   func didSlide(_ slider: UISlider) {
+    delegate?.sliderCell(self, selection: currentIndex)
   }
   
   func finishedEditing(_ slider: UISlider) {
