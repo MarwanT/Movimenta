@@ -366,6 +366,18 @@ extension FiltersViewController: SwitchCellDelegate {
 //MARK: - Slider Cell Delegate
 extension FiltersViewController: SliderCellDelegate {
   func sliderCell(_ cell: SliderCell, selection index: Int) {
+    guard let indexPath = tableView.indexPath(for: cell),
+      let section = Section(rawValue: indexPath.section) else {
+      return
+    }
+    
+    switch section {
+    case .withinDistance:
+      let displayValues = viewModel.setWithinDistance(for: index)
+      cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
+    default:
+      return
+    }
   }
 }
 

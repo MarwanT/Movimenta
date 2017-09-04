@@ -347,6 +347,15 @@ extension FiltersViewModel {
   
   //========
   
+  func setWithinDistance(for index: Int) -> (selectedValue: String, unit: String) {
+    let withinDistanceValues = FiltersManager.shared.withinDistanceValues
+    filter.withinDistance = Double(withinDistanceValues.values[index])
+    let values = withinDistanceInfo()
+    return (values.selectedValue, values.unit)
+  }
+  
+  //========
+  
   private func headerSelectableRowIndex(in selectableRowsData: [SelectableRowData], forChildAt index: Int) -> (header: Int, child: Int)? {
     guard case .child = selectableRowsData[index] else {
       return nil
