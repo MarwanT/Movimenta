@@ -19,7 +19,18 @@ class SliderCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    initialize()
     applyTheme()
+  }
+  
+  private func initialize() {
+    selectionStyle = .none
+    contentView.layoutMargins = configuration.layoutMargins
+    separatorInset = UIEdgeInsets.zero
+    slider.addTarget(self, action: #selector(didSlide(_:)), for: .valueChanged)
+    slider.addTarget(self, action: #selector(finishedEditing(_:)), for: .touchUpInside)
+    slider.addTarget(self, action: #selector(finishedEditing(_:)), for: .touchUpOutside)
+    slider.isContinuous = true
   }
   
   private func applyTheme() {
@@ -32,6 +43,13 @@ class SliderCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+  }
+  
+  //MARK: Action
+  func didSlide(_ slider: UISlider) {
+  }
+  
+  func finishedEditing(_ slider: UISlider) {
   }
 }
 
