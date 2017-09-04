@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol SliderCellDelegate: class {
+  func sliderCell(_ cell: SliderCell, selection index: Int)
+}
+
 class SliderCell: UITableViewCell {
   static let identifier: String = SliderCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var slider: UISlider!
+  
+  weak var delegate: SliderCellDelegate?
   
   var configuration = Configuration()
   
