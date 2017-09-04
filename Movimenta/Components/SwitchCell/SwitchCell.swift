@@ -25,7 +25,15 @@ class SwitchCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setup()
     applyTheme()
+  }
+  
+  private func setup() {
+    selectionStyle = .none
+    contentView.layoutMargins = configuration.layoutMargins
+    switchIndicator.addTarget(self, action: #selector(didSwitch(_:)), for: UIControlEvents.valueChanged)
+    separatorInset = UIEdgeInsets.zero
   }
   
   private func applyTheme() {
@@ -37,6 +45,11 @@ class SwitchCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+  }
+  
+  //MARK: Action
+  func didSwitch(_ sender: UISwitch) {
+    delegate?.switchCell(self, didSwitchOn: sender.isOn)
   }
 }
 
