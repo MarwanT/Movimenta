@@ -23,6 +23,11 @@ class SliderCell: UITableViewCell {
   
   var configuration = Configuration()
   
+  var currentIndex: Int {
+    let index = roundf(slider.value)
+    return Int(index)
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     initialize()
@@ -51,11 +56,18 @@ class SliderCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
   
+  func set(valuesCount: Int, selectedValue index: Int) {
+    slider.minimumValue = 0
+    slider.maximumValue = Float(valuesCount - 1)
+    slider.value = Float(index)
+  }
+  
   //MARK: Action
   func didSlide(_ slider: UISlider) {
   }
   
   func finishedEditing(_ slider: UISlider) {
+    slider.setValue(Float(currentIndex), animated: true)
   }
 }
 
