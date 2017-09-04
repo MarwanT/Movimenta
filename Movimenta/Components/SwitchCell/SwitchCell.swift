@@ -9,6 +9,9 @@
 import UIKit
 
 class SwitchCell: UITableViewCell {
+  static let identifier: String = SwitchCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+  
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var switchIndicator: UISwitch!
   
