@@ -37,7 +37,8 @@ class FiltersSectionHeader: UITableViewHeaderFooterView {
     label.numberOfLines = 0
     contentView.addSubview(label)
     label.snp.makeConstraints { (maker) in
-      maker.edges.equalTo(contentView.snp.margins)
+      maker.edges.equalTo(contentView.snp.margins).priority(750)
+      maker.width.greaterThanOrEqualTo(100).priority(1000)
     }
   }
   
