@@ -69,6 +69,7 @@ class FiltersViewController: UIViewController {
     tableView.register(ExpandableHeaderCell.nib, forCellReuseIdentifier: ExpandableHeaderCell.identifier)
     tableView.register(SelectableCell.nib, forCellReuseIdentifier: SelectableCell.identifier)
     tableView.register(SwitchCell.nib, forCellReuseIdentifier: SwitchCell.identifier)
+    tableView.register(SliderCell.nib, forCellReuseIdentifier: SliderCell.identifier)
   }
 }
 
@@ -143,6 +144,15 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
       }
+    case .withinDistance:
+      let values = viewModel.withinDistanceInfo()
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: SliderCell.identifier, for: indexPath) as? SliderCell else {
+        return UITableViewCell()
+      }
+      cell.delegate = self
+      cell.set(valuesCount: values.numberOfValues, selectedValue: values.selectedValueIndex)
+      cell.setLabel(with: values.selectedValue, unit: values.unit)
+      return cell
     case .bookmark:
       let values = viewModel.bookmarkInfo()
       guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifier, for: indexPath) as? SwitchCell else {
@@ -353,3 +363,33 @@ extension FiltersViewController: SwitchCellDelegate {
   }
 }
 
+//MARK: - Slider Cell Delegate
+extension FiltersViewController: SliderCellDelegate {
+  func sliderCell(_ cell: SliderCell, selection index: Int) {
+    guard let indexPath = tableView.indexPath(for: cell),
+      let section = Section(rawValue: indexPath.section) else {
+      return
+    }
+    
+    switch section {
+    case .withinDistance:
+      let displayValues = viewModel.setWithinDistance(for: index)
+      cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
+    default:
+      return
+    }
+  }
+}
+
+//MARK: - Slider Cell Extension
+extension SliderCell {
+  fileprivate func setLabel(with value: String, unit: String) {
+    let theme = ThemeManager.shared.current
+    let valueString = NSMutableAttributedString(string: value, attributes:
+      [NSForegroundColorAttributeName : theme.color2])
+    let unitString = NSAttributedString(string: " \(unit)", attributes:
+      [NSForegroundColorAttributeName : theme.darkTextColor])
+    valueString.append(unitString)
+    set(labelAttributedText: valueString)
+  }
+}
