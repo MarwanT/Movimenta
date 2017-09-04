@@ -152,6 +152,8 @@ extension FiltersViewModel {
       return categoriesData.count
     case .participants:
       return participantsData.count
+    case .bookmark:
+      return 1
     default:
       return 0
     }
@@ -185,6 +187,10 @@ extension FiltersViewModel {
   func participantsInfo(for indexPath: IndexPath) -> SelectableRowData {
     return participantsData[indexPath.row]
   }
+  
+  func bookmarkInfo() -> (label: String, showBookmarks: Bool) {
+    return (Strings.show_bookmarked_events(), (filter.showBookmarked ?? true))
+  }
 }
 
 //MARK: Data Setters
@@ -203,6 +209,8 @@ extension FiltersViewModel {
     dateRange.to = date
     filter.dateRange = dateRange
   }
+  
+  //========
   
   func selectCategory(at indexPath: IndexPath) -> (toInsert: Bool, indexPaths: [IndexPath])? {
     switch categoriesInfo(for: indexPath) {
@@ -316,6 +324,12 @@ extension FiltersViewModel {
         }
       }
     }
+  }
+  
+  //========
+  
+  func setShowBookmarkedEvents(show: Bool) {
+    filter.showBookmarked = show
   }
   
   //========

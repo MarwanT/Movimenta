@@ -68,6 +68,7 @@ class FiltersViewController: UIViewController {
     tableView.register(FiltersSectionHeader.self, forHeaderFooterViewReuseIdentifier: FiltersSectionHeader.identifier)
     tableView.register(ExpandableHeaderCell.nib, forCellReuseIdentifier: ExpandableHeaderCell.identifier)
     tableView.register(SelectableCell.nib, forCellReuseIdentifier: SelectableCell.identifier)
+    tableView.register(SwitchCell.nib, forCellReuseIdentifier: SwitchCell.identifier)
   }
 }
 
@@ -142,6 +143,14 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
       }
+    case .bookmark:
+      let values = viewModel.bookmarkInfo()
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifier, for: indexPath) as? SwitchCell else {
+        return UITableViewCell()
+      }
+      cell.delegate = self
+      cell.set(label: values.label, switchOn: values.showBookmarks)
+      return cell
     default:
       return UITableViewCell()
     }
@@ -170,6 +179,19 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       } else {
         return 0
       }
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return indexPath
+    }
+    
+    switch section {
+    case .bookmark:
+      return nil
+    default:
+      return indexPath
     }
   }
   
@@ -315,6 +337,13 @@ extension FiltersViewController: DatePickerCellDelegate {
 
   func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {
     updateTableView()
+  }
+}
+
+//MARK: - Switch Cell Delegate
+extension FiltersViewController: SwitchCellDelegate {
+  func switchCell(_ cell: SwitchCell, didSwitchOn isOn: Bool) {
+    viewModel.setShowBookmarkedEvents(show: isOn)
   }
 }
 
