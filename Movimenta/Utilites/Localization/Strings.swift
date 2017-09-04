@@ -113,6 +113,10 @@ final class Strings {
     return Localization.localize(key: "scheduale")
   }
   
+  static func show_bookmarked_events() -> String {
+    return Localization.localize(key: "show_bookmarked_events")
+  }
+  
   static func speakers() -> String {
     return Localization.localize(key: "speakers")
   }
