@@ -62,6 +62,14 @@ class SliderCell: UITableViewCell {
     slider.value = Float(index)
   }
   
+  func set(label text: String?) {
+    label.text = text
+  }
+  
+  func set(labelAttributedText: NSAttributedString?) {
+    label.attributedText = labelAttributedText
+  }
+  
   //MARK: Action
   func didSlide(_ slider: UISlider) {
     delegate?.sliderCell(self, selection: currentIndex)
