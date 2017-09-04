@@ -27,6 +27,11 @@
                         <date key="date" timeIntervalSinceReferenceDate="525255606.79518002">
                             <!--2017-08-24 08:20:06 +0000-->
                         </date>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WXv-IG-6QD"/>
+                            </mask>
+                        </variation>
                     </datePicker>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ax-09-WVc">
                         <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -53,7 +58,6 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cTr-IW-35h" firstAttribute="height" secondItem="emL-Pn-i57" secondAttribute="height" id="0od-em-TtQ"/>
                     <constraint firstItem="1Ax-09-WVc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="1Yh-wc-f6W"/>
                     <constraint firstAttribute="trailingMargin" secondItem="arn-wS-CB7" secondAttribute="trailing" id="2Ia-TN-EGL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dse-6e-svh" secondAttribute="trailing" id="3pu-hB-LhS"/>
@@ -75,7 +79,6 @@
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="Zls-6W-WOV"/>
-                        <exclude reference="0od-em-TtQ"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

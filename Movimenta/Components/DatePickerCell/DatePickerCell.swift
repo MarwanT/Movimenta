@@ -93,12 +93,33 @@ class DatePickerCell: UITableViewCell {
   }
   
   func refreshDatePickerVisibility() {
-    superviewBottomToSeparatorTopConstraint.isActive = !isSelected
-    superviewBottomToDatePickerBottomConstraint.isActive = isSelected
-    UIView.animate(withDuration: 0.3) {
-      self.layoutIfNeeded()
+    var layoutDidChange = false
+    if isSelected {
+      if superviewBottomToSeparatorTopConstraint.isActive {
+        superviewBottomToSeparatorTopConstraint.isActive = false
+        layoutDidChange = true
+      }
+      if !superviewBottomToDatePickerBottomConstraint.isActive {
+        superviewBottomToDatePickerBottomConstraint.isActive = true
+        layoutDidChange = true
+      }
+    } else {
+      if superviewBottomToDatePickerBottomConstraint.isActive {
+        superviewBottomToDatePickerBottomConstraint.isActive = false
+        layoutDidChange = true
+      }
+      if !superviewBottomToSeparatorTopConstraint.isActive {
+        superviewBottomToSeparatorTopConstraint.isActive = true
+        layoutDidChange = true
+      }
     }
-    delegate?.datePickerCellDidUpdatePickerVisibility(self, isVisible: isSelected)
+    
+    if layoutDidChange {
+      UIView.animate(withDuration: 0.3) {
+        self.layoutIfNeeded()
+      }
+      delegate?.datePickerCellDidUpdatePickerVisibility(self, isVisible: isSelected)
+    }
   }
   
   // MARK: APIs
