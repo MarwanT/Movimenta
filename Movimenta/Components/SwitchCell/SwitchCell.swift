@@ -15,11 +15,23 @@ class SwitchCell: UITableViewCell {
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var switchIndicator: UISwitch!
   
+  var configuration = Configuration()
+  
   override func awakeFromNib() {
     super.awakeFromNib()
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+  }
+}
+
+extension SwitchCell {
+  struct Configuration {
+    var layoutMargins = UIEdgeInsets(
+      top: CGFloat(ThemeManager.shared.current.space2),
+      left: CGFloat(ThemeManager.shared.current.space7),
+      bottom: CGFloat(ThemeManager.shared.current.space2),
+      right: CGFloat(ThemeManager.shared.current.space7))
   }
 }
