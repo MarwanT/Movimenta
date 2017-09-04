@@ -47,6 +47,8 @@
 		596415271F507061009169A6 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596415261F507061009169A6 /* Selection.swift */; };
 		5968348F1F5D60CC00E25579 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5968348D1F5D60CC00E25579 /* SwitchCell.swift */; };
 		596834901F5D60CC00E25579 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5968348E1F5D60CC00E25579 /* SwitchCell.xib */; };
+		596834991F5D914100E25579 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596834971F5D914100E25579 /* SliderCell.swift */; };
+		5968349A1F5D914100E25579 /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596834981F5D914100E25579 /* SliderCell.xib */; };
 		596A75771F1908120094A886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75761F1908120094A886 /* AppDelegate.swift */; };
 		596A758C1F1908120094A886 /* MovimentaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A758B1F1908120094A886 /* MovimentaTests.swift */; };
 		5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF7C1F20F7F0008CA708 /* Network.swift */; };
@@ -171,6 +173,8 @@
 		596415261F507061009169A6 /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		5968348D1F5D60CC00E25579 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		5968348E1F5D60CC00E25579 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
+		596834971F5D914100E25579 /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
+		596834981F5D914100E25579 /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
 		596A75731F1908120094A886 /* Movimenta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movimenta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A75761F1908120094A886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		596A75871F1908120094A886 /* MovimentaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovimentaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -399,6 +403,15 @@
 			path = SwitchCell;
 			sourceTree = "<group>";
 		};
+		596834961F5D914100E25579 /* SliderCell */ = {
+			isa = PBXGroup;
+			children = (
+				596834971F5D914100E25579 /* SliderCell.swift */,
+				596834981F5D914100E25579 /* SliderCell.xib */,
+			);
+			path = SliderCell;
+			sourceTree = "<group>";
+		};
 		596A756A1F1908120094A886 = {
 			isa = PBXGroup;
 			children = (
@@ -588,6 +601,7 @@
 				5953C1781F5476A000BD27AB /* ExpandableHeaderCell */,
 				5953C17D1F559C8E00BD27AB /* SelectableCell */,
 				5968348C1F5D60A100E25579 /* SwitchCell */,
+				596834961F5D914100E25579 /* SliderCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 			);
 			path = Components;
@@ -818,6 +832,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59D52FA71F1D0604008F3B13 /* Root.storyboard in Resources */,
+				5968349A1F5D914100E25579 /* SliderCell.xib in Resources */,
 				5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */,
 				598923181F1E2ABA00F73974 /* nexa-heavy-webfont.ttf in Resources */,
 				598923131F1E2AAC00F73974 /* nexa-bolditalic-webfont.ttf in Resources */,
@@ -1008,6 +1023,7 @@
 				59EF021B1F3094BA00F145B9 /* Image+Utils.swift in Sources */,
 				5903B0FE1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift in Sources */,
 				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
+				596834991F5D914100E25579 /* SliderCell.swift in Sources */,
 				591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */,
 				5970AF901F24E175008CA708 /* MovimentaEvent.swift in Sources */,
 				5970AF941F24E4A8008CA708 /* Event.swift in Sources */,
