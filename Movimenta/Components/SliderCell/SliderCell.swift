@@ -19,6 +19,15 @@ class SliderCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    label.font = theme.font9
+    label.textColor = theme.darkTextColor
+    slider.tintColor = theme.color2
+    slider.maximumTrackTintColor = theme.color5
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
