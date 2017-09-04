@@ -353,3 +353,15 @@ extension FiltersViewController: SwitchCellDelegate {
   }
 }
 
+//MARK: - Slider Cell Extension
+extension SliderCell {
+  fileprivate func setLabel(with value: String, unit: String) {
+    let theme = ThemeManager.shared.current
+    let valueString = NSMutableAttributedString(string: value, attributes:
+      [NSForegroundColorAttributeName : theme.color2])
+    let unitString = NSAttributedString(string: " \(unit)", attributes:
+      [NSForegroundColorAttributeName : theme.darkTextColor])
+    valueString.append(unitString)
+    set(labelAttributedText: valueString)
+  }
+}
