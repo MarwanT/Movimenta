@@ -152,6 +152,8 @@ extension FiltersViewModel {
       return categoriesData.count
     case .participants:
       return participantsData.count
+    case .withinDistance:
+      return 1
     case .bookmark:
       return 1
     default:
@@ -190,6 +192,17 @@ extension FiltersViewModel {
   
   func bookmarkInfo() -> (label: String, showBookmarks: Bool) {
     return (Strings.show_bookmarked_events(), (filter.showBookmarked ?? true))
+  }
+  
+  func withinDistanceInfo() -> (selectedValue: String, unit: String, numberOfValues: Int, selectedValueIndex: Int) {
+    let withinDistanceValues = FiltersManager.shared.withinDistanceValues
+    
+    let numberOfValues = withinDistanceValues.values.count
+    let selectedValue = "\(Int(filter.withinDistance ?? 0))"
+    let selectedValueIndex = withinDistanceValues.values.index(of: filter.withinDistance ?? 0) ?? 0
+    let unit = withinDistanceValues.unit
+    
+    return (selectedValue, unit, numberOfValues, selectedValueIndex)
   }
 }
 

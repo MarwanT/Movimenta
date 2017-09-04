@@ -69,6 +69,7 @@ class FiltersViewController: UIViewController {
     tableView.register(ExpandableHeaderCell.nib, forCellReuseIdentifier: ExpandableHeaderCell.identifier)
     tableView.register(SelectableCell.nib, forCellReuseIdentifier: SelectableCell.identifier)
     tableView.register(SwitchCell.nib, forCellReuseIdentifier: SwitchCell.identifier)
+    tableView.register(SliderCell.nib, forCellReuseIdentifier: SliderCell.identifier)
   }
 }
 
@@ -143,6 +144,15 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
       }
+    case .withinDistance:
+      let values = viewModel.withinDistanceInfo()
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: SliderCell.identifier, for: indexPath) as? SliderCell else {
+        return UITableViewCell()
+      }
+      cell.delegate = self
+      cell.set(valuesCount: values.numberOfValues, selectedValue: values.selectedValueIndex)
+      cell.setLabel(with: values.selectedValue, unit: values.unit)
+      return cell
     case .bookmark:
       let values = viewModel.bookmarkInfo()
       guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifier, for: indexPath) as? SwitchCell else {
@@ -350,6 +360,12 @@ extension FiltersViewController: DatePickerCellDelegate {
 extension FiltersViewController: SwitchCellDelegate {
   func switchCell(_ cell: SwitchCell, didSwitchOn isOn: Bool) {
     viewModel.setShowBookmarkedEvents(show: isOn)
+  }
+}
+
+//MARK: - Slider Cell Delegate
+extension FiltersViewController: SliderCellDelegate {
+  func sliderCell(_ cell: SliderCell, selection index: Int) {
   }
 }
 
