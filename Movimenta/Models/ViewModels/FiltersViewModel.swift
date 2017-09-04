@@ -150,14 +150,14 @@ extension FiltersViewModel {
       return DateRow.numberOfRows
     case .types:
       return categoriesData.count
+    case .withinTime:
+      return 1
     case .participants:
       return participantsData.count
     case .withinDistance:
       return 1
     case .bookmark:
       return 1
-    default:
-      return 0
     }
   }
   
@@ -201,6 +201,17 @@ extension FiltersViewModel {
     let selectedValue = "\(Int(filter.withinDistance ?? 0))"
     let selectedValueIndex = withinDistanceValues.values.index(of: filter.withinDistance ?? 0) ?? 0
     let unit = withinDistanceValues.unit
+    
+    return (selectedValue, unit, numberOfValues, selectedValueIndex)
+  }
+  
+  func withinTimeInfo() -> (selectedValue: String, unit: String, numberOfValues: Int, selectedValueIndex: Int) {
+    let withinTimeValues = FiltersManager.shared.withinTimeValues
+    
+    let numberOfValues = withinTimeValues.values.count
+    let selectedValue = "\(filter.withinTime ?? 0)"
+    let selectedValueIndex = withinTimeValues.values.index(of: filter.withinTime ?? 0) ?? 0
+    let unit = withinTimeValues.unit
     
     return (selectedValue, unit, numberOfValues, selectedValueIndex)
   }

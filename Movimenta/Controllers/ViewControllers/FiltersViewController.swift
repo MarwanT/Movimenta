@@ -102,6 +102,15 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       cell.set(minimumDate: values.minimumDate)
       cell.set(maximumDate: values.maximumDate)
       return cell
+    case .withinTime:
+      let values = viewModel.withinTimeInfo()
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: SliderCell.identifier, for: indexPath) as? SliderCell else {
+        return UITableViewCell()
+      }
+      cell.delegate = self
+      cell.set(valuesCount: values.numberOfValues, selectedValue: values.selectedValueIndex)
+      cell.setLabel(with: values.selectedValue, unit: values.unit)
+      return cell
     case .types:
       let values = viewModel.categoriesInfo(for: indexPath)
       switch values {
@@ -161,8 +170,6 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       cell.delegate = self
       cell.set(label: values.label, switchOn: values.showBookmarks)
       return cell
-    default:
-      return UITableViewCell()
     }
     
   }
