@@ -105,6 +105,10 @@ final class Strings {
     return Localization.localize(key: "participants")
   }
   
+  static func reset_all_filters() -> String {
+    return Localization.localize(key: "reset_all_filters")
+  }
+  
   static func settings() -> String {
     return Localization.localize(key: "settings")
   }
