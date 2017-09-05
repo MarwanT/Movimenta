@@ -113,6 +113,18 @@ extension Array where Element == Event {
     })
   }
   
+  private func filtered(flatCategories: [Event.Category]?) -> [Event] {
+    guard let flatCategories = flatCategories, flatCategories.count > 0 else {
+      return self
+    }
+    return filter({
+      let eventFlatCategories = $0.categories.flatCategories
+      return eventFlatCategories.contains(where: { (eventCategory) -> Bool in
+        return flatCategories.contains(eventCategory)
+      })
+    })
+  }
+  
   private func filteredStartWithin(minutes: Int?) -> [Event] {
     guard let minutes = minutes else {
       return self
@@ -136,5 +148,6 @@ extension Array where Element == Event {
       .filteredParticipants(filter.participants)
       .filteredStartWithin(minutes: filter.withinTime)
       .filteredWithin(distance: filter.withinDistance)
+      .filtered(flatCategories: filter.categories)
   }
 }
