@@ -9,6 +9,10 @@
 import SnapKit
 import UIKit
 
+protocol ResetFiltersViewDelegate: class {
+  func resetFiltersDidTap(_ view: ResetFiltersView)
+}
+
 class ResetFiltersView: UIView {
   let resetButton: UIButton! = UIButton(type: .system)
   
