@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import SnapKit
 import UIKit
 
 class ResetFiltersView: UIView {
@@ -22,5 +23,16 @@ class ResetFiltersView: UIView {
   }
   
   private func postInitialization() {
+    initializeLayout()
+  }
+  private func initializeLayout() {
+    addSubview(resetButton)
+    self.snp.makeConstraints { (maker) in
+      maker.height.equalTo(60)
+    }
+    resetButton.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(self)
+    }
+    layoutIfNeeded()
   }
 }
