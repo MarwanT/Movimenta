@@ -319,6 +319,10 @@ extension FiltersViewController {
       return 6
     }
     
+    static var all: [Section] {
+      return [.dates, .types, .withinTime, .participants, .withinDistance, .bookmark]
+    }
+    
     var title: String? {
       switch self {
       case .dates:
