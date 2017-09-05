@@ -99,6 +99,7 @@ class FiltersViewController: UIViewController {
   }
   
   func applyFilter() {
+    delegate?.filters(self, didApply: viewModel.filter)
   }
 }
 
