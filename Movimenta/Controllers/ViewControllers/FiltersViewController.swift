@@ -46,6 +46,13 @@ class FiltersViewController: UIViewController {
   private func initializeTableView() {
     let theme = ThemeManager.shared.current
     
+    let resetView = ResetFiltersView()
+    resetView.delegate = self
+    tableView.tableHeaderView = resetView
+    resetView.snp.makeConstraints { (maker) in
+      maker.width.equalTo(tableView)
+    }
+    
     tableView.tableFooterView = UIView(frame: CGRect.zero)
     
     tableView.delegate = self
@@ -276,6 +283,15 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
   
   //===============================
   
+  fileprivate func refreshTableView() {
+    tableView.reloadSections(
+      IndexSet(Section.all.map({ $0.rawValue })),
+      with: UITableViewRowAnimation.automatic)
+    // For not identified reasons yet if the dates section is not relloaded
+    // without animation, the date cells are disappearing
+    tableView.reloadSections(IndexSet(integer: Section.dates.rawValue), with: .none)
+  }
+  
   fileprivate func refreshDateCells() {
     let fromData = viewModel.dateInfo(for: .from)
     let toData = viewModel.dateInfo(for: .to)
@@ -319,6 +335,10 @@ extension FiltersViewController {
       return 6
     }
     
+    static var all: [Section] {
+      return [.dates, .types, .withinTime, .participants, .withinDistance, .bookmark]
+    }
+    
     var title: String? {
       switch self {
       case .dates:
@@ -344,6 +364,14 @@ extension FiltersViewController {
     static var numberOfRows: Int {
       return 2
     }
+  }
+}
+
+//MARK: - Reset View Delegate
+extension FiltersViewController: ResetFiltersViewDelegate {
+  func resetFiltersDidTap(_ view: ResetFiltersView) {
+    viewModel.resetFilters()
+    refreshTableView()
   }
 }
 

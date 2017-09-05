@@ -20,14 +20,14 @@ final class FiltersViewModel {
     initializeParticipantsData()
   }
   
-  private func initializeCategoriesData() {
+  fileprivate func initializeCategoriesData() {
     self.categoriesData.removeAll()
     // On initialization the 'filterCategories' array only contains '.header' cases
     // for the sole reason that at first they are all collapsed
     self.categoriesData = generateCategoriesData(categories: FiltersManager.shared.categories)
   }
   
-  private func initializeParticipantsData() {
+  fileprivate func initializeParticipantsData() {
     self.participantsData.removeAll()
     // participantsData array will hold .header row data that are not expanded
     self.participantsData = generateParticipantsData()
@@ -219,6 +219,12 @@ extension FiltersViewModel {
 
 //MARK: Data Setters
 extension FiltersViewModel {
+  func resetFilters() {
+    self.filter = Filter.zero
+    initializeCategoriesData()
+    initializeParticipantsData()
+  }
+  
   func setFrom(date: Date?) {
     var dateRange = filter.dateRange ?? DateRange()
     dateRange.from = date
