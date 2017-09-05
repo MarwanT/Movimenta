@@ -9,4 +9,5 @@
 import UIKit
 
 class ResetFiltersView: UIView {
+  let resetButton: UIButton! = UIButton(type: .system)
 }
