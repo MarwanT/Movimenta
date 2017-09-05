@@ -10,4 +10,17 @@ import UIKit
 
 class ResetFiltersView: UIView {
   let resetButton: UIButton! = UIButton(type: .system)
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    postInitialization()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    postInitialization()
+  }
+  
+  private func postInitialization() {
+  }
 }
