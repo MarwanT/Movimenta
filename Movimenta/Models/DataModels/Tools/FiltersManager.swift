@@ -66,6 +66,10 @@ extension FiltersManager {
     return Array(DataManager.shared.artists.values)
   }
   
+  var participants: [Participant] {
+    return speakers + sponsers + organizers + companies + artists
+  }
+  
   var withinTimeValues: (values: [Int], unit: String) {
     return ([0, 10, 20, 30, 40, 50, 60], Strings.mins())
   }
@@ -94,62 +98,18 @@ extension Array where Element == Event {
     return filter { $0.isBookmarked == false }
   }
   
-  private func filteredSpeakers(_ speakers: [Participant]?) -> [Event] {
-    guard let speakers = speakers, speakers.count > 0 else {
+  private func filteredParticipants(_ participants: [Participant]?) -> [Event] {
+    guard let participants = participants, participants.count > 0 else {
       return self
     }
-    return filter({ $0.speakers.contains(where: { (participant) -> Bool in
-        speakers.contains(where: { (speaker) -> Bool in
-          participant == speaker
-        }) })
-    })
-  }
-  
-  private func filteredSponsers(_ sponsers: [Participant]?) -> [Event] {
-    guard let sponsers = sponsers, sponsers.count > 0 else {
-      return self
-    }
-    return filter({ $0.sponsors.contains(where: { (participant) -> Bool in
-      sponsers.contains(where: { (sponsor) -> Bool in
-        participant == sponsor
+    
+    return filter({
+      let eventParticipants = $0.participants
+      return eventParticipants.contains(where: { (eventParticipant) -> Bool in
+        participants.contains(where: { (filterParticipant) -> Bool in
+          eventParticipant == filterParticipant
+        })
       })
-    })
-    })
-  }
-  
-  private func filteredOrganizers(_ organizers: [Participant]?) -> [Event] {
-    guard let organizers = organizers, organizers.count > 0 else {
-      return self
-    }
-    return filter({ $0.organizers.contains(where: { (participant) -> Bool in
-      organizers.contains(where: { (organizer) -> Bool in
-        participant == organizer
-      })
-    })
-    })
-  }
-  
-  private func filteredCompanies(_ companies: [Participant]?) -> [Event] {
-    guard let companies = companies, companies.count > 0 else {
-      return self
-    }
-    return filter({ $0.companies.contains(where: { (participant) -> Bool in
-      companies.contains(where: { (company) -> Bool in
-        participant == company
-      })
-    })
-    })
-  }
-  
-  private func filteredArtists(_ artists: [Participant]?) -> [Event] {
-    guard let artists = artists, artists.count > 0 else {
-      return self
-    }
-    return filter({ $0.artists.contains(where: { (participant) -> Bool in
-      artists.contains(where: { (artist) -> Bool in
-        participant == artist
-      })
-    })
     })
   }
   
@@ -173,11 +133,7 @@ extension Array where Element == Event {
   
   fileprivate func filtered(given filter: Filter) -> [Event] {
     return self.filteredBookmarked(filter.showBookmarked)
-      .filteredArtists(filter.artists)
-      .filteredSpeakers(filter.speakers)
-      .filteredSponsers(filter.sponsers)
-      .filteredCompanies(filter.companies)
-      .filteredOrganizers(filter.organizers)
+      .filteredParticipants(filter.participants)
       .filteredStartWithin(minutes: filter.withinTime)
       .filteredWithin(distance: filter.withinDistance)
   }
