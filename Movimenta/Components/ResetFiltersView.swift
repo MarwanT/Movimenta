@@ -24,6 +24,7 @@ class ResetFiltersView: UIView {
   
   private func postInitialization() {
     initializeLayout()
+    initializeButton()
   }
   private func initializeLayout() {
     addSubview(resetButton)
@@ -34,5 +35,13 @@ class ResetFiltersView: UIView {
       maker.edges.equalTo(self)
     }
     layoutIfNeeded()
+  }
+  private func initializeButton() {
+    resetButton.titleLabel?.textAlignment = .center
+    resetButton.setTitle(Strings.reset_all_filters().uppercased(), for: .normal)
+    resetButton.addTarget(self, action: #selector(didTapResetButton(_:)), for: .touchUpInside)
+  }
+  
+  func didTapResetButton(_ sender: UIButton) {
   }
 }
