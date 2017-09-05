@@ -283,6 +283,12 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
   
   //===============================
   
+  fileprivate func refreshTableView() {
+    tableView.reloadSections(
+      IndexSet(Section.all.map({ $0.rawValue })),
+      with: UITableViewRowAnimation.automatic)
+  }
+  
   fileprivate func refreshDateCells() {
     let fromData = viewModel.dateInfo(for: .from)
     let toData = viewModel.dateInfo(for: .to)
@@ -361,6 +367,8 @@ extension FiltersViewController {
 //MARK: - Reset View Delegate
 extension FiltersViewController: ResetFiltersViewDelegate {
   func resetFiltersDidTap(_ view: ResetFiltersView) {
+    viewModel.resetFilters()
+    refreshTableView()
   }
 }
 
