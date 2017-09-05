@@ -49,6 +49,7 @@
 		596834901F5D60CC00E25579 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5968348E1F5D60CC00E25579 /* SwitchCell.xib */; };
 		596834991F5D914100E25579 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596834971F5D914100E25579 /* SliderCell.swift */; };
 		5968349A1F5D914100E25579 /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596834981F5D914100E25579 /* SliderCell.xib */; };
+		5968349C1F5EACBA00E25579 /* ResetFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */; };
 		596A75771F1908120094A886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75761F1908120094A886 /* AppDelegate.swift */; };
 		596A758C1F1908120094A886 /* MovimentaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A758B1F1908120094A886 /* MovimentaTests.swift */; };
 		5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF7C1F20F7F0008CA708 /* Network.swift */; };
@@ -175,6 +176,7 @@
 		5968348E1F5D60CC00E25579 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		596834971F5D914100E25579 /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		596834981F5D914100E25579 /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetFiltersView.swift; sourceTree = "<group>"; };
 		596A75731F1908120094A886 /* Movimenta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movimenta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A75761F1908120094A886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		596A75871F1908120094A886 /* MovimentaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovimentaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -603,6 +605,7 @@
 				5968348C1F5D60A100E25579 /* SwitchCell */,
 				596834961F5D914100E25579 /* SliderCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
+				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1010,6 +1013,7 @@
 				594662111F39CFDF007412C0 /* EventDetailsViewController.swift in Sources */,
 				5970AF7F1F20F8F0008CA708 /* MovimentaAPI.swift in Sources */,
 				59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */,
+				5968349C1F5EACBA00E25579 /* ResetFiltersView.swift in Sources */,
 				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
 				59EF02191F3076CF00F145B9 /* RootViewController.swift in Sources */,
 				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
