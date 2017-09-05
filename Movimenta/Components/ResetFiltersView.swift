@@ -55,5 +55,6 @@ class ResetFiltersView: UIView {
   }
   
   func didTapResetButton(_ sender: UIButton) {
+    delegate?.resetFiltersDidTap(self)
   }
 }
