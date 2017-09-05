@@ -66,6 +66,10 @@ extension FiltersManager {
     return Array(DataManager.shared.artists.values)
   }
   
+  var participants: [Participant] {
+    return speakers + sponsers + organizers + companies + artists
+  }
+  
   var withinTimeValues: (values: [Int], unit: String) {
     return ([0, 10, 20, 30, 40, 50, 60], Strings.mins())
   }
