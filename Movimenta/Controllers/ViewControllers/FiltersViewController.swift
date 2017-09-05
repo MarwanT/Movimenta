@@ -205,7 +205,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     switch section {
-    case .bookmark:
+    case .bookmark, .withinDistance, .withinTime:
       return nil
     default:
       return indexPath
