@@ -46,6 +46,13 @@ class FiltersViewController: UIViewController {
   private func initializeTableView() {
     let theme = ThemeManager.shared.current
     
+    let resetView = ResetFiltersView()
+    resetView.delegate = self
+    tableView.tableHeaderView = resetView
+    resetView.snp.makeConstraints { (maker) in
+      maker.width.equalTo(tableView)
+    }
+    
     tableView.tableFooterView = UIView(frame: CGRect.zero)
     
     tableView.delegate = self
@@ -348,6 +355,12 @@ extension FiltersViewController {
     static var numberOfRows: Int {
       return 2
     }
+  }
+}
+
+//MARK: - Reset View Delegate
+extension FiltersViewController: ResetFiltersViewDelegate {
+  func resetFiltersDidTap(_ view: ResetFiltersView) {
   }
 }
 
