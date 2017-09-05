@@ -20,6 +20,10 @@ struct Filter {
   var withinDistance: Double? = nil
   var showBookmarked: Bool? = nil
   
+  static var zero: Filter {
+    return Filter()
+  }
+  
   /// Set and Get flattened categories
   var categories: [Event.Category]? {
     get {
