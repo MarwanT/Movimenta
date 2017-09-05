@@ -380,6 +380,7 @@ extension FiltersViewController: ResetFiltersViewDelegate {
     viewModel.resetFilters()
     refreshTableView()
     delegate?.filtersDidReset(self)
+    navigationController?.popViewController(animated: true)
   }
 }
 
