@@ -25,6 +25,7 @@ class ResetFiltersView: UIView {
   private func postInitialization() {
     initializeLayout()
     initializeButton()
+    applyTheme()
   }
   private func initializeLayout() {
     addSubview(resetButton)
@@ -40,6 +41,11 @@ class ResetFiltersView: UIView {
     resetButton.titleLabel?.textAlignment = .center
     resetButton.setTitle(Strings.reset_all_filters().uppercased(), for: .normal)
     resetButton.addTarget(self, action: #selector(didTapResetButton(_:)), for: .touchUpInside)
+  }
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    resetButton.titleLabel?.font = theme.font12
+    resetButton.setTitleColor(theme.color2, for: .normal)
   }
   
   func didTapResetButton(_ sender: UIButton) {
