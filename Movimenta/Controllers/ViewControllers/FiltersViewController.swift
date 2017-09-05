@@ -379,6 +379,7 @@ extension FiltersViewController: ResetFiltersViewDelegate {
   func resetFiltersDidTap(_ view: ResetFiltersView) {
     viewModel.resetFilters()
     refreshTableView()
+    delegate?.filtersDidReset(self)
   }
 }
 
