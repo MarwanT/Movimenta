@@ -21,6 +21,8 @@ class FiltersViewController: UIViewController {
   
   var viewModel = FiltersViewModel()
   
+  weak var delegate: FiltersViewControllerDelegate?
+  
   static func instance() -> FiltersViewController {
     return Storyboard.Filter.instantiate(FiltersViewController.self)
   }
