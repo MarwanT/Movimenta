@@ -16,6 +16,8 @@ protocol ResetFiltersViewDelegate: class {
 class ResetFiltersView: UIView {
   let resetButton: UIButton! = UIButton(type: .system)
   
+  weak var delegate: ResetFiltersViewDelegate?
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     postInitialization()
