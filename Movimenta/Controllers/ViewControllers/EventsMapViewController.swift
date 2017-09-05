@@ -133,6 +133,10 @@ extension EventsMapViewController {
   /// Reload events based on filters selected and refresh UI
   func reloadEvents() {
     viewModel.loadEvents()
+    refreshMapView()
+  }
+  
+  fileprivate func refreshMapView() {
     refreshMarkers()
     updateCameraForMapEvents()
   }
@@ -217,7 +221,8 @@ extension EventsMapViewController {
   
   fileprivate func navigateToFiltersVC() {
     let vc = FiltersViewController.instance()
-    vc.initialize(with: Filter())
+    vc.delegate = self
+    vc.initialize(with: viewModel.filter)
     self.navigationController?.pushViewController(vc, animated: true)
   }
   
@@ -332,6 +337,21 @@ extension EventsMapViewController {
 struct MapZoom{
   static let world: Float = 1
   static let street: Float = 15
+}
+
+//MARK: - Filters View Controller Delegate
+extension EventsMapViewController: FiltersViewControllerDelegate {
+  func filters(_ viewController: FiltersViewController, didApply filter: Filter) {
+    viewModel.apply(filter: filter)
+    refreshMapView()
+    refreshEventDetailsForSelection()
+  }
+  
+  func filtersDidReset(_ viewController: FiltersViewController) {
+    viewModel.resetFilter()
+    refreshMapView()
+    refreshEventDetailsForSelection()
+  }
 }
 
 //MARK: - Navigation Delegate

@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol FiltersViewControllerDelegate: class {
+  func filters(_ viewController: FiltersViewController, didApply filter: Filter)
+  func filtersDidReset(_ viewController: FiltersViewController)
+}
+
 class FiltersViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
@@ -15,6 +20,8 @@ class FiltersViewController: UIViewController {
   fileprivate var toDateCell: DatePickerCell!
   
   var viewModel = FiltersViewModel()
+  
+  weak var delegate: FiltersViewControllerDelegate?
   
   static func instance() -> FiltersViewController {
     return Storyboard.Filter.instantiate(FiltersViewController.self)
@@ -32,6 +39,7 @@ class FiltersViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTableView()
+    initializeNavigationBar()
   }
   
   private func setup() {
@@ -77,6 +85,22 @@ class FiltersViewController: UIViewController {
     tableView.register(SelectableCell.nib, forCellReuseIdentifier: SelectableCell.identifier)
     tableView.register(SwitchCell.nib, forCellReuseIdentifier: SwitchCell.identifier)
     tableView.register(SliderCell.nib, forCellReuseIdentifier: SliderCell.identifier)
+  }
+  
+  private func initializeNavigationBar() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(
+      title: Strings.apply(),
+      style: .plain, target: self,
+      action: #selector(didTapApplyButton(_:)))
+  }
+  
+  func didTapApplyButton(_ sender: UIBarButtonItem) {
+    applyFilter()
+  }
+  
+  func applyFilter() {
+    delegate?.filters(self, didApply: viewModel.filter)
+    navigationController?.popViewController(animated: true)
   }
 }
 
@@ -372,6 +396,8 @@ extension FiltersViewController: ResetFiltersViewDelegate {
   func resetFiltersDidTap(_ view: ResetFiltersView) {
     viewModel.resetFilters()
     refreshTableView()
+    delegate?.filtersDidReset(self)
+    navigationController?.popViewController(animated: true)
   }
 }
 

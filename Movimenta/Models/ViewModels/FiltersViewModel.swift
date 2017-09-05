@@ -9,7 +9,7 @@
 import Foundation
 
 final class FiltersViewModel {
-  fileprivate var filter: Filter! = nil
+  fileprivate(set) var filter: Filter! = nil
   
   fileprivate var categoriesData = [SelectableRowData]()
   fileprivate var participantsData = [SelectableRowData]()

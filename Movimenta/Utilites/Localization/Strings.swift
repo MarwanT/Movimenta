@@ -17,6 +17,10 @@ final class Strings {
     return Localization.localize(key: "all")
   }
   
+  static func apply() -> String {
+    return Localization.localize(key: "apply")
+  }
+  
   static func artists() -> String {
     return Localization.localize(key: "artists")
   }
