@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol FiltersViewControllerDelegate: class {
+  func filters(_ viewController: FiltersViewController, didApply filter: Filter)
+  func filtersDidReset(_ viewController: FiltersViewController)
+}
+
 class FiltersViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
