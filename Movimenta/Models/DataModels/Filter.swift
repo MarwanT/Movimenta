@@ -34,6 +34,15 @@ struct Filter {
     }
   }
   
+  var participants: [Participant] {
+    let artists: [Participant] = self.artists ?? []
+    let companies: [Participant] = self.companies ?? []
+    let organizers: [Participant] = self.organizers ?? []
+    let speakers: [Participant] = self.speakers ?? []
+    let sponsers: [Participant] = self.sponsers ?? []
+    return artists + companies + organizers + speakers + sponsers
+  }
+  
   mutating func add(category: Event.Category) {
     var categoriesArray: [Event.Category] = categories ?? []
     if !categoriesArray.contains(category) {
