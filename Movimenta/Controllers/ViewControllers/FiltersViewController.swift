@@ -39,6 +39,7 @@ class FiltersViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTableView()
+    initializeNavigationBar()
   }
   
   private func setup() {
@@ -84,6 +85,20 @@ class FiltersViewController: UIViewController {
     tableView.register(SelectableCell.nib, forCellReuseIdentifier: SelectableCell.identifier)
     tableView.register(SwitchCell.nib, forCellReuseIdentifier: SwitchCell.identifier)
     tableView.register(SliderCell.nib, forCellReuseIdentifier: SliderCell.identifier)
+  }
+  
+  private func initializeNavigationBar() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(
+      title: Strings.apply(),
+      style: .plain, target: self,
+      action: #selector(didTapApplyButton(_:)))
+  }
+  
+  func didTapApplyButton(_ sender: UIBarButtonItem) {
+    applyFilter()
+  }
+  
+  func applyFilter() {
   }
 }
 
