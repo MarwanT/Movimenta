@@ -16,8 +16,16 @@ final class FiltersViewModel {
   
   func initialize(with filter: Filter) {
     self.filter = filter
+    initializeDates()
     initializeCategoriesData()
     initializeParticipantsData()
+  }
+  
+  fileprivate func initializeDates() {
+    let fromValues = dateInfo(for: .from)
+    let toValues = dateInfo(for: .to)
+    setFrom(date: fromValues.date)
+    setTo(date: toValues.date)
   }
   
   fileprivate func initializeCategoriesData() {
@@ -221,6 +229,7 @@ extension FiltersViewModel {
 extension FiltersViewModel {
   func resetFilters() {
     self.filter = Filter.zero
+    initializeDates()
     initializeCategoriesData()
     initializeParticipantsData()
   }
