@@ -40,6 +40,7 @@ class EventsMapViewController: UIViewController {
     initializeMapsView()
     initializeEventDetailsPeekView()
     initializeLocationManager()
+    setupNavigationItems()
     refreshMapVisibleArea()
     
     // Loading Data
@@ -79,6 +80,11 @@ class EventsMapViewController: UIViewController {
     locationManager.delegate = self
   }
   
+  private func setupNavigationItems() {
+    let filtersButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filters"), style: .plain, target: self, action: #selector(handleFiltersButtonTap(_:)))
+    navigationItem.rightBarButtonItem = filtersButton
+  }
+  
   private func addObservers() {
     NotificationCenter.default.addObserver(self, selector: #selector(reloadEvents), name: AppNotification.didLoadData, object: nil)
   }
@@ -116,6 +122,10 @@ class EventsMapViewController: UIViewController {
       navigateToEventDetailsVC()
     }
   }
+  
+  func handleFiltersButtonTap(_ sender: UIBarButtonItem) {
+    navigateToFiltersVC()
+  }
 }
 
 //MARK: - Data Related APIs
@@ -123,6 +133,10 @@ extension EventsMapViewController {
   /// Reload events based on filters selected and refresh UI
   func reloadEvents() {
     viewModel.loadEvents()
+    refreshMapView()
+  }
+  
+  fileprivate func refreshMapView() {
     refreshMarkers()
     updateCameraForMapEvents()
   }
@@ -203,6 +217,13 @@ extension EventsMapViewController {
     
     let cameraUpdate = GMSCameraUpdate.fit(bounds)
     mapView.animate(with: cameraUpdate)
+  }
+  
+  fileprivate func navigateToFiltersVC() {
+    let vc = FiltersViewController.instance()
+    vc.delegate = self
+    vc.initialize(with: viewModel.filter)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
   
   //======================================================
@@ -316,6 +337,21 @@ extension EventsMapViewController {
 struct MapZoom{
   static let world: Float = 1
   static let street: Float = 15
+}
+
+//MARK: - Filters View Controller Delegate
+extension EventsMapViewController: FiltersViewControllerDelegate {
+  func filters(_ viewController: FiltersViewController, didApply filter: Filter) {
+    viewModel.apply(filter: filter)
+    refreshMapView()
+    refreshEventDetailsForSelection()
+  }
+  
+  func filtersDidReset(_ viewController: FiltersViewController) {
+    viewModel.resetFilter()
+    refreshMapView()
+    refreshEventDetailsForSelection()
+  }
 }
 
 //MARK: - Navigation Delegate

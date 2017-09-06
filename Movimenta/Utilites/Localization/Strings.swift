@@ -13,6 +13,18 @@ final class Strings {
     return Localization.localize(key: "add_to_calendar")
   }
   
+  static func all() -> String {
+    return Localization.localize(key: "all")
+  }
+  
+  static func apply() -> String {
+    return Localization.localize(key: "apply")
+  }
+  
+  static func artists() -> String {
+    return Localization.localize(key: "artists")
+  }
+  
   static func at_time() -> String {
     return Localization.localize(key: "at_time")
   }
@@ -25,8 +37,20 @@ final class Strings {
     return Localization.localize(key: "cancel")
   }
   
+  static func companies() -> String {
+    return Localization.localize(key: "companies")
+  }
+  
+  static func date() -> String {
+    return Localization.localize(key: "date")
+  }
+  
   static func date_and_time() -> String {
     return Localization.localize(key: "date_and_time")
+  }
+  
+  static func distance() -> String {
+    return Localization.localize(key: "distance")
   }
   
   static func event_details() -> String {
@@ -37,8 +61,12 @@ final class Strings {
     return Localization.localize(key: "event_map")
   }
   
-  static func from_time() -> String {
-    return Localization.localize(key: "from_time")
+  static func event_types() -> String {
+    return Localization.localize(key: "event_types")
+  }
+  
+  static func from() -> String {
+    return Localization.localize(key: "from")
   }
   
   static func info() -> String {
@@ -73,10 +101,17 @@ final class Strings {
     return Localization.localize(key: "ok")
   }
   
+  static func organizers() -> String {
+    return Localization.localize(key: "organizers")
+  }
+  
   static func participants() -> String {
     return Localization.localize(key: "participants")
   }
   
+  static func reset_all_filters() -> String {
+    return Localization.localize(key: "reset_all_filters")
+  }
   
   static func settings() -> String {
     return Localization.localize(key: "settings")
@@ -84,6 +119,26 @@ final class Strings {
   
   static func scheduale() -> String {
     return Localization.localize(key: "scheduale")
+  }
+  
+  static func show_bookmarked_events() -> String {
+    return Localization.localize(key: "show_bookmarked_events")
+  }
+  
+  static func speakers() -> String {
+    return Localization.localize(key: "speakers")
+  }
+  
+  static func sponsors() -> String {
+    return Localization.localize(key: "sponsors")
+  }
+  
+  static func starts_within() -> String {
+    return Localization.localize(key: "starts_within")
+  }
+  
+  static func to() -> String {
+    return Localization.localize(key: "to")
   }
   
   static func to_time() -> String {

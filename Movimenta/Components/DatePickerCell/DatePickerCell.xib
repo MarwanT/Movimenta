@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="KGk-i7-Jjw" customClass="DatePickerCell" customModule="Movimenta" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dse-6e-svh">
+                        <rect key="frame" x="0.0" y="61" width="320" height="216"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="216" id="WXv-IG-6QD"/>
+                        </constraints>
+                        <date key="date" timeIntervalSinceReferenceDate="525255606.79518002">
+                            <!--2017-08-24 08:20:06 +0000-->
+                        </date>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WXv-IG-6QD"/>
+                            </mask>
+                        </variation>
+                    </datePicker>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ax-09-WVc">
+                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTr-IW-35h" userLabel="Mimic Date Label">
+                        <rect key="frame" x="278" y="0.0" width="42" height="61"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emL-Pn-i57" userLabel="Date Label">
+                        <rect key="frame" x="278" y="0.0" width="42" height="61"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arn-wS-CB7" userLabel="Separator View">
+                        <rect key="frame" x="0.0" y="61" width="320" height="0.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="Fup-2J-Rkx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1Ax-09-WVc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="1Yh-wc-f6W"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="arn-wS-CB7" secondAttribute="trailing" id="2Ia-TN-EGL"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dse-6e-svh" secondAttribute="trailing" id="3pu-hB-LhS"/>
+                    <constraint firstAttribute="bottom" secondItem="arn-wS-CB7" secondAttribute="top" id="7Sb-gW-18I"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cTr-IW-35h" secondAttribute="trailing" id="GYX-UZ-gjY"/>
+                    <constraint firstItem="dse-6e-svh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Ify-aP-JRq"/>
+                    <constraint firstItem="1Ax-09-WVc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Lgv-RP-TO2"/>
+                    <constraint firstItem="cTr-IW-35h" firstAttribute="height" secondItem="emL-Pn-i57" secondAttribute="height" id="RZg-E0-o58"/>
+                    <constraint firstItem="dse-6e-svh" firstAttribute="top" secondItem="arn-wS-CB7" secondAttribute="bottom" id="TbL-AQ-pe3"/>
+                    <constraint firstItem="cTr-IW-35h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="YQE-fv-dd8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="dse-6e-svh" secondAttribute="bottom" id="Zls-6W-WOV"/>
+                    <constraint firstItem="cTr-IW-35h" firstAttribute="width" secondItem="emL-Pn-i57" secondAttribute="width" id="eha-kg-8je"/>
+                    <constraint firstItem="arn-wS-CB7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tYq-U1-4XM"/>
+                    <constraint firstItem="emL-Pn-i57" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="v2f-uw-Dxg"/>
+                    <constraint firstItem="arn-wS-CB7" firstAttribute="top" secondItem="cTr-IW-35h" secondAttribute="bottom" id="w5p-ob-bmA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="emL-Pn-i57" secondAttribute="trailing" id="ydu-iP-g9m"/>
+                </constraints>
+                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Zls-6W-WOV"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="emL-Pn-i57" id="Tnk-c1-dhl"/>
+                <outlet property="dateLabelTrailingToSuperviewMarginConstraint" destination="ydu-iP-g9m" id="R6g-lY-T4z"/>
+                <outlet property="datePicker" destination="dse-6e-svh" id="R0R-rb-0ib"/>
+                <outlet property="datePickerTopConstraintToSeparatorBottomConstraint" destination="TbL-AQ-pe3" id="afw-kF-Vro"/>
+                <outlet property="datePickerTrailingToSuperviewMarginConstraint" destination="3pu-hB-LhS" id="Juz-sj-ofW"/>
+                <outlet property="label" destination="1Ax-09-WVc" id="ohZ-Yf-WjS"/>
+                <outlet property="separator" destination="arn-wS-CB7" id="CqC-1J-nRP"/>
+                <outlet property="separatorTopToDateLabelBottomConstraint" destination="w5p-ob-bmA" id="7Gy-Vw-3xC"/>
+                <outlet property="superviewBottomToDatePickerBottomConstraint" destination="Zls-6W-WOV" id="4ZQ-Hg-hru"/>
+                <outlet property="superviewBottomToSeparatorTopConstraint" destination="7Sb-gW-18I" id="hMO-tA-Z4J"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="63"/>
+        </tableViewCell>
+    </objects>
+</document>

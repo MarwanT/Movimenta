@@ -207,6 +207,7 @@ extension Event {
     var id: String?
     var label: String?
     var subCategories: [Category]?
+    var parentId: String?
     
     /**
      If the category has no subcategories then the array has one element with
@@ -257,8 +258,31 @@ extension Event.Category: Parsable {
   static func object(from json: JSON) -> Event.Category? {
     let id = json["id"].stringValue
     let label = json["label"].stringValue
-    let subCategories = objects(from: json["children"])
-    return Event.Category(id: id, label: label, subCategories: subCategories)
+    var subCategories = objects(from: json["children"])
+    
+    if let categories = subCategories, categories.count > 0 {
+      subCategories = categories.map({
+        var updatedCategory = $0
+        updatedCategory.parentId = id
+        return updatedCategory
+      })
+    }
+    
+    return Event.Category(id: id, label: label, subCategories: subCategories, parentId: nil)
+  }
+}
+
+extension Array where Element == Event.Category {
+  /// Flattenes a 2D structure categories
+  var flatCategories: [Event.Category] {
+    var allCategories: [Event.Category] = []
+    for category in self {
+      allCategories.append(category)
+      if let subCategories = category.subCategories, subCategories.count > 0 {
+        allCategories.append(contentsOf: subCategories)
+      }
+    }
+    return allCategories
   }
 }
 

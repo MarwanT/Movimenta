@@ -11,6 +11,7 @@ import UIKit
 enum Storyboard: String {
   case Root
   case Event
+  case Filter
   
   public func instantiate<VC: UIViewController>(_ viewController: VC.Type,
                           inBundle bundle: Bundle? = nil) -> VC {
