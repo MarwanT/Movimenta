@@ -91,6 +91,15 @@ extension FiltersManager {
 
 //MARK: - Filtering
 extension Array where Element == Event {
+  private func filteredBy(dateRange: DateRange?) -> [Event] {
+    guard let dateRange = dateRange else {
+      return self
+    }
+    return filter({
+      $0.happens(in: dateRange)
+    })
+  }
+  
   private func filteredBookmarked(_ show: Bool?) -> [Event] {
     guard let show = show, show == false else {
       return self
@@ -144,7 +153,8 @@ extension Array where Element == Event {
   }
   
   fileprivate func filtered(given filter: Filter) -> [Event] {
-    return self.filteredBookmarked(filter.showBookmarked)
+    return self.filteredBy(dateRange: filter.dateRange)
+      .filteredBookmarked(filter.showBookmarked)
       .filteredParticipants(filter.participants)
       .filteredStartWithin(minutes: filter.withinTime)
       .filteredWithin(distance: filter.withinDistance)
