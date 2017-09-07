@@ -214,6 +214,7 @@ extension UILabel {
   static fileprivate func breadcrumb(backgroundColor: UIColor, foregroundColor: UIColor) -> UILabel {
     let theme = ThemeManager.shared.current
     let label = PadableLabel()
+    label.isUserInteractionEnabled = true
     label.font = theme.font15
     label.backgroundColor = backgroundColor
     label.layer.borderWidth = 1
