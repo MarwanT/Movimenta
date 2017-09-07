@@ -34,6 +34,45 @@ class FiltersBreadcrumbView: UIView {
     scrollView.showsHorizontalScrollIndicator = false
   }
   
+  //MARK: APIs
+  func setBreadcrumbs(for filter: Filter) {
+    removeAllBreadcrumbViews()
+    breadcrumbs = generateBreadcrumbInfo(for: filter)
+    populateBreadcrumbs()
+  }
+  
+  func clear() {
+    removeAllBreadcrumbViews()
+    breadcrumbs = nil
+  }
+  
+  private func removeAllBreadcrumbViews() {
+    let subviews = stackView.arrangedSubviews
+    for subview in subviews {
+      remove(breadcrumbView: subview)
+    }
+  }
+  
+  private func populateBreadcrumbs() {
+    if let breadcrumbs = breadcrumbs {
+      for breadcrumb in breadcrumbs {
+        addBreadcrumbView(breadcrumb)
+      }
+    }
+  }
+  
+  private func remove(breadcrumbView: UIView) {
+    stackView.removeArrangedSubview(breadcrumbView)
+    breadcrumbView.removeFromSuperview()
+  }
+  
+  private func addBreadcrumbView(_ breadcrumb: Breadcrump) {
+    let label = UILabel.breadcrumb(
+      backgroundColor: configuration.backgroundColor,
+      foregroundColor: configuration.foregroundColor)
+    label.text = breadcrumb.text.lowercased()
+    stackView.addArrangedSubview(label)
+  }
 }
 
 //MARK: Breadcrumbs related
