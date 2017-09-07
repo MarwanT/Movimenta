@@ -21,6 +21,19 @@ class FiltersBreadcrumbView: UIView {
     return viewForNibNameIfNeeded(nibName: type(of: self).defaultNibName)
   }
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    backgroundColor = configuration.backgroundColor
+    stackView.spacing = CGFloat(theme.space8)
+    scrollView.contentInset = configuration.layoutMargin
+    scrollView.showsHorizontalScrollIndicator = false
+  }
+  
 }
 
 //MARK: Breadcrumbs related
