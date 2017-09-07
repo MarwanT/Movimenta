@@ -14,6 +14,22 @@ class FiltersBreadcrumbView: UIView {
   
 }
 
+//MARK: Breadcrumbs related
+extension FiltersBreadcrumbView {
+  enum Breadcrump {
+    case dateRange(DateRange)
+    case category(Event.Category)
+    case withinTime(Int)
+    case withinDistance(Double)
+    case speaker(Participant)
+    case sponsor(Participant)
+    case company(Participant)
+    case artist(Participant)
+    case organizer(Participant)
+    case showBookmarked(Bool)
+  }
+}
+
 //MARK: Configuration
 extension FiltersBreadcrumbView {
   struct Configuration {
