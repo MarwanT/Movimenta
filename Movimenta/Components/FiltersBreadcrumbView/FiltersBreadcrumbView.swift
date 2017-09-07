@@ -86,6 +86,13 @@ class FiltersBreadcrumbView: UIView {
   }
   
   func didTapBreadcrumb(_ sender: UITapGestureRecognizer) {
+    guard let breadcrumbs = breadcrumbs,
+      let breadcrumbLabel = sender.view as? UILabel,
+      let indexOfLabel = stackView.arrangedSubviews.index(of: breadcrumbLabel) else {
+      return
+    }
+    let breadcrumb = breadcrumbs[indexOfLabel]
+    delegate?.filtersBreadcrumbView(self, didTap: breadcrumb)
   }
 }
 
