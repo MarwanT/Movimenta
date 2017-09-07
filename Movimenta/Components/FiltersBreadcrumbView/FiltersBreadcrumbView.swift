@@ -9,6 +9,10 @@
 import SnapKit
 import UIKit
 
+protocol FiltersBreadcrumbViewDelegate: class {
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb)
+}
+
 class FiltersBreadcrumbView: UIView {
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var stackView: UIStackView!
