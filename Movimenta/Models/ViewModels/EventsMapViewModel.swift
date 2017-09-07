@@ -13,7 +13,7 @@ typealias MapEvent = (event: Event, marker: GMSMarker)
 
 final class EventsMapViewModel {
   var mapEvents: [MapEvent] = []
-  var filter: Filter = Filter.zero
+  fileprivate(set) var filter: Filter = Filter.zero
   var selectedMapEvent: MapEvent? = nil {
     didSet {
       oldValue?.marker.iconImageView?.isHighlighted = false
