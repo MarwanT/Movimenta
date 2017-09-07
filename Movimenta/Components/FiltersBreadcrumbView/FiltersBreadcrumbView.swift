@@ -17,6 +17,10 @@ class FiltersBreadcrumbView: UIView {
   
   var configuration = Configuration()
   
+  override func awakeAfter(using aDecoder: NSCoder) -> Any? {
+    return viewForNibNameIfNeeded(nibName: type(of: self).defaultNibName)
+  }
+  
 }
 
 //MARK: Breadcrumbs related
