@@ -78,6 +78,14 @@ class FiltersBreadcrumbView: UIView {
       foregroundColor: configuration.foregroundColor)
     label.text = breadcrumb.text.lowercased()
     stackView.addArrangedSubview(label)
+    
+    // Add tap Gesture recognizer
+    let tapGestureRecognizer = UITapGestureRecognizer(
+      target: self, action: #selector(didTapBreadcrumb(_:)))
+    label.addGestureRecognizer(tapGestureRecognizer)
+  }
+  
+  func didTapBreadcrumb(_ sender: UITapGestureRecognizer) {
   }
 }
 
