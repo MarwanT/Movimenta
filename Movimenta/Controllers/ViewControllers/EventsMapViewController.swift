@@ -13,9 +13,12 @@ import UIKit
 class EventsMapViewController: UIViewController {
   fileprivate var mapView: GMSMapView!
   @IBOutlet weak var eventDetailsPeekView: EventDetailsPeekView!
+  @IBOutlet weak var filtersBreadcrumbView: FiltersBreadcrumbView!
   
   @IBOutlet weak var eventDetailsPeekViewTopConstraintToSuperviewBottom: NSLayoutConstraint!
   @IBOutlet weak var eventDetailsPeekViewBottomConstraintToSuperviewBottom: NSLayoutConstraint!
+  @IBOutlet weak var filtersBreadcrumbTopToSuperviewTop: NSLayoutConstraint!
+  @IBOutlet weak var filtersBreadcrumbBottomToSuperviewTop: NSLayoutConstraint!
   
   var animationDuration: TimeInterval = 0.4
   

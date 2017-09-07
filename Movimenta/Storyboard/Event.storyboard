@@ -58,6 +58,9 @@
                         <outlet property="eventDetailsPeekView" destination="shR-Qn-uEw" id="9yq-WP-12F"/>
                         <outlet property="eventDetailsPeekViewBottomConstraintToSuperviewBottom" destination="siS-mx-Tc9" id="1Af-ap-ATR"/>
                         <outlet property="eventDetailsPeekViewTopConstraintToSuperviewBottom" destination="z6f-Av-mpY" id="0VT-6C-Alp"/>
+                        <outlet property="filtersBreadcrumbBottomToSuperviewTop" destination="Vkl-PF-LAj" id="uuC-7Q-qVV"/>
+                        <outlet property="filtersBreadcrumbTopToSuperviewTop" destination="qd2-4E-zsp" id="qYd-fO-Wfa"/>
+                        <outlet property="filtersBreadcrumbView" destination="7bv-Ag-40e" id="tvm-Sq-gOV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="am5-lW-MvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
