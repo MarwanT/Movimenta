@@ -64,6 +64,64 @@ extension FiltersBreadcrumbView {
       }
     }
   }
+  
+  fileprivate func generateBreadcrumbInfo(for filter: Filter) -> [Breadcrump] {
+    var breadcrumbs = [Breadcrump]()
+    
+    if let dateRange = filter.dateRange {
+      breadcrumbs.append(.dateRange(dateRange))
+    }
+    
+    if let categories = filter.categories {
+      for category in categories {
+        breadcrumbs.append(.category(category))
+      }
+    }
+    
+    if let artists = filter.artists {
+      for artist in artists {
+        breadcrumbs.append(.artist(artist))
+      }
+    }
+    
+    if let companies = filter.companies {
+      for company in companies {
+        breadcrumbs.append(.company(company))
+      }
+    }
+    
+    if let organizers = filter.organizers {
+      for organizer in organizers {
+        breadcrumbs.append(.organizer(organizer))
+      }
+    }
+    
+    if let speakers = filter.speakers {
+      for speaker in speakers {
+        breadcrumbs.append(.speaker(speaker))
+      }
+    }
+    
+    if let sponsors = filter.sponsers {
+      for sponsor in sponsors {
+        breadcrumbs.append(.sponsor(sponsor))
+      }
+    }
+    
+    if let withinTime = filter.withinTime, withinTime != 0 {
+      breadcrumbs.append(.withinTime(withinTime))
+    }
+    
+    if let withinDistance = filter.withinDistance, withinDistance != 0 {
+      breadcrumbs.append(.withinDistance(withinDistance))
+    }
+    
+    if let showBookmarked = filter.showBookmarked, !showBookmarked {
+      breadcrumbs.append(.showBookmarked(showBookmarked))
+    }
+    
+    return breadcrumbs
+  }
 }
 
 //MARK: Configuration
