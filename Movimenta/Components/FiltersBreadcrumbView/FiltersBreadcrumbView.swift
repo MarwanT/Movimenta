@@ -15,6 +15,8 @@ class FiltersBreadcrumbView: UIView {
   
   var breadcrumbs: [Breadcrump]?
   
+  var configuration = Configuration()
+  
 }
 
 //MARK: Breadcrumbs related
