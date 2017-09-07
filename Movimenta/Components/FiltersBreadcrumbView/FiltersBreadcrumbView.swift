@@ -9,4 +9,7 @@
 import UIKit
 
 class FiltersBreadcrumbView: UIView {
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var stackView: UIStackView!
+  
 }

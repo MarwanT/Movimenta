@@ -40,6 +40,10 @@
                 <constraint firstItem="Gqz-N1-82U" firstAttribute="top" secondItem="Tot-Rc-Z1F" secondAttribute="top" id="sC6-Yr-Zk7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="scrollView" destination="Gqz-N1-82U" id="9SQ-NP-9ey"/>
+                <outlet property="stackView" destination="LOT-VS-gCN" id="eqm-Yb-2Fw"/>
+            </connections>
             <point key="canvasLocation" x="-860" y="-1569"/>
         </view>
     </objects>
