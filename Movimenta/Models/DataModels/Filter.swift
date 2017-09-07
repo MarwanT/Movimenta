@@ -24,6 +24,19 @@ struct Filter {
     return Filter()
   }
   
+  var isZero: Bool {
+    return dateRange == nil
+    && (categories == nil || (categories?.count ?? 0) == 0)
+    && (artists == nil || (artists?.count ?? 0) == 0)
+    && (companies == nil || (companies?.count ?? 0) == 0)
+    && (organizers == nil || (organizers?.count ?? 0) == 0)
+    && (speakers == nil || (speakers?.count ?? 0) == 0)
+    && (sponsers == nil || (sponsers?.count ?? 0) == 0)
+    && withinTime == nil
+    && withinDistance == nil
+    && showBookmarked == nil
+  }
+  
   /// Set and Get flattened categories
   var categories: [Event.Category]? {
     get {
