@@ -17,6 +17,8 @@ class FiltersBreadcrumbView: UIView {
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var stackView: UIStackView!
   
+  weak var delegate: FiltersBreadcrumbViewDelegate?
+  
   var breadcrumbs: [Breadcrumb]?
   
   var configuration = Configuration()
