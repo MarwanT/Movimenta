@@ -157,6 +157,19 @@ extension EventsMapViewController {
     eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel
     showEventDetailsPeekView()
   }
+  
+  fileprivate func refreshBreadcrumbView() {
+    if !viewModel.filter.isZero {
+      showBreadcrumbsView(with: viewModel.filter)
+    } else {
+      hideBreadcrumbsView()
+    }
+  }
+  
+  fileprivate func showBreadcrumbsView(with filter: Filter) {
+    filtersBreadcrumbView.setBreadcrumbs(for: filter)
+    showBreadcrumbsView()
+  }
 }
 
 //MARK: - Helper Methods
@@ -181,8 +194,10 @@ extension EventsMapViewController {
   
   fileprivate func refreshMapVisibleArea() {
     let isEventDetailsPeekViewVisible = viewModel.selectedMapEvent != nil
-    let paddingBottom: CGFloat = isEventDetailsPeekViewVisible ? eventDetailsPeekView.bounds.height : 0
-    mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: paddingBottom, right: 0)
+    let isBreadcrumbsViewVisible = !viewModel.filter.isZero
+    let paddingBottom = isEventDetailsPeekViewVisible ? eventDetailsPeekView.bounds.height : 0
+    let paddingTop = isBreadcrumbsViewVisible ? filtersBreadcrumbView.bounds.height : 0
+    mapView.padding = UIEdgeInsets(top: paddingTop, left: 0, bottom: paddingBottom, right: 0)
   }
   
   fileprivate func updateCameraForSelection() {
@@ -227,6 +242,37 @@ extension EventsMapViewController {
     vc.delegate = self
     vc.initialize(with: viewModel.filter)
     self.navigationController?.pushViewController(vc, animated: true)
+  }
+  
+  //======================================================
+  // Breadcrumbs Helpers
+  
+  fileprivate func showBreadcrumbsView() {
+    if filtersBreadcrumbBottomToSuperviewTop.isActive {
+      view.removeConstraint(filtersBreadcrumbBottomToSuperviewTop)
+    }
+    if !filtersBreadcrumbTopToSuperviewTop.isActive {
+      view.addConstraint(filtersBreadcrumbTopToSuperviewTop)
+    }
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) {
+      self.view.layoutIfNeeded()
+      self.refreshMapVisibleArea()
+    }
+  }
+  
+  fileprivate func hideBreadcrumbsView(clear: Bool = true) {
+    if filtersBreadcrumbTopToSuperviewTop.isActive {
+      view.removeConstraint(filtersBreadcrumbTopToSuperviewTop)
+    }
+    if !filtersBreadcrumbBottomToSuperviewTop.isActive {
+      view.addConstraint(filtersBreadcrumbBottomToSuperviewTop)
+    }
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) {
+      self.view.layoutIfNeeded()
+      self.refreshMapVisibleArea()
+    }
   }
   
   //======================================================
@@ -348,12 +394,14 @@ extension EventsMapViewController: FiltersViewControllerDelegate {
     viewModel.apply(filter: filter)
     refreshMapView()
     refreshEventDetailsForSelection()
+    refreshBreadcrumbView()
   }
   
   func filtersDidReset(_ viewController: FiltersViewController) {
     viewModel.resetFilter()
     refreshMapView()
     refreshEventDetailsForSelection()
+    refreshBreadcrumbView()
   }
 }
 
