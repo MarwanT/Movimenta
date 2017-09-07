@@ -96,6 +96,18 @@ struct Event: ModelCommonProperties {
     return false
   }
   
+  func happens(in dateRange: DateRange) -> Bool {
+    guard let dates = dates else {
+      return false
+    }
+    for date in dates {
+      if date.intercept(with: dateRange) {
+        return true
+      }
+    }
+    return false
+  }
+  
   /// return false in case of error
   func within(kilometers: Double, to coordinates: CLLocationCoordinate2D) -> Bool {
     guard let eventCoordinates = self.coordinates else {
