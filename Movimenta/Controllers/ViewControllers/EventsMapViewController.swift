@@ -40,6 +40,7 @@ class EventsMapViewController: UIViewController {
     title = Strings.event_map()
     
     // Initialization
+    initializeFiltersBreadcrumbView()
     initializeMapsView()
     initializeEventDetailsPeekView()
     initializeLocationManager()
@@ -53,6 +54,10 @@ class EventsMapViewController: UIViewController {
     addObservers()
     
     self.navigationController?.delegate = eventsMapNavigationDelegate
+  }
+  
+  private func initializeFiltersBreadcrumbView() {
+    filtersBreadcrumbView.delegate = self
   }
   
   private func initializeMapsView() {
@@ -402,6 +407,13 @@ extension EventsMapViewController: FiltersViewControllerDelegate {
     refreshMapView()
     refreshEventDetailsForSelection()
     refreshBreadcrumbView()
+  }
+}
+
+//MARK: - Filters Breadcrumb View Delegate
+extension EventsMapViewController: FiltersBreadcrumbViewDelegate {
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb) {
+    navigateToFiltersVC()
   }
 }
 
