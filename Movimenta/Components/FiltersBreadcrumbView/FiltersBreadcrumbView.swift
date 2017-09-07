@@ -13,6 +13,8 @@ class FiltersBreadcrumbView: UIView {
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var stackView: UIStackView!
   
+  var breadcrumbs: [Breadcrump]?
+  
 }
 
 //MARK: Breadcrumbs related
