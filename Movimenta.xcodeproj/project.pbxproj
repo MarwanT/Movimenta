@@ -103,6 +103,7 @@
 		598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923341F1F6C0200F73974 /* Analytics+Field.swift */; };
 		598923371F1F753900F73974 /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923361F1F753900F73974 /* AppKeys.swift */; };
 		598923391F1F799400F73974 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598923381F1F799400F73974 /* Environment.swift */; };
+		599202621F669A110078578C /* ParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599202611F669A110078578C /* ParticipantViewController.swift */; };
 		59A008291F615FBE00E392DD /* PadableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A008281F615FBE00E392DD /* PadableLabel.swift */; };
 		59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A15EE31F4EC3260019924C /* DatePickerCell.swift */; };
 		59A15EE61F4EC3260019924C /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A15EE41F4EC3260019924C /* DatePickerCell.xib */; };
@@ -238,6 +239,7 @@
 		598923341F1F6C0200F73974 /* Analytics+Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Analytics+Field.swift"; sourceTree = "<group>"; };
 		598923361F1F753900F73974 /* AppKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
 		598923381F1F799400F73974 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		599202611F669A110078578C /* ParticipantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantViewController.swift; sourceTree = "<group>"; };
 		59A008281F615FBE00E392DD /* PadableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadableLabel.swift; sourceTree = "<group>"; };
 		59A15EE31F4EC3260019924C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		59A15EE41F4EC3260019924C /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
@@ -642,6 +644,7 @@
 				59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */,
 				594662101F39CFDF007412C0 /* EventDetailsViewController.swift */,
 				5903B1011F4D7F2E009DF33C /* FiltersViewController.swift */,
+				599202611F669A110078578C /* ParticipantViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1033,6 +1036,7 @@
 				59D52FA51F1D05B1008F3B13 /* Storyboard.swift in Sources */,
 				5968349C1F5EACBA00E25579 /* ResetFiltersView.swift in Sources */,
 				5989232D1F1F565000F73974 /* Analytics+Action.swift in Sources */,
+				599202621F669A110078578C /* ParticipantViewController.swift in Sources */,
 				59EF02191F3076CF00F145B9 /* RootViewController.swift in Sources */,
 				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
 				59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */,
