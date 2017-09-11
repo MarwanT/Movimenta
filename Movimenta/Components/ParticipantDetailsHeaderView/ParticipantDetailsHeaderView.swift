@@ -25,6 +25,7 @@ class ParticipantDetailsHeaderView: UIView {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    initialize()
     applyTheme()
   }
   
@@ -40,5 +41,8 @@ class ParticipantDetailsHeaderView: UIView {
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
     imageView.clipsToBounds = true
+  }
+  
+  private func initialize() {
   }
 }
