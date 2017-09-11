@@ -29,13 +29,13 @@
                             <rect key="frame" x="0.0" y="200" width="375" height="172"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXx-4k-3UR" userLabel="Name Label">
-                                    <rect key="frame" x="8" y="8" width="359" height="110"/>
+                                    <rect key="frame" x="8" y="8" width="359" height="90"/>
                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roles Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E86-hS-2rP">
-                                    <rect key="frame" x="8" y="123" width="359" height="20.5"/>
+                                    <rect key="frame" x="8" y="103" width="359" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                                 <constraint firstAttribute="bottomMargin" secondItem="tAA-14-nLk" secondAttribute="bottom" id="65g-iS-gvy"/>
                                 <constraint firstItem="tAA-14-nLk" firstAttribute="trailing" secondItem="AXx-4k-3UR" secondAttribute="trailing" id="6sP-QQ-GJE"/>
                                 <constraint firstItem="E86-hS-2rP" firstAttribute="top" secondItem="AXx-4k-3UR" secondAttribute="bottom" constant="5" id="70V-Q6-1q8"/>
-                                <constraint firstItem="tAA-14-nLk" firstAttribute="top" secondItem="E86-hS-2rP" secondAttribute="bottom" id="9do-MP-Vpe"/>
+                                <constraint firstItem="tAA-14-nLk" firstAttribute="top" secondItem="E86-hS-2rP" secondAttribute="bottom" constant="20" id="9do-MP-Vpe"/>
                                 <constraint firstItem="AXx-4k-3UR" firstAttribute="leading" secondItem="mPs-GI-5Kf" secondAttribute="leadingMargin" id="A7s-yt-S2x"/>
                                 <constraint firstItem="E86-hS-2rP" firstAttribute="leading" secondItem="AXx-4k-3UR" secondAttribute="leading" id="bs6-mk-ewE"/>
                                 <constraint firstItem="E86-hS-2rP" firstAttribute="trailing" secondItem="AXx-4k-3UR" secondAttribute="trailing" id="cFW-Nl-bLh"/>
