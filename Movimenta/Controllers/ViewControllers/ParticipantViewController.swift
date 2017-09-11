@@ -22,6 +22,10 @@ class ParticipantViewController: UIViewController {
     initialize()
   }
   
+  func initialize(with participant: Participant) {
+    viewModel.initialize(with: participant)
+  }
+  
   private func initialize() {
     initializeTableView()
   }

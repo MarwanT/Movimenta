@@ -9,5 +9,10 @@
 import Foundation
 
 final class ParticipantViewModel {
+  fileprivate(set) var participant: Participant!
+  
+  func initialize(with participant: Participant) {
+    self.participant = participant
+  }
   
 }
