@@ -119,6 +119,10 @@ class ParticipantViewController: UIViewController {
 //MARK: Actions
 extension ParticipantViewController {
   func tapShareButton(_ sender: UIBarButtonItem) {
+    guard let info = viewModel.sharingContent() else {
+      return
+    }
+    shareParticipant(info: info)
   }
   
   private func shareParticipant(info: [Any]) {
