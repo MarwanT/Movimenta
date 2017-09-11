@@ -63,6 +63,18 @@ class ParticipantViewController: UIViewController {
     }
     tableView.tableHeaderView = view
   }
+  
+  private func loadData() {
+    loadHeaderViewData()
+  }
+  
+  private func loadHeaderViewData() {
+    headerView.loadView(with:
+      (image: viewModel.image,
+       name: viewModel.name,
+       roles: viewModel.roles,
+       description: viewModel.description))
+  }
 }
 
 //MARK: Header View Delegates
