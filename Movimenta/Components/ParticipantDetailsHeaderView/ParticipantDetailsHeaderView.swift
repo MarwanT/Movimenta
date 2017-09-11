@@ -26,6 +26,8 @@ class ParticipantDetailsHeaderView: UIView {
   
   fileprivate var storedData: DetailsData? = nil
   
+  weak var delegate: ParticipantDetailsHeaderViewDelegate?
+  
   class func instanceFromNib() -> ParticipantDetailsHeaderView {
     return UINib(nibName: ParticipantDetailsHeaderView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ParticipantDetailsHeaderView
   }
