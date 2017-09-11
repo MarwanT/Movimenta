@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ParticipantDetailsHeaderViewDelegate: class {
+  func participantDetailsHeaderDidChangeSize(_ headerView: ParticipantDetailsHeaderView, size: CGSize)
+}
+
 class ParticipantDetailsHeaderView: UIView {
   typealias DetailsData = (image: URL?, name: String?, roles: String?, description: String?)
   
