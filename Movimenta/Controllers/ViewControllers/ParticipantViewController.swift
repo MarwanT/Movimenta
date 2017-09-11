@@ -23,6 +23,12 @@ class ParticipantViewController: UIViewController {
     initialize()
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    // #Required for the headerView to take the required size of it's content
+    resizeHeaderView()
+  }
+  
   func initialize(with participant: Participant) {
     viewModel.initialize(with: participant)
   }
