@@ -344,7 +344,9 @@ extension EventDetailsViewController {
   }
   
   private func navigateToParticipantVC(participant: Participant) {
-    //TODO: navigate to participant vc
+    let vc = ParticipantViewController.instance()
+    vc.initialize(with: participant)
+    navigationController?.pushViewController(vc, animated: true)
   }
 }
 
