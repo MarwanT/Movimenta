@@ -30,4 +30,11 @@ final class ParticipantViewModel {
   var description: String? {
     return participant.content
   }
+  
+  func sharingContent() -> [Any]? {
+    guard let url = participant.link else {
+      return nil
+    }
+    return [participant.fullName, url]
+  }
 }
