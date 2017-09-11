@@ -13,6 +13,7 @@ typealias MapEvent = (event: Event, marker: GMSMarker)
 
 final class EventsMapViewModel {
   var mapEvents: [MapEvent] = []
+  fileprivate(set) var filter: Filter = Filter.zero
   var selectedMapEvent: MapEvent? = nil {
     didSet {
       oldValue?.marker.iconImageView?.isHighlighted = false
@@ -21,14 +22,29 @@ final class EventsMapViewModel {
   }
   
   func loadEvents() {
-    mapEvents = DataManager.shared.events.flatMap { (event) -> MapEvent? in
+    loadMapEvents(for: DataManager.shared.events)
+    selectedMapEvent = nil
+  }
+  
+  func apply(filter: Filter) {
+    self.filter = filter
+    loadMapEvents(for: FiltersManager.shared.filteredEvents(for: filter))
+    selectedMapEvent = nil
+  }
+  
+  func resetFilter() {
+    filter = Filter.zero
+    loadEvents()
+  }
+  
+  private func loadMapEvents(for events: [Event]) {
+    mapEvents = events.flatMap { (event) -> MapEvent? in
       guard let position = event.coordinates else {
         return nil
       }
       let marker = GMSMarker.movimentaMarker(position: position)
       return (event, marker)
     }
-    //TODO: Filter events
   }
   
   /** 

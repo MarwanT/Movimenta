@@ -6,9 +6,16 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import SnapKit
 import UIKit
 
 class RootViewController: UITabBarController {
+  fileprivate var launchView: LaunchView!
+  
+  fileprivate let animationDuration = ThemeManager.shared.current.animationDuration
+  
+  var didDisplayLaunchView = false
+  
   override var selectedViewController: UIViewController? {
     didSet {
       refreshTabItemsTitleStyle()
@@ -18,8 +25,19 @@ class RootViewController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTabBarViewControllers()
+    initializeLaunchView()
     applyTheme()
     refreshTabItemsTitleStyle()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    displayLaunchViewIfNeeded()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    dismissLaunchViewAfterTimeout()
   }
   
   func initializeTabBarViewControllers() {
@@ -47,7 +65,30 @@ class RootViewController: UITabBarController {
     self.selectedIndex = 0
   }
   
+  private func initializeLaunchView() {
+    launchView = LaunchView.instanceFromNib()
+  }
   
+  private func displayLaunchViewIfNeeded() {
+    if !didDisplayLaunchView {
+      view.addSubview(launchView)
+      launchView.snp.makeConstraints { (maker) in
+        maker.edges.equalTo(view)
+      }
+    }
+  }
+  
+  private func dismissLaunchViewAfterTimeout() {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      UIView.animate(withDuration: self.animationDuration, animations: {
+        self.launchView.alpha = 0
+      }, completion: { (_) -> Void in
+        self.didDisplayLaunchView = true
+        self.launchView.removeFromSuperview()
+        self.launchView.alpha = 1
+      })
+    }
+  }
 }
 
 //MARK: Helpers 

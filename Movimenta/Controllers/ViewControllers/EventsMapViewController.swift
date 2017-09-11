@@ -12,14 +12,19 @@ import UIKit
 
 class EventsMapViewController: UIViewController {
   fileprivate var mapView: GMSMapView!
+  fileprivate var mapViewImageView: UIImageView!
   @IBOutlet weak var eventDetailsPeekView: EventDetailsPeekView!
+  @IBOutlet weak var filtersBreadcrumbView: FiltersBreadcrumbView!
   
   @IBOutlet weak var eventDetailsPeekViewTopConstraintToSuperviewBottom: NSLayoutConstraint!
   @IBOutlet weak var eventDetailsPeekViewBottomConstraintToSuperviewBottom: NSLayoutConstraint!
+  @IBOutlet weak var filtersBreadcrumbTopToSuperviewTop: NSLayoutConstraint!
+  @IBOutlet weak var filtersBreadcrumbBottomToSuperviewTop: NSLayoutConstraint!
   
   var animationDuration: TimeInterval = 0.4
   
   let locationManager = CLLocationManager()
+  static var currentLocation: CLLocation? = nil
   
   var viewModel = EventsMapViewModel()
   
@@ -36,9 +41,12 @@ class EventsMapViewController: UIViewController {
     title = Strings.event_map()
     
     // Initialization
+    initializeFiltersBreadcrumbView()
     initializeMapsView()
     initializeEventDetailsPeekView()
     initializeLocationManager()
+    initializeInteractivePopGestureRecognizer()
+    setupNavigationItems()
     refreshMapVisibleArea()
     
     // Loading Data
@@ -50,6 +58,20 @@ class EventsMapViewController: UIViewController {
     self.navigationController?.delegate = eventsMapNavigationDelegate
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    showMapViewMask()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    hideMapViewMask()
+  }
+  
+  private func initializeFiltersBreadcrumbView() {
+    filtersBreadcrumbView.delegate = self
+  }
+  
   private func initializeMapsView() {
     let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: MapZoom.world)
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
@@ -59,6 +81,14 @@ class EventsMapViewController: UIViewController {
     view.addSubview(mapView)
     view.sendSubview(toBack: mapView)
     mapView.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(view)
+    }
+    
+    // Initialize map view image view
+    mapViewImageView = UIImageView(frame: CGRect.zero)
+    mapViewImageView.isHidden = true
+    view.insertSubview(mapViewImageView, aboveSubview: mapView)
+    mapViewImageView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(view)
     }
   }
@@ -76,6 +106,16 @@ class EventsMapViewController: UIViewController {
     locationManager.distanceFilter = 50
     locationManager.startUpdatingLocation()
     locationManager.delegate = self
+  }
+  
+  private func initializeInteractivePopGestureRecognizer() {
+    navigationController?.interactivePopGestureRecognizer?.delegate = self
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+  }
+  
+  private func setupNavigationItems() {
+    let filtersButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filters"), style: .plain, target: self, action: #selector(handleFiltersButtonTap(_:)))
+    navigationItem.rightBarButtonItem = filtersButton
   }
   
   private func addObservers() {
@@ -115,6 +155,10 @@ class EventsMapViewController: UIViewController {
       navigateToEventDetailsVC()
     }
   }
+  
+  func handleFiltersButtonTap(_ sender: UIBarButtonItem) {
+    navigateToFiltersVC()
+  }
 }
 
 //MARK: - Data Related APIs
@@ -122,6 +166,10 @@ extension EventsMapViewController {
   /// Reload events based on filters selected and refresh UI
   func reloadEvents() {
     viewModel.loadEvents()
+    refreshMapView()
+  }
+  
+  fileprivate func refreshMapView() {
     refreshMarkers()
     updateCameraForMapEvents()
   }
@@ -139,12 +187,41 @@ extension EventsMapViewController {
     eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel
     showEventDetailsPeekView()
   }
+  
+  fileprivate func refreshBreadcrumbView() {
+    if !viewModel.filter.isZero {
+      showBreadcrumbsView(with: viewModel.filter)
+    } else {
+      hideBreadcrumbsView()
+    }
+  }
+  
+  fileprivate func showBreadcrumbsView(with filter: Filter) {
+    filtersBreadcrumbView.setBreadcrumbs(for: filter)
+    showBreadcrumbsView()
+  }
 }
 
 //MARK: - Helper Methods
 extension EventsMapViewController {
   //======================================================
   // Map Helpers
+  
+  fileprivate func showMapViewMask() {
+    mapViewImageView.image = UIImage(view: mapView)
+    mapViewImageView.isHidden = false
+    mapView.isHidden = true
+  }
+  
+  fileprivate func hideMapViewMask() {
+    mapView.isHidden = false
+    UIView.animate(withDuration: animationDuration, animations: { 
+      self.mapViewImageView.alpha = 0
+    }) { (finished) in
+      self.mapViewImageView.isHidden = true
+      self.mapViewImageView.alpha = 1
+    }
+  }
   
   fileprivate func refreshMarkers() {
     clearMarkers()
@@ -163,8 +240,10 @@ extension EventsMapViewController {
   
   fileprivate func refreshMapVisibleArea() {
     let isEventDetailsPeekViewVisible = viewModel.selectedMapEvent != nil
-    let paddingBottom: CGFloat = isEventDetailsPeekViewVisible ? eventDetailsPeekView.bounds.height : 0
-    mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: paddingBottom, right: 0)
+    let isBreadcrumbsViewVisible = !viewModel.filter.isZero
+    let paddingBottom = isEventDetailsPeekViewVisible ? eventDetailsPeekView.bounds.height : 0
+    let paddingTop = isBreadcrumbsViewVisible ? filtersBreadcrumbView.bounds.height : 0
+    mapView.padding = UIEdgeInsets(top: paddingTop, left: 0, bottom: paddingBottom, right: 0)
   }
   
   fileprivate func updateCameraForSelection() {
@@ -204,6 +283,45 @@ extension EventsMapViewController {
     mapView.animate(with: cameraUpdate)
   }
   
+  fileprivate func navigateToFiltersVC() {
+    let vc = FiltersViewController.instance()
+    vc.delegate = self
+    vc.initialize(with: viewModel.filter)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+  }
+  
+  //======================================================
+  // Breadcrumbs Helpers
+  
+  fileprivate func showBreadcrumbsView() {
+    if filtersBreadcrumbBottomToSuperviewTop.isActive {
+      view.removeConstraint(filtersBreadcrumbBottomToSuperviewTop)
+    }
+    if !filtersBreadcrumbTopToSuperviewTop.isActive {
+      view.addConstraint(filtersBreadcrumbTopToSuperviewTop)
+    }
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) {
+      self.view.layoutIfNeeded()
+      self.refreshMapVisibleArea()
+    }
+  }
+  
+  fileprivate func hideBreadcrumbsView(clear: Bool = true) {
+    if filtersBreadcrumbTopToSuperviewTop.isActive {
+      view.removeConstraint(filtersBreadcrumbTopToSuperviewTop)
+    }
+    if !filtersBreadcrumbBottomToSuperviewTop.isActive {
+      view.addConstraint(filtersBreadcrumbBottomToSuperviewTop)
+    }
+    view.setNeedsUpdateConstraints()
+    UIView.animate(withDuration: animationDuration) {
+      self.view.layoutIfNeeded()
+      self.refreshMapVisibleArea()
+    }
+  }
+  
   //======================================================
   // Event Details Peek Helpers
   
@@ -214,7 +332,8 @@ extension EventsMapViewController {
     
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
-    self.navigationController?.pushViewController(vc, animated: true)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = false
   }
   
   func showEventDetailsPeekView() {
@@ -293,6 +412,10 @@ extension EventsMapViewController: CLLocationManagerDelegate {
     }
   }
   
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    EventsMapViewController.currentLocation = manager.location
+  }
+  
   // Handle location manager errors.
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     locationManager.stopUpdatingLocation()
@@ -311,6 +434,37 @@ extension EventsMapViewController {
 struct MapZoom{
   static let world: Float = 1
   static let street: Float = 15
+}
+
+//MARK: - Filters View Controller Delegate
+extension EventsMapViewController: FiltersViewControllerDelegate {
+  func filters(_ viewController: FiltersViewController, didApply filter: Filter) {
+    viewModel.apply(filter: filter)
+    refreshMapView()
+    refreshEventDetailsForSelection()
+    refreshBreadcrumbView()
+  }
+  
+  func filtersDidReset(_ viewController: FiltersViewController) {
+    viewModel.resetFilter()
+    refreshMapView()
+    refreshEventDetailsForSelection()
+    refreshBreadcrumbView()
+  }
+}
+
+//MARK: - Filters Breadcrumb View Delegate
+extension EventsMapViewController: FiltersBreadcrumbViewDelegate {
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb) {
+    navigateToFiltersVC()
+  }
+}
+
+//MARK: - Gesture Recognizer Delegate
+extension EventsMapViewController: UIGestureRecognizerDelegate {
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    return true
+  }
 }
 
 //MARK: - Navigation Delegate

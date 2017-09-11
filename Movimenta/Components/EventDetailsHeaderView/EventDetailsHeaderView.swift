@@ -9,7 +9,7 @@
 import SDWebImage
 import UIKit
 
-protocol EventDetailsHeaderViewDelegate {
+protocol EventDetailsHeaderViewDelegate: class {
   func eventDetailsHeaderDidChangeSize(_ headerView: EventDetailsHeaderView, size: CGSize)
 }
 
@@ -28,7 +28,7 @@ class EventDetailsHeaderView: UIView {
   
   fileprivate var storedData: DetailsData? = nil
   
-  var delegate: EventDetailsHeaderViewDelegate? = nil
+  weak var delegate: EventDetailsHeaderViewDelegate? = nil
   
   class func instanceFromNib() -> EventDetailsHeaderView {
     return UINib(nibName: EventDetailsHeaderView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! EventDetailsHeaderView
