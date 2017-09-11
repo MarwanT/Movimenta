@@ -45,6 +45,7 @@ class EventsMapViewController: UIViewController {
     initializeMapsView()
     initializeEventDetailsPeekView()
     initializeLocationManager()
+    initializeInteractivePopGestureRecognizer()
     setupNavigationItems()
     refreshMapVisibleArea()
     
@@ -105,6 +106,11 @@ class EventsMapViewController: UIViewController {
     locationManager.distanceFilter = 50
     locationManager.startUpdatingLocation()
     locationManager.delegate = self
+  }
+  
+  private func initializeInteractivePopGestureRecognizer() {
+    navigationController?.interactivePopGestureRecognizer?.delegate = self
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
   }
   
   private func setupNavigationItems() {
@@ -281,7 +287,8 @@ extension EventsMapViewController {
     let vc = FiltersViewController.instance()
     vc.delegate = self
     vc.initialize(with: viewModel.filter)
-    self.navigationController?.pushViewController(vc, animated: true)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
   }
   
   //======================================================
@@ -325,7 +332,8 @@ extension EventsMapViewController {
     
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
-    self.navigationController?.pushViewController(vc, animated: true)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = false
   }
   
   func showEventDetailsPeekView() {
@@ -449,6 +457,13 @@ extension EventsMapViewController: FiltersViewControllerDelegate {
 extension EventsMapViewController: FiltersBreadcrumbViewDelegate {
   func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb) {
     navigateToFiltersVC()
+  }
+}
+
+//MARK: - Gesture Recognizer Delegate
+extension EventsMapViewController: UIGestureRecognizerDelegate {
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    return true
   }
 }
 
