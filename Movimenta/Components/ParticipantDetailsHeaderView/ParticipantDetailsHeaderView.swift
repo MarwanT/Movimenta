@@ -9,5 +9,9 @@
 import UIKit
 
 class ParticipantDetailsHeaderView: UIView {
+  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var rolesLabel: UILabel!
+  @IBOutlet weak var descriptionLabel: ExpandableLabel!
 
 }

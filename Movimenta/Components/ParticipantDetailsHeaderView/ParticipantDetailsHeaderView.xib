@@ -71,6 +71,13 @@
                 <constraint firstItem="CEE-nC-Jlc" firstAttribute="leading" secondItem="sL1-fC-xT3" secondAttribute="leading" id="seg-tP-VTg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="tAA-14-nLk" id="K9Q-je-veF"/>
+                <outlet property="detailsStackView" destination="CEE-nC-Jlc" id="YRc-kh-J2E"/>
+                <outlet property="imageView" destination="AIh-cY-Sx7" id="gOb-A9-yTI"/>
+                <outlet property="nameLabel" destination="AXx-4k-3UR" id="KbM-N4-Fll"/>
+                <outlet property="rolesLabel" destination="E86-hS-2rP" id="CHg-MI-JOe"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="-94"/>
         </view>
     </objects>
