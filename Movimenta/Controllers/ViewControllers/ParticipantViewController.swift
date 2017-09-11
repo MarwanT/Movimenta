@@ -34,6 +34,8 @@ class ParticipantViewController: UIViewController {
   private func initializeTableView() {
     let theme = ThemeManager.shared.current
     
+    initializeTableViewHeader()
+    
     tableView.tableFooterView = UIView(frame: CGRect.zero)
     
     tableView.dataSource = self
