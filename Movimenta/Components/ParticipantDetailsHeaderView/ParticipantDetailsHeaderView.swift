@@ -50,6 +50,22 @@ class ParticipantDetailsHeaderView: UIView {
     descriptionLabel.expandableLabelDelegate = self
     isInitialized = true
   }
+  
+  func loadView(with data: DetailsData?) {
+    if isInitialized {
+      imageView.sd_setImage(with: data?.image) { (image, error, cache, url) in
+        self.manipulateImageViewVisibility(success: image != nil)
+      }
+      nameLabel.text = data?.name?.capitalized
+      rolesLabel.text = data?.roles?.uppercased()
+      descriptionLabel.text = data?.description
+      labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
+      storedData = nil
+      layoutIfNeeded()
+    } else {
+      storedData = data
+    }
+  }
 }
 
 //MARK: - Helpers
