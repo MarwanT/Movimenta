@@ -36,6 +36,7 @@ class ParticipantViewController: UIViewController {
   
   private func initialize() {
     initializeTableView()
+    initializeNavigationItems()
     loadData()
   }
   
@@ -58,6 +59,11 @@ class ParticipantViewController: UIViewController {
     
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = theme.separatorColor
+  }
+  
+  private func initializeNavigationItems() {
+    let shareBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tapShareButton(_:)))
+    navigationItem.rightBarButtonItem = shareBarButton
   }
   
   private func initializeTableViewHeader() {
@@ -112,6 +118,9 @@ class ParticipantViewController: UIViewController {
 
 //MARK: Actions
 extension ParticipantViewController {
+  func tapShareButton(_ sender: UIBarButtonItem) {
+  }
+  
   private func shareParticipant(info: [Any]) {
     presentShareSheet(with: info)
   }
