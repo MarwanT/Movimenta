@@ -12,6 +12,7 @@ import UIKit
 
 class EventsMapViewController: UIViewController {
   fileprivate var mapView: GMSMapView!
+  fileprivate var mapViewImageView: UIImageView!
   @IBOutlet weak var eventDetailsPeekView: EventDetailsPeekView!
   @IBOutlet weak var filtersBreadcrumbView: FiltersBreadcrumbView!
   
@@ -56,6 +57,16 @@ class EventsMapViewController: UIViewController {
     self.navigationController?.delegate = eventsMapNavigationDelegate
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    showMapViewMask()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    hideMapViewMask()
+  }
+  
   private func initializeFiltersBreadcrumbView() {
     filtersBreadcrumbView.delegate = self
   }
@@ -69,6 +80,14 @@ class EventsMapViewController: UIViewController {
     view.addSubview(mapView)
     view.sendSubview(toBack: mapView)
     mapView.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(view)
+    }
+    
+    // Initialize map view image view
+    mapViewImageView = UIImageView(frame: CGRect.zero)
+    mapViewImageView.isHidden = true
+    view.insertSubview(mapViewImageView, aboveSubview: mapView)
+    mapViewImageView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(view)
     }
   }
@@ -181,6 +200,22 @@ extension EventsMapViewController {
 extension EventsMapViewController {
   //======================================================
   // Map Helpers
+  
+  fileprivate func showMapViewMask() {
+    mapViewImageView.image = UIImage(view: mapView)
+    mapViewImageView.isHidden = false
+    mapView.isHidden = true
+  }
+  
+  fileprivate func hideMapViewMask() {
+    mapView.isHidden = false
+    UIView.animate(withDuration: animationDuration, animations: { 
+      self.mapViewImageView.alpha = 0
+    }) { (finished) in
+      self.mapViewImageView.isHidden = true
+      self.mapViewImageView.alpha = 1
+    }
+  }
   
   fileprivate func refreshMarkers() {
     clearMarkers()
