@@ -13,6 +13,10 @@ class ParticipantViewController: UIViewController {
   
   var viewModel = ParticipantViewModel()
   
+  static func instance() -> ParticipantViewController {
+    return Storyboard.Event.instantiate(ParticipantViewController.self)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
