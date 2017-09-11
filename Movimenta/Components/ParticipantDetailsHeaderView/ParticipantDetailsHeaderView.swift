@@ -92,5 +92,6 @@ extension ParticipantDetailsHeaderView {
 //MARK: - Expandable label delegate
 extension ParticipantDetailsHeaderView: ExpandableLabelDelegate {
   func expandableLabelDidChangeState(_ expandableLabel: ExpandableLabel, state: ExpandableLabel.State) {
+    delegate?.participantDetailsHeaderDidChangeSize(self, size: preferredSize())
   }
 }
