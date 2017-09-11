@@ -18,4 +18,8 @@ class ParticipantDetailsHeaderView: UIView {
   @IBOutlet weak var rolesLabel: UILabel!
   @IBOutlet weak var descriptionLabel: ExpandableLabel!
 
+  
+  class func instanceFromNib() -> ParticipantDetailsHeaderView {
+    return UINib(nibName: ParticipantDetailsHeaderView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ParticipantDetailsHeaderView
+  }
 }
