@@ -75,6 +75,7 @@ class ParticipantViewController: UIViewController {
        name: viewModel.name,
        roles: viewModel.roles,
        description: viewModel.description))
+    resizeHeaderView()
   }
   
   fileprivate func resizeHeaderView(size: CGSize? = nil) {
