@@ -18,6 +18,7 @@ class ParticipantDetailsHeaderView: UIView {
   @IBOutlet weak var rolesLabel: UILabel!
   @IBOutlet weak var descriptionLabel: ExpandableLabel!
 
+  fileprivate var isInitialized: Bool = false
   
   fileprivate var storedData: DetailsData? = nil
   
@@ -47,6 +48,7 @@ class ParticipantDetailsHeaderView: UIView {
   
   private func initialize() {
     descriptionLabel.expandableLabelDelegate = self
+    isInitialized = true
   }
 }
 
