@@ -10,6 +10,7 @@ import UIKit
 
 class ParticipantViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
+  fileprivate var headerView: ParticipantDetailsHeaderView!
   
   var viewModel = ParticipantViewModel()
   
