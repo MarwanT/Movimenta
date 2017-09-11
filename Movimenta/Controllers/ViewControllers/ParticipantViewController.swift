@@ -11,6 +11,8 @@ import UIKit
 class ParticipantViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
+  var viewModel = ParticipantViewModel()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
