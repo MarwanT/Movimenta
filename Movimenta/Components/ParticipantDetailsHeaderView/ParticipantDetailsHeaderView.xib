@@ -73,7 +73,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="descriptionLabel" destination="tAA-14-nLk" id="K9Q-je-veF"/>
-                <outlet property="detailsStackView" destination="CEE-nC-Jlc" id="YRc-kh-J2E"/>
+                <outlet property="detailsStackView" destination="CEE-nC-Jlc" id="hPm-89-LgU"/>
                 <outlet property="imageView" destination="AIh-cY-Sx7" id="gOb-A9-yTI"/>
                 <outlet property="nameLabel" destination="AXx-4k-3UR" id="KbM-N4-Fll"/>
                 <outlet property="rolesLabel" destination="E86-hS-2rP" id="CHg-MI-JOe"/>
