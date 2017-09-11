@@ -21,4 +21,16 @@ public extension UIImage {
     guard let cgImage = image?.cgImage else { return nil }
     self.init(cgImage: cgImage)
   }
+  
+  public convenience init(view: UIView) {
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+    view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    if let cgImage = image?.cgImage {
+      self.init(cgImage: cgImage)
+    } else {
+      self.init()
+    }
+  }
 }
