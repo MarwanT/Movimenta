@@ -22,4 +22,23 @@ class ParticipantDetailsHeaderView: UIView {
   class func instanceFromNib() -> ParticipantDetailsHeaderView {
     return UINib(nibName: ParticipantDetailsHeaderView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ParticipantDetailsHeaderView
   }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    labelsContainerView.layoutMargins = UIEdgeInsets(top: CGFloat(theme.space7), left: CGFloat(theme.space7), bottom: CGFloat(theme.space7), right: CGFloat(theme.space7))
+    nameLabel.font = theme.font1
+    nameLabel.textColor = theme.darkTextColor
+    rolesLabel.font = theme.font12
+    rolesLabel.textColor = theme.darkTextColor
+    descriptionLabel.font = theme.font6
+    descriptionLabel.textColor = theme.darkTextColor
+    descriptionLabel.configuration.setMinimumNumberOfLines(4)
+    imageView.backgroundColor = theme.color6
+    imageView.clipsToBounds = true
+  }
 }
