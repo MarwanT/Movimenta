@@ -52,6 +52,13 @@ class ParticipantDetailsHeaderView: UIView {
   }
 }
 
+//MARK: - Helpers
+extension ParticipantDetailsHeaderView {
+  fileprivate func manipulateImageViewVisibility(success: Bool) {
+    imageView.isHidden = !success
+  }
+}
+
 //MARK: - Expandable label delegate
 extension ParticipantDetailsHeaderView: ExpandableLabelDelegate {
   func expandableLabelDidChangeState(_ expandableLabel: ExpandableLabel, state: ExpandableLabel.State) {
