@@ -48,6 +48,7 @@ class ParticipantDetailsHeaderView: UIView {
   
   private func initialize() {
     descriptionLabel.expandableLabelDelegate = self
+    _ = loadView(with: storedData)
     isInitialized = true
   }
   
