@@ -28,7 +28,7 @@ extension DateRange {
   }
   
   func intercept(with other: DateRange) -> Bool {
-    guard let from = from, let to = to, let otherFrom = other.from, let otherTo = other.to else {
+    guard let from = from?.flatDate, let to = to?.flatDate, let otherFrom = other.from?.flatDate, let otherTo = other.to?.flatDate else {
       return false
     }
     return (from <= otherFrom && to >= otherFrom)

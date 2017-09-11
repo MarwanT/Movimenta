@@ -9,6 +9,13 @@
 import Foundation
 
 extension Date {
+  var flatDate: Date? {
+    let calendar = Calendar.current
+    let comps: Set<Calendar.Component> = [.day, .month, .year]
+    let dateComponents = calendar.dateComponents(comps, from: self)
+    return calendar.date(from: dateComponents)
+  }
+  
   static func formatter(_ format: String = "yyyy-MM-dd HH:mm:ss") -> DateFormatter {
     let formatter = DateFormatter()
     formatter.dateFormat = format
@@ -39,15 +46,7 @@ extension Date {
   }
   
   func same(date: Date) -> Bool {
-    let calendar = Calendar.current
-    let comps: Set<Calendar.Component> = [.day, .month, .year]
-    
-    let date1Components = calendar.dateComponents(comps, from: self)
-    let date2Components = calendar.dateComponents(comps, from: date)
-    let _date1 = calendar.date(from: date1Components)
-    let _date2 = calendar.date(from: date2Components)
-    
-    guard let date1 = _date1, let date2 = _date2 else {
+    guard let date1 = self.flatDate, let date2 = date.flatDate else {
       return false
     }
     

@@ -12,6 +12,7 @@ import UIKit
 
 class EventsMapViewController: UIViewController {
   fileprivate var mapView: GMSMapView!
+  fileprivate var mapViewImageView: UIImageView!
   @IBOutlet weak var eventDetailsPeekView: EventDetailsPeekView!
   @IBOutlet weak var filtersBreadcrumbView: FiltersBreadcrumbView!
   
@@ -44,6 +45,7 @@ class EventsMapViewController: UIViewController {
     initializeMapsView()
     initializeEventDetailsPeekView()
     initializeLocationManager()
+    initializeInteractivePopGestureRecognizer()
     setupNavigationItems()
     refreshMapVisibleArea()
     
@@ -54,6 +56,16 @@ class EventsMapViewController: UIViewController {
     addObservers()
     
     self.navigationController?.delegate = eventsMapNavigationDelegate
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    showMapViewMask()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    hideMapViewMask()
   }
   
   private func initializeFiltersBreadcrumbView() {
@@ -71,6 +83,14 @@ class EventsMapViewController: UIViewController {
     mapView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(view)
     }
+    
+    // Initialize map view image view
+    mapViewImageView = UIImageView(frame: CGRect.zero)
+    mapViewImageView.isHidden = true
+    view.insertSubview(mapViewImageView, aboveSubview: mapView)
+    mapViewImageView.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(view)
+    }
   }
   
   private func initializeEventDetailsPeekView() {
@@ -86,6 +106,11 @@ class EventsMapViewController: UIViewController {
     locationManager.distanceFilter = 50
     locationManager.startUpdatingLocation()
     locationManager.delegate = self
+  }
+  
+  private func initializeInteractivePopGestureRecognizer() {
+    navigationController?.interactivePopGestureRecognizer?.delegate = self
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
   }
   
   private func setupNavigationItems() {
@@ -182,6 +207,22 @@ extension EventsMapViewController {
   //======================================================
   // Map Helpers
   
+  fileprivate func showMapViewMask() {
+    mapViewImageView.image = UIImage(view: mapView)
+    mapViewImageView.isHidden = false
+    mapView.isHidden = true
+  }
+  
+  fileprivate func hideMapViewMask() {
+    mapView.isHidden = false
+    UIView.animate(withDuration: animationDuration, animations: { 
+      self.mapViewImageView.alpha = 0
+    }) { (finished) in
+      self.mapViewImageView.isHidden = true
+      self.mapViewImageView.alpha = 1
+    }
+  }
+  
   fileprivate func refreshMarkers() {
     clearMarkers()
     setEventsMarkers(events: viewModel.mapEvents)
@@ -246,7 +287,8 @@ extension EventsMapViewController {
     let vc = FiltersViewController.instance()
     vc.delegate = self
     vc.initialize(with: viewModel.filter)
-    self.navigationController?.pushViewController(vc, animated: true)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
   }
   
   //======================================================
@@ -290,7 +332,8 @@ extension EventsMapViewController {
     
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
-    self.navigationController?.pushViewController(vc, animated: true)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = false
   }
   
   func showEventDetailsPeekView() {
@@ -414,6 +457,13 @@ extension EventsMapViewController: FiltersViewControllerDelegate {
 extension EventsMapViewController: FiltersBreadcrumbViewDelegate {
   func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb) {
     navigateToFiltersVC()
+  }
+}
+
+//MARK: - Gesture Recognizer Delegate
+extension EventsMapViewController: UIGestureRecognizerDelegate {
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    return true
   }
 }
 
