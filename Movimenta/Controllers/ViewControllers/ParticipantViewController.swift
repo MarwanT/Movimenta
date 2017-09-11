@@ -110,6 +110,13 @@ class ParticipantViewController: UIViewController {
   }
 }
 
+//MARK: Actions
+extension ParticipantViewController {
+  private func shareParticipant(info: [Any]) {
+    presentShareSheet(with: info)
+  }
+}
+
 //MARK: Header View Delegates
 extension ParticipantViewController: ParticipantDetailsHeaderViewDelegate {
   func participantDetailsHeaderDidChangeSize(_ headerView: ParticipantDetailsHeaderView, size: CGSize) {
