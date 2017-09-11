@@ -347,6 +347,7 @@ extension EventDetailsViewController {
     let vc = ParticipantViewController.instance()
     vc.initialize(with: participant)
     navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
   }
 }
 
