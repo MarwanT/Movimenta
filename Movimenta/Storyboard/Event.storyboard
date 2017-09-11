@@ -100,5 +100,23 @@
             </objects>
             <point key="canvasLocation" x="790" y="143"/>
         </scene>
+        <!--Participant View Controller-->
+        <scene sceneID="Ks9-2U-c7c">
+            <objects>
+                <viewController id="Xls-d0-gqa" customClass="ParticipantViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oUE-cM-NMB"/>
+                        <viewControllerLayoutGuide type="bottom" id="R24-8B-URG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uuA-Zh-7IB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMo-UK-NpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-151" y="925"/>
+        </scene>
     </scenes>
 </document>
