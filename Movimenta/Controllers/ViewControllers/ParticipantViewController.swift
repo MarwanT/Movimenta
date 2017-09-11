@@ -94,6 +94,7 @@ class ParticipantViewController: UIViewController {
 //MARK: Header View Delegates
 extension ParticipantViewController: ParticipantDetailsHeaderViewDelegate {
   func participantDetailsHeaderDidChangeSize(_ headerView: ParticipantDetailsHeaderView, size: CGSize) {
+    resizeHeaderView()
   }
 }
 
