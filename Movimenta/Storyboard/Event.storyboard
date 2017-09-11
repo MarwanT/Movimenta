@@ -28,16 +28,28 @@
                                     <constraint firstAttribute="height" constant="100" placeholder="YES" id="K2X-Iw-d2q"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bv-Ag-40e" customClass="FiltersBreadcrumbView" customModule="Movimenta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="-30" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NA1-IC-F5N"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="shR-Qn-uEw" secondAttribute="trailing" id="C06-FW-jKL"/>
+                            <constraint firstItem="7bv-Ag-40e" firstAttribute="bottom" secondItem="OBq-GE-FTO" secondAttribute="bottom" id="Vkl-PF-LAj"/>
+                            <constraint firstItem="7bv-Ag-40e" firstAttribute="leading" secondItem="UWL-ck-MBY" secondAttribute="leading" id="lUC-Zg-Qb5"/>
+                            <constraint firstItem="7bv-Ag-40e" firstAttribute="top" secondItem="OBq-GE-FTO" secondAttribute="bottom" id="qd2-4E-zsp"/>
+                            <constraint firstAttribute="trailing" secondItem="7bv-Ag-40e" secondAttribute="trailing" id="r1f-zl-ovN"/>
                             <constraint firstItem="shR-Qn-uEw" firstAttribute="leading" secondItem="UWL-ck-MBY" secondAttribute="leading" id="rim-UB-il6"/>
                             <constraint firstItem="shR-Qn-uEw" firstAttribute="bottom" secondItem="3Fa-Ml-utI" secondAttribute="top" id="siS-mx-Tc9"/>
                             <constraint firstItem="shR-Qn-uEw" firstAttribute="top" secondItem="3Fa-Ml-utI" secondAttribute="top" id="z6f-Av-mpY"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="qd2-4E-zsp"/>
                                 <exclude reference="siS-mx-Tc9"/>
                             </mask>
                         </variation>
@@ -46,6 +58,9 @@
                         <outlet property="eventDetailsPeekView" destination="shR-Qn-uEw" id="9yq-WP-12F"/>
                         <outlet property="eventDetailsPeekViewBottomConstraintToSuperviewBottom" destination="siS-mx-Tc9" id="1Af-ap-ATR"/>
                         <outlet property="eventDetailsPeekViewTopConstraintToSuperviewBottom" destination="z6f-Av-mpY" id="0VT-6C-Alp"/>
+                        <outlet property="filtersBreadcrumbBottomToSuperviewTop" destination="Vkl-PF-LAj" id="uuC-7Q-qVV"/>
+                        <outlet property="filtersBreadcrumbTopToSuperviewTop" destination="qd2-4E-zsp" id="qYd-fO-Wfa"/>
+                        <outlet property="filtersBreadcrumbView" destination="7bv-Ag-40e" id="tvm-Sq-gOV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="am5-lW-MvR" userLabel="First Responder" sceneMemberID="firstResponder"/>

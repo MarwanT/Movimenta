@@ -21,6 +21,7 @@
 "event_map" = "Event map";
 "event_types" = "Event Types";
 "from" = "From";
+"hide_bookmarked_events" = "Hide Bookmarked Events";
 "info" = "Info";
 "km" = "Km";
 "launch_screen_description" = "Festival biennal\nde l'image\nen mouvement";
