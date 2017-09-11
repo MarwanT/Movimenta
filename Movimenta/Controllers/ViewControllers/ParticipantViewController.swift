@@ -49,6 +49,24 @@ class ParticipantViewController: UIViewController {
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = theme.separatorColor
   }
+  
+  private func initializeTableViewHeader() {
+    headerView = ParticipantDetailsHeaderView.instanceFromNib()
+    headerView.delegate = self
+    
+    let view = UIView(frame: CGRect.zero)
+    view.addSubview(headerView)
+    headerView.snp.makeConstraints { (maker) in
+      maker.left.top.right.bottom.equalTo(view)
+    }
+    tableView.tableHeaderView = view
+  }
+}
+
+//MARK: Header View Delegates
+extension ParticipantViewController: ParticipantDetailsHeaderViewDelegate {
+  func participantDetailsHeaderDidChangeSize(_ headerView: ParticipantDetailsHeaderView, size: CGSize) {
+  }
 }
 
 //MARK: Table View Delegates
