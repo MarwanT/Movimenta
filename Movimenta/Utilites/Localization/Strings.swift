@@ -113,6 +113,10 @@ final class Strings {
     return Localization.localize(key: "participants")
   }
   
+  static func related_events() -> String {
+    return Localization.localize(key: "related_events")
+  }
+  
   static func reset_all_filters() -> String {
     return Localization.localize(key: "reset_all_filters")
   }
