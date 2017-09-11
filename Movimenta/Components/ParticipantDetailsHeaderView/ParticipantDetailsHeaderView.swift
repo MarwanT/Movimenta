@@ -80,6 +80,13 @@ extension ParticipantDetailsHeaderView {
   fileprivate func manipulateImageViewVisibility(success: Bool) {
     imageView.isHidden = !success
   }
+  
+  func preferredSize() -> CGSize {
+    let size = detailsStackView.systemLayoutSizeFitting(
+      CGSize(width: self.bounds.width, height: 0),
+      withHorizontalFittingPriority: UILayoutPriorityRequired, verticalFittingPriority: UILayoutPriorityFittingSizeLevel)
+    return size
+  }
 }
 
 //MARK: - Expandable label delegate
