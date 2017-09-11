@@ -103,7 +103,7 @@
         <!--Participant View Controller-->
         <scene sceneID="Ks9-2U-c7c">
             <objects>
-                <viewController id="Xls-d0-gqa" customClass="ParticipantViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ParticipantViewController" id="Xls-d0-gqa" customClass="ParticipantViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oUE-cM-NMB"/>
                         <viewControllerLayoutGuide type="bottom" id="R24-8B-URG"/>
