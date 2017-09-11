@@ -44,5 +44,12 @@ class ParticipantDetailsHeaderView: UIView {
   }
   
   private func initialize() {
+    descriptionLabel.expandableLabelDelegate = self
+  }
+}
+
+//MARK: - Expandable label delegate
+extension ParticipantDetailsHeaderView: ExpandableLabelDelegate {
+  func expandableLabelDidChangeState(_ expandableLabel: ExpandableLabel, state: ExpandableLabel.State) {
   }
 }
