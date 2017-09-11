@@ -33,6 +33,11 @@ class EventDetailsViewController: UIViewController {
     loadData()
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+  }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     
