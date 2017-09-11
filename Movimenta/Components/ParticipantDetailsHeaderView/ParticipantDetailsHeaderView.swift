@@ -19,6 +19,8 @@ class ParticipantDetailsHeaderView: UIView {
   @IBOutlet weak var descriptionLabel: ExpandableLabel!
 
   
+  fileprivate var storedData: DetailsData? = nil
+  
   class func instanceFromNib() -> ParticipantDetailsHeaderView {
     return UINib(nibName: ParticipantDetailsHeaderView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ParticipantDetailsHeaderView
   }
