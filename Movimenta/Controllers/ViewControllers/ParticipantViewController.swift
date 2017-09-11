@@ -29,6 +29,7 @@ class ParticipantViewController: UIViewController {
   
   private func initialize() {
     initializeTableView()
+    loadData()
   }
   
   private func initializeTableView() {
