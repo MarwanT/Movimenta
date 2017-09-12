@@ -9,6 +9,9 @@
 import UIKit
 
 class EventCell: UITableViewCell {
+  static let identifier: String = EventCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+  
   @IBOutlet weak var participantImageView: UIImageView!
   @IBOutlet weak var bookmarkButton: UIButton!
   @IBOutlet weak var dateLabel: UILabel!
