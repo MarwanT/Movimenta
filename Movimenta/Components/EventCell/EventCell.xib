@@ -89,6 +89,23 @@
                     <constraint firstItem="eFs-Nf-9tM" firstAttribute="trailing" secondItem="1nG-yq-Azz" secondAttribute="trailing" id="yC3-wf-R3S"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="bookmarkButton" destination="gJH-d8-VzD" id="nZp-1D-WZA"/>
+                <outlet property="categoryLabel" destination="eFs-Nf-9tM" id="ABH-Oe-VWJ"/>
+                <outlet property="categoryLabelTopVerticalSpacing" destination="XDm-k5-TeF" id="igm-fh-Fsc"/>
+                <outlet property="dateLabel" destination="I2g-E9-PME" id="eJk-Nb-7uy"/>
+                <outlet property="dateLabelLeadingToImageViewTrailing" destination="1II-d5-716" id="1Vv-UM-J7B"/>
+                <outlet property="dateLabelTopVerticalSpacing" destination="xdW-4s-TD0" id="8rB-iJ-AtL"/>
+                <outlet property="dateLabelTrailingToBookmarkButtonLeading" destination="1Xa-5E-Tf3" id="6j5-AF-fpC"/>
+                <outlet property="eventNameLabel" destination="1nG-yq-Azz" id="xDm-BC-BS2"/>
+                <outlet property="eventNameLabelTopVerticalSpacing" destination="mA5-BZ-BUd" id="YbS-94-Tye"/>
+                <outlet property="participantImageView" destination="xQy-zH-Km1" id="4UT-Uh-dTw"/>
+                <outlet property="timeLabel" destination="b7F-MM-7a5" id="rSV-GT-Jb3"/>
+                <outlet property="timeLabelTopVerticalSpacing" destination="vMG-pW-ZPu" id="6Ox-9B-rJA"/>
+                <outlet property="venueLabel" destination="xuM-T1-BqY" id="1mM-eP-Hc3"/>
+                <outlet property="venueNameLabel" destination="1nG-yq-Azz" id="O1e-ts-qPZ"/>
+                <outlet property="venueNameLabelTopVerticalSpacing" destination="mse-gZ-RYy" id="9Q7-Rr-wXz"/>
+            </connections>
             <point key="canvasLocation" x="34" y="95"/>
         </tableViewCell>
     </objects>
