@@ -107,6 +107,8 @@
 		599202641F669C460078578C /* ParticipantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599202631F669C460078578C /* ParticipantViewModel.swift */; };
 		599202671F66B2D60078578C /* ParticipantDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599202661F66B2D60078578C /* ParticipantDetailsHeaderView.swift */; };
 		599202691F66B2EE0078578C /* ParticipantDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599202681F66B2EE0078578C /* ParticipantDetailsHeaderView.xib */; };
+		5992026D1F67E2E30078578C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992026B1F67E2E30078578C /* EventCell.swift */; };
+		5992026E1F67E2E30078578C /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5992026C1F67E2E30078578C /* EventCell.xib */; };
 		59A008291F615FBE00E392DD /* PadableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A008281F615FBE00E392DD /* PadableLabel.swift */; };
 		59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A15EE31F4EC3260019924C /* DatePickerCell.swift */; };
 		59A15EE61F4EC3260019924C /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A15EE41F4EC3260019924C /* DatePickerCell.xib */; };
@@ -246,6 +248,8 @@
 		599202631F669C460078578C /* ParticipantViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantViewModel.swift; sourceTree = "<group>"; };
 		599202661F66B2D60078578C /* ParticipantDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantDetailsHeaderView.swift; sourceTree = "<group>"; };
 		599202681F66B2EE0078578C /* ParticipantDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantDetailsHeaderView.xib; sourceTree = "<group>"; };
+		5992026B1F67E2E30078578C /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		5992026C1F67E2E30078578C /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		59A008281F615FBE00E392DD /* PadableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadableLabel.swift; sourceTree = "<group>"; };
 		59A15EE31F4EC3260019924C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		59A15EE41F4EC3260019924C /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
@@ -601,6 +605,15 @@
 			path = ParticipantDetailsHeaderView;
 			sourceTree = "<group>";
 		};
+		5992026A1F67E2940078578C /* EventCell */ = {
+			isa = PBXGroup;
+			children = (
+				5992026B1F67E2E30078578C /* EventCell.swift */,
+				5992026C1F67E2E30078578C /* EventCell.xib */,
+			);
+			path = EventCell;
+			sourceTree = "<group>";
+		};
 		59A15EE21F4EC1E50019924C /* DatePickerCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +651,7 @@
 				5968348C1F5D60A100E25579 /* SwitchCell */,
 				596834961F5D914100E25579 /* SliderCell */,
 				5968349D1F60171900E25579 /* FiltersBreadcrumbView */,
+				5992026A1F67E2940078578C /* EventCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
 				59A008281F615FBE00E392DD /* PadableLabel.swift */,
@@ -902,6 +916,7 @@
 				5989231B1F1E2AC600F73974 /* nexa-lightitalic-webfont.ttf in Resources */,
 				5970AF881F224CA7008CA708 /* events.json in Resources */,
 				59EF02211F31CFE400F145B9 /* Event.storyboard in Resources */,
+				5992026E1F67E2E30078578C /* EventCell.xib in Resources */,
 				598923171F1E2AB800F73974 /* nexa-extrabolditalic-webfont.ttf in Resources */,
 				59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */,
 				598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */,
@@ -1040,6 +1055,7 @@
 				5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */,
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
 				59363FC91F44E662006059B6 /* VenueCell.swift in Sources */,
+				5992026D1F67E2E30078578C /* EventCell.swift in Sources */,
 				5970AFB51F2A17B3008CA708 /* Font.swift in Sources */,
 				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
 				594662151F3B4437007412C0 /* String+Utils.swift in Sources */,
