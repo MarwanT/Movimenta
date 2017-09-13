@@ -58,6 +58,26 @@ extension DateRange {
 }
 
 extension DateRange {
+  var displayedShortDate: String? {
+    var text: String? = nil
+    guard let from = from else {
+      return text
+    }
+    
+    let format = "dd'.'MM"
+    if let to = to {
+      if from.same(date: to) {
+        text = from.formattedDate(format: format)
+      } else {
+        text = "\(from.formattedDate(format: format)) - \(to.formattedDate(format: format))"
+      }
+    } else {
+      text = from.formattedDate(format: format)
+    }
+    
+    return text?.capitalized
+  }
+  
   var displayedLabel: String {
     let text = [displayedDate, displayedTime].flatMap { $0 }.joined(separator: "\n")
     return text
