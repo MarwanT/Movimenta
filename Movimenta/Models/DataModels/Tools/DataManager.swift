@@ -142,6 +142,14 @@ extension DataManager {
     return true
   }
   
+  func toggleBookmarkStatus(event: Event) {
+    if event.isBookmarked {
+      _ = unBookmark(event: event)
+    } else {
+      _ = bookmark(event: event)
+    }
+  }
+  
   func bookmarked(eventId: String) -> Bool {
     return bookmarkedEvents.contains(where: { $0.id == eventId })
   }
