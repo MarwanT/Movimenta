@@ -156,6 +156,14 @@ extension DateRange: Parsable {
   }
 }
 
+//MARK: Comparable
+func <(lhs: DateRange, rhs: DateRange) -> Bool {
+  guard let lhsTo = lhs.to, let rhsFrom = rhs.from else {
+    return false
+  }
+  return lhsTo < rhsFrom
+}
+
 //MARK: - DateRange Array extensions
 extension Array where Element == DateRange {
   func sortedAscending() -> [DateRange] {
