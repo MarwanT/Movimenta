@@ -14,6 +14,7 @@ final class ParticipantViewModel {
   
   func initialize(with participant: Participant) {
     self.participant = participant
+    self.events = DataManager.shared.events(with: participant)
   }
   
   var image: URL? {
