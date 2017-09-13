@@ -10,6 +10,7 @@ import Foundation
 
 final class ParticipantViewModel {
   fileprivate(set) var participant: Participant!
+  fileprivate(set) var events: [Event]!
   
   func initialize(with participant: Participant) {
     self.participant = participant
