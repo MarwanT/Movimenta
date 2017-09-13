@@ -78,16 +78,24 @@ class ParticipantViewController: UIViewController {
     eventDetailsLabel.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space8), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
+    let separatorView = UIView(frame: CGRect.zero)
+    separatorView.backgroundColor = theme.separatorColor
     
     let view = UIView(frame: CGRect.zero)
     view.addSubview(headerView)
     view.addSubview(eventDetailsLabel)
+    view.addSubview(separatorView)
     headerView.snp.makeConstraints { (maker) in
       maker.left.top.right.equalTo(view)
       maker.bottom.equalTo(eventDetailsLabel.snp.top)
     }
     eventDetailsLabel.snp.makeConstraints { (maker) in
-      maker.left.bottom.right.equalTo(view)
+      maker.left.right.equalTo(view)
+      maker.bottom.equalTo(separatorView.snp.top)
+    }
+    separatorView.snp.makeConstraints { (maker) in
+      maker.height.equalTo(0.5)
+      maker.left.right.bottom.equalTo(view)
     }
     tableView.tableHeaderView = view
   }
