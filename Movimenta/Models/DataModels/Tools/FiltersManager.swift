@@ -143,7 +143,7 @@ extension Array where Element == Event {
   
   /// Distance is in kilometers
   private func filteredWithin(distance: Double?) -> [Event] {
-    guard let distance = distance,
+    guard let distance = distance, distance != 0,
       let userCoordinates = DataManager.shared.userLocation?.coordinate else {
       return self
     }
