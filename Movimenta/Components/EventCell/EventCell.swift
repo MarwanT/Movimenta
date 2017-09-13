@@ -9,6 +9,10 @@
 import SDWebImage
 import UIKit
 
+protocol EventCellDelegate: class {
+  func eventCellDidTapBookmarkButton(_ cell: EventCell)
+}
+
 class EventCell: UITableViewCell {
   static let identifier: String = EventCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
