@@ -19,6 +19,10 @@ class ParticipantViewController: UIViewController {
     return Storyboard.Event.instantiate(ParticipantViewController.self)
   }
   
+  deinit {
+    unregisterToNotificationCenter()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()
@@ -37,6 +41,7 @@ class ParticipantViewController: UIViewController {
   private func initialize() {
     initializeTableView()
     initializeNavigationItems()
+    registerToNotificationCenter()
     loadData()
   }
   
@@ -98,6 +103,14 @@ class ParticipantViewController: UIViewController {
       maker.left.right.bottom.equalTo(view)
     }
     tableView.tableHeaderView = view
+  }
+  
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
   }
   
   private func loadData() {
