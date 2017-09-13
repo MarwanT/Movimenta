@@ -133,5 +133,23 @@
             </objects>
             <point key="canvasLocation" x="-151" y="925"/>
         </scene>
+        <!--Schedule View Controller-->
+        <scene sceneID="J4X-Vz-WLJ">
+            <objects>
+                <viewController storyboardIdentifier="ScheduleViewController" id="SBP-sH-SfA" customClass="ScheduleViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rjO-dZ-CdL"/>
+                        <viewControllerLayoutGuide type="bottom" id="327-lv-NWs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FjU-gG-tOt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="STw-WY-VDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="924"/>
+        </scene>
     </scenes>
 </document>
