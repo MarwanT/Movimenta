@@ -28,6 +28,8 @@ class EventCell: UITableViewCell {
   @IBOutlet weak var categoryLabelTopVerticalSpacing: NSLayoutConstraint!
   @IBOutlet weak var timeLabelTopVerticalSpacing: NSLayoutConstraint!
   
+  var configuration = Configuration()
+  
   override func awakeFromNib() {
     super.awakeFromNib()
   }
