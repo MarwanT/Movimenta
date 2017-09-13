@@ -138,6 +138,10 @@ class ParticipantViewController: UIViewController {
       width: view.frame.width,
       height: headerView.preferredSize().height + eventDetailsLabel.preferredSize().height)
   }
+  
+  fileprivate func reloadRows(at indexPaths: [IndexPath]) {
+    tableView.reloadRows(at: indexPaths, with: .none)
+  }
 }
 
 //MARK: Actions
@@ -152,6 +156,15 @@ extension ParticipantViewController {
   private func shareParticipant(info: [Any]) {
     presentShareSheet(with: info)
   }
+  
+  func handleBookmarksUpdate(_ sender: Notification) {
+    guard let event = sender.object as? Event,
+      let indexPath = viewModel.updateBookmarkStatus(of: event) else {
+        return
+    }
+    reloadRows(at: [indexPath])
+  }
+  
 }
 
 //MARK: Header View Delegates
@@ -175,7 +188,18 @@ extension ParticipantViewController: UITableViewDelegate, UITableViewDataSource 
     guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell, let values = viewModel.values(for: indexPath) else {
       return UITableViewCell()
     }
+    cell.delegate = self
     cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
     return cell
+  }
+}
+
+//MARK: Event Cell Delegates
+extension ParticipantViewController: EventCellDelegate {
+  func eventCellDidTapBookmarkButton(_ cell: EventCell) {
+    guard let indexPath = tableView.indexPath(for: cell) else {
+      return
+    }
+    viewModel.toggleEventBookmarkStatus(at: indexPath)
   }
 }

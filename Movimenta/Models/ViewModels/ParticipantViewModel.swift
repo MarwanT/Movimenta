@@ -58,4 +58,16 @@ extension ParticipantViewModel {
             time: preferredDateRange?.displayedShortTime,
             isBookmarked: event.isBookmarked)
   }
+  
+  func toggleEventBookmarkStatus(at indexPath: IndexPath) {
+    let event = events[indexPath.row]
+    DataManager.shared.toggleBookmarkStatus(event: event)
+  }
+  
+  func updateBookmarkStatus(of event: Event) -> IndexPath? {
+    guard let index = events.index(of: event) else {
+      return nil
+    }
+    return IndexPath(row: index, section: 0)
+  }
 }
