@@ -102,8 +102,7 @@
                 <outlet property="participantImageView" destination="xQy-zH-Km1" id="4UT-Uh-dTw"/>
                 <outlet property="timeLabel" destination="b7F-MM-7a5" id="rSV-GT-Jb3"/>
                 <outlet property="timeLabelTopVerticalSpacing" destination="vMG-pW-ZPu" id="6Ox-9B-rJA"/>
-                <outlet property="venueLabel" destination="xuM-T1-BqY" id="1mM-eP-Hc3"/>
-                <outlet property="venueNameLabel" destination="1nG-yq-Azz" id="O1e-ts-qPZ"/>
+                <outlet property="venueNameLabel" destination="xuM-T1-BqY" id="FGe-ye-fxx"/>
                 <outlet property="venueNameLabelTopVerticalSpacing" destination="mse-gZ-RYy" id="9Q7-Rr-wXz"/>
             </connections>
             <point key="canvasLocation" x="34" y="95"/>
