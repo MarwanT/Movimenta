@@ -19,6 +19,10 @@ class ParticipantViewController: UIViewController {
     return Storyboard.Event.instantiate(ParticipantViewController.self)
   }
   
+  deinit {
+    unregisterToNotificationCenter()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()
@@ -37,6 +41,7 @@ class ParticipantViewController: UIViewController {
   private func initialize() {
     initializeTableView()
     initializeNavigationItems()
+    registerToNotificationCenter()
     loadData()
   }
   
@@ -59,6 +64,9 @@ class ParticipantViewController: UIViewController {
     
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = theme.separatorColor
+    tableView.separatorInset = UIEdgeInsets(top: 0, left: 118, bottom: 0, right: 0)
+    
+    tableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
   }
   
   private func initializeNavigationItems() {
@@ -75,18 +83,34 @@ class ParticipantViewController: UIViewController {
     eventDetailsLabel.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space8), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
+    let separatorView = UIView(frame: CGRect.zero)
+    separatorView.backgroundColor = theme.separatorColor
     
     let view = UIView(frame: CGRect.zero)
     view.addSubview(headerView)
     view.addSubview(eventDetailsLabel)
+    view.addSubview(separatorView)
     headerView.snp.makeConstraints { (maker) in
       maker.left.top.right.equalTo(view)
       maker.bottom.equalTo(eventDetailsLabel.snp.top)
     }
     eventDetailsLabel.snp.makeConstraints { (maker) in
-      maker.left.bottom.right.equalTo(view)
+      maker.left.right.equalTo(view)
+      maker.bottom.equalTo(separatorView.snp.top)
+    }
+    separatorView.snp.makeConstraints { (maker) in
+      maker.height.equalTo(0.5)
+      maker.left.right.bottom.equalTo(view)
     }
     tableView.tableHeaderView = view
+  }
+  
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
   }
   
   private func loadData() {
@@ -114,6 +138,10 @@ class ParticipantViewController: UIViewController {
       width: view.frame.width,
       height: headerView.preferredSize().height + eventDetailsLabel.preferredSize().height)
   }
+  
+  fileprivate func reloadRows(at indexPaths: [IndexPath]) {
+    tableView.reloadRows(at: indexPaths, with: .none)
+  }
 }
 
 //MARK: Actions
@@ -127,6 +155,20 @@ extension ParticipantViewController {
   
   private func shareParticipant(info: [Any]) {
     presentShareSheet(with: info)
+  }
+  
+  func handleBookmarksUpdate(_ sender: Notification) {
+    guard let event = sender.object as? Event,
+      let indexPath = viewModel.updateBookmarkStatus(of: event) else {
+        return
+    }
+    reloadRows(at: [indexPath])
+  }
+  
+  func navigateToEventDetailsViewController(event: Event) {
+    let vc = EventDetailsViewController.instance()
+    vc.initialize(with: event)
+    navigationController?.pushViewController(vc, animated: true)
   }
 }
 
@@ -144,10 +186,30 @@ extension ParticipantViewController: UITableViewDelegate, UITableViewDataSource 
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return viewModel.numberOfRows
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell, let values = viewModel.values(for: indexPath) else {
+      return UITableViewCell()
+    }
+    cell.delegate = self
+    cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
+  }
+}
+
+//MARK: Event Cell Delegates
+extension ParticipantViewController: EventCellDelegate {
+  func eventCellDidTapBookmarkButton(_ cell: EventCell) {
+    guard let indexPath = tableView.indexPath(for: cell) else {
+      return
+    }
+    viewModel.toggleEventBookmarkStatus(at: indexPath)
   }
 }
