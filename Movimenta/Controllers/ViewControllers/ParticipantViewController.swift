@@ -59,6 +59,9 @@ class ParticipantViewController: UIViewController {
     
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = theme.separatorColor
+    tableView.separatorInset = UIEdgeInsets(top: 0, left: 118, bottom: 0, right: 0)
+    
+    tableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
   }
   
   private func initializeNavigationItems() {
@@ -144,10 +147,14 @@ extension ParticipantViewController: UITableViewDelegate, UITableViewDataSource 
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return viewModel.numberOfRows
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell, let values = viewModel.values(for: indexPath) else {
+      return UITableViewCell()
+    }
+    cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
+    return cell
   }
 }
