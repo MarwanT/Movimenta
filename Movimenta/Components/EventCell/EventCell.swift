@@ -39,3 +39,14 @@ class EventCell: UITableViewCell {
   @IBAction func bookmarkButtonTouchUpInside(_ sender: Any) {
   }
 }
+
+//MARK: Configuration
+extension EventCell {
+  struct Configuration {
+    var layoutMargins = UIEdgeInsets(
+      top: CGFloat(ThemeManager.shared.current.space4),
+      left: CGFloat(ThemeManager.shared.current.space7),
+      bottom: CGFloat(ThemeManager.shared.current.space4),
+      right: CGFloat(ThemeManager.shared.current.space7))
+  }
+}
