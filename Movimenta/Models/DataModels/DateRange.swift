@@ -197,4 +197,29 @@ extension Array where Element == DateRange {
     }
     return sortedRanges
   }
+  
+  func preferredDateRange(for givenDate: Date) -> DateRange? {
+    var givenDateRange = DateRange()
+    givenDateRange.from = givenDate.flatDate
+    givenDateRange.to = givenDate.flatDate
+    return preferredDateRange(for: givenDateRange)
+  }
+  
+  func preferredDateRange(for givenDateRange: DateRange) -> DateRange? {
+    var pastDateRanges = [DateRange]()
+    var currentDateRanges = [DateRange]()
+    var futureDateRanges = [DateRange]()
+    
+    for dateRange in self {
+      if dateRange.intercept(with: givenDateRange) {
+        currentDateRanges.append(dateRange)
+      } else if dateRange < givenDateRange {
+        pastDateRanges.append(dateRange)
+      } else {
+        futureDateRanges.append(dateRange)
+      }
+    }
+    
+    return currentDateRanges.first ?? futureDateRanges.first ?? pastDateRanges.last
+  }
 }
