@@ -135,7 +135,7 @@ extension Array where Element == Event {
   }
   
   private func filteredStartWithin(minutes: Int?) -> [Event] {
-    guard let minutes = minutes else {
+    guard let minutes = minutes, minutes != 0 else {
       return self
     }
     return filter({ $0.startsWithin(minutes: minutes) })
