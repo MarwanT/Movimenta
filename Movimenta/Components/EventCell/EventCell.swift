@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import SDWebImage
 import UIKit
 
 class EventCell: UITableViewCell {
@@ -88,6 +89,17 @@ class EventCell: UITableViewCell {
   }
   
   @IBAction func bookmarkButtonTouchUpInside(_ sender: Any) {
+  }
+  
+  func set(imageURL: URL?, date: String?, venueName: String?, eventName: String?, categories: String?, time: String?, isBookmarked: Bool?) {
+    participantImageView.sd_setImage(with: imageURL)
+    dateLabel.text = date
+    venueNameLabel.text = venueName
+    eventNameLabel.text = eventName
+    categoryLabel.text = categories
+    timeLabel.text = time
+    self.isBookmarked = isBookmarked ?? false
+    contentView.manipulateLabelsSubviewsTopMarginsIfNeeded()
   }
 }
 
