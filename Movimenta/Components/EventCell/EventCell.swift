@@ -41,6 +41,8 @@ class EventCell: UITableViewCell {
     }
   }
   
+  weak var delegate: EventCellDelegate?
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     applyTheme()
