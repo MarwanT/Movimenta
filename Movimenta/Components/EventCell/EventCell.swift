@@ -95,6 +95,7 @@ class EventCell: UITableViewCell {
   }
   
   @IBAction func bookmarkButtonTouchUpInside(_ sender: Any) {
+    delegate?.eventCellDidTapBookmarkButton(self)
   }
   
   func set(imageURL: URL?, date: String?, venueName: String?, eventName: String?, categories: String?, time: String?, isBookmarked: Bool?) {
