@@ -30,6 +30,12 @@ class EventCell: UITableViewCell {
   
   var configuration = Configuration()
   
+  var isBookmarked: Bool = false {
+    didSet {
+      refreshBookmarkButton()
+    }
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     applyTheme()
