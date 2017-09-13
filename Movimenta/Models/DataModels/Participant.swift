@@ -64,6 +64,23 @@ extension Participant {
         return Strings.sponsors()
       }
     }
+    
+    var singleName: String {
+      switch self {
+      case .Artist:
+        return Strings.artist()
+      case .Company:
+        return Strings.company()
+      case .Default:
+        return Strings.participant()
+      case .Organizer:
+        return Strings.organizer()
+      case .Speaker:
+        return Strings.speaker()
+      case .Sponsor:
+        return Strings.sponsor()
+      }
+    }
   } 
 }
 
