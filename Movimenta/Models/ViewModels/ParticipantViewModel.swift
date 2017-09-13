@@ -39,6 +39,10 @@ final class ParticipantViewModel {
     }
     return [participant.fullName, url]
   }
+  
+  func event(for indexPath: IndexPath) -> Event {
+    return events[indexPath.row]
+  }
 }
 
 //MARK: Table View Methods
