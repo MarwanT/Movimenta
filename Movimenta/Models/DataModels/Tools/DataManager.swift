@@ -97,6 +97,15 @@ class DataManager {
   }
 }
 
+//MARK: - APIs
+extension DataManager {
+  func events(with participant: Participant) -> [Event] {
+    var filter = Filter()
+    filter.add(participant: participant)
+    return FiltersManager.shared.filteredEvents(for: filter)
+  }
+}
+
 //MARK: - Bookmark related
 extension DataManager {
   fileprivate func bookmarkedEventsArray() -> [Event] {
