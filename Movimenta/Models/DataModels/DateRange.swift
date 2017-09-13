@@ -78,6 +78,25 @@ extension DateRange {
     return text?.capitalized
   }
   
+  var displayedShortTime: String? {
+    var text: String? = nil
+    guard let from = from else {
+      return text
+    }
+    
+    if let to = to {
+      if from.same(time: to) {
+        text = "\(from.formattedTime())"
+      } else {
+        text = "\(from.formattedTime()) - \(to.formattedTime())"
+      }
+    } else {
+      text = from.formattedTime()
+    }
+    
+    return text?.capitalizeFirst
+  }
+  
   var displayedLabel: String {
     let text = [displayedDate, displayedTime].flatMap { $0 }.joined(separator: "\n")
     return text
