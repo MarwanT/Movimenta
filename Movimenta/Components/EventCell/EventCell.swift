@@ -18,6 +18,7 @@ class EventCell: UITableViewCell {
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
   @IBOutlet weak var participantImageView: UIImageView!
+  @IBOutlet weak var pinImageView: UIImageView!
   @IBOutlet weak var bookmarkButton: UIButton!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var venueNameLabel: UILabel!
@@ -61,6 +62,7 @@ class EventCell: UITableViewCell {
     categoryLabel.textColor = theme.darkTextColor
     timeLabel.textColor = theme.darkTextColor
     bookmarkButton.tintColor = theme.color2
+    pinImageView.tintColor = theme.darkTextColor
     refreshBookmarkButton()
     setLabelsTopPadding()
     setSideMargins()
@@ -106,6 +108,11 @@ class EventCell: UITableViewCell {
     categoryLabel.text = categories
     timeLabel.text = time
     self.isBookmarked = isBookmarked ?? false
+    if let venueName = venueName, !venueName.trimed().isEmpty {
+      pinImageView.isHidden = false
+    } else {
+      pinImageView.isHidden = true
+    }
     contentView.manipulateLabelsSubviewsTopMarginsIfNeeded()
   }
 }

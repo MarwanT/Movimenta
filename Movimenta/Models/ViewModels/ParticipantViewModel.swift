@@ -17,6 +17,10 @@ final class ParticipantViewModel {
     self.events = DataManager.shared.events(with: participant)
   }
   
+  var viewControllerTitle: String? {
+    return participant.type.singleName
+  }
+  
   var image: URL? {
     return participant.image
   }

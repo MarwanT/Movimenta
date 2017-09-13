@@ -39,6 +39,7 @@ class ParticipantViewController: UIViewController {
   }
   
   private func initialize() {
+    initializeTitle()
     initializeTableView()
     initializeNavigationItems()
     registerToNotificationCenter()
@@ -67,6 +68,10 @@ class ParticipantViewController: UIViewController {
     tableView.separatorInset = UIEdgeInsets(top: 0, left: 118, bottom: 0, right: 0)
     
     tableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
+  }
+  
+  private func initializeTitle() {
+    title = viewModel.viewControllerTitle
   }
   
   private func initializeNavigationItems() {

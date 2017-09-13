@@ -43,8 +43,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinMapFilled" translatesAutoresizingMaskIntoConstraints="NO" id="rn6-LR-abY">
+                        <rect key="frame" x="85" y="29.5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="IVr-qv-JFe"/>
+                            <constraint firstAttribute="height" constant="15" id="Ksb-CT-0Cc"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="950" text="Venue Name Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuM-T1-BqY" userLabel="Venue Name Label">
-                        <rect key="frame" x="86" y="28.5" width="196" height="21"/>
+                        <rect key="frame" x="100" y="28.5" width="182" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -74,6 +81,8 @@
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="xQy-zH-Km1" secondAttribute="bottom" id="55y-oD-H0C"/>
                     <constraint firstItem="b7F-MM-7a5" firstAttribute="trailing" secondItem="1nG-yq-Azz" secondAttribute="trailing" id="68a-Dx-bhh"/>
                     <constraint firstItem="gJH-d8-VzD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="C4T-lP-xs7"/>
+                    <constraint firstItem="rn6-LR-abY" firstAttribute="leading" secondItem="I2g-E9-PME" secondAttribute="leading" constant="-1" id="Hz7-HY-kTG"/>
+                    <constraint firstItem="xuM-T1-BqY" firstAttribute="leading" secondItem="rn6-LR-abY" secondAttribute="trailing" id="P6c-Cf-Esn"/>
                     <constraint firstItem="eFs-Nf-9tM" firstAttribute="leading" secondItem="I2g-E9-PME" secondAttribute="leading" id="PK5-gW-XOu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1nG-yq-Azz" secondAttribute="trailing" id="SAy-NU-vbk"/>
                     <constraint firstItem="1nG-yq-Azz" firstAttribute="leading" secondItem="I2g-E9-PME" secondAttribute="leading" id="SIZ-Z2-TWB"/>
@@ -82,11 +91,11 @@
                     <constraint firstItem="xuM-T1-BqY" firstAttribute="trailing" secondItem="I2g-E9-PME" secondAttribute="trailing" id="YSR-4g-tBi"/>
                     <constraint firstItem="b7F-MM-7a5" firstAttribute="leading" secondItem="I2g-E9-PME" secondAttribute="leading" id="bu9-dm-rpm"/>
                     <constraint firstItem="xQy-zH-Km1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dBh-7J-Jnp"/>
-                    <constraint firstItem="xuM-T1-BqY" firstAttribute="leading" secondItem="I2g-E9-PME" secondAttribute="leading" id="fSG-NE-wAh"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gJH-d8-VzD" secondAttribute="trailing" id="hGg-Om-kAO"/>
                     <constraint firstItem="xQy-zH-Km1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="lww-WL-rxc"/>
                     <constraint firstItem="1nG-yq-Azz" firstAttribute="top" secondItem="xuM-T1-BqY" secondAttribute="bottom" id="mA5-BZ-BUd"/>
                     <constraint firstItem="xuM-T1-BqY" firstAttribute="top" secondItem="I2g-E9-PME" secondAttribute="bottom" id="mse-gZ-RYy"/>
+                    <constraint firstItem="rn6-LR-abY" firstAttribute="top" secondItem="I2g-E9-PME" secondAttribute="bottom" constant="1" id="tDX-Ds-00X"/>
                     <constraint firstItem="b7F-MM-7a5" firstAttribute="top" secondItem="eFs-Nf-9tM" secondAttribute="bottom" id="vMG-pW-ZPu"/>
                     <constraint firstItem="I2g-E9-PME" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xdW-4s-TD0"/>
                     <constraint firstItem="eFs-Nf-9tM" firstAttribute="trailing" secondItem="1nG-yq-Azz" secondAttribute="trailing" id="yC3-wf-R3S"/>
@@ -103,6 +112,7 @@
                 <outlet property="eventNameLabel" destination="1nG-yq-Azz" id="xDm-BC-BS2"/>
                 <outlet property="eventNameLabelTopVerticalSpacing" destination="mA5-BZ-BUd" id="YbS-94-Tye"/>
                 <outlet property="participantImageView" destination="xQy-zH-Km1" id="4UT-Uh-dTw"/>
+                <outlet property="pinImageView" destination="rn6-LR-abY" id="cQF-F3-hFv"/>
                 <outlet property="timeLabel" destination="b7F-MM-7a5" id="rSV-GT-Jb3"/>
                 <outlet property="timeLabelTopVerticalSpacing" destination="vMG-pW-ZPu" id="6Ox-9B-rJA"/>
                 <outlet property="venueNameLabel" destination="xuM-T1-BqY" id="FGe-ye-fxx"/>
@@ -113,5 +123,6 @@
     </objects>
     <resources>
         <image name="bookmarkOutline" width="48" height="48"/>
+        <image name="pinMapFilled" width="60" height="60"/>
     </resources>
 </document>
