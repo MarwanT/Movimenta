@@ -80,6 +80,7 @@
 		5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AFB71F2A1868008CA708 /* MovimentaTheme.swift */; };
 		598039361F56D83800521DA2 /* UITableViewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598039351F56D83800521DA2 /* UITableViewCell+Utils.swift */; };
 		598656AE1F698394000EB28D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598656AD1F698394000EB28D /* ScheduleViewController.swift */; };
+		598656B21F698826000EB28D /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598656B01F698826000EB28D /* ScheduleCell.swift */; };
 		598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */; };
 		598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */; };
 		598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */; };
@@ -239,6 +240,7 @@
 		5970AFB71F2A1868008CA708 /* MovimentaTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentaTheme.swift; sourceTree = "<group>"; };
 		598039351F56D83800521DA2 /* UITableViewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Utils.swift"; sourceTree = "<group>"; };
 		598656AD1F698394000EB28D /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		598656B01F698826000EB28D /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		598923001F1E2A7800F73974 /* nexa-black-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-black-webfont.ttf"; sourceTree = "<group>"; };
 		598923011F1E2A7800F73974 /* nexa-blackitalic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-blackitalic-webfont.ttf"; sourceTree = "<group>"; };
 		598923021F1E2A7800F73974 /* nexa-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-bold-webfont.ttf"; sourceTree = "<group>"; };
@@ -589,6 +591,14 @@
 			path = MovimentaTheme;
 			sourceTree = "<group>";
 		};
+		598656AF1F6987DE000EB28D /* ScheduleCell */ = {
+			isa = PBXGroup;
+			children = (
+				598656B01F698826000EB28D /* ScheduleCell.swift */,
+			);
+			path = ScheduleCell;
+			sourceTree = "<group>";
+		};
 		5989229D1F1E0C9800F73974 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +699,7 @@
 				596834961F5D914100E25579 /* SliderCell */,
 				5968349D1F60171900E25579 /* FiltersBreadcrumbView */,
 				5992026A1F67E2940078578C /* EventCell */,
+				598656AF1F6987DE000EB28D /* ScheduleCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 				F409C20E1F6EAB3D007216E4 /* InformationCell */,
 				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
@@ -1159,6 +1170,7 @@
 				59EF021D1F3094FD00F145B9 /* Color+Utils.swift in Sources */,
 				598656AE1F698394000EB28D /* ScheduleViewController.swift in Sources */,
 				599202671F66B2D60078578C /* ParticipantDetailsHeaderView.swift in Sources */,
+				598656B21F698826000EB28D /* ScheduleCell.swift in Sources */,
 				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
 				594040CD1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift in Sources */,
 				596A75771F1908120094A886 /* AppDelegate.swift in Sources */,
