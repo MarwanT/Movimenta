@@ -19,3 +19,20 @@ class ScheduleCell: UICollectionViewCell {
     super.init(coder: aDecoder)
   }
 }
+
+//MARK: Configuration
+extension ScheduleCell {
+  struct Configuration {
+    var layoutMargins = UIEdgeInsets(
+      top: CGFloat(ThemeManager.shared.current.space8),
+      left: CGFloat(ThemeManager.shared.current.space8),
+      bottom: CGFloat(ThemeManager.shared.current.space8),
+      right: CGFloat(ThemeManager.shared.current.space8))
+    var font = ThemeManager.shared.current.font7
+    var highlightColor = ThemeManager.shared.current.white
+    var defaultColor = ThemeManager.shared.current.color2
+    var sideMarginsValue: CGFloat {
+      return layoutMargins.left + layoutMargins.right
+    }
+  }
+}
