@@ -24,6 +24,12 @@ class ScheduleCell: UICollectionViewCell {
   }
   
   private func initialize() {
+    label = UILabel(frame: CGRect.zero)
+    contentView.addSubview(label)
+    label.snp.makeConstraints { (maker) in
+      maker.left.top.right.bottom.equalTo(contentView.snp.margins).priority(750)
+      maker.width.greaterThanOrEqualTo(100).priority(1000)
+    }
   }
 }
 
