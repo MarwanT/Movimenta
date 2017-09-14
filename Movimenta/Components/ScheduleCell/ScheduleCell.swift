@@ -9,6 +9,8 @@
 import UIKit
 
 class ScheduleCell: UICollectionViewCell {
+  var label: UILabel!
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
   }
