@@ -27,6 +27,10 @@ extension DateRange {
     return (from >= now && from <= withinDate)
   }
   
+  func intercept(with date: Date) -> Bool {
+    return intercept(with: DateRange(from: date.flatDate, to: date.flatDate))
+  }
+  
   func intercept(with other: DateRange) -> Bool {
     guard let from = from?.flatDate, let to = to?.flatDate, let otherFrom = other.from?.flatDate, let otherTo = other.to?.flatDate else {
       return false
