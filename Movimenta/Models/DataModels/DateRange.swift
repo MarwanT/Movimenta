@@ -16,12 +16,14 @@ struct DateRange {
 
 extension DateRange {
   func startsWithin(minutes: Int) -> Bool {
-    guard let from = from else {
-      return false
-    }
     let now = Date()
     guard let withinDate = now.add(minutes: minutes) else {
       return false
+    }
+    
+    guard let singleDateRange = dateRange(on: withinDate),
+      let from = singleDateRange.from else {
+        return false
     }
     
     return (from >= now && from <= withinDate)
