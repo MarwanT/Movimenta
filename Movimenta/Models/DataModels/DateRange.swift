@@ -16,15 +16,21 @@ struct DateRange {
 
 extension DateRange {
   func startsWithin(minutes: Int) -> Bool {
-    guard let from = from else {
-      return false
-    }
     let now = Date()
     guard let withinDate = now.add(minutes: minutes) else {
       return false
     }
     
+    guard let singleDateRange = dateRange(on: withinDate),
+      let from = singleDateRange.from else {
+        return false
+    }
+    
     return (from >= now && from <= withinDate)
+  }
+  
+  func intercept(with date: Date) -> Bool {
+    return intercept(with: DateRange(from: date.flatDate, to: date.flatDate))
   }
   
   func intercept(with other: DateRange) -> Bool {
@@ -34,6 +40,20 @@ extension DateRange {
     return (from <= otherFrom && to >= otherFrom)
       || (from <= otherTo && to >= otherTo)
       || (from >= otherFrom && to <= otherTo)
+  }
+  
+  func dateRange(on date: Date) -> DateRange? {
+    guard intercept(with: date) else {
+      return nil
+    }
+    
+    guard let from = from, let to = to else {
+      return nil
+    }
+    
+    let fromDate = date.cloneDate(withTimeOf: from)
+    let toDate = date.cloneDate(withTimeOf: to)
+    return DateRange(from: fromDate, to: toDate)
   }
 }
 
