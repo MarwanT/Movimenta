@@ -39,6 +39,20 @@ extension DateRange {
       || (from <= otherTo && to >= otherTo)
       || (from >= otherFrom && to <= otherTo)
   }
+  
+  func dateRange(on date: Date) -> DateRange? {
+    guard intercept(with: date) else {
+      return nil
+    }
+    
+    guard let from = from, let to = to else {
+      return nil
+    }
+    
+    let fromDate = date.cloneDate(withTimeOf: from)
+    let toDate = date.cloneDate(withTimeOf: to)
+    return DateRange(from: fromDate, to: toDate)
+  }
 }
 
 extension DateRange {
