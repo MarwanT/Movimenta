@@ -30,6 +30,17 @@ class ScheduleCell: UICollectionViewCell {
       maker.left.top.right.bottom.equalTo(contentView.snp.margins).priority(750)
       maker.width.greaterThanOrEqualTo(100).priority(1000)
     }
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    label.font = configuration.font
+    label.textColor = configuration.highlightColor
+    contentView.layer.borderColor = configuration.highlightColor.cgColor
+    contentView.layer.borderWidth = 0.5
+    contentView.layer.cornerRadius = 1
+    contentView.layoutMargins = configuration.layoutMargins
+    contentView.backgroundColor = configuration.defaultColor
   }
 }
 
