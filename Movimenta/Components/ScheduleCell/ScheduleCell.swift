@@ -18,6 +18,12 @@ class ScheduleCell: UICollectionViewCell {
     }
   }
   
+  override var isSelected: Bool {
+    didSet {
+      refreshViewForSelection()
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     initialize()
