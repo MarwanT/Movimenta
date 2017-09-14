@@ -42,6 +42,16 @@ class ScheduleCell: UICollectionViewCell {
     contentView.layoutMargins = configuration.layoutMargins
     contentView.backgroundColor = configuration.defaultColor
   }
+  
+  private func refreshViewForSelection() {
+    if isSelected {
+      label.textColor = configuration.defaultColor
+      contentView.backgroundColor = configuration.highlightColor
+    } else {
+      label.textColor = configuration.highlightColor
+      contentView.backgroundColor = configuration.defaultColor
+    }
+  }
 }
 
 //MARK: Configuration
