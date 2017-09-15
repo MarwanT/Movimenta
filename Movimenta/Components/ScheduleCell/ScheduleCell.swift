@@ -9,6 +9,8 @@
 import UIKit
 
 class ScheduleCell: UICollectionViewCell {
+  static let identifier: String = ScheduleCell.defaultNibName
+  
   var label: UILabel!
   
   var configuration = Configuration() {
