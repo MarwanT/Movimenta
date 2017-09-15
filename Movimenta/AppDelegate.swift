@@ -12,6 +12,7 @@ import FacebookCore
 import Crashlytics
 import GoogleMaps
 import GooglePlaces
+import EasyARSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
