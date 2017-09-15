@@ -23,6 +23,7 @@ struct MovimentaEvent: ModelCommonProperties {
   var artists: [String: Participant]?
   var companies: [String: Participant]?
   var sponsors: [String: Participant]?
+  var restaurants: [Restaurant]?
 }
 
 extension MovimentaEvent: Parsable {
