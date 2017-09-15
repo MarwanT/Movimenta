@@ -13,11 +13,16 @@ final class ScheduleViewModel {
   fileprivate(set) var indexOfSelectedDate: Int = 0
   
   init() {
+    // Set Scheduale dates
     let firstDate = FiltersManager.shared.firstEventDate
     let lastDate = FiltersManager.shared.lastEventDate
     let dates = firstDate.includedDates(till: lastDate)
     for date in dates {
       scheduleDates.append(ScheduleDate(date: date))
+    }
+    // Set Selected Index
+    if let index = scheduleDates.index(where: { $0.isToday }) {
+      indexOfSelectedDate = index
     }
   }
 }
@@ -39,7 +44,7 @@ extension ScheduleViewModel {
   struct ScheduleDate {
     var date: Date?
     
-    private var isToday: Bool {
+    fileprivate var isToday: Bool {
       return date?.same(date: Date()) ?? false
     }
     
