@@ -33,3 +33,9 @@ extension Hotel {
   var excerpt: String? { return nil }
   var title: String? { return nil }
 }
+
+extension Restaurant {
+  var content: String? { return nil }
+  var excerpt: String? { return nil }
+  var title: String? { return nil }
+}
