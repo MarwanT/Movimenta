@@ -35,7 +35,7 @@ extension ScheduleViewModel {
   
   func infoForCell(at indexPath: IndexPath) -> (label: String, isSelected: Bool) {
     let scheduleDate = scheduleDates[indexPath.item]
-    return (scheduleDate.string, false)
+    return (scheduleDate.string, indexPath == selectedItemIndexPath)
   }
   
   fileprivate(set) var selectedItemIndexPath: IndexPath {
