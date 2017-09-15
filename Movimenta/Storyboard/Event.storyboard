@@ -176,6 +176,9 @@
                             <constraint firstItem="Odg-mS-0fr" firstAttribute="top" secondItem="rjO-dZ-CdL" secondAttribute="bottom" id="PNU-k5-cLM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datesCollectionView" destination="Odg-mS-0fr" id="1xZ-Rw-nuY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STw-WY-VDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
