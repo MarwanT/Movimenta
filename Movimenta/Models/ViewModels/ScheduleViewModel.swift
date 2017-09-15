@@ -9,6 +9,16 @@
 import Foundation
 
 final class ScheduleViewModel {
+  fileprivate(set) var scheduleDates = [ScheduleDate]()
+  
+  init() {
+    let firstDate = FiltersManager.shared.firstEventDate
+    let lastDate = FiltersManager.shared.lastEventDate
+    let dates = firstDate.includedDates(till: lastDate)
+    for date in dates {
+      scheduleDates.append(ScheduleDate(date: date))
+    }
+  }
 }
 
 //MARK: - Schedule Date
