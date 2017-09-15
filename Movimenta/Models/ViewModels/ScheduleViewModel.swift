@@ -37,6 +37,15 @@ extension ScheduleViewModel {
     let scheduleDate = scheduleDates[indexPath.item]
     return (scheduleDate.string, false)
   }
+  
+  fileprivate(set) var selectedItemIndexPath: IndexPath {
+    get {
+      return IndexPath(item: indexOfSelectedDate, section: 0)
+    }
+    set {
+      indexOfSelectedDate = newValue.item
+    }
+  }
 }
 
 //MARK: - Schedule Date
