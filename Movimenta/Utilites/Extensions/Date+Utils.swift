@@ -98,4 +98,26 @@ extension Date {
     dateComponents.minute = timeComponents.minute
     return calendar.date(from: dateComponents)
   }
+  
+  func includedDates(till giveDate: Date) -> [Date] {
+    var dates: [Date] = []
+    let dayComponent = DateComponents(day: 1)
+    let calendar = Calendar.current
+    
+    guard var currentDate = self.flatDate,
+      let toDate = giveDate.flatDate else {
+      return dates
+    }
+    
+    while !currentDate.same(date: toDate) {
+      dates.append(currentDate)
+      currentDate = calendar.date(byAdding: dayComponent, to: currentDate)!
+    }
+    
+    if !self.same(date: toDate) {
+      dates.append(toDate)
+    }
+    
+    return dates
+  }
 }
