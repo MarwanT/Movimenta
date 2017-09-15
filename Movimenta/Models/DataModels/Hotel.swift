@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct Hotel {
+  var id: String?
+  var link: URL?
+  var name: String?
+  var image: String?
+}
