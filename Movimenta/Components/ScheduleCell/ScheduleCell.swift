@@ -41,7 +41,7 @@ class ScheduleCell: UICollectionViewCell {
     contentView.addSubview(label)
     label.snp.makeConstraints { (maker) in
       maker.left.top.right.bottom.equalTo(contentView.snp.margins).priority(750)
-      maker.width.greaterThanOrEqualTo(100).priority(1000)
+      maker.width.greaterThanOrEqualTo(configuration.layoutMargins.left + configuration.layoutMargins.right).priority(1000)
     }
     applyTheme()
   }
