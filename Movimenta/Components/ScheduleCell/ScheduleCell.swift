@@ -66,6 +66,13 @@ class ScheduleCell: UICollectionViewCell {
     }
   }
   
+  func preferredSize() -> CGSize {
+    return self.systemLayoutSizeFitting(
+      configuration.targetSize,
+      withHorizontalFittingPriority: UILayoutPriorityFittingSizeLevel,
+      verticalFittingPriority: UILayoutPriorityRequired)
+  }
+  
   //MARK: APIs
   func set(_ text: String?) {
     label.text = text
@@ -86,5 +93,6 @@ extension ScheduleCell {
     var sideMarginsValue: CGFloat {
       return layoutMargins.left + layoutMargins.right
     }
+    var targetSize = CGSize(width: 0, height: 44)
   }
 }
