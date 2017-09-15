@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Partner {
   var id: String?
@@ -14,4 +15,16 @@ struct Partner {
   var name: String?
   var image: String?
   var description: String?
+}
+
+extension Partner: Parsable {
+  static func object(from json: JSON) -> Partner? {
+    let id = json["id"].stringValue
+    let link = json["link"].url
+    let name = json["name"].string
+    let image = json["image"].string
+    let description = json["desc"].string
+
+    return Partner(id: id, link: link, name: name, image: image, description: description)
+  }
 }
