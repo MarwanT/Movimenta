@@ -34,8 +34,38 @@ class ScheduleViewController: UIViewController {
     flowLayout.minimumInteritemSpacing = interItemSpacing
     datesCollectionView.collectionViewLayout = flowLayout
     datesCollectionView.register(ScheduleCell.self, forCellWithReuseIdentifier: ScheduleCell.identifier)
+    datesCollectionView.dataSource = self
+    datesCollectionView.delegate = self
     datesCollectionView.backgroundColor = ThemeManager.shared.current.color2
     datesCollectionView.contentInset = contentInset
     datesCollectionView.showsHorizontalScrollIndicator = false
+  }
+}
+
+//MARK: Collection View Delegates
+extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return viewModel.numberOfItems
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScheduleCell.identifier, for: indexPath) as? ScheduleCell else {
+      return UICollectionViewCell()
+    }
+    let info = viewModel.infoForCell(at: indexPath)
+    if info.isSelected {
+      collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .init(rawValue: 0))
+    }
+    cell.set(info.label)
+    return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let info = viewModel.infoForCell(at: indexPath)
+    return ScheduleCell.preferredSize(for: info.label)
   }
 }
