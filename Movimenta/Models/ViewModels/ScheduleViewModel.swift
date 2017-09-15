@@ -21,6 +21,18 @@ final class ScheduleViewModel {
   }
 }
 
+//MARK: Collection View Methods
+extension ScheduleViewModel {
+  var numberOfItems: Int {
+    return scheduleDates.count
+  }
+  
+  func infoForCell(at indexPath: IndexPath) -> (label: String, isSelected: Bool) {
+    let scheduleDate = scheduleDates[indexPath.item]
+    return (scheduleDate.string, false)
+  }
+}
+
 //MARK: - Schedule Date
 extension ScheduleViewModel {
   struct ScheduleDate {
