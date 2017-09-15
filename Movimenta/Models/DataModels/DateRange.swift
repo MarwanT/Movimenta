@@ -58,6 +58,45 @@ extension DateRange {
 }
 
 extension DateRange {
+  var displayedShortDate: String? {
+    var text: String? = nil
+    guard let from = from else {
+      return text
+    }
+    
+    let format = "dd'.'MM"
+    if let to = to {
+      if from.same(date: to) {
+        text = from.formattedDate(format: format)
+      } else {
+        text = "\(from.formattedDate(format: format)) - \(to.formattedDate(format: format))"
+      }
+    } else {
+      text = from.formattedDate(format: format)
+    }
+    
+    return text?.capitalized
+  }
+  
+  var displayedShortTime: String? {
+    var text: String? = nil
+    guard let from = from else {
+      return text
+    }
+    
+    if let to = to {
+      if from.same(time: to) {
+        text = "\(from.formattedTime())"
+      } else {
+        text = "\(from.formattedTime()) - \(to.formattedTime())"
+      }
+    } else {
+      text = from.formattedTime()
+    }
+    
+    return text?.capitalizeFirst
+  }
+  
   var displayedLabel: String {
     let text = [displayedDate, displayedTime].flatMap { $0 }.joined(separator: "\n")
     return text
@@ -117,6 +156,14 @@ extension DateRange: Parsable {
   }
 }
 
+//MARK: Comparable
+func <(lhs: DateRange, rhs: DateRange) -> Bool {
+  guard let lhsTo = lhs.to, let rhsFrom = rhs.from else {
+    return false
+  }
+  return lhsTo < rhsFrom
+}
+
 //MARK: - DateRange Array extensions
 extension Array where Element == DateRange {
   func sortedAscending() -> [DateRange] {
@@ -149,5 +196,30 @@ extension Array where Element == DateRange {
       }
     }
     return sortedRanges
+  }
+  
+  func preferredDateRange(for givenDate: Date) -> DateRange? {
+    var givenDateRange = DateRange()
+    givenDateRange.from = givenDate.flatDate
+    givenDateRange.to = givenDate.flatDate
+    return preferredDateRange(for: givenDateRange)
+  }
+  
+  func preferredDateRange(for givenDateRange: DateRange) -> DateRange? {
+    var pastDateRanges = [DateRange]()
+    var currentDateRanges = [DateRange]()
+    var futureDateRanges = [DateRange]()
+    
+    for dateRange in self {
+      if dateRange.intercept(with: givenDateRange) {
+        currentDateRanges.append(dateRange)
+      } else if dateRange < givenDateRange {
+        pastDateRanges.append(dateRange)
+      } else {
+        futureDateRanges.append(dateRange)
+      }
+    }
+    
+    return currentDateRanges.first ?? futureDateRanges.first ?? pastDateRanges.last
   }
 }

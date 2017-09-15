@@ -21,6 +21,10 @@ final class Strings {
     return Localization.localize(key: "apply")
   }
   
+  static func artist() -> String {
+    return Localization.localize(key: "artist")
+  }
+  
   static func artists() -> String {
     return Localization.localize(key: "artists")
   }
@@ -39,6 +43,10 @@ final class Strings {
   
   static func companies() -> String {
     return Localization.localize(key: "companies")
+  }
+  
+  static func company() -> String {
+    return Localization.localize(key: "company")
   }
   
   static func date() -> String {
@@ -105,12 +113,24 @@ final class Strings {
     return Localization.localize(key: "ok")
   }
   
+  static func organizer() -> String {
+    return Localization.localize(key: "organizer")
+  }
+  
   static func organizers() -> String {
     return Localization.localize(key: "organizers")
   }
   
+  static func participant() -> String {
+    return Localization.localize(key: "participant")
+  }
+  
   static func participants() -> String {
     return Localization.localize(key: "participants")
+  }
+  
+  static func related_events() -> String {
+    return Localization.localize(key: "related_events")
   }
   
   static func reset_all_filters() -> String {
@@ -129,8 +149,16 @@ final class Strings {
     return Localization.localize(key: "show_bookmarked_events")
   }
   
+  static func speaker() -> String {
+    return Localization.localize(key: "speaker")
+  }
+  
   static func speakers() -> String {
     return Localization.localize(key: "speakers")
+  }
+  
+  static func sponsor() -> String {
+    return Localization.localize(key: "sponsor")
   }
   
   static func sponsors() -> String {

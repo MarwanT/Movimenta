@@ -100,5 +100,38 @@
             </objects>
             <point key="canvasLocation" x="790" y="143"/>
         </scene>
+        <!--Participant View Controller-->
+        <scene sceneID="Ks9-2U-c7c">
+            <objects>
+                <viewController storyboardIdentifier="ParticipantViewController" id="Xls-d0-gqa" customClass="ParticipantViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oUE-cM-NMB"/>
+                        <viewControllerLayoutGuide type="bottom" id="R24-8B-URG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uuA-Zh-7IB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QZw-E9-fXz">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R24-8B-URG" firstAttribute="top" secondItem="QZw-E9-fXz" secondAttribute="bottom" id="Kua-FQ-7Hb"/>
+                            <constraint firstAttribute="trailing" secondItem="QZw-E9-fXz" secondAttribute="trailing" id="OSZ-ff-y2r"/>
+                            <constraint firstItem="QZw-E9-fXz" firstAttribute="top" secondItem="oUE-cM-NMB" secondAttribute="bottom" id="kbz-kW-aFy"/>
+                            <constraint firstItem="QZw-E9-fXz" firstAttribute="leading" secondItem="uuA-Zh-7IB" secondAttribute="leading" id="tCk-aH-0S6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="QZw-E9-fXz" id="tYv-RW-egi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMo-UK-NpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-151" y="925"/>
+        </scene>
     </scenes>
 </document>

@@ -97,6 +97,15 @@ class DataManager {
   }
 }
 
+//MARK: - APIs
+extension DataManager {
+  func events(with participant: Participant) -> [Event] {
+    var filter = Filter()
+    filter.add(participant: participant)
+    return FiltersManager.shared.filteredEvents(for: filter)
+  }
+}
+
 //MARK: - Bookmark related
 extension DataManager {
   fileprivate func bookmarkedEventsArray() -> [Event] {
@@ -121,6 +130,7 @@ extension DataManager {
     }
     Persistence.shared.bookmark(eventWith: eventId)
     bookmarkedEvents.append(event)
+    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: event)
     return true
   }
   
@@ -130,7 +140,16 @@ extension DataManager {
     }
     bookmarkedEvents.remove(at: index)
     Persistence.shared.unBookmark(eventWith: eventId)
+    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: event)
     return true
+  }
+  
+  func toggleBookmarkStatus(event: Event) {
+    if event.isBookmarked {
+      _ = unBookmark(event: event)
+    } else {
+      _ = bookmark(event: event)
+    }
   }
   
   func bookmarked(eventId: String) -> Bool {

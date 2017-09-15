@@ -82,6 +82,10 @@ struct Event: ModelCommonProperties {
     return names.joined(separator: ", ")
   }
   
+  func preferredDateRange(for givenDate: Date = Date()) -> DateRange? {
+    return dates?.preferredDateRange(for: givenDate)
+  }
+  
   func startsWithin(minutes: Int) -> Bool {
     guard let dates = dates else {
       return false

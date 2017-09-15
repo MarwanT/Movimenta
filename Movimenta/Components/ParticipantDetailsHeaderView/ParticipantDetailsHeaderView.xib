@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="sL1-fC-xT3" customClass="ParticipantDetailsHeaderView" customModule="Movimenta" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CEE-nC-Jlc" userLabel="Details Stack View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="372"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AIh-cY-Sx7">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="JdJ-ZU-vcr"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPs-GI-5Kf" userLabel="Labels Container View">
+                            <rect key="frame" x="0.0" y="200" width="375" height="172"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXx-4k-3UR" userLabel="Name Label">
+                                    <rect key="frame" x="8" y="8" width="359" height="90"/>
+                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roles Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E86-hS-2rP">
+                                    <rect key="frame" x="8" y="103" width="359" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAA-14-nLk" userLabel="Description Label" customClass="ExpandableLabel" customModule="Movimenta" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="143.5" width="359" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottomMargin" secondItem="tAA-14-nLk" secondAttribute="bottom" id="65g-iS-gvy"/>
+                                <constraint firstItem="tAA-14-nLk" firstAttribute="trailing" secondItem="AXx-4k-3UR" secondAttribute="trailing" id="6sP-QQ-GJE"/>
+                                <constraint firstItem="E86-hS-2rP" firstAttribute="top" secondItem="AXx-4k-3UR" secondAttribute="bottom" constant="5" id="70V-Q6-1q8"/>
+                                <constraint firstItem="tAA-14-nLk" firstAttribute="top" secondItem="E86-hS-2rP" secondAttribute="bottom" constant="20" id="9do-MP-Vpe"/>
+                                <constraint firstItem="AXx-4k-3UR" firstAttribute="leading" secondItem="mPs-GI-5Kf" secondAttribute="leadingMargin" id="A7s-yt-S2x"/>
+                                <constraint firstItem="E86-hS-2rP" firstAttribute="leading" secondItem="AXx-4k-3UR" secondAttribute="leading" id="bs6-mk-ewE"/>
+                                <constraint firstItem="E86-hS-2rP" firstAttribute="trailing" secondItem="AXx-4k-3UR" secondAttribute="trailing" id="cFW-Nl-bLh"/>
+                                <constraint firstItem="AXx-4k-3UR" firstAttribute="trailing" secondItem="mPs-GI-5Kf" secondAttribute="trailingMargin" id="tW1-wF-x2U"/>
+                                <constraint firstItem="AXx-4k-3UR" firstAttribute="top" secondItem="mPs-GI-5Kf" secondAttribute="topMargin" id="wId-qk-fui"/>
+                                <constraint firstItem="tAA-14-nLk" firstAttribute="leading" secondItem="AXx-4k-3UR" secondAttribute="leading" id="wfe-wa-ahA"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="CEE-nC-Jlc" firstAttribute="top" secondItem="sL1-fC-xT3" secondAttribute="top" id="LMb-EH-Nf4"/>
+                <constraint firstAttribute="trailing" secondItem="CEE-nC-Jlc" secondAttribute="trailing" id="hBW-HI-8Ad"/>
+                <constraint firstItem="CEE-nC-Jlc" firstAttribute="leading" secondItem="sL1-fC-xT3" secondAttribute="leading" id="seg-tP-VTg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="tAA-14-nLk" id="K9Q-je-veF"/>
+                <outlet property="detailsStackView" destination="CEE-nC-Jlc" id="hPm-89-LgU"/>
+                <outlet property="imageView" destination="AIh-cY-Sx7" id="gOb-A9-yTI"/>
+                <outlet property="labelsContainerView" destination="mPs-GI-5Kf" id="J7p-6I-ZEI"/>
+                <outlet property="nameLabel" destination="AXx-4k-3UR" id="KbM-N4-Fll"/>
+                <outlet property="rolesLabel" destination="E86-hS-2rP" id="CHg-MI-JOe"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="-94"/>
+        </view>
+    </objects>
+</document>

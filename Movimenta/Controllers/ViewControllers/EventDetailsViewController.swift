@@ -33,6 +33,11 @@ class EventDetailsViewController: UIViewController {
     loadData()
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+  }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     
@@ -344,7 +349,10 @@ extension EventDetailsViewController {
   }
   
   private func navigateToParticipantVC(participant: Participant) {
-    //TODO: navigate to participant vc
+    let vc = ParticipantViewController.instance()
+    vc.initialize(with: participant)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
   }
 }
 
