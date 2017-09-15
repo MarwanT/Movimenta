@@ -13,6 +13,10 @@ class ScheduleViewController: UIViewController {
   
   var viewModel = ScheduleViewModel()
   
+  static func instance() -> ScheduleViewController {
+    return Storyboard.Event.instantiate(ScheduleViewController.self)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
