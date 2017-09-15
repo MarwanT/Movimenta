@@ -78,4 +78,10 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
     let info = viewModel.infoForCell(at: indexPath)
     return ScheduleCell.preferredSize(for: info.label)
   }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    viewModel.setSelected(for: indexPath)
+    reloadEventsData()
+    navigateToSelectedDate()
+  }
 }
