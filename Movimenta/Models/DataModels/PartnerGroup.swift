@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct PartnerGroup {
+  var id: String?
+  var title: String?
+  var partners: [Partner]?
+}
