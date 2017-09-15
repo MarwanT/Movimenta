@@ -13,6 +13,12 @@ class ScheduleCell: UICollectionViewCell {
   
   var label: UILabel!
   
+  static func preferredSize(for text: String?) -> CGSize {
+    let cell = ScheduleCell()
+    cell.set(text)
+    return cell.preferredSize()
+  }
+  
   var configuration = Configuration() {
     didSet {
       applyTheme()
