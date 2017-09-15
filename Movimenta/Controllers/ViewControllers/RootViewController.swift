@@ -43,7 +43,7 @@ class RootViewController: UITabBarController {
   func initializeTabBarViewControllers() {
     let eventsMapVC = EventsMapViewController.instance()
     let bookmarksVC = UIViewController()
-    let scheduleVC = UIViewController()
+    let scheduleVC = ScheduleViewController.instance()
     let virtualRealityVC = UIViewController()
     let infoVC = InformationViewController.instance()
     
@@ -56,7 +56,7 @@ class RootViewController: UITabBarController {
     viewControllers = [
       UINavigationController(rootViewController: eventsMapVC),
       bookmarksVC,
-      scheduleVC,
+      UINavigationController(rootViewController: scheduleVC),
       virtualRealityVC,
       UINavigationController(rootViewController: infoVC)
     ]
