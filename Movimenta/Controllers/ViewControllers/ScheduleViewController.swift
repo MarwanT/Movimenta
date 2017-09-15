@@ -45,6 +45,10 @@ class ScheduleViewController: UIViewController {
   fileprivate func navigateToSelectedDate() {
     datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
   }
+  
+  fileprivate func reloadEventsData() {
+    //TODO: Reload event Data for selected
+  }
 }
 
 //MARK: Collection View Delegates
