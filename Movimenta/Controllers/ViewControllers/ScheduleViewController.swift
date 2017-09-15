@@ -62,10 +62,10 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
       return UICollectionViewCell()
     }
     let info = viewModel.infoForCell(at: indexPath)
+    cell.set(info.label, isSelected: info.isSelected)
     if info.isSelected {
-      collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .init(rawValue: 0))
+      collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
     }
-    cell.set(info.label)
     return cell
   }
   
