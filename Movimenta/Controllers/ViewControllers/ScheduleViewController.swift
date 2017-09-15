@@ -20,6 +20,7 @@ class ScheduleViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeCollectionView()
+    navigateToSelectedDate()
   }
   
   private func initializeCollectionView() {
@@ -39,6 +40,10 @@ class ScheduleViewController: UIViewController {
     datesCollectionView.backgroundColor = ThemeManager.shared.current.color2
     datesCollectionView.contentInset = contentInset
     datesCollectionView.showsHorizontalScrollIndicator = false
+  }
+  
+  fileprivate func navigateToSelectedDate() {
+    datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
   }
 }
 
