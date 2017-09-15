@@ -130,6 +130,7 @@
 		59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */; };
 		F409C1EE1F6C3A8F007216E4 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1ED1F6C3A8F007216E4 /* Restaurant.swift */; };
 		F409C1F01F6C3E34007216E4 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1EF1F6C3E34007216E4 /* Hotel.swift */; };
+		F409C1F21F6C413F007216E4 /* Partner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1F11F6C413F007216E4 /* Partner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,6 +278,7 @@
 		D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F409C1ED1F6C3A8F007216E4 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F409C1EF1F6C3E34007216E4 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
+		F409C1F11F6C413F007216E4 /* Partner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -703,6 +705,7 @@
 				5970AF991F260CF0008CA708 /* DateRange.swift */,
 				5970AF951F24E5A2008CA708 /* Venue.swift */,
 				F409C1EF1F6C3E34007216E4 /* Hotel.swift */,
+				F409C1F11F6C413F007216E4 /* Partner.swift */,
 				F409C1ED1F6C3A8F007216E4 /* Restaurant.swift */,
 				5970AF971F24E6D0008CA708 /* Participant.swift */,
 				5970AF9E1F262EFC008CA708 /* CLLocationCoordinate2D.swift */,
@@ -1107,6 +1110,7 @@
 				598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */,
 				5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */,
 				59A008291F615FBE00E392DD /* PadableLabel.swift in Sources */,
+				F409C1F21F6C413F007216E4 /* Partner.swift in Sources */,
 				5903B1091F4D9AD9009DF33C /* FiltersSectionHeader.swift in Sources */,
 				5903B1021F4D7F2E009DF33C /* FiltersViewController.swift in Sources */,
 				599202641F669C460078578C /* ParticipantViewModel.swift in Sources */,
