@@ -45,7 +45,8 @@ extension MovimentaEvent: Parsable {
     let sponsors = Participant.objectsDictionary(fromArray: json["sponsors"].array, type: .Sponsor)
     let restaurants = Restaurant.objects(from: json["restaurants"])
     let hotels = Hotel.objects(from: json["hotels"])
+    let partnerGroups = PartnerGroup.objects(from: json["partner_groups"])
 
-    return MovimentaEvent(id: id, title: title, link: link, parentCategory: parentCategory, categories: categories, types: types, events: events, venues: venues, organizers: organizers, speakers: speakers, artists: artists, companies: companies, sponsors: sponsors, restaurants: restaurants, hotels: hotels)
+    return MovimentaEvent(id: id, title: title, link: link, parentCategory: parentCategory, categories: categories, types: types, events: events, venues: venues, organizers: organizers, speakers: speakers, artists: artists, companies: companies, sponsors: sponsors, restaurants: restaurants, hotels: hotels, partnerGroups: partnerGroups)
   }
 }
