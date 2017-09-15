@@ -7,9 +7,21 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct PartnerGroup {
   var id: String?
   var title: String?
   var partners: [Partner]?
+}
+
+extension PartnerGroup: Parsable {
+  static func object(from json: JSON) -> PartnerGroup? {
+    let id = json["id"].stringValue
+    let title = json["title"].string
+    let partners = Partner.objects(from: json["partners"])
+
+
+    return PartnerGroup(id: id, title: title, partners: partners)
+  }
 }
