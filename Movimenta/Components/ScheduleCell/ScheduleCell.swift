@@ -65,6 +65,11 @@ class ScheduleCell: UICollectionViewCell {
       contentView.backgroundColor = configuration.defaultColor
     }
   }
+  
+  //MARK: APIs
+  func set(_ text: String?) {
+    label.text = text
+  }
 }
 
 //MARK: Configuration
