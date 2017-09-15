@@ -129,6 +129,7 @@
 		59EF02211F31CFE400F145B9 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59EF02201F31CFE400F145B9 /* Event.storyboard */; };
 		59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */; };
 		F409C1EE1F6C3A8F007216E4 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1ED1F6C3A8F007216E4 /* Restaurant.swift */; };
+		F409C1F01F6C3E34007216E4 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1EF1F6C3E34007216E4 /* Hotel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +276,7 @@
 		782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movimenta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta.release.xcconfig"; sourceTree = "<group>"; };
 		D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F409C1ED1F6C3A8F007216E4 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		F409C1EF1F6C3E34007216E4 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -700,6 +702,7 @@
 				5970AF931F24E4A8008CA708 /* Event.swift */,
 				5970AF991F260CF0008CA708 /* DateRange.swift */,
 				5970AF951F24E5A2008CA708 /* Venue.swift */,
+				F409C1EF1F6C3E34007216E4 /* Hotel.swift */,
 				F409C1ED1F6C3A8F007216E4 /* Restaurant.swift */,
 				5970AF971F24E6D0008CA708 /* Participant.swift */,
 				5970AF9E1F262EFC008CA708 /* CLLocationCoordinate2D.swift */,
@@ -1120,6 +1123,7 @@
 				59048B641F4AE8460000CCAF /* FiltersManager.swift in Sources */,
 				5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */,
 				5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */,
+				F409C1F01F6C3E34007216E4 /* Hotel.swift in Sources */,
 				5970AF961F24E5A2008CA708 /* Venue.swift in Sources */,
 				598039361F56D83800521DA2 /* UITableViewCell+Utils.swift in Sources */,
 				5970AF9D1F261110008CA708 /* Date+Utils.swift in Sources */,
