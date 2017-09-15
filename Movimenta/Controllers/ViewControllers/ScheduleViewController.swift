@@ -11,6 +11,8 @@ import UIKit
 class ScheduleViewController: UIViewController {
   @IBOutlet weak var datesCollectionView: UICollectionView!
   
+  var viewModel = ScheduleViewModel()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
