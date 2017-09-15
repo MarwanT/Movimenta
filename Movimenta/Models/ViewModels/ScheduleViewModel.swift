@@ -46,6 +46,10 @@ extension ScheduleViewModel {
       indexOfSelectedDate = newValue.item
     }
   }
+  
+  func setSelected(for indexPath: IndexPath) {
+    selectedItemIndexPath = indexPath
+  }
 }
 
 //MARK: - Schedule Date
