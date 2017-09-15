@@ -10,3 +10,18 @@ import Foundation
 
 final class ScheduleViewModel {
 }
+
+//MARK: - Schedule Date
+extension ScheduleViewModel {
+  struct ScheduleDate {
+    var date: Date?
+    
+    private var isToday: Bool {
+      return date?.same(date: Date()) ?? false
+    }
+    
+    var string: String {
+      return isToday ? Strings.today() : date?.formattedDate(format: "dd'.'MM") ?? ""
+    }
+  }
+}
