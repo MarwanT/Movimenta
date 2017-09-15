@@ -80,8 +80,9 @@ class ScheduleCell: UICollectionViewCell {
   }
   
   //MARK: APIs
-  func set(_ text: String?) {
+  func set(_ text: String?, isSelected: Bool = false) {
     label.text = text
+    self.isSelected = isSelected
   }
 }
 

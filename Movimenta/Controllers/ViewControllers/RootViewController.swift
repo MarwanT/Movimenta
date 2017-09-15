@@ -43,20 +43,20 @@ class RootViewController: UITabBarController {
   func initializeTabBarViewControllers() {
     let eventsMapVC = EventsMapViewController.instance()
     let bookmarksVC = UIViewController()
-    let schedualeVC = UIViewController()
+    let scheduleVC = UIViewController()
     let virtualRealityVC = UIViewController()
     let infoVC = InformationViewController.instance()
     
     eventsMapVC.tabBarItem = UITabBarItem(title: Strings.event_map(), image: #imageLiteral(resourceName: "pinMenuOutline"), tag: 1)
     bookmarksVC.tabBarItem = UITabBarItem(title: Strings.bookmarks(), image: #imageLiteral(resourceName: "bookmarkOutline"), tag: 2)
-    schedualeVC.tabBarItem = UITabBarItem(title: Strings.scheduale(), image: #imageLiteral(resourceName: "schedule"), tag: 3)
+    scheduleVC.tabBarItem = UITabBarItem(title: Strings.schedule(), image: #imageLiteral(resourceName: "schedule"), tag: 3)
     virtualRealityVC.tabBarItem = UITabBarItem(title: Strings.vr(), image: #imageLiteral(resourceName: "vr"), tag: 4)
     infoVC.tabBarItem = UITabBarItem(title: Strings.info(), image: #imageLiteral(resourceName: "info"), tag: 5)
     
     viewControllers = [
       UINavigationController(rootViewController: eventsMapVC),
       bookmarksVC,
-      schedualeVC,
+      scheduleVC,
       virtualRealityVC,
       UINavigationController(rootViewController: infoVC)
     ]
