@@ -141,8 +141,8 @@ final class Strings {
     return Localization.localize(key: "settings")
   }
   
-  static func scheduale() -> String {
-    return Localization.localize(key: "scheduale")
+  static func schedule() -> String {
+    return Localization.localize(key: "schedule")
   }
   
   static func show_bookmarked_events() -> String {
