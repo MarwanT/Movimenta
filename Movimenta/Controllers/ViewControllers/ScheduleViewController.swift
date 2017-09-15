@@ -21,6 +21,7 @@ class ScheduleViewController: UIViewController {
     super.viewDidLoad()
     initializeCollectionView()
     navigateToSelectedDate()
+    reloadEventsData()
   }
   
   private func initializeCollectionView() {
