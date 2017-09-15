@@ -10,6 +10,7 @@ import Foundation
 
 final class ScheduleViewModel {
   fileprivate(set) var scheduleDates = [ScheduleDate]()
+  fileprivate(set) var indexOfSelectedDate: Int = 0
   
   init() {
     let firstDate = FiltersManager.shared.firstEventDate
