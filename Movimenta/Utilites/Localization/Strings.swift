@@ -177,6 +177,10 @@ final class Strings {
     return Localization.localize(key: "to_time")
   }
   
+  static func today() -> String {
+    return Localization.localize(key: "today")
+  }
+  
   static func venue() -> String {
     return Localization.localize(key: "venue")
   }
