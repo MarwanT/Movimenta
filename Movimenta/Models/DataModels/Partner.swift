@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Partner {
+  var id: String?
+  var link: URL?
+  var name: String?
+  var image: String?
+  var description: String?
+}
