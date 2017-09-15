@@ -50,8 +50,8 @@ class ScheduleCell: UICollectionViewCell {
     label.font = configuration.font
     label.textColor = configuration.highlightColor
     contentView.layer.borderColor = configuration.highlightColor.cgColor
-    contentView.layer.borderWidth = 0.5
-    contentView.layer.cornerRadius = 1
+    contentView.layer.borderWidth = 1
+    contentView.layer.cornerRadius = 3
     contentView.layoutMargins = configuration.layoutMargins
     contentView.backgroundColor = configuration.defaultColor
   }
