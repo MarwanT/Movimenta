@@ -260,6 +260,24 @@
             </objects>
             <point key="canvasLocation" x="1192.8" y="134.93253373313345"/>
         </scene>
+        <!--Contact View Controller-->
+        <scene sceneID="MOH-Ds-3wu">
+            <objects>
+                <viewController storyboardIdentifier="ContactViewController" id="YcE-EW-YCF" customClass="ContactViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BMD-1C-2bI"/>
+                        <viewControllerLayoutGuide type="bottom" id="c43-no-Dbh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c9B-kK-fiB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MyI-lY-AH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2081" y="115"/>
+        </scene>
     </scenes>
     <resources>
         <image name="aboutLarge" width="750" height="300"/>
