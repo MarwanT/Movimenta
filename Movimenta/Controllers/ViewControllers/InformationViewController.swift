@@ -31,10 +31,10 @@ class InformationViewController: UIViewController {
 
   private func initialize() {
     //All Initializations and Setup
-    setupView()
+    applyTheme()
   }
 
-  private func setupView() {
+  private func applyTheme() {
     let theme = ThemeManager.shared.current
 
     view.backgroundColor = theme.white
