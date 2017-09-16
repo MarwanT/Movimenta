@@ -12,3 +12,9 @@ class InformationViewController: UIViewController {
 
 }
 
+//MARK: - Instance
+extension InformationViewController {
+  static func instance() -> InformationViewController {
+    return Storyboard.Information.instantiate(InformationViewController.self)
+  }
+}
