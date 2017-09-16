@@ -135,6 +135,7 @@
 		F409C1F81F6D083B007216E4 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1F71F6D083B007216E4 /* InformationViewController.swift */; };
 		F409C1FA1F6D0C3B007216E4 /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F409C1F91F6D0C3B007216E4 /* Information.storyboard */; };
 		F409C1FC1F6D47A9007216E4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1FB1F6D47A9007216E4 /* AboutViewController.swift */; };
+		F409C2001F6D7F51007216E4 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +288,7 @@
 		F409C1F71F6D083B007216E4 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		F409C1F91F6D0C3B007216E4 /* Information.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
 		F409C1FB1F6D47A9007216E4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -731,6 +733,7 @@
 				59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */,
 				594662121F39D1B6007412C0 /* EventDetailsViewModel.swift */,
 				5903B1051F4D82B8009DF33C /* FiltersViewModel.swift */,
+				F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */,
 				599202631F669C460078578C /* ParticipantViewModel.swift */,
 			);
 			path = ViewModels;
@@ -1121,6 +1124,7 @@
 				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
 				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
 				5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */,
+				F409C2001F6D7F51007216E4 /* AboutViewModel.swift in Sources */,
 				598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */,
 				5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */,
 				59A008291F615FBE00E392DD /* PadableLabel.swift in Sources */,
