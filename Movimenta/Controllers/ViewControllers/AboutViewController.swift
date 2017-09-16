@@ -32,6 +32,9 @@ class AboutViewController: UIViewController {
   private func setupView() {
     //Localize title
     title = Strings.about()
+    descriptionLabel.text = Strings.about_description()
+    subtitleLabel.text = Strings.about_subtitle()
+    informationLabel.text = Strings.about_subtitle_description()
 
     //Addtional needed setup
     let theme = ThemeManager.shared.current
