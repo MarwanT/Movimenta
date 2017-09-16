@@ -10,6 +10,10 @@ import Foundation
 
 class AboutViewController: UIViewController {
 
+
+  @IBOutlet weak var contentView: UIView!
+
+
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()
