@@ -61,14 +61,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="About Movimenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uO-V9-nRf" userLabel="About Title Label">
-                                <rect key="frame" x="120" y="50" width="135" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="About Movimenta" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uO-V9-nRf" userLabel="About Title Label">
+                                <rect key="frame" x="120" y="30" width="135" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QI9-bk-W5f" userLabel="About App Label">
-                                <rect key="frame" x="155" y="81" width="65" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="The App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QI9-bk-W5f" userLabel="About App Label">
+                                <rect key="frame" x="155" y="51" width="65" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -81,7 +81,7 @@
                             <constraint firstItem="l65-ef-xGw" firstAttribute="width" secondItem="EjZ-6c-4oX" secondAttribute="width" id="6CK-Cp-9Ac"/>
                             <constraint firstItem="kur-Ba-k5S" firstAttribute="top" secondItem="ogM-c3-nIq" secondAttribute="top" id="7Ge-xK-uUc"/>
                             <constraint firstItem="Oaz-nH-fUJ" firstAttribute="height" secondItem="EjZ-6c-4oX" secondAttribute="height" id="8cb-Tj-rlg"/>
-                            <constraint firstItem="QI9-bk-W5f" firstAttribute="top" secondItem="7uO-V9-nRf" secondAttribute="bottom" constant="10" id="BLM-6B-sR6"/>
+                            <constraint firstItem="QI9-bk-W5f" firstAttribute="top" secondItem="7uO-V9-nRf" secondAttribute="bottom" id="BLM-6B-sR6"/>
                             <constraint firstItem="xL7-XI-31i" firstAttribute="centerX" secondItem="Oaz-nH-fUJ" secondAttribute="centerX" id="MSg-Eq-nA0"/>
                             <constraint firstItem="Oaz-nH-fUJ" firstAttribute="top" secondItem="ogM-c3-nIq" secondAttribute="bottom" constant="20" id="OOA-Gb-b0w"/>
                             <constraint firstItem="ogM-c3-nIq" firstAttribute="width" secondItem="kur-Ba-k5S" secondAttribute="width" id="Pki-bx-pGn"/>
@@ -98,7 +98,7 @@
                             <constraint firstItem="Za9-nd-Zaw" firstAttribute="centerY" secondItem="ogM-c3-nIq" secondAttribute="centerY" id="apU-97-JuB"/>
                             <constraint firstItem="Oaz-nH-fUJ" firstAttribute="width" secondItem="ogM-c3-nIq" secondAttribute="width" id="cqJ-LP-zgM"/>
                             <constraint firstItem="Tvs-fU-1EY" firstAttribute="centerY" secondItem="kur-Ba-k5S" secondAttribute="centerY" id="dqe-Ea-MIf"/>
-                            <constraint firstItem="7uO-V9-nRf" firstAttribute="top" secondItem="6L2-GY-ceL" secondAttribute="top" constant="30" id="f0e-RX-Jps"/>
+                            <constraint firstItem="7uO-V9-nRf" firstAttribute="top" secondItem="6L2-GY-ceL" secondAttribute="top" constant="10" id="f0e-RX-Jps"/>
                             <constraint firstItem="Oaz-nH-fUJ" firstAttribute="width" secondItem="EjZ-6c-4oX" secondAttribute="width" id="g4m-Le-qM4"/>
                             <constraint firstItem="ogM-c3-nIq" firstAttribute="top" secondItem="6L2-GY-ceL" secondAttribute="bottom" constant="20" id="gFw-7o-yfS"/>
                             <constraint firstItem="l65-ef-xGw" firstAttribute="centerX" secondItem="EjZ-6c-4oX" secondAttribute="centerX" id="h8m-Nm-fwg"/>
