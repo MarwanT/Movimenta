@@ -45,7 +45,7 @@ class RootViewController: UITabBarController {
     let bookmarksVC = UIViewController()
     let schedualeVC = UIViewController()
     let virtualRealityVC = UIViewController()
-    let infoVC = UIViewController()
+    let infoVC = InformationViewController.instance()
     
     eventsMapVC.tabBarItem = UITabBarItem(title: Strings.event_map(), image: #imageLiteral(resourceName: "pinMenuOutline"), tag: 1)
     bookmarksVC.tabBarItem = UITabBarItem(title: Strings.bookmarks(), image: #imageLiteral(resourceName: "bookmarkOutline"), tag: 2)
@@ -58,7 +58,7 @@ class RootViewController: UITabBarController {
       bookmarksVC,
       schedualeVC,
       virtualRealityVC,
-      infoVC
+      UINavigationController(rootViewController: infoVC)
     ]
     
     // Set Default select tab index
