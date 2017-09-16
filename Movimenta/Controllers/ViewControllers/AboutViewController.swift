@@ -82,8 +82,16 @@ class AboutViewController: UIViewController {
     let rangeWithoutDelimiters = NSRange.init(location: firstRange.location - 1, length: firstRange.length - 1)
     //TODO: We might need this to be in fr / en
     informationLabel.addLink(to: viewModel.developerUrl, with: rangeWithoutDelimiters)
+    informationLabel.delegate = self
   }
 
+}
+
+//MARK: Link Action
+extension AboutViewController: TTTAttributedLabelDelegate {
+  public func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+    //TODO: Open url
+  }
 }
 
 extension AboutViewController {
