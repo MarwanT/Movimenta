@@ -45,6 +45,15 @@ class AboutViewController: UIViewController {
     let theme = ThemeManager.shared.current
 
     separatorView.backgroundColor = theme.separatorColor
+
+    //Set fonts
+    descriptionLabel.font = theme.font6
+    subtitleLabel.font = theme.font5
+    informationLabel.font = theme.font6
+    //Set colors
+    descriptionLabel.textColor = theme.darkTextColor
+    subtitleLabel.textColor = theme.darkTextColor
+    informationLabel.textColor = theme.darkTextColor
   }
 }
 
