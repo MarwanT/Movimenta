@@ -63,6 +63,13 @@
                             <constraint firstItem="ogM-c3-nIq" firstAttribute="leading" secondItem="6L2-GY-ceL" secondAttribute="leading" id="yGK-a6-g0M"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomHotelsConstraint" destination="XcL-Gs-79X" id="vMo-Bn-sQe"/>
+                        <outlet property="leadingAboutConstraint" destination="2oV-X9-D7b" id="hFZ-GD-dLH"/>
+                        <outlet property="spaceBetweenConstraint" destination="4fv-bh-q4J" id="41y-4e-BQO"/>
+                        <outlet property="topAboutConstraint" destination="jUo-Ty-02m" id="bmt-XF-Hwk"/>
+                        <outlet property="trailingAboutConstraint" destination="R3u-FX-5Vr" id="gVN-eI-Wd5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tn4-lr-lPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

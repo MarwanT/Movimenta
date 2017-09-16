@@ -10,6 +10,13 @@ import Foundation
 
 class InformationViewController: UIViewController {
 
+
+  @IBOutlet weak var leadingAboutConstraint: NSLayoutConstraint!
+  @IBOutlet weak var trailingAboutConstraint: NSLayoutConstraint!
+  @IBOutlet weak var topAboutConstraint: NSLayoutConstraint!
+  @IBOutlet weak var bottomHotelsConstraint: NSLayoutConstraint!
+  @IBOutlet weak var spaceBetweenConstraint: NSLayoutConstraint!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()
