@@ -37,6 +37,8 @@ class AboutViewController: UIViewController {
     descriptionLabel.text = Strings.about_description()
     subtitleLabel.text = Strings.about_subtitle()
     informationLabel.text = Strings.about_subtitle_description()
+    //Note: Must be called after both the text and initial style has been set.
+    setupAttributedLabels()
 
     //Addtional needed setup
     let theme = ThemeManager.shared.current
