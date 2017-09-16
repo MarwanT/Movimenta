@@ -24,6 +24,12 @@ class InformationViewController: UIViewController {
   @IBOutlet weak var hotelsLabel: UILabel!
   @IBOutlet weak var restaurantsLabel: UILabel!
 
+  @IBOutlet weak var aboutImageView: UIImageView!
+  @IBOutlet weak var partnersImageView: UIImageView!
+  @IBOutlet weak var contactImageView: UIImageView!
+  @IBOutlet weak var hotelsImageView: UIImageView!
+  @IBOutlet weak var restaurantsImageView: UIImageView!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()

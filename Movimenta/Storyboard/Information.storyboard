@@ -121,12 +121,17 @@
                     </view>
                     <connections>
                         <outlet property="aboutAppLabel" destination="QI9-bk-W5f" id="WLX-7d-DzZ"/>
+                        <outlet property="aboutImageView" destination="6L2-GY-ceL" id="A4T-He-Gzf"/>
                         <outlet property="aboutLabel" destination="7uO-V9-nRf" id="koD-i5-coZ"/>
                         <outlet property="bottomHotelsConstraint" destination="XcL-Gs-79X" id="vMo-Bn-sQe"/>
+                        <outlet property="contactImageView" destination="kur-Ba-k5S" id="vLB-Pm-njE"/>
                         <outlet property="contactLabel" destination="Tvs-fU-1EY" id="05I-8T-vGw"/>
+                        <outlet property="hotelsImageView" destination="Oaz-nH-fUJ" id="aDy-0x-zjB"/>
                         <outlet property="hotelsLabel" destination="xL7-XI-31i" id="R2V-ku-lAr"/>
                         <outlet property="leadingAboutConstraint" destination="2oV-X9-D7b" id="hFZ-GD-dLH"/>
+                        <outlet property="partnersImageView" destination="ogM-c3-nIq" id="EUM-AN-5cK"/>
                         <outlet property="partnersLabel" destination="Za9-nd-Zaw" id="j3m-YD-1Ir"/>
+                        <outlet property="restaurantsImageView" destination="EjZ-6c-4oX" id="f5p-e8-Alr"/>
                         <outlet property="restaurantsLabel" destination="l65-ef-xGw" id="3xP-ZP-WkX"/>
                         <outlet property="spaceBetweenConstraint" destination="4fv-bh-q4J" id="41y-4e-BQO"/>
                         <outlet property="topAboutConstraint" destination="jUo-Ty-02m" id="bmt-XF-Hwk"/>
