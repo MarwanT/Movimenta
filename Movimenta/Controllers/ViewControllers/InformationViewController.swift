@@ -61,14 +61,12 @@ class InformationViewController: UIViewController {
     aboutLabel.font = ThemeManager.shared.current.font1
     aboutAppLabel.font = ThemeManager.shared.current.font6
     partnersLabel.font = ThemeManager.shared.current.font4
-    partnersLabel.font = ThemeManager.shared.current.font4
     contactLabel.font = ThemeManager.shared.current.font4
     hotelsLabel.font = ThemeManager.shared.current.font4
     restaurantsLabel.font = ThemeManager.shared.current.font4
 
     aboutLabel.textColor = ThemeManager.shared.current.lightTextColor
     aboutAppLabel.textColor = ThemeManager.shared.current.lightTextColor
-    partnersLabel.textColor = ThemeManager.shared.current.lightTextColor
     partnersLabel.textColor = ThemeManager.shared.current.lightTextColor
     contactLabel.textColor = ThemeManager.shared.current.lightTextColor
     hotelsLabel.textColor = ThemeManager.shared.current.lightTextColor
