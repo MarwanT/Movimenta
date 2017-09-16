@@ -33,3 +33,8 @@ class AboutViewController: UIViewController {
   }
 }
 
+extension AboutViewController {
+  static func instance() -> AboutViewController {
+    return Storyboard.Information.instantiate(AboutViewController.self)
+  }
+}
