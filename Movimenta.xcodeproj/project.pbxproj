@@ -136,6 +136,7 @@
 		F409C1FA1F6D0C3B007216E4 /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F409C1F91F6D0C3B007216E4 /* Information.storyboard */; };
 		F409C1FC1F6D47A9007216E4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1FB1F6D47A9007216E4 /* AboutViewController.swift */; };
 		F409C2001F6D7F51007216E4 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */; };
+		F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2011F6D86B5007216E4 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,6 +290,7 @@
 		F409C1F91F6D0C3B007216E4 /* Information.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
 		F409C1FB1F6D47A9007216E4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
+		F409C2011F6D86B5007216E4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -689,6 +691,7 @@
 				59EF02181F3076CF00F145B9 /* RootViewController.swift */,
 				59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */,
 				594662101F39CFDF007412C0 /* EventDetailsViewController.swift */,
+				F409C2011F6D86B5007216E4 /* WebViewController.swift */,
 				F409C1F71F6D083B007216E4 /* InformationViewController.swift */,
 				F409C1FB1F6D47A9007216E4 /* AboutViewController.swift */,
 				5903B1011F4D7F2E009DF33C /* FiltersViewController.swift */,
@@ -1137,6 +1140,7 @@
 				59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */,
 				5953C1801F559CA700BD27AB /* SelectableCell.swift in Sources */,
 				594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */,
+				F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */,
 				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
 				5945006F1F44342400779302 /* DateTimeCell.swift in Sources */,
 				59363FDE1F4740DE006059B6 /* LaunchView.swift in Sources */,
