@@ -31,6 +31,11 @@ class InformationViewController: UIViewController {
     let theme = ThemeManager.shared.current
 
     //Setup bounds
+    leadingAboutConstraint.constant = CGFloat(theme.space7)
+    trailingAboutConstraint.constant = CGFloat(theme.space7)
+    topAboutConstraint.constant = CGFloat(theme.space7)
+    bottomHotelsConstraint.constant = CGFloat(theme.space7)
+    spaceBetweenConstraint.constant = CGFloat(theme.space7)
   }
 
 }
