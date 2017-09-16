@@ -29,7 +29,12 @@ class AboutViewController: UIViewController {
     //Localize title
     title = Strings.about()
 
-    //TODO: Needed setup
+    //Addtional needed setup
+    let theme = ThemeManager.shared.current
+
+    contentView.layoutMargins = UIEdgeInsets(
+      top: 0, left: CGFloat(theme.space7),
+      bottom: 0, right: CGFloat(theme.space7))
   }
 
   private func applyTheme() {
