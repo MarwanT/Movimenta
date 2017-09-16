@@ -49,6 +49,27 @@ class InformationViewController: UIViewController {
     contactLabel.text = Strings.contact()
     hotelsLabel.text = Strings.hotels()
     restaurantsLabel.text = Strings.restaurants()
+
+    //Set tap listeners
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(aboutImageTapped(tapGestureRecognizer:)))
+    aboutImageView.isUserInteractionEnabled = true
+    aboutImageView.addGestureRecognizer(tapGestureRecognizer)
+
+    let partnersImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(partnersImageTapped(tapGestureRecognizer:)))
+    partnersImageView.isUserInteractionEnabled = true
+    partnersImageView.addGestureRecognizer(partnersImageTapGestureRecognizer)
+
+    let contactImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(contactImageTapped(tapGestureRecognizer:)))
+    contactImageView.isUserInteractionEnabled = true
+    contactImageView.addGestureRecognizer(contactImageTapGestureRecognizer)
+
+    let hotelsImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hotelsImageTapped(tapGestureRecognizer:)))
+    hotelsImageView.isUserInteractionEnabled = true
+    hotelsImageView.addGestureRecognizer(hotelsImageTapGestureRecognizer)
+
+    let restaurantsImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(restaurantsImageTapped(tapGestureRecognizer:)))
+    restaurantsImageView.isUserInteractionEnabled = true
+    restaurantsImageView.addGestureRecognizer(restaurantsImageTapGestureRecognizer)
   }
 
   private func applyTheme() {
@@ -77,6 +98,31 @@ class InformationViewController: UIViewController {
     contactLabel.textColor = ThemeManager.shared.current.lightTextColor
     hotelsLabel.textColor = ThemeManager.shared.current.lightTextColor
     restaurantsLabel.textColor = ThemeManager.shared.current.lightTextColor
+  }
+
+}
+
+//MARK: - Actions
+extension InformationViewController {
+
+  func aboutImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    //TODO: action
+  }
+
+  func contactImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    //TODO: action
+  }
+
+  func hotelsImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    //TODO: action
+  }
+
+  func restaurantsImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    //TODO: action
+  }
+
+  func partnersImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    //TODO: action
   }
 
 }
