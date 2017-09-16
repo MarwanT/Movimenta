@@ -180,7 +180,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGv-Xc-i1k" userLabel="Separator">
-                                                <rect key="frame" x="20" y="216" width="355" height="1"/>
+                                                <rect key="frame" x="8" y="216" width="367" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="390-qV-pw9"/>
@@ -209,7 +209,7 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="FLq-K0-JhB" secondAttribute="trailing" id="FqX-Pw-Hg9"/>
                                             <constraint firstItem="fGv-Xc-i1k" firstAttribute="top" secondItem="LBT-35-w0H" secondAttribute="bottom" constant="30" id="HqM-aN-tmt"/>
                                             <constraint firstItem="PYh-kr-nVl" firstAttribute="leading" secondItem="mP3-D1-OKQ" secondAttribute="leadingMargin" id="MYf-GM-c4o"/>
-                                            <constraint firstItem="fGv-Xc-i1k" firstAttribute="leading" secondItem="mP3-D1-OKQ" secondAttribute="leading" constant="20" id="RDp-sZ-LOz"/>
+                                            <constraint firstItem="fGv-Xc-i1k" firstAttribute="leading" secondItem="mP3-D1-OKQ" secondAttribute="leadingMargin" id="RDp-sZ-LOz"/>
                                             <constraint firstItem="Im4-1d-SJB" firstAttribute="width" secondItem="hZQ-ye-r27" secondAttribute="width" id="Soo-N7-FP8"/>
                                             <constraint firstItem="FLq-K0-JhB" firstAttribute="leading" secondItem="mP3-D1-OKQ" secondAttribute="leadingMargin" id="TCH-TU-u6Y"/>
                                             <constraint firstAttribute="trailing" secondItem="fGv-Xc-i1k" secondAttribute="trailing" id="TDc-1c-jpN"/>
