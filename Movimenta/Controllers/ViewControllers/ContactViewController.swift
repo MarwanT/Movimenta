@@ -28,3 +28,9 @@ class ContactViewController: UIViewController {
     //TODO: apply theme
   }
 }
+
+extension ContactViewController {
+  static func instance() -> ContactViewController {
+    return Storyboard.Information.instantiate(ContactViewController.self)
+  }
+}
