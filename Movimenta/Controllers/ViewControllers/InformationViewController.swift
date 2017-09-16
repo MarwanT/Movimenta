@@ -42,6 +42,8 @@ class InformationViewController: UIViewController {
   }
 
   private func setupView() {
+    //Localize title
+    title = Strings.info()
     //Localize labels
     aboutLabel.text = Strings.info_app_title()
     aboutAppLabel.text = Strings.info_app_subtitle()
