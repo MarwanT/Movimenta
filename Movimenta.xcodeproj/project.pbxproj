@@ -137,6 +137,7 @@
 		F409C1FC1F6D47A9007216E4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1FB1F6D47A9007216E4 /* AboutViewController.swift */; };
 		F409C2001F6D7F51007216E4 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */; };
 		F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2011F6D86B5007216E4 /* WebViewController.swift */; };
+		F409C2041F6D8C17007216E4 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2031F6D8C17007216E4 /* ContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -291,6 +292,7 @@
 		F409C1FB1F6D47A9007216E4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		F409C2011F6D86B5007216E4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		F409C2031F6D8C17007216E4 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -694,6 +696,7 @@
 				F409C2011F6D86B5007216E4 /* WebViewController.swift */,
 				F409C1F71F6D083B007216E4 /* InformationViewController.swift */,
 				F409C1FB1F6D47A9007216E4 /* AboutViewController.swift */,
+				F409C2031F6D8C17007216E4 /* ContactViewController.swift */,
 				5903B1011F4D7F2E009DF33C /* FiltersViewController.swift */,
 				599202611F669A110078578C /* ParticipantViewController.swift */,
 			);
@@ -1112,6 +1115,7 @@
 				59EF021B1F3094BA00F145B9 /* Image+Utils.swift in Sources */,
 				5903B0FE1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift in Sources */,
 				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
+				F409C2041F6D8C17007216E4 /* ContactViewController.swift in Sources */,
 				596834991F5D914100E25579 /* SliderCell.swift in Sources */,
 				F409C1F61F6C4AF9007216E4 /* PartnerGroup.swift in Sources */,
 				591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */,
