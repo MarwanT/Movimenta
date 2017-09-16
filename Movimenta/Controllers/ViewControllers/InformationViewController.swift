@@ -32,6 +32,17 @@ class InformationViewController: UIViewController {
   private func initialize() {
     //All Initializations and Setup
     applyTheme()
+    setupView()
+  }
+
+  private func setupView() {
+    //Localize labels
+    aboutLabel.text = Strings.info_app_title()
+    aboutAppLabel.text = Strings.info_app_subtitle()
+    partnersLabel.text = Strings.partners()
+    contactLabel.text = Strings.contact()
+    hotelsLabel.text = Strings.hotels()
+    restaurantsLabel.text = Strings.restaurants()
   }
 
   private func applyTheme() {
