@@ -30,6 +30,8 @@ class InformationViewController: UIViewController {
   private func setupView() {
     let theme = ThemeManager.shared.current
 
+    view.backgroundColor = theme.white
+
     //Setup bounds
     leadingAboutConstraint.constant = CGFloat(theme.space7)
     trailingAboutConstraint.constant = CGFloat(theme.space7)
