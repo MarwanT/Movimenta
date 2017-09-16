@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TTTAttributedLabel
 
 class AboutViewController: UIViewController {
 
@@ -15,7 +16,7 @@ class AboutViewController: UIViewController {
   @IBOutlet weak var separatorView: UIView!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
-  @IBOutlet weak var informationLabel: UILabel!
+  @IBOutlet weak var informationLabel: TTTAttributedLabel!
 
 
   override func viewDidLoad() {
