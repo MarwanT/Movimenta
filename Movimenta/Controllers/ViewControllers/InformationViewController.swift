@@ -17,6 +17,13 @@ class InformationViewController: UIViewController {
   @IBOutlet weak var bottomHotelsConstraint: NSLayoutConstraint!
   @IBOutlet weak var spaceBetweenConstraint: NSLayoutConstraint!
 
+  @IBOutlet weak var aboutLabel: UILabel!
+  @IBOutlet weak var aboutAppLabel: UILabel!
+  @IBOutlet weak var partnersLabel: UILabel!
+  @IBOutlet weak var contactLabel: UILabel!
+  @IBOutlet weak var hotelsLabel: UILabel!
+  @IBOutlet weak var restaurantsLabel: UILabel!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()
