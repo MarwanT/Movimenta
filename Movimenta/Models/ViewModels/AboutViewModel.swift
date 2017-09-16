@@ -9,7 +9,7 @@
 import Foundation
 
 class AboutViewModel {
-  private static let developerLink = "www.keeward.com"
+  private static let developerLink = "http://www.keeward.com"
   let developerUrl = URL(string: developerLink)
   
 }
