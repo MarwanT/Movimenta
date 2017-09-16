@@ -60,6 +60,30 @@ class AboutViewController: UIViewController {
     subtitleLabel.textColor = theme.darkTextColor
     informationLabel.textColor = theme.darkTextColor
   }
+
+  private func setupAttributedLabels() {
+    let theme = ThemeManager.shared.current
+
+    let linkAttributes = [
+      NSForegroundColorAttributeName: theme.color2
+    ]
+
+    informationLabel.linkAttributes = linkAttributes
+
+    let delimiter = "•"
+    let text = informationLabel.text ?? ""
+    let ranges = informationLabel.text?.rangesOfStringSurrounded(by: delimiter)
+    guard let firstRange = ranges?.first else {
+      //Fail If we found more than one range.
+      return
+    }
+    //Remove link delimiter
+    informationLabel.text = text.replacingOccurrences(of: delimiter, with: "")
+    let rangeWithoutDelimiters = NSRange.init(location: firstRange.location - 1, length: firstRange.length - 1)
+    //TODO: We might need this to be in fr / en
+    informationLabel.addLink(to: viewModel.developerUrl, with: rangeWithoutDelimiters)
+  }
+
 }
 
 extension AboutViewController {
