@@ -132,6 +132,7 @@
 		F409C1F01F6C3E34007216E4 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1EF1F6C3E34007216E4 /* Hotel.swift */; };
 		F409C1F21F6C413F007216E4 /* Partner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1F11F6C413F007216E4 /* Partner.swift */; };
 		F409C1F61F6C4AF9007216E4 /* PartnerGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1F51F6C4AF9007216E4 /* PartnerGroup.swift */; };
+		F409C1F81F6D083B007216E4 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1F71F6D083B007216E4 /* InformationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +282,7 @@
 		F409C1EF1F6C3E34007216E4 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 		F409C1F11F6C413F007216E4 /* Partner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partner.swift; sourceTree = "<group>"; };
 		F409C1F51F6C4AF9007216E4 /* PartnerGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerGroup.swift; sourceTree = "<group>"; };
+		F409C1F71F6D083B007216E4 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -681,6 +683,7 @@
 				59EF02181F3076CF00F145B9 /* RootViewController.swift */,
 				59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */,
 				594662101F39CFDF007412C0 /* EventDetailsViewController.swift */,
+				F409C1F71F6D083B007216E4 /* InformationViewController.swift */,
 				5903B1011F4D7F2E009DF33C /* FiltersViewController.swift */,
 				599202611F669A110078578C /* ParticipantViewController.swift */,
 			);
@@ -1126,6 +1129,7 @@
 				5945006F1F44342400779302 /* DateTimeCell.swift in Sources */,
 				59363FDE1F4740DE006059B6 /* LaunchView.swift in Sources */,
 				594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */,
+				F409C1F81F6D083B007216E4 /* InformationViewController.swift in Sources */,
 				5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */,
 				5970AFAF1F29F631008CA708 /* Theme.swift in Sources */,
 				59048B641F4AE8460000CCAF /* FiltersManager.swift in Sources */,
