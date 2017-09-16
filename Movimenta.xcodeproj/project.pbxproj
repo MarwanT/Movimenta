@@ -138,6 +138,7 @@
 		F409C2001F6D7F51007216E4 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */; };
 		F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2011F6D86B5007216E4 /* WebViewController.swift */; };
 		F409C2041F6D8C17007216E4 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2031F6D8C17007216E4 /* ContactViewController.swift */; };
+		F409C2061F6D8CB2007216E4 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +294,7 @@
 		F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		F409C2011F6D86B5007216E4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F409C2031F6D8C17007216E4 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -739,6 +741,7 @@
 				59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */,
 				594662121F39D1B6007412C0 /* EventDetailsViewModel.swift */,
 				5903B1051F4D82B8009DF33C /* FiltersViewModel.swift */,
+				F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */,
 				F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */,
 				599202631F669C460078578C /* ParticipantViewModel.swift */,
 			);
@@ -1138,6 +1141,7 @@
 				F409C1F21F6C413F007216E4 /* Partner.swift in Sources */,
 				5903B1091F4D9AD9009DF33C /* FiltersSectionHeader.swift in Sources */,
 				5903B1021F4D7F2E009DF33C /* FiltersViewController.swift in Sources */,
+				F409C2061F6D8CB2007216E4 /* ContactViewModel.swift in Sources */,
 				F409C1FC1F6D47A9007216E4 /* AboutViewController.swift in Sources */,
 				599202641F669C460078578C /* ParticipantViewModel.swift in Sources */,
 				5968349F1F6017AB00E25579 /* FiltersBreadcrumbView.swift in Sources */,
