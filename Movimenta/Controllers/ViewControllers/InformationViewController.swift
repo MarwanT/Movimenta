@@ -10,6 +10,22 @@ import Foundation
 
 class InformationViewController: UIViewController {
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    initialize()
+  }
+
+  private func initialize() {
+    //All Initializations and Setup
+    setupView()
+  }
+
+  private func setupView() {
+    let theme = ThemeManager.shared.current
+
+    //Setup bounds
+  }
+
 }
 
 //MARK: - Instance
