@@ -92,7 +92,7 @@ class AboutViewController: UIViewController {
 //MARK: Link Action
 extension AboutViewController: TTTAttributedLabelDelegate {
   public func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
-    //TODO: Open url
+    WebViewController.present(url: url.absoluteString, inViewController: navigationController)
   }
 }
 
