@@ -9,6 +9,9 @@
 import Foundation
 
 class ContactViewController: UIViewController {
+
+  let viewModel = ContactViewModel()
+
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()
