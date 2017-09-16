@@ -42,7 +42,9 @@ class AboutViewController: UIViewController {
   }
 
   private func applyTheme() {
-    //TODO: Needed theming
+    let theme = ThemeManager.shared.current
+
+    separatorView.backgroundColor = theme.separatorColor
   }
 }
 
