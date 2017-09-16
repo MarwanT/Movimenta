@@ -108,7 +108,7 @@ class InformationViewController: UIViewController {
 extension InformationViewController {
 
   func aboutImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-    //TODO: action
+    navigationController?.pushViewController(AboutViewController.instance(), animated: true)
   }
 
   func contactImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
