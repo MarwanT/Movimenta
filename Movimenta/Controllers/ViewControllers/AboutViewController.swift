@@ -22,6 +22,9 @@ class AboutViewController: UIViewController {
   }
 
   private func setupView() {
+    //Localize title
+    title = Strings.about()
+
     //TODO: Needed setup
   }
 
