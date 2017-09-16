@@ -7,3 +7,24 @@
 //
 
 import Foundation
+
+class ContactViewController: UIViewController {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    initialize()
+  }
+
+  private func initialize() {
+    //All Initializations and Setup
+    applyTheme()
+    setupView()
+  }
+
+  private func setupView() {
+    //TODO: setup view
+  }
+
+  private func applyTheme() {
+    //TODO: apply theme
+  }
+}
