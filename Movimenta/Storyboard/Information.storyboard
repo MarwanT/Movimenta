@@ -145,26 +145,120 @@
         <!--About View Controller-->
         <scene sceneID="jt4-aF-cUw">
             <objects>
-                <viewController storyboardIdentifier="AboutViewController" id="9FH-7s-p8H" customClass="AboutViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" automaticallyAdjustsScrollViewInsets="NO" id="9FH-7s-p8H" customClass="AboutViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p3C-Tf-Xhq"/>
                         <viewControllerLayoutGuide type="bottom" id="bgY-Vd-qu8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jed-f0-Bas">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="my8-Co-OCI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="780"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mP3-D1-OKQ" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hZQ-ye-r27" userLabel="Picture Image View">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="145" id="2bf-A9-BLp"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoLong" translatesAutoresizingMaskIntoConstraints="NO" id="Im4-1d-SJB" userLabel="Movimenta Image View">
+                                                <rect key="frame" x="-0.5" y="52.5" width="375" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="naP-tq-alq"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBT-35-w0H" userLabel="Description Label">
+                                                <rect key="frame" x="8" y="165" width="359" height="21"/>
+                                                <string key="text">MOVIMENTA est un programme collaboratif qui réunit tous les acteurs concernés par l\'image en mouvement, et ses conditions de création, de production et de diffusion. Le festival biennal MOVIMENTA en octobre 2017 marquera le début de nouvelles collaborations avec le monde de l\'art et celui des technologies numériques, pour un public diversifié.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGv-Xc-i1k" userLabel="Separator">
+                                                <rect key="frame" x="20" y="216" width="355" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="390-qV-pw9"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Une idée de L'Éclat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLq-K0-JhB" userLabel="Subtitle Label">
+                                                <rect key="frame" x="8" y="247" width="359" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conçu et développé par Keeward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-kr-nVl" userLabel="Information Label">
+                                                <rect key="frame" x="8" y="283" width="359" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="LBT-35-w0H" firstAttribute="leading" secondItem="mP3-D1-OKQ" secondAttribute="leadingMargin" id="3hg-2J-jRE"/>
+                                            <constraint firstItem="hZQ-ye-r27" firstAttribute="leading" secondItem="mP3-D1-OKQ" secondAttribute="leading" id="3uP-kU-oYn"/>
+                                            <constraint firstItem="LBT-35-w0H" firstAttribute="top" secondItem="hZQ-ye-r27" secondAttribute="bottom" constant="20" id="8yU-XP-Zun"/>
+                                            <constraint firstItem="PYh-kr-nVl" firstAttribute="top" secondItem="FLq-K0-JhB" secondAttribute="bottom" constant="15" id="Cm1-gC-unr"/>
+                                            <constraint firstItem="hZQ-ye-r27" firstAttribute="top" secondItem="mP3-D1-OKQ" secondAttribute="top" id="Eh8-aV-B9F"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="FLq-K0-JhB" secondAttribute="trailing" id="FqX-Pw-Hg9"/>
+                                            <constraint firstItem="fGv-Xc-i1k" firstAttribute="top" secondItem="LBT-35-w0H" secondAttribute="bottom" constant="30" id="HqM-aN-tmt"/>
+                                            <constraint firstItem="PYh-kr-nVl" firstAttribute="leading" secondItem="mP3-D1-OKQ" secondAttribute="leadingMargin" id="MYf-GM-c4o"/>
+                                            <constraint firstItem="fGv-Xc-i1k" firstAttribute="leading" secondItem="mP3-D1-OKQ" secondAttribute="leading" constant="20" id="RDp-sZ-LOz"/>
+                                            <constraint firstItem="Im4-1d-SJB" firstAttribute="width" secondItem="hZQ-ye-r27" secondAttribute="width" id="Soo-N7-FP8"/>
+                                            <constraint firstItem="FLq-K0-JhB" firstAttribute="leading" secondItem="mP3-D1-OKQ" secondAttribute="leadingMargin" id="TCH-TU-u6Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="fGv-Xc-i1k" secondAttribute="trailing" id="TDc-1c-jpN"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="LBT-35-w0H" secondAttribute="trailing" id="g74-ts-8AA"/>
+                                            <constraint firstItem="Im4-1d-SJB" firstAttribute="centerY" secondItem="hZQ-ye-r27" secondAttribute="centerY" id="h9c-5R-g6G"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="PYh-kr-nVl" secondAttribute="trailing" id="iGI-Wx-K1c"/>
+                                            <constraint firstAttribute="height" constant="800" id="mrw-BA-Uzd"/>
+                                            <constraint firstItem="FLq-K0-JhB" firstAttribute="top" secondItem="fGv-Xc-i1k" secondAttribute="bottom" constant="30" id="nqe-zw-TdS"/>
+                                            <constraint firstAttribute="trailing" secondItem="hZQ-ye-r27" secondAttribute="trailing" id="r5J-js-TzP"/>
+                                            <constraint firstItem="Im4-1d-SJB" firstAttribute="centerX" secondItem="hZQ-ye-r27" secondAttribute="centerX" id="rOD-hD-Dby"/>
+                                            <constraint firstAttribute="bottom" secondItem="PYh-kr-nVl" secondAttribute="bottom" constant="30" id="tCK-RD-7uk"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="mrw-BA-Uzd"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mP3-D1-OKQ" secondAttribute="bottom" id="EQD-02-3ge"/>
+                                    <constraint firstAttribute="trailing" secondItem="mP3-D1-OKQ" secondAttribute="trailing" id="LFS-b3-KO2"/>
+                                    <constraint firstItem="mP3-D1-OKQ" firstAttribute="leading" secondItem="my8-Co-OCI" secondAttribute="leading" id="YJE-ms-SHa"/>
+                                    <constraint firstItem="mP3-D1-OKQ" firstAttribute="top" secondItem="my8-Co-OCI" secondAttribute="top" id="jDK-Ou-dbc"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="my8-Co-OCI" firstAttribute="top" secondItem="p3C-Tf-Xhq" secondAttribute="bottom" id="0H4-em-7ke"/>
+                            <constraint firstItem="my8-Co-OCI" firstAttribute="leading" secondItem="jed-f0-Bas" secondAttribute="leading" id="0lu-bL-qSq"/>
+                            <constraint firstItem="mP3-D1-OKQ" firstAttribute="width" secondItem="jed-f0-Bas" secondAttribute="width" id="7Mt-D9-xjC"/>
+                            <constraint firstAttribute="trailing" secondItem="my8-Co-OCI" secondAttribute="trailing" id="Lth-zM-2me"/>
+                            <constraint firstItem="bgY-Vd-qu8" firstAttribute="top" secondItem="my8-Co-OCI" secondAttribute="bottom" id="o4i-wx-oaK"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="800"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCk-Km-cIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="135"/>
+            <point key="canvasLocation" x="1192.8" y="134.93253373313345"/>
         </scene>
     </scenes>
     <resources>
         <image name="aboutLarge" width="750" height="300"/>
         <image name="contact" width="316" height="316"/>
         <image name="hotels" width="316" height="316"/>
+        <image name="logoLong" width="567" height="73"/>
         <image name="partners" width="316" height="316"/>
         <image name="restaurants" width="316" height="316"/>
     </resources>
