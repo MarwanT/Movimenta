@@ -250,6 +250,10 @@
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="contentView" destination="mP3-D1-OKQ" id="itB-nC-2vx"/>
+                        <outlet property="descriptionLabel" destination="LBT-35-w0H" id="Zeq-t9-wQ6"/>
+                        <outlet property="informationLabel" destination="PYh-kr-nVl" id="ddc-DP-sWx"/>
+                        <outlet property="separatorView" destination="fGv-Xc-i1k" id="BKa-NQ-Djg"/>
+                        <outlet property="subtitleLabel" destination="FLq-K0-JhB" id="xze-6G-dCJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCk-Km-cIf" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,10 @@ class AboutViewController: UIViewController {
 
 
   @IBOutlet weak var contentView: UIView!
+  @IBOutlet weak var separatorView: UIView!
+  @IBOutlet weak var descriptionLabel: UILabel!
+  @IBOutlet weak var subtitleLabel: UILabel!
+  @IBOutlet weak var informationLabel: UILabel!
 
 
   override func viewDidLoad() {
