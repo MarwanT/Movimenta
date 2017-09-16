@@ -212,4 +212,8 @@ final class Strings {
   static func restaurants() -> String {
     return Localization.localize(key: "restaurants")
   }
+
+  static func about() -> String {
+    return Localization.localize(key: "about")
+  }
 }
