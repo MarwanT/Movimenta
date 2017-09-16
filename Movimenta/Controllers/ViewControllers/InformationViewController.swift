@@ -45,6 +45,15 @@ class InformationViewController: UIViewController {
     topAboutConstraint.constant = CGFloat(theme.space7)
     bottomHotelsConstraint.constant = CGFloat(theme.space7)
     spaceBetweenConstraint.constant = CGFloat(theme.space7)
+
+    //Fonts
+    aboutLabel.font = ThemeManager.shared.current.font1
+    aboutAppLabel.font = ThemeManager.shared.current.font6
+    partnersLabel.font = ThemeManager.shared.current.font4
+    partnersLabel.font = ThemeManager.shared.current.font4
+    contactLabel.font = ThemeManager.shared.current.font4
+    hotelsLabel.font = ThemeManager.shared.current.font4
+    restaurantsLabel.font = ThemeManager.shared.current.font4
   }
 
 }
