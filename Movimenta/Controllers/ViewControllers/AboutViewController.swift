@@ -18,6 +18,7 @@ class AboutViewController: UIViewController {
   @IBOutlet weak var subtitleLabel: UILabel!
   @IBOutlet weak var informationLabel: TTTAttributedLabel!
 
+  let viewModel = AboutViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
