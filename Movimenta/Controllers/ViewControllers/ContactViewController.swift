@@ -39,7 +39,22 @@ class ContactViewController: UIViewController {
   }
 
   private func applyTheme() {
-    //TODO: apply theme
+    let theme = ThemeManager.shared.current
+
+    //set fonts
+    callTitleLabel.font = theme.font4
+    callDescriptionLabel.font = theme.font6
+    businessQuestionTitleLabel.font = theme.font4
+    businessQuestionDescriptionLabel.font = theme.font6
+    artQuestionTitleLabel.font = theme.font4
+    artQuestionDescriptionLabel.font = theme.font6
+    //set colors
+    callTitleLabel.textColor = theme.darkTextColor
+    callDescriptionLabel.textColor = theme.darkTextColor
+    businessQuestionTitleLabel.textColor = theme.darkTextColor
+    businessQuestionDescriptionLabel.textColor = theme.darkTextColor
+    artQuestionTitleLabel.textColor = theme.darkTextColor
+    artQuestionDescriptionLabel.textColor = theme.darkTextColor
   }
 }
 
