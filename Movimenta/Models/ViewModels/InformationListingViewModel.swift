@@ -36,3 +36,23 @@ class InformationListingViewModel {
     }
   }
 }
+
+//MARK: Table view helpers
+extension InformationListingViewModel {
+  func numberOfSections() -> Int {
+    return 1
+  }
+
+  func numberOfRowForSection(section: Int) -> Int {
+    return data.count
+  }
+
+  func itemAtIndexPath(indexPath: IndexPath) -> InformationModelCommonProperties? {
+    let index = indexPath.item
+    guard data.count > index else {
+      return nil
+    }
+    let item = data[index]
+    return item
+  }
+}
