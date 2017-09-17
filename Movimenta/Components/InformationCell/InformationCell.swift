@@ -25,7 +25,12 @@ class InformationCell: UITableViewCell {
   }
 
   private func applyTheme() {
-    //TODO: Apply theme
+    let theme = ThemeManager.shared.current
+    titleLabel.font = theme.font4
+    websiteLabel.font = theme.font12
+
+    titleLabel.textColor = theme.darkTextColor
+    websiteLabel.textColor = theme.color2
   }
 }
 
