@@ -24,7 +24,7 @@ class InformationListingViewModel {
     }
   }
 
-  var data: [InformationModelCommonProperties] = []
+  fileprivate var data: [InformationModelCommonProperties] = []
   var mode: InformationListingViewModel.Mode = .hotels
 
   func vcTitle() -> String {
