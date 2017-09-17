@@ -16,7 +16,16 @@ class InformationListingViewModel {
 
   func initialize(with mode: Mode) {
     self.mode = mode
+    switch(mode) {
+    case .hotels:
+      data = DataManager.shared.hotels
+      break
+    case .restaurants:
+      data = DataManager.shared.restaurants
+      break
+    }
   }
 
+  var data: [InformationModelCommonProperties] = []
   var mode: Mode!
 }
