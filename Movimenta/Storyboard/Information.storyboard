@@ -459,6 +459,24 @@
             </objects>
             <point key="canvasLocation" x="2081" y="115"/>
         </scene>
+        <!--Information Listing View Controller-->
+        <scene sceneID="7OU-aa-QL9">
+            <objects>
+                <viewController storyboardIdentifier="InformationListingViewController" id="fv8-R1-6Jn" customClass="InformationListingViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S0V-Ko-FRn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Of9-S4-Ljf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DYK-0h-Wua">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IyY-iV-y5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3097" y="116"/>
+        </scene>
     </scenes>
     <resources>
         <image name="aboutLarge" width="750" height="300"/>
