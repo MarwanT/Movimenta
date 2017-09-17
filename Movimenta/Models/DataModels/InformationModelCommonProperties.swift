@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol InformationModelCommonProperties: Equatable {
+typealias Type = InformationModelCommonProperties
+
+protocol InformationModelCommonProperties {
   var id: String? { get }
   var link: URL? { get }
   var name: String? { get }
@@ -16,7 +18,7 @@ protocol InformationModelCommonProperties: Equatable {
   var description: String? { get }
 }
 
-func ==<T: InformationModelCommonProperties>(lhs: T, rhs: T) -> Bool {
+func equals<T: InformationModelCommonProperties>(lhs: T, rhs: T) -> Bool {
   guard let lhsId = lhs.id, let rhsId = rhs.id else {
     return false
   }
