@@ -9,5 +9,9 @@
 import Foundation
 
 class InformationListingViewModel {
+  enum Mode {
+    case restaurants
+    case hotels
+  }
 
 }
