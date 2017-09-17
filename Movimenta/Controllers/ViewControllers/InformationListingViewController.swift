@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+class InformationListingViewController: UIViewController {
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    initialize()
+  }
+
+  private func initialize() {
+    //All Initializations and Setup
+    applyTheme()
+    setupView()
+  }
+
+  private func applyTheme() {
+    //TODO: apply theme
+  }
+
+  private func setupView() {
+    //TODO: setup view
+  }
+}
