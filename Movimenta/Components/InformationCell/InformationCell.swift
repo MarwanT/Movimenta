@@ -32,6 +32,14 @@ class InformationCell: UITableViewCell {
     titleLabel.textColor = theme.darkTextColor
     websiteLabel.textColor = theme.color2
   }
+
+  public func set(imageURL: String?, title: String?) {
+    if let imageURL = imageURL, let url = URL(string: imageURL) {
+      displayImageView.sd_setImage(with: url)
+    }
+    titleLabel.text = title
+    websiteLabel.text = Strings.view_website()
+  }
 }
 
 //MARK: Configuration
