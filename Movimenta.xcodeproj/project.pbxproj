@@ -141,6 +141,7 @@
 		F409C2061F6D8CB2007216E4 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */; };
 		F409C2081F6E8DB1007216E4 /* InformationModelCommonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */; };
 		F409C20A1F6E8F81007216E4 /* InformationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2091F6E8F81007216E4 /* InformationListingViewController.swift */; };
+		F409C20C1F6E9027007216E4 /* InformationListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -299,6 +300,7 @@
 		F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationModelCommonProperties.swift; sourceTree = "<group>"; };
 		F409C2091F6E8F81007216E4 /* InformationListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationListingViewController.swift; sourceTree = "<group>"; };
+		F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationListingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -749,6 +751,7 @@
 				5903B1051F4D82B8009DF33C /* FiltersViewModel.swift */,
 				F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */,
 				F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */,
+				F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */,
 				599202631F669C460078578C /* ParticipantViewModel.swift */,
 			);
 			path = ViewModels;
@@ -1103,6 +1106,7 @@
 				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
 				5903B1061F4D82B8009DF33C /* FiltersViewModel.swift in Sources */,
 				59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */,
+				F409C20C1F6E9027007216E4 /* InformationListingViewModel.swift in Sources */,
 				59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */,
 				594662171F3C736F007412C0 /* NSLayoutConstraint+Utils.swift in Sources */,
 				594662131F39D1B6007412C0 /* EventDetailsViewModel.swift in Sources */,
