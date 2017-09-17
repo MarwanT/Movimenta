@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MessageUI
 
 class ContactViewController: UIViewController {
 
@@ -94,6 +95,30 @@ class ContactViewController: UIViewController {
         }
       }
     }
+  }
+
+  func sendEmail(email: String, body: String? = nil) {
+    guard email.isValidEmail() else {
+      return
+    }
+
+    if MFMailComposeViewController.canSendMail() {
+      let mail = MFMailComposeViewController()
+      mail.mailComposeDelegate = self
+      mail.setToRecipients([email])
+      mail.setMessageBody(body ?? "", isHTML: true)
+
+      present(mail, animated: true)
+    } else {
+      //TODO: show alert not able to open mail app
+    }
+  }
+}
+
+//MARK: Mail Delegate
+extension ContactViewController: MFMailComposeViewControllerDelegate {
+  func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    controller.dismiss(animated: true)
   }
 }
 
