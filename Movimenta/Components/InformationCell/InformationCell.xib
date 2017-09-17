@@ -51,6 +51,11 @@
                     <constraint firstItem="tAI-pb-2mQ" firstAttribute="top" secondItem="bDv-dx-3zv" secondAttribute="bottom" constant="15" id="wzT-Py-gbo"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="displayImageView" destination="tAI-pb-2mQ" id="i0i-GT-OWU"/>
+                <outlet property="titleLabel" destination="bDv-dx-3zv" id="LBd-Vj-ZQW"/>
+                <outlet property="websiteLabel" destination="fK5-KJ-CVm" id="cgJ-Sf-Kn8"/>
+            </connections>
             <point key="canvasLocation" x="12" y="140"/>
         </tableViewCell>
     </objects>
