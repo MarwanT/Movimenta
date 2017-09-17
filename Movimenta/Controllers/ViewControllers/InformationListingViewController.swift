@@ -12,6 +12,10 @@ class InformationListingViewController: UIViewController {
 
   let viewModel = InformationListingViewModel()
 
+  func initialize(with mode: InformationListingViewModel.Mode) {
+    viewModel.initialize(with: mode)
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()

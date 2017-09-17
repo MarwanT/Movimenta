@@ -14,4 +14,9 @@ class InformationListingViewModel {
     case hotels
   }
 
+  func initialize(with mode: Mode) {
+    self.mode = mode
+  }
+
+  var mode: Mode!
 }
