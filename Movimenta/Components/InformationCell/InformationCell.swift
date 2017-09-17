@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class InformationCell: UITableViewCell {
+  static let identifier: String = InformationCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    applyTheme()
+  }
+
+  private func applyTheme() {
+    //TODO: Apply theme
+  }
+}
