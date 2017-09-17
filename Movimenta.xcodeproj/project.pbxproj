@@ -142,6 +142,8 @@
 		F409C2081F6E8DB1007216E4 /* InformationModelCommonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */; };
 		F409C20A1F6E8F81007216E4 /* InformationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2091F6E8F81007216E4 /* InformationListingViewController.swift */; };
 		F409C20C1F6E9027007216E4 /* InformationListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */; };
+		F409C2101F6EAB7F007216E4 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C20F1F6EAB7F007216E4 /* InformationCell.swift */; };
+		F409C2121F6EABAB007216E4 /* InformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F409C2111F6EABAB007216E4 /* InformationCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,6 +303,8 @@
 		F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationModelCommonProperties.swift; sourceTree = "<group>"; };
 		F409C2091F6E8F81007216E4 /* InformationListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationListingViewController.swift; sourceTree = "<group>"; };
 		F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationListingViewModel.swift; sourceTree = "<group>"; };
+		F409C20F1F6EAB7F007216E4 /* InformationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationCell.swift; path = InformationCell/InformationCell.swift; sourceTree = "<group>"; };
+		F409C2111F6EABAB007216E4 /* InformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InformationCell.xib; path = InformationCell/InformationCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -681,6 +685,7 @@
 				5968349D1F60171900E25579 /* FiltersBreadcrumbView */,
 				5992026A1F67E2940078578C /* EventCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
+				F409C20E1F6EAB3D007216E4 /* InformationCell */,
 				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
 				59A008281F615FBE00E392DD /* PadableLabel.swift */,
 			);
@@ -834,6 +839,15 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		F409C20E1F6EAB3D007216E4 /* InformationCell */ = {
+			isa = PBXGroup;
+			children = (
+				F409C20F1F6EAB7F007216E4 /* InformationCell.swift */,
+				F409C2111F6EABAB007216E4 /* InformationCell.xib */,
+			);
+			name = InformationCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -948,6 +962,7 @@
 				596834A11F6017CA00E25579 /* FiltersBreadcrumbView.xib in Resources */,
 				5989231C1F1E2AC800F73974 /* nexa-regular-webfont.ttf in Resources */,
 				598923191F1E2AC100F73974 /* nexa-heavyitalic-webfont.ttf in Resources */,
+				F409C2121F6EABAB007216E4 /* InformationCell.xib in Resources */,
 				59363FCF1F459722006059B6 /* ParticipantCell.xib in Resources */,
 				598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */,
 				5989231A1F1E2AC300F73974 /* nexa-light-webfont.ttf in Resources */,
@@ -1143,6 +1158,7 @@
 				5968348F1F5D60CC00E25579 /* SwitchCell.swift in Sources */,
 				5970AF841F222AA4008CA708 /* Device.swift in Sources */,
 				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
+				F409C2101F6EAB7F007216E4 /* InformationCell.swift in Sources */,
 				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
 				5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */,
 				F409C2001F6D7F51007216E4 /* AboutViewModel.swift in Sources */,
