@@ -43,6 +43,9 @@ class InformationListingViewController: UIViewController {
 
     tableView.tableFooterView = UIView(frame: CGRect.zero)
 
+    tableView.delegate = self
+    tableView.dataSource = self
+
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 220
 
@@ -50,6 +53,30 @@ class InformationListingViewController: UIViewController {
     tableView.separatorColor = theme.separatorColor
 
     tableView.register(InformationCell.nib, forCellReuseIdentifier: InformationCell.identifier)
+  }
+}
+
+extension InformationListingViewController: UITableViewDataSource, UITableViewDelegate {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return viewModel.numberOfRowForSection(section: section)
+  }
+
+  public func numberOfSections(in tableView: UITableView) -> Int {
+    return viewModel.numberOfSections()
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: InformationCell.identifier, for: indexPath) as? InformationCell else {
+      return UITableViewCell()
+    }
+    let item = viewModel.itemAtIndexPath(indexPath: indexPath)
+    cell.set(imageURL: item?.image, title: item?.name)
+
+    return cell
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //TODO: needed action
   }
 }
 
