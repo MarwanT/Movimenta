@@ -84,16 +84,8 @@ class ContactViewController: UIViewController {
   }
 
   func callNumberAction(phoneNumber: String) {
-    if let phoneCallURL:URL = URL(string: "telprompt://\(phoneNumber)") {
-      let application:UIApplication = UIApplication.shared
-      if (application.canOpenURL(phoneCallURL)) {
-        if #available(iOS 10.0, *) {
-          UIApplication.shared.open(phoneCallURL)
-        } else {
-          // Fallback on earlier versions
-          UIApplication.shared.openURL(phoneCallURL)
-        }
-      }
+    if let phoneCallURL: URL = URL(string: "telprompt://\(phoneNumber)") {
+      openUrl(url: phoneCallURL)
     }
   }
 
@@ -111,10 +103,27 @@ class ContactViewController: UIViewController {
       present(mail, animated: true)
     } else {
       let alertController = UIAlertController(title: Strings.send_email_failure_alert_title(), message: Strings.send_email_failure_alert_message(), preferredStyle: .alert)
-      let defaultAction = UIAlertAction(title: Strings.ok(), style: .default, handler: nil)
+      let defaultAction = UIAlertAction(title: Strings.ok(), style: .default, handler: { (alert: UIAlertAction) in
+        guard let url = URL(string: "mailto:\(email)") else {
+          return
+        }
+        self.openUrl(url: url)
+      })
       alertController.addAction(defaultAction)
 
       present(alertController, animated: true, completion: nil)
+    }
+  }
+
+  private func openUrl(url: URL) {
+    let application: UIApplication = UIApplication.shared
+    if (application.canOpenURL(url)) {
+      if #available(iOS 10.0, *) {
+        application.open(url)
+      } else {
+        // Fallback on earlier versions
+        application.openURL(url)
+      }
     }
   }
 }
