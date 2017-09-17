@@ -10,6 +10,8 @@ import Foundation
 
 class InformationListingViewController: UIViewController {
 
+  let viewModel = InformationListingViewModel()
+
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()
