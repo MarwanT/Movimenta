@@ -29,3 +29,9 @@ class InformationListingViewController: UIViewController {
     //TODO: setup view
   }
 }
+
+extension InformationListingViewController {
+  static func instance() -> InformationListingViewController {
+    return Storyboard.Information.instantiate(InformationListingViewController.self)
+  }
+}
