@@ -129,11 +129,11 @@ extension ContactViewController {
   }
 
   func didTouchUpInsideEmailUsButton(_ sender: UIButton) {
-    //TODO: Action
+    sendEmail(email: viewModel.businessEmail)
   }
 
   func didTouchUpInsideEmailArtButton(_ sender: UIButton) {
-    //TODO: Action
+    sendEmail(email: viewModel.artBusinessEmail)
   }
 }
 
