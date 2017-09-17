@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+protocol InformationModelCommonProperties: Equatable {
+  var id: String? { get }
+  var link: URL? { get }
+  var name: String? { get }
+  var image: String? { get }
+  var description: String? { get }
+}
+
