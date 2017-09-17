@@ -71,6 +71,10 @@ class ContactViewController: UIViewController {
     businessQuestionDescriptionLabel.textColor = theme.darkTextColor
     artQuestionTitleLabel.textColor = theme.darkTextColor
     artQuestionDescriptionLabel.textColor = theme.darkTextColor
+    //set button styles
+    theme.stylePrimaryButton(button: callHotlineButton)
+    theme.styleSecondaryButton(button: emailUsButton)
+    theme.styleSecondaryButton(button: emailArtButton)
   }
 }
 
