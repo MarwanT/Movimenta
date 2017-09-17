@@ -112,7 +112,7 @@ extension InformationViewController {
   }
 
   func contactImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-    //TODO: action
+    navigationController?.pushViewController(ContactViewController.instance(), animated: true)
   }
 
   func hotelsImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
