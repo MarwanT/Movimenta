@@ -11,12 +11,44 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="202" id="DtI-HT-sf0" customClass="InformationCell" customModule="Movimenta" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DtI-HT-sf0" customClass="InformationCell" customModule="Movimenta" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="474" height="202"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DtI-HT-sf0" id="9TF-7a-QrA">
                 <rect key="frame" x="0.0" y="0.0" width="474" height="201.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRd-d0-e0L" userLabel="Title Label">
+                        <rect key="frame" x="0.0" y="0.0" width="474" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qhI-gU-us6">
+                        <rect key="frame" x="0.0" y="36" width="474" height="135"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="135" id="9qr-92-dsK"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUR-wa-h9Z" userLabel="Website Label">
+                        <rect key="frame" x="0.0" y="186" width="474" height="15.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HRd-d0-e0L" firstAttribute="top" secondItem="9TF-7a-QrA" secondAttribute="top" id="1Gt-By-bBh"/>
+                    <constraint firstItem="UUR-wa-h9Z" firstAttribute="top" secondItem="qhI-gU-us6" secondAttribute="bottom" constant="15" id="1I0-r8-UlV"/>
+                    <constraint firstAttribute="trailing" secondItem="qhI-gU-us6" secondAttribute="trailing" id="8Q4-Rt-Og6"/>
+                    <constraint firstAttribute="trailing" secondItem="HRd-d0-e0L" secondAttribute="trailing" id="ACY-Eu-zck"/>
+                    <constraint firstItem="UUR-wa-h9Z" firstAttribute="leading" secondItem="9TF-7a-QrA" secondAttribute="leading" id="EeK-Mb-Sou"/>
+                    <constraint firstItem="HRd-d0-e0L" firstAttribute="leading" secondItem="9TF-7a-QrA" secondAttribute="leading" id="Tmh-OS-sWu"/>
+                    <constraint firstAttribute="bottom" secondItem="UUR-wa-h9Z" secondAttribute="bottom" id="gge-0y-PyV"/>
+                    <constraint firstItem="qhI-gU-us6" firstAttribute="top" secondItem="HRd-d0-e0L" secondAttribute="bottom" constant="15" id="if3-ZQ-Tff"/>
+                    <constraint firstItem="qhI-gU-us6" firstAttribute="leading" secondItem="9TF-7a-QrA" secondAttribute="leading" id="qzj-rA-VXg"/>
+                    <constraint firstAttribute="trailing" secondItem="UUR-wa-h9Z" secondAttribute="trailing" id="r43-ss-mc7"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="41" y="101"/>
         </tableViewCell>
