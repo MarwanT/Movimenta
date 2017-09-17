@@ -35,7 +35,18 @@ class ContactViewController: UIViewController {
   }
 
   private func setupView() {
-    //TODO: setup view
+    //localize data
+    callTitleLabel.text = Strings.hotline_title()
+    callDescriptionLabel.text = Strings.hotline_description()
+    businessQuestionTitleLabel.text = Strings.business_questions_title()
+    businessQuestionDescriptionLabel.text = Strings.business_description()
+    artQuestionTitleLabel.text = Strings.art_questions_title()
+    artQuestionDescriptionLabel.text = Strings.art_description()
+    emailUsButton.setTitle(Strings.email(), for: .normal)
+    emailArtButton.setTitle(Strings.email(), for: .normal)
+    callHotlineButton.setTitle(Strings.call(), for: .normal)
+
+    //Addtional needed setup
   }
 
   private func applyTheme() {
