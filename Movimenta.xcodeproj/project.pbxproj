@@ -139,6 +139,7 @@
 		F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2011F6D86B5007216E4 /* WebViewController.swift */; };
 		F409C2041F6D8C17007216E4 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2031F6D8C17007216E4 /* ContactViewController.swift */; };
 		F409C2061F6D8CB2007216E4 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */; };
+		F409C2081F6E8DB1007216E4 /* InformationModelCommonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -295,6 +296,7 @@
 		F409C2011F6D86B5007216E4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F409C2031F6D8C17007216E4 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationModelCommonProperties.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -720,6 +722,7 @@
 				5970AFA01F2746D0008CA708 /* API */,
 				5970AFA31F2758C3008CA708 /* Tools */,
 				5970AF891F224F56008CA708 /* ModelCommonProperties.swift */,
+				F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */,
 				5970AF8F1F24E174008CA708 /* MovimentaEvent.swift */,
 				F409C1F51F6C4AF9007216E4 /* PartnerGroup.swift */,
 				5970AF931F24E4A8008CA708 /* Event.swift */,
@@ -1169,6 +1172,7 @@
 				598923391F1F799400F73974 /* Environment.swift in Sources */,
 				591CD78D1F3879BA00A24BBB /* EventDetailsPeekView.swift in Sources */,
 				59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */,
+				F409C2081F6E8DB1007216E4 /* InformationModelCommonProperties.swift in Sources */,
 				5970AFB61F2A17B3008CA708 /* FontBook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
