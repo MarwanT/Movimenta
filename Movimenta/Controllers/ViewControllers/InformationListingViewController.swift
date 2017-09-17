@@ -35,6 +35,21 @@ class InformationListingViewController: UIViewController {
   private func setupView() {
     title = viewModel.vcTitle()
     //Additional: setup view
+    setupTable()
+  }
+
+  private func setupTable() {
+    let theme = ThemeManager.shared.current
+
+    tableView.tableFooterView = UIView(frame: CGRect.zero)
+
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 220
+
+    tableView.separatorStyle = .singleLine
+    tableView.separatorColor = theme.separatorColor
+
+    tableView.register(InformationCell.nib, forCellReuseIdentifier: InformationCell.identifier)
   }
 }
 
