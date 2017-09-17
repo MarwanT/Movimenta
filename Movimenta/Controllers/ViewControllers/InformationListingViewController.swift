@@ -76,7 +76,14 @@ extension InformationListingViewController: UITableViewDataSource, UITableViewDe
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //TODO: needed action
+    tableView.deselectRow(at: indexPath, animated: true)
+
+    let item = viewModel.itemAtIndexPath(indexPath: indexPath)
+    guard let url = item?.link else {
+      return
+    }
+
+    WebViewController.present(url: url, inViewController: navigationController)
   }
 }
 
