@@ -81,6 +81,20 @@ class ContactViewController: UIViewController {
     theme.styleSecondaryButton(button: emailUsButton)
     theme.styleSecondaryButton(button: emailArtButton)
   }
+
+  func callNumberAction(phoneNumber: String) {
+    if let phoneCallURL:URL = URL(string: "telprompt://\(phoneNumber)") {
+      let application:UIApplication = UIApplication.shared
+      if (application.canOpenURL(phoneCallURL)) {
+        if #available(iOS 10.0, *) {
+          UIApplication.shared.open(phoneCallURL)
+        } else {
+          // Fallback on earlier versions
+          UIApplication.shared.openURL(phoneCallURL)
+        }
+      }
+    }
+  }
 }
 
 //MARK: Action
