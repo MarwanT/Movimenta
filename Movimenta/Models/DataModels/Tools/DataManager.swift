@@ -39,6 +39,12 @@ class DataManager {
   var sponsers: [String : Participant] {
     return movimentaEvent?.sponsors ?? [:]
   }
+  var restaurants: [Restaurant] {
+    return movimentaEvent?.restaurants ?? []
+  }
+  var hotels: [Hotel] {
+    return movimentaEvent?.hotels ?? []
+  }
   fileprivate(set) var bookmarkedEvents = [Event]()
   
   var userLocation: CLLocation? {
