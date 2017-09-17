@@ -47,6 +47,11 @@ class ContactViewController: UIViewController {
     callHotlineButton.setTitle(Strings.call(), for: .normal)
 
     //Addtional needed setup
+    let theme = ThemeManager.shared.current
+
+    contentView.layoutMargins = UIEdgeInsets(
+      top: CGFloat(theme.space8), left: CGFloat(theme.space7),
+      bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
   }
 
   private func applyTheme() {
