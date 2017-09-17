@@ -472,6 +472,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="wxV-Du-w6o" id="DOv-Lh-WUT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IyY-iV-y5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

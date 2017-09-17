@@ -9,7 +9,8 @@
 import Foundation
 
 class InformationListingViewController: UIViewController {
-
+  @IBOutlet weak var tableView: UITableView!
+  
   let viewModel = InformationListingViewModel()
 
   func initialize(with mode: InformationListingViewModel.Mode) {
