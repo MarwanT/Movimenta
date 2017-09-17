@@ -19,13 +19,20 @@ class InformationListingViewModel {
     switch(mode) {
     case .hotels:
       data = DataManager.shared.hotels
-      break
     case .restaurants:
       data = DataManager.shared.restaurants
-      break
     }
   }
 
   var data: [InformationModelCommonProperties] = []
-  var mode: Mode!
+  var mode: InformationListingViewModel.Mode = .hotels
+
+  func vcTitle() -> String {
+    switch(mode) {
+    case .hotels:
+      return Strings.hotels()
+    case .restaurants:
+      return Strings.restaurants()
+    }
+  }
 }

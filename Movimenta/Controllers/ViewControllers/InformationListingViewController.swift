@@ -32,7 +32,8 @@ class InformationListingViewController: UIViewController {
   }
 
   private func setupView() {
-    //TODO: setup view
+    title = viewModel.vcTitle()
+    //Additional: setup view
   }
 }
 
