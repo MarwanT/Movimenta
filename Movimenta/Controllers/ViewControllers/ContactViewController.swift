@@ -52,6 +52,11 @@ class ContactViewController: UIViewController {
     contentView.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space8), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
+
+    //Setup buttons actions
+    emailUsButton.addTarget(self, action: #selector(didTouchUpInsideEmailUsButton(_:)), for: UIControlEvents.touchUpInside)
+    emailArtButton.addTarget(self, action: #selector(didTouchUpInsideEmailArtButton(_:)), for: UIControlEvents.touchUpInside)
+    callHotlineButton.addTarget(self, action: #selector(didTouchUpInsideCallUsButton(_:)), for: UIControlEvents.touchUpInside)
   }
 
   private func applyTheme() {
@@ -75,6 +80,21 @@ class ContactViewController: UIViewController {
     theme.stylePrimaryButton(button: callHotlineButton)
     theme.styleSecondaryButton(button: emailUsButton)
     theme.styleSecondaryButton(button: emailArtButton)
+  }
+}
+
+//MARK: Action
+extension ContactViewController {
+  func didTouchUpInsideCallUsButton(_ sender: UIButton) {
+    //TODO: Action
+  }
+
+  func didTouchUpInsideEmailUsButton(_ sender: UIButton) {
+    //TODO: Action
+  }
+
+  func didTouchUpInsideEmailArtButton(_ sender: UIButton) {
+    //TODO: Action
   }
 }
 
