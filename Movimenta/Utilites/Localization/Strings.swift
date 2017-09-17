@@ -228,4 +228,40 @@ final class Strings {
   static func about_subtitle_description() -> String {
     return Localization.localize(key: "about_subtitle_description")
   }
+
+  static func hotline_title() -> String {
+    return Localization.localize(key: "hotline_title")
+  }
+
+  static func hotline_description() -> String {
+    return Localization.localize(key: "hotline_description")
+  }
+
+  static func business_questions_title() -> String {
+    return Localization.localize(key: "business_questions_title")
+  }
+
+  static func art_questions_title() -> String {
+    return Localization.localize(key: "art_questions_title")
+  }
+
+  static func call() -> String {
+    return Localization.localize(key: "call")
+  }
+
+  static func email() -> String {
+    return Localization.localize(key: "email")
+  }
+
+  static func website() -> String {
+    return Localization.localize(key: "website")
+  }
+
+  static func business_description() -> String {
+    return Localization.localize(key: "business_description")
+  }
+
+  static func art_description() -> String {
+    return Localization.localize(key: "art_description")
+  }
 }
