@@ -22,3 +22,11 @@ func ==<T: InformationModelCommonProperties>(lhs: T, rhs: T) -> Bool {
   }
   return lhsId == rhsId
 }
+
+extension Hotel {
+  var description: String? { return nil }
+}
+
+extension Restaurant {
+  var description: String? { return nil }
+}

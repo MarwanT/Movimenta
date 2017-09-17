@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Restaurant: ModelCommonProperties {
+struct Restaurant: InformationModelCommonProperties {
   var id: String?
   var link: URL?
   var name: String?
