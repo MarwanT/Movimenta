@@ -110,7 +110,11 @@ class ContactViewController: UIViewController {
 
       present(mail, animated: true)
     } else {
-      //TODO: show alert not able to open mail app
+      let alertController = UIAlertController(title: Strings.send_email_failure_alert_title(), message: Strings.send_email_failure_alert_message(), preferredStyle: .alert)
+      let defaultAction = UIAlertAction(title: Strings.ok(), style: .default, handler: nil)
+      alertController.addAction(defaultAction)
+
+      present(alertController, animated: true, completion: nil)
     }
   }
 }
