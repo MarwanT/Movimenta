@@ -9,5 +9,8 @@
 import Foundation
 
 class ContactViewModel {
+  //TODO: Replace with real values
   let hotline = "+9613896433"
+  let businessEmail = "shafic.hariri@keeward.com"
+  let artBusinessEmail = "Some-Valid-Email"
 }
