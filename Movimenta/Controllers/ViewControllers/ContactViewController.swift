@@ -100,7 +100,7 @@ class ContactViewController: UIViewController {
 //MARK: Action
 extension ContactViewController {
   func didTouchUpInsideCallUsButton(_ sender: UIButton) {
-    //TODO: Action
+    callNumberAction(phoneNumber: viewModel.hotline)
   }
 
   func didTouchUpInsideEmailUsButton(_ sender: UIButton) {

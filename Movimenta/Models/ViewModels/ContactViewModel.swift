@@ -9,5 +9,5 @@
 import Foundation
 
 class ContactViewModel {
-
+  let hotline = "+9613896433"
 }
