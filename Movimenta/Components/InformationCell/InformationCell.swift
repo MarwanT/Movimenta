@@ -16,8 +16,11 @@ class InformationCell: UITableViewCell {
   @IBOutlet weak var displayImageView: UIImageView!
   @IBOutlet weak var websiteLabel: UILabel!
 
+  var configuration = Configuration()
+  
   override func awakeFromNib() {
     super.awakeFromNib()
+    contentView.layoutMargins = configuration.layoutMargins
     applyTheme()
   }
 
@@ -25,3 +28,15 @@ class InformationCell: UITableViewCell {
     //TODO: Apply theme
   }
 }
+
+//MARK: Configuration
+extension InformationCell {
+  struct Configuration {
+    var layoutMargins = UIEdgeInsets(
+      top: CGFloat(ThemeManager.shared.current.space4),
+      left: CGFloat(ThemeManager.shared.current.space7),
+      bottom: CGFloat(ThemeManager.shared.current.space4),
+      right: CGFloat(ThemeManager.shared.current.space7))
+  }
+}
+
