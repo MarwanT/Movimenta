@@ -16,3 +16,9 @@ protocol InformationModelCommonProperties: Equatable {
   var description: String? { get }
 }
 
+func ==<T: InformationModelCommonProperties>(lhs: T, rhs: T) -> Bool {
+  guard let lhsId = lhs.id, let rhsId = rhs.id else {
+    return false
+  }
+  return lhsId == rhsId
+}
