@@ -10,6 +10,17 @@ import Foundation
 
 class ContactViewController: UIViewController {
 
+  @IBOutlet weak var contentView: UIView!
+  @IBOutlet weak var callTitleLabel: UILabel!
+  @IBOutlet weak var callDescriptionLabel: UILabel!
+  @IBOutlet weak var businessQuestionTitleLabel: UILabel!
+  @IBOutlet weak var businessQuestionDescriptionLabel: UILabel!
+  @IBOutlet weak var artQuestionTitleLabel: UILabel!
+  @IBOutlet weak var artQuestionDescriptionLabel: UILabel!
+  @IBOutlet weak var callHotlineButton: UIButton!
+  @IBOutlet weak var emailUsButton: UIButton!
+  @IBOutlet weak var emailArtButton: UIButton!
+
   let viewModel = ContactViewModel()
 
   override func viewDidLoad() {

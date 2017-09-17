@@ -436,6 +436,18 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="artQuestionDescriptionLabel" destination="LCu-X1-eDS" id="0Hd-so-wpB"/>
+                        <outlet property="artQuestionTitleLabel" destination="lIG-te-HZr" id="ilG-2Z-WyE"/>
+                        <outlet property="businessQuestionDescriptionLabel" destination="KpD-9L-tia" id="n7l-l3-I3D"/>
+                        <outlet property="businessQuestionTitleLabel" destination="Nxu-pL-bwu" id="y1r-Ww-hG3"/>
+                        <outlet property="callDescriptionLabel" destination="Osk-dl-Xg7" id="3IP-7l-bwW"/>
+                        <outlet property="callHotlineButton" destination="2Jv-kM-n2N" id="HG7-2h-eGA"/>
+                        <outlet property="callTitleLabel" destination="Tio-4L-LsV" id="cyb-7P-M1J"/>
+                        <outlet property="contentView" destination="Dnr-ai-mEf" id="HTl-s4-VH3"/>
+                        <outlet property="emailArtButton" destination="09j-ks-0Bi" id="QW2-8V-bI5"/>
+                        <outlet property="emailUsButton" destination="nSm-i2-ddu" id="7fh-0a-wxf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MyI-lY-AH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
