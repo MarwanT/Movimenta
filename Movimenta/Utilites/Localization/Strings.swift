@@ -264,4 +264,12 @@ final class Strings {
   static func art_description() -> String {
     return Localization.localize(key: "art_description")
   }
+
+  static func send_email_failure_alert_title() -> String {
+    return Localization.localize(key: "send_email_failure_alert_title")
+  }
+
+  static func send_email_failure_alert_message() -> String {
+    return Localization.localize(key: "send_email_failure_alert_message")
+  }
 }

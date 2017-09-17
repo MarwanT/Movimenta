@@ -70,3 +70,5 @@
 "call" = "Call";
 "email" = "Email us";
 "website" = "Website";
+"send_email_failure_alert_title" = "Ooops";
+"send_email_failure_alert_message" = "Could not open the mail app";
