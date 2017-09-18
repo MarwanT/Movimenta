@@ -10,6 +10,7 @@ import UIKit
 
 class ScheduleViewController: UIViewController {
   @IBOutlet weak var datesCollectionView: UICollectionView!
+  @IBOutlet weak var eventsTableView: UITableView!
   
   var viewModel = ScheduleViewModel()
   
@@ -20,8 +21,14 @@ class ScheduleViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeCollectionView()
+    initializeTableView()
+    registerToNotificationCenter()
     navigateToSelectedDate()
     reloadEventsData()
+  }
+  
+  deinit {
+    unregisterToNotificationCenter()
   }
   
   private func initializeCollectionView() {
@@ -43,12 +50,64 @@ class ScheduleViewController: UIViewController {
     datesCollectionView.showsHorizontalScrollIndicator = false
   }
   
+  private func initializeTableView() {
+    let theme = ThemeManager.shared.current
+    
+    eventsTableView.tableFooterView = UIView(frame: CGRect.zero)
+    
+    eventsTableView.dataSource = self
+    eventsTableView.delegate = self
+    
+    eventsTableView.rowHeight = UITableViewAutomaticDimension
+    eventsTableView.estimatedRowHeight = 100
+    
+    eventsTableView.layoutMargins = UIEdgeInsets(
+      top: 0, left: CGFloat(theme.space7),
+      bottom: 0, right: CGFloat(theme.space7))
+    
+    eventsTableView.separatorStyle = .singleLine
+    eventsTableView.separatorColor = theme.separatorColor
+    eventsTableView.separatorInset = UIEdgeInsets(top: 0, left: 118, bottom: 0, right: 0)
+    
+    eventsTableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
+  }
+  
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   fileprivate func navigateToSelectedDate() {
     datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
   }
   
   fileprivate func reloadEventsData() {
-    //TODO: Reload event Data for selected
+    viewModel.refreshEvents()
+    eventsTableView.reloadData()
+  }
+  
+  fileprivate func reloadRows(at indexPaths: [IndexPath]) {
+    eventsTableView.reloadRows(at: indexPaths, with: .none)
+  }
+}
+
+//MARK: Actions
+extension ScheduleViewController {
+  func handleBookmarksUpdate(_ sender: Notification) {
+    guard let event = sender.object as? Event,
+      let indexPath = viewModel.updateBookmarkStatus(of: event) else {
+        return
+    }
+    reloadRows(at: [indexPath])
+  }
+  
+  func navigateToEventDetailsViewController(event: Event) {
+    let vc = EventDetailsViewController.instance()
+    vc.initialize(with: event)
+    navigationController?.pushViewController(vc, animated: true)
   }
 }
 
@@ -83,5 +142,40 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
     viewModel.setSelected(for: indexPath)
     reloadEventsData()
     navigateToSelectedDate()
+  }
+}
+
+//MARK: Table View Delegates
+extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return viewModel.numberOfRows
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell, let values = viewModel.values(for: indexPath) else {
+      return UITableViewCell()
+    }
+    cell.delegate = self
+    cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
+  }
+}
+
+//MARK: Event Cell Delegates
+extension ScheduleViewController: EventCellDelegate {
+  func eventCellDidTapBookmarkButton(_ cell: EventCell) {
+    guard let indexPath = eventsTableView.indexPath(for: cell) else {
+      return
+    }
+    viewModel.toggleEventBookmarkStatus(at: indexPath)
   }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 final class ScheduleViewModel {
   fileprivate(set) var scheduleDates = [ScheduleDate]()
+  fileprivate(set) var events = [Event]()
   fileprivate(set) var indexOfSelectedDate: Int = 0
   
   init() {
@@ -49,6 +50,57 @@ extension ScheduleViewModel {
   
   func setSelected(for indexPath: IndexPath) {
     selectedItemIndexPath = indexPath
+  }
+}
+
+//MARK: Events Table View Methods
+extension ScheduleViewModel {
+  var numberOfRows: Int {
+    return events.count
+  }
+  
+  func values(for indexPath: IndexPath) -> (imageURL: URL?, date: String?, venueName: String?, eventName: String?, categories: String?, time: String?, isBookmarked: Bool?)? {
+    guard let selectedDate = scheduleDates[indexOfSelectedDate].date else {
+      return nil
+    }
+    
+    let event = events[indexPath.row]
+    let preferredDateRange = event.preferredDateRange(for: selectedDate)
+    return (imageURL: event.image,
+            date: preferredDateRange?.displayedShortDate,
+            venueName: event.venue?.name?.uppercased(),
+            eventName: event.title?.capitalized,
+            categories: event.displayedCategoryLabel,
+            time: preferredDateRange?.displayedShortTime,
+            isBookmarked: event.isBookmarked)
+  }
+  
+  func toggleEventBookmarkStatus(at indexPath: IndexPath) {
+    let event = events[indexPath.row]
+    DataManager.shared.toggleBookmarkStatus(event: event)
+  }
+  
+  func updateBookmarkStatus(of event: Event) -> IndexPath? {
+    guard let index = events.index(of: event) else {
+      return nil
+    }
+    return IndexPath(row: index, section: 0)
+  }
+  
+  func refreshEvents() {
+    events.removeAll()
+    
+    guard let selectedDate = scheduleDates[indexOfSelectedDate].date else {
+      return
+    }
+    let selectedDateRange = DateRange(from: selectedDate, to: selectedDate)
+    events = DataManager.shared.events.filter { (event) -> Bool in
+      return event.happens(in: selectedDateRange)
+    }
+  }
+  
+  func event(for indexPath: IndexPath) -> Event {
+    return events[indexPath.row]
   }
 }
 

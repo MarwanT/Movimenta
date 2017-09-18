@@ -168,16 +168,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dco-Ju-ADn">
+                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Odg-mS-0fr" secondAttribute="trailing" id="5Bl-pS-evw"/>
                             <constraint firstItem="Odg-mS-0fr" firstAttribute="leading" secondItem="FjU-gG-tOt" secondAttribute="leading" id="LJZ-yo-kW4"/>
                             <constraint firstItem="Odg-mS-0fr" firstAttribute="top" secondItem="rjO-dZ-CdL" secondAttribute="bottom" id="PNU-k5-cLM"/>
+                            <constraint firstItem="327-lv-NWs" firstAttribute="top" secondItem="Dco-Ju-ADn" secondAttribute="bottom" id="Z2c-TN-ugh"/>
+                            <constraint firstAttribute="trailing" secondItem="Dco-Ju-ADn" secondAttribute="trailing" id="bpM-Mg-Gw8"/>
+                            <constraint firstItem="Dco-Ju-ADn" firstAttribute="leading" secondItem="FjU-gG-tOt" secondAttribute="leading" id="nkh-0j-L4I"/>
+                            <constraint firstItem="Dco-Ju-ADn" firstAttribute="top" secondItem="Odg-mS-0fr" secondAttribute="bottom" id="rfb-df-xUN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="datesCollectionView" destination="Odg-mS-0fr" id="1xZ-Rw-nuY"/>
+                        <outlet property="eventsTableView" destination="Dco-Ju-ADn" id="e4q-mD-bdb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STw-WY-VDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
