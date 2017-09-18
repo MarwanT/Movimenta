@@ -53,6 +53,21 @@ extension ScheduleViewModel {
   }
 }
 
+//MARK: Events Table View Methods
+extension ScheduleViewModel {
+  func refreshEvents() {
+    events.removeAll()
+    
+    guard let selectedDate = scheduleDates[indexOfSelectedDate].date else {
+      return
+    }
+    let selectedDateRange = DateRange(from: selectedDate, to: selectedDate)
+    events = DataManager.shared.events.filter { (event) -> Bool in
+      return event.happens(in: selectedDateRange)
+    }
+  }
+}
+
 //MARK: - Schedule Date
 extension ScheduleViewModel {
   struct ScheduleDate {
