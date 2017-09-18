@@ -1,291 +1,387 @@
 [
-    {
-        "id": 349,
-        "slug": "biennale",
-        "link": "http://movimenta.wpad.keeward.me/biennale/biennale/",
-        "title": "Biennale",
+  {
+    "id": 349,
+    "slug": "biennale",
+    "link": "http://movimenta.wpad.keeward.me/biennale/biennale/",
+    "title": "Biennale",
+    "content": "",
+    "excerpt": "",
+    "parent_category": "biennale",
+    "categories": [
+      {
+        "id": "la-competition",
+        "label": "La Compétition",
+        "children": []
+      },
+      {
+        "id": "la-fete-urbaine",
+        "label": "La Fête Urbaine",
+        "children": [
+          {
+            "id": "conference",
+            "label": "Conference"
+          }
+        ]
+      },
+      {
+        "id": "les-rencontres",
+        "label": "Les Rencontres",
+        "children": []
+      }
+    ],
+    "types": [
+      {
+        "id": "audio-interview",
+        "label": "Audio Interview"
+      },
+      {
+        "id": "concert",
+        "label": "Concert"
+      },
+      {
+        "id": "conference",
+        "label": "Conference"
+      },
+      {
+        "id": "festival",
+        "label": "Festival"
+      },
+      {
+        "id": "film",
+        "label": "Film"
+      },
+      {
+        "id": "lecture",
+        "label": "Lecture"
+      },
+      {
+        "id": "performance",
+        "label": "Performance"
+      },
+      {
+        "id": "tv-appearance",
+        "label": "TV Appearance"
+      },
+      {
+        "id": "video-projection",
+        "label": "Video Projection"
+      },
+      {
+        "id": "workshop",
+        "label": "Workshop"
+      }
+    ],
+    "events": [
+      {
+        "id": 280,
+        "link": "http://movimenta.wpad.keeward.me/events/bridget-joness-baby/",
         "content": "",
+        "title": "Bridget Jones's Baby - FR",
         "excerpt": "",
-        "parent_category": "biennale",
-        "categories": [
-            {
-                "id": "la-competition",
-                "label": "La Compétition",
-                "children": []
-            },
-            {
-                "id": "la-fete-urbaine",
-                "label": "La Fête Urbaine",
-                "children": [
-                    {
-                        "id": "conference",
-                        "label": "Conference"
-                    }
-                ]
-            },
-            {
-                "id": "les-rencontres",
-                "label": "Les Rencontres",
-                "children": []
-            }
-        ],
+        "date_from": "2016-10-12 16:30:00",
+        "date_to": "2016-11-08 17:00:00",
+        "from_date": "2016-10-12",
+        "from_time": "4:30pm",
+        "to_date": "2016-11-08",
+        "to_time": "5:00pm",
+        "subtitle": "",
+        "rsvp_info": "",
+        "more_info": "",
+        "language_code": "fr",
         "types": [
-            {
-                "id": "audio-interview",
-                "label": "Audio Interview"
-            },
-            {
-                "id": "concert",
-                "label": "Concert"
-            },
-            {
-                "id": "conference",
-                "label": "Conference"
-            },
-            {
-                "id": "festival",
-                "label": "Festival"
-            },
-            {
-                "id": "film",
-                "label": "Film"
-            },
-            {
-                "id": "lecture",
-                "label": "Lecture"
-            },
-            {
-                "id": "performance",
-                "label": "Performance"
-            },
-            {
-                "id": "tv-appearance",
-                "label": "TV Appearance"
-            },
-            {
-                "id": "video-projection",
-                "label": "Video Projection"
-            },
-            {
-                "id": "workshop",
-                "label": "Workshop"
-            }
+          "film"
         ],
-        "events": [
-            {
-                "id": 280,
-                "link": "http://movimenta.wpad.keeward.me/events/bridget-joness-baby/",
-                "content": "",
-                "title": "Bridget Jones's Baby - FR",
-                "excerpt": "",
-                "date_from": "2016-10-12 16:30:00",
-                "date_to": "2016-11-08 17:00:00",
-                "from_date": "2016-10-12",
-                "from_time": "4:30pm",
-                "to_date": "2016-11-08",
-                "to_time": "5:00pm",
-                "subtitle": "",
-                "rsvp_info": "",
-                "more_info": "",
-                "language_code": "fr",
-                "types": [
-                    "film"
-                ],
-                "categories": [
-                    "biennale",
-                    "la-competition"
-                ],
-                "image": "http://movimenta.wpad.keeward.me/wp-content/uploads/2016/09/skin.jpg",
-                "venue": 314,
-                "coordinates": {
-                    "address": "5 Altson Ln, Melbourne VIC 3000, Australia",
-                    "lat": "-37.81395644463511",
-                    "lng": "144.95421409606934"
-                },
-                "organizers": [],
-                "speakers": [
-                    315
-                ],
-                "artists": [],
-                "companies": [],
-                "sponsors": [],
-                "dates": [
-                    {
-                        "from_date": "2016-10-12",
-                        "to_date": "2016-11-08",
-                        "from_time": "4:30pm",
-                        "to_time": "5:00pm",
-                        "from": "2016-10-12 16:30:00",
-                        "to": "2016-11-08 17:00:00"
-                    }
-                ]
-            },
-            {
-                "id": 324,
-                "link": "http://movimenta.wpad.keeward.me/events/meens-new-album-launch-in-beirut/",
-                "content": "Finally the highly anticipated release by the award-winning group that was never nominated for a Murex d'Or. This new album by the Lebanese rock band MEEN features 13 astonishing songs that will make you laugh, cry, scream, and spread the love all around. Miraculous, phenomenal, prodigious, spectacular... A must have.See you at \"The Next Whiskey Bar\" in Mar Mkhayel, on September 21, from 7 to 9 pm.",
-                "title": "Meen's New Album Launch in Beirut",
-                "excerpt": "",
-                "date_from": "2016-10-12 21:00:00",
-                "date_to": "2016-10-12 00:00:00",
-                "from_date": "2016-10-12",
-                "from_time": "9:00pm",
-                "to_date": "2016-10-12",
-                "to_time": "",
-                "subtitle": "",
-                "rsvp_info": "A must have.See you at \"The Next Whiskey Bar\" in Mar Mkhayel, on September 21, from 7 to 9 pm.",
-                "more_info": "Test the partner in more info",
-                "language_code": "fr",
-                "types": [
-                    "concert"
-                ],
-                "categories": [
-                    "biennale",
-                    "la-fete-urbaine"
-                ],
-                "image": "",
-                "venue": 303,
-                "coordinates": {
-                    "address": "Lyell St, Yarraville VIC 3013, Australia",
-                    "lat": "-37.81955254763512",
-                    "lng": "144.90520477294922"
-                },
-                "organizers": [],
-                "speakers": [],
-                "artists": [],
-                "companies": [],
-                "sponsors": [],
-                "dates": [
-                    {
-                        "from_date": "2016-10-12",
-                        "to_date": "2016-10-12",
-                        "from_time": "9:00pm",
-                        "to_time": "",
-                        "from": "2016-10-12 21:00:00",
-                        "to": "2016-10-12 00:00:00"
-                    }
-                ]
-            }
+        "categories": [
+          "biennale",
+          "la-competition"
         ],
-        "venues": [
-            {
-                "id": 314,
-                "link": "http://movimenta.wpad.keeward.me/venues/fgbrw-rtgwreg-qaerg/",
-                "content": "",
-                "title": "fgbrw rtgwreg qaerg",
-                "excerpt": "",
-                "name": "fgbrw-rtgwreg-qaerg",
-                "address": "qerg 3q4rf",
-                "city": "AEWF QRA",
-                "state": "",
-                "country": "",
-                "website": "",
-                "phone": "",
-                "map_link": "",
-                "email": "",
-                "zipcode": "",
-                "image": "http://movimenta.wpad.keeward.me/wp-content/uploads/2016/09/event_test_1.jpg",
-                "coordinates": {}
-            },
-            {
-                "id": 303,
-                "link": "http://movimenta.wpad.keeward.me/venues/generate-lorem-ipsum/",
-                "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
-                "title": "generate Lorem Ipsum",
-                "excerpt": "",
-                "name": "generate-lorem-ipsum",
-                "address": "Avenue Valrose",
-                "city": "London",
-                "state": "",
-                "country": "United Kingdom",
-                "website": "",
-                "phone": "78278686",
-                "map_link": "https://www.google.com.lb/maps/place/London,+UK/@51.5285582,-0.2416797,11z/data=!3m1!4b1!4m5!3m4!1s0x47d8a00baf21de75:0x52963a5addd52a99!8m2!3d51.5073509!4d-0.1277583?hl=en",
-                "email": "",
-                "zipcode": "5237852782",
-                "image": "http://movimenta.wpad.keeward.me/wp-content/uploads/2016/09/NiceOperaHouse.jpg",
-                "coordinates": {
-                    "address": "Victoria Harbour Promenade, Docklands VIC 3008, Australia",
-                    "lat": "-37.8179230319262",
-                    "lng": "144.93507385253906"
-                }
-            }
-        ],
+        "image": "http://movimenta.wpad.keeward.me/wp-content/uploads/2016/09/skin.jpg",
+        "venue": 314,
+        "coordinates": {
+          "address": "5 Altson Ln, Melbourne VIC 3000, Australia",
+          "lat": "-37.81395644463511",
+          "lng": "144.95421409606934"
+        },
         "organizers": [],
         "speakers": [
-            {
-                "id": 315,
-                "link": "http://movimenta.wpad.keeward.me/speakers/wefqwe-q3ef/",
-                "content": "2E",
-                "title": "WEFQWE Q3EF",
-                "excerpt": "",
-                "name": "wefqwe-q3ef",
-                "first_name": "",
-                "last_name": "",
-                "profession": "",
-                "image": "http://movimenta.wpad.keeward.me/wp-content/uploads/2016/09/Willem_Adema.jpg",
-                "website": "",
-                "phone": "",
-                "email": "",
-                "facebook": "",
-                "twitter": "",
-                "linkedin": "",
-                "googleplus": "",
-                "youtube": "",
-                "tumblr": "",
-                "vimeo": "",
-                "instagram": ""
-            }
+          315
         ],
         "artists": [],
         "companies": [],
         "sponsors": [],
-        "_links": {
-            "self": [
-                {
-                    "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/biennale/349"
-                }
-            ],
-            "collection": [
-                {
-                    "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/biennale"
-                }
-            ],
-            "about": [
-                {
-                    "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/types/biennale"
-                }
-            ],
-            "author": [
-                {
-                    "embeddable": true,
-                    "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/users/3"
-                }
-            ],
-            "version-history": [
-                {
-                    "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/biennale/349/revisions"
-                }
-            ],
-            "wp:attachment": [
-                {
-                    "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/media?parent=349"
-                }
-            ],
-            "wp:term": [
-                {
-                    "taxonomy": "post_tag",
-                    "embeddable": true,
-                    "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/tags?post=349"
-                }
-            ],
-            "curies": [
-                {
-                    "name": "wp",
-                    "href": "https://api.w.org/{rel}",
-                    "templated": true
-                }
-            ]
+        "dates": [
+          {
+            "from_date": "2016-10-12",
+            "to_date": "2016-11-08",
+            "from_time": "4:30pm",
+            "to_time": "5:00pm",
+            "from": "2016-10-12 16:30:00",
+            "to": "2016-11-08 17:00:00"
+          }
+        ]
+      },
+      {
+        "id": 324,
+        "link": "http://movimenta.wpad.keeward.me/events/meens-new-album-launch-in-beirut/",
+        "content": "Finally the highly anticipated release by the award-winning group that was never nominated for a Murex d'Or. This new album by the Lebanese rock band MEEN features 13 astonishing songs that will make you laugh, cry, scream, and spread the love all around. Miraculous, phenomenal, prodigious, spectacular... A must have.See you at \"The Next Whiskey Bar\" in Mar Mkhayel, on September 21, from 7 to 9 pm.",
+        "title": "Meen's New Album Launch in Beirut",
+        "excerpt": "",
+        "date_from": "2016-10-12 21:00:00",
+        "date_to": "2016-10-12 00:00:00",
+        "from_date": "2016-10-12",
+        "from_time": "9:00pm",
+        "to_date": "2016-10-12",
+        "to_time": "",
+        "subtitle": "",
+        "rsvp_info": "A must have.See you at \"The Next Whiskey Bar\" in Mar Mkhayel, on September 21, from 7 to 9 pm.",
+        "more_info": "Test the partner in more info",
+        "language_code": "fr",
+        "types": [
+          "concert"
+        ],
+        "categories": [
+          "biennale",
+          "la-fete-urbaine"
+        ],
+        "image": "",
+        "venue": 303,
+        "coordinates": {
+          "address": "Lyell St, Yarraville VIC 3013, Australia",
+          "lat": "-37.81955254763512",
+          "lng": "144.90520477294922"
+        },
+        "organizers": [],
+        "speakers": [],
+        "artists": [],
+        "companies": [],
+        "sponsors": [],
+        "dates": [
+          {
+            "from_date": "2016-10-12",
+            "to_date": "2016-10-12",
+            "from_time": "9:00pm",
+            "to_time": "",
+            "from": "2016-10-12 21:00:00",
+            "to": "2016-10-12 00:00:00"
+          }
+        ]
+      }
+    ],
+    "venues": [
+      {
+        "id": 314,
+        "link": "http://movimenta.wpad.keeward.me/venues/fgbrw-rtgwreg-qaerg/",
+        "content": "",
+        "title": "fgbrw rtgwreg qaerg",
+        "excerpt": "",
+        "name": "fgbrw-rtgwreg-qaerg",
+        "address": "qerg 3q4rf",
+        "city": "AEWF QRA",
+        "state": "",
+        "country": "",
+        "website": "",
+        "phone": "",
+        "map_link": "",
+        "email": "",
+        "zipcode": "",
+        "image": "http://movimenta.wpad.keeward.me/wp-content/uploads/2016/09/event_test_1.jpg",
+        "coordinates": {}
+      },
+      {
+        "id": 303,
+        "link": "http://movimenta.wpad.keeward.me/venues/generate-lorem-ipsum/",
+        "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+        "title": "generate Lorem Ipsum",
+        "excerpt": "",
+        "name": "generate-lorem-ipsum",
+        "address": "Avenue Valrose",
+        "city": "London",
+        "state": "",
+        "country": "United Kingdom",
+        "website": "",
+        "phone": "78278686",
+        "map_link": "https://www.google.com.lb/maps/place/London,+UK/@51.5285582,-0.2416797,11z/data=!3m1!4b1!4m5!3m4!1s0x47d8a00baf21de75:0x52963a5addd52a99!8m2!3d51.5073509!4d-0.1277583?hl=en",
+        "email": "",
+        "zipcode": "5237852782",
+        "image": "http://movimenta.wpad.keeward.me/wp-content/uploads/2016/09/NiceOperaHouse.jpg",
+        "coordinates": {
+          "address": "Victoria Harbour Promenade, Docklands VIC 3008, Australia",
+          "lat": "-37.8179230319262",
+          "lng": "144.93507385253906"
         }
+      }
+    ],
+    "organizers": [],
+    "speakers": [
+      {
+        "id": 315,
+        "link": "http://movimenta.wpad.keeward.me/speakers/wefqwe-q3ef/",
+        "content": "2E",
+        "title": "WEFQWE Q3EF",
+        "excerpt": "",
+        "name": "wefqwe-q3ef",
+        "first_name": "",
+        "last_name": "",
+        "profession": "",
+        "image": "http://movimenta.wpad.keeward.me/wp-content/uploads/2016/09/Willem_Adema.jpg",
+        "website": "",
+        "phone": "",
+        "email": "",
+        "facebook": "",
+        "twitter": "",
+        "linkedin": "",
+        "googleplus": "",
+        "youtube": "",
+        "tumblr": "",
+        "vimeo": "",
+        "instagram": ""
+      }
+    ],
+    "artists": [],
+    "companies": [],
+    "sponsors": [],
+    "hotels": [
+      {
+        "id": "9001",
+        "name": "Marriott",
+        "image": "https://travel.usnews.com/dims4/USNEWS/d655be2/2147483647/resize/220x150%5E%3E/crop/220x150/quality/85/?url=/static-travel/images/hp/30/18911/Ritz-Carlton_Montreal_usn_9.jpg",
+        "link": "http://www.marriott.com/default.mi"
+      },
+      {
+        "id": "9002",
+        "name": "Hilton",
+        "image": "https://travel.usnews.com/dims4/USNEWS/c3089e5/2147483647/resize/220x150%5E%3E/crop/220x150/quality/85/?url=/static-travel/images/hp/2/62908/Elysian_Hotel_Chicago_usn_5.jpg",
+        "link": "http://www3.hilton.com/en/index.html"
+      },
+      {
+        "id": "9003",
+        "name": "IHG",
+        "image": "https://travel.usnews.com/dims4/USNEWS/e7a5757/2147483647/resize/220x150%5E%3E/crop/220x150/quality/85/?url=/static-travel/images/hp/48/24345/The_Willard_InterContinental_usn_15.jpg",
+        "link": "https://www.ihg.com/hotels/gb/en/reservation"
+      }
+    ],
+    "restaurants": [
+      {
+        "id": 9007,
+        "name": "O'Charley's",
+        "image": "http://static4.businessinsider.com/image/5774139188e4a794048b4ee2-1200/20-ocharleys.jpg",
+        "link": "https://www.ocharleys.com/"
+      },
+      {
+        "id": 9008,
+        "name": "Red Lobster",
+        "image": "http://static6.businessinsider.com/image/57766d9a88e4a779638b5193-1200/19-red-lobster.jpg",
+        "link": "https://www.redlobster.com/"
+      },
+      {
+        "id": 9009,
+        "name": "P.F. Chang's China Bistro",
+        "image": "http://static2.businessinsider.com/image/577670634321f1d01a8b55bd-1200/18-pf-changs-china-bistro.jpg",
+        "link": "http://www.pfchangs.com/"
+      }
+    ],
+    "partner_groups": [
+      {
+        "id": 12,
+        "title": "ABC",
+        "partners": [
+          {
+            "id": 9007,
+            "name": "Charle's",
+            "image": "http://static4.businessinsider.com/image/5774139188e4a794048b4ee2-1200/20-ocharleys.jpg",
+            "link": "https://www.charles.com/",
+            "desc": "Some description on some partner item"
+          },
+          {
+            "id": 9006,
+            "name": "Shafic's",
+            "image": "http://static4.businessinsider.com/image/5774139188e4a794048b4ee2-1200/20-ocharleys.jpg",
+            "link": "https://www.shafic.com/",
+            "desc": "Some description on some partner item"
+          },
+          {
+            "id": 9005,
+            "name": "Marwan's",
+            "image": "http://static4.businessinsider.com/image/5774139188e4a794048b4ee2-1200/20-ocharleys.jpg",
+            "link": "https://www.marwan.com/",
+            "desc": "Some description on some partner item"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "QWE",
+        "partners": [
+          {
+            "id": 9007,
+            "name": "QWE's",
+            "image": "http://static4.businessinsider.com/image/5774139188e4a794048b4ee2-1200/20-ocharleys.jpg",
+            "link": "https://www.charles.com/",
+            "desc": "1 Some description on some partner item"
+          },
+          {
+            "id": 9006,
+            "name": "WRET's",
+            "image": "http://static4.businessinsider.com/image/5774139188e4a794048b4ee2-1200/20-ocharleys.jpg",
+            "link": "https://www.shafic.com/",
+            "desc": "2 Some description on some partner item"
+          },
+          {
+            "id": 9005,
+            "name": "ZXC's",
+            "image": "http://static4.businessinsider.com/image/5774139188e4a794048b4ee2-1200/20-ocharleys.jpg",
+            "link": "https://www.marwan.com/",
+            "desc": "3 Some description on some partner item"
+          }
+        ]
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/biennale/349"
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/biennale"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/types/biennale"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/users/3"
+        }
+      ],
+      "version-history": [
+        {
+          "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/biennale/349/revisions"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/media?parent=349"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "http://movimenta.wpad.keeward.me/wp-json/wp/v2/tags?post=349"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
     }
+  }
 ]
