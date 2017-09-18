@@ -20,6 +20,7 @@ class ScheduleViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    initializeTitle()
     initializeCollectionView()
     initializeTableView()
     registerToNotificationCenter()
@@ -29,6 +30,10 @@ class ScheduleViewController: UIViewController {
   
   deinit {
     unregisterToNotificationCenter()
+  }
+  
+  private func initializeTitle() {
+    title = viewModel.viewControllerTitle
   }
   
   private func initializeCollectionView() {

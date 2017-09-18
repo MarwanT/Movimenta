@@ -26,6 +26,10 @@ final class ScheduleViewModel {
       indexOfSelectedDate = index
     }
   }
+  
+  var viewControllerTitle: String? {
+    return Strings.schedule()
+  }
 }
 
 //MARK: Collection View Methods
