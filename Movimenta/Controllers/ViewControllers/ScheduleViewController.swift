@@ -22,8 +22,13 @@ class ScheduleViewController: UIViewController {
     super.viewDidLoad()
     initializeCollectionView()
     initializeTableView()
+    registerToNotificationCenter()
     navigateToSelectedDate()
     reloadEventsData()
+  }
+  
+  deinit {
+    unregisterToNotificationCenter()
   }
   
   private func initializeCollectionView() {
@@ -67,6 +72,14 @@ class ScheduleViewController: UIViewController {
     eventsTableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
   }
   
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   fileprivate func navigateToSelectedDate() {
     datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
   }
@@ -75,10 +88,22 @@ class ScheduleViewController: UIViewController {
     viewModel.refreshEvents()
     eventsTableView.reloadData()
   }
+  
+  fileprivate func reloadRows(at indexPaths: [IndexPath]) {
+    eventsTableView.reloadRows(at: indexPaths, with: .none)
+  }
 }
 
 //MARK: Actions
 extension ScheduleViewController {
+  func handleBookmarksUpdate(_ sender: Notification) {
+    guard let event = sender.object as? Event,
+      let indexPath = viewModel.updateBookmarkStatus(of: event) else {
+        return
+    }
+    reloadRows(at: [indexPath])
+  }
+  
   func navigateToEventDetailsViewController(event: Event) {
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
@@ -148,5 +173,9 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: Event Cell Delegates
 extension ScheduleViewController: EventCellDelegate {
   func eventCellDidTapBookmarkButton(_ cell: EventCell) {
+    guard let indexPath = eventsTableView.indexPath(for: cell) else {
+      return
+    }
+    viewModel.toggleEventBookmarkStatus(at: indexPath)
   }
 }
