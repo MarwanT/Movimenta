@@ -109,4 +109,47 @@ final class MovimentaTheme: Theme {
   var font15: UIFont = FontBook.filter.font
   var font16: UIFont = FontBook.menu1.font
   var font17: UIFont = FontBook.menu2.font
+
+  // MARK: - Buttons
+  //===============
+
+  func stylePrimaryButton(button: UIButton) {
+    button.titleLabel?.font = font5
+    button.setTitleColor(lightTextColor, for: .normal)
+    button.setBackgroundImage(color2.image(), for: .normal)
+    button.setTitleColor(color2, for: .highlighted)
+    button.setBackgroundImage(lightTextColor.image(), for: .highlighted)
+    button.backgroundColor = color2
+    addButtonBorders(button: button)
+    addButtonConstraints(button: button)
+  }
+
+  func styleSecondaryButton(button: UIButton) {
+    button.titleLabel?.font = font5
+    button.setTitleColor(color2, for: .normal)
+    button.setBackgroundImage(lightTextColor.image(), for: .normal)
+    button.setTitleColor(lightTextColor, for: .highlighted)
+    button.setBackgroundImage(color2.image(), for: .highlighted)
+    button.backgroundColor = lightTextColor
+    addButtonBorders(button: button)
+    addButtonConstraints(button: button)
+  }
+
+  private func addButtonBorders(button: UIButton, radius: CGFloat = 2.0, width: CGFloat = 2.0, color: UIColor? = nil) {
+    let borderColor = color ?? color2
+    button.clipsToBounds = true
+    button.layer.cornerRadius = radius
+    button.layer.borderWidth = width
+    button.layer.borderColor = borderColor.cgColor
+  }
+
+  private func addButtonConstraints(button: UIButton) {
+    let heightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 44)
+    button.addConstraint(heightConstraint)
+
+    let lowerWidthConstraint = NSLayoutConstraint(item:button, attribute:.width,
+        relatedBy:.greaterThanOrEqual, toItem:nil, attribute:.width, multiplier:0,
+        constant:125)
+    button.addConstraint(lowerWidthConstraint)
+  }
 }

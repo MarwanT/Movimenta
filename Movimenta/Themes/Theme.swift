@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Theme: ThemeColors, ThemeSpacing, ThemeFont {
+protocol Theme: ThemeColors, ThemeSpacing, ThemeFont, ThemeButtonsSytle {
   func initialize()
   
   var animationDuration: TimeInterval { get }
@@ -62,4 +62,9 @@ protocol ThemeFont {
   var font15: UIFont { get }
   var font16: UIFont { get }
   var font17: UIFont { get }
+}
+
+protocol ThemeButtonsSytle {
+  func stylePrimaryButton(button: UIButton)
+  func styleSecondaryButton(button: UIButton)
 }
