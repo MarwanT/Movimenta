@@ -55,6 +55,26 @@ extension ScheduleViewModel {
 
 //MARK: Events Table View Methods
 extension ScheduleViewModel {
+  var numberOfRows: Int {
+    return events.count
+  }
+  
+  func values(for indexPath: IndexPath) -> (imageURL: URL?, date: String?, venueName: String?, eventName: String?, categories: String?, time: String?, isBookmarked: Bool?)? {
+    guard let selectedDate = scheduleDates[indexOfSelectedDate].date else {
+      return nil
+    }
+    
+    let event = events[indexPath.row]
+    let preferredDateRange = event.preferredDateRange(for: selectedDate)
+    return (imageURL: event.image,
+            date: preferredDateRange?.displayedShortDate,
+            venueName: event.venue?.name?.uppercased(),
+            eventName: event.title?.capitalized,
+            categories: event.displayedCategoryLabel,
+            time: preferredDateRange?.displayedShortTime,
+            isBookmarked: event.isBookmarked)
+  }
+  
   func refreshEvents() {
     events.removeAll()
     
@@ -65,6 +85,10 @@ extension ScheduleViewModel {
     events = DataManager.shared.events.filter { (event) -> Bool in
       return event.happens(in: selectedDateRange)
     }
+  }
+  
+  func event(for indexPath: IndexPath) -> Event {
+    return events[indexPath.row]
   }
 }
 
