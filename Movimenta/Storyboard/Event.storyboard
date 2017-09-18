@@ -133,5 +133,65 @@
             </objects>
             <point key="canvasLocation" x="-151" y="925"/>
         </scene>
+        <!--Schedule View Controller-->
+        <scene sceneID="J4X-Vz-WLJ">
+            <objects>
+                <viewController storyboardIdentifier="ScheduleViewController" id="SBP-sH-SfA" customClass="ScheduleViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rjO-dZ-CdL"/>
+                        <viewControllerLayoutGuide type="bottom" id="327-lv-NWs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FjU-gG-tOt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Odg-mS-0fr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="75"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Fs6-E5-1D7"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kxY-Nw-0kH">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TKV-bo-cdH">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dco-Ju-ADn">
+                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Odg-mS-0fr" secondAttribute="trailing" id="5Bl-pS-evw"/>
+                            <constraint firstItem="Odg-mS-0fr" firstAttribute="leading" secondItem="FjU-gG-tOt" secondAttribute="leading" id="LJZ-yo-kW4"/>
+                            <constraint firstItem="Odg-mS-0fr" firstAttribute="top" secondItem="rjO-dZ-CdL" secondAttribute="bottom" id="PNU-k5-cLM"/>
+                            <constraint firstItem="327-lv-NWs" firstAttribute="top" secondItem="Dco-Ju-ADn" secondAttribute="bottom" id="Z2c-TN-ugh"/>
+                            <constraint firstAttribute="trailing" secondItem="Dco-Ju-ADn" secondAttribute="trailing" id="bpM-Mg-Gw8"/>
+                            <constraint firstItem="Dco-Ju-ADn" firstAttribute="leading" secondItem="FjU-gG-tOt" secondAttribute="leading" id="nkh-0j-L4I"/>
+                            <constraint firstItem="Dco-Ju-ADn" firstAttribute="top" secondItem="Odg-mS-0fr" secondAttribute="bottom" id="rfb-df-xUN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datesCollectionView" destination="Odg-mS-0fr" id="1xZ-Rw-nuY"/>
+                        <outlet property="eventsTableView" destination="Dco-Ju-ADn" id="e4q-mD-bdb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="STw-WY-VDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="924"/>
+        </scene>
     </scenes>
 </document>
