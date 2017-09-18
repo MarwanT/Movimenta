@@ -116,11 +116,15 @@ extension InformationViewController {
   }
 
   func hotelsImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-    //TODO: action
+    let vc = InformationListingViewController.instance()
+    vc.initialize(with: InformationListingViewModel.Mode.hotels)
+    navigationController?.pushViewController(vc, animated: true)
   }
 
   func restaurantsImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-    //TODO: action
+    let vc = InformationListingViewController.instance()
+    vc.initialize(with: InformationListingViewModel.Mode.restaurants)
+    navigationController?.pushViewController(vc, animated: true)
   }
 
   func partnersImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {

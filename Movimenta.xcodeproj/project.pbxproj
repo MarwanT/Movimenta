@@ -139,6 +139,11 @@
 		F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2011F6D86B5007216E4 /* WebViewController.swift */; };
 		F409C2041F6D8C17007216E4 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2031F6D8C17007216E4 /* ContactViewController.swift */; };
 		F409C2061F6D8CB2007216E4 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */; };
+		F409C2081F6E8DB1007216E4 /* InformationModelCommonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */; };
+		F409C20A1F6E8F81007216E4 /* InformationListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C2091F6E8F81007216E4 /* InformationListingViewController.swift */; };
+		F409C20C1F6E9027007216E4 /* InformationListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */; };
+		F409C2101F6EAB7F007216E4 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C20F1F6EAB7F007216E4 /* InformationCell.swift */; };
+		F409C2121F6EABAB007216E4 /* InformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F409C2111F6EABAB007216E4 /* InformationCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -295,6 +300,11 @@
 		F409C2011F6D86B5007216E4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F409C2031F6D8C17007216E4 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationModelCommonProperties.swift; sourceTree = "<group>"; };
+		F409C2091F6E8F81007216E4 /* InformationListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationListingViewController.swift; sourceTree = "<group>"; };
+		F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationListingViewModel.swift; sourceTree = "<group>"; };
+		F409C20F1F6EAB7F007216E4 /* InformationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationCell.swift; path = InformationCell/InformationCell.swift; sourceTree = "<group>"; };
+		F409C2111F6EABAB007216E4 /* InformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InformationCell.xib; path = InformationCell/InformationCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -675,6 +685,7 @@
 				5968349D1F60171900E25579 /* FiltersBreadcrumbView */,
 				5992026A1F67E2940078578C /* EventCell */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
+				F409C20E1F6EAB3D007216E4 /* InformationCell */,
 				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
 				59A008281F615FBE00E392DD /* PadableLabel.swift */,
 			);
@@ -699,6 +710,7 @@
 				F409C1F71F6D083B007216E4 /* InformationViewController.swift */,
 				F409C1FB1F6D47A9007216E4 /* AboutViewController.swift */,
 				F409C2031F6D8C17007216E4 /* ContactViewController.swift */,
+				F409C2091F6E8F81007216E4 /* InformationListingViewController.swift */,
 				5903B1011F4D7F2E009DF33C /* FiltersViewController.swift */,
 				599202611F669A110078578C /* ParticipantViewController.swift */,
 			);
@@ -720,6 +732,7 @@
 				5970AFA01F2746D0008CA708 /* API */,
 				5970AFA31F2758C3008CA708 /* Tools */,
 				5970AF891F224F56008CA708 /* ModelCommonProperties.swift */,
+				F409C2071F6E8DB1007216E4 /* InformationModelCommonProperties.swift */,
 				5970AF8F1F24E174008CA708 /* MovimentaEvent.swift */,
 				F409C1F51F6C4AF9007216E4 /* PartnerGroup.swift */,
 				5970AF931F24E4A8008CA708 /* Event.swift */,
@@ -743,6 +756,7 @@
 				5903B1051F4D82B8009DF33C /* FiltersViewModel.swift */,
 				F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */,
 				F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */,
+				F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */,
 				599202631F669C460078578C /* ParticipantViewModel.swift */,
 			);
 			path = ViewModels;
@@ -823,6 +837,15 @@
 				59D52FA21F1CFE8D008F3B13 /* Localizable.stringsdict */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		F409C20E1F6EAB3D007216E4 /* InformationCell */ = {
+			isa = PBXGroup;
+			children = (
+				F409C20F1F6EAB7F007216E4 /* InformationCell.swift */,
+				F409C2111F6EABAB007216E4 /* InformationCell.xib */,
+			);
+			name = InformationCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -939,6 +962,7 @@
 				596834A11F6017CA00E25579 /* FiltersBreadcrumbView.xib in Resources */,
 				5989231C1F1E2AC800F73974 /* nexa-regular-webfont.ttf in Resources */,
 				598923191F1E2AC100F73974 /* nexa-heavyitalic-webfont.ttf in Resources */,
+				F409C2121F6EABAB007216E4 /* InformationCell.xib in Resources */,
 				59363FCF1F459722006059B6 /* ParticipantCell.xib in Resources */,
 				598923101F1E2AA500F73974 /* nexa-black-webfont.ttf in Resources */,
 				5989231A1F1E2AC300F73974 /* nexa-light-webfont.ttf in Resources */,
@@ -1083,6 +1107,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F409C20A1F6E8F81007216E4 /* InformationListingViewController.swift in Sources */,
 				59363FCE1F459722006059B6 /* ParticipantCell.swift in Sources */,
 				5903B1001F4C8CD7009DF33C /* Filter.swift in Sources */,
 				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
@@ -1096,6 +1121,7 @@
 				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
 				5903B1061F4D82B8009DF33C /* FiltersViewModel.swift in Sources */,
 				59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */,
+				F409C20C1F6E9027007216E4 /* InformationListingViewModel.swift in Sources */,
 				59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */,
 				594662171F3C736F007412C0 /* NSLayoutConstraint+Utils.swift in Sources */,
 				594662131F39D1B6007412C0 /* EventDetailsViewModel.swift in Sources */,
@@ -1132,6 +1158,7 @@
 				5968348F1F5D60CC00E25579 /* SwitchCell.swift in Sources */,
 				5970AF841F222AA4008CA708 /* Device.swift in Sources */,
 				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
+				F409C2101F6EAB7F007216E4 /* InformationCell.swift in Sources */,
 				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
 				5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */,
 				F409C2001F6D7F51007216E4 /* AboutViewModel.swift in Sources */,
@@ -1169,6 +1196,7 @@
 				598923391F1F799400F73974 /* Environment.swift in Sources */,
 				591CD78D1F3879BA00A24BBB /* EventDetailsPeekView.swift in Sources */,
 				59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */,
+				F409C2081F6E8DB1007216E4 /* InformationModelCommonProperties.swift in Sources */,
 				5970AFB61F2A17B3008CA708 /* FontBook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -272,4 +272,8 @@ final class Strings {
   static func send_email_failure_alert_message() -> String {
     return Localization.localize(key: "send_email_failure_alert_message")
   }
+
+  static func view_website() -> String {
+    return Localization.localize(key: "view_website")
+  }
 }

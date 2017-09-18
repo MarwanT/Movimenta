@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Partner {
+struct Partner: InformationModelCommonProperties {
   var id: String?
   var link: URL?
   var name: String?
