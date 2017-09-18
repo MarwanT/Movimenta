@@ -72,7 +72,8 @@ class ScheduleViewController: UIViewController {
   }
   
   fileprivate func reloadEventsData() {
-    //TODO: Reload event Data for selected
+    viewModel.refreshEvents()
+    eventsTableView.reloadData()
   }
 }
 
