@@ -111,7 +111,19 @@
                     <view key="view" contentMode="scaleToFill" id="k0e-Vs-X9d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RYa-vC-OQi">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RYa-vC-OQi" firstAttribute="top" secondItem="P6B-5q-gTn" secondAttribute="bottom" id="JSV-Ww-E67"/>
+                            <constraint firstItem="RYa-vC-OQi" firstAttribute="leading" secondItem="k0e-Vs-X9d" secondAttribute="leading" id="YK9-Up-WPk"/>
+                            <constraint firstItem="E6c-LC-GDR" firstAttribute="top" secondItem="RYa-vC-OQi" secondAttribute="bottom" id="rtZ-AH-ONH"/>
+                            <constraint firstAttribute="trailing" secondItem="RYa-vC-OQi" secondAttribute="trailing" id="xmq-di-rcd"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezq-Hx-XEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
