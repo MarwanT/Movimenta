@@ -9,6 +9,8 @@
 import UIKit
 
 class BookmarksViewController: UIViewController {
+  var viewModel = BookmarksViewModel()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
