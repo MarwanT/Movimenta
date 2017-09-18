@@ -77,6 +77,15 @@ class ScheduleViewController: UIViewController {
   }
 }
 
+//MARK: Actions
+extension ScheduleViewController {
+  func navigateToEventDetailsViewController(event: Event) {
+    let vc = EventDetailsViewController.instance()
+    vc.initialize(with: event)
+    navigationController?.pushViewController(vc, animated: true)
+  }
+}
+
 //MARK: Collection View Delegates
 extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -132,6 +141,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
   }
 }
 
