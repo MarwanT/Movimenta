@@ -9,6 +9,8 @@
 import UIKit
 
 class BookmarksViewController: UIViewController {
+  @IBOutlet weak var tableView: UITableView!
+  
   var viewModel = BookmarksViewModel()
   
   override func viewDidLoad() {
