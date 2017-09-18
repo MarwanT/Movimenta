@@ -18,6 +18,7 @@ extension String {
     return self.substring(to: firstIndex).capitalized + self.substring(from: firstIndex).lowercased()
   }
 
+  // TODO: Recheck logic, and import logic from bookwitty app
   func rangesOfStringSurrounded(by delimiter: String) -> [NSRange] {
     //The Regex that Looks for delimiter followed by any character until it find the delimited 
     //again. 
