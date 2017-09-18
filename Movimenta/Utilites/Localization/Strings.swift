@@ -188,4 +188,28 @@ final class Strings {
   static func vr() -> String {
     return Localization.localize(key: "vr")
   }
+
+  static func info_app_title() -> String {
+    return Localization.localize(key: "info_app_title")
+  }
+
+  static func info_app_subtitle() -> String {
+    return Localization.localize(key: "info_app_subtitle")
+  }
+
+  static func partners() -> String {
+    return Localization.localize(key: "partners")
+  }
+
+  static func hotels() -> String {
+    return Localization.localize(key: "hotels")
+  }
+
+  static func contact() -> String {
+    return Localization.localize(key: "contact")
+  }
+
+  static func restaurants() -> String {
+    return Localization.localize(key: "restaurants")
+  }
 }
