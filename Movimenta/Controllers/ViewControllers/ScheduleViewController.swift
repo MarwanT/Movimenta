@@ -10,6 +10,7 @@ import UIKit
 
 class ScheduleViewController: UIViewController {
   @IBOutlet weak var datesCollectionView: UICollectionView!
+  @IBOutlet weak var eventsTableView: UITableView!
   
   var viewModel = ScheduleViewModel()
   

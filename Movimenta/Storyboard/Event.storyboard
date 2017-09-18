@@ -186,6 +186,7 @@
                     </view>
                     <connections>
                         <outlet property="datesCollectionView" destination="Odg-mS-0fr" id="1xZ-Rw-nuY"/>
+                        <outlet property="eventsTableView" destination="Dco-Ju-ADn" id="e4q-mD-bdb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STw-WY-VDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
