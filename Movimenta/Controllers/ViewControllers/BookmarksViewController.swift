@@ -107,3 +107,10 @@ extension BookmarksViewController: EventCellDelegate {
     viewModel.toggleEventBookmarkStatus(at: indexPath)
   }
 }
+
+//MARK: Instance
+extension BookmarksViewController {
+  static func instance() -> BookmarksViewController {
+    return Storyboard.Event.instantiate(BookmarksViewController.self)
+  }
+}
