@@ -11,6 +11,10 @@ import Foundation
 final class BookmarksViewModel {
   fileprivate(set) var events = [Event]()
   
+  var viewControllerTitle: String {
+    return Strings.bookmarks()
+  }
+  
   var numberOfRows: Int {
     return events.count
   }

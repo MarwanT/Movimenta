@@ -15,6 +15,7 @@ class BookmarksViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    initializeViewController()
     initializeTableView()
     registerToNotificationCenter()
     refreshTableView()
@@ -22,6 +23,10 @@ class BookmarksViewController: UIViewController {
   
   deinit {
     unregisterToNotificationCenter()
+  }
+  
+  private func initializeViewController() {
+    title = viewModel.viewControllerTitle
   }
   
   private func initializeTableView() {
