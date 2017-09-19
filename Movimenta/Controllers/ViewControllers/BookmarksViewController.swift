@@ -16,6 +16,7 @@ class BookmarksViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTableView()
+    refreshTableView()
   }
   
   private func initializeTableView() {
@@ -43,6 +44,11 @@ class BookmarksViewController: UIViewController {
 
 //MARK: Table View Controller
 extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
+  fileprivate func refreshTableView() {
+    viewModel.loadEvents()
+    tableView.reloadData()
+  }
+  
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
