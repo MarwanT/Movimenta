@@ -40,6 +40,12 @@ class BookmarksViewController: UIViewController {
     
     tableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
   }
+  
+  func navigateToEventDetailsViewController(event: Event) {
+    let vc = EventDetailsViewController.instance()
+    vc.initialize(with: event)
+    navigationController?.pushViewController(vc, animated: true)
+  }
 }
 
 //MARK: Table View Controller
@@ -64,5 +70,10 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
     cell.delegate = self
     cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
   }
 }
