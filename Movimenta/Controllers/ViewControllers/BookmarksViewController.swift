@@ -27,6 +27,7 @@ class BookmarksViewController: UIViewController {
   
   private func initializeViewController() {
     title = viewModel.viewControllerTitle
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
   }
   
   private func initializeTableView() {
