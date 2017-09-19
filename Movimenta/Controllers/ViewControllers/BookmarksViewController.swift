@@ -16,7 +16,12 @@ class BookmarksViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTableView()
+    registerToNotificationCenter()
     refreshTableView()
+  }
+  
+  deinit {
+    unregisterToNotificationCenter()
   }
   
   private func initializeTableView() {
@@ -41,10 +46,25 @@ class BookmarksViewController: UIViewController {
     tableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
   }
   
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   func navigateToEventDetailsViewController(event: Event) {
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
     navigationController?.pushViewController(vc, animated: true)
+  }
+}
+
+//MARK: Actions
+extension BookmarksViewController {
+  func handleBookmarksUpdate(_ sender: Notification) {
+    refreshTableView()
   }
 }
 
@@ -75,5 +95,15 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
+  }
+}
+
+//MARK: Event Cell Delegates
+extension BookmarksViewController: EventCellDelegate {
+  func eventCellDidTapBookmarkButton(_ cell: EventCell) {
+    guard let indexPath = tableView.indexPath(for: cell) else {
+      return
+    }
+    viewModel.toggleEventBookmarkStatus(at: indexPath)
   }
 }
