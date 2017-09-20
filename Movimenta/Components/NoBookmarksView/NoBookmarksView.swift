@@ -20,10 +20,22 @@ class NoBookmarksView: UIView {
   override func awakeFromNib() {
     super.awakeFromNib()
     initialize()
+    applyTheme()
   }
   
   private func initialize() {
     titleLabel.text = Strings.bookmark_your_events()
     contentLabel.text = Strings.how_to_bookmark_text()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    titleLabel.font = theme.font7
+    contentLabel.font = theme.font6
+    titleLabel.textColor = theme.darkTextColor
+    contentLabel.textColor = theme.darkTextColor
+    layoutMargins = UIEdgeInsets(
+      top: 0, left: CGFloat(theme.space4),
+      bottom: 0, right: CGFloat(theme.space4))
   }
 }
