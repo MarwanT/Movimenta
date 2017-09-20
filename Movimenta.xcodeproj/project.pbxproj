@@ -16,6 +16,8 @@
 		5903B1061F4D82B8009DF33C /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903B1051F4D82B8009DF33C /* FiltersViewModel.swift */; };
 		5903B1091F4D9AD9009DF33C /* FiltersSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903B1081F4D9AD9009DF33C /* FiltersSectionHeader.swift */; };
 		59048B641F4AE8460000CCAF /* FiltersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59048B631F4AE8460000CCAF /* FiltersManager.swift */; };
+		5907C0E61F7022F3005ED3E9 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907C0E51F7022F3005ED3E9 /* BookmarksViewController.swift */; };
+		5907C0E81F702399005ED3E9 /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907C0E71F702399005ED3E9 /* BookmarksViewModel.swift */; };
 		591CD78D1F3879BA00A24BBB /* EventDetailsPeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */; };
 		591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */; };
 		591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78F1F387B0700A24BBB /* View+Utils.swift */; };
@@ -46,6 +48,9 @@
 		5953C1801F559CA700BD27AB /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5953C17E1F559CA700BD27AB /* SelectableCell.swift */; };
 		5953C1811F559CA700BD27AB /* SelectableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5953C17F1F559CA700BD27AB /* SelectableCell.xib */; };
 		596415271F507061009169A6 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596415261F507061009169A6 /* Selection.swift */; };
+		5965D1CC1F72727F00F35C63 /* UITabBarController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5965D1CB1F72727F00F35C63 /* UITabBarController+Utils.swift */; };
+		5965D1CF1F729EAC00F35C63 /* NoBookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5965D1CE1F729EAC00F35C63 /* NoBookmarksView.swift */; };
+		5965D1D11F729EBD00F35C63 /* NoBookmarksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5965D1D01F729EBD00F35C63 /* NoBookmarksView.xib */; };
 		5968348F1F5D60CC00E25579 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5968348D1F5D60CC00E25579 /* SwitchCell.swift */; };
 		596834901F5D60CC00E25579 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5968348E1F5D60CC00E25579 /* SwitchCell.xib */; };
 		596834991F5D914100E25579 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596834971F5D914100E25579 /* SliderCell.swift */; };
@@ -172,6 +177,8 @@
 		5903B1051F4D82B8009DF33C /* FiltersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
 		5903B1081F4D9AD9009DF33C /* FiltersSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersSectionHeader.swift; sourceTree = "<group>"; };
 		59048B631F4AE8460000CCAF /* FiltersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersManager.swift; sourceTree = "<group>"; };
+		5907C0E51F7022F3005ED3E9 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		5907C0E71F702399005ED3E9 /* BookmarksViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
 		591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsPeekView.swift; sourceTree = "<group>"; };
 		591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsPeekView.xib; sourceTree = "<group>"; };
 		591CD78F1F387B0700A24BBB /* View+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
@@ -202,6 +209,9 @@
 		5953C17E1F559CA700BD27AB /* SelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
 		5953C17F1F559CA700BD27AB /* SelectableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectableCell.xib; sourceTree = "<group>"; };
 		596415261F507061009169A6 /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
+		5965D1CB1F72727F00F35C63 /* UITabBarController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Utils.swift"; sourceTree = "<group>"; };
+		5965D1CE1F729EAC00F35C63 /* NoBookmarksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoBookmarksView.swift; sourceTree = "<group>"; };
+		5965D1D01F729EBD00F35C63 /* NoBookmarksView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoBookmarksView.xib; sourceTree = "<group>"; };
 		5968348D1F5D60CC00E25579 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		5968348E1F5D60CC00E25579 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		596834971F5D914100E25579 /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
@@ -454,6 +464,15 @@
 			path = SelectableCell;
 			sourceTree = "<group>";
 		};
+		5965D1CD1F729E8200F35C63 /* NoBookmarksView */ = {
+			isa = PBXGroup;
+			children = (
+				5965D1CE1F729EAC00F35C63 /* NoBookmarksView.swift */,
+				5965D1D01F729EBD00F35C63 /* NoBookmarksView.xib */,
+			);
+			path = NoBookmarksView;
+			sourceTree = "<group>";
+		};
 		5968348C1F5D60A100E25579 /* SwitchCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +578,7 @@
 				5903B0FD1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift */,
 				598039351F56D83800521DA2 /* UITableViewCell+Utils.swift */,
 				594040CC1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift */,
+				5965D1CB1F72727F00F35C63 /* UITabBarController+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -702,8 +722,9 @@
 				5968349D1F60171900E25579 /* FiltersBreadcrumbView */,
 				5992026A1F67E2940078578C /* EventCell */,
 				598656AF1F6987DE000EB28D /* ScheduleCell */,
-				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 				F409C20E1F6EAB3D007216E4 /* InformationCell */,
+				5965D1CD1F729E8200F35C63 /* NoBookmarksView */,
+				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
 				59A008281F615FBE00E392DD /* PadableLabel.swift */,
 			);
@@ -732,6 +753,7 @@
 				5903B1011F4D7F2E009DF33C /* FiltersViewController.swift */,
 				599202611F669A110078578C /* ParticipantViewController.swift */,
 				598656AD1F698394000EB28D /* ScheduleViewController.swift */,
+				5907C0E51F7022F3005ED3E9 /* BookmarksViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -778,6 +800,7 @@
 				F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */,
 				599202631F669C460078578C /* ParticipantViewModel.swift */,
 				598656B41F6ABE7A000EB28D /* ScheduleViewModel.swift */,
+				5907C0E71F702399005ED3E9 /* BookmarksViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -974,6 +997,7 @@
 				5989231D1F1E2ACB00F73974 /* nexa-regularitalic-webfont.ttf in Resources */,
 				591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */,
 				5953C17C1F5476B900BD27AB /* ExpandableHeaderCell.xib in Resources */,
+				5965D1D11F729EBD00F35C63 /* NoBookmarksView.xib in Resources */,
 				599202691F66B2EE0078578C /* ParticipantDetailsHeaderView.xib in Resources */,
 				596834901F5D60CC00E25579 /* SwitchCell.xib in Resources */,
 				598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */,
@@ -1127,6 +1151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5907C0E61F7022F3005ED3E9 /* BookmarksViewController.swift in Sources */,
 				F409C20A1F6E8F81007216E4 /* InformationListingViewController.swift in Sources */,
 				59363FCE1F459722006059B6 /* ParticipantCell.swift in Sources */,
 				5903B1001F4C8CD7009DF33C /* Filter.swift in Sources */,
@@ -1153,6 +1178,7 @@
 				599202621F669A110078578C /* ParticipantViewController.swift in Sources */,
 				59EF02191F3076CF00F145B9 /* RootViewController.swift in Sources */,
 				59D52F8A1F1CF319008F3B13 /* Strings.swift in Sources */,
+				5965D1CF1F729EAC00F35C63 /* NoBookmarksView.swift in Sources */,
 				59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */,
 				5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */,
 				F409C1EE1F6C3A8F007216E4 /* Restaurant.swift in Sources */,
@@ -1197,6 +1223,7 @@
 				599202641F669C460078578C /* ParticipantViewModel.swift in Sources */,
 				5968349F1F6017AB00E25579 /* FiltersBreadcrumbView.swift in Sources */,
 				59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */,
+				5965D1CC1F72727F00F35C63 /* UITabBarController+Utils.swift in Sources */,
 				5953C1801F559CA700BD27AB /* SelectableCell.swift in Sources */,
 				594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */,
 				F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */,
@@ -1215,6 +1242,7 @@
 				598039361F56D83800521DA2 /* UITableViewCell+Utils.swift in Sources */,
 				5970AF9D1F261110008CA708 /* Date+Utils.swift in Sources */,
 				5989232B1F1F54C400F73974 /* Analytics+Category.swift in Sources */,
+				5907C0E81F702399005ED3E9 /* BookmarksViewModel.swift in Sources */,
 				5970AF8A1F224F56008CA708 /* ModelCommonProperties.swift in Sources */,
 				598923291F1F536E00F73974 /* Analytics.swift in Sources */,
 				598923391F1F799400F73974 /* Environment.swift in Sources */,

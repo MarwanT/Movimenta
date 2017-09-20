@@ -57,8 +57,11 @@ final class MovimentaTheme: Theme {
   var lightTextColor: UIColor {
     return white
   }
+  var disableColor: UIColor {
+    return color6
+  }
   var defaultBackgroundColor: UIColor {
-    return color2
+    return white
   }
   var separatorColor: UIColor {
     return color6

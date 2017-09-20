@@ -9,6 +9,22 @@
 import Foundation
 
 final class Strings {
+  static func about() -> String {
+    return Localization.localize(key: "about")
+  }
+  
+  static func about_description() -> String {
+    return Localization.localize(key: "about_description")
+  }
+  
+  static func about_subtitle() -> String {
+    return Localization.localize(key: "about_subtitle")
+  }
+  
+  static func about_subtitle_description() -> String {
+    return Localization.localize(key: "about_subtitle_description")
+  }
+  
   static func add_to_calendar() -> String {
     return Localization.localize(key: "add_to_calendar")
   }
@@ -19,6 +35,14 @@ final class Strings {
   
   static func apply() -> String {
     return Localization.localize(key: "apply")
+  }
+  
+  static func art_description() -> String {
+    return Localization.localize(key: "art_description")
+  }
+  
+  static func art_questions_title() -> String {
+    return Localization.localize(key: "art_questions_title")
   }
   
   static func artist() -> String {
@@ -33,8 +57,24 @@ final class Strings {
     return Localization.localize(key: "at_time")
   }
   
+  static func bookmark_your_events() -> String {
+    return Localization.localize(key: "bookmark_your_events")
+  }
+  
   static func bookmarks() -> String {
     return Localization.localize(key: "bookmarks")
+  }
+  
+  static func business_description() -> String {
+    return Localization.localize(key: "business_description")
+  }
+  
+  static func business_questions_title() -> String {
+    return Localization.localize(key: "business_questions_title")
+  }
+  
+  static func call() -> String {
+    return Localization.localize(key: "call")
   }
   
   static func cancel() -> String {
@@ -49,6 +89,10 @@ final class Strings {
     return Localization.localize(key: "company")
   }
   
+  static func contact() -> String {
+    return Localization.localize(key: "contact")
+  }
+  
   static func date() -> String {
     return Localization.localize(key: "date")
   }
@@ -59,6 +103,10 @@ final class Strings {
   
   static func distance() -> String {
     return Localization.localize(key: "distance")
+  }
+  
+  static func email() -> String {
+    return Localization.localize(key: "email")
   }
   
   static func event_details() -> String {
@@ -81,8 +129,32 @@ final class Strings {
     return Localization.localize(key: "hide_bookmarked_events")
   }
   
+  static func hotels() -> String {
+    return Localization.localize(key: "hotels")
+  }
+  
+  static func hotline_description() -> String {
+    return Localization.localize(key: "hotline_description")
+  }
+  
+  static func hotline_title() -> String {
+    return Localization.localize(key: "hotline_title")
+  }
+  
+  static func how_to_bookmark_text() -> String {
+    return Localization.localize(key: "how_to_bookmark_text")
+  }
+  
   static func info() -> String {
     return Localization.localize(key: "info")
+  }
+  
+  static func info_app_subtitle() -> String {
+    return Localization.localize(key: "info_app_subtitle")
+  }
+  
+  static func info_app_title() -> String {
+    return Localization.localize(key: "info_app_title")
   }
   
   static func km() -> String {
@@ -129,20 +201,44 @@ final class Strings {
     return Localization.localize(key: "participants")
   }
   
+  static func partners() -> String {
+    return Localization.localize(key: "partners")
+  }
+  
   static func related_events() -> String {
     return Localization.localize(key: "related_events")
+  }
+  
+  static func remove() -> String {
+    return Localization.localize(key: "remove")
   }
   
   static func reset_all_filters() -> String {
     return Localization.localize(key: "reset_all_filters")
   }
   
-  static func settings() -> String {
-    return Localization.localize(key: "settings")
+  static func restaurants() -> String {
+    return Localization.localize(key: "restaurants")
   }
   
   static func schedule() -> String {
     return Localization.localize(key: "schedule")
+  }
+  
+  static func select_all() -> String {
+    return Localization.localize(key: "select_all")
+  }
+  
+  static func send_email_failure_alert_message() -> String {
+    return Localization.localize(key: "send_email_failure_alert_message")
+  }
+  
+  static func send_email_failure_alert_title() -> String {
+    return Localization.localize(key: "send_email_failure_alert_title")
+  }
+  
+  static func settings() -> String {
+    return Localization.localize(key: "settings")
   }
   
   static func show_bookmarked_events() -> String {
@@ -189,95 +285,15 @@ final class Strings {
     return Localization.localize(key: "view_more")
   }
   
+  static func view_website() -> String {
+    return Localization.localize(key: "view_website")
+  }
+  
   static func vr() -> String {
     return Localization.localize(key: "vr")
   }
-
-  static func info_app_title() -> String {
-    return Localization.localize(key: "info_app_title")
-  }
-
-  static func info_app_subtitle() -> String {
-    return Localization.localize(key: "info_app_subtitle")
-  }
-
-  static func partners() -> String {
-    return Localization.localize(key: "partners")
-  }
-
-  static func hotels() -> String {
-    return Localization.localize(key: "hotels")
-  }
-
-  static func contact() -> String {
-    return Localization.localize(key: "contact")
-  }
-
-  static func restaurants() -> String {
-    return Localization.localize(key: "restaurants")
-  }
-
-  static func about() -> String {
-    return Localization.localize(key: "about")
-  }
-
-  static func about_description() -> String {
-    return Localization.localize(key: "about_description")
-  }
-
-  static func about_subtitle() -> String {
-    return Localization.localize(key: "about_subtitle")
-  }
-
-  static func about_subtitle_description() -> String {
-    return Localization.localize(key: "about_subtitle_description")
-  }
-
-  static func hotline_title() -> String {
-    return Localization.localize(key: "hotline_title")
-  }
-
-  static func hotline_description() -> String {
-    return Localization.localize(key: "hotline_description")
-  }
-
-  static func business_questions_title() -> String {
-    return Localization.localize(key: "business_questions_title")
-  }
-
-  static func art_questions_title() -> String {
-    return Localization.localize(key: "art_questions_title")
-  }
-
-  static func call() -> String {
-    return Localization.localize(key: "call")
-  }
-
-  static func email() -> String {
-    return Localization.localize(key: "email")
-  }
-
+  
   static func website() -> String {
     return Localization.localize(key: "website")
-  }
-
-  static func business_description() -> String {
-    return Localization.localize(key: "business_description")
-  }
-
-  static func art_description() -> String {
-    return Localization.localize(key: "art_description")
-  }
-
-  static func send_email_failure_alert_title() -> String {
-    return Localization.localize(key: "send_email_failure_alert_title")
-  }
-
-  static func send_email_failure_alert_message() -> String {
-    return Localization.localize(key: "send_email_failure_alert_message")
-  }
-
-  static func view_website() -> String {
-    return Localization.localize(key: "view_website")
   }
 }

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,10 +20,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="125.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qlp-AX-7rm" userLabel="Base View">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xQy-zH-Km1" userLabel="Event Image View">
                         <rect key="frame" x="8" y="8" width="78" height="78"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="78" id="1Aw-QI-tAF"/>
+                            <constraint firstAttribute="height" priority="999" constant="78" id="1Aw-QI-tAF"/>
                             <constraint firstAttribute="width" constant="78" id="Eza-6h-KmP"/>
                         </constraints>
                     </imageView>
@@ -80,18 +85,21 @@
                     <constraint firstItem="I2g-E9-PME" firstAttribute="trailing" secondItem="gJH-d8-VzD" secondAttribute="leading" id="1Xa-5E-Tf3"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="xQy-zH-Km1" secondAttribute="bottom" id="55y-oD-H0C"/>
                     <constraint firstItem="b7F-MM-7a5" firstAttribute="trailing" secondItem="1nG-yq-Azz" secondAttribute="trailing" id="68a-Dx-bhh"/>
+                    <constraint firstItem="Qlp-AX-7rm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="80X-7d-SCe"/>
                     <constraint firstItem="gJH-d8-VzD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="C4T-lP-xs7"/>
                     <constraint firstItem="rn6-LR-abY" firstAttribute="leading" secondItem="I2g-E9-PME" secondAttribute="leading" constant="-1" id="Hz7-HY-kTG"/>
+                    <constraint firstItem="Qlp-AX-7rm" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" id="KFf-TK-tIe"/>
+                    <constraint firstItem="1nG-yq-Azz" firstAttribute="trailing" secondItem="Qlp-AX-7rm" secondAttribute="trailingMargin" id="KIf-wu-qVe"/>
                     <constraint firstItem="xuM-T1-BqY" firstAttribute="leading" secondItem="rn6-LR-abY" secondAttribute="trailing" id="P6c-Cf-Esn"/>
                     <constraint firstItem="eFs-Nf-9tM" firstAttribute="leading" secondItem="I2g-E9-PME" secondAttribute="leading" id="PK5-gW-XOu"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="1nG-yq-Azz" secondAttribute="trailing" id="SAy-NU-vbk"/>
+                    <constraint firstItem="Qlp-AX-7rm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="QUI-9R-jOe"/>
                     <constraint firstItem="1nG-yq-Azz" firstAttribute="leading" secondItem="I2g-E9-PME" secondAttribute="leading" id="SIZ-Z2-TWB"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="b7F-MM-7a5" secondAttribute="bottom" id="T0N-70-rTe"/>
                     <constraint firstItem="eFs-Nf-9tM" firstAttribute="top" secondItem="1nG-yq-Azz" secondAttribute="bottom" id="XDm-k5-TeF"/>
                     <constraint firstItem="xuM-T1-BqY" firstAttribute="trailing" secondItem="I2g-E9-PME" secondAttribute="trailing" id="YSR-4g-tBi"/>
                     <constraint firstItem="b7F-MM-7a5" firstAttribute="leading" secondItem="I2g-E9-PME" secondAttribute="leading" id="bu9-dm-rpm"/>
                     <constraint firstItem="xQy-zH-Km1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dBh-7J-Jnp"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="gJH-d8-VzD" secondAttribute="trailing" id="hGg-Om-kAO"/>
+                    <constraint firstItem="gJH-d8-VzD" firstAttribute="trailing" secondItem="Qlp-AX-7rm" secondAttribute="trailingMargin" id="lMi-iT-EB1"/>
                     <constraint firstItem="xQy-zH-Km1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="lww-WL-rxc"/>
                     <constraint firstItem="1nG-yq-Azz" firstAttribute="top" secondItem="xuM-T1-BqY" secondAttribute="bottom" id="mA5-BZ-BUd"/>
                     <constraint firstItem="xuM-T1-BqY" firstAttribute="top" secondItem="I2g-E9-PME" secondAttribute="bottom" id="mse-gZ-RYy"/>
@@ -101,7 +109,11 @@
                     <constraint firstItem="eFs-Nf-9tM" firstAttribute="trailing" secondItem="1nG-yq-Azz" secondAttribute="trailing" id="yC3-wf-R3S"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="Qlp-AX-7rm" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" id="oRG-Uq-brS"/>
+            </constraints>
             <connections>
+                <outlet property="baseView" destination="Qlp-AX-7rm" id="mqw-5I-bAw"/>
                 <outlet property="bookmarkButton" destination="gJH-d8-VzD" id="nZp-1D-WZA"/>
                 <outlet property="categoryLabel" destination="eFs-Nf-9tM" id="ABH-Oe-VWJ"/>
                 <outlet property="categoryLabelTopVerticalSpacing" destination="XDm-k5-TeF" id="igm-fh-Fsc"/>
