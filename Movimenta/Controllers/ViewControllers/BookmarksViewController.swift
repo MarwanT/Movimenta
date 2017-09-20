@@ -141,6 +141,13 @@ extension BookmarksViewController {
   }
   
   func didTapSelectAllEventsItem(_ sender: UIBarButtonItem) {
+    if viewModel.areAllEventsSelected {
+      viewModel.unSelectAll()
+      tableView.unSelectVisibleRows()
+    } else {
+      viewModel.selectAll()
+      tableView.selectVisibleRows()
+    }
   }
   
   func didTapUnbookmarkSelectedItem(_ sender: UIBarButtonItem) {
