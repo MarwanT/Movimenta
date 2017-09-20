@@ -137,6 +137,7 @@ extension BookmarksViewController {
   }
   
   func handleEditButtonTap(_ sender: UIBarButtonItem) {
+    toggleEditingMode()
   }
   
   func didTapSelectAllEventsItem(_ sender: UIBarButtonItem) {
