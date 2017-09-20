@@ -176,6 +176,12 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
       viewModel.selectEvent(at: indexPath)
     }
   }
+  
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    if tableView.isEditing {
+      viewModel.unselectEvent(at: indexPath)
+    }
+  }
 }
 
 //MARK: Event Cell Delegates
