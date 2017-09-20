@@ -98,6 +98,12 @@ class BookmarksViewController: UIViewController {
       navigationItem.rightBarButtonItem = editBarButton
     }
   }
+  
+  fileprivate func refreshBottomToolbarVisibility() {
+    self.navigationController?.tabBarController?.setTabBarVisible(visible: !tableView.isEditing, animated: true) {
+      self.navigationController?.setToolbarHidden(!self.tableView.isEditing, animated: true)
+    }
+  }
 }
 
 //MARK: Actions
