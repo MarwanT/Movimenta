@@ -151,6 +151,10 @@ extension BookmarksViewController {
   }
   
   func didTapUnbookmarkSelectedItem(_ sender: UIBarButtonItem) {
+    tableViewLocked = true
+    let indexPaths = viewModel.unBookmarkSelectedEvents()
+    tableView.deleteRows(at: indexPaths, with: .automatic)
+    tableViewLocked = false
   }
 }
 
