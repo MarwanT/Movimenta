@@ -56,6 +56,11 @@
                 <constraint firstItem="GkK-6Q-9XS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="uLr-PU-hoT"/>
                 <constraint firstItem="GkK-6Q-9XS" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="zjd-l5-eZ2"/>
             </constraints>
+            <connections>
+                <outlet property="contentLabel" destination="e1t-bh-MHt" id="kcQ-kJ-6gG"/>
+                <outlet property="imageView" destination="Nqx-Fi-S9h" id="KLg-mD-PnL"/>
+                <outlet property="titleLabel" destination="GW7-q0-n9g" id="67N-TQ-lfJ"/>
+            </connections>
         </view>
     </objects>
 </document>
