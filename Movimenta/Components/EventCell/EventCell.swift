@@ -17,6 +17,7 @@ class EventCell: UITableViewCell {
   static let identifier: String = EventCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
+  @IBOutlet weak var baseView: UIView!
   @IBOutlet weak var participantImageView: UIImageView!
   @IBOutlet weak var pinImageView: UIImageView!
   @IBOutlet weak var bookmarkButton: UIButton!
@@ -75,6 +76,7 @@ class EventCell: UITableViewCell {
     participantImageView.clipsToBounds = true
     participantImageView.contentMode = .scaleAspectFill
     contentView.layoutMargins = configuration.layoutMargins
+    baseView.layoutMargins = configuration.layoutMargins
     selectedBackgroundView = UIImageView(image: theme.color6.image())
     tintColor = theme.color2
   }
