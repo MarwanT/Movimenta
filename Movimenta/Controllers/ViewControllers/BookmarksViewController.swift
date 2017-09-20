@@ -19,6 +19,7 @@ class BookmarksViewController: UIViewController {
     super.viewDidLoad()
     initializeViewController()
     initializeTableView()
+    initializeNavigationItems()
     initializeToolbar()
     registerToNotificationCenter()
     refreshTableView()
@@ -55,6 +56,10 @@ class BookmarksViewController: UIViewController {
     tableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
   }
   
+  private func initializeNavigationItems() {
+    refreshRightBarButtonItem()
+  }
+  
   private func initializeToolbar() {
     selectAllItem.target = self
     unbookmarkItem.target = self
@@ -83,12 +88,25 @@ class BookmarksViewController: UIViewController {
     vc.initialize(with: event)
     navigationController?.pushViewController(vc, animated: true)
   }
+  
+  fileprivate func refreshRightBarButtonItem() {
+    if tableView.isEditing {
+      let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleEditButtonTap(_:)))
+      navigationItem.rightBarButtonItem = doneBarButton
+    } else {
+      let editBarButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handleEditButtonTap(_:)))
+      navigationItem.rightBarButtonItem = editBarButton
+    }
+  }
 }
 
 //MARK: Actions
 extension BookmarksViewController {
   func handleBookmarksUpdate(_ sender: Notification) {
     refreshTableView()
+  }
+  
+  func handleEditButtonTap(_ sender: UIBarButtonItem) {
   }
   
   func didTapSelectAllEventsItem(_ sender: UIBarButtonItem) {
