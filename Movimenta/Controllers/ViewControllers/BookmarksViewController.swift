@@ -179,4 +179,13 @@ extension UITableView {
       selectRow(at: indexPath, animated: false, scrollPosition: .none)
     }
   }
+  
+  fileprivate func unSelectVisibleRows(_ animation: UITableViewRowAnimation = .none) {
+    guard let indexPaths = indexPathsForVisibleRows else {
+      return
+    }
+    for indexPath in indexPaths {
+      deselectRow(at: indexPath, animated: false)
+    }
+  }
 }
