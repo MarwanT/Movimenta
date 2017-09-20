@@ -115,6 +115,7 @@ class BookmarksViewController: UIViewController {
   }
   
   fileprivate func refreshBottomToolbarVisibility() {
+    refreshToolbarItems()
     self.navigationController?.tabBarController?.setTabBarVisible(visible: !tableView.isEditing, animated: true) {
       self.navigationController?.setToolbarHidden(!self.tableView.isEditing, animated: true)
     }
@@ -155,6 +156,18 @@ class BookmarksViewController: UIViewController {
       self.noBookmarksView.isHidden = true
     })
   }
+  
+  fileprivate func refreshToolbarItems() {
+    refreshSelectAllItem()
+    refreshUnbookmarkItem()
+  }
+  
+  private func refreshSelectAllItem() {
+    
+  }
+  
+  private func refreshUnbookmarkItem() {
+  }
 }
 
 //MARK: Actions
@@ -175,6 +188,7 @@ extension BookmarksViewController {
       viewModel.selectAll()
       tableView.selectVisibleRows()
     }
+    refreshToolbarItems()
   }
   
   func didTapUnbookmarkSelectedItem(_ sender: UIBarButtonItem) {
@@ -227,12 +241,14 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
       navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
     } else {
       viewModel.selectEvent(at: indexPath)
+      refreshToolbarItems()
     }
   }
   
   func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
     if tableView.isEditing {
       viewModel.unselectEvent(at: indexPath)
+      refreshToolbarItems()
     }
   }
 }
