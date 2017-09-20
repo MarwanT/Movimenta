@@ -33,6 +33,11 @@ final class Strings {
     return Localization.localize(key: "at_time")
   }
   
+  
+  static func bookmark_your_events() -> String {
+    return Localization.localize(key: "bookmark_your_events")
+  }
+  
   static func bookmarks() -> String {
     return Localization.localize(key: "bookmarks")
   }
@@ -79,6 +84,10 @@ final class Strings {
   
   static func hide_bookmarked_events() -> String {
     return Localization.localize(key: "hide_bookmarked_events")
+  }
+  
+  static func how_to_bookmark_text() -> String {
+    return Localization.localize(key: "how_to_bookmark_text")
   }
   
   static func info() -> String {

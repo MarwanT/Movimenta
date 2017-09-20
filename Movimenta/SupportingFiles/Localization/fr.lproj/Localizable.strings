@@ -12,6 +12,7 @@
 "artist" = "Artist";
 "artists" = "Artists";
 "at_time" = "At";
+"bookmark_your_events" = "Bookmark Your Events";
 "bookmarks" = "Bookmarks";
 "cancel" = "Cancel";
 "companies" = "Companies";
@@ -24,6 +25,7 @@
 "event_types" = "Event Types";
 "from" = "From";
 "hide_bookmarked_events" = "Hide Bookmarked Events";
+"how_to_bookmark_text" = "Fill this page by selecting your favorite events from the schedule.";
 "info" = "Info";
 "km" = "Km";
 "launch_screen_description" = "Festival biennal\nde l'image\nen mouvement";
