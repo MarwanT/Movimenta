@@ -42,6 +42,11 @@ class EventCell: UITableViewCell {
     }
   }
   
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: animated)
+    refreshSelectionBackground()
+  }
+  
   weak var delegate: EventCellDelegate?
   
   override func awakeFromNib() {
@@ -75,6 +80,10 @@ class EventCell: UITableViewCell {
   
   fileprivate func refreshBookmarkButton() {
     bookmarkButton.setImage(isBookmarked ? #imageLiteral(resourceName: "bookmarkFilled") : #imageLiteral(resourceName: "bookmarkOutline"), for: .normal)
+  }
+  
+  fileprivate func refreshSelectionBackground() {
+    selectedBackgroundView = UIImageView(image: (isEditing ? UIColor.clear : ThemeManager.shared.current.color6).image())
   }
   
   fileprivate func setLabelsTopPadding() {
