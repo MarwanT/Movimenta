@@ -10,6 +10,7 @@ import Foundation
 
 final class BookmarksViewModel {
   fileprivate(set) var events = [Event]()
+  fileprivate(set) var indexPathOfSelectedEvents = [IndexPath]()
   
   var viewControllerTitle: String {
     return Strings.bookmarks()
