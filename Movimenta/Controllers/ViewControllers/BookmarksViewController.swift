@@ -10,6 +10,7 @@ import UIKit
 
 class BookmarksViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
+  let selectAllIcon = UIBarButtonItem(image: #imageLiteral(resourceName: "circleUnticked"), style: .plain, target: nil, action:  #selector(didTapSelectAllEventsItem(_:)))
   let selectAllItem = UIBarButtonItem(title: Strings.select_all(), style: .plain, target: nil, action: #selector(didTapSelectAllEventsItem(_:)))
   let unbookmarkItem = UIBarButtonItem(title: Strings.remove(), style: .plain, target: nil, action: #selector(didTapUnbookmarkSelectedItem(_:)))
   let noBookmarksView = NoBookmarksView.instanceFromNib()
@@ -69,14 +70,17 @@ class BookmarksViewController: UIViewController {
   }
   
   private func initializeToolbar() {
+    selectAllIcon.target = self
     selectAllItem.target = self
     unbookmarkItem.target = self
     
     toolbarItems = [
+      selectAllIcon,
       selectAllItem,
       UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
       unbookmarkItem
     ]
+    
     let theme = ThemeManager.shared.current
     self.navigationController?.toolbar.tintColor = theme.color2
     self.navigationController?.toolbar.barTintColor = theme.white
@@ -163,7 +167,18 @@ class BookmarksViewController: UIViewController {
   }
   
   private func refreshSelectAllItem() {
-    
+    let theme = ThemeManager.shared.current
+    if viewModel.areAllEventsSelected {
+      selectAllItem.setTitleTextAttributes(
+        [NSForegroundColorAttributeName : theme.color2], for: .normal)
+      selectAllIcon.image = #imageLiteral(resourceName: "circleTicked")
+      selectAllIcon.tintColor = theme.color2
+    } else {
+      selectAllItem.setTitleTextAttributes(
+        [NSForegroundColorAttributeName : theme.darkTextColor], for: .normal)
+      selectAllIcon.image = #imageLiteral(resourceName: "circleUnticked")
+      selectAllIcon.tintColor = theme.disableColor
+    }
   }
   
   private func refreshUnbookmarkItem() {
