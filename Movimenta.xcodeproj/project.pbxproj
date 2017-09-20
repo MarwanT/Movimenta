@@ -48,6 +48,7 @@
 		5953C1801F559CA700BD27AB /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5953C17E1F559CA700BD27AB /* SelectableCell.swift */; };
 		5953C1811F559CA700BD27AB /* SelectableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5953C17F1F559CA700BD27AB /* SelectableCell.xib */; };
 		596415271F507061009169A6 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596415261F507061009169A6 /* Selection.swift */; };
+		5965D1CC1F72727F00F35C63 /* UITabBarController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5965D1CB1F72727F00F35C63 /* UITabBarController+Utils.swift */; };
 		5968348F1F5D60CC00E25579 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5968348D1F5D60CC00E25579 /* SwitchCell.swift */; };
 		596834901F5D60CC00E25579 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5968348E1F5D60CC00E25579 /* SwitchCell.xib */; };
 		596834991F5D914100E25579 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596834971F5D914100E25579 /* SliderCell.swift */; };
@@ -206,6 +207,7 @@
 		5953C17E1F559CA700BD27AB /* SelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
 		5953C17F1F559CA700BD27AB /* SelectableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectableCell.xib; sourceTree = "<group>"; };
 		596415261F507061009169A6 /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
+		5965D1CB1F72727F00F35C63 /* UITabBarController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Utils.swift"; sourceTree = "<group>"; };
 		5968348D1F5D60CC00E25579 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		5968348E1F5D60CC00E25579 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		596834971F5D914100E25579 /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 				5903B0FD1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift */,
 				598039351F56D83800521DA2 /* UITableViewCell+Utils.swift */,
 				594040CC1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift */,
+				5965D1CB1F72727F00F35C63 /* UITabBarController+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1204,6 +1207,7 @@
 				599202641F669C460078578C /* ParticipantViewModel.swift in Sources */,
 				5968349F1F6017AB00E25579 /* FiltersBreadcrumbView.swift in Sources */,
 				59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */,
+				5965D1CC1F72727F00F35C63 /* UITabBarController+Utils.swift in Sources */,
 				5953C1801F559CA700BD27AB /* SelectableCell.swift in Sources */,
 				594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */,
 				F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */,
