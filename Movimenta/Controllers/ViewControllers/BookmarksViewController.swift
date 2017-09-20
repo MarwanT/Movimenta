@@ -10,6 +10,8 @@ import UIKit
 
 class BookmarksViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
+  let selectAllItem = UIBarButtonItem(title: "Select all", style: .plain, target: nil, action: #selector(didTapSelectAllEventsItem(_:)))
+  let unbookmarkItem = UIBarButtonItem(title: "Remove", style: .plain, target: nil, action: #selector(didTapUnbookmarkSelectedItem(_:)))
   
   var viewModel = BookmarksViewModel()
   
@@ -17,6 +19,7 @@ class BookmarksViewController: UIViewController {
     super.viewDidLoad()
     initializeViewController()
     initializeTableView()
+    initializeToolbar()
     registerToNotificationCenter()
     refreshTableView()
   }
@@ -52,6 +55,21 @@ class BookmarksViewController: UIViewController {
     tableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
   }
   
+  private func initializeToolbar() {
+    selectAllItem.target = self
+    unbookmarkItem.target = self
+    
+    toolbarItems = [
+      selectAllItem,
+      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+      unbookmarkItem
+    ]
+    let theme = ThemeManager.shared.current
+    self.navigationController?.toolbar.tintColor = theme.color2
+    self.navigationController?.toolbar.barTintColor = theme.white
+    self.navigationController?.toolbar.isTranslucent = false
+  }
+  
   private func registerToNotificationCenter() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
   }
@@ -71,6 +89,12 @@ class BookmarksViewController: UIViewController {
 extension BookmarksViewController {
   func handleBookmarksUpdate(_ sender: Notification) {
     refreshTableView()
+  }
+  
+  func didTapSelectAllEventsItem(_ sender: UIBarButtonItem) {
+  }
+  
+  func didTapUnbookmarkSelectedItem(_ sender: UIBarButtonItem) {
   }
 }
 
