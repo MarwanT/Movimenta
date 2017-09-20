@@ -12,6 +12,9 @@ class BookmarksViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   let selectAllItem = UIBarButtonItem(title: "Select all", style: .plain, target: nil, action: #selector(didTapSelectAllEventsItem(_:)))
   let unbookmarkItem = UIBarButtonItem(title: "Remove", style: .plain, target: nil, action: #selector(didTapUnbookmarkSelectedItem(_:)))
+  let noBookmarksView = NoBookmarksView.instanceFromNib()
+  
+  fileprivate let animationDuration = ThemeManager.shared.current.animationDuration
   
   fileprivate var tableViewLocked: Bool = false
   
@@ -23,6 +26,7 @@ class BookmarksViewController: UIViewController {
     initializeTableView()
     initializeNavigationItems()
     initializeToolbar()
+    initializeNoBookmarksView()
     registerToNotificationCenter()
     refreshTableView()
   }
@@ -79,6 +83,13 @@ class BookmarksViewController: UIViewController {
     self.navigationController?.toolbar.isTranslucent = false
   }
   
+  private func initializeNoBookmarksView() {
+    view.addSubview(noBookmarksView)
+    noBookmarksView.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(self.view)
+    }
+  }
+  
   private func registerToNotificationCenter() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
   }
@@ -128,6 +139,22 @@ class BookmarksViewController: UIViewController {
     refreshRightBarButtonItem()
     refreshBottomToolbarVisibility()
   }
+  
+  fileprivate func showNoBookmarksView() {
+    noBookmarksView.isHidden = false
+    noBookmarksView.alpha = 0
+    UIView.animate(withDuration: animationDuration, animations: { 
+      self.noBookmarksView.alpha = 1
+    })
+  }
+
+  fileprivate func hideNoBookmarksView() {
+    UIView.animate(withDuration: animationDuration, animations: { 
+      self.noBookmarksView.alpha = 0
+    }, completion: { (finished) in
+      self.noBookmarksView.isHidden = true
+    })
+  }
 }
 
 //MARK: Actions
@@ -172,6 +199,8 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    let numberOfRows = viewModel.numberOfRows
+    numberOfRows > 0 ? hideNoBookmarksView() : showNoBookmarksView()
     return viewModel.numberOfRows
   }
   
