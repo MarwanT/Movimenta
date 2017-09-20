@@ -140,14 +140,28 @@ extension DataManager {
     return true
   }
   
-  func unBookmark(event: Event) -> Bool {
+  private func unBookmarkSilently(event: Event) -> Bool {
     guard let eventId = event.id, let index = bookmarkedEvents.index(where: { $0.id == eventId }) else {
       return false
     }
     bookmarkedEvents.remove(at: index)
     Persistence.shared.unBookmark(eventWith: eventId)
-    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: [event])
     return true
+  }
+  
+  func unBookmark(event: Event) -> Bool {
+    let success = unBookmarkSilently(event: event)
+    if success {
+      NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: [event])
+    }
+    return success
+  }
+  
+  func unBookmark(events: [Event]) {
+    for event in events {
+      _ = unBookmarkSilently(event: event)
+    }
+    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: events)
   }
   
   func toggleBookmarkStatus(event: Event) {
