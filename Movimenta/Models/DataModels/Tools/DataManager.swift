@@ -136,7 +136,7 @@ extension DataManager {
     }
     Persistence.shared.bookmark(eventWith: eventId)
     bookmarkedEvents.append(event)
-    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: event)
+    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: [event])
     return true
   }
   
@@ -146,7 +146,7 @@ extension DataManager {
     }
     bookmarkedEvents.remove(at: index)
     Persistence.shared.unBookmark(eventWith: eventId)
-    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: event)
+    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: [event])
     return true
   }
   
