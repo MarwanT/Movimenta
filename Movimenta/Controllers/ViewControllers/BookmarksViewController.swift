@@ -168,6 +168,14 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
     return cell
   }
   
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if viewModel.isSelected(indexPath: indexPath) {
+      tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+    } else {
+      tableView.deselectRow(at: indexPath, animated: false)
+    }
+  }
+  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if !tableView.isEditing {
       tableView.deselectRow(at: indexPath, animated: true)
