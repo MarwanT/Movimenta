@@ -16,4 +16,14 @@ class NoBookmarksView: UIView {
   class func instanceFromNib() -> NoBookmarksView {
     return UINib(nibName: NoBookmarksView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! NoBookmarksView
   }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    initialize()
+  }
+  
+  private func initialize() {
+    titleLabel.text = Strings.bookmark_your_events()
+    contentLabel.text = Strings.how_to_bookmark_text()
+  }
 }
