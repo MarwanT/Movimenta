@@ -70,6 +70,7 @@ class EventCell: UITableViewCell {
     participantImageView.contentMode = .scaleAspectFill
     contentView.layoutMargins = configuration.layoutMargins
     selectedBackgroundView = UIImageView(image: theme.color6.image())
+    tintColor = theme.color2
   }
   
   fileprivate func refreshBookmarkButton() {
