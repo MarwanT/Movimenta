@@ -57,3 +57,49 @@ final class BookmarksViewModel {
     return events[indexPath.row]
   }
 }
+
+// Edit Mode Methods
+extension BookmarksViewModel {
+  var areAllEventsSelected: Bool {
+    return indexPathOfSelectedEvents.count == events.count
+  }
+  
+  var selectedEvents: [Event] {
+    return indexPathOfSelectedEvents.map({ events[$0.row] })
+  }
+  
+  func isSelected(indexPath: IndexPath) -> Bool {
+    return indexPathOfSelectedEvents.contains(indexPath)
+  }
+  
+  func selectEvent(at indexPath: IndexPath) {
+    indexPathOfSelectedEvents.append(indexPath)
+  }
+  
+  func unselectEvent(at indexPath: IndexPath) {
+    guard let index = indexPathOfSelectedEvents.index(of: indexPath) else {
+      return
+    }
+    indexPathOfSelectedEvents.remove(at: index)
+  }
+  
+  func selectAll() {
+    var indexes = [IndexPath]()
+    for index in 0..<events.count {
+      indexes.append(IndexPath(row: index, section: 0))
+    }
+    indexPathOfSelectedEvents = indexes
+  }
+  
+  func unSelectAll() {
+    indexPathOfSelectedEvents.removeAll()
+  }
+  
+  func unBookmarkSelectedEvents() -> [IndexPath] {
+    DataManager.shared.unBookmark(events: selectedEvents)
+    loadEvents()
+    let indexPaths = indexPathOfSelectedEvents
+    indexPathOfSelectedEvents.removeAll()
+    return indexPaths
+  }
+}
