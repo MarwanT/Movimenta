@@ -60,6 +60,10 @@ final class BookmarksViewModel {
 
 // Edit Mode Methods
 extension BookmarksViewModel {
+  var noSelectedEvents: Bool {
+    return indexPathOfSelectedEvents.count == 0
+  }
+  
   var areAllEventsSelected: Bool {
     return indexPathOfSelectedEvents.count == events.count
   }

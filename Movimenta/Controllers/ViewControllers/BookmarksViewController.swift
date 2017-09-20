@@ -167,6 +167,14 @@ class BookmarksViewController: UIViewController {
   }
   
   private func refreshUnbookmarkItem() {
+    let theme = ThemeManager.shared.current
+    let attributes: [String: AnyObject]!
+    if viewModel.noSelectedEvents {
+      attributes = [NSForegroundColorAttributeName: theme.disableColor]
+    } else {
+      attributes = [NSForegroundColorAttributeName: theme.color2]
+    }
+    unbookmarkItem.setTitleTextAttributes(attributes, for: .normal)
   }
 }
 
