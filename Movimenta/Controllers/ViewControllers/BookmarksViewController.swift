@@ -54,6 +54,8 @@ class BookmarksViewController: UIViewController {
     tableView.separatorInset = UIEdgeInsets(top: 0, left: 118, bottom: 0, right: 0)
     
     tableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
+    
+    tableView.allowsMultipleSelectionDuringEditing = true
   }
   
   private func initializeNavigationItems() {
