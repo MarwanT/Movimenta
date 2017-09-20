@@ -106,6 +106,26 @@ class BookmarksViewController: UIViewController {
       self.navigationController?.setToolbarHidden(!self.tableView.isEditing, animated: true)
     }
   }
+  
+  fileprivate func toggleEditingMode() {
+    tableView.isEditing ? turnEditingModeOff() : turnEditingModeOn()
+  }
+  
+  fileprivate func turnEditingModeOn() {
+    // Clear Any Previous Selection
+    viewModel.unSelectAll()
+    tableView.setEditing(true, animated: true)
+    refreshRightBarButtonItem()
+    refreshBottomToolbarVisibility()
+  }
+  
+  fileprivate func turnEditingModeOff() {
+    // Clear Any Previous Selection
+    viewModel.unSelectAll()
+    tableView.setEditing(false, animated: true)
+    refreshRightBarButtonItem()
+    refreshBottomToolbarVisibility()
+  }
 }
 
 //MARK: Actions
