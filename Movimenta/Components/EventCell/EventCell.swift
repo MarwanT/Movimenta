@@ -44,6 +44,7 @@ class EventCell: UITableViewCell {
   
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
+    bookmarkButton.isHidden = editing
     refreshSelectionBackground()
   }
   
