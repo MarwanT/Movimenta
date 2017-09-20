@@ -168,3 +168,15 @@ extension BookmarksViewController {
     return Storyboard.Event.instantiate(BookmarksViewController.self)
   }
 }
+
+//MARK: - Table View Extension
+extension UITableView {
+  fileprivate func selectVisibleRows(_ animation: UITableViewRowAnimation = .none) {
+    guard let indexPaths = indexPathsForVisibleRows else {
+      return
+    }
+    for indexPath in indexPaths {
+      selectRow(at: indexPath, animated: false, scrollPosition: .none)
+    }
+  }
+}
