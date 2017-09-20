@@ -10,8 +10,8 @@ import UIKit
 
 class BookmarksViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
-  let selectAllItem = UIBarButtonItem(title: "Select all", style: .plain, target: nil, action: #selector(didTapSelectAllEventsItem(_:)))
-  let unbookmarkItem = UIBarButtonItem(title: "Remove", style: .plain, target: nil, action: #selector(didTapUnbookmarkSelectedItem(_:)))
+  let selectAllItem = UIBarButtonItem(title: Strings.select_all(), style: .plain, target: nil, action: #selector(didTapSelectAllEventsItem(_:)))
+  let unbookmarkItem = UIBarButtonItem(title: Strings.remove(), style: .plain, target: nil, action: #selector(didTapUnbookmarkSelectedItem(_:)))
   let noBookmarksView = NoBookmarksView.instanceFromNib()
   
   fileprivate let animationDuration = ThemeManager.shared.current.animationDuration
