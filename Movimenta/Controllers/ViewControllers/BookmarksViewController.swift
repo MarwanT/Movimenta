@@ -13,6 +13,8 @@ class BookmarksViewController: UIViewController {
   let selectAllItem = UIBarButtonItem(title: "Select all", style: .plain, target: nil, action: #selector(didTapSelectAllEventsItem(_:)))
   let unbookmarkItem = UIBarButtonItem(title: "Remove", style: .plain, target: nil, action: #selector(didTapUnbookmarkSelectedItem(_:)))
   
+  fileprivate var tableViewLocked: Bool = false
+  
   var viewModel = BookmarksViewModel()
   
   override func viewDidLoad() {
@@ -147,8 +149,10 @@ extension BookmarksViewController {
 //MARK: Table View Controller
 extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
   fileprivate func refreshTableView() {
-    viewModel.loadEvents()
-    tableView.reloadData()
+    if !tableViewLocked {
+      viewModel.loadEvents()
+      tableView.reloadData()
+    }
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
