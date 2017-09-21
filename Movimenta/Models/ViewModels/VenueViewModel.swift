@@ -20,6 +20,13 @@ final class VenueViewModel {
   func event(for indexPath: IndexPath) -> Event {
     return events[indexPath.row]
   }
+  
+  func sharingContent() -> [Any]? {
+    guard let url = venue.link else {
+      return nil
+    }
+    return [venue.name ?? "", url]
+  }
 }
 
 extension VenueViewModel {

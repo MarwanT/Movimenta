@@ -29,6 +29,7 @@ class VenueViewController: UIViewController {
   
   private func initialize() {
     initializeTableView()
+    initializeNavigationItems()
   }
   
   private func initializeTableView() {
@@ -59,6 +60,11 @@ class VenueViewController: UIViewController {
     // TODO:
   }
   
+  func initializeNavigationItems() {
+    let shareBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tapShareButton(_:)))
+    navigationItem.rightBarButtonItem = shareBarButton
+  }
+  
   private func registerToNotificationCenter() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
   }
@@ -72,10 +78,21 @@ class VenueViewController: UIViewController {
     vc.initialize(with: event)
     navigationController?.pushViewController(vc, animated: true)
   }
+  
+  fileprivate func shareParticipant(info: [Any]) {
+    presentShareSheet(with: info)
+  }
 }
 
 //MARK: Actions
 extension VenueViewController {
+  func tapShareButton(_ sender: UIBarButtonItem) {
+    guard let info = viewModel.sharingContent() else {
+      return
+    }
+    shareParticipant(info: info)
+  }
+  
   func handleBookmarksUpdate(_ sender: Notification) {
     guard let event = sender.object as? Event,
       let indexPath = viewModel.updateBookmarkStatus(of: event) else {
