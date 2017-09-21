@@ -66,5 +66,11 @@ extension VenueViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     return UITableViewCell()
+}
+
+//MARK: Instance
+extension VenueViewController {
+  static func instance() -> VenueViewController {
+    return Storyboard.Venue.instantiate(VenueViewController.self)
   }
 }
