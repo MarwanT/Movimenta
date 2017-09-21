@@ -57,15 +57,27 @@ class VenueViewController: UIViewController {
 
 extension VenueViewController: UITableViewDelegate, UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 0
+    return 1
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return viewModel.numberOfRows
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell, let values = viewModel.values(for: indexPath) else {
+      return UITableViewCell()
+    }
+    cell.delegate = self
+    cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
+    return cell
+  }
+}
+
+//MARK: Event Cell Delegates
+extension VenueViewController: EventCellDelegate {
+  func eventCellDidTapBookmarkButton(_ cell: EventCell) {
+  }
 }
 
 //MARK: Instance
