@@ -11,6 +11,8 @@ import UIKit
 class VenueViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
+  var viewModel = VenueViewModel()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
