@@ -18,6 +18,10 @@ class VenueViewController: UIViewController {
     initialize()
   }
   
+  func initialize(with venue: Venue) {
+    viewModel.initialize(with: venue)
+  }
+  
   private func initialize() {
     initializeTableView()
   }

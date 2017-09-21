@@ -9,5 +9,9 @@
 import Foundation
 
 final class VenueViewModel {
+  fileprivate(set) var venue: Venue!
   
+  func initialize(with venue: Venue) {
+    self.venue = venue
+  }
 }
