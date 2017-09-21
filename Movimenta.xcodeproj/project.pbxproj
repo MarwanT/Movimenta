@@ -22,6 +22,7 @@
 		591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */; };
 		591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78F1F387B0700A24BBB /* View+Utils.swift */; };
 		592D284F1F73A8EA00CBDEBB /* Venue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592D284E1F73A8EA00CBDEBB /* Venue.storyboard */; };
+		592D28511F73A9AF00CBDEBB /* VenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D28501F73A9AF00CBDEBB /* VenueViewController.swift */; };
 		593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593525161F3222EF005AD32C /* GMSMarker+Utils.swift */; };
 		59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */; };
 		59363FC91F44E662006059B6 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC71F44E662006059B6 /* VenueCell.swift */; };
@@ -184,6 +185,7 @@
 		591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsPeekView.xib; sourceTree = "<group>"; };
 		591CD78F1F387B0700A24BBB /* View+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
 		592D284E1F73A8EA00CBDEBB /* Venue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Venue.storyboard; sourceTree = "<group>"; };
+		592D28501F73A9AF00CBDEBB /* VenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueViewController.swift; sourceTree = "<group>"; };
 		593525161F3222EF005AD32C /* GMSMarker+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GMSMarker+Utils.swift"; sourceTree = "<group>"; };
 		59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Util.swift"; sourceTree = "<group>"; };
 		59363FC71F44E662006059B6 /* VenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
@@ -756,6 +758,7 @@
 				599202611F669A110078578C /* ParticipantViewController.swift */,
 				598656AD1F698394000EB28D /* ScheduleViewController.swift */,
 				5907C0E51F7022F3005ED3E9 /* BookmarksViewController.swift */,
+				592D28501F73A9AF00CBDEBB /* VenueViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1211,6 +1214,7 @@
 				5970AFA71F2758C3008CA708 /* DataParser.swift in Sources */,
 				5968348F1F5D60CC00E25579 /* SwitchCell.swift in Sources */,
 				5970AF841F222AA4008CA708 /* Device.swift in Sources */,
+				592D28511F73A9AF00CBDEBB /* VenueViewController.swift in Sources */,
 				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
 				F409C2101F6EAB7F007216E4 /* InformationCell.swift in Sources */,
 				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
