@@ -235,7 +235,7 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
     case .dates:
       addToCalendar(dateAt: indexPath)
     case .venue:
-      return
+      navigateToVenueDetailsVC(for: indexPath)
     case .participants:
       navigateToParticipantVC(for: indexPath)
     }
@@ -341,7 +341,10 @@ extension EventDetailsViewController {
   }
   
   private func navigateToVenueDetailsVC(venue: Venue) {
-    //TODO: navigate to venue details vc
+    let vc = VenueViewController.instance()
+    vc.initialize(with: venue)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
   }
   
   fileprivate func navigateToParticipantVC(for indexPath: IndexPath) {
