@@ -110,6 +110,12 @@ extension DataManager {
     filter.add(participant: participant)
     return FiltersManager.shared.filteredEvents(for: filter)
   }
+  
+  func events(in venue: Venue) -> [Event] {
+    return events.filter({ (event) -> Bool in
+      event.venueId == venue.id
+    })
+  }
 }
 
 //MARK: - Bookmark related
