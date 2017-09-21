@@ -53,6 +53,12 @@ class VenueViewController: UIViewController {
   private func initializeTableViewHeader() {
     // TODO:
   }
+  
+  func navigateToEventDetailsViewController(event: Event) {
+    let vc = EventDetailsViewController.instance()
+    vc.initialize(with: event)
+    navigationController?.pushViewController(vc, animated: true)
+  }
 }
 
 extension VenueViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,6 +77,11 @@ extension VenueViewController: UITableViewDelegate, UITableViewDataSource {
     cell.delegate = self
     cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
   }
 }
 

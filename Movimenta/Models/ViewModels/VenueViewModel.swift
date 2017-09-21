@@ -16,6 +16,10 @@ final class VenueViewModel {
     self.venue = venue
     self.events = DataManager.shared.events(in: venue)
   }
+  
+  func event(for indexPath: IndexPath) -> Event {
+    return events[indexPath.row]
+  }
 }
 
 extension VenueViewModel {
