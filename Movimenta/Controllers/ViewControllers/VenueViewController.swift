@@ -13,9 +13,14 @@ class VenueViewController: UIViewController {
   
   var viewModel = VenueViewModel()
   
+  deinit {
+    unregisterToNotificationCenter()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()
+    registerToNotificationCenter()
   }
   
   func initialize(with venue: Venue) {
@@ -54,6 +59,14 @@ class VenueViewController: UIViewController {
     // TODO:
   }
   
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   func navigateToEventDetailsViewController(event: Event) {
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
@@ -61,6 +74,18 @@ class VenueViewController: UIViewController {
   }
 }
 
+//MARK: Actions
+extension VenueViewController {
+  func handleBookmarksUpdate(_ sender: Notification) {
+    guard let event = sender.object as? Event,
+      let indexPath = viewModel.updateBookmarkStatus(of: event) else {
+        return
+    }
+    reloadRows(at: [indexPath])
+  }
+}
+
+//MARK: Table View Delegate
 extension VenueViewController: UITableViewDelegate, UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -83,11 +108,19 @@ extension VenueViewController: UITableViewDelegate, UITableViewDataSource {
     tableView.deselectRow(at: indexPath, animated: true)
     navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
   }
+  
+  fileprivate func reloadRows(at indexPaths: [IndexPath]) {
+    tableView.reloadRows(at: indexPaths, with: .none)
+  }
 }
 
 //MARK: Event Cell Delegates
 extension VenueViewController: EventCellDelegate {
   func eventCellDidTapBookmarkButton(_ cell: EventCell) {
+    guard let indexPath = tableView.indexPath(for: cell) else {
+      return
+    }
+    viewModel.toggleEventBookmarkStatus(at: indexPath)
   }
 }
 
