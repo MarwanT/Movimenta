@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AM1-yR-nvU" userLabel="Content View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fc-R3-aBt" userLabel="Segmented Content View">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fc-R3-aBt" userLabel="Segmented Content View">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ph9-t9-CtW" userLabel="Slider View">
