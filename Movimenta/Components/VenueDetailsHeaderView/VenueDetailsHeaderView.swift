@@ -71,6 +71,13 @@ class VenueDetailsHeaderView: UIView {
     addressLabelTopConstraint.constant = CGFloat(theme.space2)
     contentView.layoutIfNeeded()
   }
+  
+  func preferredSize() -> CGSize {
+    let size = contentView.systemLayoutSizeFitting(
+      CGSize(width: self.bounds.width, height: 0),
+      withHorizontalFittingPriority: UILayoutPriorityRequired, verticalFittingPriority: UILayoutPriorityFittingSizeLevel)
+    return size
+  }
 }
 
 //MARK: Segmented Control Related
