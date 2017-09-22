@@ -52,6 +52,7 @@ class VenueDetailsHeaderView: UIView {
     addressLabel.textColor = theme.darkTextColor
     mapImageView.backgroundColor = theme.color6
     segmentedControl.tintColor = theme.color2
+    applyMargins()
   }
   
   func loadView(with data: DetailsData?) {
@@ -61,6 +62,15 @@ class VenueDetailsHeaderView: UIView {
     addressLabel.text = data?.address
     labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
     contentView.layoutIfNeeded()
+  }
+  
+  private func applyMargins() {
+    let theme = ThemeManager.shared.current
+    segmentedControlTopConstraint.constant = CGFloat(theme.space3)
+    nameLabelTopConstraint.constant = CGFloat(theme.space4)
+    addressLabelTopConstraint.constant = CGFloat(theme.space2)
+    contentView.layoutIfNeeded()
+  }
 }
 
 //MARK: Segmented Control Related
