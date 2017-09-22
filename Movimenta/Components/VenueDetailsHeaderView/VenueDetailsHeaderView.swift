@@ -58,6 +58,22 @@ class VenueDetailsHeaderView: UIView {
     addressLabel.text = data?.address
     labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
     layoutIfNeeded()
+}
+
+//MARK: Segmented Control Related
+extension VenueDetailsHeaderView {
+  enum Section: Int {
+    case gallery = 0
+    case map
+    
+    var name: String {
+      switch self {
+      case .gallery:
+        return Strings.view_gallery()
+      case .map:
+        return Strings.view_map()
+      }
+    }
   }
 }
 
