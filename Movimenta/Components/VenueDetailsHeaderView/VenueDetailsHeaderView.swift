@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol VenueDetailsHeaderViewDelegate: class {
+  func venueDetailsHeaderDidTapMapImage(_ view: VenueDetailsHeaderView)
+}
+
 class VenueDetailsHeaderView: UIView {
   typealias DetailsData = (venueImages: [URL]?, mapImageURL: URL?, name: String?, address: String?)
   
