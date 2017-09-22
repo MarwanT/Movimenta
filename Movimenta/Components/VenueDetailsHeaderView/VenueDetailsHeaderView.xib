@@ -113,12 +113,14 @@
                 <outlet property="contentView" destination="AM1-yR-nvU" id="fSH-j4-FCa"/>
                 <outlet property="labelsContainerView" destination="aLp-MP-cgx" id="Q2t-p2-ZaD"/>
                 <outlet property="mapImageView" destination="CT9-xj-TXA" id="1Mk-pz-aTN"/>
+                <outlet property="mapImageViewTrailingConstraint" destination="ad3-8G-iQE" id="y6H-1R-A5I"/>
                 <outlet property="nameLabel" destination="6el-Bz-rfM" id="bNT-XG-opJ"/>
                 <outlet property="nameLabelTopConstraint" destination="19I-aY-ahe" id="JVL-bp-zr1"/>
                 <outlet property="segmentedContentView" destination="8Fc-R3-aBt" id="eIY-4C-HoU"/>
                 <outlet property="segmentedControl" destination="YEE-1g-rcp" id="VwR-1g-uYM"/>
                 <outlet property="segmentedControlTopConstraint" destination="m8k-Gm-Pj0" id="g6z-Ex-3aG"/>
                 <outlet property="sliderView" destination="ph9-t9-CtW" id="l3z-vD-ai9"/>
+                <outlet property="sliderViewLeadingConstraint" destination="kYS-SX-ukw" id="32d-zt-Isr"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="-92.5"/>
         </view>

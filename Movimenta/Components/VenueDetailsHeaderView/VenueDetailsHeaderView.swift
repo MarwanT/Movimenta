@@ -23,6 +23,8 @@ class VenueDetailsHeaderView: UIView {
   @IBOutlet weak var segmentedControlTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var nameLabelTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var addressLabelTopConstraint: NSLayoutConstraint!
+  @IBOutlet weak var sliderViewLeadingConstraint: NSLayoutConstraint!
+  @IBOutlet weak var mapImageViewTrailingConstraint: NSLayoutConstraint!
   
   override func awakeFromNib() {
     super.awakeFromNib()
