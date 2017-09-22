@@ -9,6 +9,8 @@
 import UIKit
 
 class VenueDetailsHeaderView: UIView {
+  typealias DetailsData = (venueImages: [URL]?, mapImageURL: URL?, name: String?, address: String?)
+  
   @IBOutlet weak var contentView: UIView!
   @IBOutlet weak var segmentedContentView: UIView!
   @IBOutlet weak var sliderView: UIView!
