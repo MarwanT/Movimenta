@@ -32,6 +32,8 @@ class VenueDetailsHeaderView: UIView {
   
   fileprivate var animationDuration = ThemeManager.shared.current.animationDuration
   
+  weak var delegate: VenueDetailsHeaderViewDelegate?
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     initialize()
