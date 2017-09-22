@@ -22,7 +22,14 @@ class VenueDetailsHeaderView: UIView {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    initialize()
     applyTheme()
+  }
+  
+  private func initialize() {
+    segmentedControl.clipsToBounds = true
+    segmentedControl.setTitle(Strings.view_gallery().uppercased(), forSegmentAt: 0)
+    segmentedControl.setTitle(Strings.view_map().uppercased(), forSegmentAt: 1)
   }
   
   private func applyTheme() {
