@@ -34,8 +34,8 @@ class VenueDetailsHeaderView: UIView {
   
   private func initialize() {
     segmentedControl.clipsToBounds = true
-    segmentedControl.setTitle(Strings.view_gallery().uppercased(), forSegmentAt: 0)
-    segmentedControl.setTitle(Strings.view_map().uppercased(), forSegmentAt: 1)
+    segmentedControl.setTitle(Section.gallery.name, forSegmentAt: Section.gallery.rawValue)
+    segmentedControl.setTitle(Section.map.name, forSegmentAt: Section.map.rawValue)
   }
   
   private func applyTheme() {
