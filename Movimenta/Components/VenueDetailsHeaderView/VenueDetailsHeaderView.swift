@@ -20,6 +20,10 @@ class VenueDetailsHeaderView: UIView {
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
   
+  @IBOutlet weak var segmentedControlTopConstraint: NSLayoutConstraint!
+  @IBOutlet weak var nameLabelTopConstraint: NSLayoutConstraint!
+  @IBOutlet weak var addressLabelTopConstraint: NSLayoutConstraint!
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     initialize()
