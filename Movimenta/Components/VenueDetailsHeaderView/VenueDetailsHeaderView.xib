@@ -49,11 +49,8 @@
                                 </mask>
                             </variation>
                         </view>
-                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YEE-1g-rcp">
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YEE-1g-rcp">
                             <rect key="frame" x="8" y="200" width="359" height="29"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="28" id="nrd-jF-QJg"/>
-                            </constraints>
                             <segments>
                                 <segment title="First"/>
                                 <segment title="Second"/>
