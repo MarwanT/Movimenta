@@ -44,6 +44,15 @@ class VenueDetailsHeaderView: UIView {
     mapImageView.backgroundColor = theme.color6
     segmentedControl.tintColor = theme.color2
   }
+  
+  func loadView(with data: DetailsData?) {
+    // TODO: Set the Gallery Images
+    mapImageView.sd_setImage(with: data?.mapImageURL)
+    nameLabel.text = data?.name
+    addressLabel.text = data?.address
+    labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
+    layoutIfNeeded()
+  }
 }
 
 //MARK: Instence
