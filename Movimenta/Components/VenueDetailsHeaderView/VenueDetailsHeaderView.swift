@@ -45,3 +45,10 @@ class VenueDetailsHeaderView: UIView {
     segmentedControl.tintColor = theme.color2
   }
 }
+
+//MARK: Instence
+extension VenueDetailsHeaderView {
+  class func instanceFromNib() -> VenueDetailsHeaderView {
+    return UINib(nibName: VenueDetailsHeaderView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! VenueDetailsHeaderView
+  }
+}
