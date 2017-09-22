@@ -13,3 +13,17 @@ class GalleryPageViewController: UIViewController {
     super.viewDidLoad()
   }
 }
+
+//MARK: Instance
+extension GalleryPageViewController {
+  class var identifier: String {
+    return "GalleryPageViewController"
+  }
+  
+  class func instance() -> GalleryPageViewController {
+    guard let vc = UIStoryboard(name: "Gallery", bundle: nil).instantiateViewController(withIdentifier: identifier) as? GalleryPageViewController else {
+      fatalError("Couldn't instantiate \(GalleryPageViewController.identifier)")
+    }
+    return vc
+  }
+}
