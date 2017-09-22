@@ -60,7 +60,7 @@ class VenueDetailsHeaderView: UIView {
     nameLabel.text = data?.name
     addressLabel.text = data?.address
     labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
-    layoutIfNeeded()
+    contentView.layoutIfNeeded()
 }
 
 //MARK: Segmented Control Related
