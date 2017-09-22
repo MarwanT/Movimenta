@@ -45,6 +45,10 @@ class VenueDetailsHeaderView: UIView {
     segmentedControl.setTitle(Section.gallery.name, forSegmentAt: Section.gallery.rawValue)
     segmentedControl.setTitle(Section.map.name, forSegmentAt: Section.map.rawValue)
     segmentedControl.addTarget(self, action: #selector(segmentedControlDidChangeValue(_:)), for: .valueChanged)
+    
+    let mapTap = UITapGestureRecognizer(target: self, action: #selector(didTapMapImageView(_:)))
+    mapImageView.addGestureRecognizer(mapTap)
+    mapImageView.isUserInteractionEnabled = true
   }
   
   private func applyTheme() {
@@ -83,6 +87,13 @@ class VenueDetailsHeaderView: UIView {
       CGSize(width: self.bounds.width, height: 0),
       withHorizontalFittingPriority: UILayoutPriorityRequired, verticalFittingPriority: UILayoutPriorityFittingSizeLevel)
     return size
+  }
+}
+
+//MARK: Actions
+extension VenueDetailsHeaderView {
+  func didTapMapImageView(_ sender: UIImageView) {
+    delegate?.venueDetailsHeaderDidTapMapImage(self)
   }
 }
 
