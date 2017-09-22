@@ -26,6 +26,8 @@ class VenueDetailsHeaderView: UIView {
   @IBOutlet weak var sliderViewLeadingConstraint: NSLayoutConstraint!
   @IBOutlet weak var mapImageViewTrailingConstraint: NSLayoutConstraint!
   
+  fileprivate var animationDuration = ThemeManager.shared.current.animationDuration
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     initialize()
@@ -36,6 +38,7 @@ class VenueDetailsHeaderView: UIView {
     segmentedControl.clipsToBounds = true
     segmentedControl.setTitle(Section.gallery.name, forSegmentAt: Section.gallery.rawValue)
     segmentedControl.setTitle(Section.map.name, forSegmentAt: Section.map.rawValue)
+    segmentedControl.addTarget(self, action: #selector(segmentedControlDidChangeValue(_:)), for: .valueChanged)
   }
   
   private func applyTheme() {
@@ -73,6 +76,38 @@ extension VenueDetailsHeaderView {
       case .map:
         return Strings.view_map()
       }
+    }
+  }
+  
+  func segmentedControlDidChangeValue(_ sender: UISegmentedControl) {
+    refreshSegmentedContentView()
+  }
+  
+  private func refreshSegmentedContentView() {
+    guard let section = Section(rawValue: segmentedControl.selectedSegmentIndex) else {
+      return
+    }
+    switch section {
+    case .gallery:
+      displayGallery()
+    case .map:
+      displayMapImageView()
+    }
+  }
+  
+  private func displayGallery() {
+    mapImageViewTrailingConstraint.isActive = false
+    sliderViewLeadingConstraint.isActive = true
+    UIView.animate(withDuration: animationDuration) { 
+      self.segmentedContentView.layoutIfNeeded()
+    }
+  }
+  
+  private func displayMapImageView() {
+    sliderViewLeadingConstraint.isActive = false
+    mapImageViewTrailingConstraint.isActive = true
+    UIView.animate(withDuration: animationDuration) {
+      self.segmentedContentView.layoutIfNeeded()
     }
   }
 }
