@@ -79,7 +79,13 @@ extension PartnersViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    //TODO: action
+
+    guard let item = viewModel.itemAtIndexPath(indexPath: indexPath),
+      let url = item.link else {
+      return
+    }
+
+    WebViewController.present(url: url, inViewController: navigationController)
   }
 }
 
