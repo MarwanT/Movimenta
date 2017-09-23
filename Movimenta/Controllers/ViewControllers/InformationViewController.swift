@@ -128,7 +128,8 @@ extension InformationViewController {
   }
 
   func partnersImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-    //TODO: action
+    let vc = PartnersViewController.instance()
+    navigationController?.pushViewController(vc, animated: true)
   }
 
 }
