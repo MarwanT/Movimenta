@@ -9,13 +9,40 @@
 import UIKit
 
 class PartnerSectionCell: UITableViewHeaderFooterView {
+  static let identifier: String = PartnerSectionCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+  @IBOutlet weak var label: UILabel!
 
+  var configuration = Configuration()
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    contentView.layoutMargins = configuration.layoutMargins
+    applyTheme()
+  }
+
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    label.font = theme.font4
+    label.textColor = theme.color3
+
+    contentView.backgroundColor = theme.white
+    backgroundColor = theme.white
+  }
+
+  public func setup(title: String?) {
+    label.text = title
+  }
+}
+
+//MARK: Configuration
+extension PartnerSectionCell {
+  struct Configuration {
+    var layoutMargins = UIEdgeInsets(
+      top: 0,
+      left: CGFloat(ThemeManager.shared.current.space7),
+      bottom: 0,
+      right: CGFloat(ThemeManager.shared.current.space7))
+  }
 }
