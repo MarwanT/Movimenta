@@ -170,6 +170,7 @@
 		F484BF1F1F73DA4200EE52AD /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF1E1F73DA4200EE52AD /* ARViewController.swift */; };
 		F484BF241F73DAC200EE52AD /* OpenGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF221F73DAC200EE52AD /* OpenGLView.swift */; };
 		F4B80ED11F76A8B100CD95C0 /* AugmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */; };
+		F4B80EB51F764CCC00CD95C0 /* PartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,6 +392,7 @@
 		F484BF1E1F73DA4200EE52AD /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		F484BF221F73DAC200EE52AD /* OpenGLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenGLView.swift; path = EasyAR/OpenGLView.swift; sourceTree = "<group>"; };
 		F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AugmentedViewController.swift; sourceTree = "<group>"; };
+		F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -847,6 +849,7 @@
 				F406237F1F77A85A00A3EDCB /* YoutubeViewController.swift */,
 				5903B1011F4D7F2E009DF33C /* FiltersViewController.swift */,
 				599202611F669A110078578C /* ParticipantViewController.swift */,
+				F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */,
 				598656AD1F698394000EB28D /* ScheduleViewController.swift */,
 				5907C0E51F7022F3005ED3E9 /* BookmarksViewController.swift */,
 				592D28501F73A9AF00CBDEBB /* VenueViewController.swift */,
@@ -1377,6 +1380,7 @@
 				F409C1FC1F6D47A9007216E4 /* AboutViewController.swift in Sources */,
 				599202641F669C460078578C /* ParticipantViewModel.swift in Sources */,
 				5968349F1F6017AB00E25579 /* FiltersBreadcrumbView.swift in Sources */,
+				F4B80EB51F764CCC00CD95C0 /* PartnersViewController.swift in Sources */,
 				59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */,
 				5965D1CC1F72727F00F35C63 /* UITabBarController+Utils.swift in Sources */,
 				5953C1801F559CA700BD27AB /* SelectableCell.swift in Sources */,
