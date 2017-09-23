@@ -37,8 +37,9 @@ class PartnersViewController: UIViewController {
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 220
     tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-    tableView.estimatedSectionHeaderHeight = 40
+    tableView.estimatedSectionHeaderHeight = 70
 
+    tableView.register(PartnerSectionCell.nib, forHeaderFooterViewReuseIdentifier: PartnerSectionCell.identifier)
     tableView.register(PartnerCell.nib, forCellReuseIdentifier: PartnerCell.identifier)
   }
 
@@ -62,13 +63,18 @@ extension PartnersViewController: UITableViewDataSource, UITableViewDelegate {
     cell.setup(title: item.name, description: item.description, imageURL: item.image)
     return cell
   }
-  
-  public func numberOfSections(in tableView: UITableView) -> Int {
-    return viewModel.numberOfSections()
+
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard let headerView: PartnerSectionCell = tableView.dequeueReusableHeaderFooterView(withIdentifier: PartnerSectionCell.identifier) as? PartnerSectionCell,
+      viewModel.numberOfRowForSection(section: section) > 0 else {
+        return nil
+    }
+    headerView.setup(title: viewModel.itemForSection(section: section)?.title)
+    return headerView
   }
 
-  public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return viewModel.itemForSection(section: section)?.title ?? "No Title"
+  public func numberOfSections(in tableView: UITableView) -> Int {
+    return viewModel.numberOfSections()
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
