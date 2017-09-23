@@ -14,6 +14,10 @@ class AugmentedViewController: UIViewController {
     return Storyboard.Root.instantiate(AugmentedViewController.self)
   }
 
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var subtitleLabel: UILabel!
+  @IBOutlet weak var arButton: UIButton!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     initialize()
