@@ -47,6 +47,13 @@ class AugmentedViewController: UIViewController {
     titleLabel.text = Strings.find_m()
     subtitleLabel.text = Strings.find_scan_message()
     arButton.setTitle(Strings.find_button(), for: .normal)
+
+    arButton.addTarget(self, action: #selector(arButtonTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
+  }
+
+  // MARK: Actions
+  func arButtonTouchUpInside(_ sender: UIView) {
+    self.navigationController?.pushViewController(ARViewController(), animated: true)
   }
 }
 
