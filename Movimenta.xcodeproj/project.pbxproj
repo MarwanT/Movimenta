@@ -171,6 +171,7 @@
 		F484BF241F73DAC200EE52AD /* OpenGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF221F73DAC200EE52AD /* OpenGLView.swift */; };
 		F4B80ED11F76A8B100CD95C0 /* AugmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */; };
 		F4B80EB51F764CCC00CD95C0 /* PartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */; };
+		F4B80EB71F764D4100CD95C0 /* PartnersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -393,6 +394,7 @@
 		F484BF221F73DAC200EE52AD /* OpenGLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenGLView.swift; path = EasyAR/OpenGLView.swift; sourceTree = "<group>"; };
 		F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AugmentedViewController.swift; sourceTree = "<group>"; };
 		F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewController.swift; sourceTree = "<group>"; };
+		F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -895,6 +897,7 @@
 				594662121F39D1B6007412C0 /* EventDetailsViewModel.swift */,
 				5903B1051F4D82B8009DF33C /* FiltersViewModel.swift */,
 				F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */,
+				F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */,
 				F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */,
 				F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */,
 				599202631F669C460078578C /* ParticipantViewModel.swift */,
@@ -1305,6 +1308,7 @@
 				59363FCE1F459722006059B6 /* ParticipantCell.swift in Sources */,
 				5903B1001F4C8CD7009DF33C /* Filter.swift in Sources */,
 				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
+				F4B80EB71F764D4100CD95C0 /* PartnersViewModel.swift in Sources */,
 				5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */,
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
 				59363FC91F44E662006059B6 /* VenueCell.swift in Sources */,
