@@ -174,6 +174,8 @@
 		F4B80EB71F764D4100CD95C0 /* PartnersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */; };
 		F4B80EBF1F76675000CD95C0 /* PartnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EBD1F76675000CD95C0 /* PartnerCell.swift */; };
 		F4B80EC01F76675000CD95C0 /* PartnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B80EBE1F76675000CD95C0 /* PartnerCell.xib */; };
+		F4B80EC71F768E3500CD95C0 /* PartnerSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */; };
+		F4B80EC91F768E7200CD95C0 /* PartnerSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -399,6 +401,8 @@
 		F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewModel.swift; sourceTree = "<group>"; };
 		F4B80EBD1F76675000CD95C0 /* PartnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerCell.swift; sourceTree = "<group>"; };
 		F4B80EBE1F76675000CD95C0 /* PartnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerCell.xib; sourceTree = "<group>"; };
+		F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartnerSectionCell.swift; path = PartnerSectionCell/PartnerSectionCell.swift; sourceTree = "<group>"; };
+		F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartnerSectionCell.xib; path = PartnerSectionCell/PartnerSectionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -829,6 +833,7 @@
 				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
 				F4B80EBC1F76675000CD95C0 /* PartnerCell */,
 				59A008281F615FBE00E392DD /* PadableLabel.swift */,
+				F4B80EC11F76844A00CD95C0 /* PartnerSectionCell */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1030,6 +1035,15 @@
 			path = PartnerCell;
 			sourceTree = "<group>";
 		};
+		F4B80EC11F76844A00CD95C0 /* PartnerSectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */,
+				F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */,
+			);
+			name = PartnerSectionCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1150,6 +1164,7 @@
 			files = (
 				59D52FA71F1D0604008F3B13 /* Root.storyboard in Resources */,
 				5968349A1F5D914100E25579 /* SliderCell.xib in Resources */,
+				F4B80EC91F768E7200CD95C0 /* PartnerSectionCell.xib in Resources */,
 				5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */,
 				F409C1FA1F6D0C3B007216E4 /* Information.storyboard in Resources */,
 				598923181F1E2ABA00F73974 /* nexa-heavy-webfont.ttf in Resources */,
@@ -1358,6 +1373,7 @@
 				F409C1EE1F6C3A8F007216E4 /* Restaurant.swift in Sources */,
 				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
 				5953C17B1F5476B900BD27AB /* ExpandableHeaderCell.swift in Sources */,
+				F4B80EC71F768E3500CD95C0 /* PartnerSectionCell.swift in Sources */,
 				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
 				593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */,
 				596415271F507061009169A6 /* Selection.swift in Sources */,
