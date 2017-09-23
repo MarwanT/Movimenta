@@ -30,3 +30,9 @@ class PartnersViewController: UIViewController {
     //TODO: Apply style
   }
 }
+
+extension PartnersViewController {
+  static func instance() -> PartnersViewController {
+    return Storyboard.Information.instantiate(PartnersViewController.self)
+  }
+}
