@@ -165,6 +165,9 @@
 		F409C2121F6EABAB007216E4 /* InformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F409C2111F6EABAB007216E4 /* InformationCell.xib */; };
 		F409C1E61F6BCB23007216E4 /* EasyARSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F409C1CC1F6BC88B007216E4 /* EasyARSwift.framework */; };
 		F409C1E71F6BCB23007216E4 /* EasyARSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F409C1CC1F6BC88B007216E4 /* EasyARSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F484BF181F73D8A300EE52AD /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF171F73D8A300EE52AD /* ARManager.swift */; };
+		F484BF1F1F73DA4200EE52AD /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF1E1F73DA4200EE52AD /* ARViewController.swift */; };
+		F484BF241F73DAC200EE52AD /* OpenGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF221F73DAC200EE52AD /* OpenGLView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -381,6 +384,9 @@
 		F409C20F1F6EAB7F007216E4 /* InformationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationCell.swift; path = InformationCell/InformationCell.swift; sourceTree = "<group>"; };
 		F409C2111F6EABAB007216E4 /* InformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InformationCell.xib; path = InformationCell/InformationCell.xib; sourceTree = "<group>"; };
 		F409C1C61F6BC88A007216E4 /* EasyARSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EasyARSwift.xcodeproj; path = EasyARSwift/EasyARSwift.xcodeproj; sourceTree = "<group>"; };
+		F484BF171F73D8A300EE52AD /* ARManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARManager.swift; path = EasyAR/ARManager.swift; sourceTree = "<group>"; };
+		F484BF1E1F73DA4200EE52AD /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		F484BF221F73DAC200EE52AD /* OpenGLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenGLView.swift; path = EasyAR/OpenGLView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -824,6 +830,7 @@
 		59D52F741F1CD134008F3B13 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F484BF1E1F73DA4200EE52AD /* ARViewController.swift */,
 				59EF02181F3076CF00F145B9 /* RootViewController.swift */,
 				59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */,
 				594662101F39CFDF007412C0 /* EventDetailsViewController.swift */,
@@ -917,6 +924,7 @@
 			children = (
 				59D52F8D1F1CF690008F3B13 /* Localization */,
 				59D52F861F1CD197008F3B13 /* Info.plist */,
+				F484BF161F73D88A00EE52AD /* EasyAR */,
 				5970AF791F1F8E50008CA708 /* Movimenta-Bridging-Header.h */,
 			);
 			path = SupportingFiles;
@@ -984,6 +992,15 @@
 				F409C1CE1F6BC88B007216E4 /* EasyARSwiftTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F484BF161F73D88A00EE52AD /* EasyAR */ = {
+			isa = PBXGroup;
+			children = (
+				F484BF221F73DAC200EE52AD /* OpenGLView.swift */,
+				F484BF171F73D8A300EE52AD /* ARManager.swift */,
+			);
+			name = EasyAR;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1286,9 +1303,11 @@
 				5970AFB51F2A17B3008CA708 /* Font.swift in Sources */,
 				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
 				594662151F3B4437007412C0 /* String+Utils.swift in Sources */,
+				F484BF181F73D8A300EE52AD /* ARManager.swift in Sources */,
 				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
 				592D28561F73F70300CBDEBB /* VenueDetailsHeaderView.swift in Sources */,
 				5903B1061F4D82B8009DF33C /* FiltersViewModel.swift in Sources */,
+				F484BF241F73DAC200EE52AD /* OpenGLView.swift in Sources */,
 				59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */,
 				F409C20C1F6E9027007216E4 /* InformationListingViewModel.swift in Sources */,
 				59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */,
@@ -1335,6 +1354,7 @@
 				5968348F1F5D60CC00E25579 /* SwitchCell.swift in Sources */,
 				5970AF841F222AA4008CA708 /* Device.swift in Sources */,
 				592D28511F73A9AF00CBDEBB /* VenueViewController.swift in Sources */,
+				F484BF1F1F73DA4200EE52AD /* ARViewController.swift in Sources */,
 				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
 				F409C2101F6EAB7F007216E4 /* InformationCell.swift in Sources */,
 				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
