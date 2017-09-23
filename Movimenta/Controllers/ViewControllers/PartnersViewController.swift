@@ -9,6 +9,9 @@
 import Foundation
 
 class PartnersViewController: UIViewController {
+
+  @IBOutlet weak var tableView: UITableView!
+
   let viewModel: PartnersViewModel = PartnersViewModel()
 
   override func viewDidLoad() {

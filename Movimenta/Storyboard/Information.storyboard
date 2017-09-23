@@ -519,6 +519,9 @@
                             <constraint firstItem="hRW-gI-0eO" firstAttribute="top" secondItem="Geh-8A-70I" secondAttribute="bottom" id="xR4-fs-NT0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Geh-8A-70I" id="1zy-mo-QQj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vB0-rU-82g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
