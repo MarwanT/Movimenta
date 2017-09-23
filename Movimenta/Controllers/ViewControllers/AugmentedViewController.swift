@@ -24,6 +24,8 @@ class AugmentedViewController: UIViewController {
   }
 
   private func initialize() {
+    title = Strings.ar()
+    
     applyTheme()
     setupView()
   }
@@ -42,7 +44,9 @@ class AugmentedViewController: UIViewController {
   }
 
   private func setupView() {
-    //TODO: setup View
+    titleLabel.text = Strings.find_m()
+    subtitleLabel.text = Strings.find_scan_message()
+    arButton.setTitle(Strings.find_button(), for: .normal)
   }
 }
 
