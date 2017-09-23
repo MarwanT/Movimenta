@@ -9,6 +9,8 @@
 import UIKit
 
 class PartnerCell: UITableViewCell {
+  static let identifier: String = PartnerCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
 
     override func awakeFromNib() {
         super.awakeFromNib()
