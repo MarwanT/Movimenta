@@ -30,7 +30,7 @@ class PartnerCell: UITableViewCell {
     descriptionLabel.font = theme.font6
 
     titleLabel.textColor = theme.darkTextColor
-    descriptionLabel.textColor = theme.color2
+    descriptionLabel.textColor = theme.darkTextColor
   }
 
   public func setup(title: String?, description: String?, imageURL: String?) {
