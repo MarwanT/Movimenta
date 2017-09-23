@@ -29,7 +29,16 @@ class AugmentedViewController: UIViewController {
   }
 
   private func applyTheme() {
-    //TODO: apply Theme
+    let theme = ThemeManager.shared.current
+
+    view.backgroundColor = theme.white
+
+    //Fonts
+    titleLabel.font = ThemeManager.shared.current.font1
+    subtitleLabel.font = ThemeManager.shared.current.font3
+    //Color
+    titleLabel.textColor = ThemeManager.shared.current.lightTextColor
+    subtitleLabel.textColor = ThemeManager.shared.current.lightTextColor
   }
 
   private func setupView() {
