@@ -57,6 +57,14 @@ extension GalleryViewController: UIPageViewControllerDataSource, UIPageViewContr
     }
     return pagesViewControllers[nextIndex]
   }
+  
+  func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    return pagesViewControllers.count
+  }
+  
+  func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+    return currentViewControllerIndex
+  }
 }
 
 //MARK: Instance
