@@ -25,6 +25,7 @@ protocol ThemeColors {
   var white: UIColor { get }
   var darkTextColor: UIColor { get }
   var lightTextColor: UIColor { get }
+  var disableColor: UIColor { get }
   var defaultBackgroundColor: UIColor { get }
   var separatorColor: UIColor { get }
   var tabBarTintColor: UIColor { get }

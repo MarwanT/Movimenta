@@ -102,11 +102,11 @@ class ScheduleViewController: UIViewController {
 //MARK: Actions
 extension ScheduleViewController {
   func handleBookmarksUpdate(_ sender: Notification) {
-    guard let event = sender.object as? Event,
-      let indexPath = viewModel.updateBookmarkStatus(of: event) else {
-        return
+    guard let events = sender.object as? [Event] else {
+      return
     }
-    reloadRows(at: [indexPath])
+    let indexPaths = viewModel.updateBookmarkStatus(of: events)
+    reloadRows(at: indexPaths)
   }
   
   func navigateToEventDetailsViewController(event: Event) {

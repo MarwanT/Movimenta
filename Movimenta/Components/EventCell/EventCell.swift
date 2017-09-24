@@ -17,6 +17,7 @@ class EventCell: UITableViewCell {
   static let identifier: String = EventCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
+  @IBOutlet weak var baseView: UIView!
   @IBOutlet weak var participantImageView: UIImageView!
   @IBOutlet weak var pinImageView: UIImageView!
   @IBOutlet weak var bookmarkButton: UIButton!
@@ -40,6 +41,12 @@ class EventCell: UITableViewCell {
     didSet {
       refreshBookmarkButton()
     }
+  }
+  
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: animated)
+    bookmarkButton.isHidden = editing
+    refreshSelectionBackground()
   }
   
   weak var delegate: EventCellDelegate?
@@ -69,11 +76,17 @@ class EventCell: UITableViewCell {
     participantImageView.clipsToBounds = true
     participantImageView.contentMode = .scaleAspectFill
     contentView.layoutMargins = configuration.layoutMargins
+    baseView.layoutMargins = configuration.layoutMargins
     selectedBackgroundView = UIImageView(image: theme.color6.image())
+    tintColor = theme.color2
   }
   
   fileprivate func refreshBookmarkButton() {
     bookmarkButton.setImage(isBookmarked ? #imageLiteral(resourceName: "bookmarkFilled") : #imageLiteral(resourceName: "bookmarkOutline"), for: .normal)
+  }
+  
+  fileprivate func refreshSelectionBackground() {
+    selectedBackgroundView = UIImageView(image: (isEditing ? UIColor.clear : ThemeManager.shared.current.color6).image())
   }
   
   fileprivate func setLabelsTopPadding() {
