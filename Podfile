@@ -36,6 +36,7 @@ target 'Movimenta' do
   pod 'SnapKit', '3.2.0'
   pod 'SwiftyJSON', '3.1.4'
   pod 'TTTAttributedLabel', '2.0.0'
+  pod 'youtube-ios-player-helper', '0.1.4'
   
   target 'MovimentaTests' do
     inherit! :search_paths
