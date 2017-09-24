@@ -32,6 +32,10 @@ final class MovimentaTheme: Theme {
     let segmentedControlAppearance = UISegmentedControl.appearance()
     segmentedControlAppearance.setTitleTextAttributes(
       [NSFontAttributeName : font14], for: .normal)
+    
+    let pageControlAppearance = UIPageControl.appearance()
+    pageControlAppearance.currentPageIndicatorTintColor = white
+    pageControlAppearance.pageIndicatorTintColor = color6
   }
   
   var animationDuration: TimeInterval = 0.4
