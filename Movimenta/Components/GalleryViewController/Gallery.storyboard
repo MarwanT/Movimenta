@@ -41,6 +41,9 @@
                             <constraint firstItem="tg8-oB-5J3" firstAttribute="leading" secondItem="AtS-67-KSx" secondAttribute="leading" id="wWL-As-zVz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="tg8-oB-5J3" id="gon-Dj-X1r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qH8-KN-ac6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
