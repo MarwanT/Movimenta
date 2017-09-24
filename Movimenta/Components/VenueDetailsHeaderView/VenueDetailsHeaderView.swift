@@ -9,6 +9,7 @@
 import UIKit
 
 protocol VenueDetailsHeaderViewDelegate: class {
+  var venueDetailsHeaderParentViewController: UIViewController { get }
   func venueDetailsHeaderDidTapMapImage(_ view: VenueDetailsHeaderView)
 }
 
