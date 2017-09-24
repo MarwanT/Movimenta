@@ -12,6 +12,7 @@ import UIKit
 class VenueViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   fileprivate var headerView: VenueDetailsHeaderView!
+  fileprivate var hostedEventsLabel: ParallaxLabel!
   
   var viewModel = VenueViewModel()
   
@@ -75,18 +76,27 @@ class VenueViewController: UIViewController {
     
     headerView = VenueDetailsHeaderView.instanceFromNib()
     headerView.delegate = self
+    hostedEventsLabel = ParallaxLabel.instanceFromNib()
+    hostedEventsLabel.layoutMargins = UIEdgeInsets(
+      top: CGFloat(theme.space8), left: CGFloat(theme.space7),
+      bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
     let separatorView = UIView(frame: CGRect.zero)
     separatorView.backgroundColor = theme.separatorColor
     
     let view = UIView(frame: CGRect.zero)
     view.addSubview(headerView)
+    view.addSubview(hostedEventsLabel)
     view.addSubview(separatorView)
     headerView.snp.makeConstraints { (maker) in
       maker.left.top.right.equalTo(view)
+      maker.bottom.equalTo(hostedEventsLabel.snp.top)
+    }
+    hostedEventsLabel.snp.makeConstraints { (maker) in
+      maker.left.right.equalTo(view)
+      maker.bottom.equalTo(separatorView.snp.top)
     }
     separatorView.snp.makeConstraints { (maker) in
       maker.height.equalTo(0.5)
-      maker.bottom.equalTo(headerView.snp.bottom)
       maker.left.right.bottom.equalTo(view)
     }
     tableView.tableHeaderView = view
@@ -116,6 +126,7 @@ class VenueViewController: UIViewController {
        name: viewModel.name,
        address: viewModel.address)
     )
+    hostedEventsLabel.set(text: Strings.hosted_events())
     resizeHeaderView()
   }
   
@@ -141,7 +152,7 @@ extension VenueViewController {
   fileprivate var tableHeaderPreferredSize: CGSize {
     return CGSize(
       width: view.frame.width,
-      height: headerView.preferredSize().height)
+      height: headerView.preferredSize().height + hostedEventsLabel.preferredSize().height)
   }
 }
 
