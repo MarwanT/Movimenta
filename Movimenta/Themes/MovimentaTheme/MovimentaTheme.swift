@@ -28,6 +28,10 @@ final class MovimentaTheme: Theme {
     let tabBarItemAppearance = UITabBarItem.appearance()
     tabBarItemAppearance.setTitleTextAttributes(
       [NSFontAttributeName : font17], for: .normal)
+    
+    let segmentedControlAppearance = UISegmentedControl.appearance()
+    segmentedControlAppearance.setTitleTextAttributes(
+      [NSFontAttributeName : font14], for: .normal)
   }
   
   var animationDuration: TimeInterval = 0.4

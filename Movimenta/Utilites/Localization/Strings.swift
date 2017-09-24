@@ -281,6 +281,14 @@ final class Strings {
     return Localization.localize(key: "venue")
   }
   
+  static func view_gallery() -> String {
+    return Localization.localize(key: "view_gallery")
+  }
+  
+  static func view_map() -> String {
+    return Localization.localize(key: "view_map")
+  }
+  
   static func view_more() -> String {
     return Localization.localize(key: "view_more")
   }
