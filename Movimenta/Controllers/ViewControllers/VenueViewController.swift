@@ -194,6 +194,10 @@ extension VenueViewController: VenueDetailsHeaderViewDelegate {
   }
   
   func venueDetailsHeaderDidTapMapImage(_ view: VenueDetailsHeaderView) {
+    guard let directions = viewModel.directions else {
+      return
+    }
+    MapUtility.direction(from: directions.origin, to: directions.destination)
   }
 }
 

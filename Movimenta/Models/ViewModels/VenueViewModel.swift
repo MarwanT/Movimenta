@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
 
 final class VenueViewModel {
@@ -45,6 +46,14 @@ extension VenueViewModel {
   
   var address: String? {
     return venue.address ?? venue.mapAddress
+  }
+  
+  var directions: (origin: CLLocationCoordinate2D?, destination: CLLocationCoordinate2D)? {
+    guard let destination = coordinates else {
+      return nil
+    }
+    let origin = EventsMapViewController.currentLocation?.coordinate
+    return (origin: origin, destination: destination)
   }
   
   var coordinates: CLLocationCoordinate2D? {
