@@ -38,6 +38,7 @@ class VenueViewController: UIViewController {
   private func initialize() {
     initializeTableView()
     initializeNavigationItems()
+    loadData()
   }
   
   private func initializeTableView() {
@@ -97,6 +98,20 @@ class VenueViewController: UIViewController {
   
   private func unregisterToNotificationCenter() {
     NotificationCenter.default.removeObserver(self)
+  }
+  
+  fileprivate func loadData() {
+    loadHeaderViewData()
+  }
+  
+  private func loadHeaderViewData() {
+    headerView.loadView(with:
+      (venueImages: viewModel.venueImages,
+       mapImageURL: viewModel.mapImageURL,
+       name: viewModel.name,
+       address: viewModel.address)
+    )
+    resizeHeaderView()
   }
   
   func navigateToEventDetailsViewController(event: Event) {

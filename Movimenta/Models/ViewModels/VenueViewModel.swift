@@ -29,6 +29,30 @@ final class VenueViewModel {
   }
 }
 
+//MARK: Venue Details Data
+extension VenueViewModel {
+  var venueImages: [URL]? {
+    return venue.gallery
+  }
+  
+  var mapImageURL: URL? {
+    return coordinates?.mapImageURL
+  }
+  
+  var name: String? {
+    return venue.title
+  }
+  
+  var address: String? {
+    return venue.address ?? venue.mapAddress
+  }
+  
+  var coordinates: CLLocationCoordinate2D? {
+    //TODO: Return the venue coordinates
+    return events.first?.coordinates
+  }
+}
+
 extension VenueViewModel {
   var numberOfRows: Int {
     return events.count
