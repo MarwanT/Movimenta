@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gallery View Controller-->
+        <scene sceneID="NgP-fr-Ps1">
+            <objects>
+                <pageViewController storyboardIdentifier="GalleryViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="H3r-tI-k4T" customClass="GalleryViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhW-vZ-HjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="163"/>
+        </scene>
+        <!--Gallery Page View Controller-->
+        <scene sceneID="3HC-7J-4yC">
+            <objects>
+                <viewController storyboardIdentifier="GalleryPageViewController" id="qCP-sK-B6q" customClass="GalleryPageViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wjE-7y-dEV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qzl-Qy-oxu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AtS-67-KSx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tg8-oB-5J3">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qzl-Qy-oxu" firstAttribute="top" secondItem="tg8-oB-5J3" secondAttribute="bottom" id="7Lv-4m-phh"/>
+                            <constraint firstItem="tg8-oB-5J3" firstAttribute="top" secondItem="wjE-7y-dEV" secondAttribute="bottom" id="Mi4-oU-Shz"/>
+                            <constraint firstAttribute="trailing" secondItem="tg8-oB-5J3" secondAttribute="trailing" id="sbZ-AF-xSt"/>
+                            <constraint firstItem="tg8-oB-5J3" firstAttribute="leading" secondItem="AtS-67-KSx" secondAttribute="leading" id="wWL-As-zVz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="tg8-oB-5J3" id="gon-Dj-X1r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qH8-KN-ac6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="494" y="162"/>
+        </scene>
+    </scenes>
+</document>
