@@ -29,3 +29,10 @@ extension MapUtility {
     var marker = "markers=icon:https://image.ibb.co/jFmfR5/icon_pin_map_selected_blue_copy.png"
   }
 }
+
+//MARK: - CLLocationCoordinate2D
+extension CLLocationCoordinate2D {
+  var mapImageURL: URL? {
+    return MapUtility.getStaticMapImageURL(for: self)
+  }
+}
