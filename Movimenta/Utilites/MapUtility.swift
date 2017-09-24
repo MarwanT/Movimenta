@@ -20,12 +20,11 @@ class MapUtility {
   
   class func direction(from origin: CLLocationCoordinate2D?, to destination: CLLocationCoordinate2D) {
     let configuration = DirectionConfiguration()
+    let separator = "&"
     var parameters = ""
-    var separator = ""
     
     if let origin = origin {
-      parameters += "origin=\(origin.latitude),\(origin.longitude)"
-      separator = "&"
+      parameters += "\(separator)origin=\(origin.latitude),\(origin.longitude)"
     }
     
     parameters += "\(separator)destination=\(destination.latitude),\(destination.longitude)"
