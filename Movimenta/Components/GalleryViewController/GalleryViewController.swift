@@ -16,6 +16,19 @@ class GalleryViewController: UIPageViewController {
     initialize()
   }
   
+  func initialize(with imagesURLs: [URL]) {
+    pagesViewControllers = imagesURLs.map { (url) -> GalleryPageViewController in
+      let vc = GalleryPageViewController.instance()
+      vc.initialize(with: url)
+      return vc
+    }
+    
+    if let firstPageViewController = pagesViewControllers.first {
+      setViewControllers([firstPageViewController], direction: .forward,
+                         animated: true, completion: nil)
+    }
+  }
+  
   private func initialize() {
     dataSource = self
     delegate = self
