@@ -23,6 +23,16 @@ class GalleryViewController: UIPageViewController {
   }
 }
 
+// MARK: Helpers
+extension GalleryViewController {
+  fileprivate var currentViewControllerIndex: Int {
+    guard let currentViewController = viewControllers?.first,
+      let currentViewControllerIndex = pagesViewControllers.index(of: currentViewController) else {
+        return 0
+    }
+    return currentViewControllerIndex
+  }
+}
 
 // MARK: Page View Controller Delegates
 extension GalleryViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
