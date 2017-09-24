@@ -25,6 +25,12 @@ class VenueViewController: UIViewController {
     registerToNotificationCenter()
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    // #Required for the headerView to take the required size of it's content
+    resizeHeaderView()
+  }
+  
   func initialize(with venue: Venue) {
     viewModel.initialize(with: venue)
   }
