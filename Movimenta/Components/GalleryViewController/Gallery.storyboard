@@ -12,7 +12,7 @@
         <!--Gallery View Controller-->
         <scene sceneID="NgP-fr-Ps1">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="H3r-tI-k4T" customClass="GalleryViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="GalleryViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="H3r-tI-k4T" customClass="GalleryViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhW-vZ-HjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-372" y="163"/>
