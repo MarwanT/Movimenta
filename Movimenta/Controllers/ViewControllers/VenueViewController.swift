@@ -104,6 +104,21 @@ class VenueViewController: UIViewController {
   }
 }
 
+//MARK: Helpers
+extension VenueViewController {
+  fileprivate func resizeHeaderView(size: CGSize? = nil) {
+    let chosenSize: CGSize = size != nil ? size! : tableHeaderPreferredSize
+    tableView.tableHeaderView?.frame.size = chosenSize
+    tableView.reloadData()
+  }
+  
+  fileprivate var tableHeaderPreferredSize: CGSize {
+    return CGSize(
+      width: view.frame.width,
+      height: headerView.preferredSize().height)
+  }
+}
+
 //MARK: Actions
 extension VenueViewController {
   func tapShareButton(_ sender: UIBarButtonItem) {
