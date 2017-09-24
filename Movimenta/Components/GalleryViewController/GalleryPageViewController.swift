@@ -11,8 +11,19 @@ import UIKit
 class GalleryPageViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   
+  fileprivate var imageURL: URL?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    fillContent()
+  }
+  
+  func initialize(with imageURL: URL?) {
+    self.imageURL = imageURL
+  }
+  
+  private func fillContent() {
+    imageView.sd_setImage(with: imageURL)
   }
 }
 
