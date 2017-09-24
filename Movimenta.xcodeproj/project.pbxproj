@@ -36,6 +36,7 @@
 		59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FD31F45E01A006059B6 /* ParallaxLabel.xib */; };
 		59363FDE1F4740DE006059B6 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FDD1F4740DE006059B6 /* LaunchView.swift */; };
 		59363FE01F47414E006059B6 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FDF1F47414E006059B6 /* LaunchView.xib */; };
+		593C818E1F75053400626806 /* MapUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C818D1F75053400626806 /* MapUtility.swift */; };
 		593C81901F75506200626806 /* UIApplication+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C818F1F75506200626806 /* UIApplication+Utils.swift */; };
 		593C81931F7558EA00626806 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C81921F7558EA00626806 /* GalleryViewController.swift */; };
 		593C81951F7558F800626806 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593C81941F7558F800626806 /* Gallery.storyboard */; };
@@ -206,6 +207,7 @@
 		59363FD31F45E01A006059B6 /* ParallaxLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParallaxLabel.xib; sourceTree = "<group>"; };
 		59363FDD1F4740DE006059B6 /* LaunchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		59363FDF1F47414E006059B6 /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
+		593C818D1F75053400626806 /* MapUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtility.swift; sourceTree = "<group>"; };
 		593C818F1F75506200626806 /* UIApplication+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Utils.swift"; sourceTree = "<group>"; };
 		593C81921F7558EA00626806 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		593C81941F7558F800626806 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
@@ -901,6 +903,7 @@
 				598923361F1F753900F73974 /* AppKeys.swift */,
 				5970AF831F222AA4008CA708 /* Device.swift */,
 				5970AFAC1F278DED008CA708 /* AppNotification.swift */,
+				593C818D1F75053400626806 /* MapUtility.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -1228,6 +1231,7 @@
 				5965D1CF1F729EAC00F35C63 /* NoBookmarksView.swift in Sources */,
 				59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */,
 				5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */,
+				593C818E1F75053400626806 /* MapUtility.swift in Sources */,
 				F409C1EE1F6C3A8F007216E4 /* Restaurant.swift in Sources */,
 				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
 				5953C17B1F5476B900BD27AB /* ExpandableHeaderCell.swift in Sources */,
