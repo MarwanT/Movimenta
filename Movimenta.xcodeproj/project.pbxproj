@@ -36,6 +36,7 @@
 		59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FD31F45E01A006059B6 /* ParallaxLabel.xib */; };
 		59363FDE1F4740DE006059B6 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FDD1F4740DE006059B6 /* LaunchView.swift */; };
 		59363FE01F47414E006059B6 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FDF1F47414E006059B6 /* LaunchView.xib */; };
+		593C81901F75506200626806 /* UIApplication+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C818F1F75506200626806 /* UIApplication+Utils.swift */; };
 		593C81931F7558EA00626806 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C81921F7558EA00626806 /* GalleryViewController.swift */; };
 		593C81951F7558F800626806 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593C81941F7558F800626806 /* Gallery.storyboard */; };
 		593C81971F75592700626806 /* GalleryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C81961F75592700626806 /* GalleryPageViewController.swift */; };
@@ -205,6 +206,7 @@
 		59363FD31F45E01A006059B6 /* ParallaxLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParallaxLabel.xib; sourceTree = "<group>"; };
 		59363FDD1F4740DE006059B6 /* LaunchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		59363FDF1F47414E006059B6 /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
+		593C818F1F75506200626806 /* UIApplication+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Utils.swift"; sourceTree = "<group>"; };
 		593C81921F7558EA00626806 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		593C81941F7558F800626806 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
 		593C81961F75592700626806 /* GalleryPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryPageViewController.swift; sourceTree = "<group>"; };
@@ -614,6 +616,7 @@
 				598039351F56D83800521DA2 /* UITableViewCell+Utils.swift */,
 				594040CC1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift */,
 				5965D1CB1F72727F00F35C63 /* UITabBarController+Utils.swift */,
+				593C818F1F75506200626806 /* UIApplication+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1284,6 +1287,7 @@
 				5970AFAF1F29F631008CA708 /* Theme.swift in Sources */,
 				59048B641F4AE8460000CCAF /* FiltersManager.swift in Sources */,
 				5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */,
+				593C81901F75506200626806 /* UIApplication+Utils.swift in Sources */,
 				5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */,
 				F409C1F01F6C3E34007216E4 /* Hotel.swift in Sources */,
 				5970AF961F24E5A2008CA708 /* Venue.swift in Sources */,
