@@ -13,6 +13,10 @@ final class VenueViewModel {
   fileprivate(set) var venue: Venue!
   fileprivate(set) var events: [Event]!
   
+  var viewControllerTitle: String {
+    return Strings.venue().capitalized
+  }
+  
   func initialize(with venue: Venue) {
     self.venue = venue
     self.events = DataManager.shared.events(in: venue)

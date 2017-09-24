@@ -36,9 +36,14 @@ class VenueViewController: UIViewController {
   }
   
   private func initialize() {
+    initializeViewController()
     initializeTableView()
     initializeNavigationItems()
     loadData()
+  }
+  
+  private func initializeViewController() {
+    title = viewModel.viewControllerTitle
   }
   
   private func initializeTableView() {
