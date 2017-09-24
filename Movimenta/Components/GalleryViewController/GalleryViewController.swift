@@ -16,6 +16,28 @@ class GalleryViewController: UIPageViewController {
     initialize()
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    
+    let subViews = view.subviews
+    var scrollView: UIScrollView?
+    var pageControl: UIPageControl?
+    
+    for view in subViews {
+      if view is UIScrollView {
+        scrollView = view as? UIScrollView
+      }
+      else if view is UIPageControl {
+        pageControl = view as? UIPageControl
+      }
+    }
+    
+    if (scrollView != nil && pageControl != nil) {
+      scrollView?.frame = view.bounds
+      view.bringSubview(toFront: pageControl!)
+    }
+  }
+  
   func initialize(with imagesURLs: [URL]) {
     pagesViewControllers = imagesURLs.map { (url) -> GalleryPageViewController in
       let vc = GalleryPageViewController.instance()
