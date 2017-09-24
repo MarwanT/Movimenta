@@ -6,10 +6,12 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import SnapKit
 import UIKit
 
 class VenueViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
+  fileprivate var headerView: VenueDetailsHeaderView!
   
   var viewModel = VenueViewModel()
   
@@ -57,7 +59,25 @@ class VenueViewController: UIViewController {
   }
   
   private func initializeTableViewHeader() {
-    // TODO:
+    let theme = ThemeManager.shared.current
+    
+    headerView = VenueDetailsHeaderView.instanceFromNib()
+    headerView.delegate = self
+    let separatorView = UIView(frame: CGRect.zero)
+    separatorView.backgroundColor = theme.separatorColor
+    
+    let view = UIView(frame: CGRect.zero)
+    view.addSubview(headerView)
+    view.addSubview(separatorView)
+    headerView.snp.makeConstraints { (maker) in
+      maker.left.top.right.equalTo(view)
+    }
+    separatorView.snp.makeConstraints { (maker) in
+      maker.height.equalTo(0.5)
+      maker.bottom.equalTo(headerView.snp.bottom)
+      maker.left.right.bottom.equalTo(view)
+    }
+    tableView.tableHeaderView = view
   }
   
   func initializeNavigationItems() {
@@ -128,6 +148,16 @@ extension VenueViewController: UITableViewDelegate, UITableViewDataSource {
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
     tableView.reloadRows(at: indexPaths, with: .none)
+  }
+}
+
+//MARK: Header View Delegate
+extension VenueViewController: VenueDetailsHeaderViewDelegate {
+  var venueDetailsHeaderParentViewController: UIViewController {
+    return self
+  }
+  
+  func venueDetailsHeaderDidTapMapImage(_ view: VenueDetailsHeaderView) {
   }
 }
 
