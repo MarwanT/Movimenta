@@ -31,6 +31,8 @@ class VenueDetailsHeaderView: UIView {
   @IBOutlet weak var sliderViewLeadingConstraint: NSLayoutConstraint!
   @IBOutlet weak var mapImageViewTrailingConstraint: NSLayoutConstraint!
   
+  fileprivate var galleryViewController: GalleryViewController?
+  
   fileprivate var animationDuration = ThemeManager.shared.current.animationDuration
   
   weak var delegate: VenueDetailsHeaderViewDelegate?
@@ -67,12 +69,29 @@ class VenueDetailsHeaderView: UIView {
   }
   
   func loadView(with data: DetailsData?) {
-    // TODO: Set the Gallery Images
+    loadGalleryImages(with: data?.venueImages)
     mapImageView.sd_setImage(with: data?.mapImageURL)
     nameLabel.text = data?.name
     addressLabel.text = data?.address
     labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
     contentView.layoutIfNeeded()
+  }
+  
+  func loadGalleryImages(with urls: [URL]?) {
+    if galleryViewController == nil {
+      galleryViewController = GalleryViewController.instance()
+      _ = delegate?.venueDetailsHeaderParentViewController.add(
+        asChildViewController: galleryViewController!, toView: sliderView)
+      galleryViewController!.view.snp.makeConstraints({ (maker) in
+        maker.edges.equalTo(sliderView)
+      })
+    }
+    
+    guard let galleryViewController = galleryViewController else {
+      return
+    }
+    
+    galleryViewController.initialize(with: urls ?? [])
   }
   
   private func applyMargins() {
