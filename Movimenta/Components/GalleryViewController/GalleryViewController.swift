@@ -40,13 +40,22 @@ extension GalleryViewController: UIPageViewControllerDataSource, UIPageViewContr
     guard let currentViewControllerIndex = pagesViewControllers.index(of: viewController) else {
       return nil
     }
+    let previousIndex = currentViewControllerIndex-1
+    guard previousIndex >= 0, previousIndex < pagesViewControllers.count else {
       return nil
+    }
+    return pagesViewControllers[previousIndex]
+  }
   
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
     guard let currentViewControllerIndex = pagesViewControllers.index(of: viewController) else {
       return nil
     }
+    let nextIndex = currentViewControllerIndex+1
+    guard nextIndex < pagesViewControllers.count else {
       return nil
+    }
+    return pagesViewControllers[nextIndex]
   }
 }
 
