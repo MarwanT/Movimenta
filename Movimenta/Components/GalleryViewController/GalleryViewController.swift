@@ -9,6 +9,8 @@
 import UIKit
 
 class GalleryViewController: UIPageViewController {
+  fileprivate var pagesViewControllers = [UIViewController]()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
