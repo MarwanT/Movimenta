@@ -68,3 +68,11 @@ struct Parser {
     return MovimentaEvent.objects(from: json)
   }
 }
+
+
+//MARK: URL
+extension URL: Parsable {
+  static func object(from json: JSON) -> URL? {
+    return json.url
+  }
+}

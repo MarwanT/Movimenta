@@ -29,6 +29,7 @@ struct Venue: ModelCommonProperties {
   var image: URL?
   var mapAddress: String?
   var coordinates: CLLocationCoordinate2D?
+  var gallery: [URL]?
 }
 
 extension Venue: Parsable {
@@ -51,7 +52,8 @@ extension Venue: Parsable {
     let image = json["image"].url
     let mapAddress = json["coordinates"]["address"].string
     let coordinates = CLLocationCoordinate2D.object(from: json["coordinates"])
+    let gallery = URL.objects(from: json["gallery"])
     
-    return Venue(id: id, link: link, content: content, title: title, excerpt: excerpt, name: name, address: address, city: city, state: state, country: country, website: website, phone: phone, mapLink: mapLink, email: email, zipcode: zipcode, image: image, mapAddress: mapAddress, coordinates: coordinates)
+    return Venue(id: id, link: link, content: content, title: title, excerpt: excerpt, name: name, address: address, city: city, state: state, country: country, website: website, phone: phone, mapLink: mapLink, email: email, zipcode: zipcode, image: image, mapAddress: mapAddress, coordinates: coordinates, gallery: gallery)
   }
 }

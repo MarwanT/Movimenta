@@ -116,15 +116,7 @@ class ContactViewController: UIViewController {
   }
 
   private func openUrl(url: URL) {
-    let application: UIApplication = UIApplication.shared
-    if (application.canOpenURL(url)) {
-      if #available(iOS 10.0, *) {
-        application.open(url)
-      } else {
-        // Fallback on earlier versions
-        application.openURL(url)
-      }
-    }
+    UIApplication.openUrl(url: url)
   }
 }
 

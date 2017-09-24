@@ -36,6 +36,7 @@
 "event_types" = "Event Types";
 "from" = "From";
 "hide_bookmarked_events" = "Hide Bookmarked Events";
+"hosted_events" = "Hosted Events";
 "hotels" = "Hotels";
 "hotline_description" = "Customer service hotline is active during the whole festival season.";
 "hotline_title" = "Call our hotline for free";
@@ -74,6 +75,8 @@
 "to_time" = "till";
 "today" = "Today";
 "venue" = "Venue";
+"view_gallery" = "View Gallery";
+"view_map" = "View Map";
 "view_more" = "View More";
 "view_website" = "View Website";
 "vr" = "VR";

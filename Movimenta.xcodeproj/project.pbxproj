@@ -21,6 +21,11 @@
 		591CD78D1F3879BA00A24BBB /* EventDetailsPeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */; };
 		591CD78E1F3879BA00A24BBB /* EventDetailsPeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */; };
 		591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CD78F1F387B0700A24BBB /* View+Utils.swift */; };
+		592D284F1F73A8EA00CBDEBB /* Venue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592D284E1F73A8EA00CBDEBB /* Venue.storyboard */; };
+		592D28511F73A9AF00CBDEBB /* VenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D28501F73A9AF00CBDEBB /* VenueViewController.swift */; };
+		592D28531F73DE0D00CBDEBB /* VenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D28521F73DE0D00CBDEBB /* VenueViewModel.swift */; };
+		592D28561F73F70300CBDEBB /* VenueDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D28551F73F70300CBDEBB /* VenueDetailsHeaderView.swift */; };
+		592D28581F73F71500CBDEBB /* VenueDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592D28571F73F71500CBDEBB /* VenueDetailsHeaderView.xib */; };
 		593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593525161F3222EF005AD32C /* GMSMarker+Utils.swift */; };
 		59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */; };
 		59363FC91F44E662006059B6 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC71F44E662006059B6 /* VenueCell.swift */; };
@@ -31,6 +36,11 @@
 		59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FD31F45E01A006059B6 /* ParallaxLabel.xib */; };
 		59363FDE1F4740DE006059B6 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FDD1F4740DE006059B6 /* LaunchView.swift */; };
 		59363FE01F47414E006059B6 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59363FDF1F47414E006059B6 /* LaunchView.xib */; };
+		593C818E1F75053400626806 /* MapUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C818D1F75053400626806 /* MapUtility.swift */; };
+		593C81901F75506200626806 /* UIApplication+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C818F1F75506200626806 /* UIApplication+Utils.swift */; };
+		593C81931F7558EA00626806 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C81921F7558EA00626806 /* GalleryViewController.swift */; };
+		593C81951F7558F800626806 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593C81941F7558F800626806 /* Gallery.storyboard */; };
+		593C81971F75592700626806 /* GalleryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C81961F75592700626806 /* GalleryPageViewController.swift */; };
 		594040CD1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594040CC1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift */; };
 		594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594500641F42026400779302 /* TableViewSectionHeader.xib */; };
 		594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594500661F42029500779302 /* TableViewSectionHeader.swift */; };
@@ -182,6 +192,11 @@
 		591CD78B1F3879BA00A24BBB /* EventDetailsPeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsPeekView.swift; sourceTree = "<group>"; };
 		591CD78C1F3879BA00A24BBB /* EventDetailsPeekView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsPeekView.xib; sourceTree = "<group>"; };
 		591CD78F1F387B0700A24BBB /* View+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
+		592D284E1F73A8EA00CBDEBB /* Venue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Venue.storyboard; sourceTree = "<group>"; };
+		592D28501F73A9AF00CBDEBB /* VenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueViewController.swift; sourceTree = "<group>"; };
+		592D28521F73DE0D00CBDEBB /* VenueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueViewModel.swift; sourceTree = "<group>"; };
+		592D28551F73F70300CBDEBB /* VenueDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailsHeaderView.swift; sourceTree = "<group>"; };
+		592D28571F73F71500CBDEBB /* VenueDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueDetailsHeaderView.xib; sourceTree = "<group>"; };
 		593525161F3222EF005AD32C /* GMSMarker+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GMSMarker+Utils.swift"; sourceTree = "<group>"; };
 		59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Util.swift"; sourceTree = "<group>"; };
 		59363FC71F44E662006059B6 /* VenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
@@ -192,6 +207,11 @@
 		59363FD31F45E01A006059B6 /* ParallaxLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParallaxLabel.xib; sourceTree = "<group>"; };
 		59363FDD1F4740DE006059B6 /* LaunchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		59363FDF1F47414E006059B6 /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
+		593C818D1F75053400626806 /* MapUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtility.swift; sourceTree = "<group>"; };
+		593C818F1F75506200626806 /* UIApplication+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Utils.swift"; sourceTree = "<group>"; };
+		593C81921F7558EA00626806 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		593C81941F7558F800626806 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
+		593C81961F75592700626806 /* GalleryPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryPageViewController.swift; sourceTree = "<group>"; };
 		594040CC1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Utils.swift"; sourceTree = "<group>"; };
 		594500641F42026400779302 /* TableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSectionHeader.xib; sourceTree = "<group>"; };
 		594500661F42029500779302 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
@@ -382,6 +402,15 @@
 			path = EventDetailsPeekView;
 			sourceTree = "<group>";
 		};
+		592D28541F73F6DA00CBDEBB /* VenueDetailsHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				592D28551F73F70300CBDEBB /* VenueDetailsHeaderView.swift */,
+				592D28571F73F71500CBDEBB /* VenueDetailsHeaderView.xib */,
+			);
+			path = VenueDetailsHeaderView;
+			sourceTree = "<group>";
+		};
 		59363FC61F44E5AD006059B6 /* VenueCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +445,16 @@
 				59363FDF1F47414E006059B6 /* LaunchView.xib */,
 			);
 			path = LaunchView;
+			sourceTree = "<group>";
+		};
+		593C81911F7558A800626806 /* GalleryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				593C81921F7558EA00626806 /* GalleryViewController.swift */,
+				593C81961F75592700626806 /* GalleryPageViewController.swift */,
+				593C81941F7558F800626806 /* Gallery.storyboard */,
+			);
+			path = GalleryViewController;
 			sourceTree = "<group>";
 		};
 		594500631F42021100779302 /* TableViewSectionHeader */ = {
@@ -579,6 +618,7 @@
 				598039351F56D83800521DA2 /* UITableViewCell+Utils.swift */,
 				594040CC1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift */,
 				5965D1CB1F72727F00F35C63 /* UITabBarController+Utils.swift */,
+				593C818F1F75506200626806 /* UIApplication+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -708,6 +748,7 @@
 				591CD78A1F3879BA00A24BBB /* EventDetailsPeekView */,
 				5946621A1F41B358007412C0 /* EventDetailsHeaderView */,
 				599202651F66B2B70078578C /* ParticipantDetailsHeaderView */,
+				592D28541F73F6DA00CBDEBB /* VenueDetailsHeaderView */,
 				594500631F42021100779302 /* TableViewSectionHeader */,
 				5903B1071F4D9A97009DF33C /* FiltersSectionHeader */,
 				59363FD01F45DF66006059B6 /* ParallaxLabel */,
@@ -725,7 +766,8 @@
 				F409C20E1F6EAB3D007216E4 /* InformationCell */,
 				5965D1CD1F729E8200F35C63 /* NoBookmarksView */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
-				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
+				593C81911F7558A800626806 /* GalleryViewController */,
+		                5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
 				59A008281F615FBE00E392DD /* PadableLabel.swift */,
 			);
 			path = Components;
@@ -754,6 +796,7 @@
 				599202611F669A110078578C /* ParticipantViewController.swift */,
 				598656AD1F698394000EB28D /* ScheduleViewController.swift */,
 				5907C0E51F7022F3005ED3E9 /* BookmarksViewController.swift */,
+				592D28501F73A9AF00CBDEBB /* VenueViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -801,6 +844,7 @@
 				599202631F669C460078578C /* ParticipantViewModel.swift */,
 				598656B41F6ABE7A000EB28D /* ScheduleViewModel.swift */,
 				5907C0E71F702399005ED3E9 /* BookmarksViewModel.swift */,
+				592D28521F73DE0D00CBDEBB /* VenueViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -822,6 +866,7 @@
 				59EF02201F31CFE400F145B9 /* Event.storyboard */,
 				F409C1F91F6D0C3B007216E4 /* Information.storyboard */,
 				5903B1031F4D8089009DF33C /* Filter.storyboard */,
+				592D284E1F73A8EA00CBDEBB /* Venue.storyboard */,
 				59D52FA41F1D05B1008F3B13 /* Storyboard.swift */,
 			);
 			path = Storyboard;
@@ -858,6 +903,7 @@
 				598923361F1F753900F73974 /* AppKeys.swift */,
 				5970AF831F222AA4008CA708 /* Device.swift */,
 				5970AFAC1F278DED008CA708 /* AppNotification.swift */,
+				593C818D1F75053400626806 /* MapUtility.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -989,7 +1035,9 @@
 				5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */,
 				F409C1FA1F6D0C3B007216E4 /* Information.storyboard in Resources */,
 				598923181F1E2ABA00F73974 /* nexa-heavy-webfont.ttf in Resources */,
+				593C81951F7558F800626806 /* Gallery.storyboard in Resources */,
 				598923131F1E2AAC00F73974 /* nexa-bolditalic-webfont.ttf in Resources */,
+				592D28581F73F71500CBDEBB /* VenueDetailsHeaderView.xib in Resources */,
 				59D52F9A1F1CFA42008F3B13 /* Localizable.strings in Resources */,
 				59A15EE61F4EC3260019924C /* DatePickerCell.xib in Resources */,
 				59D52FA01F1CFE8D008F3B13 /* Localizable.stringsdict in Resources */,
@@ -1023,6 +1071,7 @@
 				59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */,
 				598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */,
 				598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */,
+				592D284F1F73A8EA00CBDEBB /* Venue.storyboard in Resources */,
 				5953C1811F559CA700BD27AB /* SelectableCell.xib in Resources */,
 				5903B1041F4D8089009DF33C /* Filter.storyboard in Resources */,
 				59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */,
@@ -1164,6 +1213,7 @@
 				5970AFA91F275939008CA708 /* DataManager.swift in Sources */,
 				594662151F3B4437007412C0 /* String+Utils.swift in Sources */,
 				5970AF981F24E6D0008CA708 /* Participant.swift in Sources */,
+				592D28561F73F70300CBDEBB /* VenueDetailsHeaderView.swift in Sources */,
 				5903B1061F4D82B8009DF33C /* FiltersViewModel.swift in Sources */,
 				59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */,
 				F409C20C1F6E9027007216E4 /* InformationListingViewModel.swift in Sources */,
@@ -1181,6 +1231,7 @@
 				5965D1CF1F729EAC00F35C63 /* NoBookmarksView.swift in Sources */,
 				59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */,
 				5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */,
+				593C818E1F75053400626806 /* MapUtility.swift in Sources */,
 				F409C1EE1F6C3A8F007216E4 /* Restaurant.swift in Sources */,
 				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
 				5953C17B1F5476B900BD27AB /* ExpandableHeaderCell.swift in Sources */,
@@ -1191,8 +1242,10 @@
 				5903B0FE1F4C80A9009DF33C /* CLLocationCoordinate2D+Util.swift in Sources */,
 				598923331F1F5EFE00F73974 /* GeneralSettings.swift in Sources */,
 				F409C2041F6D8C17007216E4 /* ContactViewController.swift in Sources */,
+				593C81971F75592700626806 /* GalleryPageViewController.swift in Sources */,
 				596834991F5D914100E25579 /* SliderCell.swift in Sources */,
 				F409C1F61F6C4AF9007216E4 /* PartnerGroup.swift in Sources */,
+				592D28531F73DE0D00CBDEBB /* VenueViewModel.swift in Sources */,
 				591CD7901F387B0700A24BBB /* View+Utils.swift in Sources */,
 				5970AF901F24E175008CA708 /* MovimentaEvent.swift in Sources */,
 				5970AF941F24E4A8008CA708 /* Event.swift in Sources */,
@@ -1207,6 +1260,7 @@
 				5970AFA71F2758C3008CA708 /* DataParser.swift in Sources */,
 				5968348F1F5D60CC00E25579 /* SwitchCell.swift in Sources */,
 				5970AF841F222AA4008CA708 /* Device.swift in Sources */,
+				592D28511F73A9AF00CBDEBB /* VenueViewController.swift in Sources */,
 				598923351F1F6C0200F73974 /* Analytics+Field.swift in Sources */,
 				F409C2101F6EAB7F007216E4 /* InformationCell.swift in Sources */,
 				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
@@ -1227,6 +1281,7 @@
 				5953C1801F559CA700BD27AB /* SelectableCell.swift in Sources */,
 				594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */,
 				F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */,
+				593C81931F7558EA00626806 /* GalleryViewController.swift in Sources */,
 				5989232F1F1F592F00F73974 /* Analytics+ScreenName.swift in Sources */,
 				5945006F1F44342400779302 /* DateTimeCell.swift in Sources */,
 				59363FDE1F4740DE006059B6 /* LaunchView.swift in Sources */,
@@ -1236,6 +1291,7 @@
 				5970AFAF1F29F631008CA708 /* Theme.swift in Sources */,
 				59048B641F4AE8460000CCAF /* FiltersManager.swift in Sources */,
 				5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */,
+				593C81901F75506200626806 /* UIApplication+Utils.swift in Sources */,
 				5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */,
 				F409C1F01F6C3E34007216E4 /* Hotel.swift in Sources */,
 				5970AF961F24E5A2008CA708 /* Venue.swift in Sources */,
