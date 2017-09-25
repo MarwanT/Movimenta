@@ -46,6 +46,8 @@ class AboutViewController: UIViewController {
     contentView.layoutMargins = UIEdgeInsets(
       top: 0, left: CGFloat(theme.space7),
       bottom: 0, right: CGFloat(theme.space7))
+    
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
 
   private func applyTheme() {

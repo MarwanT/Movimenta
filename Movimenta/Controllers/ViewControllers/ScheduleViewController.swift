@@ -21,6 +21,7 @@ class ScheduleViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTitle()
+    initializeNavigationItems()
     initializeCollectionView()
     initializeTableView()
     registerToNotificationCenter()
@@ -34,6 +35,10 @@ class ScheduleViewController: UIViewController {
   
   private func initializeTitle() {
     title = viewModel.viewControllerTitle
+  }
+  
+  private func initializeNavigationItems() {
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
   
   private func initializeCollectionView() {

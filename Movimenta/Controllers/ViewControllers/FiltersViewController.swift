@@ -92,6 +92,7 @@ class FiltersViewController: UIViewController {
       title: Strings.apply(),
       style: .plain, target: self,
       action: #selector(didTapApplyButton(_:)))
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
   
   func didTapApplyButton(_ sender: UIBarButtonItem) {

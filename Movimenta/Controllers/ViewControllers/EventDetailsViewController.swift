@@ -88,6 +88,7 @@ class EventDetailsViewController: UIViewController {
     let shareBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tapShareButton(_:)))
     bookmarkBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "bookmarkOutline"), style: .plain, target: self, action: #selector(tapBookmarkButton(_:)))
     navigationItem.rightBarButtonItems = [shareBarButton, bookmarkBarButton]
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
   
   private func loadData() {

@@ -58,6 +58,8 @@ class ContactViewController: UIViewController {
     emailUsButton.addTarget(self, action: #selector(didTouchUpInsideEmailUsButton(_:)), for: UIControlEvents.touchUpInside)
     emailArtButton.addTarget(self, action: #selector(didTouchUpInsideEmailArtButton(_:)), for: UIControlEvents.touchUpInside)
     callHotlineButton.addTarget(self, action: #selector(didTouchUpInsideCallUsButton(_:)), for: UIControlEvents.touchUpInside)
+    
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
 
   private func applyTheme() {
