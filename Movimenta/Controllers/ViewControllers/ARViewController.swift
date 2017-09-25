@@ -48,7 +48,9 @@ public class ARViewController: GLKViewController {
 
 extension ARViewController: ARManagerDelegate {
   public func didLocateTarget(meta: String) {
-    print("Found: \(meta)")
-    //TODO: Needed action
+    if(!meta.isEmpty) {
+      let vc = YoutubeViewController.instance()
+      vc.initialize(with: meta)
+    }
   }
 }
