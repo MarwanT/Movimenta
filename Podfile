@@ -14,7 +14,11 @@ target 'Movimenta' do
     "MovimentaFacebookAppDisplayName",
     "MovimentaFacebookAppId",
     "MovimentaGoogleAnalyticsIdentifier",
-    "MovimentaGoogleAPIKey"
+    "MovimentaGoogleAPIKey",
+    "MovimentaEasyARKey",
+    "MovimentaEasyARCloudServerAddress",
+    "MovimentaEasyARCloudKey",
+    "MovimentaEasyARCloudSecret"
     ]
   }
 
