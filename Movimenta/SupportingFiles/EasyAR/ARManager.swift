@@ -16,10 +16,10 @@ public protocol ARManagerDelegate: class {
 
 public class ARManager {
   //TODO: Move keys to the cocoa pod keys
-  public static let key = "pZOUf20NpXcydSm8xxmym21nHQyPnrhiL936SW2YLbAuZKHWKQ65oOqT2ZraEENOLgtbtPqrgjWWKlbtrjdFFmqwP9p2CemvQF6xF5kaGpjGOsxqltluOOkHJphGFppFQ7g7yYty7VL3sId6EalFjF4gkyvQOiiHx8felDdEoAfQyoR0H3BWpxZcAR5p4r7vemd6sdx6"
-  private let cloudServerAddress = "3b2f694c0cc1fc5bb54d1ef8faecc6af.na1.crs.easyar.com:8080"
-  private let cloudKey = "53d8df84ac3eece03afc2459a36d5998"
-  private let cloudSecret = "5ItgvEgVGNJcURkWxyYoqPqkzHQAR0HwLv4M2NylsqOSa8SBJMD0DsbeDcVlCg28Hi2FYiEXwFpw2ubwdO7xYvhIArubcbbgGbTzqlf9MhNGPsr6dggYKO3H8ROYhngY"
+  public static let key = AppKeys.shared.easyARKey
+  private let cloudServerAddress = AppKeys.shared.easyARCloudServerAddress
+  private let cloudKey = AppKeys.shared.easyARCloudKey
+  private let cloudSecret = AppKeys.shared.easyARCloudSecret
 
   private var uids: [String] = []
   private var cloudRecognizer: CloudRecognizer? = nil
