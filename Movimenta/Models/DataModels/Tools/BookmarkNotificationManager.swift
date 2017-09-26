@@ -27,6 +27,9 @@ class BookmarkNotificationManager: NSObject {
   static var shared = BookmarkNotificationManager()
   private override init () {}
   
+  func initialize() {
+  }
+  
   private func requestAuthorization() {
     if #available(iOS 10.0, *) {
       let options: UNAuthorizationOptions = [.alert, .sound]
