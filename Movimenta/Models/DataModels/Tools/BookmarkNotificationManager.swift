@@ -45,6 +45,11 @@ class BookmarkNotificationManager: NSObject {
     }
   }
   
+  func refreshNotifications() {
+    removeAllNotifications()
+    register(for: DataManager.shared.bookmarkedEvents)
+  }
+  
   func removeAllNotifications() {
     if #available(iOS 10.0, *) {
       let center = UNUserNotificationCenter.current()
