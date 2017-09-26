@@ -44,6 +44,29 @@ class BookmarkNotificationManager: NSObject {
       UIApplication.shared.registerUserNotificationSettings(settings)
     }
   }
+  
+  fileprivate func register(with data: EventNotificationData, on date: Date, for notificationId: String) {
+    if #available(iOS 10.0, *) {
+      let center = UNUserNotificationCenter.current()
+      let content = UNMutableNotificationContent()
+      content.title = Strings.movimenta()
+      content.body = data.title
+      content.sound = UNNotificationSound.default()
+      
+      let dateComponents = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute, .second], from: date)
+      let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+      
+      let request = UNNotificationRequest(identifier: notificationId, content: content, trigger: trigger)
+      center.add(request)
+    } else {
+      let localNotification = UILocalNotification()
+      localNotification.fireDate = date
+      localNotification.timeZone = NSTimeZone.default
+      localNotification.alertBody = data.title
+      localNotification.userInfo = ["id" : notificationId]
+      UIApplication.shared.scheduleLocalNotification(localNotification)
+    }
+  }
 }
 
 //MARK: User Notification Center Delegate
