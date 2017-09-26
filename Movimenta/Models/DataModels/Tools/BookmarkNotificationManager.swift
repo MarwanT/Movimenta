@@ -80,3 +80,17 @@ extension BookmarkNotificationManager: UNUserNotificationCenterDelegate {
     completionHandler()
   }
 }
+
+//MARK: - String
+extension String {
+  func isSubdomain(of id: String) -> Bool {
+    let pattern = "\(id)\\.\\w+"
+    do {
+      let regex = try NSRegularExpression(pattern: pattern, options: [])
+      let matches = regex.matches(in: self, options: [], range: NSRange(location: 0, length: (self as NSString).length))
+      return matches.count > 0
+    } catch {
+      return false
+    }
+  }
+}
