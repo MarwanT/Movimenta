@@ -55,6 +55,20 @@ extension DateRange {
     let toDate = date.cloneDate(withTimeOf: to)
     return DateRange(from: fromDate, to: toDate)
   }
+  
+  func upcomingStartingDates(addMinutes: Int = 0) -> [Date]? {
+    guard let from = from, let to = to else {
+      return nil
+    }
+    let now = Date()
+    let dates = from.includedDates(till: to).map({ $0.cloneDate(withTimeOf: from, addMinutes: addMinutes) }).flatMap { (date) -> Date? in
+      guard let date = date, date >= now else {
+        return nil
+      }
+      return date
+    }
+    return dates
+  }
 }
 
 extension DateRange {
