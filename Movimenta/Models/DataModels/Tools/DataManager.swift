@@ -92,6 +92,7 @@ class DataManager {
   
   private func loadBookmarkedEvents() {
     bookmarkedEvents = bookmarkedEventsArray()
+    BookmarkNotificationManager.shared.refreshNotifications()
   }
   
   private func refreshFiltersManager() {
