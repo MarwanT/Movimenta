@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     
     DataManager.shared.reloadData()
+    BookmarkNotificationManager.shared.initialize()
     
     //Google Maps/Places setup
     GMSServices.provideAPIKey(Environment.current.googleAPIKey)
