@@ -8,6 +8,18 @@
 
 import Foundation
 
+struct EventNotificationData {
+  var id: String
+  var title: String
+  var content: String
+  
+  init(from event: Event) {
+    self.id = event.id ?? ""
+    self.title = event.title ?? ""
+    self.content = event.content ?? ""
+  }
+}
+
 class BookmarkNotificationManager: NSObject {
 }
 
