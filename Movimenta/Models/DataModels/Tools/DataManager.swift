@@ -145,6 +145,7 @@ extension DataManager {
     }
     Persistence.shared.bookmark(eventWith: eventId)
     bookmarkedEvents.append(event)
+    BookmarkNotificationManager.shared.register(for: event)
     NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: [event])
     return true
   }
