@@ -55,7 +55,18 @@ class AugmentedViewController: UIViewController {
 
   // MARK: Actions
   func arButtonTouchUpInside(_ sender: UIView) {
-    self.navigationController?.pushViewController(ARViewController(), animated: true)
+    let arViewController = ARViewController()
+    arViewController.targetDelegate = self
+    self.navigationController?.pushViewController(arViewController, animated: true)
   }
 }
 
+extension AugmentedViewController: ARViewControllerDelegate {
+  func didLocateTarget(meta: String) {
+    if(!meta.isEmpty) {
+      let vc = YoutubeViewController.instance()
+      vc.initialize(with: meta)
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
+  }
+}

@@ -8,8 +8,13 @@
 
 import GLKit
 
+public protocol ARViewControllerDelegate: class {
+  func didLocateTarget(meta: String)
+}
+
 public class ARViewController: GLKViewController {
   private var glView: OpenGLView? = nil
+  public weak var targetDelegate: ARViewControllerDelegate? = nil
 
   override public func loadView() {
     glView = OpenGLView(frame: CGRect.zero)
@@ -48,9 +53,7 @@ public class ARViewController: GLKViewController {
 
 extension ARViewController: ARManagerDelegate {
   public func didLocateTarget(meta: String) {
-    if(!meta.isEmpty) {
-      let vc = YoutubeViewController.instance()
-      vc.initialize(with: meta)
-    }
+    self.navigationController?.popViewController(animated: true)
+    self.targetDelegate?.didLocateTarget(meta: meta)
   }
 }
