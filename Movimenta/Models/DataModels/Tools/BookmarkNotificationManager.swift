@@ -94,6 +94,16 @@ class BookmarkNotificationManager: NSObject {
     }
   }
   
+  // MARK: Unregister
+  func unRegister(event: Event) {
+    DispatchQueue.global().async {
+      guard let id = event.id else {
+        return
+      }
+      self.unRegister(for: [id])
+    }
+  }
+  
   private func unRegister(for ids: [String]) {
     if #available(iOS 10.0, *) {
       let center = UNUserNotificationCenter.current()
