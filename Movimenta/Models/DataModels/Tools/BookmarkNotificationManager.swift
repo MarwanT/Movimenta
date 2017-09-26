@@ -45,6 +45,16 @@ class BookmarkNotificationManager: NSObject {
     }
   }
   
+  func removeAllNotifications() {
+    if #available(iOS 10.0, *) {
+      let center = UNUserNotificationCenter.current()
+      center.removeAllDeliveredNotifications()
+      center.removeAllPendingNotificationRequests()
+    } else {
+      UIApplication.shared.cancelAllLocalNotifications()
+    }
+  }
+  
   // MARK: Register
   func register(for events: [Event]) {
     DispatchQueue.global().async {
