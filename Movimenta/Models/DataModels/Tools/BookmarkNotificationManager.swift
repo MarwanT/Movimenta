@@ -45,6 +45,32 @@ class BookmarkNotificationManager: NSObject {
     }
   }
   
+  // MARK: Register
+  func register(for events: [Event]) {
+    DispatchQueue.global().async {
+      events.forEach { (event) in
+        self.register(for: event)
+      }
+    }
+  }
+  
+  func register(for event: Event) {
+    DispatchQueue.global().async {
+      guard let dateRanges = event.dates else {
+        return
+      }
+      
+      let dates = dateRanges.upcomingStartingDates(addMinutes: -(BookmarkNotificationManager.notifyBeforeMinutes))
+      self.register(with: EventNotificationData(from: event), on: dates)
+    }
+  }
+  
+  fileprivate func register(with data: EventNotificationData, on dates: [Date]) {
+    for (index, date) in dates.enumerated() {
+      register(with: data, on: date, for: "\(data.id).\(index)")
+    }
+  }
+  
   fileprivate func register(with data: EventNotificationData, on date: Date, for notificationId: String) {
     if #available(iOS 10.0, *) {
       let center = UNUserNotificationCenter.current()
