@@ -41,6 +41,8 @@ class AugmentedViewController: UIViewController {
     //Color
     titleLabel.textColor = ThemeManager.shared.current.lightTextColor
     subtitleLabel.textColor = ThemeManager.shared.current.lightTextColor
+
+    theme.stylePrimaryButton(button: arButton)
   }
 
   private func setupView() {
