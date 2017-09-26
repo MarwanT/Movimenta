@@ -129,6 +129,7 @@
 		5992026D1F67E2E30078578C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992026B1F67E2E30078578C /* EventCell.swift */; };
 		5992026E1F67E2E30078578C /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5992026C1F67E2E30078578C /* EventCell.xib */; };
 		59A008291F615FBE00E392DD /* PadableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A008281F615FBE00E392DD /* PadableLabel.swift */; };
+		59A098201F793842002D9538 /* BookmarkNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A0981F1F793842002D9538 /* BookmarkNotificationManager.swift */; };
 		59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A15EE31F4EC3260019924C /* DatePickerCell.swift */; };
 		59A15EE61F4EC3260019924C /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A15EE41F4EC3260019924C /* DatePickerCell.xib */; };
 		59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F711F1CD134008F3B13 /* Assets.xcassets */; };
@@ -353,6 +354,7 @@
 		5992026B1F67E2E30078578C /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		5992026C1F67E2E30078578C /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		59A008281F615FBE00E392DD /* PadableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadableLabel.swift; sourceTree = "<group>"; };
+		59A0981F1F793842002D9538 /* BookmarkNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkNotificationManager.swift; sourceTree = "<group>"; };
 		59A15EE31F4EC3260019924C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		59A15EE41F4EC3260019924C /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		59D52F711F1CD134008F3B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 				5970AFAA1F2788F9008CA708 /* Persistence.swift */,
 				5970AFA51F2758C3008CA708 /* DataParser.swift */,
 				59048B631F4AE8460000CCAF /* FiltersManager.swift */,
+				59A0981F1F793842002D9538 /* BookmarkNotificationManager.swift */,
 				596415261F507061009169A6 /* Selection.swift */,
 			);
 			path = Tools;
@@ -829,7 +832,6 @@
 				5965D1CD1F729E8200F35C63 /* NoBookmarksView */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 				593C81911F7558A800626806 /* GalleryViewController */,
-		                5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
 				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
 				F4B80EBC1F76675000CD95C0 /* PartnerCell */,
 				59A008281F615FBE00E392DD /* PadableLabel.swift */,
@@ -1421,6 +1423,7 @@
 				59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */,
 				5965D1CC1F72727F00F35C63 /* UITabBarController+Utils.swift in Sources */,
 				5953C1801F559CA700BD27AB /* SelectableCell.swift in Sources */,
+				59A098201F793842002D9538 /* BookmarkNotificationManager.swift in Sources */,
 				594662191F3C8ED1007412C0 /* ExpandableLabel.swift in Sources */,
 				F409C2021F6D86B5007216E4 /* WebViewController.swift in Sources */,
 				593C81931F7558EA00626806 /* GalleryViewController.swift in Sources */,
