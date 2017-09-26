@@ -81,6 +81,20 @@ extension BookmarkNotificationManager: UNUserNotificationCenterDelegate {
   }
 }
 
+//MARK: - Date Range Array
+extension Array where Element == DateRange {
+  func upcomingStartingDates(addMinutes: Int = 0) -> [Date] {
+    var dates = [Date]()
+    forEach { (dateRange) in
+      guard let dateRangeDates = dateRange.upcomingStartingDates(addMinutes: addMinutes) else {
+        return
+      }
+      dates.append(contentsOf: dateRangeDates)
+    }
+    return dates
+  }
+}
+
 //MARK: - String
 extension String {
   func isSubdomain(of id: String) -> Bool {
