@@ -21,5 +21,7 @@ struct EventNotificationData {
 }
 
 class BookmarkNotificationManager: NSObject {
+  static var shared = BookmarkNotificationManager()
+  private override init () {}
 }
 
