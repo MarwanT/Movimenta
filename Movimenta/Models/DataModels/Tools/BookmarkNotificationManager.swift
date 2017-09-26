@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 struct EventNotificationData {
   var id: String
@@ -25,5 +26,30 @@ class BookmarkNotificationManager: NSObject {
   
   static var shared = BookmarkNotificationManager()
   private override init () {}
+  
+  private func requestAuthorization() {
+    if #available(iOS 10.0, *) {
+      let options: UNAuthorizationOptions = [.alert, .sound]
+      let center = UNUserNotificationCenter.current()
+      center.delegate = self
+      center.requestAuthorization(options: options) { (granted, error) in
+        print("Local Notifications AUthorization: \(granted)")
+      }
+    } else {
+      let settings = UIUserNotificationSettings(types: [.sound, .alert], categories: nil)
+      UIApplication.shared.registerUserNotificationSettings(settings)
+    }
+  }
 }
 
+//MARK: User Notification Center Delegate
+@available(iOS 10.0, *)
+extension BookmarkNotificationManager: UNUserNotificationCenterDelegate {
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    completionHandler([.alert, .sound])
+  }
+  
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    completionHandler()
+  }
+}
