@@ -93,6 +93,37 @@ class BookmarkNotificationManager: NSObject {
       UIApplication.shared.scheduleLocalNotification(localNotification)
     }
   }
+  
+  private func unRegister(for ids: [String]) {
+    if #available(iOS 10.0, *) {
+      let center = UNUserNotificationCenter.current()
+      ids.forEach { (eventId) in
+        center.getPendingNotificationRequests { (requests) in
+          let notifications = requests.filter({ (notification) -> Bool in
+            notification.identifier.isSubdomain(of: eventId)
+          })
+          let notificationsIds = notifications.map({ $0.identifier })
+          center.removePendingNotificationRequests(withIdentifiers: notificationsIds)
+        }
+      }
+      center.removeAllDeliveredNotifications()
+    } else {
+      guard let scheduledLocalNotifications = UIApplication.shared.scheduledLocalNotifications else {
+        return
+      }
+      ids.forEach { (eventId) in
+        let notifications = scheduledLocalNotifications.filter({ (notification) -> Bool in
+          guard let id = notification.userInfo?["id"] as? String else {
+            return false
+          }
+          return id.isSubdomain(of: eventId)
+        })
+        notifications.forEach({ (notification) in
+          UIApplication.shared.cancelLocalNotification(notification)
+        })
+      }
+    }
+  }
 }
 
 //MARK: User Notification Center Delegate
