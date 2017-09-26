@@ -28,6 +28,7 @@ class BookmarkNotificationManager: NSObject {
   private override init () {}
   
   func initialize() {
+    requestAuthorization()
   }
   
   private func requestAuthorization() {
