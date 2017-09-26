@@ -156,6 +156,7 @@ extension DataManager {
     }
     bookmarkedEvents.remove(at: index)
     Persistence.shared.unBookmark(eventWith: eventId)
+    BookmarkNotificationManager.shared.unRegister(event: event)
     return true
   }
   
