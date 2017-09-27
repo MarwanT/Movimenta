@@ -94,4 +94,14 @@ extension VenueViewModel {
     }
     return IndexPath(row: index, section: 0)
   }
+  
+  func updateBookmarkStatus(of events: [Event]) -> [IndexPath] {
+    var indexPaths = [IndexPath]()
+    events.forEach { (event) in
+      if let indexPath =  updateBookmarkStatus(of: event) {
+        indexPaths.append(indexPath)
+      }
+    }
+    return indexPaths
+  }
 }

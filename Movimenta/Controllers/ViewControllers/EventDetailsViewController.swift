@@ -33,6 +33,10 @@ class EventDetailsViewController: UIViewController {
     loadData()
   }
   
+  deinit {
+    unregisterToNotificationCenter()
+  }
+  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -48,6 +52,7 @@ class EventDetailsViewController: UIViewController {
   private func setup() {
     setupTableView()
     setupNavigationItems()
+    registerToNotificationCenter()
   }
   
   private func setupTableView() {
@@ -89,6 +94,14 @@ class EventDetailsViewController: UIViewController {
     bookmarkBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "bookmarkOutline"), style: .plain, target: self, action: #selector(tapBookmarkButton(_:)))
     navigationItem.rightBarButtonItems = [shareBarButton, bookmarkBarButton]
     navigationItem.backBarButtonItem = UIBarButtonItem.back
+  }
+  
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
   }
   
   private func loadData() {
@@ -257,6 +270,14 @@ extension EventDetailsViewController {
 
 //MARK: Actions
 extension EventDetailsViewController {
+  func handleBookmarksUpdate(_ sender: Notification) {
+    guard let events = sender.object as? [Event],
+      viewModel.updateBookmarkStatusIfNeeded(of: events) else {
+      return
+    }
+    refreshBookmarkButton()
+  }
+  
   func tapShareButton(_ sender: UIBarButtonItem) {
     guard let info = viewModel.sharingContent() else {
       return
@@ -274,7 +295,6 @@ extension EventDetailsViewController {
   
   private func toggleBookmark() {
     viewModel.toggleBookmark()
-    refreshBookmarkButton()
   }
   
   fileprivate func addToCalendar(dateAt indexPath: IndexPath) {
