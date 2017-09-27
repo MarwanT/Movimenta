@@ -72,6 +72,8 @@ class InformationViewController: UIViewController {
     let restaurantsImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(restaurantsImageTapped(tapGestureRecognizer:)))
     restaurantsImageView.isUserInteractionEnabled = true
     restaurantsImageView.addGestureRecognizer(restaurantsImageTapGestureRecognizer)
+    
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
 
   private func applyTheme() {

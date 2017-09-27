@@ -34,6 +34,7 @@ class InformationListingViewController: UIViewController {
 
   private func setupView() {
     title = viewModel.vcTitle()
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
     //Additional: setup view
     setupTable()
   }

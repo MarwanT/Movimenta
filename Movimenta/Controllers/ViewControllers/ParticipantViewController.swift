@@ -77,6 +77,7 @@ class ParticipantViewController: UIViewController {
   private func initializeNavigationItems() {
     let shareBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tapShareButton(_:)))
     navigationItem.rightBarButtonItem = shareBarButton
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
   
   private func initializeTableViewHeader() {

@@ -67,6 +67,7 @@ class BookmarksViewController: UIViewController {
   
   private func initializeNavigationItems() {
     refreshRightBarButtonItem()
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
   
   private func initializeToolbar() {

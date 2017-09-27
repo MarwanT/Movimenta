@@ -116,6 +116,7 @@ class EventsMapViewController: UIViewController {
   private func setupNavigationItems() {
     let filtersButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filters"), style: .plain, target: self, action: #selector(handleFiltersButtonTap(_:)))
     navigationItem.rightBarButtonItem = filtersButton
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
   
   private func addObservers() {
