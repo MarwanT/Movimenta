@@ -13,6 +13,10 @@ final class ScheduleViewModel {
   fileprivate(set) var events = [Event]()
   fileprivate(set) var indexOfSelectedDate: Int = 0
   
+  var selectedDate: Date? {
+    return scheduleDates[indexOfSelectedDate].date
+  }
+  
   init() {
     // Set Scheduale dates
     let firstDate = FiltersManager.shared.firstEventDate
@@ -64,7 +68,7 @@ extension ScheduleViewModel {
   }
   
   func values(for indexPath: IndexPath) -> (imageURL: URL?, date: String?, venueName: String?, eventName: String?, categories: String?, time: String?, isBookmarked: Bool?)? {
-    guard let selectedDate = scheduleDates[indexOfSelectedDate].date else {
+    guard let selectedDate = selectedDate else {
       return nil
     }
     
@@ -104,7 +108,7 @@ extension ScheduleViewModel {
   func refreshEvents() {
     events.removeAll()
     
-    guard let selectedDate = scheduleDates[indexOfSelectedDate].date else {
+    guard let selectedDate = selectedDate else {
       return
     }
     let selectedDateRange = DateRange(from: selectedDate, to: selectedDate)
