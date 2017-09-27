@@ -297,6 +297,10 @@ extension EventDetailsViewController {
   
   private func shareEvent(info: [Any]) {
     presentShareSheet(with: info)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .shareEvent)
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   private func toggleBookmark() {
@@ -322,6 +326,10 @@ extension EventDetailsViewController {
       showAlertForNoEventStoreAuthorization()
       return
     }
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .addEventToCalendar)
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   private func requestCalendarAccess(completion: @escaping (_ authorized: Bool) -> Void) {
@@ -372,6 +380,10 @@ extension EventDetailsViewController {
     vc.initialize(with: venue)
     navigationController?.pushViewController(vc, animated: true)
     navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .goToVenue)
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   fileprivate func navigateToParticipantVC(for indexPath: IndexPath) {
@@ -383,6 +395,10 @@ extension EventDetailsViewController {
     vc.initialize(with: participant)
     navigationController?.pushViewController(vc, animated: true)
     navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .goToParticipant)
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

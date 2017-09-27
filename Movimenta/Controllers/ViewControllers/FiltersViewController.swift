@@ -474,6 +474,10 @@ extension FiltersViewController: ResetFiltersViewDelegate {
     refreshTableView()
     delegate?.filtersDidReset(self)
     navigationController?.popViewController(animated: true)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .resetAllFilters)
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

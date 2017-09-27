@@ -148,6 +148,11 @@ extension DataManager {
     bookmarkedEvents.append(event)
     BookmarkNotificationManager.shared.register(for: event)
     NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: [event])
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .bookmarkEvent)
+    Analytics.shared.send(event: analyticsEvent)
+    
     return true
   }
   
@@ -158,6 +163,11 @@ extension DataManager {
     bookmarkedEvents.remove(at: index)
     Persistence.shared.unBookmark(eventWith: eventId)
     BookmarkNotificationManager.shared.unRegister(event: event)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .unbookmarkEvent)
+    Analytics.shared.send(event: analyticsEvent)
+    
     return true
   }
   
