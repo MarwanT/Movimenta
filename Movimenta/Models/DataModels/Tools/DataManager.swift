@@ -92,6 +92,7 @@ class DataManager {
   
   private func loadBookmarkedEvents() {
     bookmarkedEvents = bookmarkedEventsArray()
+    BookmarkNotificationManager.shared.refreshNotifications()
   }
   
   private func refreshFiltersManager() {
@@ -145,6 +146,7 @@ extension DataManager {
     }
     Persistence.shared.bookmark(eventWith: eventId)
     bookmarkedEvents.append(event)
+    BookmarkNotificationManager.shared.register(for: event)
     NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: [event])
     return true
   }
@@ -155,6 +157,7 @@ extension DataManager {
     }
     bookmarkedEvents.remove(at: index)
     Persistence.shared.unBookmark(eventWith: eventId)
+    BookmarkNotificationManager.shared.unRegister(event: event)
     return true
   }
   

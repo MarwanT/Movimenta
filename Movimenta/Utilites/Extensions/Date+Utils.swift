@@ -85,7 +85,7 @@ extension Date {
     return Calendar.current.date(byAdding: .minute, value: minutes, to: self)
   }
   
-  func cloneDate(withTimeOf otherDate: Date) -> Date? {
+  func cloneDate(withTimeOf otherDate: Date, addMinutes: Int = 0) -> Date? {
     let calendar = Calendar.current
     let timeCalendarComponents: Set<Calendar.Component> = [.hour, .minute]
     let timeComponents = calendar.dateComponents(timeCalendarComponents, from: otherDate)
@@ -95,7 +95,7 @@ extension Date {
     
     // Add the time values
     dateComponents.hour = timeComponents.hour
-    dateComponents.minute = timeComponents.minute
+    dateComponents.minute = (timeComponents.minute ?? 0) + addMinutes
     return calendar.date(from: dateComponents)
   }
   

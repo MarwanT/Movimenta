@@ -59,6 +59,7 @@
 "launch_screen_description" = "Festival biennal\nde l'image\nen mouvement";
 "launch_screen_information" = "Nice, France\n27oct - 26nov 2017";
 "mins" = "mins";
+"movimenta" = "Movimenta";
 "no_event_store_authorization_message" = "We don't have access to your calendar";
 "no_event_store_authorization_title" = "Calendar";
 "ok" = "Ok";
@@ -77,6 +78,7 @@
 "send_email_failure_alert_title" = "Ooops";
 "settings" = "Settings";
 "show_bookmarked_events" = "Show Bookmarked Events";
+"snooze" = "Snooze";
 "speaker" = "Speaker";
 "speakers" = "Speakers";
 "sponsor" = "Sponsor";

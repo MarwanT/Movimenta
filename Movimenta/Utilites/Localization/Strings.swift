@@ -217,6 +217,10 @@ final class Strings {
     return Localization.localize(key: "launch_screen_information")
   }
   
+  static func movimenta() -> String {
+    return Localization.localize(key: "movimenta")
+  }
+  
   static func mins() -> String {
     return Localization.localize(key: "mins")
   }
@@ -291,6 +295,10 @@ final class Strings {
   
   static func show_bookmarked_events() -> String {
     return Localization.localize(key: "show_bookmarked_events")
+  }
+  
+  static func snooze() -> String {
+    return Localization.localize(key: "snooze")
   }
   
   static func speaker() -> String {
