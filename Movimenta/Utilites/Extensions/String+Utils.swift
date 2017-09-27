@@ -47,4 +47,11 @@ extension String {
     let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
     return emailTest.evaluate(with: self)
   }
+
+  func base64Decoded() -> String? {
+    if let data = Data(base64Encoded: self) {
+      return String(data: data, encoding: .utf8)
+    }
+    return nil
+  }
 }
