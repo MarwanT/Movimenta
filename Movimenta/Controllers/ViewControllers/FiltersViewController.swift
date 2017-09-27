@@ -108,6 +108,75 @@ class FiltersViewController: UIViewController {
   func applyFilter() {
     delegate?.filters(self, didApply: viewModel.filter)
     navigationController?.popViewController(animated: true)
+    
+    //MARK: [Analytics] Event
+    sendAnalyticsEvents()
+  }
+  
+  private func sendAnalyticsEvents() {
+    //MARK: [Analytics] Event
+    var analyticsEvent = Analytics.Event(category: .events, action: .applyfilters)
+    Analytics.shared.send(event: analyticsEvent)
+    //MARK: [Analytics] Event
+    if let analyticFilterDate = viewModel.analyticFilterDate {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: Analytics.Action.filterDate, name: analyticFilterDate)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterCategories = viewModel.analyticFilterCategories {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterEventType, name: analyticFilterCategories)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterStartsWithin = viewModel.analyticFilterStartsWithin {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterStartsWithin, name: analyticFilterStartsWithin)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterSpeakers = viewModel.analyticFilterSpeakers {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterSpeakers, name: analyticFilterSpeakers)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterOrganizers = viewModel.analyticFilterOrganizers {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterOrganizers, name: analyticFilterOrganizers)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterSponsors = viewModel.analyticFilterSponsors {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterSponsors, name: analyticFilterSponsors)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterCompanies = viewModel.analyticFilterCompanies {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterCompanies, name: analyticFilterCompanies)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterArtists = viewModel.analyticFilterArtists {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterArtists, name: analyticFilterArtists)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterDistance = viewModel.analyticFilterDistance {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .fitlerDistance, name: analyticFilterDistance)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterBookmarked = viewModel.analyticFilterBookmarked {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterBookmarked, name: analyticFilterBookmarked)
+      Analytics.shared.send(event: analyticsEvent)
+    }
   }
 }
 
