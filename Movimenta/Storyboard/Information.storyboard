@@ -494,6 +494,39 @@
             </objects>
             <point key="canvasLocation" x="3097" y="116"/>
         </scene>
+        <!--Partners View Controller-->
+        <scene sceneID="8YP-Sh-K5R">
+            <objects>
+                <viewController storyboardIdentifier="PartnersViewController" id="WT6-1o-k52" customClass="PartnersViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xt6-uu-R6g"/>
+                        <viewControllerLayoutGuide type="bottom" id="hRW-gI-0eO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zyo-kZ-Y4U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Geh-8A-70I">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Geh-8A-70I" secondAttribute="trailing" id="6AJ-kZ-dmX"/>
+                            <constraint firstItem="Geh-8A-70I" firstAttribute="leading" secondItem="Zyo-kZ-Y4U" secondAttribute="leading" id="H4a-7R-Hah"/>
+                            <constraint firstItem="Geh-8A-70I" firstAttribute="top" secondItem="xt6-uu-R6g" secondAttribute="bottom" id="dtA-wL-c1r"/>
+                            <constraint firstItem="hRW-gI-0eO" firstAttribute="top" secondItem="Geh-8A-70I" secondAttribute="bottom" id="xR4-fs-NT0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Geh-8A-70I" id="1zy-mo-QQj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vB0-rU-82g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3977" y="110"/>
+        </scene>
     </scenes>
     <resources>
         <image name="aboutLarge" width="750" height="300"/>

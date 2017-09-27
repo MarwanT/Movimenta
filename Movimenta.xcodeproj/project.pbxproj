@@ -170,6 +170,12 @@
 		F484BF1F1F73DA4200EE52AD /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF1E1F73DA4200EE52AD /* ARViewController.swift */; };
 		F484BF241F73DAC200EE52AD /* OpenGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF221F73DAC200EE52AD /* OpenGLView.swift */; };
 		F4B80ED11F76A8B100CD95C0 /* AugmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */; };
+		F4B80EB51F764CCC00CD95C0 /* PartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */; };
+		F4B80EB71F764D4100CD95C0 /* PartnersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */; };
+		F4B80EBF1F76675000CD95C0 /* PartnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EBD1F76675000CD95C0 /* PartnerCell.swift */; };
+		F4B80EC01F76675000CD95C0 /* PartnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B80EBE1F76675000CD95C0 /* PartnerCell.xib */; };
+		F4B80EC71F768E3500CD95C0 /* PartnerSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */; };
+		F4B80EC91F768E7200CD95C0 /* PartnerSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,6 +397,12 @@
 		F484BF1E1F73DA4200EE52AD /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		F484BF221F73DAC200EE52AD /* OpenGLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenGLView.swift; path = EasyAR/OpenGLView.swift; sourceTree = "<group>"; };
 		F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AugmentedViewController.swift; sourceTree = "<group>"; };
+		F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewController.swift; sourceTree = "<group>"; };
+		F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewModel.swift; sourceTree = "<group>"; };
+		F4B80EBD1F76675000CD95C0 /* PartnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerCell.swift; sourceTree = "<group>"; };
+		F4B80EBE1F76675000CD95C0 /* PartnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerCell.xib; sourceTree = "<group>"; };
+		F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartnerSectionCell.swift; path = PartnerSectionCell/PartnerSectionCell.swift; sourceTree = "<group>"; };
+		F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartnerSectionCell.xib; path = PartnerSectionCell/PartnerSectionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -818,7 +830,10 @@
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 				593C81911F7558A800626806 /* GalleryViewController */,
 		                5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
+				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
+				F4B80EBC1F76675000CD95C0 /* PartnerCell */,
 				59A008281F615FBE00E392DD /* PadableLabel.swift */,
+				F4B80EC11F76844A00CD95C0 /* PartnerSectionCell */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -847,6 +862,7 @@
 				F406237F1F77A85A00A3EDCB /* YoutubeViewController.swift */,
 				5903B1011F4D7F2E009DF33C /* FiltersViewController.swift */,
 				599202611F669A110078578C /* ParticipantViewController.swift */,
+				F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */,
 				598656AD1F698394000EB28D /* ScheduleViewController.swift */,
 				5907C0E51F7022F3005ED3E9 /* BookmarksViewController.swift */,
 				592D28501F73A9AF00CBDEBB /* VenueViewController.swift */,
@@ -892,6 +908,7 @@
 				594662121F39D1B6007412C0 /* EventDetailsViewModel.swift */,
 				5903B1051F4D82B8009DF33C /* FiltersViewModel.swift */,
 				F409C2051F6D8CB2007216E4 /* ContactViewModel.swift */,
+				F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */,
 				F409C1FF1F6D7F51007216E4 /* AboutViewModel.swift */,
 				F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */,
 				599202631F669C460078578C /* ParticipantViewModel.swift */,
@@ -1007,6 +1024,24 @@
 				F484BF171F73D8A300EE52AD /* ARManager.swift */,
 			);
 			name = EasyAR;
+			sourceTree = "<group>";
+		};
+		F4B80EBC1F76675000CD95C0 /* PartnerCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4B80EBD1F76675000CD95C0 /* PartnerCell.swift */,
+				F4B80EBE1F76675000CD95C0 /* PartnerCell.xib */,
+			);
+			path = PartnerCell;
+			sourceTree = "<group>";
+		};
+		F4B80EC11F76844A00CD95C0 /* PartnerSectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */,
+				F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */,
+			);
+			name = PartnerSectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1129,6 +1164,7 @@
 			files = (
 				59D52FA71F1D0604008F3B13 /* Root.storyboard in Resources */,
 				5968349A1F5D914100E25579 /* SliderCell.xib in Resources */,
+				F4B80EC91F768E7200CD95C0 /* PartnerSectionCell.xib in Resources */,
 				5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */,
 				F409C1FA1F6D0C3B007216E4 /* Information.storyboard in Resources */,
 				598923181F1E2ABA00F73974 /* nexa-heavy-webfont.ttf in Resources */,
@@ -1162,6 +1198,7 @@
 				59363FE01F47414E006059B6 /* LaunchView.xib in Resources */,
 				5989231B1F1E2AC600F73974 /* nexa-lightitalic-webfont.ttf in Resources */,
 				5970AF881F224CA7008CA708 /* events.json in Resources */,
+				F4B80EC01F76675000CD95C0 /* PartnerCell.xib in Resources */,
 				59EF02211F31CFE400F145B9 /* Event.storyboard in Resources */,
 				5992026E1F67E2E30078578C /* EventCell.xib in Resources */,
 				598923171F1E2AB800F73974 /* nexa-extrabolditalic-webfont.ttf in Resources */,
@@ -1302,6 +1339,8 @@
 				59363FCE1F459722006059B6 /* ParticipantCell.swift in Sources */,
 				5903B1001F4C8CD7009DF33C /* Filter.swift in Sources */,
 				5970AFAB1F2788F9008CA708 /* Persistence.swift in Sources */,
+				F4B80EBF1F76675000CD95C0 /* PartnerCell.swift in Sources */,
+				F4B80EB71F764D4100CD95C0 /* PartnersViewModel.swift in Sources */,
 				5946621C1F41B379007412C0 /* EventDetailsHeaderView.swift in Sources */,
 				59D52FA91F1D0752008F3B13 /* ViewController+Utilities.swift in Sources */,
 				59363FC91F44E662006059B6 /* VenueCell.swift in Sources */,
@@ -1334,6 +1373,7 @@
 				F409C1EE1F6C3A8F007216E4 /* Restaurant.swift in Sources */,
 				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
 				5953C17B1F5476B900BD27AB /* ExpandableHeaderCell.swift in Sources */,
+				F4B80EC71F768E3500CD95C0 /* PartnerSectionCell.swift in Sources */,
 				598923371F1F753900F73974 /* AppKeys.swift in Sources */,
 				593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */,
 				596415271F507061009169A6 /* Selection.swift in Sources */,
@@ -1377,6 +1417,7 @@
 				F409C1FC1F6D47A9007216E4 /* AboutViewController.swift in Sources */,
 				599202641F669C460078578C /* ParticipantViewModel.swift in Sources */,
 				5968349F1F6017AB00E25579 /* FiltersBreadcrumbView.swift in Sources */,
+				F4B80EB51F764CCC00CD95C0 /* PartnersViewController.swift in Sources */,
 				59363FD21F45DFE2006059B6 /* ParallaxLabel.swift in Sources */,
 				5965D1CC1F72727F00F35C63 /* UITabBarController+Utils.swift in Sources */,
 				5953C1801F559CA700BD27AB /* SelectableCell.swift in Sources */,

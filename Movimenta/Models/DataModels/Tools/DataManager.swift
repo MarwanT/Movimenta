@@ -45,6 +45,9 @@ class DataManager {
   var hotels: [Hotel] {
     return movimentaEvent?.hotels ?? []
   }
+  var partnerGroups: [PartnerGroup] {
+    return movimentaEvent?.partnerGroups ?? []
+  }
   fileprivate(set) var bookmarkedEvents = [Event]()
   
   var userLocation: CLLocation? {
