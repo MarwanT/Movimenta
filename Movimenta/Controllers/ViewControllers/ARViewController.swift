@@ -8,8 +8,13 @@
 
 import GLKit
 
+public protocol ARViewControllerDelegate: class {
+  func didLocateTarget(meta: String)
+}
+
 public class ARViewController: GLKViewController {
   private var glView: OpenGLView? = nil
+  public weak var targetDelegate: ARViewControllerDelegate? = nil
 
   override public func loadView() {
     glView = OpenGLView(frame: CGRect.zero)
@@ -48,7 +53,7 @@ public class ARViewController: GLKViewController {
 
 extension ARViewController: ARManagerDelegate {
   public func didLocateTarget(meta: String) {
-    print("Found: \(meta)")
-    //TODO: Needed action
+    self.navigationController?.popViewController(animated: true)
+    self.targetDelegate?.didLocateTarget(meta: meta)
   }
 }

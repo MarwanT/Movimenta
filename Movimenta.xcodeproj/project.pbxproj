@@ -163,6 +163,7 @@
 		F409C20C1F6E9027007216E4 /* InformationListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */; };
 		F409C2101F6EAB7F007216E4 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C20F1F6EAB7F007216E4 /* InformationCell.swift */; };
 		F409C2121F6EABAB007216E4 /* InformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F409C2111F6EABAB007216E4 /* InformationCell.xib */; };
+		F40623801F77A85A00A3EDCB /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406237F1F77A85A00A3EDCB /* YoutubeViewController.swift */; };
 		F409C1E61F6BCB23007216E4 /* EasyARSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F409C1CC1F6BC88B007216E4 /* EasyARSwift.framework */; };
 		F409C1E71F6BCB23007216E4 /* EasyARSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F409C1CC1F6BC88B007216E4 /* EasyARSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F484BF181F73D8A300EE52AD /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF171F73D8A300EE52AD /* ARManager.swift */; };
@@ -384,6 +385,7 @@
 		F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationListingViewModel.swift; sourceTree = "<group>"; };
 		F409C20F1F6EAB7F007216E4 /* InformationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationCell.swift; path = InformationCell/InformationCell.swift; sourceTree = "<group>"; };
 		F409C2111F6EABAB007216E4 /* InformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InformationCell.xib; path = InformationCell/InformationCell.xib; sourceTree = "<group>"; };
+		F406237F1F77A85A00A3EDCB /* YoutubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeViewController.swift; sourceTree = "<group>"; };
 		F409C1C61F6BC88A007216E4 /* EasyARSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EasyARSwift.xcodeproj; path = EasyARSwift/EasyARSwift.xcodeproj; sourceTree = "<group>"; };
 		F484BF171F73D8A300EE52AD /* ARManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARManager.swift; path = EasyAR/ARManager.swift; sourceTree = "<group>"; };
 		F484BF1E1F73DA4200EE52AD /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -842,6 +844,7 @@
 				F409C2031F6D8C17007216E4 /* ContactViewController.swift */,
 				F409C2091F6E8F81007216E4 /* InformationListingViewController.swift */,
 				F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */,
+				F406237F1F77A85A00A3EDCB /* YoutubeViewController.swift */,
 				5903B1011F4D7F2E009DF33C /* FiltersViewController.swift */,
 				599202611F669A110078578C /* ParticipantViewController.swift */,
 				598656AD1F698394000EB28D /* ScheduleViewController.swift */,
@@ -1387,6 +1390,7 @@
 				F409C1F81F6D083B007216E4 /* InformationViewController.swift in Sources */,
 				5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */,
 				5970AFAF1F29F631008CA708 /* Theme.swift in Sources */,
+				F40623801F77A85A00A3EDCB /* YoutubeViewController.swift in Sources */,
 				59048B641F4AE8460000CCAF /* FiltersManager.swift in Sources */,
 				5970AFB81F2A1868008CA708 /* MovimentaTheme.swift in Sources */,
 				593C81901F75506200626806 /* UIApplication+Utils.swift in Sources */,

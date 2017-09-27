@@ -32,7 +32,27 @@ final class Strings {
   static func all() -> String {
     return Localization.localize(key: "all")
   }
-  
+
+  static func allow_camera_access_alert_button_yes() -> String {
+    return Localization.localize(key: "allow_camera_access_alert_button_yes")
+  }
+
+  static func allow_camera_access_alert_button_no() -> String {
+    return Localization.localize(key: "allow_camera_access_alert_button_no")
+  }
+
+  static func allow_camera_access_via_settings_alert_button() -> String {
+    return Localization.localize(key: "allow_camera_access_via_settings_alert_button")
+  }
+
+  static func allow_camera_access_via_settings_alert_title() -> String {
+    return Localization.localize(key: "allow_camera_access_via_settings_alert_title")
+  }
+
+  static func allow_camera_access_via_settings_alert_message() -> String {
+    return Localization.localize(key: "allow_camera_access_via_settings_alert_message")
+  }
+
   static func apply() -> String {
     return Localization.localize(key: "apply")
   }
@@ -104,7 +124,15 @@ final class Strings {
   static func date_and_time() -> String {
     return Localization.localize(key: "date_and_time")
   }
-  
+
+  static func device_has_no_camera_alert_title() -> String {
+    return Localization.localize(key: "device_has_no_camera_alert_title")
+  }
+
+  static func device_has_no_camera_alert_message() -> String {
+    return Localization.localize(key: "device_has_no_camera_alert_message")
+  }
+
   static func distance() -> String {
     return Localization.localize(key: "distance")
   }
