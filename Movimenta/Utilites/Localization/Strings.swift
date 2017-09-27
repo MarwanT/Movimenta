@@ -37,6 +37,10 @@ final class Strings {
     return Localization.localize(key: "apply")
   }
   
+  static func ar() -> String {
+    return Localization.localize(key: "ar")
+  }
+
   static func art_description() -> String {
     return Localization.localize(key: "art_description")
   }
@@ -44,7 +48,7 @@ final class Strings {
   static func art_questions_title() -> String {
     return Localization.localize(key: "art_questions_title")
   }
-  
+
   static func artist() -> String {
     return Localization.localize(key: "artist")
   }
@@ -120,7 +124,19 @@ final class Strings {
   static func event_types() -> String {
     return Localization.localize(key: "event_types")
   }
-  
+
+  static func find_m() -> String {
+    return Localization.localize(key: "find_m")
+  }
+
+  static func find_scan_message() -> String {
+    return Localization.localize(key: "find_scan_message")
+  }
+
+  static func find_button() -> String {
+    return Localization.localize(key: "find_button")
+  }
+
   static func from() -> String {
     return Localization.localize(key: "from")
   }
