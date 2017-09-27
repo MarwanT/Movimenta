@@ -23,7 +23,7 @@ class PartnersViewModel {
     return item
   }
 
-  func itemFor(row: Int, section: Int) -> Partner? {
+  fileprivate func itemFor(row: Int, section: Int) -> Partner? {
     let section = itemForSection(section: section)
     guard let partners = section?.partners, partners.count > row else {
       return nil
