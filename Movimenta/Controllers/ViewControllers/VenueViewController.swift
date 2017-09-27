@@ -148,8 +148,13 @@ class VenueViewController: UIViewController {
     Analytics.shared.send(event: analyticsEvent)
   }
   
-  fileprivate func shareParticipant(info: [Any]) {
+  fileprivate func shareVenue(info: [Any]) {
     presentShareSheet(with: info)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .venue, action: .shareVenue, name: viewModel.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 
@@ -174,7 +179,7 @@ extension VenueViewController {
     guard let info = viewModel.sharingContent() else {
       return
     }
-    shareParticipant(info: info)
+    shareVenue(info: info)
   }
   
   func handleBookmarksUpdate(_ sender: Notification) {
@@ -226,6 +231,11 @@ extension VenueViewController: VenueDetailsHeaderViewDelegate {
       return
     }
     MapUtility.direction(from: directions.origin, to: directions.destination)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .venue, action: .shareVenue, name: viewModel.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

@@ -30,7 +30,7 @@ final class VenueViewModel {
     guard let url = venue.link else {
       return nil
     }
-    return [venue.name ?? "", url]
+    return [name ?? "", url]
   }
 }
 
