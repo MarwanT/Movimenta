@@ -32,6 +32,12 @@ class BookmarksViewController: UIViewController {
     refreshTableView()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.Bookmarks)
+  }
+  
   deinit {
     unregisterToNotificationCenter()
   }

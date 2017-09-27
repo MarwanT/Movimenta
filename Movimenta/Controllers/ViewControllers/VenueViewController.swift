@@ -26,6 +26,12 @@ class VenueViewController: UIViewController {
     registerToNotificationCenter()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.Venue)
+  }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     // #Required for the headerView to take the required size of it's content

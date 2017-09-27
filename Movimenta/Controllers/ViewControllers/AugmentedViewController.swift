@@ -24,6 +24,12 @@ class AugmentedViewController: UIViewController {
     super.viewDidLoad()
     initialize()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.AugmentedReality)
+  }
 
   private func initialize() {
     title = Strings.ar()

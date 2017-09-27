@@ -36,6 +36,12 @@ class EventDetailsViewController: UIViewController {
   deinit {
     unregisterToNotificationCenter()
   }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.EventDetails)
+  }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)

@@ -28,6 +28,12 @@ class ParticipantViewController: UIViewController {
     initialize()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: screenName)
+  }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     // #Required for the headerView to take the required size of it's content
@@ -147,6 +153,23 @@ class ParticipantViewController: UIViewController {
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
     tableView.reloadRows(at: indexPaths, with: .none)
+  }
+  
+  private var screenName: Analytics.ScreenName {
+    switch viewModel.type {
+    case .Artist:
+      return Analytics.ScreenNames.Artist
+    case .Company:
+      return Analytics.ScreenNames.Company
+    case .Sponsor:
+      return Analytics.ScreenNames.Sponsor
+    case .Speaker:
+      return Analytics.ScreenNames.Speaker
+    case .Organizer:
+      return Analytics.ScreenNames.Organizer
+    case .Default:
+      return Analytics.ScreenNames.Default
+    }
   }
 }
 

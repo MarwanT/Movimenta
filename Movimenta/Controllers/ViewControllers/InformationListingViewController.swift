@@ -21,6 +21,21 @@ class InformationListingViewController: UIViewController {
     super.viewDidLoad()
     initialize()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: screenName)
+  }
+  
+  private var screenName: Analytics.ScreenName {
+    switch viewModel.mode {
+    case .hotels:
+      return Analytics.ScreenNames.Hotels
+    case .restaurants:
+      return Analytics.ScreenNames.Restaurants
+    }
+  }
 
   private func initialize() {
     //All Initializations and Setup
