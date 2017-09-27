@@ -163,6 +163,11 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
     viewModel.setSelected(for: indexPath)
     reloadEventsData()
     navigateToSelectedDate()
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .schedule, action: .goToDate, name: viewModel.selectedDate?.formattedDate() ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 
