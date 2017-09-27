@@ -184,6 +184,11 @@ extension ParticipantViewController {
   
   private func shareParticipant(info: [Any]) {
     presentShareSheet(with: info)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .participants, action: .shareParticipant, name: viewModel.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   func handleBookmarksUpdate(_ sender: Notification) {
