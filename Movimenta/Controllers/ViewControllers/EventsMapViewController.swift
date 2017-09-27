@@ -341,6 +341,11 @@ extension EventsMapViewController {
     vc.initialize(with: event)
     navigationController?.pushViewController(vc, animated: true)
     navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .events, action: .goToEventDetails, name: event.title ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   func showEventDetailsPeekView() {
