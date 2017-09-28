@@ -68,6 +68,10 @@ class AugmentedViewController: UIViewController {
         let arViewController = ARViewController()
         arViewController.targetDelegate = self
         self.navigationController?.pushViewController(arViewController, animated: true)
+        
+        //MARK: [Analytics] Event
+        let analyticsEvent = Analytics.Event(category: .augmentedReality, action: .getStarted)
+        Analytics.shared.send(event: analyticsEvent)
       }
     }
   }
@@ -139,6 +143,11 @@ extension AugmentedViewController: ARViewControllerDelegate {
       let vc = YoutubeViewController.instance()
       vc.initialize(with: meta)
       self.navigationController?.pushViewController(vc, animated: true)
+      
+      //MARK: [Analytics] Event
+      let analyticsEvent = Analytics.Event(
+        category: .augmentedReality, action: .scanImage, name: name)
+      Analytics.shared.send(event: analyticsEvent)
     }
   }
 }
