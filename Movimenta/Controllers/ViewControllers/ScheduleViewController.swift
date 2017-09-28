@@ -55,7 +55,11 @@ class ScheduleViewController: UIViewController {
       bottom: 0, right: CGFloat(ThemeManager.shared.current.space7))
     let flowLayout = UICollectionViewFlowLayout()
     flowLayout.scrollDirection = UICollectionViewScrollDirection.horizontal
-    flowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+    if #available(iOS 10.0, *) {
+      flowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+    } else {
+      flowLayout.itemSize = CGSize(width: 80, height: 44)
+    }
     flowLayout.minimumInteritemSpacing = interItemSpacing
     datesCollectionView.collectionViewLayout = flowLayout
     datesCollectionView.register(ScheduleCell.self, forCellWithReuseIdentifier: ScheduleCell.identifier)
