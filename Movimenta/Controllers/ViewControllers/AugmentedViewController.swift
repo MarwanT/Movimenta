@@ -134,7 +134,7 @@ class AugmentedViewController: UIViewController {
 }
 
 extension AugmentedViewController: ARViewControllerDelegate {
-  func didLocateTarget(meta: String) {
+  func didLocateTarget(meta: String, name: String) {
     if(!meta.isEmpty) {
       let vc = YoutubeViewController.instance()
       vc.initialize(with: meta)

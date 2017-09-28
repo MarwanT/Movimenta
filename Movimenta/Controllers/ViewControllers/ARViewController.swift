@@ -9,7 +9,7 @@
 import GLKit
 
 public protocol ARViewControllerDelegate: class {
-  func didLocateTarget(meta: String)
+  func didLocateTarget(meta: String, name: String)
 }
 
 public class ARViewController: GLKViewController {
@@ -52,8 +52,8 @@ public class ARViewController: GLKViewController {
 }
 
 extension ARViewController: ARManagerDelegate {
-  public func didLocateTarget(meta: String) {
+  public func didLocateTarget(meta: String, name: String) {
     self.navigationController?.popViewController(animated: true)
-    self.targetDelegate?.didLocateTarget(meta: meta)
+    self.targetDelegate?.didLocateTarget(meta: meta, name: name)
   }
 }
