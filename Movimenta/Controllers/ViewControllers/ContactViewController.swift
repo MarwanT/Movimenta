@@ -121,6 +121,10 @@ class ContactViewController: UIViewController {
 
       present(alertController, animated: true, completion: nil)
     }
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .info, action: .sendEmail)
+    Analytics.shared.send(event: analyticsEvent)
   }
 
   private func openUrl(url: URL) {

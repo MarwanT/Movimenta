@@ -100,6 +100,11 @@ extension InformationListingViewController: UITableViewDataSource, UITableViewDe
     }
 
     WebViewController.present(url: url, inViewController: navigationController)
+    
+    //MARK: [Analytics] Event
+    let analyticsAction: Analytics.Action = viewModel.mode == .hotels ? .goToHotel : .goToRestaurant
+    let analyticsEvent = Analytics.Event(category: .info, action: analyticsAction, name: item?.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

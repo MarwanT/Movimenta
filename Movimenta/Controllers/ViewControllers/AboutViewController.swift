@@ -101,6 +101,10 @@ class AboutViewController: UIViewController {
 extension AboutViewController: TTTAttributedLabelDelegate {
   public func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
     WebViewController.present(url: url.absoluteString, inViewController: navigationController)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .info, action: .goToKeeward)
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

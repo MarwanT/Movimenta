@@ -92,6 +92,10 @@ extension PartnersViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     WebViewController.present(url: url, inViewController: navigationController)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .info, action: .goToPartner, name: item.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 
