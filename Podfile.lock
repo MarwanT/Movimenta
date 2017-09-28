@@ -69,6 +69,7 @@ PODS:
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
   - TTTAttributedLabel (2.0.0)
+  - youtube-ios-player-helper (0.1.4)
 
 DEPENDENCIES:
   - Crashlytics (= 3.8.5)
@@ -89,6 +90,7 @@ DEPENDENCIES:
   - SnapKit (= 3.2.0)
   - SwiftyJSON (= 3.1.4)
   - TTTAttributedLabel (= 2.0.0)
+  - youtube-ios-player-helper (= 0.1.4)
 
 EXTERNAL SOURCES:
   Keys:
@@ -121,7 +123,8 @@ SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
 
-PODFILE CHECKSUM: f88de8f4070d09c14fb5cd2e4751600490663306
+PODFILE CHECKSUM: f2484cf840816bd2fa9e93a7e58423e3c895b355
 
 COCOAPODS: 1.2.0
