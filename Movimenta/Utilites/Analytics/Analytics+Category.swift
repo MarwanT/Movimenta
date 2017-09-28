@@ -12,11 +12,29 @@ extension Analytics {
   enum Category {
     //Use in switch cases default clause
     case Default
+    case events
+    case venue
+    case participants
+    case schedule
+    case augmentedReality
+    case info
     
     var name: String {
       switch self {
       case .Default:
         return "[DEFAULT]"
+      case .events:
+        return "Events"
+      case .venue:
+        return "Venue"
+      case .participants:
+        return "Participants"
+      case .schedule:
+        return "Schedule"
+      case .augmentedReality:
+        return "Augmented Reality"
+      case .info:
+        return "Info"
       }
     }
   }

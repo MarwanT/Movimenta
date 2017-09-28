@@ -26,6 +26,12 @@ class VenueViewController: UIViewController {
     registerToNotificationCenter()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.Venue)
+  }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     // #Required for the headerView to take the required size of it's content
@@ -135,10 +141,20 @@ class VenueViewController: UIViewController {
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
     navigationController?.pushViewController(vc, animated: true)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .events, action: .goToEventDetails, name: event.title ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
   
-  fileprivate func shareParticipant(info: [Any]) {
+  fileprivate func shareVenue(info: [Any]) {
     presentShareSheet(with: info)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .venue, action: .shareVenue, name: viewModel.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 
@@ -163,7 +179,7 @@ extension VenueViewController {
     guard let info = viewModel.sharingContent() else {
       return
     }
-    shareParticipant(info: info)
+    shareVenue(info: info)
   }
   
   func handleBookmarksUpdate(_ sender: Notification) {
@@ -215,6 +231,11 @@ extension VenueViewController: VenueDetailsHeaderViewDelegate {
       return
     }
     MapUtility.direction(from: directions.origin, to: directions.destination)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .venue, action: .shareVenue, name: viewModel.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

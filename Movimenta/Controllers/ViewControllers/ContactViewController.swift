@@ -28,6 +28,12 @@ class ContactViewController: UIViewController {
     super.viewDidLoad()
     initialize()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.Contact)
+  }
 
   private func initialize() {
     //All Initializations and Setup
@@ -115,6 +121,10 @@ class ContactViewController: UIViewController {
 
       present(alertController, animated: true, completion: nil)
     }
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .info, action: .sendEmail)
+    Analytics.shared.send(event: analyticsEvent)
   }
 
   private func openUrl(url: URL) {

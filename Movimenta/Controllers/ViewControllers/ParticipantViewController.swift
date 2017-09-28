@@ -28,6 +28,12 @@ class ParticipantViewController: UIViewController {
     initialize()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: screenName)
+  }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     // #Required for the headerView to take the required size of it's content
@@ -148,6 +154,23 @@ class ParticipantViewController: UIViewController {
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
     tableView.reloadRows(at: indexPaths, with: .none)
   }
+  
+  private var screenName: Analytics.ScreenName {
+    switch viewModel.type {
+    case .Artist:
+      return Analytics.ScreenNames.Artist
+    case .Company:
+      return Analytics.ScreenNames.Company
+    case .Sponsor:
+      return Analytics.ScreenNames.Sponsor
+    case .Speaker:
+      return Analytics.ScreenNames.Speaker
+    case .Organizer:
+      return Analytics.ScreenNames.Organizer
+    case .Default:
+      return Analytics.ScreenNames.Default
+    }
+  }
 }
 
 //MARK: Actions
@@ -161,6 +184,11 @@ extension ParticipantViewController {
   
   private func shareParticipant(info: [Any]) {
     presentShareSheet(with: info)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .participants, action: .shareParticipant, name: viewModel.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   func handleBookmarksUpdate(_ sender: Notification) {
@@ -175,6 +203,11 @@ extension ParticipantViewController {
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
     navigationController?.pushViewController(vc, animated: true)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .events, action: .goToEventDetails, name: event.title ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

@@ -11,7 +11,7 @@ import OpenGLES
 import EasyARSwift
 
 public protocol ARManagerDelegate: class {
-  func didLocateTarget(meta: String)
+  func didLocateTarget(meta: String, name: String)
 }
 
 public class ARManager {
@@ -192,7 +192,7 @@ public class ARManager {
           guard let meta = imagetarget.meta().base64Decoded() else {
             return
           }
-          delegate?.didLocateTarget(meta: meta)
+          delegate?.didLocateTarget(meta: meta, name: imagetarget.name())
         }
       }
     }

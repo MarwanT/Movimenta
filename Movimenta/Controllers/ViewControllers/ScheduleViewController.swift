@@ -29,6 +29,12 @@ class ScheduleViewController: UIViewController {
     reloadEventsData()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.Schedule)
+  }
+  
   deinit {
     unregisterToNotificationCenter()
   }
@@ -118,6 +124,11 @@ extension ScheduleViewController {
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
     navigationController?.pushViewController(vc, animated: true)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .events, action: .goToEventDetails, name: event.title ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 
@@ -152,6 +163,11 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
     viewModel.setSelected(for: indexPath)
     reloadEventsData()
     navigateToSelectedDate()
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .schedule, action: .goToDate, name: viewModel.selectedDate?.formattedDate() ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

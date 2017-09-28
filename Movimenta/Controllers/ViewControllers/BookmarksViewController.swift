@@ -32,6 +32,12 @@ class BookmarksViewController: UIViewController {
     refreshTableView()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.Bookmarks)
+  }
+  
   deinit {
     unregisterToNotificationCenter()
   }
@@ -107,6 +113,11 @@ class BookmarksViewController: UIViewController {
     let vc = EventDetailsViewController.instance()
     vc.initialize(with: event)
     navigationController?.pushViewController(vc, animated: true)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .events, action: .goToEventDetails, name: event.title ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   fileprivate func refreshRightBarButtonItem() {

@@ -24,6 +24,12 @@ class AugmentedViewController: UIViewController {
     super.viewDidLoad()
     initialize()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.AugmentedReality)
+  }
 
   private func initialize() {
     title = Strings.ar()
@@ -62,6 +68,10 @@ class AugmentedViewController: UIViewController {
         let arViewController = ARViewController()
         arViewController.targetDelegate = self
         self.navigationController?.pushViewController(arViewController, animated: true)
+        
+        //MARK: [Analytics] Event
+        let analyticsEvent = Analytics.Event(category: .augmentedReality, action: .getStarted)
+        Analytics.shared.send(event: analyticsEvent)
       }
     }
   }
@@ -128,11 +138,16 @@ class AugmentedViewController: UIViewController {
 }
 
 extension AugmentedViewController: ARViewControllerDelegate {
-  func didLocateTarget(meta: String) {
+  func didLocateTarget(meta: String, name: String) {
     if(!meta.isEmpty) {
       let vc = YoutubeViewController.instance()
       vc.initialize(with: meta)
       self.navigationController?.pushViewController(vc, animated: true)
+      
+      //MARK: [Analytics] Event
+      let analyticsEvent = Analytics.Event(
+        category: .augmentedReality, action: .scanImage, name: name)
+      Analytics.shared.send(event: analyticsEvent)
     }
   }
 }

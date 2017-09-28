@@ -416,3 +416,79 @@ extension FiltersViewModel {
     }
   }
 }
+
+//MARK: - [Analytics]
+extension FiltersViewModel {
+  var analyticFilterDate: String? {
+    guard let dateRange = filter.dateRange else {
+      return nil
+    }
+    return Breadcrumb.dateRange(dateRange).text
+  }
+  
+  var analyticFilterCategories: String? {
+    guard let categories = filter.categories else {
+      return nil
+    }
+    let categoriesText = categories.map({ Breadcrumb.category($0).text })
+    return categoriesText.joined(separator: ", ")
+  }
+  
+  var analyticFilterStartsWithin: String? {
+    guard let withinTime = filter.withinTime, withinTime != 0 else {
+      return nil
+    }
+    return Breadcrumb.withinTime(withinTime).text
+  }
+  
+  var analyticFilterSpeakers: String? {
+    guard let speakers = filter.speakers, speakers.count > 0 else {
+      return nil
+    }
+    let participantsArray = speakers.map({ Breadcrumb.speaker($0).text })
+    return participantsArray.joined(separator: ", ")
+  }
+  
+  var analyticFilterOrganizers: String? {
+    guard let organizers = filter.organizers, organizers.count > 0 else {
+      return nil
+    }
+    let participantsArray = organizers.map({ Breadcrumb.organizer($0).text })
+    return participantsArray.joined(separator: ", ")
+  }
+  
+  var analyticFilterSponsors: String? {
+    guard let sponsors = filter.sponsers, sponsors.count > 0 else {
+      return nil
+    }
+    let participantsArray = sponsors.map({ Breadcrumb.sponsor($0).text })
+    return participantsArray.joined(separator: ", ")
+  }
+  
+  var analyticFilterCompanies: String? {
+    guard let companies = filter.companies, companies.count > 0 else {
+      return nil
+    }
+    let participantsArray = companies.map({ Breadcrumb.company($0).text })
+    return participantsArray.joined(separator: ", ")
+  }
+  
+  var analyticFilterArtists: String? {
+    guard let artists = filter.artists, artists.count > 0 else {
+      return nil
+    }
+    let participantsArray = artists.map({ Breadcrumb.artist($0).text })
+    return participantsArray.joined(separator: ", ")
+  }
+  
+  var analyticFilterDistance: String? {
+    guard let withinDistance = filter.withinDistance, withinDistance != 0 else {
+      return nil
+    }
+    return Breadcrumb.withinDistance(withinDistance).text
+  }
+  
+  var analyticFilterBookmarked: String? {
+    return (filter.showBookmarked ?? true) ? "false" : "true"
+  }
+}

@@ -155,6 +155,11 @@ extension VenueDetailsHeaderView {
     UIView.animate(withDuration: animationDuration) { 
       self.segmentedContentView.layoutIfNeeded()
     }
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .venue, action: .viewVenueImageGallery, name: nameLabel.text ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   private func displayMapImageView() {
@@ -163,6 +168,11 @@ extension VenueDetailsHeaderView {
     UIView.animate(withDuration: animationDuration) {
       self.segmentedContentView.layoutIfNeeded()
     }
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .venue, action: .viewVenueMapLocation, name: nameLabel.text ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

@@ -34,6 +34,12 @@ class InformationViewController: UIViewController {
     super.viewDidLoad()
     initialize()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.Info)
+  }
 
   private func initialize() {
     //All Initializations and Setup

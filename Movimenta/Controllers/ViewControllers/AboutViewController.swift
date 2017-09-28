@@ -24,6 +24,12 @@ class AboutViewController: UIViewController {
     super.viewDidLoad()
     initialize()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.About)
+  }
 
   private func initialize() {
     //All Initializations and Setup
@@ -95,6 +101,10 @@ class AboutViewController: UIViewController {
 extension AboutViewController: TTTAttributedLabelDelegate {
   public func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
     WebViewController.present(url: url.absoluteString, inViewController: navigationController)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .info, action: .goToKeeward)
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 
