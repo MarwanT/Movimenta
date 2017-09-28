@@ -23,8 +23,9 @@ final class MovimentaTheme: Theme {
     tabBarAppearance.isTranslucent = false
     tabBarAppearance.barTintColor = tabBarTintColor
     tabBarAppearance.tintColor =  tabTintColor
-    tabBarAppearance.unselectedItemTintColor = tabUnselectedItemTintColor
-    
+    if #available(iOS 10.0, *) {
+      tabBarAppearance.unselectedItemTintColor = tabUnselectedItemTintColor
+    }
     let tabBarItemAppearance = UITabBarItem.appearance()
     tabBarItemAppearance.setTitleTextAttributes(
       [NSFontAttributeName : font17], for: .normal)

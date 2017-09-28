@@ -148,6 +148,9 @@
 		59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF021E1F31CDDF00F145B9 /* EventsMapViewController.swift */; };
 		59EF02211F31CFE400F145B9 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59EF02201F31CFE400F145B9 /* Event.storyboard */; };
 		59EF02231F31D53200F145B9 /* EventsMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */; };
+		F40623801F77A85A00A3EDCB /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406237F1F77A85A00A3EDCB /* YoutubeViewController.swift */; };
+		F409C1E61F6BCB23007216E4 /* EasyARSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F409C1CC1F6BC88B007216E4 /* EasyARSwift.framework */; };
+		F409C1E71F6BCB23007216E4 /* EasyARSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F409C1CC1F6BC88B007216E4 /* EasyARSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F409C1EE1F6C3A8F007216E4 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1ED1F6C3A8F007216E4 /* Restaurant.swift */; };
 		F409C1F01F6C3E34007216E4 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1EF1F6C3E34007216E4 /* Hotel.swift */; };
 		F409C1F21F6C413F007216E4 /* Partner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C1F11F6C413F007216E4 /* Partner.swift */; };
@@ -164,19 +167,16 @@
 		F409C20C1F6E9027007216E4 /* InformationListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */; };
 		F409C2101F6EAB7F007216E4 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409C20F1F6EAB7F007216E4 /* InformationCell.swift */; };
 		F409C2121F6EABAB007216E4 /* InformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F409C2111F6EABAB007216E4 /* InformationCell.xib */; };
-		F40623801F77A85A00A3EDCB /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406237F1F77A85A00A3EDCB /* YoutubeViewController.swift */; };
-		F409C1E61F6BCB23007216E4 /* EasyARSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F409C1CC1F6BC88B007216E4 /* EasyARSwift.framework */; };
-		F409C1E71F6BCB23007216E4 /* EasyARSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F409C1CC1F6BC88B007216E4 /* EasyARSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F484BF181F73D8A300EE52AD /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF171F73D8A300EE52AD /* ARManager.swift */; };
 		F484BF1F1F73DA4200EE52AD /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF1E1F73DA4200EE52AD /* ARViewController.swift */; };
 		F484BF241F73DAC200EE52AD /* OpenGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484BF221F73DAC200EE52AD /* OpenGLView.swift */; };
-		F4B80ED11F76A8B100CD95C0 /* AugmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */; };
 		F4B80EB51F764CCC00CD95C0 /* PartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */; };
 		F4B80EB71F764D4100CD95C0 /* PartnersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */; };
 		F4B80EBF1F76675000CD95C0 /* PartnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EBD1F76675000CD95C0 /* PartnerCell.swift */; };
 		F4B80EC01F76675000CD95C0 /* PartnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B80EBE1F76675000CD95C0 /* PartnerCell.xib */; };
 		F4B80EC71F768E3500CD95C0 /* PartnerSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */; };
 		F4B80EC91F768E7200CD95C0 /* PartnerSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */; };
+		F4B80ED11F76A8B100CD95C0 /* AugmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -377,6 +377,8 @@
 		59EF02221F31D53200F145B9 /* EventsMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMapViewModel.swift; sourceTree = "<group>"; };
 		782B7A16C5447185C4A0F887 /* Pods-Movimenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movimenta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movimenta/Pods-Movimenta.release.xcconfig"; sourceTree = "<group>"; };
 		D2E945F1F4D48508BE2A5A1F /* Pods-MovimentaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovimentaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovimentaTests/Pods-MovimentaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F406237F1F77A85A00A3EDCB /* YoutubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeViewController.swift; sourceTree = "<group>"; };
+		F409C1C61F6BC88A007216E4 /* EasyARSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EasyARSwift.xcodeproj; path = EasyARSwift/EasyARSwift.xcodeproj; sourceTree = "<group>"; };
 		F409C1ED1F6C3A8F007216E4 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F409C1EF1F6C3E34007216E4 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 		F409C1F11F6C413F007216E4 /* Partner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partner.swift; sourceTree = "<group>"; };
@@ -393,18 +395,16 @@
 		F409C20B1F6E9027007216E4 /* InformationListingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationListingViewModel.swift; sourceTree = "<group>"; };
 		F409C20F1F6EAB7F007216E4 /* InformationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationCell.swift; path = InformationCell/InformationCell.swift; sourceTree = "<group>"; };
 		F409C2111F6EABAB007216E4 /* InformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InformationCell.xib; path = InformationCell/InformationCell.xib; sourceTree = "<group>"; };
-		F406237F1F77A85A00A3EDCB /* YoutubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeViewController.swift; sourceTree = "<group>"; };
-		F409C1C61F6BC88A007216E4 /* EasyARSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EasyARSwift.xcodeproj; path = EasyARSwift/EasyARSwift.xcodeproj; sourceTree = "<group>"; };
 		F484BF171F73D8A300EE52AD /* ARManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARManager.swift; path = EasyAR/ARManager.swift; sourceTree = "<group>"; };
 		F484BF1E1F73DA4200EE52AD /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		F484BF221F73DAC200EE52AD /* OpenGLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenGLView.swift; path = EasyAR/OpenGLView.swift; sourceTree = "<group>"; };
-		F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AugmentedViewController.swift; sourceTree = "<group>"; };
 		F4B80EB41F764CCC00CD95C0 /* PartnersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewController.swift; sourceTree = "<group>"; };
 		F4B80EB61F764D4100CD95C0 /* PartnersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewModel.swift; sourceTree = "<group>"; };
 		F4B80EBD1F76675000CD95C0 /* PartnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerCell.swift; sourceTree = "<group>"; };
 		F4B80EBE1F76675000CD95C0 /* PartnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerCell.xib; sourceTree = "<group>"; };
 		F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartnerSectionCell.swift; path = PartnerSectionCell/PartnerSectionCell.swift; sourceTree = "<group>"; };
 		F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartnerSectionCell.xib; path = PartnerSectionCell/PartnerSectionCell.xib; sourceTree = "<group>"; };
+		F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AugmentedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1001,15 +1001,6 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
-		F409C20E1F6EAB3D007216E4 /* InformationCell */ = {
-			isa = PBXGroup;
-			children = (
-				F409C20F1F6EAB7F007216E4 /* InformationCell.swift */,
-				F409C2111F6EABAB007216E4 /* InformationCell.xib */,
-			);
-			name = InformationCell;
-						sourceTree = "<group>";
-		};
 		F409C1C71F6BC88A007216E4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1017,6 +1008,15 @@
 				F409C1CE1F6BC88B007216E4 /* EasyARSwiftTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F409C20E1F6EAB3D007216E4 /* InformationCell */ = {
+			isa = PBXGroup;
+			children = (
+				F409C20F1F6EAB7F007216E4 /* InformationCell.swift */,
+				F409C2111F6EABAB007216E4 /* InformationCell.xib */,
+			);
+			name = InformationCell;
 			sourceTree = "<group>";
 		};
 		F484BF161F73D88A00EE52AD /* EasyAR */ = {
@@ -1608,6 +1608,7 @@
 				DEVELOPMENT_TEAM = MBZL7KPZ9H;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Movimenta/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.Movimenta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1625,6 +1626,7 @@
 				DEVELOPMENT_TEAM = MBZL7KPZ9H;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Movimenta/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keeward.Movimenta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
