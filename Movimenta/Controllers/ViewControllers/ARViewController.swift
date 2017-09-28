@@ -32,8 +32,8 @@ public class ARViewController: GLKViewController {
     glView?.start()
   }
 
-  override public func viewWillDisappear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  public override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
     glView?.stop()
   }
 
