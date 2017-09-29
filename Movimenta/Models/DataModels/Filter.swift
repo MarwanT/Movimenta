@@ -140,3 +140,30 @@ extension Filter {
     return flatCategories.contains(category)
   }
 }
+
+extension Filter {
+  mutating func updateFilter(byRemoving breadcrumb: Breadcrumb) {
+    switch breadcrumb {
+    case .artist(let participant):
+      artists?.remove(participant: participant)
+    case .company(let participant):
+      companies?.remove(participant: participant)
+    case .organizer(let participant):
+      organizers?.remove(participant: participant)
+    case .speaker(let participant):
+      speakers?.remove(participant: participant)
+    case .sponsor(let participant):
+      sponsers?.remove(participant: participant)
+    case .category(let category):
+      categories?.remove(category: category)
+    case .dateRange:
+      dateRange = nil
+    case .showBookmarked:
+      showBookmarked = nil
+    case .withinDistance:
+      withinDistance = nil
+    case .withinTime:
+      withinTime = nil
+    }
+  }
+}
