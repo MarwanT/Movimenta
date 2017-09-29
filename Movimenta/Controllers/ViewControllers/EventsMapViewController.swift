@@ -228,9 +228,11 @@ extension EventsMapViewController {
   // Map Helpers
   
   fileprivate func showMapViewMask() {
-    mapViewImageView.image = UIImage(view: mapView)
-    mapViewImageView.isHidden = false
-    mapView.isHidden = true
+    if !mapView.isHidden {
+      mapViewImageView.image = UIImage(view: mapView)
+      mapViewImageView.isHidden = false
+      mapView.isHidden = true
+    }
   }
   
   fileprivate func hideMapViewMask() {
