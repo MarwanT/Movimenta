@@ -21,6 +21,9 @@ class EventsMapViewController: UIViewController {
   @IBOutlet weak var filtersBreadcrumbTopToSuperviewTop: NSLayoutConstraint!
   @IBOutlet weak var filtersBreadcrumbBottomToSuperviewTop: NSLayoutConstraint!
   
+  fileprivate let filtersButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filters"), style: .plain, target: nil, action: #selector(handleFiltersButtonTap(_:)))
+  fileprivate let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(handleDoneButtonTap(_:)))
+  
   var animationDuration: TimeInterval = 0.4
   
   let locationManager = CLLocationManager()
@@ -120,7 +123,8 @@ class EventsMapViewController: UIViewController {
   }
   
   private func setupNavigationItems() {
-    let filtersButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filters"), style: .plain, target: self, action: #selector(handleFiltersButtonTap(_:)))
+    filtersButton.target = self
+    doneButton.target = self
     navigationItem.rightBarButtonItem = filtersButton
     navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
@@ -165,6 +169,9 @@ class EventsMapViewController: UIViewController {
   
   func handleFiltersButtonTap(_ sender: UIBarButtonItem) {
     navigateToFiltersVC()
+  }
+  
+  func handleDoneButtonTap(_ sender: UIBarButtonItem) {
   }
 }
 
