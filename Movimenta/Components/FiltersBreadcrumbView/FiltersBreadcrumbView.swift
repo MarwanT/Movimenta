@@ -67,9 +67,13 @@ class FiltersBreadcrumbView: UIView {
     }
   }
   
-  private func remove(breadcrumbView: UIView) {
-    stackView.removeArrangedSubview(breadcrumbView)
-    breadcrumbView.removeFromSuperview()
+  func remove(breadcrumbView: UIView) {
+    UIView.animate(withDuration: ThemeManager.shared.current.animationDuration, animations: {
+      breadcrumbView.isHidden = true
+    }) { (finished) in
+      self.stackView.removeArrangedSubview(breadcrumbView)
+      breadcrumbView.removeFromSuperview()
+    }
   }
   
   private func addBreadcrumbView(_ breadcrumb: Breadcrumb) {
