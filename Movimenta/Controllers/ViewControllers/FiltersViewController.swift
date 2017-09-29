@@ -221,7 +221,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     case .types:
       let values = viewModel.categoriesInfo(for: indexPath)
       switch values {
-      case .header(let label, _, _):
+      case .header(let label, let isExpanded, _):
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableHeaderCell.identifier, for: indexPath) as? ExpandableHeaderCell else {
           return UITableViewCell()
         }
@@ -234,9 +234,6 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         cell.label.text = label
         cell.indentationLevel = 1
         isLastChild ? cell.showSeparator() : cell.hideSeparator()
-        if cell.isSelected == false && (selection == .all || selection == .some ) {
-          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
         return cell
       }
     case .participants:
@@ -255,9 +252,6 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         cell.label.text = label
         cell.indentationLevel = 1
         isLastChild ? cell.showSeparator() : cell.hideSeparator()
-        if cell.isSelected == false && (selection == .all || selection == .some ) {
-          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
         return cell
       }
     case .withinDistance:
@@ -278,7 +272,45 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       cell.set(label: values.label, switchOn: values.showBookmarks)
       return cell
     }
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return
+    }
     
+    switch section {
+    case .dates:
+      break
+    case .withinTime:
+      break
+    case .types:
+      let values = viewModel.categoriesInfo(for: indexPath)
+      switch values {
+      case .header(_, let isExpanded, _):
+        if isExpanded && !tableView.isCellSelected(at: indexPath) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      case .child(_, let selection, _, _):
+        if !tableView.isCellSelected(at: indexPath) && (selection != .none) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      }
+    case .participants:
+      let values = viewModel.participantsInfo(for: indexPath)
+      switch values {
+      case .header(_, _, _):
+        break
+      case .child(_, let selection, _, _):
+        if !tableView.isCellSelected(at: indexPath) && (selection != .none) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      }
+    case .withinDistance:
+      break
+    case .bookmark:
+      break
+    }
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
