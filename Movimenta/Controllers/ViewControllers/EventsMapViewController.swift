@@ -499,6 +499,11 @@ extension EventsMapViewController: FiltersBreadcrumbViewDelegate {
     refreshViewForBreadcrumbEditing(isEditing: true)
   }
   
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didRemoveLastBreadcrumb breadcrumb: Breadcrumb) {
+    refreshViewForBreadcrumbEditing(isEditing: false)
+    refreshBreadcrumbView()
+  }
+  
   func refreshViewForBreadcrumbEditing(isEditing: Bool) {
     if isEditing {
       filtersBreadcrumbView.shakeBreadcrumbs()

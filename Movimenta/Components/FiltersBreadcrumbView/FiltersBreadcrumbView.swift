@@ -12,6 +12,7 @@ import UIKit
 protocol FiltersBreadcrumbViewDelegate: class {
   func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb, isShaking: Bool)
   func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didLongPress breadcrumb: Breadcrumb)
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didRemoveLastBreadcrumb breadcrumb: Breadcrumb)
 }
 
 class FiltersBreadcrumbView: UIView {
@@ -88,7 +89,7 @@ class FiltersBreadcrumbView: UIView {
     breadcrumbs?.remove(at: index)
     
     if breadcrumbs == nil || breadcrumbs?.count == 0 {
-      //TODO: Call delegate method for last breadcrumb
+      delegate?.filtersBreadcrumbView(self, didRemoveLastBreadcrumb: breadcrumb)
     }
   }
   
