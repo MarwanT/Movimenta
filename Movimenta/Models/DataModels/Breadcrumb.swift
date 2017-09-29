@@ -56,3 +56,32 @@ enum Breadcrumb {
     }
   }
 }
+
+extension Breadcrumb: Equatable {}
+func ==(lhs: Breadcrumb, rhs: Breadcrumb) -> Bool {
+  switch (lhs, rhs) {
+  case (.dateRange(_), .dateRange(_)):
+    //TODO: Compare the dates
+    return true
+  case (.category(let lCategory), .category(let rCategory)):
+    return lCategory == rCategory
+  case (.withinTime(let lTime), .withinTime(let rTime)):
+    return lTime == rTime
+  case (.withinDistance(let lDistance), .withinDistance(let rDistance)):
+    return lDistance == rDistance
+  case (.speaker(let lParticipant), .speaker(let rParticipant)):
+    return lParticipant == rParticipant
+  case (.sponsor(let lParticipant), .sponsor(let rParticipant)):
+    return lParticipant == rParticipant
+  case (.company(let lParticipant), .company(let rParticipant)):
+    return lParticipant == rParticipant
+  case (.organizer(let lParticipant), .organizer(let rParticipant)):
+    return lParticipant == rParticipant
+  case (.artist(let lParticipant), .artist(let rParticipant)):
+    return lParticipant == rParticipant
+  case (.showBookmarked(let lBool), .showBookmarked(let rBool)):
+    return lBool == rBool
+  default:
+    return false
+  }
+}
