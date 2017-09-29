@@ -76,6 +76,19 @@ class FiltersBreadcrumbView: UIView {
     }
   }
   
+  func remove(breadcrumb: Breadcrumb) {
+    guard let index = breadcrumbs?.index(of: breadcrumb) else {
+      return
+    }
+    let view = stackView.arrangedSubviews[index]
+    remove(breadcrumbView: view)
+    breadcrumbs?.remove(at: index)
+    
+    if breadcrumbs == nil || breadcrumbs?.count == 0 {
+      //TODO: Call delegate method for last breadcrumb
+    }
+  }
+  
   private func addBreadcrumbView(_ breadcrumb: Breadcrumb) {
     let label = UILabel.breadcrumb(
       backgroundColor: configuration.backgroundColor,
