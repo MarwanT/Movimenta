@@ -25,14 +25,19 @@ class ScheduleViewController: UIViewController {
     initializeCollectionView()
     initializeTableView()
     registerToNotificationCenter()
-    navigateToSelectedDate()
     reloadEventsData()
+    navigateToSelectedDate()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     //MARK: [Analytics] Screen Name
     Analytics.shared.send(screenName: Analytics.ScreenNames.Schedule)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    navigateToSelectedDate()
   }
   
   deinit {
