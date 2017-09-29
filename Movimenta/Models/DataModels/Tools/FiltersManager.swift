@@ -101,10 +101,10 @@ extension Array where Element == Event {
   }
   
   private func filteredBookmarked(_ show: Bool?) -> [Event] {
-    guard let show = show, show == false else {
+    guard let show = show, show else {
       return self
     }
-    return filter { $0.isBookmarked == false }
+    return filter { $0.isBookmarked }
   }
   
   private func filteredParticipants(_ participants: [Participant]?) -> [Event] {

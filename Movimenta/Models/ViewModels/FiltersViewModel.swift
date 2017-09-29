@@ -218,7 +218,7 @@ extension FiltersViewModel {
   }
   
   func bookmarkInfo() -> (label: String, showBookmarks: Bool) {
-    return (Strings.show_bookmarked_events(), (filter.showBookmarked ?? true))
+    return (Strings.show_bookmarked_events(), (filter.showBookmarked ?? false))
   }
   
   func withinDistanceInfo() -> (selectedValue: String, unit: String, numberOfValues: Int, selectedValueIndex: Int) {
@@ -509,6 +509,6 @@ extension FiltersViewModel {
   }
   
   var analyticFilterBookmarked: String? {
-    return (filter.showBookmarked ?? true) ? "false" : "true"
+    return (filter.showBookmarked ?? false) ? "true" : "false"
   }
 }
