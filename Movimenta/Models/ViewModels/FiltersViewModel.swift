@@ -93,20 +93,28 @@ final class FiltersViewModel {
   private func generateParticipantsData(for participants: [Participant]) -> [SelectableRowData] {
     var data = [SelectableRowData]()
     var participantsData = [SelectableRowData]()
+    var isHeaderSlected = false
     
     for (index, artist) in participants.enumerated() {
+      let participantSelectionsStatus = selectionStatus(of: artist)
       participantsData.append(.child(
         label: artist.fullName,
-        selection: selectionStatus(of: artist),
+        selection: participantSelectionsStatus,
         isLastChild: index == (participants.count - 1),
         data: artist))
+      if participantSelectionsStatus != .none {
+        isHeaderSlected = true
+      }
     }
     
     if participantsData.count > 0 {
       data.append(.header(
         label: participants.first?.type.sectionDisplayName ?? "",
-        expanded: false,
+        expanded: isHeaderSlected,
         rowData: participantsData))
+      if isHeaderSlected {
+        data.append(contentsOf: participantsData)
+      }
     }
     
     return data

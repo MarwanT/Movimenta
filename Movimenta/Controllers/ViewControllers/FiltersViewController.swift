@@ -299,8 +299,10 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     case .participants:
       let values = viewModel.participantsInfo(for: indexPath)
       switch values {
-      case .header(_, _, _):
-        break
+      case .header(_, let isExpanded, _):
+        if isExpanded && !tableView.isCellSelected(at: indexPath) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
       case .child(_, let selection, _, _):
         if !tableView.isCellSelected(at: indexPath) && (selection != .none) {
           tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
