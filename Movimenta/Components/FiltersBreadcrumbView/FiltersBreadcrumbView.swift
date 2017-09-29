@@ -23,6 +23,8 @@ class FiltersBreadcrumbView: UIView {
   
   var configuration = Configuration()
   
+  fileprivate var isShaking: Bool = false
+  
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
     return viewForNibNameIfNeeded(nibName: type(of: self).defaultNibName)
   }
@@ -134,6 +136,18 @@ extension FiltersBreadcrumbView {
   }
 }
 
+//MARK: APIs
+extension FiltersBreadcrumbView {
+  func shakeBreadcrumbs() {
+    isShaking = true
+    stackView.arrangedSubviews.forEach({ $0.shake() })
+  }
+  
+  func stopShakingBreadcrumbs() {
+    isShaking = false
+    stackView.arrangedSubviews.forEach({ $0.stopShaking() })
+  }
+}
 
 extension FiltersBreadcrumbView {
   fileprivate func generateBreadcrumbInfo(for filter: Filter) -> [Breadcrumb] {
