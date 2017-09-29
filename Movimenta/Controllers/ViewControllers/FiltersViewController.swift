@@ -524,6 +524,7 @@ extension FiltersViewController: DatePickerCellDelegate {
       viewModel.setTo(date: date)
     }
     refreshDateCells()
+    resetWithinTimeSlider()
   }
 
   func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {
@@ -550,11 +551,31 @@ extension FiltersViewController: SliderCellDelegate {
     case .withinTime:
       let displayValues = viewModel.setWithinTime(for: index)
       cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
+      lockDateRanges(forSelectedWithin: displayValues.originalValue)
     case .withinDistance:
       let displayValues = viewModel.setWithinDistance(for: index)
       cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
     default:
       return
+    }
+  }
+  
+  func lockDateRanges(forSelectedWithin minutes: Int) {
+    guard minutes != 0 else {
+      return
+    }
+    let now = Date()
+    viewModel.setFrom(date: now)
+    viewModel.setTo(date: now)
+    refreshDateCells()
+  }
+  
+  func resetWithinTimeSlider() {
+    let displayValues = viewModel.setWithinTime(for: 0)
+    
+    let indexPath = IndexPath(row: 0, section: Section.withinTime.rawValue)
+    if let cell = self.tableView.cellForRow(at: indexPath) as? SliderCell {
+      cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
     }
   }
 }

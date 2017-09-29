@@ -394,18 +394,19 @@ extension FiltersViewModel {
   
   func setWithinDistance(for index: Int) -> (selectedValue: String, unit: String) {
     let withinDistanceValues = FiltersManager.shared.withinDistanceValues
-    filter.withinDistance = Double(withinDistanceValues.values[index])
+    filter.withinDistance = withinDistanceValues.values[index]
     let values = withinDistanceInfo()
     return (values.selectedValue, values.unit)
   }
   
   //========
   
-  func setWithinTime(for index: Int) -> (selectedValue: String, unit: String) {
+  func setWithinTime(for index: Int) -> (originalValue: Int, selectedValue: String, unit: String) {
     let withinTimeValues = FiltersManager.shared.withinTimeValues
-    filter.withinTime = withinTimeValues.values[index]
+    let originalValue = withinTimeValues.values[index]
+    filter.withinTime = originalValue
     let values = withinTimeInfo()
-    return (values.selectedValue, values.unit)
+    return (originalValue, values.selectedValue, values.unit)
   }
   
   //========
