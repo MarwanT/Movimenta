@@ -37,6 +37,11 @@ final class EventsMapViewModel {
     loadEvents()
   }
   
+  func updateFilter(byRemoving breadcrumb: Breadcrumb) {
+    self.filter.updateFilter(byRemoving: breadcrumb)
+    apply(filter: self.filter)
+  }
+  
   private func loadMapEvents(for events: [Event]) {
     mapEvents = events.flatMap { (event) -> MapEvent? in
       guard let position = event.coordinates else {

@@ -474,8 +474,19 @@ extension EventsMapViewController: FiltersViewControllerDelegate {
 
 //MARK: - Filters Breadcrumb View Delegate
 extension EventsMapViewController: FiltersBreadcrumbViewDelegate {
-  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb) {
-    navigateToFiltersVC()
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb, isShaking: Bool) {
+    if isShaking {
+      viewModel.updateFilter(byRemoving: breadcrumb)
+      refreshMapView()
+      refreshEventDetailsForSelection()
+      view.remove(breadcrumb: breadcrumb)
+      
+      //MARK: [Analytics] Event
+      let analyticsEvent = Analytics.Event(category: .events, action: .removeFilter)
+      Analytics.shared.send(event: analyticsEvent)
+    } else {
+      navigateToFiltersVC()
+    }
   }
 }
 

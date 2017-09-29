@@ -10,7 +10,7 @@ import SnapKit
 import UIKit
 
 protocol FiltersBreadcrumbViewDelegate: class {
-  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb)
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb, isShaking: Bool)
 }
 
 class FiltersBreadcrumbView: UIView {
@@ -125,7 +125,7 @@ extension FiltersBreadcrumbView {
     guard let breadcrumb = breadcrump(from: sender.view) else {
       return
     }
-    delegate?.filtersBreadcrumbView(self, didTap: breadcrumb)
+    delegate?.filtersBreadcrumbView(self, didTap: breadcrumb, isShaking: isShaking)
   }
   
   func didLongPressBreadcrump(_ sender: UITapGestureRecognizer) {
