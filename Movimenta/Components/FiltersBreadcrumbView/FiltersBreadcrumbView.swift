@@ -100,16 +100,37 @@ class FiltersBreadcrumbView: UIView {
     let tapGestureRecognizer = UITapGestureRecognizer(
       target: self, action: #selector(didTapBreadcrumb(_:)))
     label.addGestureRecognizer(tapGestureRecognizer)
+    
+    // Add long press Gesture recognizer
+    let longPressGestureRecognizer = UILongPressGestureRecognizer(
+      target: self, action: #selector(didLongPressBreadcrump(_:)))
+    label.addGestureRecognizer(longPressGestureRecognizer)
   }
   
-  func didTapBreadcrumb(_ sender: UITapGestureRecognizer) {
+  fileprivate func breadcrump(from view: UIView?) -> Breadcrumb? {
     guard let breadcrumbs = breadcrumbs,
-      let breadcrumbLabel = sender.view as? UILabel,
+      let breadcrumbLabel = view as? UILabel,
       let indexOfLabel = stackView.arrangedSubviews.index(of: breadcrumbLabel) else {
+        return nil
+    }
+    return breadcrumbs[indexOfLabel]
+  }
+}
+
+//MARK: Actions
+extension FiltersBreadcrumbView {
+  func didTapBreadcrumb(_ sender: UITapGestureRecognizer) {
+    guard let breadcrumb = breadcrump(from: sender.view) else {
       return
     }
-    let breadcrumb = breadcrumbs[indexOfLabel]
     delegate?.filtersBreadcrumbView(self, didTap: breadcrumb)
+  }
+  
+  func didLongPressBreadcrump(_ sender: UITapGestureRecognizer) {
+    guard let breadcrumb = breadcrump(from: sender.view) else {
+      return
+    }
+    //TODO: Call delegate method for long press
   }
 }
 
