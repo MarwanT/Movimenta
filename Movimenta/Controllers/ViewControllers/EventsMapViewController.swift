@@ -355,7 +355,7 @@ extension EventsMapViewController {
     }
     
     let vc = EventDetailsViewController.instance()
-    vc.initialize(with: event)
+    vc.initialize(with: event, enableSwipeBack: false)
     navigationController?.pushViewController(vc, animated: true)
     navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     
