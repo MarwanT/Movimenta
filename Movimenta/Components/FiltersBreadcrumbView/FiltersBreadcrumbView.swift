@@ -11,6 +11,7 @@ import UIKit
 
 protocol FiltersBreadcrumbViewDelegate: class {
   func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb, isShaking: Bool)
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didLongPress breadcrumb: Breadcrumb)
 }
 
 class FiltersBreadcrumbView: UIView {
@@ -132,7 +133,7 @@ extension FiltersBreadcrumbView {
     guard let breadcrumb = breadcrump(from: sender.view) else {
       return
     }
-    //TODO: Call delegate method for long press
+    delegate?.filtersBreadcrumbView(self, didLongPress: breadcrumb)
   }
 }
 

@@ -66,6 +66,11 @@ class EventsMapViewController: UIViewController {
     showMapViewMask()
   }
   
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    refreshViewForBreadcrumbEditing(isEditing: false)
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     //MARK: [Analytics] Screen Name
@@ -172,6 +177,7 @@ class EventsMapViewController: UIViewController {
   }
   
   func handleDoneButtonTap(_ sender: UIBarButtonItem) {
+    refreshViewForBreadcrumbEditing(isEditing: false)
   }
 }
 
@@ -486,6 +492,20 @@ extension EventsMapViewController: FiltersBreadcrumbViewDelegate {
       Analytics.shared.send(event: analyticsEvent)
     } else {
       navigateToFiltersVC()
+    }
+  }
+  
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didLongPress breadcrumb: Breadcrumb) {
+    refreshViewForBreadcrumbEditing(isEditing: true)
+  }
+  
+  func refreshViewForBreadcrumbEditing(isEditing: Bool) {
+    if isEditing {
+      filtersBreadcrumbView.shakeBreadcrumbs()
+      navigationItem.rightBarButtonItem = doneButton
+    } else {
+      filtersBreadcrumbView.stopShakingBreadcrumbs()
+      navigationItem.rightBarButtonItem = filtersButton
     }
   }
 }
