@@ -301,6 +301,12 @@ extension Array where Element == Event.Category {
     return allCategories
   }
   
+  mutating func appendUnique(category: Event.Category) {
+    if !self.contains(category) {
+      append(category)
+    }
+  }
+  
   mutating func remove(category: Event.Category) {
     guard let index = self.index(of: category) else {
       return
