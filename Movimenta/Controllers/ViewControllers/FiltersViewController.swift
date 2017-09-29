@@ -221,13 +221,13 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     case .types:
       let values = viewModel.categoriesInfo(for: indexPath)
       switch values {
-      case .header(let label, let isExpanded, _):
+      case .header(let label, _, _):
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableHeaderCell.identifier, for: indexPath) as? ExpandableHeaderCell else {
           return UITableViewCell()
         }
         cell.label.text = label
         return cell
-      case .child(let label, let selection, let isLastChild, _):
+      case .child(let label, _, let isLastChild, _):
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableCell.identifier, for: indexPath) as? SelectableCell else {
           return UITableViewCell()
         }
@@ -245,7 +245,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.label.text = label
         return cell
-      case .child(let label, let selection, let isLastChild, _):
+      case .child(let label, _, let isLastChild, _):
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableCell.identifier, for: indexPath) as? SelectableCell else {
           return UITableViewCell()
         }
