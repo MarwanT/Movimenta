@@ -21,6 +21,9 @@ class EventsMapViewController: UIViewController {
   @IBOutlet weak var filtersBreadcrumbTopToSuperviewTop: NSLayoutConstraint!
   @IBOutlet weak var filtersBreadcrumbBottomToSuperviewTop: NSLayoutConstraint!
   
+  fileprivate let filtersButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filters"), style: .plain, target: nil, action: #selector(handleFiltersButtonTap(_:)))
+  fileprivate let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(handleDoneButtonTap(_:)))
+  
   var animationDuration: TimeInterval = 0.4
   
   let locationManager = CLLocationManager()
@@ -61,6 +64,11 @@ class EventsMapViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     showMapViewMask()
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    refreshViewForBreadcrumbEditing(isEditing: false)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -120,7 +128,8 @@ class EventsMapViewController: UIViewController {
   }
   
   private func setupNavigationItems() {
-    let filtersButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filters"), style: .plain, target: self, action: #selector(handleFiltersButtonTap(_:)))
+    filtersButton.target = self
+    doneButton.target = self
     navigationItem.rightBarButtonItem = filtersButton
     navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
@@ -165,6 +174,10 @@ class EventsMapViewController: UIViewController {
   
   func handleFiltersButtonTap(_ sender: UIBarButtonItem) {
     navigateToFiltersVC()
+  }
+  
+  func handleDoneButtonTap(_ sender: UIBarButtonItem) {
+    refreshViewForBreadcrumbEditing(isEditing: false)
   }
 }
 
@@ -467,8 +480,38 @@ extension EventsMapViewController: FiltersViewControllerDelegate {
 
 //MARK: - Filters Breadcrumb View Delegate
 extension EventsMapViewController: FiltersBreadcrumbViewDelegate {
-  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb) {
-    navigateToFiltersVC()
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb, isShaking: Bool) {
+    if isShaking {
+      viewModel.updateFilter(byRemoving: breadcrumb)
+      refreshMapView()
+      refreshEventDetailsForSelection()
+      view.remove(breadcrumb: breadcrumb)
+      
+      //MARK: [Analytics] Event
+      let analyticsEvent = Analytics.Event(category: .events, action: .removeFilter)
+      Analytics.shared.send(event: analyticsEvent)
+    } else {
+      navigateToFiltersVC()
+    }
+  }
+  
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didLongPress breadcrumb: Breadcrumb) {
+    refreshViewForBreadcrumbEditing(isEditing: true)
+  }
+  
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didRemoveLastBreadcrumb breadcrumb: Breadcrumb) {
+    refreshViewForBreadcrumbEditing(isEditing: false)
+    refreshBreadcrumbView()
+  }
+  
+  func refreshViewForBreadcrumbEditing(isEditing: Bool) {
+    if isEditing {
+      filtersBreadcrumbView.shakeBreadcrumbs()
+      navigationItem.rightBarButtonItem = doneButton
+    } else {
+      filtersBreadcrumbView.stopShakingBreadcrumbs()
+      navigationItem.rightBarButtonItem = filtersButton
+    }
   }
 }
 

@@ -26,6 +26,28 @@ extension UIView {
       self.layoutIfNeeded()
     }
   }
+  
+  private func randomize(interval: TimeInterval, withVariance variance: Double) -> Double{
+    let random = (Double(arc4random_uniform(1000)) - 500.0) / 500.0
+    return interval + variance * random
+  }
+  
+  func shake() {
+    let transformAnim  = CAKeyframeAnimation(keyPath:"transform")
+    transformAnim.values  = [
+      NSValue(caTransform3D: CATransform3DMakeRotation(0.04, 0.0, 0.0, 1.0)),
+      NSValue(caTransform3D: CATransform3DMakeRotation(-0.04 , 0, 0, 1))
+    ]
+  
+    transformAnim.autoreverses = true
+    transformAnim.duration = randomize(interval: 0.1, withVariance: 0.25)
+    transformAnim.repeatCount = Float.infinity
+    layer.add(transformAnim, forKey: "transform")
+  }
+  
+  func stopShaking() {
+    layer.removeAllAnimations()
+  }
 }
 
 extension UIView {

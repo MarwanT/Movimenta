@@ -10,7 +10,9 @@ import SnapKit
 import UIKit
 
 protocol FiltersBreadcrumbViewDelegate: class {
-  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb)
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didTap breadcrumb: Breadcrumb, isShaking: Bool)
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didLongPress breadcrumb: Breadcrumb)
+  func filtersBreadcrumbView(_ view: FiltersBreadcrumbView, didRemoveLastBreadcrumb breadcrumb: Breadcrumb)
 }
 
 class FiltersBreadcrumbView: UIView {
@@ -22,6 +24,8 @@ class FiltersBreadcrumbView: UIView {
   var breadcrumbs: [Breadcrumb]?
   
   var configuration = Configuration()
+  
+  fileprivate var isShaking: Bool = false
   
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
     return viewForNibNameIfNeeded(nibName: type(of: self).defaultNibName)
@@ -67,9 +71,26 @@ class FiltersBreadcrumbView: UIView {
     }
   }
   
-  private func remove(breadcrumbView: UIView) {
-    stackView.removeArrangedSubview(breadcrumbView)
-    breadcrumbView.removeFromSuperview()
+  func remove(breadcrumbView: UIView) {
+    UIView.animate(withDuration: ThemeManager.shared.current.animationDuration, animations: {
+      breadcrumbView.isHidden = true
+    }) { (finished) in
+      self.stackView.removeArrangedSubview(breadcrumbView)
+      breadcrumbView.removeFromSuperview()
+    }
+  }
+  
+  func remove(breadcrumb: Breadcrumb) {
+    guard let index = breadcrumbs?.index(of: breadcrumb) else {
+      return
+    }
+    let view = stackView.arrangedSubviews[index]
+    remove(breadcrumbView: view)
+    breadcrumbs?.remove(at: index)
+    
+    if breadcrumbs == nil || breadcrumbs?.count == 0 {
+      delegate?.filtersBreadcrumbView(self, didRemoveLastBreadcrumb: breadcrumb)
+    }
   }
   
   private func addBreadcrumbView(_ breadcrumb: Breadcrumb) {
@@ -83,65 +104,50 @@ class FiltersBreadcrumbView: UIView {
     let tapGestureRecognizer = UITapGestureRecognizer(
       target: self, action: #selector(didTapBreadcrumb(_:)))
     label.addGestureRecognizer(tapGestureRecognizer)
+    
+    // Add long press Gesture recognizer
+    let longPressGestureRecognizer = UILongPressGestureRecognizer(
+      target: self, action: #selector(didLongPressBreadcrump(_:)))
+    label.addGestureRecognizer(longPressGestureRecognizer)
   }
   
-  func didTapBreadcrumb(_ sender: UITapGestureRecognizer) {
+  fileprivate func breadcrump(from view: UIView?) -> Breadcrumb? {
     guard let breadcrumbs = breadcrumbs,
-      let breadcrumbLabel = sender.view as? UILabel,
+      let breadcrumbLabel = view as? UILabel,
       let indexOfLabel = stackView.arrangedSubviews.index(of: breadcrumbLabel) else {
-      return
+        return nil
     }
-    let breadcrumb = breadcrumbs[indexOfLabel]
-    delegate?.filtersBreadcrumbView(self, didTap: breadcrumb)
+    return breadcrumbs[indexOfLabel]
   }
 }
 
-//MARK: Breadcrumbs related
-enum Breadcrumb {
-  case dateRange(DateRange)
-  case category(Event.Category)
-  case withinTime(Int)
-  case withinDistance(Double)
-  case speaker(Participant)
-  case sponsor(Participant)
-  case company(Participant)
-  case artist(Participant)
-  case organizer(Participant)
-  case showBookmarked(Bool)
-  
-  var text: String {
-    switch self {
-    case .dateRange(let dateRange):
-      guard let from = dateRange.from, let to = dateRange.to else {
-        return "-"
-      }
-      if from.same(date: to) {
-        return "\(from.formattedDate())"
-      } else {
-        return "\(from.formattedDate()) - \(to.formattedDate())"
-      }
-    case .category(let category):
-      return category.label ?? ""
-    case .artist(let participant):
-      return participant.fullName
-    case .company(let participant):
-      return participant.fullName
-    case .organizer(let participant):
-      return participant.fullName
-    case .speaker(let participant):
-      return participant.fullName
-    case .sponsor(let participant):
-      return participant.fullName
-    case .withinTime(let time):
-      let unit = FiltersManager.shared.withinTimeValues.unit
-      return "\(time) \(unit)"
-    case .withinDistance(let distance):
-      let unit = FiltersManager.shared.withinDistanceValues.unit
-      return "\(Int(distance)) \(unit)"
-    case .showBookmarked(let showBookmarked):
-      return showBookmarked ? Strings.show_bookmarked_events() :
-        Strings.hide_bookmarked_events()
+//MARK: Actions
+extension FiltersBreadcrumbView {
+  func didTapBreadcrumb(_ sender: UITapGestureRecognizer) {
+    guard let breadcrumb = breadcrump(from: sender.view) else {
+      return
     }
+    delegate?.filtersBreadcrumbView(self, didTap: breadcrumb, isShaking: isShaking)
+  }
+  
+  func didLongPressBreadcrump(_ sender: UITapGestureRecognizer) {
+    guard let breadcrumb = breadcrump(from: sender.view) else {
+      return
+    }
+    delegate?.filtersBreadcrumbView(self, didLongPress: breadcrumb)
+  }
+}
+
+//MARK: APIs
+extension FiltersBreadcrumbView {
+  func shakeBreadcrumbs() {
+    isShaking = true
+    stackView.arrangedSubviews.forEach({ $0.shake() })
+  }
+  
+  func stopShakingBreadcrumbs() {
+    isShaking = false
+    stackView.arrangedSubviews.forEach({ $0.stopShaking() })
   }
 }
 

@@ -32,8 +32,8 @@ struct Filter {
     && (organizers == nil || (organizers?.count ?? 0) == 0)
     && (speakers == nil || (speakers?.count ?? 0) == 0)
     && (sponsers == nil || (sponsers?.count ?? 0) == 0)
-    && withinTime == nil
-    && withinDistance == nil
+    && withinTime == nil || withinTime == 0
+    && withinDistance == nil || withinDistance == 0
     && showBookmarked == nil
   }
   
@@ -138,5 +138,32 @@ extension Filter {
       return false
     }
     return flatCategories.contains(category)
+  }
+}
+
+extension Filter {
+  mutating func updateFilter(byRemoving breadcrumb: Breadcrumb) {
+    switch breadcrumb {
+    case .artist(let participant):
+      artists?.remove(participant: participant)
+    case .company(let participant):
+      companies?.remove(participant: participant)
+    case .organizer(let participant):
+      organizers?.remove(participant: participant)
+    case .speaker(let participant):
+      speakers?.remove(participant: participant)
+    case .sponsor(let participant):
+      sponsers?.remove(participant: participant)
+    case .category(let category):
+      categories?.remove(category: category)
+    case .dateRange:
+      dateRange = nil
+    case .showBookmarked:
+      showBookmarked = nil
+    case .withinDistance:
+      withinDistance = nil
+    case .withinTime:
+      withinTime = nil
+    }
   }
 }

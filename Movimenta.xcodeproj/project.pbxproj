@@ -26,6 +26,7 @@
 		592D28531F73DE0D00CBDEBB /* VenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D28521F73DE0D00CBDEBB /* VenueViewModel.swift */; };
 		592D28561F73F70300CBDEBB /* VenueDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D28551F73F70300CBDEBB /* VenueDetailsHeaderView.swift */; };
 		592D28581F73F71500CBDEBB /* VenueDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592D28571F73F71500CBDEBB /* VenueDetailsHeaderView.xib */; };
+		592FD2041F7D5B2100832231 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592FD2031F7D5B2100832231 /* Breadcrumb.swift */; };
 		593525171F3222EF005AD32C /* GMSMarker+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593525161F3222EF005AD32C /* GMSMarker+Utils.swift */; };
 		59363FC51F44A728006059B6 /* UIAlertAction+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */; };
 		59363FC91F44E662006059B6 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363FC71F44E662006059B6 /* VenueCell.swift */; };
@@ -246,6 +247,7 @@
 		592D28521F73DE0D00CBDEBB /* VenueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueViewModel.swift; sourceTree = "<group>"; };
 		592D28551F73F70300CBDEBB /* VenueDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailsHeaderView.swift; sourceTree = "<group>"; };
 		592D28571F73F71500CBDEBB /* VenueDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueDetailsHeaderView.xib; sourceTree = "<group>"; };
+		592FD2031F7D5B2100832231 /* Breadcrumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breadcrumb.swift; sourceTree = "<group>"; };
 		593525161F3222EF005AD32C /* GMSMarker+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GMSMarker+Utils.swift"; sourceTree = "<group>"; };
 		59363FC41F44A728006059B6 /* UIAlertAction+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Util.swift"; sourceTree = "<group>"; };
 		59363FC71F44E662006059B6 /* VenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
@@ -899,6 +901,7 @@
 				5970AF971F24E6D0008CA708 /* Participant.swift */,
 				5970AF9E1F262EFC008CA708 /* CLLocationCoordinate2D.swift */,
 				5903B0FF1F4C8CD7009DF33C /* Filter.swift */,
+				592FD2031F7D5B2100832231 /* Breadcrumb.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -1409,6 +1412,7 @@
 				5970AF9A1F260CF0008CA708 /* DateRange.swift in Sources */,
 				5970AFB11F2A1235008CA708 /* ThemeManager.swift in Sources */,
 				F409C2001F6D7F51007216E4 /* AboutViewModel.swift in Sources */,
+				592FD2041F7D5B2100832231 /* Breadcrumb.swift in Sources */,
 				598923311F1F5A5C00F73974 /* Analytics+Event.swift in Sources */,
 				5970AFAD1F278DED008CA708 /* AppNotification.swift in Sources */,
 				59A008291F615FBE00E392DD /* PadableLabel.swift in Sources */,
