@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -121,9 +120,9 @@
                 <outlet property="dateLabelLeadingToImageViewTrailing" destination="1II-d5-716" id="1Vv-UM-J7B"/>
                 <outlet property="dateLabelTopVerticalSpacing" destination="xdW-4s-TD0" id="8rB-iJ-AtL"/>
                 <outlet property="dateLabelTrailingToBookmarkButtonLeading" destination="1Xa-5E-Tf3" id="6j5-AF-fpC"/>
+                <outlet property="eventImageView" destination="xQy-zH-Km1" id="GVw-K1-Z7L"/>
                 <outlet property="eventNameLabel" destination="1nG-yq-Azz" id="xDm-BC-BS2"/>
                 <outlet property="eventNameLabelTopVerticalSpacing" destination="mA5-BZ-BUd" id="YbS-94-Tye"/>
-                <outlet property="participantImageView" destination="xQy-zH-Km1" id="4UT-Uh-dTw"/>
                 <outlet property="pinImageView" destination="rn6-LR-abY" id="cQF-F3-hFv"/>
                 <outlet property="timeLabel" destination="b7F-MM-7a5" id="rSV-GT-Jb3"/>
                 <outlet property="timeLabelTopVerticalSpacing" destination="vMG-pW-ZPu" id="6Ox-9B-rJA"/>
