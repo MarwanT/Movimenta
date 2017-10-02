@@ -203,7 +203,7 @@ extension FiltersBreadcrumbView {
       breadcrumbs.append(.withinDistance(withinDistance))
     }
     
-    if let showBookmarked = filter.showBookmarked, !showBookmarked {
+    if let showBookmarked = filter.showBookmarked, showBookmarked {
       breadcrumbs.append(.showBookmarked(showBookmarked))
     }
     

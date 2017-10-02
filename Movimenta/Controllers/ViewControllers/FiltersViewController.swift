@@ -227,16 +227,13 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.label.text = label
         return cell
-      case .child(let label, let selection, let isLastChild, _):
+      case .child(let label, _, let isLastChild, _):
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableCell.identifier, for: indexPath) as? SelectableCell else {
           return UITableViewCell()
         }
         cell.label.text = label
         cell.indentationLevel = 1
         isLastChild ? cell.showSeparator() : cell.hideSeparator()
-        if cell.isSelected == false && (selection == .all || selection == .some ) {
-          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
         return cell
       }
     case .participants:
@@ -248,16 +245,13 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.label.text = label
         return cell
-      case .child(let label, let selection, let isLastChild, _):
+      case .child(let label, _, let isLastChild, _):
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableCell.identifier, for: indexPath) as? SelectableCell else {
           return UITableViewCell()
         }
         cell.label.text = label
         cell.indentationLevel = 1
         isLastChild ? cell.showSeparator() : cell.hideSeparator()
-        if cell.isSelected == false && (selection == .all || selection == .some ) {
-          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
         return cell
       }
     case .withinDistance:
@@ -278,7 +272,47 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       cell.set(label: values.label, switchOn: values.showBookmarks)
       return cell
     }
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return
+    }
     
+    switch section {
+    case .dates:
+      break
+    case .withinTime:
+      break
+    case .types:
+      let values = viewModel.categoriesInfo(for: indexPath)
+      switch values {
+      case .header(_, let isExpanded, _):
+        if isExpanded && !tableView.isCellSelected(at: indexPath) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      case .child(_, let selection, _, _):
+        if !tableView.isCellSelected(at: indexPath) && (selection != .none) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      }
+    case .participants:
+      let values = viewModel.participantsInfo(for: indexPath)
+      switch values {
+      case .header(_, let isExpanded, _):
+        if isExpanded && !tableView.isCellSelected(at: indexPath) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      case .child(_, let selection, _, _):
+        if !tableView.isCellSelected(at: indexPath) && (selection != .none) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      }
+    case .withinDistance:
+      break
+    case .bookmark:
+      break
+    }
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -490,6 +524,7 @@ extension FiltersViewController: DatePickerCellDelegate {
       viewModel.setTo(date: date)
     }
     refreshDateCells()
+    resetWithinTimeSlider()
   }
 
   func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {
@@ -516,11 +551,31 @@ extension FiltersViewController: SliderCellDelegate {
     case .withinTime:
       let displayValues = viewModel.setWithinTime(for: index)
       cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
+      lockDateRanges(forSelectedWithin: displayValues.originalValue)
     case .withinDistance:
       let displayValues = viewModel.setWithinDistance(for: index)
       cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
     default:
       return
+    }
+  }
+  
+  func lockDateRanges(forSelectedWithin minutes: Int) {
+    guard minutes != 0 else {
+      return
+    }
+    let now = Date()
+    viewModel.setFrom(date: now)
+    viewModel.setTo(date: now)
+    refreshDateCells()
+  }
+  
+  func resetWithinTimeSlider() {
+    let displayValues = viewModel.setWithinTime(for: 0)
+    
+    let indexPath = IndexPath(row: 0, section: Section.withinTime.rawValue)
+    if let cell = self.tableView.cellForRow(at: indexPath) as? SliderCell {
+      cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
     }
   }
 }

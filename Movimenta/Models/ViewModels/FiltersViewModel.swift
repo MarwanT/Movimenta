@@ -45,7 +45,16 @@ final class FiltersViewModel {
     var categoriesData = [SelectableRowData]()
     for category in categories {
       let subCategoryData = generateCategoriesData(subCategories: category.subCategories)
-      categoriesData.append(.header(label: category.label ?? "", expanded: false, rowData: subCategoryData))
+      let selection = selectionStatus(of: category)
+      categoriesData.append(
+        .header(label: category.label ?? "",
+                expanded: (selection != .none) ? true : false,
+                rowData: subCategoryData))
+      // In case the header category is selected
+      // Then also add the children categories so they are displayed
+      if selection != .none {
+        categoriesData.append(contentsOf: subCategoryData)
+      }
     }
     return categoriesData
   }
@@ -84,20 +93,28 @@ final class FiltersViewModel {
   private func generateParticipantsData(for participants: [Participant]) -> [SelectableRowData] {
     var data = [SelectableRowData]()
     var participantsData = [SelectableRowData]()
+    var isHeaderSlected = false
     
     for (index, artist) in participants.enumerated() {
+      let participantSelectionsStatus = selectionStatus(of: artist)
       participantsData.append(.child(
         label: artist.fullName,
-        selection: selectionStatus(of: artist),
+        selection: participantSelectionsStatus,
         isLastChild: index == (participants.count - 1),
         data: artist))
+      if participantSelectionsStatus != .none {
+        isHeaderSlected = true
+      }
     }
     
     if participantsData.count > 0 {
       data.append(.header(
         label: participants.first?.type.sectionDisplayName ?? "",
-        expanded: false,
+        expanded: isHeaderSlected,
         rowData: participantsData))
+      if isHeaderSlected {
+        data.append(contentsOf: participantsData)
+      }
     }
     
     return data
@@ -106,6 +123,8 @@ final class FiltersViewModel {
   fileprivate func selectionStatus(of category: Event.Category) -> Selection {
     let isSelected = filter.contains(category: category)
     var subCategoriesSelection: Selection?
+    
+    // If the category has subcategories
     if let subCategories = category.subCategories {
       var numberOfSelectedSubcategories = 0
       subCategories.forEach({ (subCategory) in
@@ -199,7 +218,7 @@ extension FiltersViewModel {
   }
   
   func bookmarkInfo() -> (label: String, showBookmarks: Bool) {
-    return (Strings.show_bookmarked_events(), (filter.showBookmarked ?? true))
+    return (Strings.show_bookmarked_events(), (filter.showBookmarked ?? false))
   }
   
   func withinDistanceInfo() -> (selectedValue: String, unit: String, numberOfValues: Int, selectedValueIndex: Int) {
@@ -375,18 +394,19 @@ extension FiltersViewModel {
   
   func setWithinDistance(for index: Int) -> (selectedValue: String, unit: String) {
     let withinDistanceValues = FiltersManager.shared.withinDistanceValues
-    filter.withinDistance = Double(withinDistanceValues.values[index])
+    filter.withinDistance = withinDistanceValues.values[index]
     let values = withinDistanceInfo()
     return (values.selectedValue, values.unit)
   }
   
   //========
   
-  func setWithinTime(for index: Int) -> (selectedValue: String, unit: String) {
+  func setWithinTime(for index: Int) -> (originalValue: Int, selectedValue: String, unit: String) {
     let withinTimeValues = FiltersManager.shared.withinTimeValues
-    filter.withinTime = withinTimeValues.values[index]
+    let originalValue = withinTimeValues.values[index]
+    filter.withinTime = originalValue
     let values = withinTimeInfo()
-    return (values.selectedValue, values.unit)
+    return (originalValue, values.selectedValue, values.unit)
   }
   
   //========
@@ -489,6 +509,6 @@ extension FiltersViewModel {
   }
   
   var analyticFilterBookmarked: String? {
-    return (filter.showBookmarked ?? true) ? "false" : "true"
+    return (filter.showBookmarked ?? false) ? "true" : "false"
   }
 }
