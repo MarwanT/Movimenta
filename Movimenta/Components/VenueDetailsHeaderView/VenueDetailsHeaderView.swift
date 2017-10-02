@@ -70,7 +70,7 @@ class VenueDetailsHeaderView: UIView {
   
   func loadView(with data: DetailsData?) {
     loadGalleryImages(with: data?.venueImages)
-    mapImageView.sd_setImage(with: data?.mapImageURL)
+    mapImageView.sd_setImage(with: data?.mapImageURL, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
     nameLabel.text = data?.name
     addressLabel.text = data?.address
     labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
