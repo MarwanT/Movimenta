@@ -44,10 +44,7 @@ final class EventDetailsViewModel {
   }
   
   var isBookmarked: Bool {
-    guard let id = event.id else {
-      return false
-    }
-    return DataManager.shared.bookmarked(eventId: id)
+    return event.isBookmarked
   }
   
   func sharingContent() -> [Any]? {
@@ -71,6 +68,23 @@ final class EventDetailsViewModel {
   
   func unBookmarkEvent() {
     _ = DataManager.shared.unBookmark(event: event)
+  }
+  
+  func updateBookmarkStatusIfNeeded(of event: Event) -> Bool {
+    if self.event == event {
+      self.event = event
+      return true
+    }
+    return false
+  }
+  
+  func updateBookmarkStatusIfNeeded(of events: [Event]) -> Bool {
+    for event in events {
+      if updateBookmarkStatusIfNeeded(of: event) {
+        return true
+      }
+    }
+    return false
   }
 }
 

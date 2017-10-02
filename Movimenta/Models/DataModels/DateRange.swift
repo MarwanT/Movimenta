@@ -16,15 +16,21 @@ struct DateRange {
 
 extension DateRange {
   func startsWithin(minutes: Int) -> Bool {
-    guard let from = from else {
-      return false
-    }
     let now = Date()
     guard let withinDate = now.add(minutes: minutes) else {
       return false
     }
     
+    guard let singleDateRange = dateRange(on: withinDate),
+      let from = singleDateRange.from else {
+        return false
+    }
+    
     return (from >= now && from <= withinDate)
+  }
+  
+  func intercept(with date: Date) -> Bool {
+    return intercept(with: DateRange(from: date.flatDate, to: date.flatDate))
   }
   
   func intercept(with other: DateRange) -> Bool {
@@ -35,9 +41,76 @@ extension DateRange {
       || (from <= otherTo && to >= otherTo)
       || (from >= otherFrom && to <= otherTo)
   }
+  
+  func dateRange(on date: Date) -> DateRange? {
+    guard intercept(with: date) else {
+      return nil
+    }
+    
+    guard let from = from, let to = to else {
+      return nil
+    }
+    
+    let fromDate = date.cloneDate(withTimeOf: from)
+    let toDate = date.cloneDate(withTimeOf: to)
+    return DateRange(from: fromDate, to: toDate)
+  }
+  
+  func upcomingStartingDates(addMinutes: Int = 0) -> [Date]? {
+    guard let from = from, let to = to else {
+      return nil
+    }
+    let now = Date()
+    let dates = from.includedDates(till: to).map({ $0.cloneDate(withTimeOf: from, addMinutes: addMinutes) }).flatMap { (date) -> Date? in
+      guard let date = date, date >= now else {
+        return nil
+      }
+      return date
+    }
+    return dates
+  }
 }
 
 extension DateRange {
+  var displayedShortDate: String? {
+    var text: String? = nil
+    guard let from = from else {
+      return text
+    }
+    
+    let format = "dd'.'MM"
+    if let to = to {
+      if from.same(date: to) {
+        text = from.formattedDate(format: format)
+      } else {
+        text = "\(from.formattedDate(format: format)) - \(to.formattedDate(format: format))"
+      }
+    } else {
+      text = from.formattedDate(format: format)
+    }
+    
+    return text?.capitalized
+  }
+  
+  var displayedShortTime: String? {
+    var text: String? = nil
+    guard let from = from else {
+      return text
+    }
+    
+    if let to = to {
+      if from.same(time: to) {
+        text = "\(from.formattedTime())"
+      } else {
+        text = "\(from.formattedTime()) - \(to.formattedTime())"
+      }
+    } else {
+      text = from.formattedTime()
+    }
+    
+    return text?.capitalizeFirst
+  }
+  
   var displayedLabel: String {
     let text = [displayedDate, displayedTime].flatMap { $0 }.joined(separator: "\n")
     return text
@@ -97,6 +170,14 @@ extension DateRange: Parsable {
   }
 }
 
+//MARK: Comparable
+func <(lhs: DateRange, rhs: DateRange) -> Bool {
+  guard let lhsTo = lhs.to, let rhsFrom = rhs.from else {
+    return false
+  }
+  return lhsTo < rhsFrom
+}
+
 //MARK: - DateRange Array extensions
 extension Array where Element == DateRange {
   func sortedAscending() -> [DateRange] {
@@ -129,5 +210,30 @@ extension Array where Element == DateRange {
       }
     }
     return sortedRanges
+  }
+  
+  func preferredDateRange(for givenDate: Date) -> DateRange? {
+    var givenDateRange = DateRange()
+    givenDateRange.from = givenDate.flatDate
+    givenDateRange.to = givenDate.flatDate
+    return preferredDateRange(for: givenDateRange)
+  }
+  
+  func preferredDateRange(for givenDateRange: DateRange) -> DateRange? {
+    var pastDateRanges = [DateRange]()
+    var currentDateRanges = [DateRange]()
+    var futureDateRanges = [DateRange]()
+    
+    for dateRange in self {
+      if dateRange.intercept(with: givenDateRange) {
+        currentDateRanges.append(dateRange)
+      } else if dateRange < givenDateRange {
+        pastDateRanges.append(dateRange)
+      } else {
+        futureDateRanges.append(dateRange)
+      }
+    }
+    
+    return currentDateRanges.first ?? futureDateRanges.first ?? pastDateRanges.last
   }
 }

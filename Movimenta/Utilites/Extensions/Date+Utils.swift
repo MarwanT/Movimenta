@@ -84,4 +84,40 @@ extension Date {
   func add(minutes: Int) -> Date? {
     return Calendar.current.date(byAdding: .minute, value: minutes, to: self)
   }
+  
+  func cloneDate(withTimeOf otherDate: Date, addMinutes: Int = 0) -> Date? {
+    let calendar = Calendar.current
+    let timeCalendarComponents: Set<Calendar.Component> = [.hour, .minute]
+    let timeComponents = calendar.dateComponents(timeCalendarComponents, from: otherDate)
+    
+    let dateCalendarComponents: Set<Calendar.Component> = [.day, .month, .year]
+    var dateComponents: DateComponents = calendar.dateComponents(dateCalendarComponents, from: self)
+    
+    // Add the time values
+    dateComponents.hour = timeComponents.hour
+    dateComponents.minute = (timeComponents.minute ?? 0) + addMinutes
+    return calendar.date(from: dateComponents)
+  }
+  
+  func includedDates(till giveDate: Date) -> [Date] {
+    var dates: [Date] = []
+    let dayComponent = DateComponents(day: 1)
+    let calendar = Calendar.current
+    
+    guard var currentDate = self.flatDate,
+      let toDate = giveDate.flatDate else {
+      return dates
+    }
+    
+    while !currentDate.same(date: toDate) {
+      dates.append(currentDate)
+      currentDate = calendar.date(byAdding: dayComponent, to: currentDate)!
+    }
+    
+    if !self.same(date: toDate) {
+      dates.append(toDate)
+    }
+    
+    return dates
+  }
 }

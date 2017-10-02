@@ -39,6 +39,15 @@ class DataManager {
   var sponsers: [String : Participant] {
     return movimentaEvent?.sponsors ?? [:]
   }
+  var restaurants: [Restaurant] {
+    return movimentaEvent?.restaurants ?? []
+  }
+  var hotels: [Hotel] {
+    return movimentaEvent?.hotels ?? []
+  }
+  var partnerGroups: [PartnerGroup] {
+    return movimentaEvent?.partnerGroups ?? []
+  }
   fileprivate(set) var bookmarkedEvents = [Event]()
   
   var userLocation: CLLocation? {
@@ -83,6 +92,7 @@ class DataManager {
   
   private func loadBookmarkedEvents() {
     bookmarkedEvents = bookmarkedEventsArray()
+    BookmarkNotificationManager.shared.refreshNotifications()
   }
   
   private func refreshFiltersManager() {
@@ -94,6 +104,21 @@ class DataManager {
       return nil
     }
     return movimentaEvent?.venues?[id]
+  }
+}
+
+//MARK: - APIs
+extension DataManager {
+  func events(with participant: Participant) -> [Event] {
+    var filter = Filter()
+    filter.add(participant: participant)
+    return FiltersManager.shared.filteredEvents(for: filter)
+  }
+  
+  func events(in venue: Venue) -> [Event] {
+    return events.filter({ (event) -> Bool in
+      event.venueId == venue.id
+    })
   }
 }
 
@@ -121,16 +146,52 @@ extension DataManager {
     }
     Persistence.shared.bookmark(eventWith: eventId)
     bookmarkedEvents.append(event)
+    BookmarkNotificationManager.shared.register(for: event)
+    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: [event])
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .bookmarkEvent)
+    Analytics.shared.send(event: analyticsEvent)
+    
     return true
   }
   
-  func unBookmark(event: Event) -> Bool {
+  private func unBookmarkSilently(event: Event) -> Bool {
     guard let eventId = event.id, let index = bookmarkedEvents.index(where: { $0.id == eventId }) else {
       return false
     }
     bookmarkedEvents.remove(at: index)
     Persistence.shared.unBookmark(eventWith: eventId)
+    BookmarkNotificationManager.shared.unRegister(event: event)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .unbookmarkEvent)
+    Analytics.shared.send(event: analyticsEvent)
+    
     return true
+  }
+  
+  func unBookmark(event: Event) -> Bool {
+    let success = unBookmarkSilently(event: event)
+    if success {
+      NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: [event])
+    }
+    return success
+  }
+  
+  func unBookmark(events: [Event]) {
+    for event in events {
+      _ = unBookmarkSilently(event: event)
+    }
+    NotificationCenter.default.post(name: AppNotification.didUpadteBookmarkedEvents, object: events)
+  }
+  
+  func toggleBookmarkStatus(event: Event) {
+    if event.isBookmarked {
+      _ = unBookmark(event: event)
+    } else {
+      _ = bookmark(event: event)
+    }
   }
   
   func bookmarked(eventId: String) -> Bool {

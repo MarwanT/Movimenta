@@ -17,20 +17,38 @@ class EventDetailsViewController: UIViewController {
   fileprivate var eventDetailsLabel: ParallaxLabel!
   fileprivate var bookmarkBarButton: UIBarButtonItem!
   
+  fileprivate var enableSwipeBack = true
+  
   var viewModel = EventDetailsViewModel()
   
   static func instance() -> EventDetailsViewController {
     return Storyboard.Event.instantiate(EventDetailsViewController.self)
   }
   
-  func initialize(with event: Event) {
+  func initialize(with event: Event, enableSwipeBack: Bool = true) {
     viewModel.initialize(with: event)
+    self.enableSwipeBack = enableSwipeBack
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
     loadData()
+  }
+  
+  deinit {
+    unregisterToNotificationCenter()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.EventDetails)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = enableSwipeBack
   }
   
   override func viewDidLayoutSubviews() {
@@ -43,6 +61,7 @@ class EventDetailsViewController: UIViewController {
   private func setup() {
     setupTableView()
     setupNavigationItems()
+    registerToNotificationCenter()
   }
   
   private func setupTableView() {
@@ -83,6 +102,15 @@ class EventDetailsViewController: UIViewController {
     let shareBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tapShareButton(_:)))
     bookmarkBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "bookmarkOutline"), style: .plain, target: self, action: #selector(tapBookmarkButton(_:)))
     navigationItem.rightBarButtonItems = [shareBarButton, bookmarkBarButton]
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
+  }
+  
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
   }
   
   private func loadData() {
@@ -230,7 +258,7 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
     case .dates:
       addToCalendar(dateAt: indexPath)
     case .venue:
-      return
+      navigateToVenueDetailsVC(for: indexPath)
     case .participants:
       navigateToParticipantVC(for: indexPath)
     }
@@ -251,6 +279,14 @@ extension EventDetailsViewController {
 
 //MARK: Actions
 extension EventDetailsViewController {
+  func handleBookmarksUpdate(_ sender: Notification) {
+    guard let events = sender.object as? [Event],
+      viewModel.updateBookmarkStatusIfNeeded(of: events) else {
+      return
+    }
+    refreshBookmarkButton()
+  }
+  
   func tapShareButton(_ sender: UIBarButtonItem) {
     guard let info = viewModel.sharingContent() else {
       return
@@ -264,11 +300,14 @@ extension EventDetailsViewController {
   
   private func shareEvent(info: [Any]) {
     presentShareSheet(with: info)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .shareEvent)
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   private func toggleBookmark() {
     viewModel.toggleBookmark()
-    refreshBookmarkButton()
   }
   
   fileprivate func addToCalendar(dateAt indexPath: IndexPath) {
@@ -290,6 +329,10 @@ extension EventDetailsViewController {
       showAlertForNoEventStoreAuthorization()
       return
     }
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .addEventToCalendar)
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   private func requestCalendarAccess(completion: @escaping (_ authorized: Bool) -> Void) {
@@ -336,7 +379,14 @@ extension EventDetailsViewController {
   }
   
   private func navigateToVenueDetailsVC(venue: Venue) {
-    //TODO: navigate to venue details vc
+    let vc = VenueViewController.instance()
+    vc.initialize(with: venue)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .goToVenue)
+    Analytics.shared.send(event: analyticsEvent)
   }
   
   fileprivate func navigateToParticipantVC(for indexPath: IndexPath) {
@@ -344,7 +394,14 @@ extension EventDetailsViewController {
   }
   
   private func navigateToParticipantVC(participant: Participant) {
-    //TODO: navigate to participant vc
+    let vc = ParticipantViewController.instance()
+    vc.initialize(with: participant)
+    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .goToParticipant)
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 

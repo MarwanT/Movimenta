@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2yt-EO-Dvr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2yt-EO-Dvr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,5 +24,104 @@
             </objects>
             <point key="canvasLocation" x="-1033" y="253"/>
         </scene>
+        <!--Augmented View Controller-->
+        <scene sceneID="WpC-gj-Vy2">
+            <objects>
+                <viewController storyboardIdentifier="AugmentedViewController" id="4s9-o6-nMw" customClass="AugmentedViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yKf-sd-PrN"/>
+                        <viewControllerLayoutGuide type="bottom" id="qZA-su-k1C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XfU-DN-34a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vrBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dd1-Mc-V3c">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnQ-uH-OGe" userLabel="Title Label">
+                                <rect key="frame" x="166.5" y="50" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kT-Di-RJI" userLabel="Subtitle Label">
+                                <rect key="frame" x="166.5" y="101" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRE-gQ-YXE">
+                                <rect key="frame" x="164.5" y="272" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0kT-Di-RJI" firstAttribute="top" secondItem="EnQ-uH-OGe" secondAttribute="bottom" constant="30" id="0Gm-xR-8OS"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="FRE-gQ-YXE" secondAttribute="trailing" id="2xM-VT-qMQ"/>
+                            <constraint firstItem="FRE-gQ-YXE" firstAttribute="centerX" secondItem="XfU-DN-34a" secondAttribute="centerX" id="8Oh-A6-ICh"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EnQ-uH-OGe" secondAttribute="trailing" constant="30" id="978-bu-OwI"/>
+                            <constraint firstItem="dd1-Mc-V3c" firstAttribute="leading" secondItem="XfU-DN-34a" secondAttribute="leading" id="LrQ-og-hq1"/>
+                            <constraint firstItem="qZA-su-k1C" firstAttribute="top" secondItem="dd1-Mc-V3c" secondAttribute="bottom" id="RWU-2i-QnA"/>
+                            <constraint firstItem="0kT-Di-RJI" firstAttribute="centerX" secondItem="XfU-DN-34a" secondAttribute="centerX" id="VOe-hK-yUj"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0kT-Di-RJI" secondAttribute="trailing" constant="30" id="XeE-9S-uK9"/>
+                            <constraint firstItem="EnQ-uH-OGe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XfU-DN-34a" secondAttribute="leading" constant="30" id="Yto-8R-qej"/>
+                            <constraint firstItem="FRE-gQ-YXE" firstAttribute="top" secondItem="0kT-Di-RJI" secondAttribute="bottom" constant="150" id="ewz-FG-gPI"/>
+                            <constraint firstItem="FRE-gQ-YXE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XfU-DN-34a" secondAttribute="leadingMargin" id="gjE-7q-UTO"/>
+                            <constraint firstItem="dd1-Mc-V3c" firstAttribute="top" secondItem="yKf-sd-PrN" secondAttribute="bottom" id="jxT-S8-kr5"/>
+                            <constraint firstItem="EnQ-uH-OGe" firstAttribute="top" secondItem="yKf-sd-PrN" secondAttribute="bottom" constant="30" id="mHm-Wr-BqS"/>
+                            <constraint firstItem="EnQ-uH-OGe" firstAttribute="centerX" secondItem="XfU-DN-34a" secondAttribute="centerX" id="on1-gb-fvQ"/>
+                            <constraint firstItem="0kT-Di-RJI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XfU-DN-34a" secondAttribute="leading" constant="30" id="twP-de-Wdb"/>
+                            <constraint firstItem="qZA-su-k1C" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FRE-gQ-YXE" secondAttribute="bottom" constant="20" id="y6f-1R-Y0D"/>
+                            <constraint firstAttribute="trailing" secondItem="dd1-Mc-V3c" secondAttribute="trailing" id="yKh-Oc-rv7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="arButton" destination="FRE-gQ-YXE" id="dL2-2m-oHy"/>
+                        <outlet property="subtitleLabel" destination="0kT-Di-RJI" id="bWA-Fq-ZJI"/>
+                        <outlet property="titleLabel" destination="EnQ-uH-OGe" id="sYA-WB-sBY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fA8-TW-Tgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="252"/>
+        </scene>
+        <!--Youtube View Controller-->
+        <scene sceneID="J4M-7F-dM2">
+            <objects>
+                <viewController storyboardIdentifier="YoutubeViewController" id="jgd-Y8-nKu" customClass="YoutubeViewController" customModule="Movimenta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ltP-pX-pTp"/>
+                        <viewControllerLayoutGuide type="bottom" id="xjC-bP-HlG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bXw-Rm-ia3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cy7-gT-sUW" customClass="YTPlayerView">
+                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cy7-gT-sUW" firstAttribute="top" secondItem="bXw-Rm-ia3" secondAttribute="topMargin" id="1YO-79-o7J"/>
+                            <constraint firstItem="Cy7-gT-sUW" firstAttribute="leading" secondItem="bXw-Rm-ia3" secondAttribute="leadingMargin" id="Uce-Oo-V9e"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Cy7-gT-sUW" secondAttribute="bottom" id="li7-wu-Lom"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cy7-gT-sUW" secondAttribute="trailing" id="ySf-dq-ahH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="youtubePlayerView" destination="Cy7-gT-sUW" id="JSm-t6-GO5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSj-7L-BBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1340" y="265"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="vrBackground" width="375" height="667"/>
+    </resources>
 </document>

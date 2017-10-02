@@ -101,10 +101,10 @@ extension Array where Element == Event {
   }
   
   private func filteredBookmarked(_ show: Bool?) -> [Event] {
-    guard let show = show, show == false else {
+    guard let show = show, show else {
       return self
     }
-    return filter { $0.isBookmarked == false }
+    return filter { $0.isBookmarked }
   }
   
   private func filteredParticipants(_ participants: [Participant]?) -> [Event] {
@@ -135,7 +135,7 @@ extension Array where Element == Event {
   }
   
   private func filteredStartWithin(minutes: Int?) -> [Event] {
-    guard let minutes = minutes else {
+    guard let minutes = minutes, minutes != 0 else {
       return self
     }
     return filter({ $0.startsWithin(minutes: minutes) })
@@ -143,7 +143,7 @@ extension Array where Element == Event {
   
   /// Distance is in kilometers
   private func filteredWithin(distance: Double?) -> [Event] {
-    guard let distance = distance,
+    guard let distance = distance, distance != 0,
       let userCoordinates = DataManager.shared.userLocation?.coordinate else {
       return self
     }

@@ -42,6 +42,12 @@ class FiltersViewController: UIViewController {
     initializeNavigationBar()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //MARK: [Analytics] Screen Name
+    Analytics.shared.send(screenName: Analytics.ScreenNames.Filters)
+  }
+  
   private func setup() {
     fromDateCell = DatePickerCell.instanceFromNib()
     toDateCell = DatePickerCell.instanceFromNib()
@@ -92,6 +98,7 @@ class FiltersViewController: UIViewController {
       title: Strings.apply(),
       style: .plain, target: self,
       action: #selector(didTapApplyButton(_:)))
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
   
   func didTapApplyButton(_ sender: UIBarButtonItem) {
@@ -101,6 +108,75 @@ class FiltersViewController: UIViewController {
   func applyFilter() {
     delegate?.filters(self, didApply: viewModel.filter)
     navigationController?.popViewController(animated: true)
+    
+    //MARK: [Analytics] Event
+    sendAnalyticsEvents()
+  }
+  
+  private func sendAnalyticsEvents() {
+    //MARK: [Analytics] Event
+    var analyticsEvent = Analytics.Event(category: .events, action: .applyfilters)
+    Analytics.shared.send(event: analyticsEvent)
+    //MARK: [Analytics] Event
+    if let analyticFilterDate = viewModel.analyticFilterDate {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: Analytics.Action.filterDate, name: analyticFilterDate)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterCategories = viewModel.analyticFilterCategories {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterEventType, name: analyticFilterCategories)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterStartsWithin = viewModel.analyticFilterStartsWithin {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterStartsWithin, name: analyticFilterStartsWithin)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterSpeakers = viewModel.analyticFilterSpeakers {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterSpeakers, name: analyticFilterSpeakers)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterOrganizers = viewModel.analyticFilterOrganizers {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterOrganizers, name: analyticFilterOrganizers)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterSponsors = viewModel.analyticFilterSponsors {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterSponsors, name: analyticFilterSponsors)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterCompanies = viewModel.analyticFilterCompanies {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterCompanies, name: analyticFilterCompanies)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterArtists = viewModel.analyticFilterArtists {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterArtists, name: analyticFilterArtists)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterDistance = viewModel.analyticFilterDistance {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .fitlerDistance, name: analyticFilterDistance)
+      Analytics.shared.send(event: analyticsEvent)
+    }
+    //MARK: [Analytics] Event
+    if let analyticFilterBookmarked = viewModel.analyticFilterBookmarked {
+      analyticsEvent = Analytics.Event(
+        category: .events, action: .filterBookmarked, name: analyticFilterBookmarked)
+      Analytics.shared.send(event: analyticsEvent)
+    }
   }
 }
 
@@ -151,16 +227,13 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.label.text = label
         return cell
-      case .child(let label, let selection, let isLastChild, _):
+      case .child(let label, _, let isLastChild, _):
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableCell.identifier, for: indexPath) as? SelectableCell else {
           return UITableViewCell()
         }
         cell.label.text = label
         cell.indentationLevel = 1
         isLastChild ? cell.showSeparator() : cell.hideSeparator()
-        if cell.isSelected == false && (selection == .all || selection == .some ) {
-          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
         return cell
       }
     case .participants:
@@ -172,16 +245,13 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.label.text = label
         return cell
-      case .child(let label, let selection, let isLastChild, _):
+      case .child(let label, _, let isLastChild, _):
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableCell.identifier, for: indexPath) as? SelectableCell else {
           return UITableViewCell()
         }
         cell.label.text = label
         cell.indentationLevel = 1
         isLastChild ? cell.showSeparator() : cell.hideSeparator()
-        if cell.isSelected == false && (selection == .all || selection == .some ) {
-          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
         return cell
       }
     case .withinDistance:
@@ -202,7 +272,47 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       cell.set(label: values.label, switchOn: values.showBookmarks)
       return cell
     }
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return
+    }
     
+    switch section {
+    case .dates:
+      break
+    case .withinTime:
+      break
+    case .types:
+      let values = viewModel.categoriesInfo(for: indexPath)
+      switch values {
+      case .header(_, let isExpanded, _):
+        if isExpanded && !tableView.isCellSelected(at: indexPath) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      case .child(_, let selection, _, _):
+        if !tableView.isCellSelected(at: indexPath) && (selection != .none) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      }
+    case .participants:
+      let values = viewModel.participantsInfo(for: indexPath)
+      switch values {
+      case .header(_, let isExpanded, _):
+        if isExpanded && !tableView.isCellSelected(at: indexPath) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      case .child(_, let selection, _, _):
+        if !tableView.isCellSelected(at: indexPath) && (selection != .none) {
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+      }
+    case .withinDistance:
+      break
+    case .bookmark:
+      break
+    }
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -398,6 +508,10 @@ extension FiltersViewController: ResetFiltersViewDelegate {
     refreshTableView()
     delegate?.filtersDidReset(self)
     navigationController?.popViewController(animated: true)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(category: .events, action: .resetAllFilters)
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 
@@ -410,6 +524,7 @@ extension FiltersViewController: DatePickerCellDelegate {
       viewModel.setTo(date: date)
     }
     refreshDateCells()
+    resetWithinTimeSlider()
   }
 
   func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {
@@ -436,11 +551,31 @@ extension FiltersViewController: SliderCellDelegate {
     case .withinTime:
       let displayValues = viewModel.setWithinTime(for: index)
       cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
+      lockDateRanges(forSelectedWithin: displayValues.originalValue)
     case .withinDistance:
       let displayValues = viewModel.setWithinDistance(for: index)
       cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
     default:
       return
+    }
+  }
+  
+  func lockDateRanges(forSelectedWithin minutes: Int) {
+    guard minutes != 0 else {
+      return
+    }
+    let now = Date()
+    viewModel.setFrom(date: now)
+    viewModel.setTo(date: now)
+    refreshDateCells()
+  }
+  
+  func resetWithinTimeSlider() {
+    let displayValues = viewModel.setWithinTime(for: 0)
+    
+    let indexPath = IndexPath(row: 0, section: Section.withinTime.rawValue)
+    if let cell = self.tableView.cellForRow(at: indexPath) as? SliderCell {
+      cell.setLabel(with: displayValues.selectedValue, unit: displayValues.unit)
     }
   }
 }

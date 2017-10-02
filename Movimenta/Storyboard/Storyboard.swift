@@ -12,6 +12,8 @@ enum Storyboard: String {
   case Root
   case Event
   case Filter
+  case Information
+  case Venue
   
   public func instantiate<VC: UIViewController>(_ viewController: VC.Type,
                           inBundle bundle: Bundle? = nil) -> VC {

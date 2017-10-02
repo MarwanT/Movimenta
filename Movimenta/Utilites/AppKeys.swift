@@ -16,7 +16,11 @@ internal struct AppKeys {
   let googleAnalyticsIdentifier: String
   let googleAPIKey: String
   let apiBaseURL: String
-  
+  let easyARKey: String
+  let easyARCloudServerAddress: String
+  let easyARCloudKey: String
+  let easyARCloudSecret: String
+
   static let shared = AppKeys()
   
   private init(keys: MovimentaKeys) {
@@ -26,6 +30,10 @@ internal struct AppKeys {
     self.googleAnalyticsIdentifier = keys.movimentaGoogleAnalyticsIdentifier
     self.googleAPIKey = keys.movimentaGoogleAPIKey
     self.apiBaseURL = keys.movimentaAPIBaseURL
+    self.easyARKey = keys.movimentaEasyARKey
+    self.easyARCloudServerAddress = keys.movimentaEasyARCloudServerAddress
+    self.easyARCloudKey = keys.movimentaEasyARCloudKey
+    self.easyARCloudSecret = keys.movimentaEasyARCloudSecret
   }
   
   private init() {
