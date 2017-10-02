@@ -73,12 +73,14 @@ class EventsMapViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
     //MARK: [Analytics] Screen Name
     Analytics.shared.send(screenName: Analytics.ScreenNames.EventsMap)
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    updateCameraForMapEvents()
     hideMapViewMask()
   }
   
@@ -228,9 +230,11 @@ extension EventsMapViewController {
   // Map Helpers
   
   fileprivate func showMapViewMask() {
-    mapViewImageView.image = UIImage(view: mapView)
-    mapViewImageView.isHidden = false
-    mapView.isHidden = true
+    if !mapView.isHidden {
+      mapViewImageView.image = UIImage(view: mapView)
+      mapViewImageView.isHidden = false
+      mapView.isHidden = true
+    }
   }
   
   fileprivate func hideMapViewMask() {
