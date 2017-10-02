@@ -91,7 +91,7 @@ class VenueDetailsHeaderView: UIView {
       return
     }
     
-    galleryViewController.initialize(with: urls ?? [])
+    galleryViewController.initialize(with: urls ?? [], placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
   }
   
   private func applyMargins() {
