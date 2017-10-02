@@ -35,7 +35,7 @@ class InformationCell: UITableViewCell {
 
   public func set(imageURL: String?, title: String?) {
     if let imageURL = imageURL, let url = URL(string: imageURL) {
-      displayImageView.sd_setImage(with: url)
+      displayImageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
     }
     titleLabel.text = title
     websiteLabel.text = Strings.view_website()
