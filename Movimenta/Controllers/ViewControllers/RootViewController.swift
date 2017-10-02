@@ -48,7 +48,7 @@ class RootViewController: UITabBarController {
     let infoVC = InformationViewController.instance()
     
     eventsMapVC.tabBarItem = UITabBarItem(title: Strings.event_map(), image: #imageLiteral(resourceName: "pinMenuOutline"), tag: 1)
-    bookmarksVC.tabBarItem = UITabBarItem(title: Strings.bookmarks(), image: #imageLiteral(resourceName: "bookmarkOutline"), tag: 2)
+    bookmarksVC.tabBarItem = UITabBarItem(title: Strings.bookmarks(), image: #imageLiteral(resourceName: "bookmarkMenuOutline"), tag: 2)
     scheduleVC.tabBarItem = UITabBarItem(title: Strings.schedule(), image: #imageLiteral(resourceName: "schedule"), tag: 3)
     augmentedVC.tabBarItem = UITabBarItem(title: Strings.ar(), image: #imageLiteral(resourceName: "vr"), tag: 4)
     infoVC.tabBarItem = UITabBarItem(title: Strings.info(), image: #imageLiteral(resourceName: "info"), tag: 5)
