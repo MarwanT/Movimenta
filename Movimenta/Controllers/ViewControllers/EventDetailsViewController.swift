@@ -17,14 +17,17 @@ class EventDetailsViewController: UIViewController {
   fileprivate var eventDetailsLabel: ParallaxLabel!
   fileprivate var bookmarkBarButton: UIBarButtonItem!
   
+  fileprivate var enableSwipeBack = true
+  
   var viewModel = EventDetailsViewModel()
   
   static func instance() -> EventDetailsViewController {
     return Storyboard.Event.instantiate(EventDetailsViewController.self)
   }
   
-  func initialize(with event: Event) {
+  func initialize(with event: Event, enableSwipeBack: Bool = true) {
     viewModel.initialize(with: event)
+    self.enableSwipeBack = enableSwipeBack
   }
   
   override func viewDidLoad() {
@@ -45,7 +48,7 @@ class EventDetailsViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = enableSwipeBack
   }
   
   override func viewDidLayoutSubviews() {
