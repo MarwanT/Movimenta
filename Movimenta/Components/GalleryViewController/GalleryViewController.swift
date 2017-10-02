@@ -38,16 +38,20 @@ class GalleryViewController: UIPageViewController {
     }
   }
   
-  func initialize(with imagesURLs: [URL]) {
+  func initialize(with imagesURLs: [URL], placeholderImage: UIImage?) {
     pagesViewControllers = imagesURLs.map { (url) -> GalleryPageViewController in
       let vc = GalleryPageViewController.instance()
-      vc.initialize(with: url)
+      vc.initialize(with: url, imagePlaceholder: placeholderImage)
       return vc
     }
     
     if let firstPageViewController = pagesViewControllers.first {
       setViewControllers([firstPageViewController], direction: .forward,
                          animated: true, completion: nil)
+    } else {
+      let vc = GalleryPageViewController.instance()
+      vc.initialize(with: nil, imagePlaceholder: placeholderImage)
+      setViewControllers([vc], direction: .forward, animated: true, completion: nil)
     }
   }
   

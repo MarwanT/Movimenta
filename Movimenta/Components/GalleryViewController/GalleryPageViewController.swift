@@ -13,17 +13,20 @@ class GalleryPageViewController: UIViewController {
   
   fileprivate var imageURL: URL?
   
+  fileprivate var imagePlaceholder: UIImage?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     fillContent()
   }
   
-  func initialize(with imageURL: URL?) {
+  func initialize(with imageURL: URL?, imagePlaceholder: UIImage?) {
+    self.imagePlaceholder = imagePlaceholder
     self.imageURL = imageURL
   }
   
   private func fillContent() {
-    imageView.sd_setImage(with: imageURL)
+    imageView.sd_setImage(with: self.imageURL, placeholderImage: imagePlaceholder)
   }
 }
 

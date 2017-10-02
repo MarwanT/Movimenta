@@ -18,7 +18,7 @@ class EventCell: UITableViewCell {
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
   @IBOutlet weak var baseView: UIView!
-  @IBOutlet weak var participantImageView: UIImageView!
+  @IBOutlet weak var eventImageView: UIImageView!
   @IBOutlet weak var pinImageView: UIImageView!
   @IBOutlet weak var bookmarkButton: UIButton!
   @IBOutlet weak var dateLabel: UILabel!
@@ -73,8 +73,8 @@ class EventCell: UITableViewCell {
     refreshBookmarkButton()
     setLabelsTopPadding()
     setSideMargins()
-    participantImageView.clipsToBounds = true
-    participantImageView.contentMode = .scaleAspectFill
+    eventImageView.clipsToBounds = true
+    eventImageView.contentMode = .scaleAspectFill
     contentView.layoutMargins = configuration.layoutMargins
     baseView.layoutMargins = configuration.layoutMargins
     selectedBackgroundView = UIImageView(image: theme.color6.image())
@@ -114,7 +114,7 @@ class EventCell: UITableViewCell {
   }
   
   func set(imageURL: URL?, date: String?, venueName: String?, eventName: String?, categories: String?, time: String?, isBookmarked: Bool?) {
-    participantImageView.sd_setImage(with: imageURL)
+    eventImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderSmall"))
     dateLabel.text = date
     venueNameLabel.text = venueName
     eventNameLabel.text = eventName

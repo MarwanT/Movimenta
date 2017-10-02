@@ -38,7 +38,7 @@ class PartnerCell: UITableViewCell {
     descriptionLabel.text = description
 
     if let imageURL = imageURL, let url = URL(string: imageURL) {
-      partnerImageView.sd_setImage(with: url)
+      partnerImageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderSmall"))
     }
   }
 }
