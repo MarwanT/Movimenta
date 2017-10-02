@@ -64,9 +64,7 @@ class EventDetailsHeaderView: UIView {
   
   func loadView(with data: DetailsData?) {
     if isSetup {
-      imageView.sd_setImage(with: data?.image) { (image, error, cache, url) in
-        self.manipulateImageViewVisibility(success: image != nil)
-      }
+      imageView.sd_setImage(with: data?.image, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
       titleLabel.text = data?.title?.capitalized
       categoriesLabel.text = data?.categories?.uppercased()
       participantsLabel.text = data?.participants
@@ -83,10 +81,6 @@ class EventDetailsHeaderView: UIView {
 
 //MARK: - Helpers
 extension EventDetailsHeaderView {
-  fileprivate func manipulateImageViewVisibility(success: Bool) {
-    imageView.isHidden = !success
-    delegate?.eventDetailsHeaderDidChangeSize(self, size: preferredSize())
-  }
   
   func preferredSize() -> CGSize {
     let size = detailsStackView.systemLayoutSizeFitting(
