@@ -48,7 +48,7 @@ class ParticipantCell: UITableViewCell {
   }
   
   func set(imageURL: URL?, name: String?, role: String?) {
-    participantImageView.sd_setImage(with: imageURL)
+    participantImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderSmall"))
     nameLabel.text = name
     roleLabel.text = role
   }
