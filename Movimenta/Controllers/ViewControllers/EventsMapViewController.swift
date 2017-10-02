@@ -80,7 +80,7 @@ class EventsMapViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    updateCameraForMapEvents()
+    updateCameraForConveniance()
     hideMapViewMask()
   }
   
@@ -268,6 +268,16 @@ extension EventsMapViewController {
     let paddingBottom = isEventDetailsPeekViewVisible ? eventDetailsPeekView.bounds.height : 0
     let paddingTop = isBreadcrumbsViewVisible ? filtersBreadcrumbView.bounds.height : 0
     mapView.padding = UIEdgeInsets(top: paddingTop, left: 0, bottom: paddingBottom, right: 0)
+  }
+  
+  /// If there is selected pin update the camera to readjust to that pin
+  /// Otherwise the map camera updates to display all the current pins
+  fileprivate func updateCameraForConveniance() {
+    if viewModel.selectedMapEvent != nil {
+      updateCameraForSelection()
+    } else {
+      updateCameraForMapEvents()
+    }
   }
   
   fileprivate func updateCameraForSelection() {
