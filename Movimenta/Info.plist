@@ -70,11 +70,11 @@
 		<true/>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string></string>
+	<string>We will only be accessing your calendar to add events to your calendar</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Please allow camera usage</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Allow location access for verifying your location to the events nearby</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>nexa-black-webfont.ttf</string>
