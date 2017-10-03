@@ -9,3 +9,4 @@
 "NSCalendarsUsageDescription" = "Nous n'acceptons que votre calendrier pour ajouter des événements à votre calendrier";
 "NSCameraUsageDescription" = "Autoriser l'utilisation de la caméra";
 "NSLocationWhenInUseUsageDescription" = "Autoriser l'accès au site pour vérifier votre emplacement aux événements à proximité";
+"NSPhotoLibraryUsageDescription" = "Autoriser l'utilisation de la bibliothèque de photos";

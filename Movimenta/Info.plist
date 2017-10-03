@@ -75,6 +75,8 @@
 	<string>Please allow camera usage</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow location access for verifying your location to the events nearby</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow photo library usage</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>nexa-black-webfont.ttf</string>
