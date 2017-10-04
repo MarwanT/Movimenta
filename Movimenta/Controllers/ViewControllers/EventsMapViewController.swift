@@ -336,7 +336,6 @@ extension EventsMapViewController {
     if !filtersBreadcrumbTopToSuperviewTop.isActive {
       view.addConstraint(filtersBreadcrumbTopToSuperviewTop)
     }
-    view.setNeedsUpdateConstraints()
     UIView.animate(withDuration: animationDuration) {
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
@@ -350,7 +349,6 @@ extension EventsMapViewController {
     if !filtersBreadcrumbBottomToSuperviewTop.isActive {
       view.addConstraint(filtersBreadcrumbBottomToSuperviewTop)
     }
-    view.setNeedsUpdateConstraints()
     UIView.animate(withDuration: animationDuration) {
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
@@ -404,7 +402,6 @@ extension EventsMapViewController {
     if !eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
       view.addConstraint(eventDetailsPeekViewTopConstraintToSuperviewBottom)
     }
-    view.setNeedsUpdateConstraints()
     UIView.animate(withDuration: animationDuration) { 
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
@@ -421,7 +418,7 @@ extension EventsMapViewController {
     case .bottom:
       value = 0
     }
-  
+
     eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = -value
     if animated {
       UIView.animate(withDuration: animationDuration) {
@@ -600,7 +597,7 @@ extension EventsMapViewController {
       eventDetailsView.frame.origin = bottomPoint
       eventDetailsView.alpha = 0.5
       
-      var origin = eventMapsView.frame.origin
+      let origin = eventMapsView.frame.origin
       
       UIView.animate(withDuration: transitionDuration(using: nil) , animations: { () -> Void in
         eventDetailsView.frame.origin = origin
