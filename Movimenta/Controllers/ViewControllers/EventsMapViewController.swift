@@ -158,7 +158,7 @@ class EventsMapViewController: UIViewController {
         eventsMapNavigationDelegate.interactionController?.finish()
       } else {
         // cancel
-        snapEventDetailsPeekView(direction: .bottom)
+        snapEventDetailsPeekView(direction: .bottom, animated: false)
         eventsMapNavigationDelegate.interactionController?.cancel()
       }
       eventsMapNavigationDelegate.interactionController = nil
