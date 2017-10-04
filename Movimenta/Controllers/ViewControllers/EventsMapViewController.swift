@@ -73,6 +73,7 @@ class EventsMapViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    refreshEventDetailsForSelection(animated: false)
     
     //MARK: [Analytics] Screen Name
     Analytics.shared.send(screenName: Analytics.ScreenNames.EventsMap)
@@ -196,18 +197,18 @@ extension EventsMapViewController {
     updateCameraForMapEvents()
   }
   
-  fileprivate func refreshEventDetailsForSelection() {
+  fileprivate func refreshEventDetailsForSelection(animated: Bool = true) {
     if let mapEvent = viewModel.selectedMapEvent {
-      showEventDetailsPeekView(event: mapEvent.event)
+      showEventDetailsPeekView(event: mapEvent.event, animated: animated)
     } else {
       hideEventDetailsPeekView()
     }
   }
   
-  func showEventDetailsPeekView(event: Event) {
+  func showEventDetailsPeekView(event: Event, animated: Bool = true) {
     eventDetailsPeekView.titleLabel.text = event.title
     eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel
-    showEventDetailsPeekView()
+    showEventDetailsPeekView(animated: animated)
   }
   
   fileprivate func refreshBreadcrumbView() {
@@ -375,15 +376,22 @@ extension EventsMapViewController {
     Analytics.shared.send(event: analyticsEvent)
   }
   
-  func showEventDetailsPeekView() {
+  func showEventDetailsPeekView(animated: Bool = true) {
+    eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = 0
+    
     if eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
       view.removeConstraint(eventDetailsPeekViewTopConstraintToSuperviewBottom)
     }
     if !eventDetailsPeekViewBottomConstraintToSuperviewBottom.isActive {
       view.addConstraint(eventDetailsPeekViewBottomConstraintToSuperviewBottom)
     }
-    view.setNeedsUpdateConstraints()
-    UIView.animate(withDuration: animationDuration) {
+    
+    if animated {
+      UIView.animate(withDuration: animationDuration) {
+        self.view.layoutIfNeeded()
+        self.refreshMapVisibleArea()
+      }
+    } else {
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
     }
@@ -403,7 +411,7 @@ extension EventsMapViewController {
     }
   }
   
-  func snapEventDetailsPeekView(direction: Direction) {
+  func snapEventDetailsPeekView(direction: Direction, animated: Bool = true) {
     eventDetailsSnapPosition = direction
     
     var value: CGFloat = 0
@@ -415,8 +423,11 @@ extension EventsMapViewController {
     }
   
     eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = -value
-    view.setNeedsUpdateConstraints()
-    UIView.animate(withDuration: animationDuration) {
+    if animated {
+      UIView.animate(withDuration: animationDuration) {
+        self.view.layoutIfNeeded()
+      }
+    } else {
       self.view.layoutIfNeeded()
     }
   }
