@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  Movimenta
+
+  Created by Marwan  on 10/3/17.
+  Copyright © 2017 Keeward. All rights reserved.
+*/
+
+"NSCalendarsUsageDescription" = "We will only be accessing your calendar to add events to your calendar";
+"NSCameraUsageDescription" = "Please allow camera usage";
+"NSLocationWhenInUseUsageDescription" = "Allow location access for verifying your location to the events nearby";
+"NSPhotoLibraryUsageDescription" = "Please allow photo library usage";

@@ -73,6 +73,7 @@ class EventsMapViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    refreshEventDetailsForSelection(animated: false)
     
     //MARK: [Analytics] Screen Name
     Analytics.shared.send(screenName: Analytics.ScreenNames.EventsMap)
@@ -147,7 +148,7 @@ class EventsMapViewController: UIViewController {
     } else if (panGesture.state == UIGestureRecognizerState.changed) {
       let translation = panGesture.translation(in: view)
       let percentComplete = (translation.y / view.bounds.height) * -1;
-      eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+      eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = translation.y
       eventsMapNavigationDelegate.interactionController?.update(percentComplete)
     } else if (panGesture.state == UIGestureRecognizerState.ended) {
       let velocity = panGesture.velocity(in: view)
@@ -157,7 +158,7 @@ class EventsMapViewController: UIViewController {
         eventsMapNavigationDelegate.interactionController?.finish()
       } else {
         // cancel
-        snapEventDetailsPeekView(direction: .bottom)
+        snapEventDetailsPeekView(direction: .bottom, animated: false)
         eventsMapNavigationDelegate.interactionController?.cancel()
       }
       eventsMapNavigationDelegate.interactionController = nil
@@ -196,18 +197,18 @@ extension EventsMapViewController {
     updateCameraForMapEvents()
   }
   
-  fileprivate func refreshEventDetailsForSelection() {
+  fileprivate func refreshEventDetailsForSelection(animated: Bool = true) {
     if let mapEvent = viewModel.selectedMapEvent {
-      showEventDetailsPeekView(event: mapEvent.event)
+      showEventDetailsPeekView(event: mapEvent.event, animated: animated)
     } else {
       hideEventDetailsPeekView()
     }
   }
   
-  func showEventDetailsPeekView(event: Event) {
+  func showEventDetailsPeekView(event: Event, animated: Bool = true) {
     eventDetailsPeekView.titleLabel.text = event.title
     eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel
-    showEventDetailsPeekView()
+    showEventDetailsPeekView(animated: animated)
   }
   
   fileprivate func refreshBreadcrumbView() {
@@ -335,7 +336,6 @@ extension EventsMapViewController {
     if !filtersBreadcrumbTopToSuperviewTop.isActive {
       view.addConstraint(filtersBreadcrumbTopToSuperviewTop)
     }
-    view.setNeedsUpdateConstraints()
     UIView.animate(withDuration: animationDuration) {
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
@@ -349,7 +349,6 @@ extension EventsMapViewController {
     if !filtersBreadcrumbBottomToSuperviewTop.isActive {
       view.addConstraint(filtersBreadcrumbBottomToSuperviewTop)
     }
-    view.setNeedsUpdateConstraints()
     UIView.animate(withDuration: animationDuration) {
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
@@ -375,15 +374,22 @@ extension EventsMapViewController {
     Analytics.shared.send(event: analyticsEvent)
   }
   
-  func showEventDetailsPeekView() {
+  func showEventDetailsPeekView(animated: Bool = true) {
+    eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = 0
+    
     if eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
       view.removeConstraint(eventDetailsPeekViewTopConstraintToSuperviewBottom)
     }
     if !eventDetailsPeekViewBottomConstraintToSuperviewBottom.isActive {
       view.addConstraint(eventDetailsPeekViewBottomConstraintToSuperviewBottom)
     }
-    view.setNeedsUpdateConstraints()
-    UIView.animate(withDuration: animationDuration) {
+    
+    if animated {
+      UIView.animate(withDuration: animationDuration) {
+        self.view.layoutIfNeeded()
+        self.refreshMapVisibleArea()
+      }
+    } else {
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
     }
@@ -396,14 +402,13 @@ extension EventsMapViewController {
     if !eventDetailsPeekViewTopConstraintToSuperviewBottom.isActive {
       view.addConstraint(eventDetailsPeekViewTopConstraintToSuperviewBottom)
     }
-    view.setNeedsUpdateConstraints()
     UIView.animate(withDuration: animationDuration) { 
       self.view.layoutIfNeeded()
       self.refreshMapVisibleArea()
     }
   }
   
-  func snapEventDetailsPeekView(direction: Direction) {
+  func snapEventDetailsPeekView(direction: Direction, animated: Bool = true) {
     eventDetailsSnapPosition = direction
     
     var value: CGFloat = 0
@@ -413,11 +418,13 @@ extension EventsMapViewController {
     case .bottom:
       value = 0
     }
-  
+
     eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = -value
-    view.setNeedsUpdateConstraints()
-    UIView.animate(withDuration: animationDuration) {
-      self.eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: 0)
+    if animated {
+      UIView.animate(withDuration: animationDuration) {
+        self.view.layoutIfNeeded()
+      }
+    } else {
       self.view.layoutIfNeeded()
     }
   }
@@ -569,7 +576,7 @@ extension EventsMapViewController {
   
   class SlideUpAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-      return 0.4
+      return ThemeManager.shared.current.animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -590,7 +597,7 @@ extension EventsMapViewController {
       eventDetailsView.frame.origin = bottomPoint
       eventDetailsView.alpha = 0.5
       
-      var origin = eventMapsView.frame.origin
+      let origin = eventMapsView.frame.origin
       
       UIView.animate(withDuration: transitionDuration(using: nil) , animations: { () -> Void in
         eventDetailsView.frame.origin = origin
@@ -603,7 +610,7 @@ extension EventsMapViewController {
   
   class SlideDownAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-      return 0.4
+      return ThemeManager.shared.current.animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
