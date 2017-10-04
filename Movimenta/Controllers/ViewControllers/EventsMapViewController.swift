@@ -579,7 +579,7 @@ extension EventsMapViewController {
   
   class SlideUpAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-      return 0.4
+      return ThemeManager.shared.current.animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -613,7 +613,7 @@ extension EventsMapViewController {
   
   class SlideDownAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-      return 0.4
+      return ThemeManager.shared.current.animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
