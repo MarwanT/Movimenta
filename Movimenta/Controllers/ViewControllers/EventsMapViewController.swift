@@ -147,7 +147,7 @@ class EventsMapViewController: UIViewController {
     } else if (panGesture.state == UIGestureRecognizerState.changed) {
       let translation = panGesture.translation(in: view)
       let percentComplete = (translation.y / view.bounds.height) * -1;
-      eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+      eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = translation.y
       eventsMapNavigationDelegate.interactionController?.update(percentComplete)
     } else if (panGesture.state == UIGestureRecognizerState.ended) {
       let velocity = panGesture.velocity(in: view)
@@ -417,7 +417,6 @@ extension EventsMapViewController {
     eventDetailsPeekViewBottomConstraintToSuperviewBottom.constant = -value
     view.setNeedsUpdateConstraints()
     UIView.animate(withDuration: animationDuration) {
-      self.eventDetailsPeekView.transform = CGAffineTransform(translationX: 0, y: 0)
       self.view.layoutIfNeeded()
     }
   }
