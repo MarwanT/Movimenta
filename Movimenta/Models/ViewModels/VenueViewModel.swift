@@ -36,6 +36,32 @@ final class VenueViewModel {
     }
     return [name ?? "", url]
   }
+  
+  func galleryImage(at index: Int, completion: @escaping (UIImage?) -> Void) {
+    guard let images = images else {
+      completion(#imageLiteral(resourceName: "imagePlaceholderLarge"))
+      return
+    }
+    
+    if let image = images[index] {
+      completion(image)
+    } else {
+      guard let imageURL = self.venueImages?[index] else {
+        completion(#imageLiteral(resourceName: "imagePlaceholderLarge"))
+        return
+      }
+      _ = apiRequest(target: .absolute(imageURL), completion: {
+        (data, statusCode, response, error) in
+        guard let data = data, let image = UIImage(data: data) else {
+          completion(#imageLiteral(resourceName: "imagePlaceholderLarge"))
+          return
+        }
+        self.images.replaceSubrange(index...index, with: [image])
+        completion(image)
+      })
+      return
+    }
+  }
 }
 
 //MARK: Venue Details Data
