@@ -11,6 +11,7 @@ import UIKit
 protocol VenueDetailsHeaderViewDelegate: class {
   var venueDetailsHeaderParentViewController: UIViewController { get }
   func venueDetailsHeaderDidTapMapImage(_ view: VenueDetailsHeaderView)
+  func venueDetailsHeader(_ view: VenueDetailsHeaderView, didTapImageAt index: Int)
 }
 
 class VenueDetailsHeaderView: UIView {
@@ -180,6 +181,10 @@ extension VenueDetailsHeaderView {
 //MARK: Gallery View Controller Delegate
 extension VenueDetailsHeaderView: GalleryViewControllerDelegate {
   func gallery(_ controller: GalleryViewController, didTap image: UIImage?, with url: URL?, at index: Int?) {
+    guard let index = index else {
+      return
+    }
+    delegate?.venueDetailsHeader(self, didTapImageAt: index)
   }
 }
 
