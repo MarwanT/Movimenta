@@ -43,6 +43,7 @@ class GalleryPageViewController: UIViewController {
   }
   
   func didTapImage(_ sender: UITapGestureRecognizer) {
+    delegate?.galleryPage(self, didTap: imageView.image, with: imageURL)
   }
 }
 
