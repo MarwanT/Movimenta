@@ -12,6 +12,7 @@ import Foundation
 final class VenueViewModel {
   fileprivate(set) var venue: Venue!
   fileprivate(set) var events: [Event]!
+  fileprivate(set) var images: [UIImage?]!
   
   var viewControllerTitle: String {
     return Strings.venue().capitalized
