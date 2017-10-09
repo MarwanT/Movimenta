@@ -117,6 +117,8 @@ extension GalleryViewController: UIPageViewControllerDataSource, UIPageViewContr
 //MARK: Gallery Page View Controller Delegate
 extension GalleryViewController: GalleryPageViewControllerDelegate {
   func galleryPage(_ controller: GalleryPageViewController, didTap image: UIImage?, with url: URL?) {
+    let index = pagesViewControllers.index(where: { $0 === controller })
+    galleryDelegate?.gallery(self, didTap: image, with: url, at: index)
   }
 }
 
