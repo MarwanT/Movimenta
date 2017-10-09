@@ -20,6 +20,9 @@ final class VenueViewModel {
   
   func initialize(with venue: Venue) {
     self.venue = venue
+    self.images = venue.gallery?.map{ _ -> UIImage? in
+      return nil
+    } ?? []
     self.events = DataManager.shared.events(in: venue)
   }
   
