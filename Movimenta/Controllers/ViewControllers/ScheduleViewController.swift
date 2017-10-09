@@ -99,6 +99,7 @@ class ScheduleViewController: UIViewController {
   
   private func registerToNotificationCenter() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(handleReloadedData(_:)), name: AppNotification.didLoadData, object: nil)
   }
   
   private func unregisterToNotificationCenter() {
@@ -127,6 +128,10 @@ extension ScheduleViewController {
     }
     let indexPaths = viewModel.updateBookmarkStatus(of: events)
     reloadRows(at: indexPaths)
+  }
+  
+  func handleReloadedData(_ sender: Notification) {
+    reloadEventsData()
   }
   
   func navigateToEventDetailsViewController(event: Event) {
