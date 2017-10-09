@@ -80,6 +80,7 @@ class VenueDetailsHeaderView: UIView {
   func loadGalleryImages(with urls: [URL]?) {
     if galleryViewController == nil {
       galleryViewController = GalleryViewController.instance()
+      galleryViewController?.galleryDelegate = self
       _ = delegate?.venueDetailsHeaderParentViewController.add(
         asChildViewController: galleryViewController!, toView: sliderView)
       galleryViewController!.view.snp.makeConstraints({ (maker) in
@@ -173,6 +174,12 @@ extension VenueDetailsHeaderView {
     let analyticsEvent = Analytics.Event(
       category: .venue, action: .viewVenueMapLocation, name: nameLabel.text ?? "")
     Analytics.shared.send(event: analyticsEvent)
+  }
+}
+
+//MARK: Gallery View Controller Delegate
+extension VenueDetailsHeaderView: GalleryViewControllerDelegate {
+  func gallery(_ controller: GalleryViewController, didTap image: UIImage?, with url: URL?, at index: Int?) {
   }
 }
 
