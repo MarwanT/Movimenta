@@ -56,11 +56,15 @@ final class VenueViewModel {
           completion(#imageLiteral(resourceName: "imagePlaceholderLarge"))
           return
         }
-        self.images.replaceSubrange(index...index, with: [image])
+        self.setGallery(image: image, at: index)
         completion(image)
       })
       return
     }
+  }
+  
+  func setGallery(image: UIImage, at index: Int) {
+    images.replaceSubrange(index...index, with: [image])
   }
 }
 
