@@ -182,6 +182,11 @@ extension VenueViewController {
         .hideDecorationViewsOnLaunch(true)]
     )
     self.presentImageGallery(imageGallery)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .venue, action: .viewVenueImageFullScreen, name: viewModel.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
   }
 }
 
