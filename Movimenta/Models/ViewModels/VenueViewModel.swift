@@ -70,6 +70,10 @@ extension VenueViewModel {
     return venue.gallery
   }
   
+  var numberOfVenueImages: Int {
+    return venueImages?.count ?? 0
+  }
+  
   var mapImageURL: URL? {
     return coordinates?.mapImageURL
   }

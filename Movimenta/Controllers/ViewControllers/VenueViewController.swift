@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import ImageViewer
 import SnapKit
 import UIKit
 
@@ -173,6 +174,14 @@ extension VenueViewController {
   }
   
   func openFullScreenGallery(at index: Int = 0) {
+    let imageGallery = ImageViewer.GalleryViewController(
+      startIndex: index, itemsDataSource: self,
+      configuration: [
+        .deleteButtonMode(.none),
+        .thumbnailsButtonMode(.none),
+        .hideDecorationViewsOnLaunch(true)]
+    )
+    self.presentImageGallery(imageGallery)
   }
 }
 
@@ -253,6 +262,21 @@ extension VenueViewController: EventCellDelegate {
       return
     }
     viewModel.toggleEventBookmarkStatus(at: indexPath)
+  }
+}
+
+//MARK: Gallery Items DataSource
+extension VenueViewController: ImageViewer.GalleryItemsDataSource {
+  func itemCount() -> Int {
+    return viewModel.numberOfVenueImages
+  }
+  
+  func provideGalleryItem(_ index: Int) -> GalleryItem {
+    return GalleryItem.image(fetchImageBlock: { imageBlock in
+      self.viewModel.galleryImage(at: index, completion: { (image) in
+        imageBlock(image)
+      })
+    })
   }
 }
 
