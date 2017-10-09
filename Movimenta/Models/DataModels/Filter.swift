@@ -32,8 +32,8 @@ struct Filter {
     && (organizers == nil || (organizers?.count ?? 0) == 0)
     && (speakers == nil || (speakers?.count ?? 0) == 0)
     && (sponsers == nil || (sponsers?.count ?? 0) == 0)
-    && withinTime == nil || withinTime == 0
-    && withinDistance == nil || withinDistance == 0
+    && (withinTime == nil || withinTime == 0)
+    && (withinDistance == nil || withinDistance == 0)
     && showBookmarked == nil
   }
   
