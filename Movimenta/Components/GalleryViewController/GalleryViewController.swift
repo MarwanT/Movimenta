@@ -120,6 +120,9 @@ extension GalleryViewController: GalleryPageViewControllerDelegate {
     let index = pagesViewControllers.index(where: { $0 === controller })
     galleryDelegate?.gallery(self, didTap: image, with: url, at: index)
   }
+  
+  func galleryPage(_ controller: GalleryPageViewController, didLoad image: UIImage) {
+  }
 }
 
 //MARK: Instance

@@ -10,6 +10,7 @@ import UIKit
 
 protocol GalleryPageViewControllerDelegate: class {
   func galleryPage(_ controller: GalleryPageViewController, didTap image: UIImage?, with url: URL?)
+  func galleryPage(_ controller: GalleryPageViewController, didLoad image: UIImage)
 }
 
 class GalleryPageViewController: UIViewController {
@@ -39,7 +40,12 @@ class GalleryPageViewController: UIViewController {
   }
   
   private func fillContent() {
-    imageView.sd_setImage(with: self.imageURL, placeholderImage: imagePlaceholder)
+    imageView.sd_setImage(with: self.imageURL, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"), options: []) { (image, _, _, _) in
+      guard let image = image else {
+        return
+      }
+      self.delegate?.galleryPage(self, didLoad: image)
+    }
   }
   
   func didTapImage(_ sender: UITapGestureRecognizer) {
