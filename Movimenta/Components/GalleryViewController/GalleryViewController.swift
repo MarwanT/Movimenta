@@ -10,6 +10,7 @@ import UIKit
 
 protocol GalleryViewControllerDelegate: class {
   func gallery(_ controller: GalleryViewController, didTap image: UIImage?, with url: URL?, at index: Int?)
+  func gallery(_ controller: GalleryViewController, didLoad image: UIImage, at index: Int?)
 }
 
 class GalleryViewController: UIPageViewController {
@@ -122,6 +123,8 @@ extension GalleryViewController: GalleryPageViewControllerDelegate {
   }
   
   func galleryPage(_ controller: GalleryPageViewController, didLoad image: UIImage) {
+    let index = pagesViewControllers.index(where: { $0 === controller })
+    galleryDelegate?.gallery(self, didLoad: image, at: index)
   }
 }
 

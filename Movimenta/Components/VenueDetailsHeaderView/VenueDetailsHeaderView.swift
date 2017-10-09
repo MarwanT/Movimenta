@@ -186,6 +186,9 @@ extension VenueDetailsHeaderView: GalleryViewControllerDelegate {
     }
     delegate?.venueDetailsHeader(self, didTapImageAt: index)
   }
+  
+  func gallery(_ controller: GalleryViewController, didLoad image: UIImage, at index: Int?) {
+  }
 }
 
 //MARK: Instence
