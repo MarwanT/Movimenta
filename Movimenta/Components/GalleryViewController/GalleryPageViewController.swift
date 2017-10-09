@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol GalleryPageViewControllerDelegate: class {
+  func galleryPage(_ controller: GalleryPageViewController, didTap image: UIImage?, with url: URL?)
+}
+
 class GalleryPageViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   
   fileprivate var imageURL: URL?
   
   fileprivate var imagePlaceholder: UIImage?
+  
+  weak var delegate: GalleryPageViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
