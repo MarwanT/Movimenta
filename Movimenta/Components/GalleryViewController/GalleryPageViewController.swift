@@ -23,7 +23,14 @@ class GalleryPageViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    initialize()
     fillContent()
+  }
+  
+  private func initialize() {
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapImage(_:)))
+    imageView.addGestureRecognizer(tapGesture)
+    imageView.isUserInteractionEnabled = true
   }
   
   func initialize(with imageURL: URL?, imagePlaceholder: UIImage?) {
@@ -33,6 +40,9 @@ class GalleryPageViewController: UIViewController {
   
   private func fillContent() {
     imageView.sd_setImage(with: self.imageURL, placeholderImage: imagePlaceholder)
+  }
+  
+  func didTapImage(_ sender: UITapGestureRecognizer) {
   }
 }
 
