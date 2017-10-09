@@ -135,6 +135,8 @@
 		59A15EE51F4EC3260019924C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A15EE31F4EC3260019924C /* DatePickerCell.swift */; };
 		59A15EE61F4EC3260019924C /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A15EE41F4EC3260019924C /* DatePickerCell.xib */; };
 		59C04D271F7E5E02002DEF4A /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C04D261F7E5E02002DEF4A /* UITableView+Utils.swift */; };
+		59D39DAE1F8BB0D6001A80FC /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59D39DAC1F8BB0D6001A80FC /* GoogleService-Info-dev.plist */; };
+		59D39DAF1F8BB0D6001A80FC /* GoogleService-Info-prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59D39DAD1F8BB0D6001A80FC /* GoogleService-Info-prod.plist */; };
 		59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F711F1CD134008F3B13 /* Assets.xcassets */; };
 		59D52F831F1CD134008F3B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */; };
 		59D52F871F1CD197008F3B13 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F861F1CD197008F3B13 /* Info.plist */; };
@@ -364,6 +366,8 @@
 		59A15EE31F4EC3260019924C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		59A15EE41F4EC3260019924C /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		59C04D261F7E5E02002DEF4A /* UITableView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
+		59D39DAC1F8BB0D6001A80FC /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
+		59D39DAD1F8BB0D6001A80FC /* GoogleService-Info-prod.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-prod.plist"; sourceTree = "<group>"; };
 		59D52F711F1CD134008F3B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D52F7B1F1CD134008F3B13 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59D52F861F1CD197008F3B13 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -805,6 +809,16 @@
 			path = DatePickerCell;
 			sourceTree = "<group>";
 		};
+		59D39DAB1F8BB0D6001A80FC /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				59D39DAC1F8BB0D6001A80FC /* GoogleService-Info-dev.plist */,
+				59D39DAD1F8BB0D6001A80FC /* GoogleService-Info-prod.plist */,
+			);
+			name = Google;
+			path = Localization/Google;
+			sourceTree = "<group>";
+		};
 		59D52F701F1CD134008F3B13 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,6 +970,7 @@
 		59D52F7D1F1CD134008F3B13 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				59D39DAB1F8BB0D6001A80FC /* Google */,
 				59D52F8D1F1CF690008F3B13 /* Localization */,
 				59D52F861F1CD197008F3B13 /* Info.plist */,
 				F484BF161F73D88A00EE52AD /* EasyAR */,
@@ -1182,6 +1197,7 @@
 				598923181F1E2ABA00F73974 /* nexa-heavy-webfont.ttf in Resources */,
 				593C81951F7558F800626806 /* Gallery.storyboard in Resources */,
 				598923131F1E2AAC00F73974 /* nexa-bolditalic-webfont.ttf in Resources */,
+				59D39DAF1F8BB0D6001A80FC /* GoogleService-Info-prod.plist in Resources */,
 				592D28581F73F71500CBDEBB /* VenueDetailsHeaderView.xib in Resources */,
 				59D52F9A1F1CFA42008F3B13 /* Localizable.strings in Resources */,
 				59A15EE61F4EC3260019924C /* DatePickerCell.xib in Resources */,
@@ -1196,6 +1212,7 @@
 				5916C4471F839B340060D5F3 /* InfoPlist.strings in Resources */,
 				598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */,
 				594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */,
+				59D39DAE1F8BB0D6001A80FC /* GoogleService-Info-dev.plist in Resources */,
 				59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */,
 				596834A11F6017CA00E25579 /* FiltersBreadcrumbView.xib in Resources */,
 				5989231C1F1E2AC800F73974 /* nexa-regular-webfont.ttf in Resources */,
