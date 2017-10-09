@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol GalleryViewControllerDelegate: class {
+  func gallery(_ controller: GalleryViewController, didTap image: UIImage?, with url: URL?, at index: Int?)
+}
+
 class GalleryViewController: UIPageViewController {
   fileprivate var pagesViewControllers = [UIViewController]()
+  
+  weak var galleryDelegate: GalleryViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
