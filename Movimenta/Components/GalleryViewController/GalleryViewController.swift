@@ -48,6 +48,7 @@ class GalleryViewController: UIPageViewController {
     pagesViewControllers = imagesURLs.map { (url) -> GalleryPageViewController in
       let vc = GalleryPageViewController.instance()
       vc.initialize(with: url, imagePlaceholder: placeholderImage)
+      vc.delegate = self
       return vc
     }
     
@@ -57,6 +58,7 @@ class GalleryViewController: UIPageViewController {
     } else {
       let vc = GalleryPageViewController.instance()
       vc.initialize(with: nil, imagePlaceholder: placeholderImage)
+      vc.delegate = self
       setViewControllers([vc], direction: .forward, animated: true, completion: nil)
     }
   }
@@ -109,6 +111,12 @@ extension GalleryViewController: UIPageViewControllerDataSource, UIPageViewContr
   
   func presentationIndex(for pageViewController: UIPageViewController) -> Int {
     return currentViewControllerIndex
+  }
+}
+
+//MARK: Gallery Page View Controller Delegate
+extension GalleryViewController: GalleryPageViewControllerDelegate {
+  func galleryPage(_ controller: GalleryPageViewController, didTap image: UIImage?, with url: URL?) {
   }
 }
 
