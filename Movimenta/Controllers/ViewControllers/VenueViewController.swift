@@ -255,6 +255,7 @@ extension VenueViewController: VenueDetailsHeaderViewDelegate {
   }
   
   func venueDetailsHeader(_ view: VenueDetailsHeaderView, didLoad image: UIImage, at index: Int) {
+    viewModel.setGallery(image: image, at: index)
   }
 }
 
