@@ -48,6 +48,16 @@ class FiltersViewController: UIViewController {
     Analytics.shared.send(screenName: Analytics.ScreenNames.Filters)
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    registerToNotificationCenter()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    unregisterToNotificationCenter()
+  }
+  
   private func setup() {
     fromDateCell = DatePickerCell.instanceFromNib()
     toDateCell = DatePickerCell.instanceFromNib()
@@ -99,6 +109,14 @@ class FiltersViewController: UIViewController {
       style: .plain, target: self,
       action: #selector(didTapApplyButton(_:)))
     navigationItem.backBarButtonItem = UIBarButtonItem.back
+  }
+  
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleReloadedData(_:)), name: AppNotification.didLoadData, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
   }
   
   func didTapApplyButton(_ sender: UIBarButtonItem) {
@@ -177,6 +195,10 @@ class FiltersViewController: UIViewController {
         category: .events, action: .filterBookmarked, name: analyticFilterBookmarked)
       Analytics.shared.send(event: analyticsEvent)
     }
+  }
+  
+  func handleReloadedData(_ sender: Notification) {
+    self.navigationController?.popViewController(animated: true)
   }
 }
 
