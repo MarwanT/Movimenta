@@ -51,6 +51,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - ImageViewer (4.1.0)
   - Keys (1.0.0)
   - Moya (8.0.5):
     - Moya/Core (= 8.0.5)
@@ -84,6 +85,7 @@ DEPENDENCIES:
   - GoogleAnalytics (= 3.17.0)
   - GoogleMaps (= 2.3.1)
   - GooglePlaces (= 2.3.1)
+  - ImageViewer (= 4.1.0)
   - Keys (from `Pods/CocoaPodsKeys`)
   - Moya (= 8.0.5)
   - SDWebImage (= 4.0.0)
@@ -115,6 +117,7 @@ SPEC CHECKSUMS:
   GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  ImageViewer: 163e5832e0a09e31a3e3482cce6e5e9029356174
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   nanopb: 22bc080fa3955e2116b6ff3ee6c2cb3c15ab97cb
@@ -125,6 +128,6 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
 
-PODFILE CHECKSUM: f2484cf840816bd2fa9e93a7e58423e3c895b355
+PODFILE CHECKSUM: 7e5336b2ee7b148caef045b2e12b9af712321ea3
 
 COCOAPODS: 1.2.0

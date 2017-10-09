@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol GalleryViewControllerDelegate: class {
+  func gallery(_ controller: GalleryViewController, didTap image: UIImage?, with url: URL?, at index: Int?)
+  func gallery(_ controller: GalleryViewController, didLoad image: UIImage, at index: Int?)
+}
+
 class GalleryViewController: UIPageViewController {
   fileprivate var pagesViewControllers = [UIViewController]()
+  
+  weak var galleryDelegate: GalleryViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,6 +49,7 @@ class GalleryViewController: UIPageViewController {
     pagesViewControllers = imagesURLs.map { (url) -> GalleryPageViewController in
       let vc = GalleryPageViewController.instance()
       vc.initialize(with: url, imagePlaceholder: placeholderImage)
+      vc.delegate = self
       return vc
     }
     
@@ -51,6 +59,7 @@ class GalleryViewController: UIPageViewController {
     } else {
       let vc = GalleryPageViewController.instance()
       vc.initialize(with: nil, imagePlaceholder: placeholderImage)
+      vc.delegate = self
       setViewControllers([vc], direction: .forward, animated: true, completion: nil)
     }
   }
@@ -103,6 +112,19 @@ extension GalleryViewController: UIPageViewControllerDataSource, UIPageViewContr
   
   func presentationIndex(for pageViewController: UIPageViewController) -> Int {
     return currentViewControllerIndex
+  }
+}
+
+//MARK: Gallery Page View Controller Delegate
+extension GalleryViewController: GalleryPageViewControllerDelegate {
+  func galleryPage(_ controller: GalleryPageViewController, didTap image: UIImage?, with url: URL?) {
+    let index = pagesViewControllers.index(where: { $0 === controller })
+    galleryDelegate?.gallery(self, didTap: image, with: url, at: index)
+  }
+  
+  func galleryPage(_ controller: GalleryPageViewController, didLoad image: UIImage) {
+    let index = pagesViewControllers.index(where: { $0 === controller })
+    galleryDelegate?.gallery(self, didLoad: image, at: index)
   }
 }
 
