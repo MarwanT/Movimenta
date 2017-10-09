@@ -107,6 +107,7 @@ class BookmarksViewController: UIViewController {
   
   private func registerToNotificationCenter() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didLoadData, object: nil)
   }
   
   private func unregisterToNotificationCenter() {
