@@ -171,6 +171,9 @@ extension VenueViewController {
       width: view.frame.width,
       height: headerView.preferredSize().height + hostedEventsLabel.preferredSize().height)
   }
+  
+  func openFullScreenGallery(at index: Int = 0) {
+  }
 }
 
 //MARK: Actions
@@ -236,6 +239,10 @@ extension VenueViewController: VenueDetailsHeaderViewDelegate {
     let analyticsEvent = Analytics.Event(
       category: .venue, action: .shareVenue, name: viewModel.name ?? "")
     Analytics.shared.send(event: analyticsEvent)
+  }
+  
+  func venueDetailsHeader(_ view: VenueDetailsHeaderView, didTapImageAt index: Int) {
+    openFullScreenGallery(at: index)
   }
 }
 
