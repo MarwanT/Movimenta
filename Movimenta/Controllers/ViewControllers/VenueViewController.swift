@@ -253,6 +253,9 @@ extension VenueViewController: VenueDetailsHeaderViewDelegate {
   func venueDetailsHeader(_ view: VenueDetailsHeaderView, didTapImageAt index: Int) {
     openFullScreenGallery(at: index)
   }
+  
+  func venueDetailsHeader(_ view: VenueDetailsHeaderView, didLoad image: UIImage, at index: Int) {
+  }
 }
 
 //MARK: Event Cell Delegates

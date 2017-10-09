@@ -12,6 +12,7 @@ protocol VenueDetailsHeaderViewDelegate: class {
   var venueDetailsHeaderParentViewController: UIViewController { get }
   func venueDetailsHeaderDidTapMapImage(_ view: VenueDetailsHeaderView)
   func venueDetailsHeader(_ view: VenueDetailsHeaderView, didTapImageAt index: Int)
+  func venueDetailsHeader(_ view: VenueDetailsHeaderView, didLoad image: UIImage, at index: Int)
 }
 
 class VenueDetailsHeaderView: UIView {
@@ -188,6 +189,10 @@ extension VenueDetailsHeaderView: GalleryViewControllerDelegate {
   }
   
   func gallery(_ controller: GalleryViewController, didLoad image: UIImage, at index: Int?) {
+    guard let index = index else {
+      return
+    }
+    delegate?.venueDetailsHeader(self, didLoad: image, at: index)
   }
 }
 
