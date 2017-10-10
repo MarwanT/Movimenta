@@ -195,17 +195,17 @@ extension Event: Parsable {
   static func object(from json: JSON) -> Event? {
     let id = json["id"].stringValue
     let link = json["link"].url
-    let content = json["content"].string
-    let title = json["title"].string
-    let excerpt = json["excerpt"].string
-    let subtitle = json["subtitle"].string
+    let content = json["content"].string?.cleanedHTMLTags()
+    let title = json["title"].string?.cleanedHTMLTags()
+    let excerpt = json["excerpt"].string?.cleanedHTMLTags()
+    let subtitle = json["subtitle"].string?.cleanedHTMLTags()
     let languageCode = json["language_code"].string
     let typesIds = json["types"].arrayObject as? [String]
     let categoriesIds = json["categories"].arrayObject as? [String]
     let image = json["image"].url
     let venueId = json["venue"].stringValue
     let coordinates = CLLocationCoordinate2D.object(from: json["coordinates"])
-    let address = json["coordinates"]["address"].string
+    let address = json["coordinates"]["address"].string?.cleanedHTMLTags()
     let organizersIds = json["organizers"].arrayObject?.map({ "\($0)" })
     let speakersIds = json["speakers"].arrayObject?.map({ "\($0)" })
     let artistsIds = json["artists"].arrayObject?.map({ "\($0)" })

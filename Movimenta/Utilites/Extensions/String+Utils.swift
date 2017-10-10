@@ -54,4 +54,8 @@ extension String {
     }
     return nil
   }
+  
+  func cleanedHTMLTags() -> String {
+    return replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).trimed()
+  }
 }
