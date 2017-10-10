@@ -20,7 +20,7 @@ extension Hotel: Parsable {
   static func object(from json: JSON) -> Hotel? {
     let id = json["id"].stringValue
     let link = json["link"].url
-    let name = json["name"].string
+    let name = json["name"].string?.cleanedHTMLTags()
     let image = json["image"].string
 
     return Hotel(id: id, link: link, name: name, image: image)
