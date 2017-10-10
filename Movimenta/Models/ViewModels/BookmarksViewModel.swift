@@ -25,7 +25,7 @@ final class BookmarksViewModel {
     let preferredDateRange = event.preferredDateRange()
     return (imageURL: event.image,
             date: preferredDateRange?.displayedShortDate,
-            venueName: event.venue?.name?.uppercased(),
+            venueName: event.venue?.title?.uppercased(),
             eventName: event.title?.capitalized,
             categories: event.displayedCategoryLabel,
             time: preferredDateRange?.displayedShortTime,
