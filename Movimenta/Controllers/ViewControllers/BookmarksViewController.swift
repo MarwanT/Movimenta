@@ -81,7 +81,11 @@ class BookmarksViewController: UIViewController {
     selectAllItem.target = self
     unbookmarkItem.target = self
     
+    let leftFixedSpaceItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+    leftFixedSpaceItem.width = -5
+    
     toolbarItems = [
+      leftFixedSpaceItem,
       selectAllIcon,
       selectAllItem,
       UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
@@ -103,6 +107,7 @@ class BookmarksViewController: UIViewController {
   
   private func registerToNotificationCenter() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didLoadData, object: nil)
   }
   
   private func unregisterToNotificationCenter() {

@@ -11,11 +11,14 @@ import Moya
 
 public enum MovimentaAPI {
   case events
+  case absolute(URL)
 }
 
 extension MovimentaAPI: TargetType {
   public var baseURL: URL {
     switch self {
+    case .absolute(let url):
+      return url
     default:
       return Environment.current.apiBaseURL
     }
@@ -29,6 +32,8 @@ extension MovimentaAPI: TargetType {
     switch self {
     case .events:
       path = "/biennale"
+    case .absolute:
+      return ""
     }
     
     return languagePath + apiBasePath + path
@@ -36,7 +41,7 @@ extension MovimentaAPI: TargetType {
   
   public var method: Moya.Method {
     switch self {
-    case .events:
+    case .events, .absolute:
       return .get
     }
   }

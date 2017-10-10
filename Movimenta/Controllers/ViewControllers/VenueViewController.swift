@@ -6,6 +6,7 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import ImageViewer
 import SnapKit
 import UIKit
 
@@ -171,6 +172,22 @@ extension VenueViewController {
       width: view.frame.width,
       height: headerView.preferredSize().height + hostedEventsLabel.preferredSize().height)
   }
+  
+  func openFullScreenGallery(at index: Int = 0) {
+    let imageGallery = ImageViewer.GalleryViewController(
+      startIndex: index, itemsDataSource: self,
+      configuration: [
+        .deleteButtonMode(.none),
+        .thumbnailsButtonMode(.none),
+        .hideDecorationViewsOnLaunch(true)]
+    )
+    self.presentImageGallery(imageGallery)
+    
+    //MARK: [Analytics] Event
+    let analyticsEvent = Analytics.Event(
+      category: .venue, action: .viewVenueImageFullScreen, name: viewModel.name ?? "")
+    Analytics.shared.send(event: analyticsEvent)
+  }
 }
 
 //MARK: Actions
@@ -237,6 +254,14 @@ extension VenueViewController: VenueDetailsHeaderViewDelegate {
       category: .venue, action: .shareVenue, name: viewModel.name ?? "")
     Analytics.shared.send(event: analyticsEvent)
   }
+  
+  func venueDetailsHeader(_ view: VenueDetailsHeaderView, didTapImageAt index: Int) {
+    openFullScreenGallery(at: index)
+  }
+  
+  func venueDetailsHeader(_ view: VenueDetailsHeaderView, didLoad image: UIImage, at index: Int) {
+    viewModel.setGallery(image: image, at: index)
+  }
 }
 
 //MARK: Event Cell Delegates
@@ -246,6 +271,21 @@ extension VenueViewController: EventCellDelegate {
       return
     }
     viewModel.toggleEventBookmarkStatus(at: indexPath)
+  }
+}
+
+//MARK: Gallery Items DataSource
+extension VenueViewController: ImageViewer.GalleryItemsDataSource {
+  func itemCount() -> Int {
+    return viewModel.numberOfVenueImages
+  }
+  
+  func provideGalleryItem(_ index: Int) -> GalleryItem {
+    return GalleryItem.image(fetchImageBlock: { imageBlock in
+      self.viewModel.galleryImage(at: index, completion: { (image) in
+        imageBlock(image)
+      })
+    })
   }
 }
 

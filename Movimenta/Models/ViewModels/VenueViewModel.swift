@@ -12,6 +12,7 @@ import Foundation
 final class VenueViewModel {
   fileprivate(set) var venue: Venue!
   fileprivate(set) var events: [Event]!
+  fileprivate(set) var images: [UIImage?]!
   
   var viewControllerTitle: String {
     return Strings.venue().capitalized
@@ -19,6 +20,9 @@ final class VenueViewModel {
   
   func initialize(with venue: Venue) {
     self.venue = venue
+    self.images = venue.gallery?.map{ _ -> UIImage? in
+      return nil
+    } ?? []
     self.events = DataManager.shared.events(in: venue)
   }
   
@@ -32,12 +36,46 @@ final class VenueViewModel {
     }
     return [name ?? "", url]
   }
+  
+  func galleryImage(at index: Int, completion: @escaping (UIImage?) -> Void) {
+    guard let images = images else {
+      completion(#imageLiteral(resourceName: "imagePlaceholderLarge"))
+      return
+    }
+    
+    if let image = images[index] {
+      completion(image)
+    } else {
+      guard let imageURL = self.venueImages?[index] else {
+        completion(#imageLiteral(resourceName: "imagePlaceholderLarge"))
+        return
+      }
+      _ = apiRequest(target: .absolute(imageURL), completion: {
+        (data, statusCode, response, error) in
+        guard let data = data, let image = UIImage(data: data) else {
+          completion(#imageLiteral(resourceName: "imagePlaceholderLarge"))
+          return
+        }
+        self.setGallery(image: image, at: index)
+        completion(image)
+      })
+      return
+    }
+  }
+  
+  func setGallery(image: UIImage, at index: Int) {
+    images.replaceSubrange(index...index, with: [image])
+  }
 }
 
 //MARK: Venue Details Data
 extension VenueViewModel {
   var venueImages: [URL]? {
     return venue.gallery
+  }
+  
+  var numberOfVenueImages: Int {
+    return venueImages?.count ?? 0
   }
   
   var mapImageURL: URL? {

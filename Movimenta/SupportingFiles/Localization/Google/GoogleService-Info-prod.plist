@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>542530027156-li3dmvuqmi6c9tmvs317v3te9426vkg7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.542530027156-li3dmvuqmi6c9tmvs317v3te9426vkg7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDgpswvXiMhDGXmvvkRfWTN1F2Uv2FrUX8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>542530027156</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.keeward.Movimenta</string>
+	<key>PROJECT_ID</key>
+	<string>movimenta-fr</string>
+	<key>STORAGE_BUCKET</key>
+	<string>movimenta-fr.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:542530027156:ios:e982452d9e6635e4</string>
+	<key>DATABASE_URL</key>
+	<string>https://movimenta-fr.firebaseio.com</string>
+</dict>
+</plist>
