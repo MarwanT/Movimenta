@@ -227,8 +227,12 @@ extension EventsMapViewController {
       return
     }
     
-    mapViewSnapshot = mapView.snapshotView(afterScreenUpdates: false)
-    view.insertSubview(mapViewSnapshot!, aboveSubview: mapView)
+    guard let snapshot = mapView.snapshotView(afterScreenUpdates: false) else {
+      return
+    }
+    
+    mapViewSnapshot = snapshot
+    view.insertSubview(snapshot, aboveSubview: mapView)
     mapViewSnapshot!.snp.makeConstraints { (maker) in
       maker.edges.equalTo(mapView)
     }
