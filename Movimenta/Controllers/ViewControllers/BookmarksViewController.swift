@@ -19,6 +19,8 @@ class BookmarksViewController: UIViewController {
   
   fileprivate var tableViewLocked: Bool = false
   
+  fileprivate var isRefreshingViewForVisibleEvents: Bool = false
+  
   var viewModel = BookmarksViewModel()
   
   override func viewDidLoad() {
@@ -126,6 +128,11 @@ class BookmarksViewController: UIViewController {
   }
   
   fileprivate func refreshRightBarButtonItem() {
+    guard viewModel.numberOfRows > 0 else {
+      navigationItem.rightBarButtonItem = nil
+      return
+    }
+    
     if tableView.isEditing {
       let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleEditButtonTap(_:)))
       navigationItem.rightBarButtonItem = doneBarButton
@@ -252,9 +259,24 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
     return 1
   }
   
+  func refreshViewForNumberOfVisibleEvents() {
+    if !isRefreshingViewForVisibleEvents {
+      isRefreshingViewForVisibleEvents = true
+      
+      refreshRightBarButtonItem()
+      turnEditingModeOff()
+      if viewModel.numberOfRows > 0 {
+        hideNoBookmarksView()
+      } else {
+        showNoBookmarksView()
+      }
+      
+      isRefreshingViewForVisibleEvents = false
+    }
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let numberOfRows = viewModel.numberOfRows
-    numberOfRows > 0 ? hideNoBookmarksView() : showNoBookmarksView()
+    refreshViewForNumberOfVisibleEvents()
     return viewModel.numberOfRows
   }
   
