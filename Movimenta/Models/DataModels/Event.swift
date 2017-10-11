@@ -76,7 +76,7 @@ struct Event: ModelCommonProperties {
   
   var displayedPrticipantsLabel: String {
     let names = participants.flatMap { (participant) -> String? in
-      let name = participant.fullName.trimed()
+      let name = participant.titleValue
       return name.isEmpty ? nil : name
     }
     return names.joined(separator: ", ")

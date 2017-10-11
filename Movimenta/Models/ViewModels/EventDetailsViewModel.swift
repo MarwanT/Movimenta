@@ -121,7 +121,7 @@ extension EventDetailsViewModel {
       return (title, location)
     case .participants:
       let participnt = participant(for: indexPath)
-      return (participnt.image, participnt.fullName.capitalized, participnt.profession?.capitalized)
+      return (participnt.image, participnt.titleValue.capitalized, participnt.profession?.capitalized)
     }
   }
   

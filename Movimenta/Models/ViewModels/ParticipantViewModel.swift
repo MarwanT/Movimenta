@@ -26,7 +26,7 @@ final class ParticipantViewModel {
   }
   
   var name: String? {
-    return participant.fullName
+    return participant.titleValue
   }
   
   var roles: String? {
@@ -45,7 +45,7 @@ final class ParticipantViewModel {
     guard let url = participant.link else {
       return nil
     }
-    return [participant.fullName, url]
+    return [participant.titleValue, url]
   }
   
   func event(for indexPath: IndexPath) -> Event {

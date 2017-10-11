@@ -98,7 +98,7 @@ final class FiltersViewModel {
     for (index, artist) in participants.enumerated() {
       let participantSelectionsStatus = selectionStatus(of: artist)
       participantsData.append(.child(
-        label: artist.fullName,
+        label: artist.titleValue,
         selection: participantSelectionsStatus,
         isLastChild: index == (participants.count - 1),
         data: artist))

@@ -34,8 +34,11 @@ struct Participant: ModelCommonProperties {
   var instagram: URL?
   
   var fullName: String {
-    let names = [firstName, lastName].flatMap({ $0 }).joined(separator: " ")
-    return names.isEmpty ? "N/A" : names
+    return [firstName, lastName].flatMap({ $0 }).joined(separator: " ")
+  }
+  
+  var titleValue: String {
+    return title?.trimed() ?? ""
   }
 }
 
