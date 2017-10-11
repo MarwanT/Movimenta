@@ -78,7 +78,7 @@ extension ScheduleViewModel {
     
     let event = events[indexPath.row]
     let preferredDateRange = event.preferredDateRange(for: selectedDate)
-    return (imageURL: event.image,
+    return (imageURL: event.imageThumb,
             date: preferredDateRange?.displayedShortDate,
             venueName: event.venue?.title?.uppercased(),
             eventName: event.title?.capitalized,

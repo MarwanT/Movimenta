@@ -21,6 +21,7 @@ struct Event: ModelCommonProperties {
   var typesIds: [String]?
   var categoriesIds: [String]?
   var image: URL?
+  var imageThumb: URL?
   var venueId: String?
   var coordinates: CLLocationCoordinate2D?
   var address: String?
@@ -203,6 +204,7 @@ extension Event: Parsable {
     let typesIds = json["types"].arrayObject as? [String]
     let categoriesIds = json["categories"].arrayObject as? [String]
     let image = json["image"].url
+    let imageThumb = json["image_thumb"].url
     let venueId = json["venue"].stringValue
     let coordinates = CLLocationCoordinate2D.object(from: json["coordinates"])
     let address = json["coordinates"]["address"].string?.cleanedHTMLTags()
@@ -213,7 +215,7 @@ extension Event: Parsable {
     let sponsorsIds = json["sponsors"].arrayObject?.map({ "\($0)" })
     let dates = DateRange.objects(from: json["dates"])?.sortedAscending()
     
-    return Event(id: id, link: link, content: content, title: title, excerpt: excerpt, subtitle: subtitle, languageCode: languageCode, typesIds: typesIds, categoriesIds: categoriesIds, image: image, venueId: venueId, coordinates: coordinates, address: address, organizersIds: organizersIds, speakersIds: speakersIds, artistsIds: artistsIds, companiesIds: companiesIds, sponsorsIds: sponsorsIds, dates: dates)
+    return Event(id: id, link: link, content: content, title: title, excerpt: excerpt, subtitle: subtitle, languageCode: languageCode, typesIds: typesIds, categoriesIds: categoriesIds, image: image, imageThumb: imageThumb, venueId: venueId, coordinates: coordinates, address: address, organizersIds: organizersIds, speakersIds: speakersIds, artistsIds: artistsIds, companiesIds: companiesIds, sponsorsIds: sponsorsIds, dates: dates)
   }
 }
 
