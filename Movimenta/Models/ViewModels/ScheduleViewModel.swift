@@ -18,6 +18,10 @@ final class ScheduleViewModel {
   }
   
   init() {
+    refreshDates()
+  }
+  
+  func refreshDates() {
     // Set Scheduale dates
     let firstDate = FiltersManager.shared.firstEventDate
     let lastDate = FiltersManager.shared.lastEventDate
