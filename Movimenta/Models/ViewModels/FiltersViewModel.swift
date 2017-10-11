@@ -45,15 +45,17 @@ final class FiltersViewModel {
     var categoriesData = [SelectableRowData]()
     for category in categories {
       let subCategoryData = generateCategoriesData(subCategories: category.subCategories)
-      let selection = selectionStatus(of: category)
-      categoriesData.append(
-        .header(label: category.label ?? "",
-                expanded: (selection != .none) ? true : false,
-                rowData: subCategoryData))
-      // In case the header category is selected
-      // Then also add the children categories so they are displayed
-      if selection != .none {
-        categoriesData.append(contentsOf: subCategoryData)
+      if subCategoryData.count > 0 {
+        let selection = selectionStatus(of: category)
+        categoriesData.append(
+          .header(label: category.label ?? "",
+                  expanded: (selection != .none) ? true : false,
+                  rowData: subCategoryData))
+        // In case the header category is selected
+        // Then also add the children categories so they are displayed
+        if selection != .none {
+          categoriesData.append(contentsOf: subCategoryData)
+        }
       }
     }
     return categoriesData
