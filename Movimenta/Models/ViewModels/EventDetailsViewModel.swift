@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias CalendarEventInfo = (title: String, note: String?, url: URL?, location: String?, startDate: Date, endDate: Date)
+typealias CalendarEventInfo = (title: String, note: String?, url: URL?, location: String?, startDate: Date, endDate: Date, recurrenceFinishDate: Date?)
 typealias EventVenueInfo = (title: String?, location: String?)
 typealias EventParticipantInfo = (imageURL: URL?, name: String?, role: String?)
 
@@ -129,10 +129,20 @@ extension EventDetailsViewModel {
     guard let section = Section(rawValue: indexPath.section), section == .dates else {
       return nil
     }
-    guard let title = event.title?.capitalized, let date = event.dates?[indexPath.row], let startDate = date.from, let endDate = (date.to ?? date.from) else {
+    guard let title = event.title?.capitalized,
+      let date = event.dates?[indexPath.row],
+      let startDate = date.from,
+      let lastDate = date.to,
+      let endDate = startDate.cloneDate(withTimeOf: lastDate) else {
       return nil
     }
-    return (title, event.content, event.link, event.address, startDate, endDate)
+    
+    var recurrenceLastDate: Date? = nil
+    if !startDate.same(date: lastDate) {
+      recurrenceLastDate = lastDate
+    }
+    
+    return (title, event.content, event.link, event.address, startDate, endDate, recurrenceLastDate)
   }
   
   func venue(for indexPath: IndexPath) -> Venue? {

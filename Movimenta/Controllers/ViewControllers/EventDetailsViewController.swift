@@ -352,6 +352,13 @@ extension EventDetailsViewController {
     calendarEvent.notes = info.note
     calendarEvent.startDate = info.startDate
     calendarEvent.endDate = info.endDate
+    if let recurrenceEnd = info.recurrenceFinishDate {
+      let recurrence = EKRecurrenceRule(
+        recurrenceWith: .daily,
+        interval: 1,
+        end: EKRecurrenceEnd(end: recurrenceEnd))
+      calendarEvent.addRecurrenceRule(recurrence)
+    }
     
     // prompt user to add event (to whatever calendar they want)
     let eventEditController = EKEventEditViewController()
