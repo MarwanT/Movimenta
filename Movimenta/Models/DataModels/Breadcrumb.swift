@@ -35,15 +35,15 @@ enum Breadcrumb {
     case .category(let category):
       return category.label ?? ""
     case .artist(let participant):
-      return participant.fullName
+      return participant.titleValue
     case .company(let participant):
-      return participant.fullName
+      return participant.titleValue
     case .organizer(let participant):
-      return participant.fullName
+      return participant.titleValue
     case .speaker(let participant):
-      return participant.fullName
+      return participant.titleValue
     case .sponsor(let participant):
-      return participant.fullName
+      return participant.titleValue
     case .withinTime(let time):
       let unit = FiltersManager.shared.withinTimeValues.unit
       return "\(time) \(unit)"

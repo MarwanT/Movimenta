@@ -23,9 +23,9 @@ final class BookmarksViewModel {
   func values(for indexPath: IndexPath) -> (imageURL: URL?, date: String?, venueName: String?, eventName: String?, categories: String?, time: String?, isBookmarked: Bool?)? {
     let event = events[indexPath.row]
     let preferredDateRange = event.preferredDateRange()
-    return (imageURL: event.image,
+    return (imageURL: event.imageThumb,
             date: preferredDateRange?.displayedShortDate,
-            venueName: event.venue?.name?.uppercased(),
+            venueName: event.venue?.title?.uppercased(),
             eventName: event.title?.capitalized,
             categories: event.displayedCategoryLabel,
             time: preferredDateRange?.displayedShortTime,

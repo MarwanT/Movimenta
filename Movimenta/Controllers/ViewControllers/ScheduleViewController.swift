@@ -110,6 +110,16 @@ class ScheduleViewController: UIViewController {
     datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
   }
   
+  func reloadData() {
+    reloadDatesData()
+    reloadEventsData()
+  }
+  
+  fileprivate func reloadDatesData() {
+    viewModel.refreshDates()
+    datesCollectionView.reloadData()
+  }
+  
   fileprivate func reloadEventsData() {
     viewModel.refreshEvents()
     eventsTableView.reloadData()
@@ -131,7 +141,7 @@ extension ScheduleViewController {
   }
   
   func handleReloadedData(_ sender: Notification) {
-    reloadEventsData()
+    reloadData()
   }
   
   func navigateToEventDetailsViewController(event: Event) {

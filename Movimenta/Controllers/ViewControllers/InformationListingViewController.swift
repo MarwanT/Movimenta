@@ -67,6 +67,8 @@ class InformationListingViewController: UIViewController {
 
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = theme.separatorColor
+    
+    tableView.allowsSelection = false
 
     tableView.register(InformationCell.nib, forCellReuseIdentifier: InformationCell.identifier)
   }
@@ -87,23 +89,25 @@ extension InformationListingViewController: UITableViewDataSource, UITableViewDe
     }
     let item = viewModel.itemAtIndexPath(indexPath: indexPath)
     cell.set(imageURL: item?.image, title: item?.name)
+    cell.delegate = self
 
     return cell
   }
+}
 
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
-
-    let item = viewModel.itemAtIndexPath(indexPath: indexPath)
-    guard let url = item?.link else {
+extension InformationListingViewController: InformationCellDelegate {
+  func informationCellDidTapViewButton(_ cell: InformationCell) {
+    guard let indexPath = tableView.indexPath(for: cell),
+      let item = viewModel.itemAtIndexPath(indexPath: indexPath),
+      let url = item.link else {
       return
     }
-
+    
     WebViewController.present(url: url, inViewController: navigationController)
     
     //MARK: [Analytics] Event
     let analyticsAction: Analytics.Action = viewModel.mode == .hotels ? .goToHotel : .goToRestaurant
-    let analyticsEvent = Analytics.Event(category: .info, action: analyticsAction, name: item?.name ?? "")
+    let analyticsEvent = Analytics.Event(category: .info, action: analyticsAction, name: item.name ?? "")
     Analytics.shared.send(event: analyticsEvent)
   }
 }

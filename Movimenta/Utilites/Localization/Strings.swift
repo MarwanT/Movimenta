@@ -60,10 +60,6 @@ final class Strings {
   static func ar() -> String {
     return Localization.localize(key: "ar")
   }
-
-  static func art_description() -> String {
-    return Localization.localize(key: "art_description")
-  }
   
   static func art_questions_title() -> String {
     return Localization.localize(key: "art_questions_title")
@@ -89,16 +85,8 @@ final class Strings {
     return Localization.localize(key: "bookmarks")
   }
   
-  static func business_description() -> String {
-    return Localization.localize(key: "business_description")
-  }
-  
   static func business_questions_title() -> String {
     return Localization.localize(key: "business_questions_title")
-  }
-  
-  static func call() -> String {
-    return Localization.localize(key: "call")
   }
   
   static func cancel() -> String {
@@ -179,14 +167,6 @@ final class Strings {
   
   static func hotels() -> String {
     return Localization.localize(key: "hotels")
-  }
-  
-  static func hotline_description() -> String {
-    return Localization.localize(key: "hotline_description")
-  }
-  
-  static func hotline_title() -> String {
-    return Localization.localize(key: "hotline_title")
   }
   
   static func how_to_bookmark_text() -> String {
@@ -351,10 +331,6 @@ final class Strings {
   
   static func view_website() -> String {
     return Localization.localize(key: "view_website")
-  }
-  
-  static func vr() -> String {
-    return Localization.localize(key: "vr")
   }
   
   static func website() -> String {

@@ -18,6 +18,10 @@ final class ScheduleViewModel {
   }
   
   init() {
+    refreshDates()
+  }
+  
+  func refreshDates() {
     // Set Scheduale dates
     let firstDate = FiltersManager.shared.firstEventDate
     let lastDate = FiltersManager.shared.lastEventDate
@@ -74,9 +78,9 @@ extension ScheduleViewModel {
     
     let event = events[indexPath.row]
     let preferredDateRange = event.preferredDateRange(for: selectedDate)
-    return (imageURL: event.image,
+    return (imageURL: event.imageThumb,
             date: preferredDateRange?.displayedShortDate,
-            venueName: event.venue?.name?.uppercased(),
+            venueName: event.venue?.title?.uppercased(),
             eventName: event.title?.capitalized,
             categories: event.displayedCategoryLabel,
             time: preferredDateRange?.displayedShortTime,
