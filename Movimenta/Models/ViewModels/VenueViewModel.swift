@@ -87,7 +87,7 @@ extension VenueViewModel {
   }
   
   var address: String? {
-    return venue.address ?? venue.mapAddress
+    return venue.fullAddress
   }
   
   var directions: (origin: CLLocationCoordinate2D?, destination: CLLocationCoordinate2D)? {

@@ -117,7 +117,7 @@ extension EventDetailsViewModel {
       return event.dates?[indexPath.row]
     case .venue:
       let title = event.venue?.title
-      let location = event.venue?.address ?? event.venue?.mapAddress
+      let location = event.venue?.fullAddress
       return (title, location)
     case .participants:
       let participnt = participant(for: indexPath)

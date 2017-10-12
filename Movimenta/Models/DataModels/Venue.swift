@@ -30,6 +30,16 @@ struct Venue: ModelCommonProperties {
   var mapAddress: String?
   var coordinates: CLLocationCoordinate2D?
   var gallery: [URL]?
+  
+  var fullAddress: String {
+    let items = [address, city, state, country].flatMap { (item) -> String? in
+      guard let item = item, !item.isEmpty else {
+        return nil
+      }
+      return item
+    }
+    return items.joined(separator: ", ")
+  }
 }
 
 extension Venue: Parsable {
