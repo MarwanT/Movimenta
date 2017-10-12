@@ -333,10 +333,6 @@ final class Strings {
     return Localization.localize(key: "view_website")
   }
   
-  static func vr() -> String {
-    return Localization.localize(key: "vr")
-  }
-  
   static func website() -> String {
     return Localization.localize(key: "website")
   }
