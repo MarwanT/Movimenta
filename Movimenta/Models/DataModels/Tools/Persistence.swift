@@ -29,7 +29,7 @@ struct Persistence {
   }
   
   func read() -> Data? {
-    return try? Data(contentsOf: Persistence.shared.eventsArchive)
+    return try? Data(contentsOf: eventsArchive)
   }
   
   func save(data: Data) {
