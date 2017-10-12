@@ -26,6 +26,8 @@ enum FontBook: String {
   case filter
   case menu1
   case menu2
+  case tabLabel
+  case tabLabelSelected
 }
 
 extension FontBook {
@@ -77,6 +79,10 @@ extension FontBook {
       selectedFont = Font.nexaBold
     case .menu2:
       selectedFont = Font.nexaRegular
+    case .tabLabel:
+      selectedFont = Font.nexaRegular
+    case .tabLabelSelected:
+      selectedFont = Font.nexaBold
     }
     
     return UIFont(name: selectedFont.rawValue, size: size)!
@@ -322,6 +328,34 @@ extension FontBook {
       UIContentSizeCategory.medium: 10,
       UIContentSizeCategory.small: 9,
       UIContentSizeCategory.extraSmall: 8
+    ],
+    FontBook.tabLabel.rawValue: [
+      UIContentSizeCategory.accessibilityExtraExtraExtraLarge: 9,
+      UIContentSizeCategory.accessibilityExtraExtraLarge: 9,
+      UIContentSizeCategory.accessibilityExtraLarge: 9,
+      UIContentSizeCategory.accessibilityLarge: 9,
+      UIContentSizeCategory.accessibilityMedium: 9,
+      UIContentSizeCategory.extraExtraExtraLarge: 9,
+      UIContentSizeCategory.extraExtraLarge: 9,
+      UIContentSizeCategory.extraLarge: 9,
+      UIContentSizeCategory.large: 9,
+      UIContentSizeCategory.medium: 9,
+      UIContentSizeCategory.small: 9,
+      UIContentSizeCategory.extraSmall: 9
+    ],
+    FontBook.tabLabelSelected.rawValue: [
+      UIContentSizeCategory.accessibilityExtraExtraExtraLarge: 9,
+      UIContentSizeCategory.accessibilityExtraExtraLarge: 9,
+      UIContentSizeCategory.accessibilityExtraLarge: 9,
+      UIContentSizeCategory.accessibilityLarge: 9,
+      UIContentSizeCategory.accessibilityMedium: 9,
+      UIContentSizeCategory.extraExtraExtraLarge: 9,
+      UIContentSizeCategory.extraExtraLarge: 9,
+      UIContentSizeCategory.extraLarge: 9,
+      UIContentSizeCategory.large: 9,
+      UIContentSizeCategory.medium: 9,
+      UIContentSizeCategory.small: 9,
+      UIContentSizeCategory.extraSmall: 9
     ]
   ]
 }

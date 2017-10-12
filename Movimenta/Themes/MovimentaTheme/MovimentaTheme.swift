@@ -28,7 +28,7 @@ final class MovimentaTheme: Theme {
     }
     let tabBarItemAppearance = UITabBarItem.appearance()
     tabBarItemAppearance.setTitleTextAttributes(
-      [NSFontAttributeName : font17], for: .normal)
+      [NSFontAttributeName : fontTab], for: .normal)
     
     let segmentedControlAppearance = UISegmentedControl.appearance()
     segmentedControlAppearance.setTitleTextAttributes(
@@ -121,6 +121,8 @@ final class MovimentaTheme: Theme {
   var font15: UIFont = FontBook.filter.font
   var font16: UIFont = FontBook.menu1.font
   var font17: UIFont = FontBook.menu2.font
+  var fontTab: UIFont = FontBook.tabLabel.font
+  var fontTabSelected: UIFont = FontBook.tabLabelSelected.font
 
   // MARK: - Buttons
   //===============
