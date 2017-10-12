@@ -19,16 +19,13 @@
 "allow_camera_access_via_settings_alert_message" = "Please grant permission to use the Camera so that you can benefit from the Augmented Reality feature.";
 "apply" = "Apply";
 "ar" = "AR";
-"art_description" = "Any question you might have that we can answer.";
 "art_questions_title" = "Have any art related questions?";
 "artist" = "Artist";
 "artists" = "Artists";
 "at_time" = "At";
 "bookmark_your_events" = "Bookmark Your Events";
 "bookmarks" = "Bookmarks";
-"business_description" = "Any question you might have that we can answer.";
 "business_questions_title" = "Have any business questions?";
-"call" = "Call";
 "cancel" = "Cancel";
 "companies" = "Companies";
 "company" = "Company";
@@ -49,8 +46,6 @@
 "hide_bookmarked_events" = "Hide Bookmarked Events";
 "hosted_events" = "Hosted Events";
 "hotels" = "Hotels";
-"hotline_description" = "Customer service hotline is active during the whole festival season.";
-"hotline_title" = "Call our hotline for free";
 "how_to_bookmark_text" = "Fill this page by selecting your favorite events from the schedule.";
 "info" = "Info";
 "info_app_subtitle" = "The App";
