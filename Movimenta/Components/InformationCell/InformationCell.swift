@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol InformationCellDelegate: class {
+  func informationCellDidTapViewButton(_ cell: InformationCell)
+}
+
 class InformationCell: UITableViewCell {
   static let identifier: String = InformationCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
@@ -15,13 +19,26 @@ class InformationCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var displayImageView: UIImageView!
   @IBOutlet weak var websiteLabel: UILabel!
+  
+  weak var delegate: InformationCellDelegate?
 
   var configuration = Configuration()
   
   override func awakeFromNib() {
     super.awakeFromNib()
     contentView.layoutMargins = configuration.layoutMargins
+    initialize()
     applyTheme()
+  }
+  
+  private func initialize() {
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapWebsiteLabel(_:)))
+    websiteLabel.addGestureRecognizer(tapGesture)
+    websiteLabel.isUserInteractionEnabled = true
+  }
+  
+  func didTapWebsiteLabel(_ sender: Any) {
+    delegate?.informationCellDidTapViewButton(self)
   }
 
   private func applyTheme() {
