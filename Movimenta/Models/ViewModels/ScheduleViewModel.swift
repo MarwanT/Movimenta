@@ -129,14 +129,14 @@ extension ScheduleViewModel {
 //MARK: - Schedule Date
 extension ScheduleViewModel {
   struct ScheduleDate {
-    var date: Date?
+    let date: Date
+    fileprivate(set) var isToday: Bool
+    fileprivate(set) var string: String
     
-    fileprivate var isToday: Bool {
-      return date?.same(date: Date()) ?? false
-    }
-    
-    var string: String {
-      return isToday ? Strings.today() : date?.formattedDate(format: "dd'.'MM") ?? ""
+    init(date: Date) {
+      self.date = date
+      self.isToday = date.same(date: Date())
+      self.string = isToday ? Strings.today() : date.formattedDate(format: "dd'.'MM")
     }
   }
 }
