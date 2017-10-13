@@ -13,6 +13,10 @@ final class FiltersViewModel {
   
   fileprivate var categoriesData = [SelectableRowData]()
   fileprivate var participantsData = [SelectableRowData]()
+
+  var viewControllerTitle: String {
+    return Strings.filters()
+  }
   
   func initialize(with filter: Filter) {
     self.filter = filter

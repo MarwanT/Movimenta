@@ -38,6 +38,7 @@ class FiltersViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    initializeViewController()
     initializeTableView()
     initializeNavigationBar()
   }
@@ -65,6 +66,10 @@ class FiltersViewController: UIViewController {
     toDateCell.configuration.labelText = Strings.to()
     fromDateCell.delegate = self
     toDateCell.delegate = self
+  }
+  
+  func initializeViewController() {
+    title = viewModel.viewControllerTitle
   }
   
   private func initializeTableView() {
