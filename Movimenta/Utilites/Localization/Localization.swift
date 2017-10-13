@@ -13,7 +13,7 @@ final class Localization {
     case English = "en"
     case French = "fr"
     
-    static let defaultLanguage = Language.French
+    static let defaultLanguage = Language.English
     
     static func all() -> [Language] {
       return [.English, .French]
