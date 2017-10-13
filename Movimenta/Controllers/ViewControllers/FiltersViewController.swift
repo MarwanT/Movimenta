@@ -16,8 +16,8 @@ protocol FiltersViewControllerDelegate: class {
 class FiltersViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
-  fileprivate var fromDateCell: DatePickerCell!
-  fileprivate var toDateCell: DatePickerCell!
+  fileprivate var fromDateCell: DateCell!
+  fileprivate var toDateCell: DateCell!
   
   var viewModel = FiltersViewModel()
   
@@ -64,8 +64,8 @@ class FiltersViewController: UIViewController {
   }
   
   private func setup() {
-    fromDateCell = DatePickerCell.instanceFromNib()
-    toDateCell = DatePickerCell.instanceFromNib()
+    fromDateCell = DateCell.instanceFromNib()
+    toDateCell = DateCell.instanceFromNib()
     fromDateCell.configuration.labelText = Strings.from()
     toDateCell.configuration.labelText = Strings.to()
     fromDateCell.delegate = self
@@ -235,7 +235,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         return UITableViewCell()
       }
       let values = viewModel.dateInfo(for: dateRow)
-      let cell: DatePickerCell = dateRow == .from ? fromDateCell : toDateCell
+      let cell: DateCell = dateRow == .from ? fromDateCell : toDateCell
       cell.set(date: values.date)
       cell.set(minimumDate: values.minimumDate)
       cell.set(maximumDate: values.maximumDate)
@@ -396,9 +396,9 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       }
       switch dateRow {
       case .from:
-        deselectDatePickerCell(except: fromDateCell)
+        deselectDateCell(except: fromDateCell)
       case .to:
-        deselectDatePickerCell(except: toDateCell)
+        deselectDateCell(except: toDateCell)
       }
     case .types:
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
@@ -407,7 +407,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
           tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
         }
       }
-      deselectDatePickerCell()
+      deselectDateCell()
     case .participants:
       if let (_, affectedIndexPaths) = viewModel.selectParticipant(at: indexPath) {
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
@@ -415,9 +415,9 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
           tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
         }
       }
-      deselectDatePickerCell()
+      deselectDateCell()
     default:
-      deselectDatePickerCell()
+      deselectDateCell()
       return
     }
   }
@@ -469,16 +469,16 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    deselectDatePickerCell()
+    deselectDateCell()
   }
   
   /// If the passed parameter was nil then both date picker cells are deselected
-  func deselectDatePickerCell(except datePickerCell: DatePickerCell? = nil) {
+  func deselectDateCell(except dateCell: DateCell? = nil) {
     var indexPaths = [IndexPath]()
-    if datePickerCell !== fromDateCell && fromDateCell.isSelected {
+    if dateCell !== fromDateCell && fromDateCell.isSelected {
       indexPaths.append(IndexPath(row: DateRow.from.rawValue, section: Section.dates.rawValue))
     }
-    if datePickerCell !== toDateCell && toDateCell.isSelected {
+    if dateCell !== toDateCell && toDateCell.isSelected {
       indexPaths.append(IndexPath(row: DateRow.to.rawValue, section: Section.dates.rawValue))
     }
     indexPaths.forEach { (indexPath) in
@@ -536,7 +536,6 @@ extension FiltersViewController {
 extension FiltersViewController: ResetFiltersViewDelegate {
   func resetFiltersDidTap(_ view: ResetFiltersView) {
     viewModel.resetFilters()
-    refreshTableView()
     delegate?.filtersDidReset(self)
     navigationController?.popViewController(animated: true)
     
@@ -547,8 +546,8 @@ extension FiltersViewController: ResetFiltersViewDelegate {
 }
 
 //MARK: - Date Picker Cell Delegate
-extension FiltersViewController: DatePickerCellDelegate {
-  func datePickerCellDidSelectDate(_ cell: DatePickerCell, date: Date) {
+extension FiltersViewController: DateCellDelegate {
+  func dateCellDidSelectDate(_ cell: DateCell, date: Date) {
     if cell === fromDateCell {
       viewModel.setFrom(date: date)
     } else {
@@ -558,7 +557,7 @@ extension FiltersViewController: DatePickerCellDelegate {
     resetWithinTimeSlider()
   }
 
-  func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {
+  func dateCellDidUpdatePickerVisibility(_ cell: DateCell, isVisible: Bool) {
     updateTableView()
   }
 }

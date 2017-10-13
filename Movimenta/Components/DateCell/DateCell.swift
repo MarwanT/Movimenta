@@ -1,5 +1,5 @@
 //
-//  DatePickerCell.swift
+//  DateCell.swift
 //  Movimenta
 //
 //  Created by Marwan  on 8/24/17.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol DatePickerCellDelegate: class {
-  func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool)
-  func datePickerCellDidSelectDate(_ cell: DatePickerCell, date: Date)
+protocol DateCellDelegate: class {
+  func dateCellDidUpdatePickerVisibility(_ cell: DateCell, isVisible: Bool)
+  func dateCellDidSelectDate(_ cell: DateCell, date: Date)
 }
 
-class DatePickerCell: UITableViewCell {
-  static let identifier: String = DatePickerCell.defaultNibName
+class DateCell: UITableViewCell {
+  static let identifier: String = DateCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
-  class func instanceFromNib() -> DatePickerCell {
-    return UINib(nibName: identifier, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DatePickerCell
+  class func instanceFromNib() -> DateCell {
+    return UINib(nibName: identifier, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DateCell
   }
   
   @IBOutlet weak var label: UILabel!
@@ -39,7 +39,7 @@ class DatePickerCell: UITableViewCell {
     }
   }
   
-  weak var delegate: DatePickerCellDelegate? = nil
+  weak var delegate: DateCellDelegate? = nil
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -118,7 +118,7 @@ class DatePickerCell: UITableViewCell {
       UIView.animate(withDuration: 0.3) {
         self.layoutIfNeeded()
       }
-      delegate?.datePickerCellDidUpdatePickerVisibility(self, isVisible: isSelected)
+      delegate?.dateCellDidUpdatePickerVisibility(self, isVisible: isSelected)
     }
   }
   
@@ -139,12 +139,12 @@ class DatePickerCell: UITableViewCell {
   // MARK: Actions
   func dateSelectionChange(_ datePicker: UIDatePicker) {
     dateLabel.text = datePicker.date.formattedDate(format: "d' 'MMM' 'yyyy")
-    delegate?.datePickerCellDidSelectDate(self, date: datePicker.date)
+    delegate?.dateCellDidSelectDate(self, date: datePicker.date)
   }
 }
 
 //MARK: Configuration declaration
-extension DatePickerCell {
+extension DateCell {
   struct Configuration {
     var layoutMargins = UIEdgeInsets(
       top: CGFloat(ThemeManager.shared.current.space8),
