@@ -68,8 +68,6 @@ class FiltersViewController: UIViewController {
     toDateCell = DateCell.instanceFromNib()
     fromDateCell.configuration.labelText = Strings.from()
     toDateCell.configuration.labelText = Strings.to()
-    fromDateCell.delegate = self
-    toDateCell.delegate = self
   }
   
   func initializeViewController() {
@@ -237,8 +235,6 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       let values = viewModel.dateInfo(for: dateRow)
       let cell: DateCell = dateRow == .from ? fromDateCell : toDateCell
       cell.set(date: values.date)
-      cell.set(minimumDate: values.minimumDate)
-      cell.set(maximumDate: values.maximumDate)
       return cell
     case .withinTime:
       let values = viewModel.withinTimeInfo()
@@ -461,11 +457,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     let fromData = viewModel.dateInfo(for: .from)
     let toData = viewModel.dateInfo(for: .to)
     fromDateCell.set(date: fromData.date)
-    fromDateCell.set(minimumDate: fromData.minimumDate)
-    fromDateCell.set(maximumDate: fromData.maximumDate)
     toDateCell.set(date: toData.date)
-    toDateCell.set(minimumDate: toData.minimumDate)
-    toDateCell.set(maximumDate: toData.maximumDate)
   }
   
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -542,23 +534,6 @@ extension FiltersViewController: ResetFiltersViewDelegate {
     //MARK: [Analytics] Event
     let analyticsEvent = Analytics.Event(category: .events, action: .resetAllFilters)
     Analytics.shared.send(event: analyticsEvent)
-  }
-}
-
-//MARK: - Date Picker Cell Delegate
-extension FiltersViewController: DateCellDelegate {
-  func dateCellDidSelectDate(_ cell: DateCell, date: Date) {
-    if cell === fromDateCell {
-      viewModel.setFrom(date: date)
-    } else {
-      viewModel.setTo(date: date)
-    }
-    refreshDateCells()
-    resetWithinTimeSlider()
-  }
-
-  func dateCellDidUpdatePickerVisibility(_ cell: DateCell, isVisible: Bool) {
-    updateTableView()
   }
 }
 
