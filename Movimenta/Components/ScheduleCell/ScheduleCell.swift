@@ -13,10 +13,10 @@ class ScheduleCell: UICollectionViewCell {
   
   var label: UILabel!
   
+  private static var measureCell = ScheduleCell()
   static func preferredSize(for text: String?) -> CGSize {
-    let cell = ScheduleCell()
-    cell.set(text)
-    return cell.preferredSize()
+    measureCell.set(text)
+    return measureCell.preferredSize()
   }
   
   var configuration = Configuration() {
@@ -73,10 +73,10 @@ class ScheduleCell: UICollectionViewCell {
   }
   
   func preferredSize() -> CGSize {
-    return self.systemLayoutSizeFitting(
-      configuration.targetSize,
-      withHorizontalFittingPriority: UILayoutPriorityFittingSizeLevel,
-      verticalFittingPriority: UILayoutPriorityRequired)
+    let text = label.text ?? ""
+    let height: CGFloat = configuration.targetSize.height
+    let width: CGFloat = text.width(withConstraintedHeight: height, font: ThemeManager.shared.current.font7) + configuration.layoutMargins.left + layoutMargins.right
+    return CGSize(width: width, height: height)
   }
   
   //MARK: APIs
