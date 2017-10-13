@@ -28,7 +28,11 @@ class FiltersViewController: UIViewController {
   }
   
   func initialize(with filter: Filter) {
-    viewModel.initialize(with: filter)
+    viewModel.initialize(with: filter) { [unowned self] in
+      if self.tableView != nil {
+        self.tableView.reloadData()
+      }
+    }
   }
   
   override func awakeFromNib() {

@@ -11,38 +11,60 @@ import Foundation
 final class FiltersViewModel {
   fileprivate(set) var filter: Filter! = nil
   
+  fileprivate var didLoadDates = false
   fileprivate var categoriesData = [SelectableRowData]()
   fileprivate var participantsData = [SelectableRowData]()
-
+  
+  fileprivate let queue = DispatchGroup()
+  
+  var finishLoading: (() -> Void)?
+  
   var viewControllerTitle: String {
     return Strings.filters()
   }
   
-  func initialize(with filter: Filter) {
+  func initialize(with filter: Filter, completion: (() -> Void)?) {
     self.filter = filter
+    finishLoading = completion
     initializeDates()
     initializeCategoriesData()
     initializeParticipantsData()
+    queue.notify(queue: .main) { 
+      self.finishLoading?()
+    }
   }
   
   fileprivate func initializeDates() {
-    let fromValues = dateInfo(for: .from)
-    let toValues = dateInfo(for: .to)
-    setFrom(date: fromValues.date)
-    setTo(date: toValues.date)
+    queue.enter()
+    DispatchQueue.global().async {
+      let fromValues = self.dateInfo(for: .from)
+      let toValues = self.dateInfo(for: .to)
+      self.setFrom(date: fromValues.date)
+      self.setTo(date: toValues.date)
+      self.didLoadDates = true
+      self.queue.leave()
+    }
   }
   
   fileprivate func initializeCategoriesData() {
-    self.categoriesData.removeAll()
-    // On initialization the 'filterCategories' array only contains '.header' cases
-    // for the sole reason that at first they are all collapsed
-    self.categoriesData = generateCategoriesData(categories: FiltersManager.shared.categories)
+    queue.enter()
+    DispatchQueue.global().async {
+      self.categoriesData.removeAll()
+      // On initialization the 'filterCategories' array only contains '.header' cases
+      // for the sole reason that at first they are all collapsed
+      self.categoriesData = self.generateCategoriesData(categories: FiltersManager.shared.categories)
+      self.queue.leave()
+    }
   }
   
   fileprivate func initializeParticipantsData() {
-    self.participantsData.removeAll()
-    // participantsData array will hold .header row data that are not expanded
-    self.participantsData = generateParticipantsData()
+    queue.enter()
+    DispatchQueue.global().async {
+      self.participantsData.removeAll()
+      // participantsData array will hold .header row data that are not expanded
+      self.participantsData = self.generateParticipantsData()
+      self.queue.leave()
+    }
   }
   
   private func generateCategoriesData(categories: [Event.Category]) -> [SelectableRowData] {
@@ -180,7 +202,7 @@ extension FiltersViewModel {
   func numberOfRows(in section: Section) -> Int {
     switch section {
     case .dates:
-      return DateRow.numberOfRows
+      return didLoadDates ? DateRow.numberOfRows : 0
     case .types:
       return categoriesData.count
     case .withinTime:
