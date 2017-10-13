@@ -26,12 +26,12 @@ final class ScheduleViewModel {
     let firstDate = FiltersManager.shared.firstEventDate
     let lastDate = FiltersManager.shared.lastEventDate
     let dates = firstDate.includedDates(till: lastDate)
-    for date in dates {
-      scheduleDates.append(ScheduleDate(date: date))
-    }
-    // Set Selected Index
-    if let index = scheduleDates.index(where: { $0.isToday }) {
-      indexOfSelectedDate = index
+    for (index, date) in dates.enumerated() {
+      let scheduleDate = ScheduleDate(date: date)
+      if scheduleDate.isToday {
+        self.indexOfSelectedDate = index
+      }
+      self.scheduleDates.append(scheduleDate)
     }
   }
   
