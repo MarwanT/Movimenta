@@ -51,7 +51,7 @@ final class MovimentaTheme: Theme {
   /// #8989ff
   var color3: UIColor = UIColor(red: 137/255, green: 137/255, blue: 255/255, alpha: 1)
   /// #f2f2ff
-  var color4: UIColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
+  var color4: UIColor = UIColor(red: 242/255, green: 242/255, blue: 255/255, alpha: 1)
   /// #737373
   var color5: UIColor = UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 1)
   /// #c0c0c2
