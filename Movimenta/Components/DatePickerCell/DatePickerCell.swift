@@ -56,6 +56,7 @@ class DatePickerCell: UITableViewCell {
   
   // MARK: Actions
   func dateSelectionChange(_ datePicker: UIDatePicker) {
+    delegate?.datePickerCell(self, didSelect: datePicker.date)
   }
 }
 
