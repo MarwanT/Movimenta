@@ -20,6 +20,7 @@ class DatePickerCell: UITableViewCell {
   }
   
   private func initialize() {
+    selectionStyle = .none
     datePicker.datePickerMode = .date
     datePicker.addTarget(self, action: #selector(dateSelectionChange(_:)), for: .valueChanged)
     set(date: Date())
