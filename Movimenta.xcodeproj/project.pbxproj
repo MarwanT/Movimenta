@@ -46,6 +46,8 @@
 		594040CD1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594040CC1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift */; };
 		594341151F917897006145FD /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594341131F917897006145FD /* DateCell.swift */; };
 		594341161F917897006145FD /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594341141F917897006145FD /* DateCell.xib */; };
+		5943411A1F92A4DF006145FD /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594341181F92A4DF006145FD /* DatePickerCell.swift */; };
+		5943411B1F92A4DF006145FD /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594341191F92A4DF006145FD /* DatePickerCell.xib */; };
 		5944B80C1F8EC12400055AE6 /* google-maps-styling.json in Resources */ = {isa = PBXBuildFile; fileRef = 5944B80B1F8EC12400055AE6 /* google-maps-styling.json */; };
 		594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594500641F42026400779302 /* TableViewSectionHeader.xib */; };
 		594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594500661F42029500779302 /* TableViewSectionHeader.swift */; };
@@ -273,6 +275,8 @@
 		594040CC1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Utils.swift"; sourceTree = "<group>"; };
 		594341131F917897006145FD /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		594341141F917897006145FD /* DateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
+		594341181F92A4DF006145FD /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		594341191F92A4DF006145FD /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		5944B80B1F8EC12400055AE6 /* google-maps-styling.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-maps-styling.json"; sourceTree = "<group>"; };
 		594500641F42026400779302 /* TableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSectionHeader.xib; sourceTree = "<group>"; };
 		594500661F42029500779302 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
@@ -542,6 +546,15 @@
 			name = DateCell;
 			path = Movimenta/Components/DateCell;
 			sourceTree = SOURCE_ROOT;
+		};
+		594341171F92A4DF006145FD /* DatePickerCell */ = {
+			isa = PBXGroup;
+			children = (
+				594341181F92A4DF006145FD /* DatePickerCell.swift */,
+				594341191F92A4DF006145FD /* DatePickerCell.xib */,
+			);
+			path = DatePickerCell;
+			sourceTree = "<group>";
 		};
 		594500631F42021100779302 /* TableViewSectionHeader */ = {
 			isa = PBXGroup;
@@ -846,6 +859,7 @@
 				59363FC61F44E5AD006059B6 /* VenueCell */,
 				59363FCB1F45966F006059B6 /* ParticipantCell */,
 				594341091F917582006145FD /* DateCell */,
+				594341171F92A4DF006145FD /* DatePickerCell */,
 				5953C1781F5476A000BD27AB /* ExpandableHeaderCell */,
 				5953C17D1F559C8E00BD27AB /* SelectableCell */,
 				5968348C1F5D60A100E25579 /* SwitchCell */,
@@ -1238,6 +1252,7 @@
 				5992026E1F67E2E30078578C /* EventCell.xib in Resources */,
 				598923171F1E2AB800F73974 /* nexa-extrabolditalic-webfont.ttf in Resources */,
 				59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */,
+				5943411B1F92A4DF006145FD /* DatePickerCell.xib in Resources */,
 				598923121F1E2AAA00F73974 /* nexa-bold-webfont.ttf in Resources */,
 				598923111F1E2AA800F73974 /* nexa-blackitalic-webfont.ttf in Resources */,
 				592D284F1F73A8EA00CBDEBB /* Venue.storyboard in Resources */,
@@ -1431,6 +1446,7 @@
 				598656B21F698826000EB28D /* ScheduleCell.swift in Sources */,
 				59D52F8C1F1CF47B008F3B13 /* Localization.swift in Sources */,
 				594040CD1F6BD4EA0025709A /* UIBarButtonItem+Utils.swift in Sources */,
+				5943411A1F92A4DF006145FD /* DatePickerCell.swift in Sources */,
 				598656B51F6ABE7A000EB28D /* ScheduleViewModel.swift in Sources */,
 				596A75771F1908120094A886 /* AppDelegate.swift in Sources */,
 				5970AFA71F2758C3008CA708 /* DataParser.swift in Sources */,
