@@ -16,12 +16,18 @@ class DatePickerCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     initialize()
+    applyTheme()
   }
   
   private func initialize() {
     datePicker.datePickerMode = .date
     datePicker.addTarget(self, action: #selector(dateSelectionChange(_:)), for: .valueChanged)
     set(date: Date())
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    datePicker.setValue(theme.darkTextColor, forKey: #keyPath(UILabel.textColor))
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
