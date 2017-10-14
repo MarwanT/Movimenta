@@ -15,10 +15,26 @@ class DatePickerCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    initialize()
+  }
+  
+  private func initialize() {
+    datePicker.datePickerMode = .date
+    datePicker.addTarget(self, action: #selector(dateSelectionChange(_:)), for: .valueChanged)
+    set(date: Date())
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+  }
+  
+  // MARK: APIs
+  func set(date: Date, animated: Bool = false) {
+    datePicker.setDate(date, animated: animated)
+  }
+  
+  // MARK: Actions
+  func dateSelectionChange(_ datePicker: UIDatePicker) {
   }
 }
 
