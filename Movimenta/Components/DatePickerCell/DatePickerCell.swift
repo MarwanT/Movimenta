@@ -33,6 +33,14 @@ class DatePickerCell: UITableViewCell {
     datePicker.setDate(date, animated: animated)
   }
   
+  func set(minimumDate: Date?) {
+    datePicker.minimumDate = minimumDate
+  }
+  
+  func set(maximumDate: Date?) {
+    datePicker.maximumDate = maximumDate
+  }
+  
   // MARK: Actions
   func dateSelectionChange(_ datePicker: UIDatePicker) {
   }
