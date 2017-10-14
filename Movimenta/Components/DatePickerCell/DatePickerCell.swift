@@ -37,10 +37,6 @@ class DatePickerCell: UITableViewCell {
     datePicker.setValue(theme.darkTextColor, forKey: #keyPath(UILabel.textColor))
   }
   
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-  }
-  
   // MARK: APIs
   func set(date: Date, animated: Bool = false) {
     datePicker.setDate(date, animated: animated)
