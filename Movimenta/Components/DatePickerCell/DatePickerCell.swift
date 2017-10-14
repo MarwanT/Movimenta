@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol DatePickerCellDelegate: class  {
+  func datePickerCell(_ cell: DatePickerCell, didSelect date: Date)
+}
+
 class DatePickerCell: UITableViewCell {
   @IBOutlet weak var datePicker: UIDatePicker!
   
   var configuration = Configuration()
+  
+  var delegate: DatePickerCellDelegate?
   
   override func awakeFromNib() {
     super.awakeFromNib()
