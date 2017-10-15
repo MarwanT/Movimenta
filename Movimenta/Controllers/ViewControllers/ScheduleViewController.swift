@@ -18,13 +18,21 @@ class ScheduleViewController: UIViewController {
     return Storyboard.Event.instantiate(ScheduleViewController.self)
   }
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    registerToNotificationCenter()
+  }
+  
+  deinit {
+    unregisterToNotificationCenter()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTitle()
     initializeNavigationItems()
     initializeCollectionView()
     initializeTableView()
-    registerToNotificationCenter()
     reloadEventsData()
     navigateToSelectedDate()
   }
@@ -38,10 +46,6 @@ class ScheduleViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     navigateToSelectedDate()
-  }
-  
-  deinit {
-    unregisterToNotificationCenter()
   }
   
   private func initializeTitle() {
@@ -117,12 +121,17 @@ class ScheduleViewController: UIViewController {
   
   fileprivate func reloadDatesData() {
     viewModel.refreshDates()
-    datesCollectionView.reloadData()
+    if isViewLoaded {
+      datesCollectionView.reloadData()
+    }
   }
   
   fileprivate func reloadEventsData() {
     viewModel.refreshEvents()
-    eventsTableView.reloadData()
+    if isViewLoaded {
+      eventsTableView.reloadData()
+      eventsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+    }
   }
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
