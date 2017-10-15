@@ -11,9 +11,6 @@ import UIKit
 class DateCell: UITableViewCell {
   static let identifier: String = DateCell.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
-  class func instanceFromNib() -> DateCell {
-    return UINib(nibName: identifier, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DateCell
-  }
   
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
@@ -60,8 +57,9 @@ class DateCell: UITableViewCell {
   }
   
   // MARK: APIs
-  func set(date: Date, animated: Bool = false) {
-    dateLabel.text = date.formattedDate(format: "d' 'MMM' 'yyyy")
+  func set(label: String, date: Date?, animated: Bool = false) {
+    self.label.text = label
+    dateLabel.text = date?.formattedDate(format: "d' 'MMM' 'yyyy")
   }
 }
 

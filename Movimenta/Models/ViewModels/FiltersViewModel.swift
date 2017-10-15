@@ -37,10 +37,10 @@ final class FiltersViewModel {
   fileprivate func initializeDates() {
     queue.enter()
     DispatchQueue.global().async {
-      let fromValues = self.dateInfo(for: .from)
-      let toValues = self.dateInfo(for: .to)
-      self.setFrom(date: fromValues.date)
-      self.setTo(date: toValues.date)
+      let from = self.dateInfo(for: .from(date: nil, minimumDate: nil, maximumDate: nil))!
+      let to = self.dateInfo(for: .to(date: nil, minimumDate: nil, maximumDate: nil))!
+      self.setDate(for: from)
+      self.setDate(for: to)
       self.didLoadDates = true
       self.queue.leave()
     }
@@ -202,7 +202,7 @@ extension FiltersViewModel {
   func numberOfRows(in section: Section) -> Int {
     switch section {
     case .dates:
-      return didLoadDates ? DateRow.numberOfRows : 0
+      return didLoadDates ? 2 : 0
     case .types:
       return categoriesData.count
     case .withinTime:
@@ -220,21 +220,47 @@ extension FiltersViewModel {
     return section.title
   }
   
-  func dateInfo(for dateRow: DateRow) -> (date: Date, minimumDate: Date, maximumDate: Date) {
+  func dateInfo(for indexPath: IndexPath) -> DateRow {
+    if indexPath.row == 0 {
+      return dateInfo(for: .from(date: nil, minimumDate: nil, maximumDate: nil))
+    } else {
+      return dateInfo(for: .to(date: nil, minimumDate: nil, maximumDate: nil))
+    }
+  }
+  
+  fileprivate func dateInfo(for dateRow: DateRow) -> DateRow! {
     var date: Date
     var minimumDate: Date
     var maximumDate: Date
     switch dateRow {
+    case .picker(.from):
+      fallthrough
     case .from:
       date = filter.dateRange?.from ?? FiltersManager.shared.firstEventDate
       minimumDate = FiltersManager.shared.firstEventDate
       maximumDate = FiltersManager.shared.lastEventDate
+      return .from(date: date, minimumDate: minimumDate, maximumDate: maximumDate)
+    case .picker(.to):
+      fallthrough
     case .to:
       date = filter.dateRange?.to ?? FiltersManager.shared.lastEventDate
       minimumDate = filter.dateRange?.from ?? FiltersManager.shared.firstEventDate
       maximumDate = FiltersManager.shared.lastEventDate
+      return .to(date: date, minimumDate: minimumDate, maximumDate: maximumDate)
+    default:
+      return nil
     }
-    return (date, minimumDate, maximumDate)
+  }
+  
+  func indexPath(for dateRow: DateRow) -> IndexPath? {
+    switch dateRow {
+    case .from:
+      return IndexPath(row: 0, section: Section.dates.rawValue)
+    case .to:
+      return IndexPath(row: 1, section: Section.dates.rawValue)
+    default:
+      return nil
+    }
   }
   
   func categoriesInfo(for indexPath: IndexPath) -> SelectableRowData {
@@ -279,6 +305,17 @@ extension FiltersViewModel {
     initializeDates()
     initializeCategoriesData()
     initializeParticipantsData()
+  }
+  
+  func setDate(for dateRow: DateRow) {
+    switch dateRow {
+    case .from(let date, _, _):
+      setFrom(date: date)
+    case .to(let date, _, _):
+      setTo(date: date)
+    default:
+      break
+    }
   }
   
   func setFrom(date: Date?) {

@@ -16,9 +16,6 @@ protocol FiltersViewControllerDelegate: class {
 class FiltersViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
-  fileprivate var fromDateCell: DateCell!
-  fileprivate var toDateCell: DateCell!
-  
   var viewModel = FiltersViewModel()
   
   weak var delegate: FiltersViewControllerDelegate?
@@ -33,11 +30,6 @@ class FiltersViewController: UIViewController {
         self.tableView.reloadData()
       }
     }
-  }
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    setup()
   }
   
   override func viewDidLoad() {
@@ -61,13 +53,6 @@ class FiltersViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     unregisterToNotificationCenter()
-  }
-  
-  private func setup() {
-    fromDateCell = DateCell.instanceFromNib()
-    toDateCell = DateCell.instanceFromNib()
-    fromDateCell.configuration.labelText = Strings.from()
-    toDateCell.configuration.labelText = Strings.to()
   }
   
   func initializeViewController() {
@@ -103,6 +88,7 @@ class FiltersViewController: UIViewController {
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = theme.separatorColor
     
+    tableView.register(DateCell.nib, forCellReuseIdentifier: DateCell.identifier)
     tableView.register(FiltersSectionHeader.self, forHeaderFooterViewReuseIdentifier: FiltersSectionHeader.identifier)
     tableView.register(ExpandableHeaderCell.nib, forCellReuseIdentifier: ExpandableHeaderCell.identifier)
     tableView.register(SelectableCell.nib, forCellReuseIdentifier: SelectableCell.identifier)
@@ -229,13 +215,18 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     
     switch section {
     case .dates:
-      guard let dateRow = DateRow(rawValue: indexPath.row) else {
+      let dateRow = viewModel.dateInfo(for: indexPath)
+      
+      switch dateRow {
+      case .from(let date, _, _), .to(let date, _, _):
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DateCell.identifier, for: indexPath) as? DateCell else {
+          return UITableViewCell()
+        }
+        cell.set(label: dateRow.label, date: date)
+        return cell
+      case .picker:
         return UITableViewCell()
       }
-      let values = viewModel.dateInfo(for: dateRow)
-      let cell: DateCell = dateRow == .from ? fromDateCell : toDateCell
-      cell.set(date: values.date)
-      return cell
     case .withinTime:
       let values = viewModel.withinTimeInfo()
       guard let cell = tableView.dequeueReusableCell(withIdentifier: SliderCell.identifier, for: indexPath) as? SliderCell else {
@@ -387,15 +378,10 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     
     switch section {
     case .dates:
-      guard let dateRow = DateRow(rawValue: indexPath.row) else {
+      guard let dateRow = dateRow(for: indexPath) else {
         return
       }
-      switch dateRow {
-      case .from:
-        deselectDateCell(except: fromDateCell)
-      case .to:
-        deselectDateCell(except: toDateCell)
-      }
+      deselect(dateRow: dateRow)
     case .types:
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
@@ -403,7 +389,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
           tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
         }
       }
-      deselectDateCell()
+      deselect(dateRow: nil)
     case .participants:
       if let (_, affectedIndexPaths) = viewModel.selectParticipant(at: indexPath) {
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
@@ -411,9 +397,9 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
           tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
         }
       }
-      deselectDateCell()
+      deselect(dateRow: nil)
     default:
-      deselectDateCell()
+      deselect(dateRow: nil)
       return
     }
   }
@@ -454,27 +440,61 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   fileprivate func refreshDateCells() {
-    let fromData = viewModel.dateInfo(for: .from)
-    let toData = viewModel.dateInfo(for: .to)
-    fromDateCell.set(date: fromData.date)
-    toDateCell.set(date: toData.date)
+    let dateCellsIndexPaths = indexPath(for: [
+        .from(date: nil, minimumDate: nil, maximumDate: nil),
+        .to(date: nil, minimumDate: nil, maximumDate: nil),
+      ])
+    tableView.reloadRows(at: dateCellsIndexPaths, with: .none)
   }
   
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    deselectDateCell()
+    deselect(dateRow: nil)
   }
   
   /// If the passed parameter was nil then both date picker cells are deselected
-  func deselectDateCell(except dateCell: DateCell? = nil) {
+  func deselect(dateRow: DateRow?) {
     var indexPaths = [IndexPath]()
-    if dateCell !== fromDateCell && fromDateCell.isSelected {
-      indexPaths.append(IndexPath(row: DateRow.from.rawValue, section: Section.dates.rawValue))
-    }
-    if dateCell !== toDateCell && toDateCell.isSelected {
-      indexPaths.append(IndexPath(row: DateRow.to.rawValue, section: Section.dates.rawValue))
+    if let dateRow = dateRow {
+      switch dateRow {
+      case .from:
+        indexPaths.append(contentsOf: indexPath(for: [.from(date: nil, minimumDate: nil, maximumDate: nil)]))
+      case .to:
+        indexPaths.append(contentsOf: indexPath(for: [.to(date: nil, minimumDate: nil, maximumDate: nil)]))
+      default:
+        indexPaths.append(contentsOf: indexPath(for: [
+          .from(date: nil, minimumDate: nil, maximumDate: nil),
+          .to(date: nil, minimumDate: nil, maximumDate: nil)]))
+      }
     }
     indexPaths.forEach { (indexPath) in
       tableView.deselectRow(at: indexPath, animated: true)
+    }
+  }
+  
+  func indexPath(for dateRows: [DateRow]) -> [IndexPath] {
+    var indexPaths = [IndexPath]()
+    for dateRow in dateRows {
+      switch dateRow {
+      case .from:
+        indexPaths.append(IndexPath(row: 0, section: Section.dates.rawValue))
+      case .to:
+        indexPaths.append(IndexPath(row: 1, section: Section.dates.rawValue))
+      default:
+        continue
+      }
+    }
+    return indexPaths
+  }
+  
+  func dateRow(for indexPath: IndexPath) -> DateRow? {
+    guard let section = Section(rawValue: indexPath.section) else {
+      return nil
+    }
+    
+    if indexPath.row == 0 {
+      return DateRow.from(date: nil, minimumDate: nil, maximumDate: nil)
+    } else {
+      return DateRow.to(date: nil, minimumDate: nil, maximumDate: nil)
     }
   }
 }
@@ -514,12 +534,20 @@ extension FiltersViewController {
     }
   }
   
-  enum DateRow: Int {
-    case from = 0
-    case to
+  indirect enum DateRow {
+    case from(date: Date?, minimumDate: Date?, maximumDate: Date?)
+    case to(date: Date?, minimumDate: Date?, maximumDate: Date?)
+    case picker(dateRow: DateRow)
     
-    static var numberOfRows: Int {
-      return 2
+    var label: String {
+      switch self {
+      case .from:
+        return Strings.from()
+      case .to:
+        return Strings.to()
+      default:
+        return ""
+      }
     }
   }
 }
