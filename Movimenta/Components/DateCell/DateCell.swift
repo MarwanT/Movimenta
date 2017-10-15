@@ -20,7 +20,6 @@ class DateCell: UITableViewCell {
   
   var configuration = Configuration() {
     didSet {
-      refreshLabel()
       refreshSpaces()
     }
   }
@@ -30,11 +29,10 @@ class DateCell: UITableViewCell {
     setup()
     applyTheme()
     refreshSpaces()
-    refreshLabel()
   }
   
   private func setup() {
-    set(date: Date())
+    set(label: "Date", date: Date())
   }
   
   private func applyTheme() {
@@ -49,10 +47,6 @@ class DateCell: UITableViewCell {
   
   fileprivate func refreshSpaces() {
     contentView.layoutMargins = configuration.layoutMargins
-  }
-  
-  fileprivate func refreshLabel() {
-    label.text = configuration.labelText
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
@@ -79,6 +73,5 @@ extension DateCell {
       left: CGFloat(ThemeManager.shared.current.space7),
       bottom: CGFloat(ThemeManager.shared.current.space8),
       right: CGFloat(ThemeManager.shared.current.space7))
-    var labelText = "Date"
   }
 }
