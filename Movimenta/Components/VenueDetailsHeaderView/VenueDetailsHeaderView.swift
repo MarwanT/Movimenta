@@ -47,8 +47,8 @@ class VenueDetailsHeaderView: UIView {
   
   private func initialize() {
     segmentedControl.clipsToBounds = true
-    segmentedControl.setTitle(Section.gallery.name, forSegmentAt: Section.gallery.rawValue)
-    segmentedControl.setTitle(Section.map.name, forSegmentAt: Section.map.rawValue)
+    segmentedControl.setTitle(Section.gallery.name.uppercased(), forSegmentAt: Section.gallery.rawValue)
+    segmentedControl.setTitle(Section.map.name.uppercased(), forSegmentAt: Section.map.rawValue)
     segmentedControl.addTarget(self, action: #selector(segmentedControlDidChangeValue(_:)), for: .valueChanged)
     
     let mapTap = UITapGestureRecognizer(target: self, action: #selector(didTapMapImageView(_:)))

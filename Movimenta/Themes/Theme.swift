@@ -63,6 +63,8 @@ protocol ThemeFont {
   var font15: UIFont { get }
   var font16: UIFont { get }
   var font17: UIFont { get }
+  var fontTab: UIFont { get }
+  var fontTabSelected: UIFont { get }
 }
 
 protocol ThemeButtonsSytle {

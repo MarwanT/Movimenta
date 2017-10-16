@@ -19,6 +19,10 @@ final class EventDetailsViewModel {
     self.event = event
   }
   
+  var viewControllerTitle: String {
+    return Strings.event_details()
+  }
+  
   var image: URL? {
     return event.image
   }

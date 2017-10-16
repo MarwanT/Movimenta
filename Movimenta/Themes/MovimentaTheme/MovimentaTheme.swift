@@ -19,6 +19,10 @@ final class MovimentaTheme: Theme {
       NSForegroundColorAttributeName : lightTextColor
     ]
     
+    let barButtonAppearance = UIBarButtonItem.appearance()
+    barButtonAppearance.setTitleTextAttributes(
+      [NSFontAttributeName : font11], for: .normal)
+    
     let tabBarAppearance = UITabBar.appearance()
     tabBarAppearance.isTranslucent = false
     tabBarAppearance.barTintColor = tabBarTintColor
@@ -28,7 +32,7 @@ final class MovimentaTheme: Theme {
     }
     let tabBarItemAppearance = UITabBarItem.appearance()
     tabBarItemAppearance.setTitleTextAttributes(
-      [NSFontAttributeName : font17], for: .normal)
+      [NSFontAttributeName : fontTab], for: .normal)
     
     let segmentedControlAppearance = UISegmentedControl.appearance()
     segmentedControlAppearance.setTitleTextAttributes(
@@ -51,7 +55,7 @@ final class MovimentaTheme: Theme {
   /// #8989ff
   var color3: UIColor = UIColor(red: 137/255, green: 137/255, blue: 255/255, alpha: 1)
   /// #f2f2ff
-  var color4: UIColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
+  var color4: UIColor = UIColor(red: 242/255, green: 242/255, blue: 255/255, alpha: 1)
   /// #737373
   var color5: UIColor = UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 1)
   /// #c0c0c2
@@ -121,6 +125,8 @@ final class MovimentaTheme: Theme {
   var font15: UIFont = FontBook.filter.font
   var font16: UIFont = FontBook.menu1.font
   var font17: UIFont = FontBook.menu2.font
+  var fontTab: UIFont = FontBook.tabLabel.font
+  var fontTabSelected: UIFont = FontBook.tabLabelSelected.font
 
   // MARK: - Buttons
   //===============

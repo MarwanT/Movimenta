@@ -29,7 +29,7 @@ class VenueCell: UITableViewCell {
     titleLabel.textColor = theme.color2
     locationLabel.font = theme.font6
     locationLabel.textColor = theme.darkTextColor
-    locationLabelTopTitleLabelBottomConstraint.constant = CGFloat(theme.space2)
+    locationLabelTopTitleLabelBottomConstraint.constant = CGFloat(theme.space2/2)
     contentView.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space2), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space2), right: CGFloat(theme.space7))

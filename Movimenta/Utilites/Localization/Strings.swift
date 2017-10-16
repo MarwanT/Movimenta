@@ -140,6 +140,10 @@ final class Strings {
   static func event_types() -> String {
     return Localization.localize(key: "event_types")
   }
+  
+  static func filters() -> String {
+    return Localization.localize(key: "filters")
+  }
 
   static func find_m() -> String {
     return Localization.localize(key: "find_m")

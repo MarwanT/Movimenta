@@ -6,19 +6,49 @@
 //  Copyright © 2017 Keeward. All rights reserved.
 //
 
+import SnapKit
 import UIKit
 
 class TableViewSectionHeader: UITableViewHeaderFooterView {
   static let identifier: String = TableViewSectionHeader.defaultNibName
-  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
-  @IBOutlet weak var label: UILabel!
-  @IBOutlet weak var separatorContainerView: UIView!
-  @IBOutlet weak var separatorView: UIView!
+  var label: UILabel!
+  var separatorContainerView: UIView!
+  var separatorView: UIView!
   
-  override func awakeFromNib() {
-    super.awakeFromNib()
+  override init(reuseIdentifier: String?) {
+    super.init(reuseIdentifier: reuseIdentifier)
+    initializeView()
     applyTheme()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    initializeView()
+    applyTheme()
+  }
+  
+  private func initializeView() {
+    separatorContainerView = UIView(frame: CGRect.zero)
+    contentView.addSubview(separatorContainerView)
+    separatorContainerView.snp.makeConstraints { (maker) in
+      maker.left.top.right.equalTo(contentView)
+    }
+    
+    separatorView = UIView(frame: CGRect.zero)
+    separatorContainerView.addSubview(separatorView)
+    separatorView.snp.makeConstraints { (maker) in
+      maker.height.equalTo(0.5)
+      maker.edges.equalTo(separatorContainerView.snp.margins)
+    }
+    
+    label = UILabel(frame: CGRect.zero)
+    label.numberOfLines = 0
+    contentView.addSubview(label)
+    label.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(contentView.snp.margins).priority(750)
+      maker.width.greaterThanOrEqualTo(100).priority(1000)
+    }
   }
   
   private func applyTheme() {
@@ -28,8 +58,10 @@ class TableViewSectionHeader: UITableViewHeaderFooterView {
     separatorView.backgroundColor = theme.separatorColor
     contentView.backgroundColor = theme.white
     backgroundColor = theme.white
-    self.constraints.topConstraints(item: label).first?.constant = CGFloat(theme.space4)
-    self.layoutIfNeeded()
+    contentView.layoutMargins = UIEdgeInsets(
+      top: CGFloat(theme.space4),
+      left: CGFloat(theme.space7), bottom: 0, right: 0)
+    layoutMargins = UIEdgeInsets.zero
   }
   
   var text: String? {

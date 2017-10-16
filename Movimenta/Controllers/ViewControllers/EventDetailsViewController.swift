@@ -59,9 +59,14 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func setup() {
+    initializeViewController()
     setupTableView()
     setupNavigationItems()
     registerToNotificationCenter()
+  }
+  
+  private func initializeViewController() {
+    title = viewModel.viewControllerTitle
   }
   
   private func setupTableView() {
@@ -92,7 +97,7 @@ class EventDetailsViewController: UIViewController {
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = theme.separatorColor
     
-    tableView.register(TableViewSectionHeader.nib, forHeaderFooterViewReuseIdentifier: TableViewSectionHeader.identifier)
+    tableView.register(TableViewSectionHeader.self, forHeaderFooterViewReuseIdentifier: TableViewSectionHeader.identifier)
     tableView.register(DateTimeCell.nib, forCellReuseIdentifier: DateTimeCell.identifier)
     tableView.register(VenueCell.nib, forCellReuseIdentifier: VenueCell.identifier)
     tableView.register(ParticipantCell.nib, forCellReuseIdentifier: ParticipantCell.identifier)
