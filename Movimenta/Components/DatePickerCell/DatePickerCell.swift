@@ -35,6 +35,7 @@ class DatePickerCell: UITableViewCell {
   private func applyTheme() {
     let theme = ThemeManager.shared.current
     datePicker.setValue(theme.darkTextColor, forKey: #keyPath(UILabel.textColor))
+    contentView.layoutMargins = configuration.layoutMargins
   }
   
   // MARK: APIs
