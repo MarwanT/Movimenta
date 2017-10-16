@@ -49,7 +49,6 @@
 		5943411A1F92A4DF006145FD /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594341181F92A4DF006145FD /* DatePickerCell.swift */; };
 		5943411B1F92A4DF006145FD /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594341191F92A4DF006145FD /* DatePickerCell.xib */; };
 		5944B80C1F8EC12400055AE6 /* google-maps-styling.json in Resources */ = {isa = PBXBuildFile; fileRef = 5944B80B1F8EC12400055AE6 /* google-maps-styling.json */; };
-		594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594500641F42026400779302 /* TableViewSectionHeader.xib */; };
 		594500671F42029500779302 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594500661F42029500779302 /* TableViewSectionHeader.swift */; };
 		5945006F1F44342400779302 /* DateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5945006D1F44342400779302 /* DateTimeCell.swift */; };
 		594500701F44342400779302 /* DateTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5945006E1F44342400779302 /* DateTimeCell.xib */; };
@@ -278,7 +277,6 @@
 		594341181F92A4DF006145FD /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		594341191F92A4DF006145FD /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		5944B80B1F8EC12400055AE6 /* google-maps-styling.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "google-maps-styling.json"; sourceTree = "<group>"; };
-		594500641F42026400779302 /* TableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSectionHeader.xib; sourceTree = "<group>"; };
 		594500661F42029500779302 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
 		5945006D1F44342400779302 /* DateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeCell.swift; path = Movimenta/Components/DateTimeCell/DateTimeCell.swift; sourceTree = SOURCE_ROOT; };
 		5945006E1F44342400779302 /* DateTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateTimeCell.xib; path = Movimenta/Components/DateTimeCell/DateTimeCell.xib; sourceTree = SOURCE_ROOT; };
@@ -560,7 +558,6 @@
 			isa = PBXGroup;
 			children = (
 				594500661F42029500779302 /* TableViewSectionHeader.swift */,
-				594500641F42026400779302 /* TableViewSectionHeader.xib */,
 			);
 			path = TableViewSectionHeader;
 			sourceTree = "<group>";
@@ -1228,7 +1225,6 @@
 				596834901F5D60CC00E25579 /* SwitchCell.xib in Resources */,
 				5916C4471F839B340060D5F3 /* InfoPlist.strings in Resources */,
 				598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */,
-				594500651F42026400779302 /* TableViewSectionHeader.xib in Resources */,
 				59D39DAE1F8BB0D6001A80FC /* GoogleService-Info-dev.plist in Resources */,
 				59363FD41F45E01A006059B6 /* ParallaxLabel.xib in Resources */,
 				596834A11F6017CA00E25579 /* FiltersBreadcrumbView.xib in Resources */,
