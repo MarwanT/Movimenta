@@ -13,6 +13,9 @@ protocol DatePickerCellDelegate: class  {
 }
 
 class DatePickerCell: UITableViewCell {
+  static let identifier: String = DatePickerCell.defaultNibName
+  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
+  
   @IBOutlet weak var datePicker: UIDatePicker!
   
   var configuration = Configuration()
@@ -39,7 +42,11 @@ class DatePickerCell: UITableViewCell {
   }
   
   // MARK: APIs
-  func set(date: Date, animated: Bool = false) {
+  /**
+   * By default the animated parameter is false
+   */
+  func set(date: Date?, animated: Bool = false) {
+    let date = date ?? Date()
     datePicker.setDate(date, animated: animated)
   }
   
