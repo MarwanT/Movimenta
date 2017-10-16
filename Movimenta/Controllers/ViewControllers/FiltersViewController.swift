@@ -27,7 +27,7 @@ class FiltersViewController: UIViewController {
   func initialize(with filter: Filter) {
     viewModel.initialize(with: filter) { [unowned self] in
       if self.tableView != nil {
-        self.tableView.reloadData()
+        self.refreshTableView()
       }
     }
   }
@@ -488,9 +488,6 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.reloadSections(
       IndexSet(Section.all.map({ $0.rawValue })),
       with: UITableViewRowAnimation.automatic)
-    // For not identified reasons yet if the dates section is not relloaded
-    // without animation, the date cells are disappearing
-    tableView.reloadSections(IndexSet(integer: Section.dates.rawValue), with: .none)
   }
   
   fileprivate func refreshDateCells() {
