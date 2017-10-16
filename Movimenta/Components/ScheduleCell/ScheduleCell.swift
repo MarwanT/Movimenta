@@ -75,7 +75,7 @@ class ScheduleCell: UICollectionViewCell {
   func preferredSize() -> CGSize {
     let text = label.text ?? ""
     let height: CGFloat = configuration.targetSize.height
-    let width: CGFloat = text.width(withConstraintedHeight: height, font: ThemeManager.shared.current.font7) + configuration.layoutMargins.left + layoutMargins.right
+    let width: CGFloat = text.width(withConstraintedHeight: height, font: ThemeManager.shared.current.font7) + configuration.layoutMargins.left + configuration.layoutMargins.right
     return CGSize(width: width, height: height)
   }
   
