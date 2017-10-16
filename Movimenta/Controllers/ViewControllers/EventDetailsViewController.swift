@@ -59,9 +59,14 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func setup() {
+    initializeViewController()
     setupTableView()
     setupNavigationItems()
     registerToNotificationCenter()
+  }
+  
+  private func initializeViewController() {
+    title = viewModel.viewControllerTitle
   }
   
   private func setupTableView() {
