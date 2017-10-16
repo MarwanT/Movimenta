@@ -33,7 +33,8 @@ class ScheduleViewController: UIViewController {
     initializeNavigationItems()
     initializeCollectionView()
     initializeTableView()
-    reloadEventsData()
+    reloadDatesData()
+    reloadEventsData(reloadView: true)
     navigateToSelectedDate()
   }
   
@@ -114,20 +115,34 @@ class ScheduleViewController: UIViewController {
     datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
   }
   
-  func reloadData() {
-    reloadDatesData()
-    reloadEventsData()
+  func reloadData(reloadViews: Bool = true) {
+    reloadDatesData(reloadView: reloadViews)
+    reloadEventsData(reloadView: reloadViews)
   }
   
-  fileprivate func reloadDatesData() {
+  //MARK: Reload Data
+  fileprivate func reloadDatesData(reloadView: Bool = false) {
     viewModel.refreshDates()
+    if reloadView {
+      reloadDatesView()
+    }
+  }
+  
+  fileprivate func reloadEventsData(reloadView: Bool = false) {
+    viewModel.refreshEvents()
+    if reloadView {
+      reloadEventsView()
+    }
+  }
+  
+  //MARK: Reload Views
+  fileprivate func reloadDatesView() {
     if isViewLoaded {
       datesCollectionView.reloadData()
     }
   }
   
-  fileprivate func reloadEventsData() {
-    viewModel.refreshEvents()
+  fileprivate func reloadEventsView() {
     if isViewLoaded {
       eventsTableView.reloadData()
       eventsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
@@ -202,7 +217,7 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     viewModel.setSelected(for: indexPath)
-    reloadEventsData()
+    reloadEventsData(reloadView: true)
     navigateToSelectedDate()
     
     //MARK: [Analytics] Event

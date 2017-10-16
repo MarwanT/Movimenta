@@ -14,6 +14,9 @@ final class ScheduleViewModel {
   fileprivate(set) var indexOfSelectedDate: Int = 0
   
   var selectedDate: Date? {
+    guard indexOfSelectedDate < scheduleDates.count else {
+      return nil
+    }
     return scheduleDates[indexOfSelectedDate].date
   }
   
