@@ -26,7 +26,7 @@ final class ParticipantViewModel {
   }
   
   var name: String? {
-    return participant.fullName
+    return participant.titleValue
   }
   
   var roles: String? {
@@ -45,7 +45,7 @@ final class ParticipantViewModel {
     guard let url = participant.link else {
       return nil
     }
-    return [participant.fullName, url]
+    return [participant.titleValue, url]
   }
   
   func event(for indexPath: IndexPath) -> Event {
@@ -62,9 +62,9 @@ extension ParticipantViewModel {
   func values(for indexPath: IndexPath) -> (imageURL: URL?, date: String?, venueName: String?, eventName: String?, categories: String?, time: String?, isBookmarked: Bool?)? {
     let event = events[indexPath.row]
     let preferredDateRange = event.preferredDateRange()
-    return (imageURL: event.image,
+    return (imageURL: event.imageThumb,
             date: preferredDateRange?.displayedShortDate,
-            venueName: event.venue?.name?.uppercased(),
+            venueName: event.venue?.title?.uppercased(),
             eventName: event.title?.capitalized,
             categories: event.displayedCategoryLabel,
             time: preferredDateRange?.displayedShortTime,

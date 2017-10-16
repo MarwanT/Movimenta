@@ -34,8 +34,11 @@ struct Participant: ModelCommonProperties {
   var instagram: URL?
   
   var fullName: String {
-    let names = [firstName, lastName].flatMap({ $0 }).joined(separator: " ")
-    return names.isEmpty ? "N/A" : names
+    return [firstName, lastName].flatMap({ $0 }).joined(separator: " ")
+  }
+  
+  var titleValue: String {
+    return title?.trimed() ?? ""
   }
 }
 
@@ -125,12 +128,12 @@ extension Participant: Parsable {
     let id = json["id"].stringValue
     let type = ParticipantType(rawValue: json["type"].stringValue) ?? .Default
     let link = json["link"].url
-    let content = json["content"].string
-    let title = json["title"].string
-    let excerpt = json["excerpt"].string
-    let name = json["name"].string
-    let firstName = json["first_name"].string
-    let lastName = json["last_name"].string
+    let content = json["content"].string?.cleanedHTMLTags()
+    let title = json["title"].string?.cleanedHTMLTags()
+    let excerpt = json["excerpt"].string?.cleanedHTMLTags()
+    let name = json["name"].string?.cleanedHTMLTags()
+    let firstName = json["first_name"].string?.cleanedHTMLTags()
+    let lastName = json["last_name"].string?.cleanedHTMLTags()
     let profession = json["profession"].string
     let image = json["image"].url
     let website = json["website"].url

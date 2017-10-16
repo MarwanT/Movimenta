@@ -32,7 +32,7 @@ class DateTimeCell: UITableViewCell {
     contentView.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space2), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space2), right: CGFloat(theme.space7))
-    addToCalendarTopToDateLabelBottomConstraint.constant = CGFloat(theme.space3)
+    addToCalendarTopToDateLabelBottomConstraint.constant = CGFloat(theme.space2/2)
     layoutIfNeeded()
   }
   

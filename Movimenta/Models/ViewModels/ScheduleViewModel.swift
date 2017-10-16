@@ -14,20 +14,27 @@ final class ScheduleViewModel {
   fileprivate(set) var indexOfSelectedDate: Int = 0
   
   var selectedDate: Date? {
+    guard indexOfSelectedDate < scheduleDates.count else {
+      return nil
+    }
     return scheduleDates[indexOfSelectedDate].date
   }
   
   init() {
+    refreshDates()
+  }
+  
+  func refreshDates() {
     // Set Scheduale dates
     let firstDate = FiltersManager.shared.firstEventDate
     let lastDate = FiltersManager.shared.lastEventDate
     let dates = firstDate.includedDates(till: lastDate)
-    for date in dates {
-      scheduleDates.append(ScheduleDate(date: date))
-    }
-    // Set Selected Index
-    if let index = scheduleDates.index(where: { $0.isToday }) {
-      indexOfSelectedDate = index
+    for (index, date) in dates.enumerated() {
+      let scheduleDate = ScheduleDate(date: date)
+      if scheduleDate.isToday {
+        self.indexOfSelectedDate = index
+      }
+      self.scheduleDates.append(scheduleDate)
     }
   }
   
@@ -74,9 +81,9 @@ extension ScheduleViewModel {
     
     let event = events[indexPath.row]
     let preferredDateRange = event.preferredDateRange(for: selectedDate)
-    return (imageURL: event.image,
+    return (imageURL: event.imageThumb,
             date: preferredDateRange?.displayedShortDate,
-            venueName: event.venue?.name?.uppercased(),
+            venueName: event.venue?.title?.uppercased(),
             eventName: event.title?.capitalized,
             categories: event.displayedCategoryLabel,
             time: preferredDateRange?.displayedShortTime,
@@ -125,14 +132,14 @@ extension ScheduleViewModel {
 //MARK: - Schedule Date
 extension ScheduleViewModel {
   struct ScheduleDate {
-    var date: Date?
+    let date: Date
+    fileprivate(set) var isToday: Bool
+    fileprivate(set) var string: String
     
-    fileprivate var isToday: Bool {
-      return date?.same(date: Date()) ?? false
-    }
-    
-    var string: String {
-      return isToday ? Strings.today() : date?.formattedDate(format: "dd'.'MM") ?? ""
+    init(date: Date) {
+      self.date = date
+      self.isToday = date.same(date: Date())
+      self.string = isToday ? Strings.today() : date.formattedDate(format: "dd'.'MM")
     }
   }
 }

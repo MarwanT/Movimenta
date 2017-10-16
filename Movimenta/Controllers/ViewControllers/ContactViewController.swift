@@ -12,13 +12,8 @@ import MessageUI
 class ContactViewController: UIViewController {
 
   @IBOutlet weak var contentView: UIView!
-  @IBOutlet weak var callTitleLabel: UILabel!
-  @IBOutlet weak var callDescriptionLabel: UILabel!
   @IBOutlet weak var businessQuestionTitleLabel: UILabel!
-  @IBOutlet weak var businessQuestionDescriptionLabel: UILabel!
   @IBOutlet weak var artQuestionTitleLabel: UILabel!
-  @IBOutlet weak var artQuestionDescriptionLabel: UILabel!
-  @IBOutlet weak var callHotlineButton: UIButton!
   @IBOutlet weak var emailUsButton: UIButton!
   @IBOutlet weak var emailArtButton: UIButton!
 
@@ -43,15 +38,10 @@ class ContactViewController: UIViewController {
 
   private func setupView() {
     //localize data
-    callTitleLabel.text = Strings.hotline_title()
-    callDescriptionLabel.text = Strings.hotline_description()
     businessQuestionTitleLabel.text = Strings.business_questions_title()
-    businessQuestionDescriptionLabel.text = Strings.business_description()
     artQuestionTitleLabel.text = Strings.art_questions_title()
-    artQuestionDescriptionLabel.text = Strings.art_description()
     emailUsButton.setTitle(Strings.email(), for: .normal)
     emailArtButton.setTitle(Strings.email(), for: .normal)
-    callHotlineButton.setTitle(Strings.call(), for: .normal)
 
     //Addtional needed setup
     let theme = ThemeManager.shared.current
@@ -63,7 +53,6 @@ class ContactViewController: UIViewController {
     //Setup buttons actions
     emailUsButton.addTarget(self, action: #selector(didTouchUpInsideEmailUsButton(_:)), for: UIControlEvents.touchUpInside)
     emailArtButton.addTarget(self, action: #selector(didTouchUpInsideEmailArtButton(_:)), for: UIControlEvents.touchUpInside)
-    callHotlineButton.addTarget(self, action: #selector(didTouchUpInsideCallUsButton(_:)), for: UIControlEvents.touchUpInside)
     
     navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
@@ -72,21 +61,12 @@ class ContactViewController: UIViewController {
     let theme = ThemeManager.shared.current
 
     //set fonts
-    callTitleLabel.font = theme.font4
-    callDescriptionLabel.font = theme.font6
     businessQuestionTitleLabel.font = theme.font4
-    businessQuestionDescriptionLabel.font = theme.font6
     artQuestionTitleLabel.font = theme.font4
-    artQuestionDescriptionLabel.font = theme.font6
     //set colors
-    callTitleLabel.textColor = theme.darkTextColor
-    callDescriptionLabel.textColor = theme.darkTextColor
     businessQuestionTitleLabel.textColor = theme.darkTextColor
-    businessQuestionDescriptionLabel.textColor = theme.darkTextColor
     artQuestionTitleLabel.textColor = theme.darkTextColor
-    artQuestionDescriptionLabel.textColor = theme.darkTextColor
     //set button styles
-    theme.stylePrimaryButton(button: callHotlineButton)
     theme.styleSecondaryButton(button: emailUsButton)
     theme.styleSecondaryButton(button: emailArtButton)
   }
@@ -141,10 +121,6 @@ extension ContactViewController: MFMailComposeViewControllerDelegate {
 
 //MARK: Action
 extension ContactViewController {
-  func didTouchUpInsideCallUsButton(_ sender: UIButton) {
-    callNumberAction(phoneNumber: viewModel.hotline)
-  }
-
   func didTouchUpInsideEmailUsButton(_ sender: UIButton) {
     sendEmail(email: viewModel.businessEmail)
   }

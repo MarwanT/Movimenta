@@ -6,7 +6,7 @@
   Copyright © 2017 Keeward. All rights reserved.
 */
 
-"NSCalendarsUsageDescription" = "Nous n'acceptons que votre calendrier pour ajouter des événements à votre calendrier";
-"NSCameraUsageDescription" = "Autoriser l'utilisation de la caméra";
-"NSLocationWhenInUseUsageDescription" = "Autoriser l'accès au site pour vérifier votre emplacement aux événements à proximité";
-"NSPhotoLibraryUsageDescription" = "Autoriser l'utilisation de la bibliothèque de photos";
+"NSCalendarsUsageDescription" = "L'accès au calendrier sera utilisé pour ajouter des événements à votre calendrier";
+"NSCameraUsageDescription" = "Veuillez donner accès à la caméra";
+"NSLocationWhenInUseUsageDescription" = "Veuillez donner accès à la localisation pour trouver les événements autour de vous";
+"NSPhotoLibraryUsageDescription" = "Veuillez donner accès à la caméra";

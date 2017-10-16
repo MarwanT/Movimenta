@@ -7,9 +7,9 @@
 */
 
 "about" = "About";
-"about_description" = "MOVIMENTA est un programme collaboratif qui réunit tous les acteurs concernés par l'image en mouvement, et ses conditions de création, de production et de diffusion. Le festival biennal MOVIMENTA en octobre 2017 marquera le début de nouvelles collaborations avec le monde de l'art et celui des technologies numériques, pour un public diversifié.";
-"about_subtitle" = "Une idée de L'Éclat";
-"about_subtitle_description" = "Conçu et développé par •Keeward•";
+"about_description" = "Movimenta is a collaborative entity uniting the stakeholders of the moving image, in a creative, production and broadcasting context. The MOVIMENTA Biennial Festival in October 2017 will mark the beginning of new collaborations between the world of art and digital technologies, targetting a diverse audience.";
+"about_subtitle" = "An initiative by L'ECLAT";
+"about_subtitle_description" = "Developped by •Keeward•";
 "add_to_calendar" = "Add to calendar";
 "all" = "All";
 "allow_camera_access_alert_button_yes" = "Allow";
@@ -19,16 +19,13 @@
 "allow_camera_access_via_settings_alert_message" = "Please grant permission to use the Camera so that you can benefit from the Augmented Reality feature.";
 "apply" = "Apply";
 "ar" = "AR";
-"art_description" = "Any question you might have that we can answer.";
 "art_questions_title" = "Have any art related questions?";
 "artist" = "Artist";
 "artists" = "Artists";
 "at_time" = "At";
 "bookmark_your_events" = "Bookmark Your Events";
 "bookmarks" = "Bookmarks";
-"business_description" = "Any question you might have that we can answer.";
 "business_questions_title" = "Have any business questions?";
-"call" = "Call";
 "cancel" = "Cancel";
 "companies" = "Companies";
 "company" = "Company";
@@ -40,17 +37,16 @@
 "distance" = "Distance";
 "email" = "Email us";
 "event_details" = "Event Details";
-"event_map" = "Event map";
+"event_map" = "Events";
 "event_types" = "Event Types";
+"filters" = "Filters";
 "find_button" = "Scan";
 "find_m" = "Find the M";
-"find_scan_message" = "Find The M, scan it and discover a whole story behind it";
+"find_scan_message" = "Find the M, Scan it and Dive into the artists’ vision through exclusive videos.";
 "from" = "From";
 "hide_bookmarked_events" = "Hide Bookmarked Events";
 "hosted_events" = "Hosted Events";
 "hotels" = "Hotels";
-"hotline_description" = "Customer service hotline is active during the whole festival season.";
-"hotline_title" = "Call our hotline for free";
 "how_to_bookmark_text" = "Fill this page by selecting your favorite events from the schedule.";
 "info" = "Info";
 "info_app_subtitle" = "The App";
@@ -92,5 +88,4 @@
 "view_map" = "View Map";
 "view_more" = "View More";
 "view_website" = "View Website";
-"vr" = "VR";
 "website" = "Website";

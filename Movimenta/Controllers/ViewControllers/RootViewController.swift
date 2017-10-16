@@ -125,11 +125,11 @@ extension RootViewController {
     for viewController in viewControllers {
       if viewController === selectedViewController {
         let selected: [String: AnyObject] =
-          [NSFontAttributeName: ThemeManager.shared.current.font16]
+          [NSFontAttributeName: ThemeManager.shared.current.fontTab]
         viewController.tabBarItem.setTitleTextAttributes(selected, for: .normal)
       } else {
         let normal: [String: AnyObject] =
-          [NSFontAttributeName: ThemeManager.shared.current.font17]
+          [NSFontAttributeName: ThemeManager.shared.current.fontTabSelected]
         viewController.tabBarItem.setTitleTextAttributes(normal, for: .normal)
       }
     }

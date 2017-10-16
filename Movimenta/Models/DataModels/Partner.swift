@@ -21,9 +21,9 @@ extension Partner: Parsable {
   static func object(from json: JSON) -> Partner? {
     let id = json["id"].stringValue
     let link = json["link"].url
-    let name = json["name"].string
+    let name = json["name"].string?.cleanedHTMLTags()
     let image = json["image"].string
-    let description = json["desc"].string
+    let description = json["desc"].string?.cleanedHTMLTags()
 
     return Partner(id: id, link: link, name: name, image: image, description: description)
   }

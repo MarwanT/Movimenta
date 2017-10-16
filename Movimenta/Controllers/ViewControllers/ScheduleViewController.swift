@@ -18,14 +18,23 @@ class ScheduleViewController: UIViewController {
     return Storyboard.Event.instantiate(ScheduleViewController.self)
   }
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    registerToNotificationCenter()
+  }
+  
+  deinit {
+    unregisterToNotificationCenter()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTitle()
     initializeNavigationItems()
     initializeCollectionView()
     initializeTableView()
-    registerToNotificationCenter()
-    reloadEventsData()
+    reloadDatesData()
+    reloadEventsData(reloadView: true)
     navigateToSelectedDate()
   }
   
@@ -38,10 +47,6 @@ class ScheduleViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     navigateToSelectedDate()
-  }
-  
-  deinit {
-    unregisterToNotificationCenter()
   }
   
   private func initializeTitle() {
@@ -110,13 +115,50 @@ class ScheduleViewController: UIViewController {
     datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
   }
   
-  fileprivate func reloadEventsData() {
+  func reloadData(reloadViews: Bool = true) {
+    reloadDatesData(reloadView: reloadViews)
+    reloadEventsData(reloadView: reloadViews)
+  }
+  
+  //MARK: Reload Data
+  fileprivate func reloadDatesData(reloadView: Bool = false) {
+    viewModel.refreshDates()
+    if reloadView {
+      reloadDatesView()
+    }
+  }
+  
+  fileprivate func reloadEventsData(reloadView: Bool = false) {
     viewModel.refreshEvents()
-    eventsTableView.reloadData()
+    if reloadView {
+      reloadEventsView()
+    }
+  }
+  
+  //MARK: Reload Views
+  fileprivate func reloadDatesView() {
+    if isViewLoaded {
+      datesCollectionView.reloadData()
+    }
+  }
+  
+  fileprivate func reloadEventsView() {
+    if isViewLoaded {
+      eventsTableView.reloadData()
+      eventsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+    }
   }
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
-    eventsTableView.reloadRows(at: indexPaths, with: .none)
+    guard let eventsTableView = eventsTableView,
+      var indexPathsForVisibleRows = eventsTableView.indexPathsForVisibleRows else {
+      return
+    }
+    
+    indexPathsForVisibleRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
+      return indexPaths.contains(indexPath)
+    }
+    eventsTableView.reloadRows(at: indexPathsForVisibleRows, with: .none)
   }
 }
 
@@ -131,7 +173,7 @@ extension ScheduleViewController {
   }
   
   func handleReloadedData(_ sender: Notification) {
-    reloadEventsData()
+    reloadData()
   }
   
   func navigateToEventDetailsViewController(event: Event) {
@@ -175,7 +217,7 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     viewModel.setSelected(for: indexPath)
-    reloadEventsData()
+    reloadEventsData(reloadView: true)
     navigateToSelectedDate()
     
     //MARK: [Analytics] Event

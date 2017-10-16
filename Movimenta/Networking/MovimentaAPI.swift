@@ -84,7 +84,7 @@ extension MovimentaAPI {
     case .French:
       return ""
     case .English:
-      return "/\(applicationLanguage.rawValue)"
+      return ""
     }
   }
   

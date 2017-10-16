@@ -95,6 +95,16 @@ class EventsMapViewController: UIViewController {
     mapView.delegate = self
     mapView.isMyLocationEnabled = true
     mapView.settings.myLocationButton = true
+    do {
+      // Set the map style by passing the URL of the local file.
+      if let styleURL = Bundle.main.url(forResource: "google-maps-styling", withExtension: "json") {
+        mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+      } else {
+        print("Unable to find google.maps-styling.json")
+      }
+    } catch {
+      print("One or more of the map styles failed to load. \(error)")
+    }
     view.addSubview(mapView)
     view.sendSubview(toBack: mapView)
     mapView.snp.makeConstraints { (maker) in
@@ -199,7 +209,7 @@ extension EventsMapViewController {
   
   func showEventDetailsPeekView(event: Event, animated: Bool = true) {
     eventDetailsPeekView.titleLabel.text = event.title
-    eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel
+    eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel.uppercased()
     showEventDetailsPeekView(animated: animated)
   }
   
@@ -227,8 +237,12 @@ extension EventsMapViewController {
       return
     }
     
-    mapViewSnapshot = mapView.snapshotView(afterScreenUpdates: false)
-    view.insertSubview(mapViewSnapshot!, aboveSubview: mapView)
+    guard let snapshot = mapView.snapshotView(afterScreenUpdates: false) else {
+      return
+    }
+    
+    mapViewSnapshot = snapshot
+    view.insertSubview(snapshot, aboveSubview: mapView)
     mapViewSnapshot!.snp.makeConstraints { (maker) in
       maker.edges.equalTo(mapView)
     }

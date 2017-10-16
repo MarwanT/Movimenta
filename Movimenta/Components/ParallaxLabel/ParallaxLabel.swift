@@ -23,7 +23,7 @@ class ParallaxLabel: UIView {
   private func applyTheme() {
     let theme = ThemeManager.shared.current
     label.font = theme.font2
-    label.textColor = theme.color2
+    label.textColor = theme.color3
   }
   
   func set(text: String?) {

@@ -27,8 +27,8 @@ internal final class Analytics {
   
   /// Do general Analytics chanels initialization
   func initialize() {
-    initializeGoogleAnalytics()
     initializeFirebase()
+    initializeGoogleAnalytics()
     // TODO: Set the application version field
   }
   

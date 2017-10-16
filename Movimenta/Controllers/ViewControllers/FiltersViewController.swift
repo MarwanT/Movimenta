@@ -16,9 +16,6 @@ protocol FiltersViewControllerDelegate: class {
 class FiltersViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
-  fileprivate var fromDateCell: DatePickerCell!
-  fileprivate var toDateCell: DatePickerCell!
-  
   var viewModel = FiltersViewModel()
   
   weak var delegate: FiltersViewControllerDelegate?
@@ -28,16 +25,16 @@ class FiltersViewController: UIViewController {
   }
   
   func initialize(with filter: Filter) {
-    viewModel.initialize(with: filter)
-  }
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    setup()
+    viewModel.initialize(with: filter) { [unowned self] in
+      if self.tableView != nil {
+        self.refreshTableView()
+      }
+    }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    initializeViewController()
     initializeTableView()
     initializeNavigationBar()
   }
@@ -58,13 +55,8 @@ class FiltersViewController: UIViewController {
     unregisterToNotificationCenter()
   }
   
-  private func setup() {
-    fromDateCell = DatePickerCell.instanceFromNib()
-    toDateCell = DatePickerCell.instanceFromNib()
-    fromDateCell.configuration.labelText = Strings.from()
-    toDateCell.configuration.labelText = Strings.to()
-    fromDateCell.delegate = self
-    toDateCell.delegate = self
+  func initializeViewController() {
+    title = viewModel.viewControllerTitle
   }
   
   private func initializeTableView() {
@@ -96,6 +88,8 @@ class FiltersViewController: UIViewController {
     tableView.separatorStyle = .singleLine
     tableView.separatorColor = theme.separatorColor
     
+    tableView.register(DateCell.nib, forCellReuseIdentifier: DateCell.identifier)
+    tableView.register(DatePickerCell.nib, forCellReuseIdentifier: DatePickerCell.identifier)
     tableView.register(FiltersSectionHeader.self, forHeaderFooterViewReuseIdentifier: FiltersSectionHeader.identifier)
     tableView.register(ExpandableHeaderCell.nib, forCellReuseIdentifier: ExpandableHeaderCell.identifier)
     tableView.register(SelectableCell.nib, forCellReuseIdentifier: SelectableCell.identifier)
@@ -104,10 +98,14 @@ class FiltersViewController: UIViewController {
   }
   
   private func initializeNavigationBar() {
-    navigationItem.rightBarButtonItem = UIBarButtonItem(
+    let theme = ThemeManager.shared.current
+    let applyButton = UIBarButtonItem(
       title: Strings.apply(),
       style: .plain, target: self,
       action: #selector(didTapApplyButton(_:)))
+    applyButton.setTitleTextAttributes(
+      [NSFontAttributeName : theme.font10], for: .normal)
+    navigationItem.rightBarButtonItem = applyButton
     navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
   
@@ -222,15 +220,30 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     
     switch section {
     case .dates:
-      guard let dateRow = DateRow(rawValue: indexPath.row) else {
+      guard let dateRow = viewModel.dateInfo(for: indexPath) else {
         return UITableViewCell()
       }
-      let values = viewModel.dateInfo(for: dateRow)
-      let cell: DatePickerCell = dateRow == .from ? fromDateCell : toDateCell
-      cell.set(date: values.date)
-      cell.set(minimumDate: values.minimumDate)
-      cell.set(maximumDate: values.maximumDate)
-      return cell
+      
+      switch dateRow {
+      case .from(let date, _, _), .to(let date, _, _):
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DateCell.identifier, for: indexPath) as? DateCell else {
+          return UITableViewCell()
+        }
+        cell.set(label: dateRow.label, date: date)
+        return cell
+      case .picker(.from(let date, let minimumDate, let maximumDate)),
+           .picker(.to(let date, let minimumDate, let maximumDate)):
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DatePickerCell.identifier, for: indexPath) as? DatePickerCell else {
+          return UITableViewCell()
+        }
+        cell.delegate = self
+        cell.set(date: date)
+        cell.set(minimumDate: minimumDate)
+        cell.set(maximumDate: maximumDate)
+        return cell
+      default:
+        return UITableViewCell()
+      }
     case .withinTime:
       let values = viewModel.withinTimeInfo()
       guard let cell = tableView.dequeueReusableCell(withIdentifier: SliderCell.identifier, for: indexPath) as? SliderCell else {
@@ -337,6 +350,31 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     }
   }
   
+//  func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//    guard let section = Section(rawValue: indexPath.section) else {
+//      return
+//    }
+//    
+//    switch section {
+//    case .dates:
+//      guard let cell = cell as? DatePickerCell, let selectedDateRow = viewModel.dateInfoForSelectedRow() else {
+//        return
+//      }
+//      
+//      switch selectedDateRow {
+//      case .from(let date, let minimumDate, let maximumDate),
+//           .to(let date, let minimumDate, let maximumDate):
+//        cell.set(date: date, animated: true)
+//        cell.set(minimumDate: minimumDate)
+//        cell.set(maximumDate: maximumDate)
+//      default:
+//        break
+//      }
+//    default:
+//      break
+//    }
+//  }
+  
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let section = Section(rawValue: section),
       let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: FiltersSectionHeader.identifier) as? FiltersSectionHeader, section != .bookmark else {
@@ -382,14 +420,20 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     
     switch section {
     case .dates:
-      guard let dateRow = DateRow(rawValue: indexPath.row) else {
+      guard let dateRow = dateRow(for: indexPath) else {
         return
       }
       switch dateRow {
       case .from:
-        deselectDatePickerCell(except: fromDateCell)
+        deselect(dateRow: .to(date: nil, minimumDate: nil, maximumDate: nil)) {
+          self.select(dateRow: dateRow)
+        }
       case .to:
-        deselectDatePickerCell(except: toDateCell)
+        deselect(dateRow: .from(date: nil, minimumDate: nil, maximumDate: nil)) {
+          self.select(dateRow: dateRow)
+        }
+      default:
+        break
       }
     case .types:
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
@@ -398,7 +442,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
           tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
         }
       }
-      deselectDatePickerCell()
+      deselect(dateRow: nil)
     case .participants:
       if let (_, affectedIndexPaths) = viewModel.selectParticipant(at: indexPath) {
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
@@ -406,9 +450,9 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
           tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
         }
       }
-      deselectDatePickerCell()
+      deselect(dateRow: nil)
     default:
-      deselectDatePickerCell()
+      deselect(dateRow: nil)
       return
     }
   }
@@ -419,6 +463,11 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     switch section {
+    case .dates:
+      guard let deselectedDateRow = dateRow(for: indexPath) else {
+        return
+      }
+      deselect(dateRow: deselectedDateRow)
     case .types:
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
         tableView.deleteRows(at: affectedIndexPaths, with: .fade)
@@ -443,38 +492,175 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.reloadSections(
       IndexSet(Section.all.map({ $0.rawValue })),
       with: UITableViewRowAnimation.automatic)
-    // For not identified reasons yet if the dates section is not relloaded
-    // without animation, the date cells are disappearing
-    tableView.reloadSections(IndexSet(integer: Section.dates.rawValue), with: .none)
   }
   
   fileprivate func refreshDateCells() {
-    let fromData = viewModel.dateInfo(for: .from)
-    let toData = viewModel.dateInfo(for: .to)
-    fromDateCell.set(date: fromData.date)
-    fromDateCell.set(minimumDate: fromData.minimumDate)
-    fromDateCell.set(maximumDate: fromData.maximumDate)
-    toDateCell.set(date: toData.date)
-    toDateCell.set(minimumDate: toData.minimumDate)
-    toDateCell.set(maximumDate: toData.maximumDate)
+    if let indexPath = indexPath(for: [.from(date: nil, minimumDate: nil, maximumDate: nil)]).first,
+      let cell = tableView.cellForRow(at: indexPath) as? DateCell,
+      let dateRow = viewModel.dateInfo(for: indexPath),
+      case .from(let date, _, _) = dateRow {
+      cell.set(label: dateRow.label, date: date)
+    }
+    if let indexPath = indexPath(for: [.to(date: nil, minimumDate: nil, maximumDate: nil)]).first,
+      let cell = tableView.cellForRow(at: indexPath) as? DateCell,
+      let dateRow = viewModel.dateInfo(for: indexPath),
+      case .to(let date, _, _) = dateRow {
+      cell.set(label: dateRow.label, date: date)
+    }
   }
   
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    deselectDatePickerCell()
+    deselect(dateRow: nil)
   }
   
   /// If the passed parameter was nil then both date picker cells are deselected
-  func deselectDatePickerCell(except datePickerCell: DatePickerCell? = nil) {
+  fileprivate func deselect(dateRow: DateRow?, completion: (() -> Void)? = nil) {
     var indexPaths = [IndexPath]()
-    if datePickerCell !== fromDateCell && fromDateCell.isSelected {
-      indexPaths.append(IndexPath(row: DateRow.from.rawValue, section: Section.dates.rawValue))
-    }
-    if datePickerCell !== toDateCell && toDateCell.isSelected {
-      indexPaths.append(IndexPath(row: DateRow.to.rawValue, section: Section.dates.rawValue))
+    if let dateRow = dateRow {
+      switch dateRow {
+      case .from:
+        indexPaths.append(contentsOf: indexPath(for: [.from(date: nil, minimumDate: nil, maximumDate: nil)]))
+      case .to:
+        indexPaths.append(contentsOf: indexPath(for: [.to(date: nil, minimumDate: nil, maximumDate: nil)]))
+      default:
+        indexPaths.append(contentsOf: indexPath(for: [
+          .from(date: nil, minimumDate: nil, maximumDate: nil),
+          .to(date: nil, minimumDate: nil, maximumDate: nil)]))
+      }
+      
+      if let selectedDateRow = viewModel.selectedDateRow {
+        // Update view model
+        switch (selectedDateRow, dateRow) {
+        case (.to, .to),
+             (.from, .from):
+          viewModel.selectedDateRow = nil
+        default:
+          break
+        }
+        
+        // Remove the picker cell
+        removeDatePickerCell(for: dateRow, completion: completion)
+      } else {
+        completion?()
+      }
+    } else {
+      if let selectedDateRow = viewModel.selectedDateRow {
+        // Update view model
+        viewModel.selectedDateRow = nil
+        // Get the date rows indexes to deselect rows
+        indexPaths = indexPath(for: [selectedDateRow])
+        // Delete Date Picker
+        removeDatePickerCell(for: selectedDateRow, completion: completion)
+      } else {
+        completion?()
+      }
     }
     indexPaths.forEach { (indexPath) in
       tableView.deselectRow(at: indexPath, animated: true)
     }
+  }
+  
+  func select(dateRow: DateRow) {
+    switch dateRow {
+    case .from, .to:
+      // Update view model
+      viewModel.selectedDateRow = dateRow
+      // Insert picker cell
+      tableView.insertRows(at: indexPath(for: [.picker(dateRow: dateRow)]), with: .top)
+    default:
+      break
+    }
+  }
+  
+  
+  /**
+   The date cell are Can be ordered like one of these representations
+   
+   ----------       ----------       ----------
+    .from            .from            .from
+   ----------       ----------       ----------
+    .to               .picker         .to
+   ----------       ----------       ----------
+                     .to               .picker
+                    ----------       ----------
+   */
+  fileprivate func indexPath(for dateRows: [DateRow]) -> [IndexPath] {
+    var indexPaths = [IndexPath]()
+    for dateRow in dateRows {
+      switch dateRow {
+      case .from:
+        indexPaths.append(IndexPath(row: 0, section: Section.dates.rawValue))
+      case .to:
+        var toDateCellRow: Int = 1
+        if let selectedDateRow = viewModel.selectedDateRow {
+          if case .from = selectedDateRow {
+            toDateCellRow = 2
+          } else { // .to is selected
+            toDateCellRow = 1
+          }
+        }
+        let indexPath = IndexPath(row: toDateCellRow, section: Section.dates.rawValue)
+        indexPaths.append(indexPath)
+      case .picker(.from):
+        indexPaths.append(IndexPath(row: 1, section: Section.dates.rawValue))
+      case .picker(.to):
+        indexPaths.append(IndexPath(row: 2, section: Section.dates.rawValue))
+      default:
+        continue
+      }
+    }
+    return indexPaths
+  }
+  
+  fileprivate func dateRow(for indexPath: IndexPath) -> DateRow? {
+    guard let _ = Section(rawValue: indexPath.section) else {
+      return nil
+    }
+    
+    let rowIndex = indexPath.row
+    if rowIndex == 0 {
+      return .from(date: nil, minimumDate: nil, maximumDate: nil)
+    } else if rowIndex == 1 {
+      if let selectedDateRow = viewModel.selectedDateRow {
+        switch selectedDateRow {
+        case .from, .picker(.from):
+          return .picker(dateRow: .from(date: nil, minimumDate: nil, maximumDate: nil))
+        case .to, .picker(.to):
+          return .to(date: nil, minimumDate: nil, maximumDate: nil)
+        default:
+          return nil
+        }
+      } else {
+        return .to(date: nil, minimumDate: nil, maximumDate: nil)
+      }
+      
+    } else { // == 3
+      if let selectedDateRow = viewModel.selectedDateRow {
+        switch selectedDateRow {
+        case .from, .picker(.from):
+          return .to(date: nil, minimumDate: nil, maximumDate: nil)
+        case .to, .picker(.to):
+          return .picker(dateRow: .from(date: nil, minimumDate: nil, maximumDate: nil))
+        default:
+          return nil
+        }
+      } else {
+        return nil
+      }
+    }
+  }
+  
+  fileprivate func removeDatePickerCell(for dateRow: DateRow, completion: (() -> Void)?) {
+    let pickerIndexPaths = indexPath(for: [.picker(dateRow: dateRow)])
+    CATransaction.begin()
+    tableView.beginUpdates()
+    CATransaction.setCompletionBlock {
+      // Code to be executed upon completion
+      completion?()
+    }
+    tableView.deleteRows(at: pickerIndexPaths, with: .top)
+    tableView.endUpdates()
+    CATransaction.commit()
   }
 }
 
@@ -513,12 +699,20 @@ extension FiltersViewController {
     }
   }
   
-  enum DateRow: Int {
-    case from = 0
-    case to
+  indirect enum DateRow {
+    case from(date: Date?, minimumDate: Date?, maximumDate: Date?)
+    case to(date: Date?, minimumDate: Date?, maximumDate: Date?)
+    case picker(dateRow: DateRow)
     
-    static var numberOfRows: Int {
-      return 2
+    var label: String {
+      switch self {
+      case .from:
+        return Strings.from()
+      case .to:
+        return Strings.to()
+      default:
+        return ""
+      }
     }
   }
 }
@@ -527,7 +721,6 @@ extension FiltersViewController {
 extension FiltersViewController: ResetFiltersViewDelegate {
   func resetFiltersDidTap(_ view: ResetFiltersView) {
     viewModel.resetFilters()
-    refreshTableView()
     delegate?.filtersDidReset(self)
     navigationController?.popViewController(animated: true)
     
@@ -539,18 +732,19 @@ extension FiltersViewController: ResetFiltersViewDelegate {
 
 //MARK: - Date Picker Cell Delegate
 extension FiltersViewController: DatePickerCellDelegate {
-  func datePickerCellDidSelectDate(_ cell: DatePickerCell, date: Date) {
-    if cell === fromDateCell {
-      viewModel.setFrom(date: date)
-    } else {
-      viewModel.setTo(date: date)
+  func datePickerCell(_ cell: DatePickerCell, didSelect date: Date) {
+    if let selectedDateRow = viewModel.selectedDateRow {
+      switch selectedDateRow {
+      case .from:
+        viewModel.setFrom(date: date)
+      case .to:
+        viewModel.setTo(date: date)
+      default:
+        return
+      }
+      refreshDateCells()
+      resetWithinTimeSlider()
     }
-    refreshDateCells()
-    resetWithinTimeSlider()
-  }
-
-  func datePickerCellDidUpdatePickerVisibility(_ cell: DatePickerCell, isVisible: Bool) {
-    updateTableView()
   }
 }
 
