@@ -107,6 +107,16 @@ class EventCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+    refreshForEditingStyle()
+  }
+  
+  fileprivate func refreshForEditingStyle() {
+    let theme = ThemeManager.shared.current
+    if isEditing {
+      selectedBackgroundView = UIImageView(image: theme.color4.image())
+    } else {
+      selectedBackgroundView = UIImageView(image: theme.color6.image())
+    }
   }
   
   @IBAction func bookmarkButtonTouchUpInside(_ sender: Any) {
