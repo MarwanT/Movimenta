@@ -15,6 +15,8 @@ final class FiltersViewModel {
   fileprivate var categoriesData = [SelectableRowData]()
   fileprivate var participantsData = [SelectableRowData]()
   
+  var selectedDateRow: DateRow?
+  
   fileprivate let queue = DispatchGroup()
   
   var finishLoading: (() -> Void)?
@@ -190,6 +192,13 @@ final class FiltersViewModel {
   }
 }
 
+//MARK: Helpers
+extension FiltersViewModel {
+  var isEditingDateRow: Bool {
+    return selectedDateRow != nil
+  }
+}
+
 //MARK: Data Getters
 extension FiltersViewModel {
   typealias Section = FiltersViewController.Section
@@ -202,7 +211,12 @@ extension FiltersViewModel {
   func numberOfRows(in section: Section) -> Int {
     switch section {
     case .dates:
-      return didLoadDates ? 2 : 0
+      /**
+       If a date row is selected then the date picker is visible otherwise
+       and there are .from, .to, .picker rows visble.
+       Otherwise only a .from and .to rows are visible
+       */
+      return didLoadDates ? (isEditingDateRow ? 3 : 2) : 0
     case .types:
       return categoriesData.count
     case .withinTime:
@@ -220,12 +234,45 @@ extension FiltersViewModel {
     return section.title
   }
   
-  func dateInfo(for indexPath: IndexPath) -> DateRow {
-    if indexPath.row == 0 {
+  func dateInfo(for indexPath: IndexPath) -> DateRow? {
+    let rowIndex = indexPath.row
+    if rowIndex == 0 {
       return dateInfo(for: .from(date: nil, minimumDate: nil, maximumDate: nil))
-    } else {
-      return dateInfo(for: .to(date: nil, minimumDate: nil, maximumDate: nil))
+    } else if rowIndex == 1 {
+      if let selectedDateRow = selectedDateRow {
+        switch selectedDateRow {
+        case .from, .picker(.from):
+          return dateInfo(for: .picker(dateRow: .from(date: nil, minimumDate: nil, maximumDate: nil)))
+        case .to, .picker(.to):
+          return dateInfo(for: .to(date: nil, minimumDate: nil, maximumDate: nil))
+        default:
+          return nil
+        }
+      } else {
+        return dateInfo(for: .to(date: nil, minimumDate: nil, maximumDate: nil))
+      }
+      
+    } else { // == 3
+      if let selectedDateRow = selectedDateRow {
+        switch selectedDateRow {
+        case .from, .picker(.from):
+          return dateInfo(for: .from(date: nil, minimumDate: nil, maximumDate: nil))
+        case .to, .picker(.to):
+          return dateInfo(for: .picker(dateRow: .to(date: nil, minimumDate: nil, maximumDate: nil)))
+        default:
+          return nil
+        }
+      } else {
+        return nil
+      }
     }
+  }
+  
+  func dateInfoForSelectedRow() -> DateRow? {
+    guard let selectedDateRow = self.selectedDateRow else {
+      return nil
+    }
+    return dateInfo(for: selectedDateRow)
   }
   
   fileprivate func dateInfo(for dateRow: DateRow) -> DateRow! {
@@ -233,20 +280,26 @@ extension FiltersViewModel {
     var minimumDate: Date
     var maximumDate: Date
     switch dateRow {
-    case .picker(.from):
-      fallthrough
     case .from:
       date = filter.dateRange?.from ?? FiltersManager.shared.firstEventDate
       minimumDate = FiltersManager.shared.firstEventDate
       maximumDate = FiltersManager.shared.lastEventDate
       return .from(date: date, minimumDate: minimumDate, maximumDate: maximumDate)
-    case .picker(.to):
-      fallthrough
     case .to:
       date = filter.dateRange?.to ?? FiltersManager.shared.lastEventDate
       minimumDate = filter.dateRange?.from ?? FiltersManager.shared.firstEventDate
       maximumDate = FiltersManager.shared.lastEventDate
       return .to(date: date, minimumDate: minimumDate, maximumDate: maximumDate)
+    case .picker(.from):
+      date = filter.dateRange?.from ?? FiltersManager.shared.firstEventDate
+      minimumDate = FiltersManager.shared.firstEventDate
+      maximumDate = FiltersManager.shared.lastEventDate
+      return .picker(dateRow: .from(date: date, minimumDate: minimumDate, maximumDate: maximumDate))
+    case .picker(.to):
+      date = filter.dateRange?.to ?? FiltersManager.shared.lastEventDate
+      minimumDate = filter.dateRange?.from ?? FiltersManager.shared.firstEventDate
+      maximumDate = FiltersManager.shared.lastEventDate
+      return .picker(dateRow: .to(date: date, minimumDate: minimumDate, maximumDate: maximumDate))
     default:
       return nil
     }
