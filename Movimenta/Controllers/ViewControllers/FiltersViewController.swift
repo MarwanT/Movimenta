@@ -98,10 +98,14 @@ class FiltersViewController: UIViewController {
   }
   
   private func initializeNavigationBar() {
-    navigationItem.rightBarButtonItem = UIBarButtonItem(
+    let theme = ThemeManager.shared.current
+    let applyButton = UIBarButtonItem(
       title: Strings.apply(),
       style: .plain, target: self,
       action: #selector(didTapApplyButton(_:)))
+    applyButton.setTitleTextAttributes(
+      [NSFontAttributeName : theme.font10], for: .normal)
+    navigationItem.rightBarButtonItem = applyButton
     navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
   
