@@ -232,6 +232,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DatePickerCell.identifier, for: indexPath) as? DatePickerCell else {
           return UITableViewCell()
         }
+        cell.delegate = self
         cell.set(date: date)
         cell.set(minimumDate: minimumDate)
         cell.set(maximumDate: maximumDate)
@@ -725,6 +726,24 @@ extension FiltersViewController: ResetFiltersViewDelegate {
     //MARK: [Analytics] Event
     let analyticsEvent = Analytics.Event(category: .events, action: .resetAllFilters)
     Analytics.shared.send(event: analyticsEvent)
+  }
+}
+
+//MARK: - Date Picker Cell Delegate
+extension FiltersViewController: DatePickerCellDelegate {
+  func datePickerCell(_ cell: DatePickerCell, didSelect date: Date) {
+    if let selectedDateRow = viewModel.selectedDateRow {
+      switch selectedDateRow {
+      case .from:
+        viewModel.setFrom(date: date)
+      case .to:
+        viewModel.setTo(date: date)
+      default:
+        return
+      }
+      refreshDateCells()
+      resetWithinTimeSlider()
+    }
   }
 }
 
