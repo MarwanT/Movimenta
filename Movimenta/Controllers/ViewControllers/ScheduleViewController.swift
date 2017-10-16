@@ -135,7 +135,15 @@ class ScheduleViewController: UIViewController {
   }
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
-    eventsTableView.reloadRows(at: indexPaths, with: .none)
+    guard let eventsTableView = eventsTableView,
+      var indexPathsForVisibleRows = eventsTableView.indexPathsForVisibleRows else {
+      return
+    }
+    
+    indexPathsForVisibleRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
+      return indexPaths.contains(indexPath)
+    }
+    eventsTableView.reloadRows(at: indexPathsForVisibleRows, with: .none)
   }
 }
 
