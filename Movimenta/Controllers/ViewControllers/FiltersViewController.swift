@@ -493,11 +493,18 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   fileprivate func refreshDateCells() {
-    let dateCellsIndexPaths = indexPath(for: [
-        .from(date: nil, minimumDate: nil, maximumDate: nil),
-        .to(date: nil, minimumDate: nil, maximumDate: nil),
-      ])
-    tableView.reloadRows(at: dateCellsIndexPaths, with: .none)
+    if let indexPath = indexPath(for: [.from(date: nil, minimumDate: nil, maximumDate: nil)]).first,
+      let cell = tableView.cellForRow(at: indexPath) as? DateCell,
+      let dateRow = viewModel.dateInfo(for: indexPath),
+      case .from(let date, _, _) = dateRow {
+      cell.set(label: dateRow.label, date: date)
+    }
+    if let indexPath = indexPath(for: [.to(date: nil, minimumDate: nil, maximumDate: nil)]).first,
+      let cell = tableView.cellForRow(at: indexPath) as? DateCell,
+      let dateRow = viewModel.dateInfo(for: indexPath),
+      case .to(let date, _, _) = dateRow {
+      cell.set(label: dateRow.label, date: date)
+    }
   }
   
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
