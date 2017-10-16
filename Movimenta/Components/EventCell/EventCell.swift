@@ -118,7 +118,7 @@ class EventCell: UITableViewCell {
     dateLabel.text = date
     venueNameLabel.text = venueName
     eventNameLabel.text = eventName
-    categoryLabel.text = categories
+    categoryLabel.text = categories?.uppercased()
     timeLabel.text = time
     self.isBookmarked = isBookmarked ?? false
     if let venueName = venueName, !venueName.trimed().isEmpty {
