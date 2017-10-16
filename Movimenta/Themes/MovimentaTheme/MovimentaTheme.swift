@@ -19,6 +19,10 @@ final class MovimentaTheme: Theme {
       NSForegroundColorAttributeName : lightTextColor
     ]
     
+    let barButtonAppearance = UIBarButtonItem.appearance()
+    barButtonAppearance.setTitleTextAttributes(
+      [NSFontAttributeName : font11], for: .normal)
+    
     let tabBarAppearance = UITabBar.appearance()
     tabBarAppearance.isTranslucent = false
     tabBarAppearance.barTintColor = tabBarTintColor
