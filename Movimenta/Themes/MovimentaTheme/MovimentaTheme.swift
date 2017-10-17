@@ -138,6 +138,7 @@ final class MovimentaTheme: Theme {
     button.setTitleColor(color2, for: .highlighted)
     button.setBackgroundImage(lightTextColor.image(), for: .highlighted)
     button.backgroundColor = color2
+    button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     addButtonBorders(button: button)
     addButtonConstraints(button: button)
   }
@@ -149,6 +150,7 @@ final class MovimentaTheme: Theme {
     button.setTitleColor(lightTextColor, for: .highlighted)
     button.setBackgroundImage(color2.image(), for: .highlighted)
     button.backgroundColor = lightTextColor
+    button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     addButtonBorders(button: button)
     addButtonConstraints(button: button)
   }
