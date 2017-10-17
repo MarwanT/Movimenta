@@ -58,6 +58,8 @@
 "movimenta" = "Movimenta";
 "no_event_store_authorization_message" = "Nous n'avons pas accès à votre calendrier";
 "no_event_store_authorization_title" = "Calendrier";
+"no_events_found" = "Pas d'événements trouvés";
+"no_events_happening_on_day" = "Il n'y a pas d'événements ce jour";
 "ok" = "Ok";
 "organizer" = "Organisateur";
 "organizers" = "Organisateurs";

@@ -12,6 +12,10 @@ class ScheduleViewController: UIViewController {
   @IBOutlet weak var datesCollectionView: UICollectionView!
   @IBOutlet weak var eventsTableView: UITableView!
   
+  fileprivate let noScheduledEventsView = NoScheduledEventsView.instanceFromNib()
+  
+  fileprivate let animationDuration = ThemeManager.shared.current.animationDuration
+  
   var viewModel = ScheduleViewModel()
   
   static func instance() -> ScheduleViewController {
@@ -33,6 +37,7 @@ class ScheduleViewController: UIViewController {
     initializeNavigationItems()
     initializeCollectionView()
     initializeTableView()
+    initializeNoScheduledEventsView()
     reloadDatesData()
     reloadEventsData(reloadView: true)
     navigateToSelectedDate()
@@ -40,6 +45,8 @@ class ScheduleViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    hideNavigationBarShadow()
+    
     //MARK: [Analytics] Screen Name
     Analytics.shared.send(screenName: Analytics.ScreenNames.Schedule)
   }
@@ -47,6 +54,11 @@ class ScheduleViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     navigateToSelectedDate()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    showNavigationBarShadow()
   }
   
   private func initializeTitle() {
@@ -102,6 +114,13 @@ class ScheduleViewController: UIViewController {
     eventsTableView.register(EventCell.nib, forCellReuseIdentifier: EventCell.identifier)
   }
   
+  private func initializeNoScheduledEventsView() {
+    view.addSubview(noScheduledEventsView)
+    noScheduledEventsView.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(self.eventsTableView)
+    }
+  }
+  
   private func registerToNotificationCenter() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(handleReloadedData(_:)), name: AppNotification.didLoadData, object: nil)
@@ -145,7 +164,9 @@ class ScheduleViewController: UIViewController {
   fileprivate func reloadEventsView() {
     if isViewLoaded {
       eventsTableView.reloadData()
-      eventsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+      if viewModel.hasEvents {
+        eventsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+      }
     }
   }
   
@@ -159,6 +180,40 @@ class ScheduleViewController: UIViewController {
       return indexPaths.contains(indexPath)
     }
     eventsTableView.reloadRows(at: indexPathsForVisibleRows, with: .none)
+  }
+  
+  fileprivate func showNoScheduledEventsView() {
+    noScheduledEventsView.isHidden = false
+    noScheduledEventsView.alpha = 0
+    UIView.animate(withDuration: animationDuration, animations: {
+      self.noScheduledEventsView.alpha = 1
+    })
+  }
+  
+  fileprivate func hideNoScheduledEventsView() {
+    UIView.animate(withDuration: animationDuration, animations: {
+      self.noScheduledEventsView.alpha = 0
+    }, completion: { (finished) in
+      self.noScheduledEventsView.isHidden = true
+    })
+  }
+  
+  func refreshViewForNumberOfVisibleEvents() {
+    if viewModel.numberOfRows > 0 {
+      hideNoScheduledEventsView()
+    } else {
+      showNoScheduledEventsView()
+    }
+  }
+  
+  fileprivate func showNavigationBarShadow() {
+    self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+    self.navigationController?.navigationBar.shadowImage = nil
+  }
+  
+  fileprivate func hideNavigationBarShadow() {
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    self.navigationController?.navigationBar.shadowImage = UIImage()
   }
 }
 
@@ -234,6 +289,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    refreshViewForNumberOfVisibleEvents()
     return viewModel.numberOfRows
   }
   
