@@ -27,6 +27,7 @@ class PartnersViewController: UIViewController {
 
   private func initialize() {
     //All Initializations and Setup
+    title = viewModel.viewControllerTitle
     tableView.delegate = self
     tableView.dataSource = self
     applyTheme()

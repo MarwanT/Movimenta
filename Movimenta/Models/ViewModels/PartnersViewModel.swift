@@ -14,6 +14,10 @@ class PartnersViewModel {
   init() {
     self.data = DataManager.shared.partnerGroups
   }
+  
+  var viewControllerTitle: String {
+    return Strings.partners()
+  }
 
   func itemForSection(section: Int) -> PartnerGroup? {
     guard data.count > section else {
