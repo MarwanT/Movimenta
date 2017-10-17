@@ -14,4 +14,8 @@ extension CLLocationCoordinate2D {
   static func getDistance(fromCoordinates one: CLLocationCoordinate2D, toCoordinates two: CLLocationCoordinate2D) -> CLLocationDistance {
     return GMSGeometryDistance(one, two)
   }
+  
+  var isZero: Bool {
+    return longitude.isZero && latitude.isZero
+  }
 }
