@@ -12,4 +12,8 @@ class NoScheduledEventsView: UIView {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var contentLabel: UILabel!
 
+  class func instanceFromNib() -> NoScheduledEventsView {
+    return UINib(nibName: NoScheduledEventsView.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! NoScheduledEventsView
+  }
+  
 }
