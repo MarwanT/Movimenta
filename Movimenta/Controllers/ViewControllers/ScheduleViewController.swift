@@ -45,6 +45,8 @@ class ScheduleViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    hideNavigationBarShadow()
+    
     //MARK: [Analytics] Screen Name
     Analytics.shared.send(screenName: Analytics.ScreenNames.Schedule)
   }
@@ -52,6 +54,11 @@ class ScheduleViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     navigateToSelectedDate()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    showNavigationBarShadow()
   }
   
   private func initializeTitle() {
@@ -197,6 +204,16 @@ class ScheduleViewController: UIViewController {
     } else {
       showNoScheduledEventsView()
     }
+  }
+  
+  fileprivate func showNavigationBarShadow() {
+    self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+    self.navigationController?.navigationBar.shadowImage = nil
+  }
+  
+  fileprivate func hideNavigationBarShadow() {
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    self.navigationController?.navigationBar.shadowImage = UIImage()
   }
 }
 
