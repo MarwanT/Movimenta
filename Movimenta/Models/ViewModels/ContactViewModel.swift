@@ -11,4 +11,8 @@ import Foundation
 class ContactViewModel {
   let businessEmail = "info@movimenta.fr"
   let artBusinessEmail = "info@movimenta.fr"
+  
+  var viewControllerTitle: String {
+    return Strings.contact()
+  }
 }
