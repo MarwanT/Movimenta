@@ -99,8 +99,13 @@ extension VenueViewModel {
   }
   
   var coordinates: CLLocationCoordinate2D? {
-    //TODO: Return the venue coordinates
-    return events.first?.coordinates
+    if let position = venue?.coordinates, !position.isZero {
+      return position
+    } else if let position = events.first?.coordinates, !position.isZero {
+      return position
+    } else {
+      return nil
+    }
   }
 }
 
