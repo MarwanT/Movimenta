@@ -44,7 +44,7 @@ final class EventsMapViewModel {
   
   private func loadMapEvents(for events: [Event]) {
     mapEvents = events.flatMap { (event) -> MapEvent? in
-      guard let position = event.coordinates else {
+      guard let position = event.preferredCoordinates else {
         return nil
       }
       let marker = GMSMarker.movimentaMarker(position: position)
