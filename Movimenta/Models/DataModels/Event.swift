@@ -101,6 +101,16 @@ struct Event: ModelCommonProperties {
     return false
   }
   
+  var preferredCoordinates: CLLocationCoordinate2D? {
+    if let position = coordinates, !position.isZero {
+      return position
+    } else if let position = venue?.coordinates, !position.isZero {
+      return position
+    } else {
+      return nil
+    }
+  }
+  
   func happens(in dateRange: DateRange) -> Bool {
     guard let dates = dates else {
       return false

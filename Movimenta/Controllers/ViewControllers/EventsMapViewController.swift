@@ -304,7 +304,7 @@ extension EventsMapViewController {
   }
   
   fileprivate func updateCamera(mapEvent: MapEvent) {
-    guard let coordinates = mapEvent.event.coordinates else {
+    guard let coordinates = mapEvent.event.preferredCoordinates else {
       return
     }
     let camera = GMSCameraPosition.camera(withTarget: coordinates, zoom: MapZoom.street)
