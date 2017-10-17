@@ -157,7 +157,9 @@ class ScheduleViewController: UIViewController {
   fileprivate func reloadEventsView() {
     if isViewLoaded {
       eventsTableView.reloadData()
-      eventsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+      if viewModel.hasEvents {
+        eventsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+      }
     }
   }
   
