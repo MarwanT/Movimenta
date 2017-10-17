@@ -143,7 +143,7 @@ final class MovimentaTheme: Theme {
   }
 
   func styleSecondaryButton(button: UIButton) {
-    button.titleLabel?.font = font5
+    button.titleLabel?.font = font6
     button.setTitleColor(color2, for: .normal)
     button.setBackgroundImage(lightTextColor.image(), for: .normal)
     button.setTitleColor(lightTextColor, for: .highlighted)
