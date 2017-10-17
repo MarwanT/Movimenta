@@ -49,6 +49,10 @@
                 <constraint firstAttribute="trailingMargin" secondItem="3Qt-3k-ejD" secondAttribute="trailing" id="uA7-tR-kPP"/>
                 <constraint firstItem="3Qt-3k-ejD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="uV3-34-LBU"/>
             </constraints>
+            <connections>
+                <outlet property="contentLabel" destination="M9D-eo-RAm" id="nxt-Se-zZg"/>
+                <outlet property="titleLabel" destination="gtp-b8-atO" id="rSP-aD-HkD"/>
+            </connections>
         </view>
     </objects>
 </document>

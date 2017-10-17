@@ -9,4 +9,7 @@
 import UIKit
 
 class NoScheduledEventsView: UIView {
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var contentLabel: UILabel!
+
 }
