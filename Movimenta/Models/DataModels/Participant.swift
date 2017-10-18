@@ -128,7 +128,7 @@ extension Participant: Parsable {
     let id = json["id"].stringValue
     let type = ParticipantType(rawValue: json["type"].stringValue) ?? .Default
     let link = json["link"].url
-    let content = json["content"].string?.cleanedHTMLTags()
+    let content = json["content"].string
     let title = json["title"].string?.cleanedHTMLTags()
     let excerpt = json["excerpt"].string?.cleanedHTMLTags()
     let name = json["name"].string?.cleanedHTMLTags()

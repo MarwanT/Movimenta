@@ -109,7 +109,7 @@ class BookmarksViewController: UIViewController {
   
   private func registerToNotificationCenter() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didUpadteBookmarkedEvents, object: nil)
-    NotificationCenter.default.addObserver(self, selector: #selector(handleBookmarksUpdate(_:)), name: AppNotification.didLoadData, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(handleReloadData(_:)), name: AppNotification.didLoadData, object: nil)
   }
   
   private func unregisterToNotificationCenter() {
@@ -220,6 +220,21 @@ class BookmarksViewController: UIViewController {
 //MARK: Actions
 extension BookmarksViewController {
   func handleBookmarksUpdate(_ sender: Notification) {
+    guard let updatedEvents = sender.object as? [Event], updatedEvents.count > 0 else {
+      return
+    }
+    
+    tableViewLocked = true
+    let indexPaths = viewModel.updateDataForBookmarkStatus(of: updatedEvents)
+    if indexPaths.count > 0 { // Then the events are unbookmarked
+      deleteEvents(at: indexPaths)
+    } else {
+      tableView.reloadData()
+    }
+    tableViewLocked = false
+  }
+  
+  func handleReloadData(_ sender: Notification) {
     refreshTableView()
   }
   
@@ -241,6 +256,12 @@ extension BookmarksViewController {
   func didTapUnbookmarkSelectedItem(_ sender: UIBarButtonItem) {
     tableViewLocked = true
     let indexPaths = viewModel.unBookmarkSelectedEvents()
+    deleteEvents(at: indexPaths)
+    tableViewLocked = false
+  }
+  
+  func deleteEvents(at indexPaths: [IndexPath]) {
+    tableViewLocked = true
     tableView.deleteRows(at: indexPaths, with: .automatic)
     tableViewLocked = false
   }
@@ -251,7 +272,7 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
   fileprivate func refreshTableView() {
     if !tableViewLocked {
       viewModel.loadEvents()
-      tableView.reloadData()
+      tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
   }
   

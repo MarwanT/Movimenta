@@ -32,8 +32,13 @@ class ContactViewController: UIViewController {
 
   private func initialize() {
     //All Initializations and Setup
+    initializeViewController()
     applyTheme()
     setupView()
+  }
+  
+  private func initializeViewController() {
+    title = viewModel.viewControllerTitle
   }
 
   private func setupView() {

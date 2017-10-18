@@ -58,6 +58,27 @@ extension String {
   func cleanedHTMLTags() -> String {
     return replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).trimed()
   }
+  
+  func htmlString(completion: @escaping (String?) -> Void) {
+    DispatchQueue.global().async {
+      let options: [String: Any] = [
+        NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+        NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
+      ]
+      guard let data = self.data(using: .utf8),
+        let attributedString = try? NSAttributedString(
+          data: data,
+          options: options,
+          documentAttributes: nil) else {
+        completion(nil)
+        return
+      }
+      let string = attributedString.string
+      DispatchQueue.main.async {
+        completion(string)
+      }
+    }
+  }
 }
 
 //MARK: Dimentions of string
