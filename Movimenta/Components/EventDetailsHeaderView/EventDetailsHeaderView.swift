@@ -23,6 +23,7 @@ class EventDetailsHeaderView: UIView {
   @IBOutlet weak var categoriesLabel: UILabel!
   @IBOutlet weak var participantsLabel: UILabel!
   @IBOutlet weak var descriptionLabel: ExpandableLabel!
+  @IBOutlet weak var descriptionLoader: UIActivityIndicatorView!
   
   fileprivate var isSetup: Bool = false
   
@@ -54,6 +55,7 @@ class EventDetailsHeaderView: UIView {
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
     imageView.clipsToBounds = true
+    descriptionLoader.color = theme.color2
   }
   
   private func setup() {
@@ -68,14 +70,28 @@ class EventDetailsHeaderView: UIView {
       titleLabel.text = data?.title?.capitalized
       categoriesLabel.text = data?.categories?.uppercased()
       participantsLabel.text = data?.participants
-      descriptionLabel.text = data?.description
-      labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
+      loadDescriptionLabel(with: data?.description)
+      labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded(exceptions: [descriptionLabel])
       storedData = nil
     } else {
       storedData = data
     }
-    
     layoutIfNeeded()
+  }
+  
+  private func loadDescriptionLabel(with text: String?) {
+    descriptionLabel.text = nil
+    
+    text?.htmlString(completion: { htmlString in
+      guard let htmlString = htmlString else {
+        return
+      }
+      if self.descriptionLabel != nil {
+        self.descriptionLabel.text = htmlString
+        self.labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
+        self.delegate?.eventDetailsHeaderDidChangeSize(self, size: self.preferredSize())
+      }
+    })
   }
 }
 
