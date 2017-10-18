@@ -21,6 +21,7 @@ class ParticipantDetailsHeaderView: UIView {
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var rolesLabel: UILabel!
   @IBOutlet weak var descriptionLabel: ExpandableLabel!
+  @IBOutlet weak var descriptionLoader: UIActivityIndicatorView!
 
   fileprivate var isInitialized: Bool = false
   
@@ -50,6 +51,7 @@ class ParticipantDetailsHeaderView: UIView {
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
     imageView.clipsToBounds = true
+    descriptionLoader.color = theme.color2
   }
   
   private func initialize() {
@@ -75,7 +77,9 @@ class ParticipantDetailsHeaderView: UIView {
   private func loadDescriptionLabel(with text: String?) {
     descriptionLabel.text = nil
     
+    descriptionLoader(activate: true)
     text?.htmlString(completion: { htmlString in
+      self.descriptionLoader(activate: false)
       guard let htmlString = htmlString else {
         return
       }
@@ -90,6 +94,16 @@ class ParticipantDetailsHeaderView: UIView {
 
 //MARK: - Helpers
 extension ParticipantDetailsHeaderView {
+  fileprivate func descriptionLoader(activate: Bool) {
+    if activate {
+      descriptionLoader.startAnimating()
+      descriptionLoader.isHidden = false
+    } else {
+      descriptionLoader.stopAnimating()
+      descriptionLoader.isHidden = true
+    }
+  }
+  
   func preferredSize() -> CGSize {
     let size = detailsStackView.systemLayoutSizeFitting(
       CGSize(width: self.bounds.width, height: 0),
