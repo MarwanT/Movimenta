@@ -58,7 +58,7 @@ class EventCell: UITableViewCell {
   
   private func applyTheme() {
     let theme = ThemeManager.shared.current
-    dateLabel.font = theme.font1
+    dateLabel.font = theme.font2
     venueNameLabel.font = theme.font14
     eventNameLabel.font = theme.font4
     categoryLabel.font = theme.font14
