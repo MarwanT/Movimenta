@@ -52,9 +52,10 @@ final class EventDetailsViewModel {
   }
   
   func sharingContent() -> [Any]? {
-    guard let title = event.title, let url = event.link else {
+    guard let url = event.link else {
       return nil
     }
+    let title = [event.title, "MOVIMENTA"].flatMap({ $0 }).joined(separator: " | ")
     return [title, url]
   }
   
