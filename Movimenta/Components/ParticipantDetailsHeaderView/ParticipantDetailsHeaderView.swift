@@ -63,13 +63,28 @@ class ParticipantDetailsHeaderView: UIView {
       imageView.sd_setImage(with: data?.image, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
       nameLabel.text = data?.name?.capitalized
       rolesLabel.text = data?.roles?.uppercased()
-      descriptionLabel.text = data?.description
-      labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
+      loadDescriptionLabel(with: data?.description)
+      labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded(exceptions: [descriptionLabel])
       storedData = nil
       layoutIfNeeded()
     } else {
       storedData = data
     }
+  }
+  
+  private func loadDescriptionLabel(with text: String?) {
+    descriptionLabel.text = nil
+    
+    text?.htmlString(completion: { htmlString in
+      guard let htmlString = htmlString else {
+        return
+      }
+      if self.descriptionLabel != nil {
+        self.descriptionLabel.text = htmlString
+        self.labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
+        self.delegate?.participantDetailsHeaderDidChangeSize(self, size: self.preferredSize())
+      }
+    })
   }
 }
 
