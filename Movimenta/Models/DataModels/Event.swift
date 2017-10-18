@@ -206,7 +206,7 @@ extension Event: Parsable {
   static func object(from json: JSON) -> Event? {
     let id = json["id"].stringValue
     let link = json["link"].url
-    let content = json["content"].string?.cleanedHTMLTags()
+    let content = json["content"].string
     let title = json["title"].string?.cleanedHTMLTags()
     let excerpt = json["excerpt"].string?.cleanedHTMLTags()
     let subtitle = json["subtitle"].string?.cleanedHTMLTags()
