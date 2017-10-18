@@ -82,7 +82,9 @@ class EventDetailsHeaderView: UIView {
   private func loadDescriptionLabel(with text: String?) {
     descriptionLabel.text = nil
     
+    descriptionLoader(activate: true)
     text?.htmlString(completion: { htmlString in
+      self.descriptionLoader(activate: false)
       guard let htmlString = htmlString else {
         return
       }
@@ -97,6 +99,15 @@ class EventDetailsHeaderView: UIView {
 
 //MARK: - Helpers
 extension EventDetailsHeaderView {
+  fileprivate func descriptionLoader(activate: Bool) {
+    if activate {
+      descriptionLoader.startAnimating()
+      descriptionLoader.isHidden = false
+    } else {
+      descriptionLoader.stopAnimating()
+      descriptionLoader.isHidden = true
+    }
+  }
   
   func preferredSize() -> CGSize {
     let size = detailsStackView.systemLayoutSizeFitting(
