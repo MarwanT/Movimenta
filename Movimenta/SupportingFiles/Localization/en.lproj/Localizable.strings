@@ -58,6 +58,8 @@
 "movimenta" = "Movimenta";
 "no_event_store_authorization_message" = "We don't have access to your calendar";
 "no_event_store_authorization_title" = "Calendar";
+"no_events_found" = "No Events Found";
+"no_events_happening_on_day" = "There are no events happening on this day.";
 "ok" = "Ok";
 "organizer" = "Organizer";
 "organizers" = "Organizers";

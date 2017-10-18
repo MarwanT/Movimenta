@@ -101,6 +101,16 @@ struct Event: ModelCommonProperties {
     return false
   }
   
+  var preferredCoordinates: CLLocationCoordinate2D? {
+    if let position = coordinates, !position.isZero {
+      return position
+    } else if let position = venue?.coordinates, !position.isZero {
+      return position
+    } else {
+      return nil
+    }
+  }
+  
   func happens(in dateRange: DateRange) -> Bool {
     guard let dates = dates else {
       return false
@@ -196,7 +206,7 @@ extension Event: Parsable {
   static func object(from json: JSON) -> Event? {
     let id = json["id"].stringValue
     let link = json["link"].url
-    let content = json["content"].string?.cleanedHTMLTags()
+    let content = json["content"].string
     let title = json["title"].string?.cleanedHTMLTags()
     let excerpt = json["excerpt"].string?.cleanedHTMLTags()
     let subtitle = json["subtitle"].string?.cleanedHTMLTags()

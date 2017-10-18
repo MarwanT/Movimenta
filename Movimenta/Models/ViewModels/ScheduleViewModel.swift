@@ -127,6 +127,10 @@ extension ScheduleViewModel {
   func event(for indexPath: IndexPath) -> Event {
     return events[indexPath.row]
   }
+  
+  var hasEvents: Bool {
+    return numberOfRows > 0
+  }
 }
 
 //MARK: - Schedule Date

@@ -55,7 +55,7 @@ class InformationCell: UITableViewCell {
       displayImageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
     }
     titleLabel.text = title
-    websiteLabel.text = Strings.view_website()
+    websiteLabel.text = Strings.view_website().uppercased()
   }
 }
 

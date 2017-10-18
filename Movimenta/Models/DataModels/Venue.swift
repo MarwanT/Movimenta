@@ -46,7 +46,7 @@ extension Venue: Parsable {
   static func object(from json: JSON) -> Venue? {
     let id = json["id"].stringValue
     let link = json["link"].url
-    let content = json["content"].string?.cleanedHTMLTags()
+    let content = json["content"].string
     let title = json["title"].string?.cleanedHTMLTags()
     let excerpt = json["excerpt"].string?.cleanedHTMLTags()
     let name = json["name"].string?.cleanedHTMLTags()

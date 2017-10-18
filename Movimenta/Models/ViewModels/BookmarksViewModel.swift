@@ -37,13 +37,6 @@ final class BookmarksViewModel {
     DataManager.shared.toggleBookmarkStatus(event: event)
   }
   
-  func updateBookmarkStatus(of event: Event) -> IndexPath? {
-    guard let index = events.index(of: event) else {
-      return nil
-    }
-    return IndexPath(row: index, section: 0)
-  }
-  
   func loadEvents() {
     refreshEvents()
   }
@@ -55,6 +48,20 @@ final class BookmarksViewModel {
   
   func event(for indexPath: IndexPath) -> Event {
     return events[indexPath.row]
+  }
+  
+  func indexPaths(for events: [Event]) -> [IndexPath] {
+    var indexPaths: [IndexPath] = []
+    guard events.count > 0 else {
+      return indexPaths
+    }
+    events.forEach { (event) in
+      guard let index = self.events.index(of: event) else {
+        return
+      }
+      indexPaths.append(IndexPath(row: index, section: 0))
+    }
+    return indexPaths
   }
 }
 
@@ -104,6 +111,13 @@ extension BookmarksViewModel {
     loadEvents()
     let indexPaths = indexPathOfSelectedEvents
     indexPathOfSelectedEvents.removeAll()
+    return indexPaths
+  }
+  
+  /// If the events are unbookmarked then their index paths is returned
+  func updateDataForBookmarkStatus(of events: [Event]) -> [IndexPath] {
+    let indexPaths = self.indexPaths(for: events)
+    loadEvents()
     return indexPaths
   }
 }

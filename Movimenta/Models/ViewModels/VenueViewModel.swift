@@ -34,7 +34,8 @@ final class VenueViewModel {
     guard let url = venue.link else {
       return nil
     }
-    return [name ?? "", url]
+    let title = [name, "MOVIMENTA"].flatMap({ $0 }).joined(separator: " | ")
+    return [title, url]
   }
   
   func galleryImage(at index: Int, completion: @escaping (UIImage?) -> Void) {
@@ -99,8 +100,13 @@ extension VenueViewModel {
   }
   
   var coordinates: CLLocationCoordinate2D? {
-    //TODO: Return the venue coordinates
-    return events.first?.coordinates
+    if let position = venue?.coordinates, !position.isZero {
+      return position
+    } else if let position = events.first?.coordinates, !position.isZero {
+      return position
+    } else {
+      return nil
+    }
   }
 }
 

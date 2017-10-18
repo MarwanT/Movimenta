@@ -9,9 +9,9 @@
 import Foundation
 
 extension UIView {
-  func manipulateLabelsSubviewsTopMarginsIfNeeded() {
+  func manipulateLabelsSubviewsTopMarginsIfNeeded(exceptions: [UILabel] = []) {
     var didUpdateLayout = false
-    let labelsArray: [UILabel] = self.subviews.flatMap({ $0 as? UILabel })
+    let labelsArray: [UILabel] = self.subviews.flatMap({ ($0 as? UILabel) }).filter({ !exceptions.contains($0) })
     for label in labelsArray {
       if label.text == nil || (label.text?.isEmpty ?? true) {
         guard let topConstraint = self.constraints.topConstraints(item: label).first else {

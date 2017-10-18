@@ -217,6 +217,14 @@ final class Strings {
     return Localization.localize(key: "no_event_store_authorization_title")
   }
   
+  static func no_events_found() -> String {
+    return Localization.localize(key: "no_events_found")
+  }
+  
+  static func no_events_happening_on_day() -> String {
+    return Localization.localize(key: "no_events_happening_on_day")
+  }
+  
   static func ok() -> String {
     return Localization.localize(key: "ok")
   }

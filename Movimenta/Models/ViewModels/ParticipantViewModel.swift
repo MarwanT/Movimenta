@@ -45,7 +45,8 @@ final class ParticipantViewModel {
     guard let url = participant.link else {
       return nil
     }
-    return [participant.titleValue, url]
+    let title = [participant.title, "MOVIMENTA"].flatMap({ $0 }).joined(separator: " | ")
+    return [title, url]
   }
   
   func event(for indexPath: IndexPath) -> Event {

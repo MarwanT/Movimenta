@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,10 +51,14 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xe1-Gb-iMr">
+                                    <rect key="frame" x="177" y="144" width="20" height="20"/>
+                                </activityIndicatorView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="bD6-8i-G85" firstAttribute="top" secondItem="GNe-NT-hLe" secondAttribute="bottom" constant="5" id="BsG-j2-qPK"/>
+                                <constraint firstItem="xe1-Gb-iMr" firstAttribute="centerY" secondItem="GrC-hN-8vh" secondAttribute="centerY" id="EkM-Ce-mkl"/>
                                 <constraint firstAttribute="bottomMargin" secondItem="GrC-hN-8vh" secondAttribute="bottom" id="FRf-jv-27Q"/>
                                 <constraint firstItem="GrC-hN-8vh" firstAttribute="trailing" secondItem="zgz-ep-eCJ" secondAttribute="trailing" id="QJQ-kB-zJI"/>
                                 <constraint firstItem="GNe-NT-hLe" firstAttribute="leading" secondItem="zgz-ep-eCJ" secondAttribute="leading" id="UBq-C3-qqR"/>
@@ -67,6 +70,7 @@
                                 <constraint firstItem="GrC-hN-8vh" firstAttribute="leading" secondItem="zgz-ep-eCJ" secondAttribute="leading" id="meW-ZO-i59"/>
                                 <constraint firstItem="zgz-ep-eCJ" firstAttribute="leading" secondItem="GeL-2Q-XDh" secondAttribute="leadingMargin" id="mhm-T9-0AI"/>
                                 <constraint firstItem="zgz-ep-eCJ" firstAttribute="top" secondItem="GeL-2Q-XDh" secondAttribute="topMargin" id="wKD-h7-c0n"/>
+                                <constraint firstItem="xe1-Gb-iMr" firstAttribute="centerX" secondItem="GrC-hN-8vh" secondAttribute="centerX" id="wsx-6E-uHP"/>
                                 <constraint firstItem="zgz-ep-eCJ" firstAttribute="trailing" secondItem="GeL-2Q-XDh" secondAttribute="trailingMargin" id="xMh-Kf-VIb"/>
                             </constraints>
                         </view>
@@ -83,6 +87,7 @@
             <connections>
                 <outlet property="categoriesLabel" destination="GNe-NT-hLe" id="bKE-OH-3cg"/>
                 <outlet property="descriptionLabel" destination="GrC-hN-8vh" id="9nf-bz-X2a"/>
+                <outlet property="descriptionLoader" destination="xe1-Gb-iMr" id="T3G-KF-Lso"/>
                 <outlet property="detailsStackView" destination="nQc-cM-pj5" id="a0W-fZ-SVU"/>
                 <outlet property="imageView" destination="wax-TY-g3A" id="xV6-2l-g3p"/>
                 <outlet property="labelsContainerView" destination="GeL-2Q-XDh" id="nOw-1u-B7I"/>
