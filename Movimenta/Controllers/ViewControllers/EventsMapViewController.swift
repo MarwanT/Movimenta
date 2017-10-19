@@ -313,7 +313,7 @@ extension EventsMapViewController {
     guard let coordinates = mapEvent.event.preferredCoordinates else {
       return
     }
-    let camera = GMSCameraPosition.camera(withTarget: coordinates, zoom: MapZoom.street)
+    let camera = GMSCameraPosition.camera(withTarget: coordinates, zoom: MapZoom.building)
     mapView.animate(to: camera)
   }
   
@@ -497,6 +497,7 @@ extension EventsMapViewController {
 struct MapZoom{
   static let world: Float = 1
   static let street: Float = 15
+  static let building: Float = 19
 }
 
 //MARK: - Filters View Controller Delegate
