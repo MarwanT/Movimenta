@@ -104,7 +104,7 @@ class EventDetailsViewController: UIViewController {
   }
   
   private func setupNavigationItems() {
-    let shareBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(tapShareButton(_:)))
+    let shareBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: .plain, target: self, action: #selector(tapShareButton(_:)))
     bookmarkBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "bookmarkOutline"), style: .plain, target: self, action: #selector(tapBookmarkButton(_:)))
     navigationItem.rightBarButtonItems = [shareBarButton, bookmarkBarButton]
     navigationItem.backBarButtonItem = UIBarButtonItem.back
@@ -126,9 +126,9 @@ class EventDetailsViewController: UIViewController {
   
   fileprivate func refreshBookmarkButton() {
     if viewModel.isBookmarked {
-      bookmarkBarButton.image = #imageLiteral(resourceName: "bookmarkFilled")
+      bookmarkBarButton.image = #imageLiteral(resourceName: "bookmarkNavigation")
     } else {
-      bookmarkBarButton.image = #imageLiteral(resourceName: "bookmarkOutline")
+      bookmarkBarButton.image = #imageLiteral(resourceName: "bookmarkOutlineNavigation")
     }
   }
   
