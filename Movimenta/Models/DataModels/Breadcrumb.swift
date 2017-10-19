@@ -28,7 +28,11 @@ enum Breadcrumb {
         return "-"
       }
       if from.same(date: to) {
-        return "\(from.formattedDate())"
+        if from.same(date: Date()) {
+          return Strings.today()
+        } else {
+          return "\(from.formattedDate())"
+        }
       } else {
         return "\(from.formattedDate()) - \(to.formattedDate())"
       }
