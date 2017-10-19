@@ -42,6 +42,7 @@ class ParticipantDetailsHeaderView: UIView {
   private func applyTheme() {
     let theme = ThemeManager.shared.current
     labelsContainerView.layoutMargins = UIEdgeInsets(top: CGFloat(theme.space7), left: CGFloat(theme.space7), bottom: CGFloat(theme.space7), right: CGFloat(theme.space7))
+    labelsContainerView.backgroundColor = theme.white
     nameLabel.font = theme.font1
     nameLabel.textColor = theme.darkTextColor
     rolesLabel.font = theme.font12
@@ -50,7 +51,6 @@ class ParticipantDetailsHeaderView: UIView {
     descriptionLabel.textColor = theme.darkTextColor
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
-    imageView.clipsToBounds = true
     descriptionLoader.color = theme.color2
   }
   
