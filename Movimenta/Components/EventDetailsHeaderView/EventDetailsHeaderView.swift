@@ -44,6 +44,7 @@ class EventDetailsHeaderView: UIView {
   private func applyTheme() {
     let theme = ThemeManager.shared.current
     labelsContainerView.layoutMargins = UIEdgeInsets(top: CGFloat(theme.space7), left: CGFloat(theme.space7), bottom: CGFloat(theme.space7), right: CGFloat(theme.space7))
+    labelsContainerView.backgroundColor = theme.white
     titleLabel.font = theme.font1
     titleLabel.textColor = theme.darkTextColor
     categoriesLabel.font = theme.font12
@@ -54,7 +55,6 @@ class EventDetailsHeaderView: UIView {
     descriptionLabel.textColor = theme.darkTextColor
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
-    imageView.clipsToBounds = true
     descriptionLoader.color = theme.color2
   }
   
