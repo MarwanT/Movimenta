@@ -68,7 +68,7 @@ class ParticipantDetailsHeaderView: UIView {
       loadDescriptionLabel(with: data?.description)
       labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded(exceptions: [descriptionLabel])
       storedData = nil
-      layoutIfNeeded()
+      setNeedsLayout()
     } else {
       storedData = data
     }

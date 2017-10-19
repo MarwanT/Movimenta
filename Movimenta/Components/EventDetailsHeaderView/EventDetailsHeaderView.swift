@@ -76,7 +76,7 @@ class EventDetailsHeaderView: UIView {
     } else {
       storedData = data
     }
-    layoutIfNeeded()
+    setNeedsLayout()
   }
   
   private func loadDescriptionLabel(with text: String?) {

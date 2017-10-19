@@ -76,7 +76,7 @@ class VenueDetailsHeaderView: UIView {
     nameLabel.text = data?.name
     addressLabel.text = data?.address
     labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
-    contentView.layoutIfNeeded()
+    setNeedsLayout()
   }
   
   func loadGalleryImages(with urls: [URL]?) {
@@ -102,7 +102,7 @@ class VenueDetailsHeaderView: UIView {
     segmentedControlTopConstraint.constant = CGFloat(theme.space3)
     nameLabelTopConstraint.constant = CGFloat(theme.space4)
     addressLabelTopConstraint.constant = CGFloat(theme.space2)
-    contentView.layoutIfNeeded()
+    layoutIfNeeded()
   }
   
   func preferredSize() -> CGSize {

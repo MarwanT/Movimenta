@@ -23,7 +23,7 @@ extension UIView {
     }
     
     if didUpdateLayout {
-      self.layoutIfNeeded()
+      self.setNeedsLayout()
     }
   }
   
