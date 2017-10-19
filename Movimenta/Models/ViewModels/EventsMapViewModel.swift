@@ -22,13 +22,13 @@ final class EventsMapViewModel {
   }
   
   func loadEvents() {
-    loadMapEvents(for: DataManager.shared.events)
+    mapEvents = mapEvents(for: DataManager.shared.events)
     selectedMapEvent = nil
   }
   
   func apply(filter: Filter) {
     self.filter = filter
-    loadMapEvents(for: FiltersManager.shared.filteredEvents(for: filter))
+    mapEvents = mapEvents(for: FiltersManager.shared.filteredEvents(for: filter))
     selectedMapEvent = nil
   }
   
@@ -42,8 +42,8 @@ final class EventsMapViewModel {
     apply(filter: self.filter)
   }
   
-  private func loadMapEvents(for events: [Event]) {
-    mapEvents = events.flatMap { (event) -> MapEvent? in
+  private func mapEvents(for events: [Event]) -> [MapEvent] {
+    return events.flatMap { (event) -> MapEvent? in
       guard let position = event.preferredCoordinates else {
         return nil
       }
