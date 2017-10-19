@@ -25,6 +25,7 @@ class YoutubeViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = "MOVIMENTA"
     if let videoId = videoId {
       youtubePlayerView.load(withVideoId: videoId)
     }
