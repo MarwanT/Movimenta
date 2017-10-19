@@ -190,8 +190,14 @@ class EventsMapViewController: UIViewController {
 extension EventsMapViewController {
   /// Reload events based on filters selected and refresh UI
   func reloadEvents() {
-    viewModel.loadEvents()
+    viewModel.loadPreferredEvents()
+    refreshViews()
+  }
+  
+  func refreshViews() {
     refreshMapView()
+    refreshEventDetailsForSelection()
+    refreshBreadcrumbView()
   }
   
   fileprivate func refreshMapView() {
@@ -497,16 +503,12 @@ struct MapZoom{
 extension EventsMapViewController: FiltersViewControllerDelegate {
   func filters(_ viewController: FiltersViewController, didApply filter: Filter) {
     viewModel.apply(filter: filter)
-    refreshMapView()
-    refreshEventDetailsForSelection()
-    refreshBreadcrumbView()
+    refreshViews()
   }
   
   func filtersDidReset(_ viewController: FiltersViewController) {
     viewModel.resetFilter()
-    refreshMapView()
-    refreshEventDetailsForSelection()
-    refreshBreadcrumbView()
+    refreshViews()
   }
 }
 
