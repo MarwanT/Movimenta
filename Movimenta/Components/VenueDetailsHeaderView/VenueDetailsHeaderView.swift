@@ -53,6 +53,7 @@ class VenueDetailsHeaderView: UIView {
     
     let mapTap = UITapGestureRecognizer(target: self, action: #selector(didTapMapImageView(_:)))
     mapImageView.addGestureRecognizer(mapTap)
+    mapImageView.clipsToBounds = true
     mapImageView.isUserInteractionEnabled = true
   }
   
