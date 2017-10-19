@@ -190,7 +190,7 @@ class EventsMapViewController: UIViewController {
 extension EventsMapViewController {
   /// Reload events based on filters selected and refresh UI
   func reloadEvents() {
-    viewModel.loadEvents()
+    viewModel.loadPreferredEvents()
     refreshViews()
   }
   
