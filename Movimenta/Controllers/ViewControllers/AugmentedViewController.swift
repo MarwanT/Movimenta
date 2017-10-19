@@ -59,6 +59,8 @@ class AugmentedViewController: UIViewController {
     arButton.setTitle(Strings.find_button(), for: .normal)
 
     arButton.addTarget(self, action: #selector(arButtonTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
+    
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
 
   // MARK: Actions
