@@ -101,7 +101,7 @@ class EventCell: UITableViewCell {
   fileprivate func setSideMargins() {
     let theme = ThemeManager.shared.current
     dateLabelLeadingToImageViewTrailing.constant = CGFloat(theme.space7)
-    dateLabelTrailingToBookmarkButtonLeading.constant = 0
+    dateLabelTrailingToBookmarkButtonLeading.constant = -5
     contentView.layoutIfNeeded()
   }
   
