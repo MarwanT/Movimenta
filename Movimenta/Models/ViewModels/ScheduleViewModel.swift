@@ -13,6 +13,8 @@ final class ScheduleViewModel {
   fileprivate(set) var events = [Event]()
   fileprivate(set) var indexOfSelectedDate: Int = 0
   
+  fileprivate(set) var isDataReady = false
+  
   var selectedDate: Date? {
     guard indexOfSelectedDate < scheduleDates.count else {
       return nil
@@ -21,6 +23,7 @@ final class ScheduleViewModel {
   }
   
   func refreshDates(completion: @escaping () -> Void) {
+    isDataReady = false
     DispatchQueue.global().async { 
       // Set Scheduale dates
       self.scheduleDates.removeAll()
@@ -34,7 +37,8 @@ final class ScheduleViewModel {
         }
         self.scheduleDates.append(scheduleDate)
       }
-      DispatchQueue.main.async(execute: { 
+      self.isDataReady = true
+      DispatchQueue.main.async(execute: {
         completion()
       })
     }
