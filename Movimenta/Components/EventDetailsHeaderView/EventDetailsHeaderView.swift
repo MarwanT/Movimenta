@@ -66,9 +66,10 @@ class EventDetailsHeaderView: UIView {
   
   func loadView(with data: DetailsData?) {
     if isSetup {
+      let theme = ThemeManager.shared.current
       imageView.sd_setImage(with: data?.image, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
-      titleLabel.text = data?.title?.capitalized
       categoriesLabel.text = data?.categories?.uppercased()
+      titleLabel.paragraph(with: data?.title?.capitalized, lineHeight: theme.fontBook1.lineHeight)
       participantsLabel.text = data?.participants
       loadDescriptionLabel(with: data?.description)
       labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded(exceptions: [descriptionLabel])
