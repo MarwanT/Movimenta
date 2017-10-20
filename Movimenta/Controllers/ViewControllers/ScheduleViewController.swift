@@ -175,7 +175,7 @@ class ScheduleViewController: UIViewController {
   }
   
   fileprivate func reloadEventsView() {
-    if isLoaded { user
+    if isLoaded {
       eventsTableView.reloadSections(IndexSet(integer: 0), with: .fade)
       if viewModel.hasEvents {
         eventsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)

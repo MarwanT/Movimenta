@@ -54,7 +54,8 @@ class AugmentedViewController: UIViewController {
   }
 
   private func setupView() {
-    titleLabel.text = Strings.find_m()
+    let theme = ThemeManager.shared.current
+    titleLabel.paragraph(with: Strings.find_m(), lineHeight: theme.fontBook2.lineHeight)
     subtitleLabel.text = Strings.find_scan_message()
     arButton.setTitle(Strings.find_button(), for: .normal)
 

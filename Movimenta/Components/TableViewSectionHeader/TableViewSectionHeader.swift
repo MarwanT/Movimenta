@@ -70,7 +70,7 @@ class TableViewSectionHeader: UITableViewHeaderFooterView {
     }
     
     set {
-      label.text = newValue
+      label.paragraph(with: newValue, lineHeight: ThemeManager.shared.current.fontBook4.lineHeight)
     }
   }
   

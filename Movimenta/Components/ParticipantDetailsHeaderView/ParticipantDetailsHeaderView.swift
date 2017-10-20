@@ -62,8 +62,9 @@ class ParticipantDetailsHeaderView: UIView {
   
   func loadView(with data: DetailsData?) {
     if isInitialized {
+      let theme = ThemeManager.shared.current
       imageView.sd_setImage(with: data?.image, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
-      nameLabel.text = data?.name?.capitalized
+      nameLabel.paragraph(with: data?.name?.capitalized, lineHeight: theme.fontBook1.lineHeight)
       rolesLabel.text = data?.roles?.uppercased()
       loadDescriptionLabel(with: data?.description)
       labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded(exceptions: [descriptionLabel])

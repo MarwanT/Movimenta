@@ -34,6 +34,11 @@ class EventDetailsPeekView: UIView {
     titleLabel.textColor = ThemeManager.shared.current.color2
     subtitleLabel.textColor = ThemeManager.shared.current.darkTextColor
   }
+  
+  func set(title: String?, subtitle: String?) {
+    titleLabel.paragraph(with: title, lineHeight: ThemeManager.shared.current.fontBook4.lineHeight)
+    subtitleLabel.text = subtitle
+  }
 }
 
 extension EventDetailsPeekView {
