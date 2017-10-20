@@ -10,7 +10,7 @@ import Foundation
 
 extension UILabel {
   /// Sets the text and font of the label
-  func paragraph(with text: String?, lineHeight: CGFloat?) {
+  func paragraph(with text: String?, lineHeight: CGFloat? = nil, alignement: NSTextAlignment? = nil) {
     guard var text = text else {
       self.text = nil
       return
@@ -21,6 +21,9 @@ extension UILabel {
     if let lineHeight = lineHeight {
       style.minimumLineHeight = lineHeight
       style.maximumLineHeight = lineHeight
+    }
+    if let alignement = alignement {
+      style.alignment = alignement
     }
     
     attributedString.addAttribute(NSParagraphStyleAttributeName, value: style, range:
