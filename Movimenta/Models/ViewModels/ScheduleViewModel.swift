@@ -20,21 +20,24 @@ final class ScheduleViewModel {
     return scheduleDates[indexOfSelectedDate].date
   }
   
-  init() {
-    refreshDates()
-  }
-  
-  func refreshDates() {
-    // Set Scheduale dates
-    let firstDate = FiltersManager.shared.firstEventDate
-    let lastDate = FiltersManager.shared.lastEventDate
-    let dates = firstDate.includedDates(till: lastDate)
-    for (index, date) in dates.enumerated() {
-      let scheduleDate = ScheduleDate(date: date)
-      if scheduleDate.isToday {
-        self.indexOfSelectedDate = index
+  func refreshDates(completion: @escaping () -> Void) {
+    DispatchQueue.global().async { 
+      // Set Scheduale dates
+      self.scheduleDates.removeAll()
+      let firstDate = FiltersManager.shared.firstEventDate
+      let lastDate = FiltersManager.shared.lastEventDate
+      let dates = firstDate.includedDates(till: lastDate)
+      for (index, date) in dates.enumerated() {
+        let scheduleDate = ScheduleDate(date: date)
+        if scheduleDate.isToday {
+          self.indexOfSelectedDate = index
+        }
+        self.scheduleDates.append(scheduleDate)
       }
-      self.scheduleDates.append(scheduleDate)
+      print(">> scheduleDates count : \(self.scheduleDates.count)")
+      DispatchQueue.main.async(execute: { 
+        completion()
+      })
     }
   }
   
@@ -65,6 +68,10 @@ extension ScheduleViewModel {
   
   func setSelected(for indexPath: IndexPath) {
     selectedItemIndexPath = indexPath
+  }
+  
+  var hasDates: Bool {
+    return numberOfItems > 0
   }
 }
 
