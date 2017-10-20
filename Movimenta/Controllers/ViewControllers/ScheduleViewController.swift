@@ -139,7 +139,7 @@ class ScheduleViewController: UIViewController {
   }
   
   fileprivate func navigateToSelectedDate() {
-    if viewModel.hasDates {
+    if viewModel.hasDates, viewModel.isDataReady {
       datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
     }
   }
@@ -170,7 +170,7 @@ class ScheduleViewController: UIViewController {
   //MARK: Reload Views
   fileprivate func reloadDatesView() {
     if isLoaded {
-      datesCollectionView.reloadSections(IndexSet(integer: 0))
+      datesCollectionView.reloadData()
     }
   }
   
