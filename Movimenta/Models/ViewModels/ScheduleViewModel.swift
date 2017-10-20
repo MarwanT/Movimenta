@@ -34,7 +34,6 @@ final class ScheduleViewModel {
         }
         self.scheduleDates.append(scheduleDate)
       }
-      print(">> scheduleDates count : \(self.scheduleDates.count)")
       DispatchQueue.main.async(execute: { 
         completion()
       })
