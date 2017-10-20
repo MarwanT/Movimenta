@@ -11,6 +11,8 @@ import UIKit
 class ScheduleViewController: UIViewController {
   @IBOutlet weak var datesCollectionView: UICollectionView!
   @IBOutlet weak var eventsTableView: UITableView!
+  @IBOutlet weak var datesActivityIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var eventsActivityIndicator: UIActivityIndicatorView!
   
   fileprivate let noScheduledEventsView = NoScheduledEventsView.instanceFromNib()
   
