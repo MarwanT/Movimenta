@@ -103,7 +103,7 @@ class VenueDetailsHeaderView: UIView {
     let theme = ThemeManager.shared.current
     segmentedControlTopConstraint.constant = CGFloat(theme.space3)
     nameLabelTopConstraint.constant = CGFloat(theme.space4)
-    addressLabelTopConstraint.constant = CGFloat(theme.space2)
+    addressLabelTopConstraint.constant = -5
     layoutIfNeeded()
   }
   
