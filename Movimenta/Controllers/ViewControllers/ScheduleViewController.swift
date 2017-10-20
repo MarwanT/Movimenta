@@ -170,7 +170,7 @@ class ScheduleViewController: UIViewController {
   //MARK: Reload Views
   fileprivate func reloadDatesView() {
     if isLoaded {
-      datesCollectionView.reloadSections(IndexSet(integer: 0))
+      datesCollectionView.reloadData()
     }
   }
   
