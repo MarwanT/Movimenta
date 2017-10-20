@@ -55,10 +55,10 @@ class InformationViewController: UIViewController {
     //Localize labels
     aboutLabel.text = Strings.info_app_title()
     aboutAppLabel.text = Strings.info_app_subtitle()
-    partnersLabel.paragraph(with: Strings.partners(), lineHeight: theme.fontBook4.lineHeight)
-    contactLabel.paragraph(with: Strings.contact(), lineHeight: theme.fontBook4.lineHeight)
-    hotelsLabel.paragraph(with: Strings.hotels(), lineHeight: theme.fontBook4.lineHeight)
-    restaurantsLabel.paragraph(with: Strings.restaurants(), lineHeight: theme.fontBook4.lineHeight)
+    partnersLabel.paragraph(with: Strings.partners(), lineHeight: theme.fontBook4.lineHeight, alignement: NSTextAlignment.center)
+    contactLabel.paragraph(with: Strings.contact(), lineHeight: theme.fontBook4.lineHeight, alignement: NSTextAlignment.center)
+    hotelsLabel.paragraph(with: Strings.hotels(), lineHeight: theme.fontBook4.lineHeight, alignement: NSTextAlignment.center)
+    restaurantsLabel.paragraph(with: Strings.restaurants(), lineHeight: theme.fontBook4.lineHeight, alignement: NSTextAlignment.center)
 
     //Set tap listeners
     let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(aboutImageTapped(tapGestureRecognizer:)))
