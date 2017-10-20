@@ -214,8 +214,7 @@ extension EventsMapViewController {
   }
   
   func showEventDetailsPeekView(event: Event, animated: Bool = true) {
-    eventDetailsPeekView.titleLabel.text = event.title
-    eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel.uppercased()
+    eventDetailsPeekView.set(title: event.title, subtitle: event.displayedCategoryLabel.uppercased())
     showEventDetailsPeekView(animated: animated)
   }
   
