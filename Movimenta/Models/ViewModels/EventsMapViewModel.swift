@@ -21,14 +21,28 @@ final class EventsMapViewModel {
     }
   }
   
+  /// If there are events today, then this method loads the events happening today.
+  /// Otherwise it loads all the events available
+  func loadPreferredEvents() {
+    let todayFilter = self.todayFilter
+    let candidateEvents = FiltersManager.shared.filteredEvents(for: todayFilter)
+    if candidateEvents.count > 0 {
+      self.filter = todayFilter
+      mapEvents = mapEvents(for: candidateEvents)
+      selectedMapEvent = nil
+    } else {
+      loadEvents()
+    }
+  }
+  
   func loadEvents() {
-    loadMapEvents(for: DataManager.shared.events)
+    mapEvents = mapEvents(for: DataManager.shared.events)
     selectedMapEvent = nil
   }
   
   func apply(filter: Filter) {
     self.filter = filter
-    loadMapEvents(for: FiltersManager.shared.filteredEvents(for: filter))
+    mapEvents = mapEvents(for: FiltersManager.shared.filteredEvents(for: filter))
     selectedMapEvent = nil
   }
   
@@ -42,8 +56,8 @@ final class EventsMapViewModel {
     apply(filter: self.filter)
   }
   
-  private func loadMapEvents(for events: [Event]) {
-    mapEvents = events.flatMap { (event) -> MapEvent? in
+  private func mapEvents(for events: [Event]) -> [MapEvent] {
+    return events.flatMap { (event) -> MapEvent? in
       guard let position = event.preferredCoordinates else {
         return nil
       }
@@ -68,5 +82,13 @@ final class EventsMapViewModel {
     }
 
     return selectedMapEvent != nil
+  }
+  
+  //MARK: Helpers
+  fileprivate var todayFilter: Filter {
+    var filter = Filter()
+    let todayDate = Date()
+    filter.dateRange = DateRange(from: todayDate, to: todayDate)
+    return filter
   }
 }

@@ -11,6 +11,8 @@ import UIKit
 class ScheduleViewController: UIViewController {
   @IBOutlet weak var datesCollectionView: UICollectionView!
   @IBOutlet weak var eventsTableView: UITableView!
+  @IBOutlet weak var datesActivityIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var eventsActivityIndicator: UIActivityIndicatorView!
   
   fileprivate let noScheduledEventsView = NoScheduledEventsView.instanceFromNib()
   
@@ -18,13 +20,10 @@ class ScheduleViewController: UIViewController {
   
   var viewModel = ScheduleViewModel()
   
+  fileprivate var isLoaded: Bool = false
+  
   static func instance() -> ScheduleViewController {
     return Storyboard.Event.instantiate(ScheduleViewController.self)
-  }
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    registerToNotificationCenter()
   }
   
   deinit {
@@ -33,14 +32,15 @@ class ScheduleViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    isLoaded = true
     initializeTitle()
+    initializeActivityIndicators()
     initializeNavigationItems()
     initializeCollectionView()
     initializeTableView()
     initializeNoScheduledEventsView()
-    reloadDatesData()
-    reloadEventsData(reloadView: true)
-    navigateToSelectedDate()
+    reloadData(reloadView: true)
+    registerToNotificationCenter()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +53,7 @@ class ScheduleViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    
     navigateToSelectedDate()
   }
   
@@ -67,6 +68,13 @@ class ScheduleViewController: UIViewController {
   
   private func initializeNavigationItems() {
     navigationItem.backBarButtonItem = UIBarButtonItem.back
+  }
+  
+  private func initializeActivityIndicators() {
+    let theme = ThemeManager.shared.current
+    datesActivityIndicator.color = theme.white
+    eventsActivityIndicator.color = theme.color2
+    eventsActivityIndicator.isHidden = true
   }
   
   private func initializeCollectionView() {
@@ -115,7 +123,7 @@ class ScheduleViewController: UIViewController {
   }
   
   private func initializeNoScheduledEventsView() {
-    view.addSubview(noScheduledEventsView)
+    view.insertSubview(noScheduledEventsView, belowSubview: eventsActivityIndicator)
     noScheduledEventsView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(self.eventsTableView)
     }
@@ -131,19 +139,24 @@ class ScheduleViewController: UIViewController {
   }
   
   fileprivate func navigateToSelectedDate() {
-    datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
-  }
-  
-  func reloadData(reloadViews: Bool = true) {
-    reloadDatesData(reloadView: reloadViews)
-    reloadEventsData(reloadView: reloadViews)
+    if viewModel.hasDates, viewModel.isDataReady {
+      datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
+    }
   }
   
   //MARK: Reload Data
-  fileprivate func reloadDatesData(reloadView: Bool = false) {
-    viewModel.refreshDates()
-    if reloadView {
-      reloadDatesView()
+  
+  /// Reload dates and events
+  fileprivate func reloadData(reloadView: Bool = false) {
+    activityIndicators(activate: true)
+    viewModel.refreshDates {
+      self.activityIndicators(activate: false)
+      if reloadView {
+        self.reloadDatesView()
+        self.navigateToSelectedDate()
+      }
+      // Reload events too
+      self.reloadEventsData(reloadView: reloadView)
     }
   }
   
@@ -156,14 +169,14 @@ class ScheduleViewController: UIViewController {
   
   //MARK: Reload Views
   fileprivate func reloadDatesView() {
-    if isViewLoaded {
+    if isLoaded {
       datesCollectionView.reloadData()
     }
   }
   
   fileprivate func reloadEventsView() {
-    if isViewLoaded {
-      eventsTableView.reloadData()
+    if isLoaded {
+      eventsTableView.reloadSections(IndexSet(integer: 0), with: .fade)
       if viewModel.hasEvents {
         eventsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
       }
@@ -214,6 +227,27 @@ class ScheduleViewController: UIViewController {
   fileprivate func hideNavigationBarShadow() {
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     self.navigationController?.navigationBar.shadowImage = UIImage()
+  }
+  
+//  fileprivate
+  
+  fileprivate func activityIndicators(activate: Bool) {
+    guard datesActivityIndicator != nil,
+      eventsActivityIndicator != nil else {
+      return
+    }
+    
+    if activate {
+      datesActivityIndicator.startAnimating()
+      datesActivityIndicator.isHidden = false
+//      eventsActivityIndicator.startAnimating()
+//      eventsActivityIndicator.isHidden = false
+    } else {
+      datesActivityIndicator.stopAnimating()
+      datesActivityIndicator.isHidden = true
+//      eventsActivityIndicator.stopAnimating()
+//      eventsActivityIndicator.isHidden = true
+    }
   }
 }
 

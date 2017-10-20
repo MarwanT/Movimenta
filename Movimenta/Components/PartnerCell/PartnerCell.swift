@@ -34,7 +34,8 @@ class PartnerCell: UITableViewCell {
   }
 
   public func setup(title: String?, description: String?, imageURL: String?) {
-    titleLabel.text = title
+    let theme = ThemeManager.shared.current
+    titleLabel.paragraph(with: title, lineHeight: theme.fontBook4.lineHeight)
     descriptionLabel.text = description
 
     if let imageURL = imageURL, let url = URL(string: imageURL) {

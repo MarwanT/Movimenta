@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -205,20 +204,32 @@
                                 <rect key="frame" x="0.0" y="95" width="375" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cv8-W7-eX9">
+                                <rect key="frame" x="177" y="47.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="frB-km-skk">
+                                <rect key="frame" x="177" y="371" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Odg-mS-0fr" secondAttribute="trailing" id="5Bl-pS-evw"/>
+                            <constraint firstItem="cv8-W7-eX9" firstAttribute="centerX" secondItem="Odg-mS-0fr" secondAttribute="centerX" id="FmZ-hk-pVT"/>
                             <constraint firstItem="Odg-mS-0fr" firstAttribute="leading" secondItem="FjU-gG-tOt" secondAttribute="leading" id="LJZ-yo-kW4"/>
                             <constraint firstItem="Odg-mS-0fr" firstAttribute="top" secondItem="rjO-dZ-CdL" secondAttribute="bottom" id="PNU-k5-cLM"/>
+                            <constraint firstItem="cv8-W7-eX9" firstAttribute="centerY" secondItem="Odg-mS-0fr" secondAttribute="centerY" id="W5m-fS-V9d"/>
                             <constraint firstItem="327-lv-NWs" firstAttribute="top" secondItem="Dco-Ju-ADn" secondAttribute="bottom" id="Z2c-TN-ugh"/>
                             <constraint firstAttribute="trailing" secondItem="Dco-Ju-ADn" secondAttribute="trailing" id="bpM-Mg-Gw8"/>
+                            <constraint firstItem="frB-km-skk" firstAttribute="centerY" secondItem="Dco-Ju-ADn" secondAttribute="centerY" id="lOH-CL-Vau"/>
+                            <constraint firstItem="frB-km-skk" firstAttribute="centerX" secondItem="Dco-Ju-ADn" secondAttribute="centerX" id="nHr-wG-eZR"/>
                             <constraint firstItem="Dco-Ju-ADn" firstAttribute="leading" secondItem="FjU-gG-tOt" secondAttribute="leading" id="nkh-0j-L4I"/>
                             <constraint firstItem="Dco-Ju-ADn" firstAttribute="top" secondItem="Odg-mS-0fr" secondAttribute="bottom" id="rfb-df-xUN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="datesActivityIndicator" destination="cv8-W7-eX9" id="amd-TU-EET"/>
                         <outlet property="datesCollectionView" destination="Odg-mS-0fr" id="1xZ-Rw-nuY"/>
+                        <outlet property="eventsActivityIndicator" destination="frB-km-skk" id="q4w-dZ-RCV"/>
                         <outlet property="eventsTableView" destination="Dco-Ju-ADn" id="e4q-mD-bdb"/>
                     </connections>
                 </viewController>

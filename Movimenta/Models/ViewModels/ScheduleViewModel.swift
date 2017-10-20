@@ -13,6 +13,8 @@ final class ScheduleViewModel {
   fileprivate(set) var events = [Event]()
   fileprivate(set) var indexOfSelectedDate: Int = 0
   
+  fileprivate(set) var isDataReady = false
+  
   var selectedDate: Date? {
     guard indexOfSelectedDate < scheduleDates.count else {
       return nil
@@ -20,21 +22,25 @@ final class ScheduleViewModel {
     return scheduleDates[indexOfSelectedDate].date
   }
   
-  init() {
-    refreshDates()
-  }
-  
-  func refreshDates() {
-    // Set Scheduale dates
-    let firstDate = FiltersManager.shared.firstEventDate
-    let lastDate = FiltersManager.shared.lastEventDate
-    let dates = firstDate.includedDates(till: lastDate)
-    for (index, date) in dates.enumerated() {
-      let scheduleDate = ScheduleDate(date: date)
-      if scheduleDate.isToday {
-        self.indexOfSelectedDate = index
+  func refreshDates(completion: @escaping () -> Void) {
+    isDataReady = false
+    DispatchQueue.global().async { 
+      // Set Scheduale dates
+      self.scheduleDates.removeAll()
+      let firstDate = FiltersManager.shared.firstEventDate
+      let lastDate = FiltersManager.shared.lastEventDate
+      let dates = firstDate.includedDates(till: lastDate)
+      for (index, date) in dates.enumerated() {
+        let scheduleDate = ScheduleDate(date: date)
+        if scheduleDate.isToday {
+          self.indexOfSelectedDate = index
+        }
+        self.scheduleDates.append(scheduleDate)
       }
-      self.scheduleDates.append(scheduleDate)
+      self.isDataReady = true
+      DispatchQueue.main.async(execute: {
+        completion()
+      })
     }
   }
   
@@ -65,6 +71,10 @@ extension ScheduleViewModel {
   
   func setSelected(for indexPath: IndexPath) {
     selectedItemIndexPath = indexPath
+  }
+  
+  var hasDates: Bool {
+    return numberOfItems > 0
   }
 }
 

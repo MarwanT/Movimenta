@@ -38,7 +38,6 @@ class ParticipantCell: UITableViewCell {
     contentView.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space2), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space2), right: CGFloat(theme.space7))
-    layoutIfNeeded()
   }
   
   override func layoutSubviews() {

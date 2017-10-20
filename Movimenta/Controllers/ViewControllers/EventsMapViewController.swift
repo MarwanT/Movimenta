@@ -190,8 +190,14 @@ class EventsMapViewController: UIViewController {
 extension EventsMapViewController {
   /// Reload events based on filters selected and refresh UI
   func reloadEvents() {
-    viewModel.loadEvents()
+    viewModel.loadPreferredEvents()
+    refreshViews()
+  }
+  
+  func refreshViews() {
     refreshMapView()
+    refreshEventDetailsForSelection()
+    refreshBreadcrumbView()
   }
   
   fileprivate func refreshMapView() {
@@ -208,8 +214,7 @@ extension EventsMapViewController {
   }
   
   func showEventDetailsPeekView(event: Event, animated: Bool = true) {
-    eventDetailsPeekView.titleLabel.text = event.title
-    eventDetailsPeekView.subtitleLabel.text = event.displayedCategoryLabel.uppercased()
+    eventDetailsPeekView.set(title: event.title, subtitle: event.displayedCategoryLabel.uppercased())
     showEventDetailsPeekView(animated: animated)
   }
   
@@ -307,7 +312,7 @@ extension EventsMapViewController {
     guard let coordinates = mapEvent.event.preferredCoordinates else {
       return
     }
-    let camera = GMSCameraPosition.camera(withTarget: coordinates, zoom: MapZoom.street)
+    let camera = GMSCameraPosition.camera(withTarget: coordinates, zoom: MapZoom.building)
     mapView.animate(to: camera)
   }
   
@@ -491,22 +496,19 @@ extension EventsMapViewController {
 struct MapZoom{
   static let world: Float = 1
   static let street: Float = 15
+  static let building: Float = 19
 }
 
 //MARK: - Filters View Controller Delegate
 extension EventsMapViewController: FiltersViewControllerDelegate {
   func filters(_ viewController: FiltersViewController, didApply filter: Filter) {
     viewModel.apply(filter: filter)
-    refreshMapView()
-    refreshEventDetailsForSelection()
-    refreshBreadcrumbView()
+    refreshViews()
   }
   
   func filtersDidReset(_ viewController: FiltersViewController) {
     viewModel.resetFilter()
-    refreshMapView()
-    refreshEventDetailsForSelection()
-    refreshBreadcrumbView()
+    refreshViews()
   }
 }
 

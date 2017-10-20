@@ -139,6 +139,7 @@
 		59A9F6821F95FC0B00C52D78 /* NoScheduledEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9F6811F95FC0B00C52D78 /* NoScheduledEventsView.swift */; };
 		59A9F6841F95FC3100C52D78 /* NoScheduledEventsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A9F6831F95FC3100C52D78 /* NoScheduledEventsView.xib */; };
 		59C04D271F7E5E02002DEF4A /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C04D261F7E5E02002DEF4A /* UITableView+Utils.swift */; };
+		59C998A81F99425B00191EA6 /* FontBook+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C998A71F99425B00191EA6 /* FontBook+Utils.swift */; };
 		59D39DAE1F8BB0D6001A80FC /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59D39DAC1F8BB0D6001A80FC /* GoogleService-Info-dev.plist */; };
 		59D39DAF1F8BB0D6001A80FC /* GoogleService-Info-prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59D39DAD1F8BB0D6001A80FC /* GoogleService-Info-prod.plist */; };
 		59D52F811F1CD134008F3B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D52F711F1CD134008F3B13 /* Assets.xcassets */; };
@@ -374,6 +375,7 @@
 		59A9F6811F95FC0B00C52D78 /* NoScheduledEventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoScheduledEventsView.swift; sourceTree = "<group>"; };
 		59A9F6831F95FC3100C52D78 /* NoScheduledEventsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoScheduledEventsView.xib; sourceTree = "<group>"; };
 		59C04D261F7E5E02002DEF4A /* UITableView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
+		59C998A71F99425B00191EA6 /* FontBook+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FontBook+Utils.swift"; sourceTree = "<group>"; };
 		59D39DAC1F8BB0D6001A80FC /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		59D39DAD1F8BB0D6001A80FC /* GoogleService-Info-prod.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-prod.plist"; sourceTree = "<group>"; };
 		59D52F711F1CD134008F3B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -752,6 +754,7 @@
 				5970AFB71F2A1868008CA708 /* MovimentaTheme.swift */,
 				5970AFB31F2A17B3008CA708 /* Font.swift */,
 				5970AFB41F2A17B3008CA708 /* FontBook.swift */,
+				59C998A71F99425B00191EA6 /* FontBook+Utils.swift */,
 			);
 			path = MovimentaTheme;
 			sourceTree = "<group>";
@@ -1450,6 +1453,7 @@
 				5970AF901F24E175008CA708 /* MovimentaEvent.swift in Sources */,
 				5970AF941F24E4A8008CA708 /* Event.swift in Sources */,
 				59C04D271F7E5E02002DEF4A /* UITableView+Utils.swift in Sources */,
+				59C998A81F99425B00191EA6 /* FontBook+Utils.swift in Sources */,
 				59EF021D1F3094FD00F145B9 /* Color+Utils.swift in Sources */,
 				598656AE1F698394000EB28D /* ScheduleViewController.swift in Sources */,
 				599202671F66B2D60078578C /* ParticipantDetailsHeaderView.swift in Sources */,

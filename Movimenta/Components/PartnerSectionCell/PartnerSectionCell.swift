@@ -32,7 +32,8 @@ class PartnerSectionCell: UITableViewHeaderFooterView {
   }
 
   public func setup(title: String?) {
-    label.text = title
+    let theme = ThemeManager.shared.current
+    label.paragraph(with: title, lineHeight: theme.fontBook4.lineHeight)
   }
 }
 

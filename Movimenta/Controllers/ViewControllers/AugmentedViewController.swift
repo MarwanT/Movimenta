@@ -54,11 +54,14 @@ class AugmentedViewController: UIViewController {
   }
 
   private func setupView() {
-    titleLabel.text = Strings.find_m()
+    let theme = ThemeManager.shared.current
+    titleLabel.paragraph(with: Strings.find_m(), lineHeight: theme.fontBook2.lineHeight)
     subtitleLabel.text = Strings.find_scan_message()
     arButton.setTitle(Strings.find_button(), for: .normal)
 
     arButton.addTarget(self, action: #selector(arButtonTouchUpInside(_:)), for: UIControlEvents.touchUpInside)
+    
+    navigationItem.backBarButtonItem = UIBarButtonItem.back
   }
 
   // MARK: Actions
@@ -67,6 +70,7 @@ class AugmentedViewController: UIViewController {
       if(success) {
         let arViewController = ARViewController()
         arViewController.targetDelegate = self
+        arViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(arViewController, animated: true)
         
         //MARK: [Analytics] Event
@@ -142,6 +146,7 @@ extension AugmentedViewController: ARViewControllerDelegate {
     if(!meta.isEmpty) {
       let vc = YoutubeViewController.instance()
       vc.initialize(with: meta)
+      vc.hidesBottomBarWhenPushed = true
       self.navigationController?.pushViewController(vc, animated: true)
       
       //MARK: [Analytics] Event

@@ -85,7 +85,7 @@ class VenueViewController: UIViewController {
     headerView.delegate = self
     hostedEventsLabel = ParallaxLabel.instanceFromNib()
     hostedEventsLabel.layoutMargins = UIEdgeInsets(
-      top: CGFloat(theme.space8), left: CGFloat(theme.space7),
+      top: CGFloat(theme.space4), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
     let separatorView = UIView(frame: CGRect.zero)
     separatorView.backgroundColor = theme.separatorColor

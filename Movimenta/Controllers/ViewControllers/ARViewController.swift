@@ -23,6 +23,7 @@ public class ARViewController: GLKViewController {
 
   override public func viewDidLoad() {
     super.viewDidLoad()
+    title = Strings.ar().uppercased()
     glView?.setOrientation(UIApplication.shared.statusBarOrientation)
     glView?.setDelegate(delegate: self)
   }
