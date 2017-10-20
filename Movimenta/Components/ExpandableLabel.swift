@@ -107,13 +107,8 @@ extension ExpandableLabel {
     guard let text = text else {
       return 0
     }
-    let nsText = text as NSString
-    let boundingRect = nsText.boundingRect(
-      with: CGSize(width: frame.width, height: CGFloat.infinity),
-      options: NSStringDrawingOptions.usesLineFragmentOrigin,
-      attributes: [NSFontAttributeName : font],
-      context: nil)
-    return Int(ceil(boundingRect.height/font.lineHeight))+1
+    let height = text.height(withConstrainedWidth: frame.width, font: font)
+    return Int(ceil(height/font.lineHeight))+1
   }
 }
 

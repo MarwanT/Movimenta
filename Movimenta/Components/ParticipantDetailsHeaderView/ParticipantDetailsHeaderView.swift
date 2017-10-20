@@ -42,6 +42,7 @@ class ParticipantDetailsHeaderView: UIView {
   private func applyTheme() {
     let theme = ThemeManager.shared.current
     labelsContainerView.layoutMargins = UIEdgeInsets(top: CGFloat(theme.space7), left: CGFloat(theme.space7), bottom: CGFloat(theme.space7), right: CGFloat(theme.space7))
+    labelsContainerView.backgroundColor = theme.white
     nameLabel.font = theme.font1
     nameLabel.textColor = theme.darkTextColor
     rolesLabel.font = theme.font12
@@ -50,7 +51,6 @@ class ParticipantDetailsHeaderView: UIView {
     descriptionLabel.textColor = theme.darkTextColor
     descriptionLabel.configuration.setMinimumNumberOfLines(4)
     imageView.backgroundColor = theme.color6
-    imageView.clipsToBounds = true
     descriptionLoader.color = theme.color2
   }
   
@@ -62,13 +62,14 @@ class ParticipantDetailsHeaderView: UIView {
   
   func loadView(with data: DetailsData?) {
     if isInitialized {
+      let theme = ThemeManager.shared.current
       imageView.sd_setImage(with: data?.image, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
-      nameLabel.text = data?.name?.capitalized
+      nameLabel.paragraph(with: data?.name?.capitalized, lineHeight: theme.fontBook1.lineHeight)
       rolesLabel.text = data?.roles?.uppercased()
       loadDescriptionLabel(with: data?.description)
       labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded(exceptions: [descriptionLabel])
       storedData = nil
-      layoutIfNeeded()
+      setNeedsLayout()
     } else {
       storedData = data
     }

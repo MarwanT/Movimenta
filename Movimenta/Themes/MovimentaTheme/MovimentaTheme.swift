@@ -173,3 +173,64 @@ final class MovimentaTheme: Theme {
     button.addConstraint(lowerWidthConstraint)
   }
 }
+
+extension Theme {
+  var fontBook1: FontBook {
+    return FontBook.title1
+  }
+  var fontBook2: FontBook {
+    return FontBook.title2
+  }
+  var fontBook3: FontBook {
+    return FontBook.title3
+  }
+  var fontBook4: FontBook {
+    return FontBook.title4
+  }
+  var fontBook5: FontBook {
+    return FontBook.title5
+  }
+  var fontBook6: FontBook {
+    return FontBook.body1
+  }
+  var fontBook7: FontBook {
+    return FontBook.header1
+  }
+  var fontBook8: FontBook {
+    return FontBook.listTitle
+  }
+  var fontBook9: FontBook {
+    return FontBook.listBody
+  }
+  var fontBook10: FontBook {
+    return FontBook.action1
+  }
+  var fontBook11: FontBook {
+    return FontBook.action2
+  }
+  var fontBook12: FontBook {
+    return FontBook.label1
+  }
+  var fontBook13: FontBook {
+    return FontBook.label2
+  }
+  var fontBook14: FontBook {
+    return FontBook.label3
+  }
+  var fontBook15: FontBook {
+    return FontBook.filter
+  }
+  var fontBook16: FontBook {
+    return FontBook.menu1
+  }
+  var fontBook17: FontBook {
+    return FontBook.menu2
+  }
+  var fontBookTab: FontBook {
+    return FontBook.tabLabel
+  }
+  var fontBookTabSelected: FontBook {
+    return FontBook.tabLabelSelected
+  }
+}
+

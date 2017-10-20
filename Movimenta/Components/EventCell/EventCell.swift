@@ -101,7 +101,7 @@ class EventCell: UITableViewCell {
   fileprivate func setSideMargins() {
     let theme = ThemeManager.shared.current
     dateLabelLeadingToImageViewTrailing.constant = CGFloat(theme.space7)
-    dateLabelTrailingToBookmarkButtonLeading.constant = 0
+    dateLabelTrailingToBookmarkButtonLeading.constant = -5
     contentView.layoutIfNeeded()
   }
   
@@ -124,10 +124,11 @@ class EventCell: UITableViewCell {
   }
   
   func set(imageURL: URL?, date: String?, venueName: String?, eventName: String?, categories: String?, time: String?, isBookmarked: Bool?) {
+    let theme = ThemeManager.shared.current
     eventImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderSmall"))
     dateLabel.text = date
     venueNameLabel.text = venueName
-    eventNameLabel.text = eventName
+    eventNameLabel.paragraph(with: eventName, lineHeight: theme.fontBook4.lineHeight)
     categoryLabel.text = categories?.uppercased()
     timeLabel.text = time
     self.isBookmarked = isBookmarked ?? false

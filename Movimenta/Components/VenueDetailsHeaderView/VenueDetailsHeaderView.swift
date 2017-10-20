@@ -53,6 +53,7 @@ class VenueDetailsHeaderView: UIView {
     
     let mapTap = UITapGestureRecognizer(target: self, action: #selector(didTapMapImageView(_:)))
     mapImageView.addGestureRecognizer(mapTap)
+    mapImageView.clipsToBounds = true
     mapImageView.isUserInteractionEnabled = true
   }
   
@@ -71,12 +72,13 @@ class VenueDetailsHeaderView: UIView {
   }
   
   func loadView(with data: DetailsData?) {
+    let theme = ThemeManager.shared.current
     loadGalleryImages(with: data?.venueImages)
     mapImageView.sd_setImage(with: data?.mapImageURL, placeholderImage: #imageLiteral(resourceName: "imagePlaceholderLarge"))
-    nameLabel.text = data?.name
+    nameLabel.paragraph(with: data?.name, lineHeight: theme.fontBook1.lineHeight)
     addressLabel.text = data?.address
     labelsContainerView.manipulateLabelsSubviewsTopMarginsIfNeeded()
-    contentView.layoutIfNeeded()
+    setNeedsLayout()
   }
   
   func loadGalleryImages(with urls: [URL]?) {
@@ -101,8 +103,8 @@ class VenueDetailsHeaderView: UIView {
     let theme = ThemeManager.shared.current
     segmentedControlTopConstraint.constant = CGFloat(theme.space3)
     nameLabelTopConstraint.constant = CGFloat(theme.space4)
-    addressLabelTopConstraint.constant = CGFloat(theme.space2)
-    contentView.layoutIfNeeded()
+    addressLabelTopConstraint.constant = -5
+    layoutIfNeeded()
   }
   
   func preferredSize() -> CGSize {
