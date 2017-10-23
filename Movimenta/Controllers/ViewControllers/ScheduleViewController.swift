@@ -39,7 +39,7 @@ class ScheduleViewController: UIViewController {
     initializeCollectionView()
     initializeTableView()
     initializeNoScheduledEventsView()
-    reloadData(reloadView: true)
+    reloadData()
     registerToNotificationCenter()
   }
   
@@ -147,7 +147,7 @@ class ScheduleViewController: UIViewController {
   //MARK: Reload Data
   
   /// Reload dates and events
-  fileprivate func reloadData(reloadView: Bool = false) {
+  fileprivate func reloadData(reloadView: Bool = true) {
     activityIndicators(activate: true)
     viewModel.refreshDates {
       self.activityIndicators(activate: false)
