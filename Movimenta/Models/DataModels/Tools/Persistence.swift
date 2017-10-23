@@ -19,7 +19,7 @@ struct Persistence {
   static let shared = Persistence()
   private init() {
     documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    eventsArchive = documentsDirectory.appendingPathComponent("movimenta-events")
+    eventsArchive = documentsDirectory.appendingPathComponent("movimenta-biennal-events")
     
     // At first run, preloaded data will be saved in the archive directory
     if !FileManager.default.fileExists(atPath: eventsArchive.relativePath),
