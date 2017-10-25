@@ -58,4 +58,10 @@ extension ParallaxLabel {
     case up
     case down
   }
+  
+  fileprivate enum Visibility {
+    case onScreen
+    case offScreen(Direction)
+    case unidentified
+  }
 }
