@@ -159,6 +159,7 @@ class BookmarksViewController: UIViewController {
     tableView.setEditing(true, animated: true)
     refreshRightBarButtonItem()
     refreshBottomToolbarVisibility()
+    refreshSeparatorInsetsForEditingStatus()
   }
   
   fileprivate func turnEditingModeOff() {
@@ -167,6 +168,7 @@ class BookmarksViewController: UIViewController {
     tableView.setEditing(false, animated: true)
     refreshRightBarButtonItem()
     refreshBottomToolbarVisibility()
+    refreshSeparatorInsetsForEditingStatus()
   }
   
   fileprivate func showNoBookmarksView() {
@@ -215,6 +217,15 @@ class BookmarksViewController: UIViewController {
     }
     unbookmarkItem.setTitleTextAttributes(attributes, for: .normal)
   }
+  
+  private func refreshSeparatorInsetsForEditingStatus() {
+    if tableView.isEditing {
+      tableView.separatorInset.left = 0
+    } else {
+      tableView.separatorInset.left = 118
+    }
+  }
+
 }
 
 //MARK: Actions
