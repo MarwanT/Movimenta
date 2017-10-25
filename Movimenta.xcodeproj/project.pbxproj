@@ -134,6 +134,8 @@
 		599202691F66B2EE0078578C /* ParticipantDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599202681F66B2EE0078578C /* ParticipantDetailsHeaderView.xib */; };
 		5992026D1F67E2E30078578C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992026B1F67E2E30078578C /* EventCell.swift */; };
 		5992026E1F67E2E30078578C /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5992026C1F67E2E30078578C /* EventCell.xib */; };
+		59942B991FA09C170095FF66 /* LoaderOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59942B981FA09C170095FF66 /* LoaderOverlay.swift */; };
+		59942B9B1FA09C300095FF66 /* LoaderOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59942B9A1FA09C300095FF66 /* LoaderOverlay.xib */; };
 		59A008291F615FBE00E392DD /* PadableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A008281F615FBE00E392DD /* PadableLabel.swift */; };
 		59A098201F793842002D9538 /* BookmarkNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A0981F1F793842002D9538 /* BookmarkNotificationManager.swift */; };
 		59A9F6821F95FC0B00C52D78 /* NoScheduledEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9F6811F95FC0B00C52D78 /* NoScheduledEventsView.swift */; };
@@ -370,6 +372,8 @@
 		599202681F66B2EE0078578C /* ParticipantDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParticipantDetailsHeaderView.xib; sourceTree = "<group>"; };
 		5992026B1F67E2E30078578C /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		5992026C1F67E2E30078578C /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		59942B981FA09C170095FF66 /* LoaderOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderOverlay.swift; sourceTree = "<group>"; };
+		59942B9A1FA09C300095FF66 /* LoaderOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoaderOverlay.xib; sourceTree = "<group>"; };
 		59A008281F615FBE00E392DD /* PadableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadableLabel.swift; sourceTree = "<group>"; };
 		59A0981F1F793842002D9538 /* BookmarkNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkNotificationManager.swift; sourceTree = "<group>"; };
 		59A9F6811F95FC0B00C52D78 /* NoScheduledEventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoScheduledEventsView.swift; sourceTree = "<group>"; };
@@ -829,6 +833,15 @@
 			path = EventCell;
 			sourceTree = "<group>";
 		};
+		59942B961FA09BF40095FF66 /* LoaderOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				59942B981FA09C170095FF66 /* LoaderOverlay.swift */,
+				59942B9A1FA09C300095FF66 /* LoaderOverlay.xib */,
+			);
+			path = LoaderOverlay;
+			sourceTree = "<group>";
+		};
 		59A9F6791F95FB4F00C52D78 /* NoScheduledEventsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,6 +902,7 @@
 				F4B80EBC1F76675000CD95C0 /* PartnerCell */,
 				59A008281F615FBE00E392DD /* PadableLabel.swift */,
 				F4B80EC11F76844A00CD95C0 /* PartnerSectionCell */,
+				59942B961FA09BF40095FF66 /* LoaderOverlay */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1227,6 +1241,7 @@
 				F4B80EC91F768E7200CD95C0 /* PartnerSectionCell.xib in Resources */,
 				5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */,
 				F409C1FA1F6D0C3B007216E4 /* Information.storyboard in Resources */,
+				59942B9B1FA09C300095FF66 /* LoaderOverlay.xib in Resources */,
 				598923181F1E2ABA00F73974 /* nexa-heavy-webfont.ttf in Resources */,
 				593C81951F7558F800626806 /* Gallery.storyboard in Resources */,
 				598923131F1E2AAC00F73974 /* nexa-bolditalic-webfont.ttf in Resources */,
@@ -1433,6 +1448,7 @@
 				59EF021F1F31CDDF00F145B9 /* EventsMapViewController.swift in Sources */,
 				5970AF9F1F262EFC008CA708 /* CLLocationCoordinate2D.swift in Sources */,
 				593C818E1F75053400626806 /* MapUtility.swift in Sources */,
+				59942B991FA09C170095FF66 /* LoaderOverlay.swift in Sources */,
 				F409C1EE1F6C3A8F007216E4 /* Restaurant.swift in Sources */,
 				5970AFA21F274728008CA708 /* MovimentaEvent+API.swift in Sources */,
 				5953C17B1F5476B900BD27AB /* ExpandableHeaderCell.swift in Sources */,
