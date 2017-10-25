@@ -50,6 +50,16 @@ class ParallaxLabel: UIView {
     return size
   }
 
+  //MARK: - Parallax methods
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    initializeValues()
+  }
+  
+  private func initializeValues() {
+    centerMinimumY = label.center.y
+    centerMaximumY = self.bounds.height
+  }
 }
 
 //MARK: - Enums declaration
