@@ -35,6 +35,7 @@ class ParallaxLabel: UIView {
     let theme = ThemeManager.shared.current
     label.font = theme.font2
     label.textColor = theme.color3
+    clipsToBounds = true
   }
   
   func set(text: String?) {
