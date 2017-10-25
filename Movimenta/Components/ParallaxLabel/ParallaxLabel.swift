@@ -60,6 +60,22 @@ class ParallaxLabel: UIView {
     centerMinimumY = label.center.y
     centerMaximumY = self.bounds.height
   }
+  
+  /// Get the visibility status of the whole view
+  fileprivate var visibility: Visibility {
+    guard let scrollView = scrollView,
+      let scrollSuperView = scrollSuperView else {
+      return .unidentified
+    }
+    let position = scrollView.convert(self.frame, to: scrollSuperView)
+    if position.origin.y <= 0 {
+      return .offScreen(.up)
+    } else if position.origin.y > scrollSuperView.frame.size.height {
+      return .offScreen(.down)
+    } else {
+      return .onScreen
+    }
+  }
 }
 
 //MARK: - Enums declaration
