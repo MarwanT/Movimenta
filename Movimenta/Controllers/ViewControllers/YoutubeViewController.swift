@@ -26,6 +26,8 @@ class YoutubeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "MOVIMENTA"
+    view.backgroundColor = UIColor.black
+    youtubePlayerView.backgroundColor = UIColor.black
     if let videoId = videoId {
       youtubePlayerView.load(withVideoId: videoId)
     }
