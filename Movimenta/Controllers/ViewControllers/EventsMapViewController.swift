@@ -221,8 +221,10 @@ extension EventsMapViewController {
   fileprivate func refreshBreadcrumbView() {
     if !viewModel.filter.isZero {
       showBreadcrumbsView(with: viewModel.filter)
+      hideNavigationBarShadow()
     } else {
       hideBreadcrumbsView()
+      showNavigationBarShadow()
     }
   }
   
