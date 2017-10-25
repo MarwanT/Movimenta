@@ -130,16 +130,18 @@ extension EventDetailsViewModel {
     }
   }
   
-  func calendarEventDetails(for indexPath: IndexPath) -> CalendarEventInfo? {
+  func calendarEventDetails(for indexPath: IndexPath, completion: @escaping (CalendarEventInfo?) -> Void) {
     guard let section = Section(rawValue: indexPath.section), section == .dates else {
-      return nil
+      completion(nil)
+      return
     }
     guard let title = event.title?.capitalized,
       let date = event.dates?[indexPath.row],
       let startDate = date.from,
       let lastDate = date.to,
       let endDate = startDate.cloneDate(withTimeOf: lastDate) else {
-      return nil
+        completion(nil)
+      return
     }
     
     var recurrenceLastDate: Date? = nil
@@ -147,7 +149,13 @@ extension EventDetailsViewModel {
       recurrenceLastDate = lastDate
     }
     
-    return (title, event.content, event.link, event.address, startDate, endDate, recurrenceLastDate)
+    if let content = event.content {
+      content.htmlString(completion: { htmlString in
+        completion((title, htmlString, self.event.link, self.event.address, startDate, endDate, recurrenceLastDate))
+      })
+    } else {
+      completion((title, nil, self.event.link, self.event.address, startDate, endDate, recurrenceLastDate))
+    }
   }
   
   func venue(for indexPath: IndexPath) -> Venue? {

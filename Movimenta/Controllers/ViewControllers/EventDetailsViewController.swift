@@ -17,6 +17,8 @@ class EventDetailsViewController: UIViewController {
   fileprivate var eventDetailsLabel: ParallaxLabel!
   fileprivate var bookmarkBarButton: UIBarButtonItem!
   
+  fileprivate var loaderOverlay: LoaderOverlay!
+  
   fileprivate var enableSwipeBack = true
   
   var viewModel = EventDetailsViewModel()
@@ -174,6 +176,28 @@ class EventDetailsViewController: UIViewController {
       width: view.frame.width,
       height: headerView.preferredSize().height + eventDetailsLabel.preferredSize().height)
   }
+  
+  fileprivate func showLoaderOverlay() {
+    if loaderOverlay == nil {
+      guard let tabControllerView = self.navigationController?.tabBarController?.view else {
+        return
+      }
+      loaderOverlay = LoaderOverlay.instanceFromNib()
+      tabControllerView.addSubview(loaderOverlay)
+      loaderOverlay.snp.makeConstraints({ (maker) in
+        maker.edges.equalTo(tabControllerView)
+      })
+    }
+    loaderOverlay.isHidden = false
+    loaderOverlay.start()
+  }
+  
+  fileprivate func hideLoaderOverlay() {
+    loaderOverlay.stop()
+    loaderOverlay.isHidden = true
+    loaderOverlay.removeFromSuperview()
+    loaderOverlay = nil
+  }
 }
 
 //MARK: Table View Delegates
@@ -322,28 +346,33 @@ extension EventDetailsViewController {
   }
   
   fileprivate func addToCalendar(dateAt indexPath: IndexPath) {
-    guard let info = viewModel.calendarEventDetails(for: indexPath) else {
-      return
+    showLoaderOverlay()
+    viewModel.calendarEventDetails(for: indexPath) { (info) in
+      self.hideLoaderOverlay()
+      
+      guard let info = info else {
+        return
+      }
+      
+      let authotizationStatus = EKEventStore.authorizationStatus(for: EKEntityType.event)
+      switch authotizationStatus {
+      case .authorized:
+        self.addToCalendar(eventWith: info)
+      case .notDetermined:
+        self.requestCalendarAccess(completion: { (authorized) in
+          if authorized {
+            self.addToCalendar(eventWith: info)
+          }
+        })
+      case .denied, .restricted:
+        self.showAlertForNoEventStoreAuthorization()
+        return
+      }
+      
+      //MARK: [Analytics] Event
+      let analyticsEvent = Analytics.Event(category: .events, action: .addEventToCalendar)
+      Analytics.shared.send(event: analyticsEvent)
     }
-    
-    let authotizationStatus = EKEventStore.authorizationStatus(for: EKEntityType.event)
-    switch authotizationStatus {
-    case .authorized:
-      addToCalendar(eventWith: info)
-    case .notDetermined:
-      requestCalendarAccess(completion: { (authorized) in
-        if authorized {
-          self.addToCalendar(eventWith: info)
-        }
-      })
-    case .denied, .restricted:
-      showAlertForNoEventStoreAuthorization()
-      return
-    }
-    
-    //MARK: [Analytics] Event
-    let analyticsEvent = Analytics.Event(category: .events, action: .addEventToCalendar)
-    Analytics.shared.send(event: analyticsEvent)
   }
   
   private func requestCalendarAccess(completion: @escaping (_ authorized: Bool) -> Void) {
