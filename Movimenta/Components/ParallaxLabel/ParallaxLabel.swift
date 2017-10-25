@@ -61,6 +61,24 @@ class ParallaxLabel: UIView {
     centerMaximumY = self.bounds.height
   }
   
+  func update() {
+    let visibility = self.visibility
+    if case .offScreen = visibility {
+      switch visibility {
+      case .offScreen(.up):
+        label.center.y = centerMinimumY
+        return
+      case .offScreen(.down):
+        label.center.y = centerMaximumY
+        return
+      default:
+        break
+      }
+    }
+    
+    label.center.y = yPosition(for: scrollingPercentage)
+  }
+  
   /// Get the label y position based on the percentage given
   /// The range of values is between the maximum and minum
   /// Values of the label.
