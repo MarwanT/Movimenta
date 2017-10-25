@@ -54,6 +54,7 @@ class ParallaxLabel: UIView {
   override func layoutSubviews() {
     super.layoutSubviews()
     initializeValues()
+    update()
   }
   
   private func initializeValues() {
