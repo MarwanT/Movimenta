@@ -346,15 +346,18 @@ extension EventsMapViewController {
   // Breadcrumbs Helpers
   
   fileprivate func showBreadcrumbsView() {
-    if filtersBreadcrumbBottomToSuperviewTop.isActive {
-      view.removeConstraint(filtersBreadcrumbBottomToSuperviewTop)
-    }
+    // If already visible do nothing
     if !filtersBreadcrumbTopToSuperviewTop.isActive {
+      if filtersBreadcrumbBottomToSuperviewTop.isActive {
+        view.removeConstraint(filtersBreadcrumbBottomToSuperviewTop)
+      }
+      
       view.addConstraint(filtersBreadcrumbTopToSuperviewTop)
-    }
-    UIView.animate(withDuration: animationDuration) {
-      self.view.layoutIfNeeded()
-      self.refreshMapVisibleArea()
+      
+      UIView.animate(withDuration: animationDuration) {
+        self.view.layoutIfNeeded()
+        self.refreshMapVisibleArea()
+      }
     }
   }
   
