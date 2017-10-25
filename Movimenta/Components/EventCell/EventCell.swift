@@ -90,7 +90,7 @@ class EventCell: UITableViewCell {
   }
   
   fileprivate func setLabelsTopPadding() {
-    dateLabelTopVerticalSpacing.constant = -15
+    dateLabelTopVerticalSpacing.constant = -7
     venueNameLabelTopVerticalSpacing.constant = 0
     eventNameLabelTopVerticalSpacing.constant = 5
     categoryLabelTopVerticalSpacing.constant = 5
