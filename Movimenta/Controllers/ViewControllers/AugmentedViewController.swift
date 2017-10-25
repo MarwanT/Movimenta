@@ -53,7 +53,7 @@ class AugmentedViewController: UIViewController {
 
     //Fonts
     titleLabel.font = ThemeManager.shared.current.font1
-    subtitleLabel.font = ThemeManager.shared.current.font3
+    subtitleLabel.font = ThemeManager.shared.current.font6
     //Color
     titleLabel.textColor = ThemeManager.shared.current.lightTextColor
     subtitleLabel.textColor = ThemeManager.shared.current.lightTextColor
