@@ -61,6 +61,14 @@ class ParallaxLabel: UIView {
     centerMaximumY = self.bounds.height
   }
   
+  /// Get the label y position based on the percentage given
+  /// The range of values is between the maximum and minum
+  /// Values of the label.
+  fileprivate func yPosition(for percentage: CGFloat) -> CGFloat {
+    let maxValue = centerMaximumY - centerMinimumY
+    return (maxValue * percentage) + centerMinimumY
+  }
+  
   /// Value is between 0 and 1
   var scrollingPercentage: CGFloat {
     guard let scrollView = scrollView,
