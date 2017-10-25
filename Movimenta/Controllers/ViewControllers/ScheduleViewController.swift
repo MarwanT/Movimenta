@@ -219,18 +219,6 @@ class ScheduleViewController: UIViewController {
     }
   }
   
-  fileprivate func showNavigationBarShadow() {
-    self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-    self.navigationController?.navigationBar.shadowImage = nil
-  }
-  
-  fileprivate func hideNavigationBarShadow() {
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-    self.navigationController?.navigationBar.shadowImage = UIImage()
-  }
-  
-//  fileprivate
-  
   fileprivate func activityIndicators(activate: Bool) {
     guard datesActivityIndicator != nil,
       eventsActivityIndicator != nil else {
