@@ -51,3 +51,11 @@ class ParallaxLabel: UIView {
   }
 
 }
+
+//MARK: - Enums declaration
+extension ParallaxLabel {
+  fileprivate enum Direction {
+    case up
+    case down
+  }
+}
