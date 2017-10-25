@@ -84,6 +84,7 @@ class VenueViewController: UIViewController {
     headerView = VenueDetailsHeaderView.instanceFromNib()
     headerView.delegate = self
     hostedEventsLabel = ParallaxLabel.instanceFromNib()
+    hostedEventsLabel.initialize(in: tableView)
     hostedEventsLabel.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space4), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
@@ -234,6 +235,11 @@ extension VenueViewController: UITableViewDelegate, UITableViewDataSource {
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
     tableView.reloadRows(at: indexPaths, with: .none)
+  }
+  
+  //MARK: Scroll View
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    hostedEventsLabel.update()
   }
 }
 
