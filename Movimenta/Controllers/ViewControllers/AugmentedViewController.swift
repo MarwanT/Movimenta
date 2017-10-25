@@ -27,8 +27,16 @@ class AugmentedViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
+    hideNavigationBarShadow()
+    
     //MARK: [Analytics] Screen Name
     Analytics.shared.send(screenName: Analytics.ScreenNames.AugmentedReality)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    showNavigationBarShadow()
   }
 
   private func initialize() {
@@ -45,7 +53,7 @@ class AugmentedViewController: UIViewController {
 
     //Fonts
     titleLabel.font = ThemeManager.shared.current.font1
-    subtitleLabel.font = ThemeManager.shared.current.font3
+    subtitleLabel.font = ThemeManager.shared.current.font6
     //Color
     titleLabel.textColor = ThemeManager.shared.current.lightTextColor
     subtitleLabel.textColor = ThemeManager.shared.current.lightTextColor

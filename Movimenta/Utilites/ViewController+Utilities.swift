@@ -43,4 +43,15 @@ extension UIViewController {
     // Notify Child View Controller
     viewController.removeFromParentViewController()
   }
+  
+  func showNavigationBarShadow() {
+    self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+    self.navigationController?.navigationBar.shadowImage = nil
+  }
+  
+  func hideNavigationBarShadow() {
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    self.navigationController?.navigationBar.shadowImage = UIImage()
+  }
+
 }
