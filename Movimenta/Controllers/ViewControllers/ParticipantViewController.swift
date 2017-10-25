@@ -92,6 +92,7 @@ class ParticipantViewController: UIViewController {
     headerView = ParticipantDetailsHeaderView.instanceFromNib()
     headerView.delegate = self
     eventDetailsLabel = ParallaxLabel.instanceFromNib()
+    eventDetailsLabel.initialize(in: tableView)
     eventDetailsLabel.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space8), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
@@ -240,6 +241,11 @@ extension ParticipantViewController: UITableViewDelegate, UITableViewDataSource 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
+  }
+  
+  //MARK: Scroll View
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    eventDetailsLabel.update()
   }
 }
 
