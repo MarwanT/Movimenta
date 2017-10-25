@@ -46,7 +46,7 @@ class FiltersBreadcrumbView: UIView {
   
   //MARK: APIs
   func setBreadcrumbs(for filter: Filter) {
-    removeAllBreadcrumbViews()
+    clear()
     breadcrumbs = generateBreadcrumbInfo(for: filter)
     populateBreadcrumbs()
   }
