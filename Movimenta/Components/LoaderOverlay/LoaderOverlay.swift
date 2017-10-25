@@ -26,4 +26,11 @@ class LoaderOverlay: UIView {
     backgroundColor = theme.white.withAlphaComponent(0.5)
   }
   
+  func start() {
+    activityIndicator.startAnimating()
+  }
+  
+  func stop() {
+    activityIndicator.stopAnimating()
+  }
 }
