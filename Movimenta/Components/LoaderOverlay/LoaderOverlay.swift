@@ -15,4 +15,15 @@ class LoaderOverlay: UIView {
     return UINib(nibName: LoaderOverlay.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! LoaderOverlay
   }
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    applyTheme()
+  }
+  
+  private func applyTheme() {
+    let theme = ThemeManager.shared.current
+    activityIndicator.color = theme.color2
+    backgroundColor = theme.white.withAlphaComponent(0.5)
+  }
+  
 }
