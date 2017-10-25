@@ -10,10 +10,14 @@ import Foundation
 import GoogleMaps
 
 extension GMSMarker {
+  private static var currentZIndex: Int32 = 0
+  
   static func movimentaMarker(position: CLLocationCoordinate2D) -> GMSMarker {
     let marker = GMSMarker(position: position)
     marker.iconView = markerIconView()
     marker.tracksViewChanges = true
+    marker.zIndex = currentZIndex
+    currentZIndex += 1
     return marker
   }
   
