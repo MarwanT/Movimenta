@@ -11,6 +11,9 @@ import UIKit
 class ParallaxLabel: UIView {
   @IBOutlet weak var label: UILabel!
   
+  fileprivate var centerMinimumY: CGFloat = 0
+  fileprivate var centerMaximumY: CGFloat = 0
+  
   class func instanceFromNib() -> ParallaxLabel {
     return UINib(nibName: ParallaxLabel.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ParallaxLabel
   }
