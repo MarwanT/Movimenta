@@ -99,16 +99,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cy7-gT-sUW" customClass="YTPlayerView">
-                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Cy7-gT-sUW" firstAttribute="top" secondItem="bXw-Rm-ia3" secondAttribute="topMargin" id="1YO-79-o7J"/>
-                            <constraint firstItem="Cy7-gT-sUW" firstAttribute="leading" secondItem="bXw-Rm-ia3" secondAttribute="leadingMargin" id="Uce-Oo-V9e"/>
+                            <constraint firstItem="Cy7-gT-sUW" firstAttribute="leading" secondItem="bXw-Rm-ia3" secondAttribute="leading" id="Uce-Oo-V9e"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Cy7-gT-sUW" secondAttribute="bottom" id="li7-wu-Lom"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Cy7-gT-sUW" secondAttribute="trailing" id="ySf-dq-ahH"/>
+                            <constraint firstAttribute="trailing" secondItem="Cy7-gT-sUW" secondAttribute="trailing" id="ySf-dq-ahH"/>
                         </constraints>
                     </view>
                     <connections>
