@@ -27,8 +27,16 @@ class AugmentedViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
+    hideNavigationBarShadow()
+    
     //MARK: [Analytics] Screen Name
     Analytics.shared.send(screenName: Analytics.ScreenNames.AugmentedReality)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    showNavigationBarShadow()
   }
 
   private func initialize() {
