@@ -14,6 +14,9 @@ class ParallaxLabel: UIView {
   fileprivate var centerMinimumY: CGFloat = 0
   fileprivate var centerMaximumY: CGFloat = 0
   
+  fileprivate var scrollView: UIScrollView?
+  fileprivate var scrollSuperView: UIView?
+  
   class func instanceFromNib() -> ParallaxLabel {
     return UINib(nibName: ParallaxLabel.defaultNibName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ParallaxLabel
   }
@@ -21,6 +24,11 @@ class ParallaxLabel: UIView {
   override func awakeFromNib() {
     super.awakeFromNib()
     applyTheme()
+  }
+  
+  func initialize(in scrollView: UIScrollView) {
+    self.scrollView = scrollView
+    self.scrollSuperView = scrollView.superview
   }
   
   private func applyTheme() {
