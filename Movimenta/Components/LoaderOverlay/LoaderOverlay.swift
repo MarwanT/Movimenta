@@ -9,4 +9,6 @@
 import UIKit
 
 class LoaderOverlay: UIView {
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
 }
