@@ -61,6 +61,18 @@ class ParallaxLabel: UIView {
     centerMaximumY = self.bounds.height
   }
   
+  /// Value is between 0 and 1
+  var scrollingPercentage: CGFloat {
+    guard let scrollView = scrollView,
+      let scrollSuperView = scrollSuperView else {
+      return 0
+    }
+    let position = scrollView.convert(self.frame, to: scrollSuperView)
+    let yPosition = position.origin.y
+    let height = scrollSuperView.frame.size.height
+    return yPosition/height
+  }
+  
   /// Get the visibility status of the whole view
   fileprivate var visibility: Visibility {
     guard let scrollView = scrollView,
