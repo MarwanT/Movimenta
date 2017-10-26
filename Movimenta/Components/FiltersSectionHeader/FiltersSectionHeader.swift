@@ -50,6 +50,11 @@ class FiltersSectionHeader: UITableViewHeaderFooterView {
     contentView.backgroundColor = theme.color4
     contentView.layoutMargins = configuration.contentViewMargins
   }
+  
+  //MARK: APIs
+  func set(_ text: String?) {
+    label.text = text
+  }
 }
 
 extension FiltersSectionHeader {

@@ -355,7 +355,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: FiltersSectionHeader.identifier) as? FiltersSectionHeader, section != .bookmark else {
       return nil
     }
-    header.label.text = viewModel.titleForHeader(in: section)
+    header.set(viewModel.titleForHeader(in: section))
     return header
   }
   
