@@ -43,8 +43,6 @@ class PartnersViewController: UIViewController {
     tableView.separatorColor = theme.separatorColor
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 220
-    tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-    tableView.estimatedSectionHeaderHeight = 70
 
     tableView.register(PartnerSectionCell.self, forHeaderFooterViewReuseIdentifier: PartnerSectionCell.identifier)
     tableView.register(PartnerCell.nib, forCellReuseIdentifier: PartnerCell.identifier)
@@ -97,6 +95,14 @@ extension PartnersViewController: UITableViewDataSource, UITableViewDelegate {
     //MARK: [Analytics] Event
     let analyticsEvent = Analytics.Event(category: .info, action: .goToPartner, name: item.name ?? "")
     Analytics.shared.send(event: analyticsEvent)
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    guard viewModel.numberOfRowForSection(section: section) > 0 else {
+        return 0
+    }
+    let headerTitle = viewModel.itemForSection(section: section)?.title
+    return PartnerSectionCell.preferredSize(for: headerTitle, width: tableView.frame.width).height
   }
 }
 
