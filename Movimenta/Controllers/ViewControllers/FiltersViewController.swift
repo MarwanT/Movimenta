@@ -76,8 +76,6 @@ class FiltersViewController: UIViewController {
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 60
-    tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-    tableView.estimatedSectionHeaderHeight = 40
     
     tableView.allowsMultipleSelection = true
     
@@ -368,7 +366,8 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       return 0
     default:
       if viewModel.numberOfRows(in: section) > 0 {
-        return UITableViewAutomaticDimension
+        let headerTitle = viewModel.titleForHeader(in: section)
+        return FiltersSectionHeader.preferredSize(for: headerTitle, width: tableView.frame.width).height
       } else {
         return 0
       }
@@ -415,8 +414,8 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         CATransaction.begin()
         tableView.beginUpdates()
         CATransaction.setCompletionBlock({
-          if let lastIndexPath = affectedIndexPaths.last {
-            tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
+          if let firstIndexPath = affectedIndexPaths.first {
+            tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
           }
         })
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
@@ -429,8 +428,8 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         CATransaction.begin()
         tableView.beginUpdates()
         CATransaction.setCompletionBlock({
-          if let lastIndexPath = affectedIndexPaths.last {
-            tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
+          if let firstIndexPath = affectedIndexPaths.first {
+            tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
           }
         })
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
