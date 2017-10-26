@@ -132,6 +132,7 @@ extension ScheduleViewModel {
     events = DataManager.shared.events.filter { (event) -> Bool in
       return event.happens(in: selectedDateRange)
     }
+    events.sortByTime(for: selectedDate)
   }
   
   func event(for indexPath: IndexPath) -> Event {
