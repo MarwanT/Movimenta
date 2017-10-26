@@ -157,3 +157,24 @@ extension ScheduleViewModel {
     }
   }
 }
+
+//MARK: - Sort events array
+extension Array where Element == Event {
+  mutating func sortByTime(for selectedDate: Date) {
+    self = sorted { (firstEvent, secondEvent) -> Bool in
+      guard let firstEventFromDate = firstEvent.preferredDateRange(for: selectedDate)?.from,
+        let secondEventFromDate = secondEvent.preferredDateRange(for: selectedDate)?.from,
+        let alignedSecondEventFromDate = firstEventFromDate.cloneDate(withTimeOf: secondEventFromDate) else {
+          return false
+      }
+      if firstEventFromDate == alignedSecondEventFromDate,
+        let firstEventToDate = firstEvent.preferredDateRange(for: selectedDate)?.to,
+        let secondEventToDate = secondEvent.preferredDateRange(for: selectedDate)?.to,
+        let alignedSecondEventToDate = firstEventToDate.cloneDate(withTimeOf: secondEventToDate) {
+        return firstEventToDate < alignedSecondEventToDate
+      } else {
+        return firstEventFromDate < alignedSecondEventFromDate
+      }
+    }
+  }
+}
