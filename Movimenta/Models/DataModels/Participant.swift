@@ -166,4 +166,13 @@ extension Array where Element == Participant {
     }
     remove(at: index)
   }
+  
+  func sortedByName() -> [Participant] {
+    return sorted(by: { (first, second) -> Bool in
+      guard let firstName = first.name, let secondName = second.name else {
+        return true
+      }
+      return firstName < secondName
+    })
+  }
 }
