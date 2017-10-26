@@ -58,7 +58,7 @@ class ParallaxLabel: UIView {
   }
   
   private func initializeValues() {
-    centerMinimumY = label.center.y
+    centerMinimumY = label.frame.height/2
     centerMaximumY = self.bounds.height
   }
   
