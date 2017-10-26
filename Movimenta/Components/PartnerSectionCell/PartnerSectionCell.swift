@@ -10,6 +10,8 @@ import UIKit
 
 class PartnerSectionCell: UITableViewHeaderFooterView {
   static let identifier: String = PartnerSectionCell.defaultNibName
+  
+  private static var measuringView = PartnerSectionCell()
 
   var label: UILabel!
 
@@ -55,6 +57,19 @@ class PartnerSectionCell: UITableViewHeaderFooterView {
   public func setup(title: String?) {
     let theme = ThemeManager.shared.current
     label.paragraph(with: title, lineHeight: theme.fontBook4.lineHeight)
+  }
+  
+  static func preferredSize(for text: String?, width: CGFloat) -> CGSize {
+    measuringView.setup(title: text)
+    return measuringView.preferredSize(width: width)
+  }
+  
+  func preferredSize(width: CGFloat? = nil) -> CGSize {
+    let size = self.systemLayoutSizeFitting(
+      CGSize(width: width ?? self.frame.width, height: 0),
+      withHorizontalFittingPriority: UILayoutPriorityRequired,
+      verticalFittingPriority: UILayoutPriorityFittingSizeLevel)
+    return size
   }
 }
 
