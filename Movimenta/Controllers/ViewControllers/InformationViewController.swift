@@ -55,10 +55,10 @@ class InformationViewController: UIViewController {
     //Localize labels
     aboutLabel.text = Strings.info_app_title()
     aboutAppLabel.text = Strings.info_app_subtitle()
-    partnersLabel.paragraph(with: Strings.partners(), lineHeight: theme.fontBook4.lineHeight, alignement: NSTextAlignment.center)
-    contactLabel.paragraph(with: Strings.contact(), lineHeight: theme.fontBook4.lineHeight, alignement: NSTextAlignment.center)
-    hotelsLabel.paragraph(with: Strings.hotels(), lineHeight: theme.fontBook4.lineHeight, alignement: NSTextAlignment.center)
-    restaurantsLabel.paragraph(with: Strings.restaurants(), lineHeight: theme.fontBook4.lineHeight, alignement: NSTextAlignment.center)
+    partnersLabel.paragraph(with: Strings.partners(), lineHeight: theme.fontBook5.lineHeight, alignement: NSTextAlignment.center)
+    contactLabel.paragraph(with: Strings.contact(), lineHeight: theme.fontBook5.lineHeight, alignement: NSTextAlignment.center)
+    hotelsLabel.paragraph(with: Strings.hotels(), lineHeight: theme.fontBook5.lineHeight, alignement: NSTextAlignment.center)
+    restaurantsLabel.paragraph(with: Strings.restaurants(), lineHeight: theme.fontBook5.lineHeight, alignement: NSTextAlignment.center)
 
     //Set tap listeners
     let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(aboutImageTapped(tapGestureRecognizer:)))
@@ -99,10 +99,11 @@ class InformationViewController: UIViewController {
     //Fonts
     aboutLabel.font = ThemeManager.shared.current.font1
     aboutAppLabel.font = ThemeManager.shared.current.font6
-    partnersLabel.font = ThemeManager.shared.current.font4
-    contactLabel.font = ThemeManager.shared.current.font4
-    hotelsLabel.font = ThemeManager.shared.current.font4
-    restaurantsLabel.font = ThemeManager.shared.current.font4
+    partnersLabel.font = ThemeManager.shared.current.font5
+    contactLabel.font = ThemeManager.shared.current.font5
+    hotelsLabel.font = ThemeManager.shared.current.font5
+    restaurantsLabel.font = ThemeManager.shared.current.font5
+    restaurantsLabel.lineBreakMode = .byTruncatingTail
 
     aboutLabel.textColor = ThemeManager.shared.current.lightTextColor
     aboutAppLabel.textColor = ThemeManager.shared.current.lightTextColor

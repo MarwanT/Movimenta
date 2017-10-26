@@ -76,8 +76,6 @@ class FiltersViewController: UIViewController {
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 60
-    tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-    tableView.estimatedSectionHeaderHeight = 40
     
     tableView.allowsMultipleSelection = true
     
@@ -350,37 +348,12 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     }
   }
   
-//  func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//    guard let section = Section(rawValue: indexPath.section) else {
-//      return
-//    }
-//    
-//    switch section {
-//    case .dates:
-//      guard let cell = cell as? DatePickerCell, let selectedDateRow = viewModel.dateInfoForSelectedRow() else {
-//        return
-//      }
-//      
-//      switch selectedDateRow {
-//      case .from(let date, let minimumDate, let maximumDate),
-//           .to(let date, let minimumDate, let maximumDate):
-//        cell.set(date: date, animated: true)
-//        cell.set(minimumDate: minimumDate)
-//        cell.set(maximumDate: maximumDate)
-//      default:
-//        break
-//      }
-//    default:
-//      break
-//    }
-//  }
-  
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let section = Section(rawValue: section),
       let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: FiltersSectionHeader.identifier) as? FiltersSectionHeader, section != .bookmark else {
       return nil
     }
-    header.label.text = viewModel.titleForHeader(in: section)
+    header.set(viewModel.titleForHeader(in: section))
     return header
   }
   
@@ -393,7 +366,8 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       return 0
     default:
       if viewModel.numberOfRows(in: section) > 0 {
-        return UITableViewAutomaticDimension
+        let headerTitle = viewModel.titleForHeader(in: section)
+        return FiltersSectionHeader.preferredSize(for: headerTitle, width: tableView.frame.width).height
       } else {
         return 0
       }
@@ -437,18 +411,30 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       }
     case .types:
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
+        CATransaction.begin()
+        tableView.beginUpdates()
+        CATransaction.setCompletionBlock({
+          if let firstIndexPath = affectedIndexPaths.first {
+            tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
+          }
+        })
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
-        if let lastIndexPath = affectedIndexPaths.last {
-          tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
-        }
+        tableView.endUpdates()
+        CATransaction.commit()
       }
       deselect(dateRow: nil)
     case .participants:
       if let (_, affectedIndexPaths) = viewModel.selectParticipant(at: indexPath) {
+        CATransaction.begin()
+        tableView.beginUpdates()
+        CATransaction.setCompletionBlock({
+          if let firstIndexPath = affectedIndexPaths.first {
+            tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
+          }
+        })
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
-        if let lastIndexPath = affectedIndexPaths.last {
-          tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
-        }
+        tableView.endUpdates()
+        CATransaction.commit()
       }
       deselect(dateRow: nil)
     default:

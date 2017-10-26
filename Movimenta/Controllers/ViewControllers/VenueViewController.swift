@@ -234,7 +234,16 @@ extension VenueViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
-    tableView.reloadRows(at: indexPaths, with: .none)
+    guard let indexPathForAffectedRow = tableView.indexPathsForVisibleRows?.filter({ return indexPaths.contains($0) }) else {
+      return
+    }
+    indexPathForAffectedRow.forEach { (indexPath) in
+      guard let values = viewModel.values(for: indexPath),
+        let cell = tableView.cellForRow(at: indexPath) as? EventCell else {
+          return
+      }
+      cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
+    }
   }
   
   //MARK: Scroll View

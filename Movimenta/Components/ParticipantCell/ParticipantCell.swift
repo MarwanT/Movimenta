@@ -33,7 +33,7 @@ class ParticipantCell: UITableViewCell {
     roleLabel.font = theme.font6
     roleLabel.textColor = theme.darkTextColor
     nameLabelHorizontalSpacingToImageViewConstraint.constant = CGFloat(theme.space2)
-    roleLabelVerticalSpacingToNameLabel.constant = CGFloat(theme.space8)
+    roleLabelVerticalSpacingToNameLabel.constant = 0
     participantImageView.backgroundColor = theme.color6
     contentView.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space2), left: CGFloat(theme.space7),

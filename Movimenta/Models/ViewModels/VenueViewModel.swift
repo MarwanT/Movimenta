@@ -23,6 +23,9 @@ final class VenueViewModel {
     self.images = venue.gallery?.map{ _ -> UIImage? in
       return nil
     } ?? []
+    if venue.image != nil {
+      self.images.append(nil)
+    }
     self.events = DataManager.shared.events(in: venue)
   }
   
@@ -72,7 +75,11 @@ final class VenueViewModel {
 //MARK: Venue Details Data
 extension VenueViewModel {
   var venueImages: [URL]? {
-    return venue.gallery
+    var urls = venue.gallery
+    if let venueImage = venue.image {
+      urls = [venueImage]
+    }
+    return urls
   }
   
   var numberOfVenueImages: Int {

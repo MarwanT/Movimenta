@@ -112,11 +112,11 @@ final class FiltersViewModel {
   // TODO: Enhance by looping throught hhe participant types dynamically
   private func generateParticipantsData() -> [SelectableRowData] {
     var data = [SelectableRowData]()
-    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.artists))
-    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.companies))
-    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.organizers))
-    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.speakers))
-    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.sponsers))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.artists.sortedByName()))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.companies.sortedByName()))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.organizers.sortedByName()))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.speakers.sortedByName()))
+    data.append(contentsOf: generateParticipantsData(for: FiltersManager.shared.sponsers.sortedByName()))
     return data
   }
   

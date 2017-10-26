@@ -184,15 +184,16 @@ class ScheduleViewController: UIViewController {
   }
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
-    guard let eventsTableView = eventsTableView,
-      var indexPathsForVisibleRows = eventsTableView.indexPathsForVisibleRows else {
+    guard let indexPathForAffectedRow = eventsTableView.indexPathsForVisibleRows?.filter({ return indexPaths.contains($0) }) else {
       return
     }
-    
-    indexPathsForVisibleRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
-      return indexPaths.contains(indexPath)
+    indexPathForAffectedRow.forEach { (indexPath) in
+      guard let values = viewModel.values(for: indexPath),
+        let cell = eventsTableView.cellForRow(at: indexPath) as? EventCell else {
+          return
+      }
+      cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
     }
-    eventsTableView.reloadRows(at: indexPathsForVisibleRows, with: .none)
   }
   
   fileprivate func showNoScheduledEventsView() {
