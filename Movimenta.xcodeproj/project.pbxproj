@@ -187,7 +187,6 @@
 		F4B80EBF1F76675000CD95C0 /* PartnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EBD1F76675000CD95C0 /* PartnerCell.swift */; };
 		F4B80EC01F76675000CD95C0 /* PartnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B80EBE1F76675000CD95C0 /* PartnerCell.xib */; };
 		F4B80EC71F768E3500CD95C0 /* PartnerSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */; };
-		F4B80EC91F768E7200CD95C0 /* PartnerSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */; };
 		F4B80ED11F76A8B100CD95C0 /* AugmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -428,7 +427,6 @@
 		F4B80EBD1F76675000CD95C0 /* PartnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerCell.swift; sourceTree = "<group>"; };
 		F4B80EBE1F76675000CD95C0 /* PartnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerCell.xib; sourceTree = "<group>"; };
 		F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartnerSectionCell.swift; path = PartnerSectionCell/PartnerSectionCell.swift; sourceTree = "<group>"; };
-		F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PartnerSectionCell.xib; path = PartnerSectionCell/PartnerSectionCell.xib; sourceTree = "<group>"; };
 		F4B80ED01F76A8B100CD95C0 /* AugmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AugmentedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1112,7 +1110,6 @@
 			isa = PBXGroup;
 			children = (
 				F4B80EC61F768E3500CD95C0 /* PartnerSectionCell.swift */,
-				F4B80EC81F768E7200CD95C0 /* PartnerSectionCell.xib */,
 			);
 			name = PartnerSectionCell;
 			sourceTree = "<group>";
@@ -1238,7 +1235,6 @@
 				59D52FA71F1D0604008F3B13 /* Root.storyboard in Resources */,
 				5968349A1F5D914100E25579 /* SliderCell.xib in Resources */,
 				59A9F6841F95FC3100C52D78 /* NoScheduledEventsView.xib in Resources */,
-				F4B80EC91F768E7200CD95C0 /* PartnerSectionCell.xib in Resources */,
 				5989231F1F1E2ACF00F73974 /* nexa-thinitalic-webfont.ttf in Resources */,
 				F409C1FA1F6D0C3B007216E4 /* Information.storyboard in Resources */,
 				59942B9B1FA09C300095FF66 /* LoaderOverlay.xib in Resources */,

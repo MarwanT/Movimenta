@@ -46,7 +46,7 @@ class PartnersViewController: UIViewController {
     tableView.sectionHeaderHeight = UITableViewAutomaticDimension
     tableView.estimatedSectionHeaderHeight = 70
 
-    tableView.register(PartnerSectionCell.nib, forHeaderFooterViewReuseIdentifier: PartnerSectionCell.identifier)
+    tableView.register(PartnerSectionCell.self, forHeaderFooterViewReuseIdentifier: PartnerSectionCell.identifier)
     tableView.register(PartnerCell.nib, forCellReuseIdentifier: PartnerCell.identifier)
   }
 

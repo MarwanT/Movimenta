@@ -10,22 +10,43 @@ import UIKit
 
 class PartnerSectionCell: UITableViewHeaderFooterView {
   static let identifier: String = PartnerSectionCell.defaultNibName
-  static let nib: UINib = UINib(nibName: identifier, bundle: nil)
 
-  @IBOutlet weak var label: UILabel!
+  var label: UILabel!
 
   var configuration = Configuration()
   
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    contentView.layoutMargins = configuration.layoutMargins
+  override init(reuseIdentifier: String?) {
+    super.init(reuseIdentifier: reuseIdentifier)
+    initializeView()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    initializeView()
+  }
+  
+  private func initializeView() {
+    initialize()
     applyTheme()
+  }
+  
+  private func initialize() {
+    label = UILabel(frame: CGRect.zero)
+    label.numberOfLines = 0
+    contentView.addSubview(label)
+    label.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(contentView.snp.margins).priority(750)
+      maker.width.greaterThanOrEqualTo(100).priority(1000)
+    }
+    
+    contentView.layoutMargins = configuration.layoutMargins
   }
 
   private func applyTheme() {
     let theme = ThemeManager.shared.current
     label.font = theme.font4
     label.textColor = theme.color3
+    label.numberOfLines = 0
 
     contentView.backgroundColor = theme.white
     backgroundColor = theme.white
