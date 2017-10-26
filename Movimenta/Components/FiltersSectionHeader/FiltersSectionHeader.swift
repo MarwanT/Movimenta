@@ -13,6 +13,8 @@ class FiltersSectionHeader: UITableViewHeaderFooterView {
   static let identifier: String = FiltersSectionHeader.defaultNibName
   static let nib: UINib = UINib(nibName: identifier, bundle: nil)
   
+  private static var measuringView = FiltersSectionHeader()
+  
   var label: UILabel!
   
   var configuration = Configuration()
@@ -49,6 +51,18 @@ class FiltersSectionHeader: UITableViewHeaderFooterView {
     backgroundColor = theme.color4
     contentView.backgroundColor = theme.color4
     contentView.layoutMargins = configuration.contentViewMargins
+  }
+  
+  static func preferredSize(for text: String?, width: CGFloat) -> CGSize {
+    measuringView.set(text)
+    return measuringView.preferredSize(width: width)
+  }
+  
+  func preferredSize(width: CGFloat? = nil) -> CGSize {
+    let currentWidth = width ?? self.frame.width
+    let text = label.text ?? ""
+    let height: CGFloat = text.height(withConstrainedWidth: currentWidth, font: ThemeManager.shared.current.font8) + configuration.contentViewMargins.top + configuration.contentViewMargins.bottom
+    return CGSize(width: currentWidth, height: height)
   }
   
   //MARK: APIs
