@@ -350,31 +350,6 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
     }
   }
   
-//  func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//    guard let section = Section(rawValue: indexPath.section) else {
-//      return
-//    }
-//    
-//    switch section {
-//    case .dates:
-//      guard let cell = cell as? DatePickerCell, let selectedDateRow = viewModel.dateInfoForSelectedRow() else {
-//        return
-//      }
-//      
-//      switch selectedDateRow {
-//      case .from(let date, let minimumDate, let maximumDate),
-//           .to(let date, let minimumDate, let maximumDate):
-//        cell.set(date: date, animated: true)
-//        cell.set(minimumDate: minimumDate)
-//        cell.set(maximumDate: maximumDate)
-//      default:
-//        break
-//      }
-//    default:
-//      break
-//    }
-//  }
-  
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let section = Section(rawValue: section),
       let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: FiltersSectionHeader.identifier) as? FiltersSectionHeader, section != .bookmark else {
