@@ -412,18 +412,30 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
       }
     case .types:
       if let (_, affectedIndexPaths) = viewModel.selectCategory(at: indexPath) {
+        CATransaction.begin()
+        tableView.beginUpdates()
+        CATransaction.setCompletionBlock({
+          if let lastIndexPath = affectedIndexPaths.last {
+            tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
+          }
+        })
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
-        if let lastIndexPath = affectedIndexPaths.last {
-          tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
-        }
+        tableView.endUpdates()
+        CATransaction.commit()
       }
       deselect(dateRow: nil)
     case .participants:
       if let (_, affectedIndexPaths) = viewModel.selectParticipant(at: indexPath) {
+        CATransaction.begin()
+        tableView.beginUpdates()
+        CATransaction.setCompletionBlock({
+          if let lastIndexPath = affectedIndexPaths.last {
+            tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
+          }
+        })
         tableView.insertRows(at: affectedIndexPaths, with: .fade)
-        if let lastIndexPath = affectedIndexPaths.last {
-          tableView.scrollToRow(at: lastIndexPath, at: .none, animated: true)
-        }
+        tableView.endUpdates()
+        CATransaction.commit()
       }
       deselect(dateRow: nil)
     default:
