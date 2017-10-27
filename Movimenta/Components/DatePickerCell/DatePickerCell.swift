@@ -20,7 +20,7 @@ class DatePickerCell: UITableViewCell {
   
   var configuration = Configuration()
   
-  var delegate: DatePickerCellDelegate?
+  weak var delegate: DatePickerCellDelegate?
   
   override func awakeFromNib() {
     super.awakeFromNib()
