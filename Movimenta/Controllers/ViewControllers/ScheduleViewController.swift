@@ -39,7 +39,7 @@ class ScheduleViewController: UIViewController {
     initializeCollectionView()
     initializeTableView()
     initializeNoScheduledEventsView()
-    reloadData(reloadView: true)
+    reloadData()
     registerToNotificationCenter()
   }
   
@@ -147,7 +147,7 @@ class ScheduleViewController: UIViewController {
   //MARK: Reload Data
   
   /// Reload dates and events
-  fileprivate func reloadData(reloadView: Bool = false) {
+  fileprivate func reloadData(reloadView: Bool = true) {
     activityIndicators(activate: true)
     viewModel.refreshDates {
       self.activityIndicators(activate: false)
@@ -184,15 +184,16 @@ class ScheduleViewController: UIViewController {
   }
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
-    guard let eventsTableView = eventsTableView,
-      var indexPathsForVisibleRows = eventsTableView.indexPathsForVisibleRows else {
+    guard let indexPathForAffectedRow = eventsTableView.indexPathsForVisibleRows?.filter({ return indexPaths.contains($0) }) else {
       return
     }
-    
-    indexPathsForVisibleRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
-      return indexPaths.contains(indexPath)
+    indexPathForAffectedRow.forEach { (indexPath) in
+      guard let values = viewModel.values(for: indexPath),
+        let cell = eventsTableView.cellForRow(at: indexPath) as? EventCell else {
+          return
+      }
+      cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
     }
-    eventsTableView.reloadRows(at: indexPathsForVisibleRows, with: .none)
   }
   
   fileprivate func showNoScheduledEventsView() {
@@ -218,18 +219,6 @@ class ScheduleViewController: UIViewController {
       showNoScheduledEventsView()
     }
   }
-  
-  fileprivate func showNavigationBarShadow() {
-    self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-    self.navigationController?.navigationBar.shadowImage = nil
-  }
-  
-  fileprivate func hideNavigationBarShadow() {
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-    self.navigationController?.navigationBar.shadowImage = UIImage()
-  }
-  
-//  fileprivate
   
   fileprivate func activityIndicators(activate: Bool) {
     guard datesActivityIndicator != nil,

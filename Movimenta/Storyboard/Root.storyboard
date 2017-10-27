@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2yt-EO-Dvr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2yt-EO-Dvr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,7 +44,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kT-Di-RJI" userLabel="Subtitle Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kT-Di-RJI" userLabel="Subtitle Label">
                                 <rect key="frame" x="166.5" y="101" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -67,7 +66,7 @@
                             <constraint firstItem="0kT-Di-RJI" firstAttribute="centerX" secondItem="XfU-DN-34a" secondAttribute="centerX" id="VOe-hK-yUj"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0kT-Di-RJI" secondAttribute="trailing" constant="30" id="XeE-9S-uK9"/>
                             <constraint firstItem="EnQ-uH-OGe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XfU-DN-34a" secondAttribute="leading" constant="30" id="Yto-8R-qej"/>
-                            <constraint firstItem="FRE-gQ-YXE" firstAttribute="top" secondItem="0kT-Di-RJI" secondAttribute="bottom" constant="150" id="ewz-FG-gPI"/>
+                            <constraint firstItem="FRE-gQ-YXE" firstAttribute="top" secondItem="0kT-Di-RJI" secondAttribute="bottom" priority="750" constant="150" id="ewz-FG-gPI"/>
                             <constraint firstItem="FRE-gQ-YXE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XfU-DN-34a" secondAttribute="leadingMargin" id="gjE-7q-UTO"/>
                             <constraint firstItem="dd1-Mc-V3c" firstAttribute="top" secondItem="yKf-sd-PrN" secondAttribute="bottom" id="jxT-S8-kr5"/>
                             <constraint firstItem="EnQ-uH-OGe" firstAttribute="top" secondItem="yKf-sd-PrN" secondAttribute="bottom" constant="30" id="mHm-Wr-BqS"/>
@@ -100,16 +99,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cy7-gT-sUW" customClass="YTPlayerView">
-                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Cy7-gT-sUW" firstAttribute="top" secondItem="bXw-Rm-ia3" secondAttribute="topMargin" id="1YO-79-o7J"/>
-                            <constraint firstItem="Cy7-gT-sUW" firstAttribute="leading" secondItem="bXw-Rm-ia3" secondAttribute="leadingMargin" id="Uce-Oo-V9e"/>
+                            <constraint firstItem="Cy7-gT-sUW" firstAttribute="leading" secondItem="bXw-Rm-ia3" secondAttribute="leading" id="Uce-Oo-V9e"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Cy7-gT-sUW" secondAttribute="bottom" id="li7-wu-Lom"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Cy7-gT-sUW" secondAttribute="trailing" id="ySf-dq-ahH"/>
+                            <constraint firstAttribute="trailing" secondItem="Cy7-gT-sUW" secondAttribute="trailing" id="ySf-dq-ahH"/>
                         </constraints>
                     </view>
                     <connections>

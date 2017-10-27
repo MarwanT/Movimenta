@@ -221,8 +221,10 @@ extension EventsMapViewController {
   fileprivate func refreshBreadcrumbView() {
     if !viewModel.filter.isZero {
       showBreadcrumbsView(with: viewModel.filter)
+      hideNavigationBarShadow()
     } else {
       hideBreadcrumbsView()
+      showNavigationBarShadow()
     }
   }
   
@@ -346,15 +348,18 @@ extension EventsMapViewController {
   // Breadcrumbs Helpers
   
   fileprivate func showBreadcrumbsView() {
-    if filtersBreadcrumbBottomToSuperviewTop.isActive {
-      view.removeConstraint(filtersBreadcrumbBottomToSuperviewTop)
-    }
+    // If already visible do nothing
     if !filtersBreadcrumbTopToSuperviewTop.isActive {
+      if filtersBreadcrumbBottomToSuperviewTop.isActive {
+        view.removeConstraint(filtersBreadcrumbBottomToSuperviewTop)
+      }
+      
       view.addConstraint(filtersBreadcrumbTopToSuperviewTop)
-    }
-    UIView.animate(withDuration: animationDuration) {
-      self.view.layoutIfNeeded()
-      self.refreshMapVisibleArea()
+      
+      UIView.animate(withDuration: animationDuration) {
+        self.view.layoutIfNeeded()
+        self.refreshMapVisibleArea()
+      }
     }
   }
   
@@ -496,7 +501,7 @@ extension EventsMapViewController {
 struct MapZoom{
   static let world: Float = 1
   static let street: Float = 15
-  static let building: Float = 19
+  static let building: Float = 20
 }
 
 //MARK: - Filters View Controller Delegate

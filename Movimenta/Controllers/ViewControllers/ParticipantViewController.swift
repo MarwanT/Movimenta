@@ -92,6 +92,7 @@ class ParticipantViewController: UIViewController {
     headerView = ParticipantDetailsHeaderView.instanceFromNib()
     headerView.delegate = self
     eventDetailsLabel = ParallaxLabel.instanceFromNib()
+    eventDetailsLabel.initialize(in: tableView)
     eventDetailsLabel.layoutMargins = UIEdgeInsets(
       top: CGFloat(theme.space8), left: CGFloat(theme.space7),
       bottom: CGFloat(theme.space8), right: CGFloat(theme.space7))
@@ -152,7 +153,16 @@ class ParticipantViewController: UIViewController {
   }
   
   fileprivate func reloadRows(at indexPaths: [IndexPath]) {
-    tableView.reloadRows(at: indexPaths, with: .none)
+    guard let indexPathForAffectedRow = tableView.indexPathsForVisibleRows?.filter({ return indexPaths.contains($0) }) else {
+      return
+    }
+    indexPathForAffectedRow.forEach { (indexPath) in
+      guard let values = viewModel.values(for: indexPath),
+        let cell = tableView.cellForRow(at: indexPath) as? EventCell else {
+          return
+      }
+      cell.set(imageURL: values.imageURL, date: values.date, venueName: values.venueName, eventName: values.eventName, categories: values.categories, time: values.time, isBookmarked: values.isBookmarked)
+    }
   }
   
   private var screenName: Analytics.ScreenName {
@@ -240,6 +250,11 @@ extension ParticipantViewController: UITableViewDelegate, UITableViewDataSource 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     navigateToEventDetailsViewController(event: viewModel.event(for: indexPath))
+  }
+  
+  //MARK: Scroll View
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    eventDetailsLabel.update()
   }
 }
 

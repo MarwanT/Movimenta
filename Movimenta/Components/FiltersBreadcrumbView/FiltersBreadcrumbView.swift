@@ -46,20 +46,20 @@ class FiltersBreadcrumbView: UIView {
   
   //MARK: APIs
   func setBreadcrumbs(for filter: Filter) {
-    removeAllBreadcrumbViews()
+    clear(animated: false)
     breadcrumbs = generateBreadcrumbInfo(for: filter)
     populateBreadcrumbs()
   }
   
-  func clear() {
-    removeAllBreadcrumbViews()
+  func clear(animated: Bool = true) {
+    removeAllBreadcrumbViews(animated: animated)
     breadcrumbs = nil
   }
   
-  private func removeAllBreadcrumbViews() {
+  private func removeAllBreadcrumbViews(animated: Bool = true) {
     let subviews = stackView.arrangedSubviews
     for subview in subviews {
-      remove(breadcrumbView: subview)
+      remove(breadcrumbView: subview, animated: animated)
     }
   }
   
@@ -71,13 +71,19 @@ class FiltersBreadcrumbView: UIView {
     }
   }
   
-  func remove(breadcrumbView: UIView) {
-    UIView.animate(withDuration: ThemeManager.shared.current.animationDuration, animations: {
-      breadcrumbView.isHidden = true
-    }) { (finished) in
+  func remove(breadcrumbView: UIView, animated: Bool = true) {
+    if animated {
+      UIView.animate(withDuration: ThemeManager.shared.current.animationDuration, animations: {
+        breadcrumbView.isHidden = true
+      }) { (finished) in
+        self.stackView.removeArrangedSubview(breadcrumbView)
+        breadcrumbView.removeFromSuperview()
+      }
+    } else {
       self.stackView.removeArrangedSubview(breadcrumbView)
       breadcrumbView.removeFromSuperview()
     }
+    
   }
   
   func remove(breadcrumb: Breadcrumb) {
@@ -97,7 +103,7 @@ class FiltersBreadcrumbView: UIView {
     let label = UILabel.breadcrumb(
       backgroundColor: configuration.backgroundColor,
       foregroundColor: configuration.foregroundColor)
-    label.text = breadcrumb.text.lowercased()
+    label.text = breadcrumb.text
     stackView.addArrangedSubview(label)
     
     // Add tap Gesture recognizer
