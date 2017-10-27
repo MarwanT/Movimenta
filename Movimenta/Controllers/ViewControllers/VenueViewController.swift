@@ -138,7 +138,7 @@ class VenueViewController: UIViewController {
   
   private func loadHeaderViewData() {
     headerView.loadView(with:
-      (venueImages: viewModel.venueImages,
+      (venueImages: viewModel.venueImagesURLs,
        mapImageURL: viewModel.mapImageURL,
        name: viewModel.name,
        address: viewModel.address)
