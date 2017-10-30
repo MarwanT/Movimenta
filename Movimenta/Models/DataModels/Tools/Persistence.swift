@@ -11,6 +11,7 @@ import Foundation
 struct Persistence {
   struct Keys {
     static let bookmarkedEvents: String = "Persistence.Keys.bookmarkedEvents"
+    static let notificationEventID: String = "Persistence.Keys.notificationEventID"
   }
   
   let documentsDirectory: URL
@@ -64,5 +65,20 @@ extension Persistence {
       eventsIds.remove(at: index)
       UserDefaults.standard.set(eventsIds, forKey: Keys.bookmarkedEvents)
     }
+  }
+}
+
+//MARK: - Notification event
+extension Persistence {
+  func notificationEventID() -> String? {
+    return UserDefaults.standard.string(forKey: Keys.notificationEventID)
+  }
+  
+  func setNotificationEventID(_ id: String) {
+    UserDefaults.standard.set(id, forKey: Keys.notificationEventID)
+  }
+  
+  func removeNotificationEventID() {
+    UserDefaults.standard.removeObject(forKey: Keys.notificationEventID)
   }
 }
