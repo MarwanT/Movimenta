@@ -120,6 +120,12 @@ extension DataManager {
       event.venueId == venue.id
     })
   }
+  
+  func event(with id: String) -> Event? {
+    return events.filter { (event) -> Bool in
+      event.id == id
+    }.first
+  }
 }
 
 //MARK: - Bookmark related
