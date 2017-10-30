@@ -58,6 +58,7 @@ class DataManager {
   private init() {}
   
   func reloadData() {
+    clearNotificationEvent()
     loadLocalData()
     loadDataFromServer()
   }
