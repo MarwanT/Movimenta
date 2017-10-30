@@ -22,12 +22,17 @@ class RootViewController: UITabBarController {
     }
   }
   
+  deinit {
+    unregisterToNotificationCenter()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     initializeTabBarViewControllers()
     initializeLaunchView()
     applyTheme()
     refreshTabItemsTitleStyle()
+    registerToNotificationCenter()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +74,14 @@ class RootViewController: UITabBarController {
     launchView = LaunchView.instanceFromNib()
   }
   
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(displayNotificationEventIfAny), name: AppNotification.didSetEventIDFromNotification, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   private func displayLaunchViewIfNeeded() {
     if !didFinishDisplayLaunchView {
       if launchView.superview == nil {
@@ -99,8 +112,10 @@ class RootViewController: UITabBarController {
     displayNotificationEventIfAny()
   }
   
-  private func displayNotificationEventIfAny() {
-    guard let event = DataManager.shared.notificationEvent(), self.presentedViewController == nil else {
+  func displayNotificationEventIfAny() {
+    guard didFinishDisplayLaunchView,
+      let event = DataManager.shared.notificationEvent(),
+      self.presentedViewController == nil else {
       return
     }
     DataManager.shared.clearNotificationEvent()
