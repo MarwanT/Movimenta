@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ThemeManager.shared.current.initialize()
     
+    handleLocalNotificationIfAny(launchOptions: launchOptions)
+    
     return true
   }
 
@@ -79,6 +81,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     let handled = SDKApplicationDelegate.shared.application(app, open: url, options: options)
     return handled
+  }
+  
+  /// Used for iOS < 10
+  fileprivate func handleLocalNotificationIfAny(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    if #available(iOS 10.0, *) {} else {
+      if let localNotification = launchOptions?[.localNotification] as? UILocalNotification,
+        let eventID = localNotification.userInfo?["dataId"] as? String {
+        DataManager.shared.setNotification(eventID: eventID)
+        print(": ID = \(eventID)")
+      }
+    }
   }
 }
 

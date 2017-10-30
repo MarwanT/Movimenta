@@ -14,12 +14,16 @@ class RootViewController: UITabBarController {
   
   fileprivate let animationDuration = ThemeManager.shared.current.animationDuration
   
-  var didDisplayLaunchView = false
+  var didFinishDisplayLaunchView = false
   
   override var selectedViewController: UIViewController? {
     didSet {
       refreshTabItemsTitleStyle()
     }
+  }
+  
+  deinit {
+    unregisterToNotificationCenter()
   }
   
   override func viewDidLoad() {
@@ -28,6 +32,7 @@ class RootViewController: UITabBarController {
     initializeLaunchView()
     applyTheme()
     refreshTabItemsTitleStyle()
+    registerToNotificationCenter()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -69,25 +74,62 @@ class RootViewController: UITabBarController {
     launchView = LaunchView.instanceFromNib()
   }
   
+  private func registerToNotificationCenter() {
+    NotificationCenter.default.addObserver(self, selector: #selector(displayNotificationEventIfAny), name: AppNotification.didSetEventIDFromNotification, object: nil)
+  }
+  
+  private func unregisterToNotificationCenter() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   private func displayLaunchViewIfNeeded() {
-    if !didDisplayLaunchView {
-      view.addSubview(launchView)
-      launchView.snp.makeConstraints { (maker) in
-        maker.edges.equalTo(view)
+    if !didFinishDisplayLaunchView {
+      if launchView.superview == nil {
+        view.addSubview(launchView)
+        launchView.snp.makeConstraints { (maker) in
+          maker.edges.equalTo(view)
+        }
       }
     }
   }
   
   private func dismissLaunchViewAfterTimeout() {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-      UIView.animate(withDuration: self.animationDuration, animations: {
-        self.launchView.alpha = 0
-      }, completion: { (_) -> Void in
-        self.didDisplayLaunchView = true
-        self.launchView.removeFromSuperview()
-        self.launchView.alpha = 1
-      })
+    if !didFinishDisplayLaunchView {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        UIView.animate(withDuration: self.animationDuration, animations: {
+          self.launchView.alpha = 0
+        }, completion: { (_) -> Void in
+          self.didFinishDisplayLaunchView = true
+          self.launchView.removeFromSuperview()
+          self.launchView.alpha = 1
+          self.didFinishLaunching()
+        })
+      }
     }
+  }
+  
+  private func didFinishLaunching() {
+    displayNotificationEventIfAny()
+  }
+  
+  func displayNotificationEventIfAny() {
+    guard didFinishDisplayLaunchView,
+      let event = DataManager.shared.notificationEvent(),
+      self.presentedViewController == nil else {
+      return
+    }
+    DataManager.shared.clearNotificationEvent()
+    let vc = EventDetailsViewController.instance()
+    vc.initialize(with: event)
+    vc.navigationItem.leftBarButtonItem =
+      UIBarButtonItem(image: #imageLiteral(resourceName: "ex"), style: .plain, target: self,
+                      action: #selector(dismissNotificationEvent))
+    let navigationVC = UINavigationController(rootViewController: vc)
+    self.present(navigationVC, animated: true, completion: nil)
+  }
+  
+  func dismissNotificationEvent() {
+    self.dismiss(animated: true, completion: nil)
   }
 }
 

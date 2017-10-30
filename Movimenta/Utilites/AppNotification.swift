@@ -11,4 +11,5 @@ import Foundation
 struct AppNotification {
   static let didLoadData: Notification.Name = Notification.Name(rawValue: "AppNotification.Name.didLoadData")
   static let didUpadteBookmarkedEvents: Notification.Name = Notification.Name(rawValue: "AppNotification.Name.didUpadteBookmarkedEvents")
+  static let didSetEventIDFromNotification: Notification.Name = Notification.Name(rawValue: "AppNotification.Name.didSetEventIDFromNotification")
 }

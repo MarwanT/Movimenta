@@ -29,8 +29,16 @@ class VenueViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
+    hideNavigationBarShadow()
+    
     //MARK: [Analytics] Screen Name
     Analytics.shared.send(screenName: Analytics.ScreenNames.Venue)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    showNavigationBarShadow()
   }
   
   override func viewDidLayoutSubviews() {
@@ -130,7 +138,7 @@ class VenueViewController: UIViewController {
   
   private func loadHeaderViewData() {
     headerView.loadView(with:
-      (venueImages: viewModel.venueImages,
+      (venueImages: viewModel.venueImagesURLs,
        mapImageURL: viewModel.mapImageURL,
        name: viewModel.name,
        address: viewModel.address)
