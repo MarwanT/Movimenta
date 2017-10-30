@@ -163,6 +163,9 @@ extension BookmarkNotificationManager: UNUserNotificationCenterDelegate {
   }
   
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    if let eventID = response.notification.request.content.userInfo["dataId"] as? String {
+      DataManager.shared.setNotification(eventID: eventID)
+    }
     completionHandler()
   }
 }
