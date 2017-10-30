@@ -204,3 +204,20 @@ extension DataManager {
     return bookmarkedEvents.contains(where: { $0.id == eventId })
   }
 }
+
+extension DataManager {
+  func clearNotificationEvent() {
+    Persistence.shared.removeNotificationEventID()
+  }
+  
+  func notificationEvent() -> Event? {
+    guard let eventID = Persistence.shared.notificationEventID() else {
+      return nil
+    }
+    return event(with: eventID)
+  }
+  
+  func setNotification(eventID: String) {
+    Persistence.shared.setNotificationEventID(eventID)
+  }
+}
