@@ -54,4 +54,14 @@ extension UIViewController {
     self.navigationController?.navigationBar.shadowImage = UIImage()
   }
 
+  var ancestor: UIViewController {
+    return UIViewController.ancestor(viewController: self)
+  }
+  
+  static func ancestor(viewController: UIViewController) -> UIViewController {
+    if let parent = viewController.parent {
+      return ancestor(viewController: parent)
+    }
+    return viewController
+  }
 }
