@@ -14,7 +14,7 @@ class RootViewController: UITabBarController {
   
   fileprivate let animationDuration = ThemeManager.shared.current.animationDuration
   
-  var didDisplayLaunchView = false
+  var didFinishDisplayLaunchView = false
   
   override var selectedViewController: UIViewController? {
     didSet {
@@ -70,24 +70,28 @@ class RootViewController: UITabBarController {
   }
   
   private func displayLaunchViewIfNeeded() {
-    if !didDisplayLaunchView {
-      view.addSubview(launchView)
-      launchView.snp.makeConstraints { (maker) in
-        maker.edges.equalTo(view)
+    if !didFinishDisplayLaunchView {
+      if launchView.superview == nil {
+        view.addSubview(launchView)
+        launchView.snp.makeConstraints { (maker) in
+          maker.edges.equalTo(view)
+        }
       }
     }
   }
   
   private func dismissLaunchViewAfterTimeout() {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-      UIView.animate(withDuration: self.animationDuration, animations: {
-        self.launchView.alpha = 0
-      }, completion: { (_) -> Void in
-        self.didDisplayLaunchView = true
-        self.launchView.removeFromSuperview()
-        self.launchView.alpha = 1
-        self.didFinishLaunching()
-      })
+    if !didFinishDisplayLaunchView {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        UIView.animate(withDuration: self.animationDuration, animations: {
+          self.launchView.alpha = 0
+        }, completion: { (_) -> Void in
+          self.didFinishDisplayLaunchView = true
+          self.launchView.removeFromSuperview()
+          self.launchView.alpha = 1
+          self.didFinishLaunching()
+        })
+      }
     }
   }
   
