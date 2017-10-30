@@ -220,5 +220,6 @@ extension DataManager {
   
   func setNotification(eventID: String) {
     Persistence.shared.setNotificationEventID(eventID)
+    NotificationCenter.default.post(name: AppNotification.didSetEventIDFromNotification, object: nil)
   }
 }
