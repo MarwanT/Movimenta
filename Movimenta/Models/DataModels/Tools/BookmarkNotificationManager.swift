@@ -93,6 +93,7 @@ class BookmarkNotificationManager: NSObject {
       content.title = Strings.movimenta()
       content.body = data.title
       content.sound = UNNotificationSound.default()
+      content.userInfo = ["dataId" : data.id]
       
       let dateComponents = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute, .second], from: date)
       let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
@@ -104,7 +105,10 @@ class BookmarkNotificationManager: NSObject {
       localNotification.fireDate = date
       localNotification.timeZone = NSTimeZone.default
       localNotification.alertBody = data.title
-      localNotification.userInfo = ["id" : notificationId]
+      localNotification.userInfo = [
+        "id" : notificationId,
+        "dataId" : data.id
+      ]
       UIApplication.shared.scheduleLocalNotification(localNotification)
     }
   }
@@ -159,6 +163,9 @@ extension BookmarkNotificationManager: UNUserNotificationCenterDelegate {
   }
   
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    if let eventID = response.notification.request.content.userInfo["dataId"] as? String {
+      DataManager.shared.setNotification(eventID: eventID)
+    }
     completionHandler()
   }
 }

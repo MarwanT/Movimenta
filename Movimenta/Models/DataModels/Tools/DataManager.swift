@@ -58,6 +58,7 @@ class DataManager {
   private init() {}
   
   func reloadData() {
+    clearNotificationEvent()
     loadLocalData()
     loadDataFromServer()
   }
@@ -119,6 +120,12 @@ extension DataManager {
     return events.filter({ (event) -> Bool in
       event.venueId == venue.id
     })
+  }
+  
+  func event(with id: String) -> Event? {
+    return events.filter { (event) -> Bool in
+      event.id == id
+    }.first
   }
 }
 
@@ -196,5 +203,23 @@ extension DataManager {
   
   func bookmarked(eventId: String) -> Bool {
     return bookmarkedEvents.contains(where: { $0.id == eventId })
+  }
+}
+
+extension DataManager {
+  func clearNotificationEvent() {
+    Persistence.shared.removeNotificationEventID()
+  }
+  
+  func notificationEvent() -> Event? {
+    guard let eventID = Persistence.shared.notificationEventID() else {
+      return nil
+    }
+    return event(with: eventID)
+  }
+  
+  func setNotification(eventID: String) {
+    Persistence.shared.setNotificationEventID(eventID)
+    NotificationCenter.default.post(name: AppNotification.didSetEventIDFromNotification, object: nil)
   }
 }
