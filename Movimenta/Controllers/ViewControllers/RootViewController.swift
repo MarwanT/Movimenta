@@ -86,8 +86,31 @@ class RootViewController: UITabBarController {
         self.didDisplayLaunchView = true
         self.launchView.removeFromSuperview()
         self.launchView.alpha = 1
+        self.didFinishLaunching()
       })
     }
+  }
+  
+  private func didFinishLaunching() {
+    displayNotificationEventIfAny()
+  }
+  
+  private func displayNotificationEventIfAny() {
+    guard let event = DataManager.shared.notificationEvent() else {
+      return
+    }
+    DataManager.shared.clearNotificationEvent()
+    let vc = EventDetailsViewController.instance()
+    vc.initialize(with: event)
+    vc.navigationItem.leftBarButtonItem =
+      UIBarButtonItem(image: #imageLiteral(resourceName: "ex"), style: .plain, target: self,
+                      action: #selector(dismissNotificationEvent))
+    let navigationVC = UINavigationController(rootViewController: vc)
+    self.present(navigationVC, animated: true, completion: nil)
+  }
+  
+  func dismissNotificationEvent() {
+    self.dismiss(animated: true, completion: nil)
   }
 }
 
