@@ -96,7 +96,7 @@ class RootViewController: UITabBarController {
   }
   
   private func displayNotificationEventIfAny() {
-    guard let event = DataManager.shared.notificationEvent() else {
+    guard let event = DataManager.shared.notificationEvent(), self.presentedViewController == nil else {
       return
     }
     DataManager.shared.clearNotificationEvent()
