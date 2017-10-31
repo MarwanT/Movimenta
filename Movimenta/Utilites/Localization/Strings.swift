@@ -225,6 +225,14 @@ final class Strings {
     return Localization.localize(key: "no_events_happening_on_day")
   }
   
+  static func no_hotels_available() -> String {
+    return Localization.localize(key: "no_hotels_available")
+  }
+  
+  static func no_restaurants_available() -> String {
+    return Localization.localize(key: "no_restaurants_available")
+  }
+  
   static func ok() -> String {
     return Localization.localize(key: "ok")
   }

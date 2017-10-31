@@ -195,13 +195,11 @@ class BookmarksViewController: UIViewController {
   private func refreshSelectAllItem() {
     let theme = ThemeManager.shared.current
     if viewModel.areAllEventsSelected {
-      selectAllItem.setTitleTextAttributes(
-        [NSForegroundColorAttributeName : theme.color2], for: .normal)
+      selectAllItem.tintColor = theme.color2
       selectAllIcon.image = #imageLiteral(resourceName: "circleTicked")
       selectAllIcon.tintColor = theme.color2
     } else {
-      selectAllItem.setTitleTextAttributes(
-        [NSForegroundColorAttributeName : theme.darkTextColor], for: .normal)
+      selectAllItem.tintColor = theme.darkTextColor
       selectAllIcon.image = #imageLiteral(resourceName: "circleUnticked")
       selectAllIcon.tintColor = theme.disableColor
     }
@@ -209,13 +207,11 @@ class BookmarksViewController: UIViewController {
   
   private func refreshUnbookmarkItem() {
     let theme = ThemeManager.shared.current
-    let attributes: [String: AnyObject]!
     if viewModel.noSelectedEvents {
-      attributes = [NSForegroundColorAttributeName: theme.disableColor]
+      unbookmarkItem.tintColor = theme.disableColor
     } else {
-      attributes = [NSForegroundColorAttributeName: theme.color2]
+      unbookmarkItem.tintColor = theme.color2
     }
-    unbookmarkItem.setTitleTextAttributes(attributes, for: .normal)
   }
   
   private func refreshSeparatorInsetsForEditingStatus() {

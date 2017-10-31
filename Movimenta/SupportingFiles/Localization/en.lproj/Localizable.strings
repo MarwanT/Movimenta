@@ -60,6 +60,8 @@
 "no_event_store_authorization_title" = "Calendar";
 "no_events_found" = "No Events Found";
 "no_events_happening_on_day" = "There are no events happening on this day.";
+"no_hotels_available" = "There are no available hotels.";
+"no_restaurants_available" = "There are no available restaurants.";
 "ok" = "Ok";
 "organizer" = "Organizer";
 "organizers" = "Organizers";

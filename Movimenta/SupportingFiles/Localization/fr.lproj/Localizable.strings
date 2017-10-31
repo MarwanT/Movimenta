@@ -60,6 +60,8 @@
 "no_event_store_authorization_title" = "Calendrier";
 "no_events_found" = "Pas d'événements trouvés";
 "no_events_happening_on_day" = "Il n'y a pas d'événements ce jour";
+"no_hotels_available" = "Pas d'hôtels disponibles.";
+"no_restaurants_available" = "Pas de restaurants disponibles.";
 "ok" = "Ok";
 "organizer" = "Organisateur";
 "organizers" = "Organisateurs";
