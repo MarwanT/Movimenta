@@ -17,7 +17,7 @@ class EventDetailsViewController: UIViewController {
   fileprivate var eventDetailsLabel: ParallaxLabel!
   fileprivate var bookmarkBarButton: UIBarButtonItem!
   
-  fileprivate var loaderOverlay: LoaderOverlay!
+  fileprivate var loaderOverlay: LoaderOverlay?
   
   fileprivate var enableSwipeBack = true
   
@@ -178,25 +178,32 @@ class EventDetailsViewController: UIViewController {
   }
   
   fileprivate func showLoaderOverlay() {
-    if loaderOverlay == nil {
-      guard let tabControllerView = self.navigationController?.tabBarController?.view else {
-        return
-      }
+    if loaderOverlay == nil,
+      let ancestorView = self.ancestor.view {
       loaderOverlay = LoaderOverlay.instanceFromNib()
-      tabControllerView.addSubview(loaderOverlay)
-      loaderOverlay.snp.makeConstraints({ (maker) in
-        maker.edges.equalTo(tabControllerView)
+      ancestorView.addSubview(loaderOverlay!)
+      loaderOverlay?.snp.makeConstraints({ (maker) in
+        maker.edges.equalTo(ancestorView)
       })
     }
-    loaderOverlay.isHidden = false
-    loaderOverlay.start()
+    loaderOverlay?.isHidden = false
+    loaderOverlay?.start()
   }
   
   fileprivate func hideLoaderOverlay() {
-    loaderOverlay.stop()
-    loaderOverlay.isHidden = true
-    loaderOverlay.removeFromSuperview()
-    loaderOverlay = nil
+    guard let loaderOverlay = loaderOverlay else {
+      return
+    }
+    UIView.animate(
+      withDuration: ThemeManager.shared.current.animationDuration,
+      delay: 1, options: [], animations: {
+        loaderOverlay.alpha = 0
+    }) { (finished) in
+      loaderOverlay.stop()
+      loaderOverlay.isHidden = true
+      loaderOverlay.removeFromSuperview()
+      self.loaderOverlay = nil
+    }
   }
 }
 

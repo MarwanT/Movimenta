@@ -11,10 +11,15 @@ import Foundation
 class InformationListingViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
+  fileprivate let noInformationView = NoInformationView.instanceFromNib()
+  
   let viewModel = InformationListingViewModel()
+  
+  fileprivate var animationDuration = ThemeManager.shared.current.animationDuration
 
   func initialize(with mode: InformationListingViewModel.Mode) {
     viewModel.initialize(with: mode)
+    noInformationView.initialize(with: mode)
   }
 
   override func viewDidLoad() {
@@ -41,6 +46,7 @@ class InformationListingViewController: UIViewController {
     //All Initializations and Setup
     applyTheme()
     setupView()
+    initializeNoInformationView()
   }
 
   private func applyTheme() {
@@ -72,11 +78,19 @@ class InformationListingViewController: UIViewController {
 
     tableView.register(InformationCell.nib, forCellReuseIdentifier: InformationCell.identifier)
   }
+  
+  private func initializeNoInformationView() {
+    view.addSubview(noInformationView)
+    noInformationView.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(tableView)
+    }
+  }
 }
 
 extension InformationListingViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.numberOfRowForSection(section: section)
+    refreshViewForNumberOfVisibleInformation()
+    return viewModel.numberOfRows()
   }
 
   public func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,6 +106,30 @@ extension InformationListingViewController: UITableViewDataSource, UITableViewDe
     cell.delegate = self
 
     return cell
+  }
+  
+  fileprivate func refreshViewForNumberOfVisibleInformation() {
+    if viewModel.numberOfRows() > 0 {
+      hideNoInformationView()
+    } else {
+      showNoInformationView()
+    }
+  }
+  
+  fileprivate func showNoInformationView() {
+    noInformationView.isHidden = false
+    noInformationView.alpha = 0
+    UIView.animate(withDuration: animationDuration, animations: {
+      self.noInformationView.alpha = 1
+    })
+  }
+  
+  fileprivate func hideNoInformationView() {
+    UIView.animate(withDuration: animationDuration, animations: {
+      self.noInformationView.alpha = 0
+    }, completion: { (finished) in
+      self.noInformationView.isHidden = true
+    })
   }
 }
 

@@ -43,7 +43,7 @@ extension InformationListingViewModel {
     return 1
   }
 
-  func numberOfRowForSection(section: Int) -> Int {
+  func numberOfRows() -> Int {
     return data.count
   }
 
