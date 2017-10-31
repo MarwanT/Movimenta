@@ -76,6 +76,8 @@
 		596834A11F6017CA00E25579 /* FiltersBreadcrumbView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596834A01F6017CA00E25579 /* FiltersBreadcrumbView.xib */; };
 		596A75771F1908120094A886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A75761F1908120094A886 /* AppDelegate.swift */; };
 		596A758C1F1908120094A886 /* MovimentaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A758B1F1908120094A886 /* MovimentaTests.swift */; };
+		596B19291FA88D24003AA5A3 /* NoInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596B19271FA88D24003AA5A3 /* NoInformationView.xib */; };
+		596B192A1FA88D24003AA5A3 /* NoInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596B19281FA88D24003AA5A3 /* NoInformationView.swift */; };
 		5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF7C1F20F7F0008CA708 /* Network.swift */; };
 		5970AF7F1F20F8F0008CA708 /* MovimentaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF7E1F20F8F0008CA708 /* MovimentaAPI.swift */; };
 		5970AF821F21F700008CA708 /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 5970AF811F21F700008CA708 /* NSBundle+Language.m */; };
@@ -311,6 +313,8 @@
 		596A75871F1908120094A886 /* MovimentaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovimentaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A758B1F1908120094A886 /* MovimentaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentaTests.swift; sourceTree = "<group>"; };
 		596A758D1F1908120094A886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		596B19271FA88D24003AA5A3 /* NoInformationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoInformationView.xib; sourceTree = "<group>"; };
+		596B19281FA88D24003AA5A3 /* NoInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoInformationView.swift; sourceTree = "<group>"; };
 		5970AF791F1F8E50008CA708 /* Movimenta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movimenta-Bridging-Header.h"; sourceTree = "<group>"; };
 		5970AF7C1F20F7F0008CA708 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		5970AF7E1F20F8F0008CA708 /* MovimentaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentaAPI.swift; sourceTree = "<group>"; };
@@ -692,6 +696,15 @@
 			path = MovimentaTests;
 			sourceTree = "<group>";
 		};
+		596B19251FA88CCC003AA5A3 /* NoInformationView */ = {
+			isa = PBXGroup;
+			children = (
+				596B19281FA88D24003AA5A3 /* NoInformationView.swift */,
+				596B19271FA88D24003AA5A3 /* NoInformationView.xib */,
+			);
+			path = NoInformationView;
+			sourceTree = "<group>";
+		};
 		5970AF851F224CA7008CA708 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -894,6 +907,7 @@
 				F409C20E1F6EAB3D007216E4 /* InformationCell */,
 				5965D1CD1F729E8200F35C63 /* NoBookmarksView */,
 				59A9F6791F95FB4F00C52D78 /* NoScheduledEventsView */,
+				596B19251FA88CCC003AA5A3 /* NoInformationView */,
 				594662181F3C8ED1007412C0 /* ExpandableLabel.swift */,
 				593C81911F7558A800626806 /* GalleryViewController */,
 				5968349B1F5EACBA00E25579 /* ResetFiltersView.swift */,
@@ -1252,6 +1266,7 @@
 				5965D1D11F729EBD00F35C63 /* NoBookmarksView.xib in Resources */,
 				599202691F66B2EE0078578C /* ParticipantDetailsHeaderView.xib in Resources */,
 				596834901F5D60CC00E25579 /* SwitchCell.xib in Resources */,
+				596B19291FA88D24003AA5A3 /* NoInformationView.xib in Resources */,
 				5916C4471F839B340060D5F3 /* InfoPlist.strings in Resources */,
 				598923141F1E2AAF00F73974 /* nexa-book-webfont.ttf in Resources */,
 				59D39DAE1F8BB0D6001A80FC /* GoogleService-Info-dev.plist in Resources */,
@@ -1519,6 +1534,7 @@
 				5970AF7D1F20F7F0008CA708 /* Network.swift in Sources */,
 				F409C1F01F6C3E34007216E4 /* Hotel.swift in Sources */,
 				5970AF961F24E5A2008CA708 /* Venue.swift in Sources */,
+				596B192A1FA88D24003AA5A3 /* NoInformationView.swift in Sources */,
 				598039361F56D83800521DA2 /* UITableViewCell+Utils.swift in Sources */,
 				5970AF9D1F261110008CA708 /* Date+Utils.swift in Sources */,
 				5989232B1F1F54C400F73974 /* Analytics+Category.swift in Sources */,
