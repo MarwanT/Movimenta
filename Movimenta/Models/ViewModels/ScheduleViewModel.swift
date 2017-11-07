@@ -81,6 +81,10 @@ extension ScheduleViewModel {
   var isSelectedDateValid: Bool {
     return hasDates && isDataReady && indexOfSelectedDate < numberOfItems
   }
+  
+  func isCellSelected(at indexPath: IndexPath) -> Bool {
+    return selectedItemIndexPath == indexPath
+  }
 }
 
 //MARK: Events Table View Methods

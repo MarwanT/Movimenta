@@ -298,6 +298,10 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard !viewModel.isCellSelected(at: indexPath) else {
+      return
+    }
+    
     viewModel.setSelected(for: indexPath)
     reloadEventsData(reloadView: true)
     navigateToSelectedDate()
