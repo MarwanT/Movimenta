@@ -77,6 +77,10 @@ extension ScheduleViewModel {
   var hasDates: Bool {
     return numberOfItems > 0
   }
+  
+  var isSelectedDateValid: Bool {
+    return hasDates && isDataReady && indexOfSelectedDate < numberOfItems
+  }
 }
 
 //MARK: Events Table View Methods
