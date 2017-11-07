@@ -27,6 +27,7 @@ final class ScheduleViewModel {
     DispatchQueue.global().async { 
       // Set Scheduale dates
       self.scheduleDates.removeAll()
+      self.indexOfSelectedDate = 0
       let firstDate = FiltersManager.shared.firstEventDate
       let lastDate = FiltersManager.shared.lastEventDate
       let dates = firstDate.includedDates(till: lastDate)
