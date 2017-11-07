@@ -139,7 +139,7 @@ class ScheduleViewController: UIViewController {
   }
   
   fileprivate func navigateToSelectedDate() {
-    if viewModel.isSelectedDateValid {
+    if isViewLoaded, viewModel.isSelectedDateValid {
       datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
     }
   }
