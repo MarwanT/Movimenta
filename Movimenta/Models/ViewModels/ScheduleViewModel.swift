@@ -27,6 +27,7 @@ final class ScheduleViewModel {
     DispatchQueue.global().async { 
       // Set Scheduale dates
       self.scheduleDates.removeAll()
+      self.indexOfSelectedDate = 0
       let firstDate = FiltersManager.shared.firstEventDate
       let lastDate = FiltersManager.shared.lastEventDate
       let dates = firstDate.includedDates(till: lastDate)
@@ -75,6 +76,14 @@ extension ScheduleViewModel {
   
   var hasDates: Bool {
     return numberOfItems > 0
+  }
+  
+  var isSelectedDateValid: Bool {
+    return hasDates && isDataReady && indexOfSelectedDate < numberOfItems
+  }
+  
+  func isCellSelected(at indexPath: IndexPath) -> Bool {
+    return selectedItemIndexPath == indexPath
   }
 }
 

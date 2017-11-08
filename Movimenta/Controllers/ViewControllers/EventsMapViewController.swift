@@ -527,7 +527,7 @@ extension EventsMapViewController: FiltersBreadcrumbViewDelegate {
       view.remove(breadcrumb: breadcrumb)
       
       //MARK: [Analytics] Event
-      let analyticsEvent = Analytics.Event(category: .events, action: .removeFilter)
+      let analyticsEvent = Analytics.Event(category: .events, action: .removeFilter, name: breadcrumb.text)
       Analytics.shared.send(event: analyticsEvent)
     } else {
       navigateToFiltersVC()

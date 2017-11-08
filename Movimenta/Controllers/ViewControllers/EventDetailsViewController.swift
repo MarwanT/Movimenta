@@ -344,7 +344,7 @@ extension EventDetailsViewController {
     presentShareSheet(with: info)
     
     //MARK: [Analytics] Event
-    let analyticsEvent = Analytics.Event(category: .events, action: .shareEvent)
+    let analyticsEvent = Analytics.Event(category: .events, action: .shareEvent, name: (info.first as? String) ?? "")
     Analytics.shared.send(event: analyticsEvent)
   }
   
@@ -439,7 +439,7 @@ extension EventDetailsViewController {
     navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     
     //MARK: [Analytics] Event
-    let analyticsEvent = Analytics.Event(category: .events, action: .goToVenue)
+    let analyticsEvent = Analytics.Event(category: .events, action: .goToVenue, name: venue.title ?? "")
     Analytics.shared.send(event: analyticsEvent)
   }
   
@@ -454,7 +454,7 @@ extension EventDetailsViewController {
     navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     
     //MARK: [Analytics] Event
-    let analyticsEvent = Analytics.Event(category: .events, action: .goToParticipant)
+    let analyticsEvent = Analytics.Event(category: .events, action: .goToParticipant, name: participant.titleValue)
     Analytics.shared.send(event: analyticsEvent)
   }
 }
