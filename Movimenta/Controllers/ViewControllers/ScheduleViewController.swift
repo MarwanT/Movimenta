@@ -139,7 +139,7 @@ class ScheduleViewController: UIViewController {
   }
   
   fileprivate func navigateToSelectedDate() {
-    if viewModel.hasDates, viewModel.isDataReady {
+    if isViewLoaded, viewModel.isSelectedDateValid {
       datesCollectionView.scrollToItem(at: viewModel.selectedItemIndexPath, at: .centeredHorizontally, animated: true)
     }
   }
@@ -277,13 +277,13 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScheduleCell.identifier, for: indexPath) as? ScheduleCell else {
-      return UICollectionViewCell()
-    }
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScheduleCell.identifier, for: indexPath)
     let info = viewModel.infoForCell(at: indexPath)
-    cell.set(info.label, isSelected: info.isSelected)
     if info.isSelected {
-      collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+      collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+    }
+    if let scheduleCell = cell as? ScheduleCell {
+      scheduleCell.set(info.label, isSelected: info.isSelected)
     }
     return cell
   }
@@ -294,6 +294,10 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard !viewModel.isCellSelected(at: indexPath) else {
+      return
+    }
+    
     viewModel.setSelected(for: indexPath)
     reloadEventsData(reloadView: true)
     navigateToSelectedDate()
