@@ -278,18 +278,14 @@ extension ScheduleViewController: UICollectionViewDelegate, UICollectionViewData
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScheduleCell.identifier, for: indexPath)
-    return cell
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    guard let cell = cell as? ScheduleCell else {
-      return
-    }
     let info = viewModel.infoForCell(at: indexPath)
-    cell.set(info.label, isSelected: info.isSelected)
     if info.isSelected {
-      collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+      collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
     }
+    if let scheduleCell = cell as? ScheduleCell {
+      scheduleCell.set(info.label, isSelected: info.isSelected)
+    }
+    return cell
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
